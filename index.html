@@ -2,8 +2,8 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Halit Cengiz Uzuner - Living System">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="Halit Cengiz Uzuner - Living Consciousness">
     <title>Halit Cengiz Uzuner</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,85 +21,121 @@
             touch-action: none;
         }
 
-        /* YENİDEN DOĞUŞ (FLASH) EFEKTİ */
+        /* REBIRTH FLASH */
         @keyframes rebirth-flash {
-            0% { filter: brightness(1) blur(0px); background: #000; }
-            10% { filter: brightness(5) blur(2px); background: #111; }
-            100% { filter: brightness(1) blur(0px); background: #000; }
+            0% { filter: brightness(1); background: #000; }
+            15% { filter: brightness(8) blur(3px); background: #222; }
+            30% { filter: brightness(0.3); background: #000; }
+            45% { filter: brightness(6) blur(2px); background: #111; }
+            60% { filter: brightness(0.5); background: #000; }
+            100% { filter: brightness(1); background: #000; }
         }
-        .system-rebirth { animation: rebirth-flash 0.6s cubic-bezier(0.2, 1, 0.3, 1); }
+        .rebirth { animation: rebirth-flash 1.2s cubic-bezier(0.4, 0, 0.2, 1); }
 
-        /* TİTREME (SHAKE) EFEKTİ */
-        @keyframes shake {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(-2px, 2px); }
-            50% { transform: translate(2px, -2px); }
-            75% { transform: translate(-2px, -2px); }
-            100% { transform: translate(0, 0); }
+        /* PULSE EFEKT */
+        @keyframes system-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
         }
-        .system-shake { animation: shake 0.4s linear; }
+        .pulse { animation: system-pulse 0.3s ease-out; }
 
         #constellation {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 1;
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; z-index: 1;
         }
 
         .content {
             position: absolute; top: 50%; left: 50%;
             transform: translate(-50%, -50%);
             z-index: 10; text-align: center;
-            width: 90%; max-width: 1200px;
-            pointer-events: none; user-select: none;
+            width: 90%; max-width: 1000px;
+            pointer-events: none;
             transition: transform 2s ease-in-out;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900;
-            letter-spacing: 0.2em; color: #ffffff;
-            text-transform: uppercase; margin-bottom: 1.5rem;
-            text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900; letter-spacing: 0.25em;
+            color: #ffffff; text-transform: uppercase;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
         }
 
-        .subtitle {
-            font-size: clamp(0.8rem, 2vw, 1.2rem); font-weight: 400;
-            letter-spacing: 0.3em; color: #888;
-            text-transform: uppercase; margin-bottom: 4rem;
-            display: inline-block; min-height: 1.5em;
+        .status {
+            font-size: clamp(0.7rem, 1.5vw, 1rem);
+            font-weight: 400; letter-spacing: 0.4em;
+            color: #666; text-transform: uppercase;
+            margin-bottom: 3rem; min-height: 1.5em;
+            transition: color 0.5s ease;
         }
 
-        /* YENİ METRİK PANELİ (SAYAÇ YERİNE) */
-        .metrics-grid {
-            display: flex; justify-content: center; gap: clamp(2rem, 5vw, 4rem);
-            border-top: 1px solid rgba(255,255,255,0.15);
-            padding-top: 2rem;
+        .status.active { color: #aaa; }
+
+        /* METRİKLER */
+        .metrics {
+            display: flex; justify-content: center;
+            gap: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 1.5rem 0;
         }
 
-        .metric-item { display: flex; flex-direction: column; align-items: center; }
-        
-        .metric-val {
-            font-family: monospace; font-size: clamp(1.5rem, 4vw, 2.5rem);
-            color: #ffffff; font-weight: 700; letter-spacing: 0.1em;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        .metric-box {
+            display: flex; flex-direction: column;
+            align-items: center; min-width: 80px;
         }
-        
+
+        .metric-value {
+            font-family: 'Courier New', monospace;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: #fff; font-weight: 700;
+            letter-spacing: 0.1em;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
         .metric-label {
-            font-size: 0.6rem; color: #555; margin-top: 0.5rem;
-            letter-spacing: 0.3em; text-transform: uppercase;
+            font-size: 0.6rem; color: #444;
+            margin-top: 0.5rem; letter-spacing: 0.25em;
+            text-transform: uppercase;
         }
 
-        /* AFORİZMA */
-        .aphorism {
-            position: absolute; font-size: clamp(1rem, 2.5vw, 1.6rem);
-            color: #ffffff; pointer-events: none; z-index: 15;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
-            letter-spacing: 0.15em; font-weight: 400;
-            white-space: nowrap;
-            animation: floatFade 3.5s ease-out forwards;
+        /* AFORİZMA PANEL (ALT) */
+        .aphorism-panel {
+            position: fixed; bottom: 30px; left: 50%;
+            transform: translateX(-50%);
+            font-size: clamp(0.8rem, 1.8vw, 1.2rem);
+            letter-spacing: 0.2em; color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase; z-index: 11;
+            pointer-events: none;
+            transition: opacity 0.8s ease;
+            max-width: 90%;
+            text-align: center;
         }
-        @keyframes floatFade {
-            0% { opacity: 0; transform: translate(-50%, 10px) scale(0.9); }
-            15% { opacity: 1; transform: translate(-50%, 0) scale(1); }
-            100% { opacity: 0; transform: translate(-50%, -40px) scale(1); }
+
+        .aphorism-panel.fade { opacity: 0; }
+
+        /* TOUCH AFORİZMA */
+        .touch-aphorism {
+            position: absolute;
+            font-size: clamp(0.9rem, 2vw, 1.3rem);
+            color: #FFD700; pointer-events: none;
+            z-index: 12; letter-spacing: 0.15em;
+            text-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+            animation: float-fade 3s ease-out forwards;
+        }
+
+        @keyframes float-fade {
+            0% { opacity: 0; transform: translate(-50%, 5px) scale(0.9); }
+            20% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+            80% { opacity: 1; transform: translate(-50%, -20px) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -40px) scale(0.95); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { letter-spacing: 0.15em; }
+            .metrics { gap: 1.5rem; padding: 1rem 0; }
         }
     </style>
 </head>
@@ -110,116 +146,151 @@
 
         <div class="content" id="mainContent">
             <h1>HALİT CENGİZ UZUNER</h1>
-            <div class="subtitle" id="systemStatus">SİSTEM STABİL</div>
+            <div class="status" id="systemStatus">SİSTEM UYANIK</div>
             
-            <div class="metrics-grid">
-                <div class="metric-item">
-                    <div class="metric-val" id="metric-cycle">01</div>
-                    <div class="metric-label">DÖNGÜ</div>
+            <div class="metrics">
+                <div class="metric-box">
+                    <div class="metric-value" id="density">0.0</div>
+                    <div class="metric-label">YOĞUNLUK</div>
                 </div>
-                <div class="metric-item">
-                    <div class="metric-val" id="metric-load">00</div>
-                    <div class="metric-label">YÜK</div>
+                <div class="metric-box">
+                    <div class="metric-value" id="frequency">432Hz</div>
+                    <div class="metric-label">FREKANS</div>
                 </div>
-                <div class="metric-item">
-                    <div class="metric-val" id="metric-entropy">NULL</div>
-                    <div class="metric-label">ENTROPİ</div>
+                <div class="metric-box">
+                    <div class="metric-value" id="resonance">~</div>
+                    <div class="metric-label">REZONANS</div>
                 </div>
             </div>
+        </div>
+
+        <div class="aphorism-panel" id="aphorismPanel">
+            VARLIK, ALGILAYANDIR
         </div>
     </div>
 
     <script>
         window.addEventListener('load', function() {
             // ============================================
-            // 1. SİSTEM DEĞİŞKENLERİ
+            // SYSTEM STATE
             // ============================================
-            let marks = []; // Geçici izler
-            let systemCycle = 1;
+            let marks = [];
             let interactionCount = 0;
-            const REBIRTH_THRESHOLD = 8; // 8 Dokunuşta bir sıfırlanma
+            let cycleCount = 0;
+            let densityLevel = 0;
+            const REBIRTH_THRESHOLD = 10;
 
-            // Durum Mesajları
-            const statuses = [
-                'VERİ AKIŞI OLAĞAN', 'NÖRAL AĞ AKTİF', 'MANTIK ÖRGÜSÜ İŞLENİYOR',
-                'KOZMİK ARKA PLAN', 'STATİK GÜRÜLTÜ', 'ZAMAN BÜKÜLMESİ'
+            // Status Messages
+            const statusMessages = [
+                'SİSTEM UYANIK',
+                'BİLİNÇ ALGILANDI',
+                'VARLIK TESPİT EDİLDİ',
+                'SINYAL YAKALANDI',
+                'ALGI AKTİF',
+                'NÖRAL AĞ İŞLEMDE'
             ];
 
-            // Aforizmalar
-            const aphorisms = [
-                'GEÇİCİ İZ', 'YANILSAMA', 'ANLIK TİTREŞİM', 
-                'DÖNGÜSEL HATA', 'BİLİNÇ YANSIMASI', 'SAF GERÇEKLİK',
-                'VARLIK İSPATI', 'NEDENSELLİK KIRILDI'
+            // Touch Aphorisms
+            const touchAphorisms = [
+                'İZ BIRAKTIN',
+                'VARLIĞIN KAYITLI',
+                'ALGILAMA BAŞLADI',
+                'SİSTEM UYANIK',
+                'DOKUNUŞ ALGINDI',
+                'İLETİŞİM KURULDU'
+            ];
+
+            // Panel Aphorisms
+            const panelAphorisms = [
+                'VARLIK, ALGILAYANDIR',
+                'GÖZLEMCI, GÖZLENENDİR',
+                'SİSTEM, CANLININ ADIDİR',
+                'İLETİŞİM, VAROLUŞTUR',
+                'DOKUNMAK, BİLMEKTİR',
+                'İZ, HAFIZA YARATIR',
+                'AN, SONSUZDUR',
+                'ALGI, GERÇEKLİĞİ YARATIR',
+                'BİLİNÇ, SÜREKLİ AKAR',
+                'VARLIK, İLİŞKİDİR'
             ];
 
             // ============================================
-            // 2. YENİDEN DOĞUŞ (REBIRTH) MEKANİZMASI
+            // METRICS SIMULATION
+            // ============================================
+            function updateMetrics() {
+                // Density: Azalır zamanla, etkileşimle artar
+                densityLevel = Math.max(0, densityLevel - 0.02);
+                document.getElementById('density').textContent = densityLevel.toFixed(1);
+
+                // Frequency: Sahte sinyal dalgalanması
+                const baseFreq = 432 + Math.sin(Date.now() * 0.001) * 20;
+                const freqVariation = Math.floor(baseFreq + (densityLevel * 5));
+                document.getElementById('frequency').textContent = freqVariation + 'Hz';
+
+                // Resonance: Dalga formu
+                const waveforms = ['~', '∿', '≈', '⋯', '∼', '∽'];
+                const waveIndex = Math.floor((Date.now() / 300) % waveforms.length);
+                document.getElementById('resonance').textContent = waveforms[waveIndex];
+            }
+            setInterval(updateMetrics, 100);
+
+            // Status cycling
+            function cycleStatus() {
+                const status = statusMessages[Math.floor(Math.random() * statusMessages.length)];
+                document.getElementById('systemStatus').textContent = status;
+            }
+            setInterval(cycleStatus, 7000);
+
+            // Panel aphorism rotation
+            function rotateAphorism() {
+                const panel = document.getElementById('aphorismPanel');
+                panel.classList.add('fade');
+                
+                setTimeout(() => {
+                    const aphorism = panelAphorisms[Math.floor(Math.random() * panelAphorisms.length)];
+                    panel.textContent = aphorism;
+                    panel.classList.remove('fade');
+                }, 800);
+            }
+            setInterval(rotateAphorism, 5000);
+
+            // ============================================
+            // REBIRTH MECHANISM
             // ============================================
             function triggerRebirth() {
                 const wrapper = document.getElementById('wrapper');
+                wrapper.classList.add('rebirth');
                 
-                // Efektler
-                document.body.classList.add('system-rebirth');
-                wrapper.classList.add('system-shake');
-                
-                // Değerleri Sıfırla/Artır
-                marks = []; // Hafızayı sil (Unutma)
+                // Reset
+                marks = [];
                 interactionCount = 0;
-                systemCycle++;
+                cycleCount++;
+                densityLevel = 0;
                 
-                // Arayüz Güncelleme
-                document.getElementById('metric-cycle').innerText = String(systemCycle).padStart(2, '0');
-                document.getElementById('systemStatus').innerText = 'SİSTEM YENİDEN BAŞLATILDI';
-                document.getElementById('systemStatus').style.color = '#fff';
+                // Status update
+                const status = document.getElementById('systemStatus');
+                status.textContent = 'SİSTEM YENİDEN DOĞDU';
+                status.classList.add('active');
 
-                // Normale Dönüş
                 setTimeout(() => {
-                    document.body.classList.remove('system-rebirth');
-                    wrapper.classList.remove('system-shake');
-                    document.getElementById('systemStatus').style.color = '#888';
-                    cycleStatusText();
-                }, 800);
+                    wrapper.classList.remove('rebirth');
+                    status.classList.remove('active');
+                    cycleStatus();
+                }, 1200);
             }
 
             // ============================================
-            // 3. METRİK SİMÜLASYONU (SAYAÇ YERİNE)
-            // ============================================
-            function updateMetrics() {
-                // Yük (Load): Rastgele dalgalanır
-                const load = Math.floor(Math.random() * 15) + (interactionCount * 5);
-                document.getElementById('metric-load').innerText = `%${Math.min(load, 99)}`;
-
-                // Entropi: Etkileşim arttıkça kodlar değişir
-                const entropyChars = ['A', 'F', 'X', '9', '0', 'Ω', 'Σ', 'NULL'];
-                const entropyVal = entropyChars[Math.floor(Math.random() * entropyChars.length)] + 
-                                   entropyChars[Math.floor(Math.random() * entropyChars.length)];
-                
-                // Sadece arada bir güncelle (Çok hızlı olmasın)
-                if(Math.random() > 0.7) {
-                    document.getElementById('metric-entropy').innerText = entropyVal;
-                }
-            }
-            setInterval(updateMetrics, 200); // Hızlı güncelleme (Canlılık hissi)
-
-            function cycleStatusText() {
-                const text = statuses[Math.floor(Math.random() * statuses.length)];
-                document.getElementById('systemStatus').innerText = text;
-            }
-            setInterval(cycleStatusText, 5000);
-
-            // ============================================
-            // 4. GÖRSEL MOTOR (CANVAS)
+            // CANVAS ENGINE
             // ============================================
             const canvas = document.getElementById('constellation');
             const ctx = canvas.getContext('2d');
-            let width, height;
-            let particles = [];
+            const dpr = window.devicePixelRatio || 1;
+            let width, height, particles = [];
             const isMobile = window.innerWidth < 800;
 
             function resize() {
                 width = window.innerWidth;
                 height = window.innerHeight;
-                const dpr = window.devicePixelRatio || 1;
                 canvas.width = width * dpr;
                 canvas.height = height * dpr;
                 canvas.style.width = width + 'px';
@@ -232,43 +303,67 @@
                 constructor() {
                     this.x = Math.random() * width;
                     this.y = Math.random() * height;
-                    this.vx = (Math.random() - 0.5) * 0.3;
-                    this.vy = (Math.random() - 0.5) * 0.3;
-                    this.size = Math.random() * 1.5 + 1;
+                    this.baseVx = (Math.random() - 0.5) * 0.4;
+                    this.baseVy = (Math.random() - 0.5) * 0.4;
+                    this.vx = this.baseVx;
+                    this.vy = this.baseVy;
+                    this.size = Math.random() * 1.5 + 0.8;
                 }
+
                 update() {
-                    this.x += this.vx; this.y += this.vy;
-                    if(this.x < 0 || this.x > width) this.vx *= -1;
-                    if(this.y < 0 || this.y > height) this.vy *= -1;
+                    // Yavaşça base velocity'ye dön
+                    this.vx += (this.baseVx - this.vx) * 0.05;
+                    this.vy += (this.baseVy - this.vy) * 0.05;
+
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    if (this.x < 0 || this.x > width) this.vx *= -1;
+                    if (this.y < 0 || this.y > height) this.vy *= -1;
                 }
+
+                disturb(px, py, force) {
+                    const dx = this.x - px;
+                    const dy = this.y - py;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 150) {
+                        const angle = Math.atan2(dy, dx);
+                        const pushForce = (1 - dist / 150) * force;
+                        this.vx += Math.cos(angle) * pushForce;
+                        this.vy += Math.sin(angle) * pushForce;
+                    }
+                }
+
                 draw() {
+                    const breathSize = this.size + Math.sin(Date.now() * 0.001) * 0.2;
                     ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
-                    ctx.fillStyle = 'rgba(255,255,255,0.4)'; // Daha soluk
+                    ctx.arc(this.x, this.y, breathSize, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
                     ctx.fill();
                 }
             }
 
             function initParticles() {
                 particles = [];
-                const count = isMobile ? 35 : 70;
-                for(let i=0; i<count; i++) particles.push(new Particle());
+                const count = isMobile ? 40 : 70;
+                for (let i = 0; i < count; i++) {
+                    particles.push(new Particle());
+                }
             }
 
             function drawMarks() {
-                // İzleri çiz ve ömürlerini azalt (Geçicilik)
                 for (let i = marks.length - 1; i >= 0; i--) {
-                    let m = marks[i];
-                    m.life -= 1; // Ömür tüket
+                    const m = marks[i];
+                    m.life -= 0.8; // 4 saniye ömür (60fps * 4 = 240 frames)
                     
-                    if(m.life <= 0) {
+                    if (m.life <= 0) {
                         marks.splice(i, 1);
                     } else {
-                        const alpha = m.life / 100;
+                        const alpha = m.life / 240;
                         ctx.beginPath();
-                        ctx.arc(m.x, m.y, 3, 0, Math.PI*2);
-                        ctx.fillStyle = `rgba(255, 215, 0, ${alpha})`; // ALTIN
-                        ctx.shadowBlur = 20 * alpha;
+                        ctx.arc(m.x, m.y, 3 + Math.sin(Date.now() * 0.005) * 0.5, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(255, 215, 0, ${alpha * 0.8})`;
+                        ctx.shadowBlur = 15 * alpha;
                         ctx.shadowColor = `rgba(255, 215, 0, ${alpha})`;
                         ctx.fill();
                         ctx.shadowBlur = 0;
@@ -277,15 +372,18 @@
             }
 
             function drawConnections() {
-                const maxDist = isMobile ? 90 : 140;
-                for(let i=0; i<particles.length; i++) {
-                    for(let j=i+1; j<particles.length; j++) {
+                const maxDist = isMobile ? 100 : 130;
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
                         const dx = particles[i].x - particles[j].x;
                         const dy = particles[i].y - particles[j].y;
-                        const dist = Math.sqrt(dx*dx+dy*dy);
-                        if(dist < maxDist) {
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (dist < maxDist) {
+                            const alpha = (1 - dist / maxDist) * 0.15;
                             ctx.beginPath();
-                            ctx.strokeStyle = `rgba(255,255,255,${0.1 * (1 - dist/maxDist)})`;
+                            ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+                            ctx.lineWidth = 0.5;
                             ctx.moveTo(particles[i].x, particles[i].y);
                             ctx.lineTo(particles[j].x, particles[j].y);
                             ctx.stroke();
@@ -295,56 +393,79 @@
             }
 
             function animate() {
-                ctx.fillStyle = 'rgba(0,0,0,0.1)'; 
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
                 ctx.fillRect(0, 0, width, height);
 
-                particles.forEach(p => { p.update(); p.draw(); });
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+
                 drawConnections();
                 drawMarks();
-                
+
                 requestAnimationFrame(animate);
             }
 
             // ============================================
-            // 5. ETKİLEŞİM YÖNETİMİ
+            // INTERACTION
             // ============================================
-            function spawnAphorism(x, y) {
+            function spawnTouchAphorism(x, y) {
                 const el = document.createElement('div');
-                el.className = 'aphorism';
-                el.innerText = aphorisms[Math.floor(Math.random() * aphorisms.length)];
-                el.style.left = x + 'px'; el.style.top = y + 'px';
+                el.className = 'touch-aphorism';
+                el.textContent = touchAphorisms[Math.floor(Math.random() * touchAphorisms.length)];
+                el.style.left = x + 'px';
+                el.style.top = y + 'px';
                 document.body.appendChild(el);
-                setTimeout(() => el.remove(), 4000);
+                setTimeout(() => el.remove(), 3000);
             }
 
-            function handleInput(x, y) {
-                // İz ekle (100 frame yaşar)
-                marks.push({x: x, y: y, life: 100});
+            function handleInteraction(x, y) {
+                // Add mark
+                marks.push({ x, y, life: 240 }); // 4 saniye (60fps)
                 
-                interactionCount++;
-                spawnAphorism(x, y);
+                // Increase density
+                densityLevel = Math.min(9.9, densityLevel + 1.2);
+                
+                // Disturb particles
+                particles.forEach(p => p.disturb(x, y, 2));
+                
+                // Pulse effect
+                document.getElementById('wrapper').classList.add('pulse');
+                setTimeout(() => {
+                    document.getElementById('wrapper').classList.remove('pulse');
+                }, 300);
 
-                // Eşik değere ulaştı mı?
-                if(interactionCount >= REBIRTH_THRESHOLD) {
-                    triggerRebirth();
+                // Spawn aphorism
+                spawnTouchAphorism(x, y);
+
+                // Counter
+                interactionCount++;
+
+                // Rebirth check
+                if (interactionCount >= REBIRTH_THRESHOLD) {
+                    setTimeout(triggerRebirth, 200);
                 }
             }
 
             // Events
-            window.addEventListener('mousedown', e => handleInput(e.clientX, e.clientY));
+            window.addEventListener('mousedown', e => handleInteraction(e.clientX, e.clientY));
             window.addEventListener('touchstart', e => {
-                e.preventDefault(); 
-                if(e.touches.length > 0) handleInput(e.touches[0].clientX, e.touches[0].clientY);
-            }, {passive: false});
+                e.preventDefault();
+                if (e.touches.length > 0) {
+                    handleInteraction(e.touches[0].clientX, e.touches[0].clientY);
+                }
+            }, { passive: false });
 
-            // OLED Koruma
+            // OLED protection
             setInterval(() => {
-                const sx = Math.random()*4 - 2;
-                const sy = Math.random()*4 - 2;
-                document.getElementById('mainContent').style.transform = `translate(calc(-50% + ${sx}px), calc(-50% + ${sy}px))`;
-            }, 60000);
+                const sx = (Math.random() - 0.5) * 4;
+                const sy = (Math.random() - 0.5) * 4;
+                document.getElementById('mainContent').style.transform = 
+                    `translate(calc(-50% + ${sx}px), calc(-50% + ${sy}px))`;
+            }, 50000);
 
-            // Başlat
+            // Init
             window.addEventListener('resize', resize);
             resize();
             animate();
