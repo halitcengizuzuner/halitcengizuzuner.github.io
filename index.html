@@ -49,6 +49,7 @@
             width: 90%;
             max-width: 1200px;
             pointer-events: none;
+            transition: transform 2s ease-in-out;
         }
 
         h1 {
@@ -209,7 +210,7 @@
 
     <canvas id="constellation"></canvas>
 
-    <div class="content">
+    <div class="content" id="mainContent">
         <h1>HALİT CENGİZ UZUNER</h1>
         <div class="subtitle" id="status">DİJİTAL İNŞA SÜRECİ BAŞLADI</div>
         
@@ -236,9 +237,28 @@
     <script>
         window.addEventListener('load', function() {
             // ============================================
-            // AFORİZMA LİBRARY - MANTIKÇI KİMLİĞİ
+            // OLED BURN-IN KORUMA - PIXEL SHIFT
+            // ============================================
+            const contentElement = document.getElementById('mainContent');
+            
+            function applyPixelShift() {
+                const shiftX = (Math.random() - 0.5) * 6; // -3px ile +3px arası
+                const shiftY = (Math.random() - 0.5) * 6;
+                
+                contentElement.style.transform = `translate(calc(-50% + ${shiftX}px), calc(-50% + ${shiftY}px))`;
+            }
+
+            // İlk shift 45 saniye sonra, sonra her 45 saniyede bir
+            setTimeout(() => {
+                applyPixelShift();
+                setInterval(applyPixelShift, 45000);
+            }, 45000);
+
+            // ============================================
+            // AFORİZMA LİBRARY - GENİŞLETİLMİŞ
             // ============================================
             const aphorisms = [
+                // Orijinal Set
                 'İLAHİ ADALET, ZAMANIN ÖTESİNDE BİR HAKİKATTİR',
                 'BİLGİ, DÜZENİN TEMEL TAŞIDIR',
                 'MANTIK, KAOSUN TEK ANTİDOTUDUR',
@@ -252,7 +272,18 @@
                 'KAVRAM, DÜŞÜNCENİN BİRİMİDİR',
                 'SENTEZ, AKLIN SON DURAĞIDIR',
                 'YAPI, ANLAMININ KOŞULUDUR',
-                'PRENSİP, İRADENİN KRİSTALİDİR'
+                'PRENSİP, İRADENİN KRİSTALİDİR',
+                // Yeni Set - Zaman/İrade/Kaos
+                'ZAMAN, NEDENSELLİĞİN GÖRÜNÜR BOYUTUDUR',
+                'AN, SÜREKLİLİK YANILSAMASININ BİRİMİDİR',
+                'GEÇMİŞ, ŞİMDİNİN YAPISAL KOŞULUDUR',
+                'İRADE, BELİRLENİMİN ÖZNEL ADLANMASIDIR',
+                'KARAR, NEDENSELLİĞİN BİLİNÇTEKİ İZİDİR',
+                'ÖZGÜRLÜK, ZORUNLULUĞUN KAVRANIŞ BİÇİMİDİR',
+                'SEÇİM, ÖNKOŞULLARIN SON HALKASıDIR',
+                'KAOS, DÜZENİN TESPİT EDİLMEMİŞ HALİDİR',
+                'RASTLANTILIK, EKSİK BİLGİNİN İFADESİDİR',
+                'DÜZENSIZLIK, SİSTEMİN GİZLİ KATMANIDIR'
             ];
 
             function spawnAphorism(x, y) {
