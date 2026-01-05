@@ -48,7 +48,7 @@
         .subtitle {
             font-size: clamp(1rem, 2.5vw, 1.8rem);
             font-weight: 400;
-            letter-spacing: 0.1em; /* Harf aralığı artırıldı */
+            letter-spacing: 0.1em;
             color: #cccccc;
             margin-bottom: 2.5rem;
             line-height: 1.6;
@@ -56,20 +56,21 @@
         }
         .highlight {
             display: inline-block;
-            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-size: clamp(1rem, 2.5vw, 1.8rem); /* Sayaç için font boyutu ayarlandı */
             font-weight: 700;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.1em;
             color: #ffffff;
             border-bottom: 2px solid #ffffff;
             padding-bottom: 0.5rem;
             margin-top: 1rem;
             text-transform: uppercase;
+            min-width: 200px; /* Sayaç yüklenirken düzen bozulmasın */
         }
         @media (max-width: 768px) {
             .content { padding: 1.5rem; }
             h1 { letter-spacing: 0.1em; margin-bottom: 1rem; }
             .subtitle { letter-spacing: 0.05em; margin-bottom: 2rem; }
-            .highlight { margin-top: 1.5rem; }
+            .highlight { margin-top: 1.5rem; font-size: clamp(0.9rem, 2.5vw, 1.5rem); }
         }
     </style>
 </head>
@@ -79,14 +80,14 @@
 
     <div class="content">
         <h1>HALİT CENGİZ UZUNER</h1>
-        <p class="subtitle">ZİHİNSEL TASNİF TAMAMLANIYOR</p>
-        <div class="highlight">SESSİZLİK BOZULUYOR</div>
+        <p class="subtitle">DİJİTAL İNŞA SÜRECİ BAŞLADI</p>
+        <div class="highlight" id="countdown">SİSTEM YÜKLENİYOR...</div>
     </div>
 
     <script>
+        // --- CANVAS ANİMASYON KODU (Değişmedi) ---
         const canvas = document.getElementById('constellation');
         const ctx = canvas.getContext('2d');
-
         let width, height;
         let particles = [];
         const particleCount = window.innerWidth < 768 ? 40 : 80;
@@ -114,25 +115,18 @@
                 ctx.fill();
             }
         }
-
         function init() {
             width = window.innerWidth;
             height = window.innerHeight;
-            
-            // Retina/HiDPI Ekran Düzeltmesi
             const dpr = window.devicePixelRatio || 1;
             canvas.width = width * dpr;
             canvas.height = height * dpr;
             ctx.scale(dpr, dpr);
             canvas.style.width = `${width}px`;
             canvas.style.height = `${height}px`;
-
             particles = [];
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
-            }
+            for (let i = 0; i < particleCount; i++) { particles.push(new Particle()); }
         }
-
         function connectParticles() {
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
@@ -144,25 +138,3 @@
                         ctx.beginPath();
                         ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
                         ctx.lineWidth = 0.5;
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        function animate() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, width, height);
-            particles.forEach(p => { p.update(); p.draw(); });
-            connectParticles();
-            requestAnimationFrame(animate);
-        }
-
-        window.addEventListener('resize', init);
-        init();
-        animate();
-    </script>
-</body>
-</html>
