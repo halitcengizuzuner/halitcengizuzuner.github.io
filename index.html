@@ -38,7 +38,6 @@
         }
         .pulse { animation: system-pulse 0.3s ease-out; }
 
-        /* QUANTUM FREEZE */
         @keyframes quantum-freeze {
             0% { filter: grayscale(0); }
             100% { filter: grayscale(1) blur(1px); }
@@ -138,50 +137,82 @@
             text-transform: uppercase;
         }
 
-        /* CONTACT ZONE */
-        .contact-zone {
+        /* CONTACT SYSTEM - YENİ YAKLASIM */
+        .contact-trigger {
             position: fixed;
-            bottom: 20px; right: 20px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.65rem;
-            color: rgba(255, 255, 255, 0);
-            letter-spacing: 0.15em;
-            cursor: help;
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            pointer-events: none;
+            bottom: 25px; right: 25px;
+            width: 12px; height: 12px;
+            background: rgba(255, 215, 0, 0.4);
+            border-radius: 50%;
+            cursor: pointer;
             z-index: 20;
             opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
         }
 
-        .contact-zone.unlocked {
+        .contact-trigger.active {
             opacity: 1;
-            color: rgba(255, 255, 255, 0.35);
             pointer-events: auto;
         }
 
-        .contact-zone.unlocked:hover {
-            color: rgba(255, 255, 255, 0.85);
-            cursor: pointer;
-            letter-spacing: 0.2em;
+        .contact-trigger:hover {
+            background: rgba(255, 215, 0, 0.8);
+            transform: scale(1.3);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
         }
 
-        .contact-label {
+        .email-display {
+            position: fixed;
+            bottom: 50px; right: 25px;
+            font-family: 'Courier New', monospace;
+            font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+            color: #4ecca3;
+            letter-spacing: 0.1em;
+            text-shadow: 0 0 15px rgba(78, 204, 163, 0.6);
+            cursor: pointer;
+            z-index: 21;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.5s ease;
+            white-space: nowrap;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            border: 1px solid rgba(78, 204, 163, 0.3);
+        }
+
+        .email-display.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .email-display:hover {
+            color: #6effd8;
+            border-color: rgba(78, 204, 163, 0.6);
+            text-shadow: 0 0 20px rgba(78, 204, 163, 0.8);
+        }
+
+        .email-label {
+            display: block;
             font-size: 0.5rem;
-            color: rgba(255, 255, 255, 0.25);
+            color: rgba(78, 204, 163, 0.5);
             margin-bottom: 0.3rem;
             letter-spacing: 0.3em;
         }
 
         .copy-feedback {
             position: fixed;
-            bottom: 60px; right: 20px;
+            bottom: 95px; right: 25px;
             font-family: 'Courier New', monospace;
             font-size: 0.7rem;
-            color: #4ecca3;
+            color: #FFD700;
             letter-spacing: 0.2em;
             opacity: 0;
             transition: opacity 0.3s ease;
-            z-index: 21;
+            z-index: 22;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
         }
 
         .copy-feedback.show { opacity: 1; }
@@ -219,7 +250,9 @@
             .name-container { gap: 0.3rem; }
             .name-line { gap: 0.2rem; }
             .metrics { gap: 1.5rem; padding: 1rem 0; }
-            .contact-zone { font-size: 0.55rem; }
+            .email-display { font-size: 0.65rem; padding: 0.4rem 0.8rem; }
+            .contact-trigger { bottom: 20px; right: 20px; }
+            .email-display { bottom: 45px; right: 20px; }
         }
     </style>
 </head>
@@ -253,11 +286,12 @@
             </div>
         </div>
 
-        <div class="contact-zone" id="contactZone">
-            <div class="contact-label">CONTACT PROTOCOL</div>
-            <div id="contactText">68 61 6C 69 74 63 65 6E 67 69 7A 75 7A 75 6E 65 72 40 69 63 6C 6F 75 64 2E 63 6F 6D</div>
+        <!-- CONTACT SYSTEM -->
+        <div class="contact-trigger" id="contactTrigger"></div>
+        <div class="email-display" id="emailDisplay">
+            <span class="email-label">CONTACT</span>
+            halitcengizuzuner@icloud.com
         </div>
-
         <div class="copy-feedback" id="copyFeedback">KOPYALANDI</div>
 
         <div class="aphorism-panel" id="aphorismPanel">
@@ -314,20 +348,24 @@
             initName();
 
             // ============================================
-            // CONTACT SYSTEM (7 TOUCH UNLOCK)
+            // CONTACT SYSTEM (YENİ MEKANIZMA)
             // ============================================
-            const emailEncoded = '68 61 6C 69 74 63 65 6E 67 69 7A 75 7A 75 6E 65 72 40 69 63 6C 6F 75 64 2E 63 6F 6D';
-            const emailDecoded = 'halitcengizuzuner@icloud.com';
+            const emailText = 'halitcengizuzuner@icloud.com';
             let contactUnlocked = false;
+            let emailVisible = false;
+            let emailAutoHideTimer;
 
             function unlockContact() {
                 if (contactUnlocked) return;
                 contactUnlocked = true;
                 
-                const zone = document.getElementById('contactZone');
-                zone.classList.add('unlocked');
+                // Trigger dot'u aktif et
+                document.getElementById('contactTrigger').classList.add('active');
                 
-                // Unlock feedback
+                // Email'i göster
+                showEmail();
+                
+                // Status feedback
                 const status = document.getElementById('systemStatus');
                 status.textContent = 'PROTOKOL AKTİF';
                 status.classList.add('active');
@@ -337,33 +375,61 @@
                 }, 2000);
             }
 
-            function decodeEmail() {
-                const contactText = document.getElementById('contactText');
-                contactText.textContent = emailDecoded;
+            function showEmail() {
+                const emailDisplay = document.getElementById('emailDisplay');
+                emailDisplay.classList.add('show');
+                emailVisible = true;
+                
+                // 6 saniye sonra otomatik gizle
+                clearTimeout(emailAutoHideTimer);
+                emailAutoHideTimer = setTimeout(() => {
+                    hideEmail();
+                }, 6000);
             }
 
-            function encodeEmail() {
-                const contactText = document.getElementById('contactText');
-                contactText.textContent = emailEncoded;
+            function hideEmail() {
+                const emailDisplay = document.getElementById('emailDisplay');
+                emailDisplay.classList.remove('show');
+                emailVisible = false;
             }
 
-            document.getElementById('contactZone').addEventListener('mouseenter', decodeEmail);
-            document.getElementById('contactZone').addEventListener('mouseleave', () => {
-                if (contactUnlocked) encodeEmail();
+            // Trigger dot'a tıklayınca email göster
+            document.getElementById('contactTrigger').addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (!emailVisible) {
+                    showEmail();
+                }
             });
 
-            document.getElementById('contactZone').addEventListener('click', () => {
-                if (!contactUnlocked) return;
-                
-                navigator.clipboard.writeText(emailDecoded).then(() => {
+            // Trigger dot'a hover → email göster
+            document.getElementById('contactTrigger').addEventListener('mouseenter', () => {
+                if (contactUnlocked && !emailVisible) {
+                    showEmail();
+                }
+            });
+
+            // Email'e tıklayınca kopyala
+            document.getElementById('emailDisplay').addEventListener('click', () => {
+                navigator.clipboard.writeText(emailText).then(() => {
                     const feedback = document.getElementById('copyFeedback');
                     feedback.classList.add('show');
                     setTimeout(() => feedback.classList.remove('show'), 1500);
                 });
             });
 
+            // Email hover'da timer'ı sıfırla (kaybolmasın)
+            document.getElementById('emailDisplay').addEventListener('mouseenter', () => {
+                clearTimeout(emailAutoHideTimer);
+            });
+
+            document.getElementById('emailDisplay').addEventListener('mouseleave', () => {
+                emailAutoHideTimer = setTimeout(() => {
+                    hideEmail();
+                }, 3000);
+            });
+
             // ============================================
-            // QUANTUM OBSERVER SYSTEM (SÜRPRIZ!)
+            // QUANTUM OBSERVER SYSTEM
             // ============================================
             let lastMouseMove = Date.now();
             let systemFrozen = false;
@@ -378,10 +444,7 @@
                 status.textContent = 'GÖZLEMCI KAYBOLDU';
                 status.classList.add('frozen');
                 
-                // Freeze particles
-                particles.forEach(p => {
-                    p.frozen = true;
-                });
+                particles.forEach(p => { p.frozen = true; });
             }
 
             function unfreezeSystem() {
@@ -399,10 +462,7 @@
                     cycleStatus();
                 }, 2000);
                 
-                // Unfreeze particles
-                particles.forEach(p => {
-                    p.frozen = false;
-                });
+                particles.forEach(p => { p.frozen = false; });
             }
 
             function checkObserver() {
@@ -560,6 +620,11 @@
                 const status = document.getElementById('systemStatus');
                 status.textContent = 'SİSTEM YENİDEN DOĞDU';
                 status.classList.add('active');
+
+                // Rebirth'te email tekrar flash yap
+                if (contactUnlocked) {
+                    showEmail();
+                }
 
                 setTimeout(() => {
                     reassembleName();
@@ -721,12 +786,10 @@
 
                 interactionCount++;
 
-                // 7 TOUCH → UNLOCK CONTACT
                 if (interactionCount === 7) {
                     unlockContact();
                 }
 
-                // 10 TOUCH → REBIRTH
                 if (interactionCount >= REBIRTH_THRESHOLD) {
                     setTimeout(triggerRebirth, 200);
                 }
