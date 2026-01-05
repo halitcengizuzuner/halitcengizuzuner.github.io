@@ -21,7 +21,6 @@
             touch-action: none;
         }
 
-        /* REBIRTH FLASH */
         @keyframes rebirth-flash {
             0% { filter: brightness(1); background: #000; }
             15% { filter: brightness(8) blur(3px); background: #222; }
@@ -32,7 +31,6 @@
         }
         .rebirth { animation: rebirth-flash 1.2s cubic-bezier(0.4, 0, 0.2, 1); }
 
-        /* PULSE EFEKT */
         @keyframes system-pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.02); }
@@ -62,6 +60,13 @@
             text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
         }
 
+        /* İSİM HARFLER - DISASSEMBLY */
+        .letter {
+            display: inline-block;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-origin: center;
+        }
+
         .status {
             font-size: clamp(0.7rem, 1.5vw, 1rem);
             font-weight: 400; letter-spacing: 0.4em;
@@ -72,7 +77,6 @@
 
         .status.active { color: #aaa; }
 
-        /* METRİKLER */
         .metrics {
             display: flex; justify-content: center;
             gap: clamp(2rem, 5vw, 4rem);
@@ -101,7 +105,6 @@
             text-transform: uppercase;
         }
 
-        /* AFORİZMA PANEL (ALT) */
         .aphorism-panel {
             position: fixed; bottom: 30px; left: 50%;
             transform: translateX(-50%);
@@ -110,13 +113,11 @@
             text-transform: uppercase; z-index: 11;
             pointer-events: none;
             transition: opacity 0.8s ease;
-            max-width: 90%;
-            text-align: center;
+            max-width: 90%; text-align: center;
         }
 
         .aphorism-panel.fade { opacity: 0; }
 
-        /* TOUCH AFORİZMA */
         .touch-aphorism {
             position: absolute;
             font-size: clamp(0.9rem, 2vw, 1.3rem);
@@ -145,7 +146,7 @@
         <canvas id="constellation"></canvas>
 
         <div class="content" id="mainContent">
-            <h1>HALİT CENGİZ UZUNER</h1>
+            <h1 id="name"></h1>
             <div class="status" id="systemStatus">SİSTEM UYANIK</div>
             
             <div class="metrics">
@@ -172,6 +173,51 @@
     <script>
         window.addEventListener('load', function() {
             // ============================================
+            // NAME DISASSEMBLY SYSTEM
+            // ============================================
+            const nameElement = document.getElementById('name');
+            const nameText = 'HALİT CENGİZ UZUNER';
+            let letters = [];
+
+            function initName() {
+                nameElement.innerHTML = '';
+                letters = [];
+                
+                nameText.split('').forEach(char => {
+                    const span = document.createElement('span');
+                    span.className = 'letter';
+                    span.textContent = char;
+                    nameElement.appendChild(span);
+                    letters.push(span);
+                });
+            }
+
+            function disassembleName() {
+                letters.forEach((letter, i) => {
+                    const randomX = (Math.random() - 0.5) * 200;
+                    const randomY = (Math.random() - 0.5) * 200;
+                    const randomRotate = (Math.random() - 0.5) * 720;
+                    
+                    letter.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotate}deg) scale(0.5)`;
+                    letter.style.opacity = '0';
+                });
+            }
+
+            function reassembleName() {
+                letters.forEach(letter => {
+                    letter.style.transform = 'translate(0, 0) rotate(0deg) scale(1)';
+                    letter.style.opacity = '1';
+                });
+            }
+
+            function nameDisassemblySequence() {
+                disassembleName();
+                setTimeout(reassembleName, 600);
+            }
+
+            initName();
+
+            // ============================================
             // SYSTEM STATE
             // ============================================
             let marks = [];
@@ -180,7 +226,6 @@
             let densityLevel = 0;
             const REBIRTH_THRESHOLD = 10;
 
-            // Status Messages
             const statusMessages = [
                 'SİSTEM UYANIK',
                 'BİLİNÇ ALGILANDI',
@@ -190,7 +235,6 @@
                 'NÖRAL AĞ İŞLEMDE'
             ];
 
-            // Touch Aphorisms
             const touchAphorisms = [
                 'İZ BIRAKTIN',
                 'VARLIĞIN KAYITLI',
@@ -200,7 +244,6 @@
                 'İLETİŞİM KURULDU'
             ];
 
-            // Panel Aphorisms
             const panelAphorisms = [
                 'VARLIK, ALGILAYANDIR',
                 'GÖZLEMCI, GÖZLENENDİR',
@@ -215,33 +258,28 @@
             ];
 
             // ============================================
-            // METRICS SIMULATION
+            // METRICS
             // ============================================
             function updateMetrics() {
-                // Density: Azalır zamanla, etkileşimle artar
                 densityLevel = Math.max(0, densityLevel - 0.02);
                 document.getElementById('density').textContent = densityLevel.toFixed(1);
 
-                // Frequency: Sahte sinyal dalgalanması
                 const baseFreq = 432 + Math.sin(Date.now() * 0.001) * 20;
                 const freqVariation = Math.floor(baseFreq + (densityLevel * 5));
                 document.getElementById('frequency').textContent = freqVariation + 'Hz';
 
-                // Resonance: Dalga formu
                 const waveforms = ['~', '∿', '≈', '⋯', '∼', '∽'];
                 const waveIndex = Math.floor((Date.now() / 300) % waveforms.length);
                 document.getElementById('resonance').textContent = waveforms[waveIndex];
             }
             setInterval(updateMetrics, 100);
 
-            // Status cycling
             function cycleStatus() {
                 const status = statusMessages[Math.floor(Math.random() * statusMessages.length)];
                 document.getElementById('systemStatus').textContent = status;
             }
             setInterval(cycleStatus, 7000);
 
-            // Panel aphorism rotation
             function rotateAphorism() {
                 const panel = document.getElementById('aphorismPanel');
                 panel.classList.add('fade');
@@ -255,24 +293,26 @@
             setInterval(rotateAphorism, 5000);
 
             // ============================================
-            // REBIRTH MECHANISM
+            // REBIRTH
             // ============================================
             function triggerRebirth() {
                 const wrapper = document.getElementById('wrapper');
                 wrapper.classList.add('rebirth');
                 
-                // Reset
+                // NAME DISASSEMBLY AT REBIRTH
+                disassembleName();
+                
                 marks = [];
                 interactionCount = 0;
                 cycleCount++;
                 densityLevel = 0;
                 
-                // Status update
                 const status = document.getElementById('systemStatus');
                 status.textContent = 'SİSTEM YENİDEN DOĞDU';
                 status.classList.add('active');
 
                 setTimeout(() => {
+                    reassembleName();
                     wrapper.classList.remove('rebirth');
                     status.classList.remove('active');
                     cycleStatus();
@@ -280,7 +320,7 @@
             }
 
             // ============================================
-            // CANVAS ENGINE
+            // CANVAS
             // ============================================
             const canvas = document.getElementById('constellation');
             const ctx = canvas.getContext('2d');
@@ -311,13 +351,10 @@
                 }
 
                 update() {
-                    // Yavaşça base velocity'ye dön
                     this.vx += (this.baseVx - this.vx) * 0.05;
                     this.vy += (this.baseVy - this.vy) * 0.05;
-
                     this.x += this.vx;
                     this.y += this.vy;
-
                     if (this.x < 0 || this.x > width) this.vx *= -1;
                     if (this.y < 0 || this.y > height) this.vy *= -1;
                 }
@@ -354,7 +391,7 @@
             function drawMarks() {
                 for (let i = marks.length - 1; i >= 0; i--) {
                     const m = marks[i];
-                    m.life -= 0.8; // 4 saniye ömür (60fps * 4 = 240 frames)
+                    m.life -= 0.8;
                     
                     if (m.life <= 0) {
                         marks.splice(i, 1);
@@ -395,15 +432,9 @@
             function animate() {
                 ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
                 ctx.fillRect(0, 0, width, height);
-
-                particles.forEach(p => {
-                    p.update();
-                    p.draw();
-                });
-
+                particles.forEach(p => { p.update(); p.draw(); });
                 drawConnections();
                 drawMarks();
-
                 requestAnimationFrame(animate);
             }
 
@@ -421,34 +452,27 @@
             }
 
             function handleInteraction(x, y) {
-                // Add mark
-                marks.push({ x, y, life: 240 }); // 4 saniye (60fps)
-                
-                // Increase density
+                marks.push({ x, y, life: 240 });
                 densityLevel = Math.min(9.9, densityLevel + 1.2);
-                
-                // Disturb particles
                 particles.forEach(p => p.disturb(x, y, 2));
                 
-                // Pulse effect
                 document.getElementById('wrapper').classList.add('pulse');
                 setTimeout(() => {
                     document.getElementById('wrapper').classList.remove('pulse');
                 }, 300);
 
-                // Spawn aphorism
                 spawnTouchAphorism(x, y);
+                
+                // NAME DISASSEMBLY ON TOUCH
+                nameDisassemblySequence();
 
-                // Counter
                 interactionCount++;
 
-                // Rebirth check
                 if (interactionCount >= REBIRTH_THRESHOLD) {
                     setTimeout(triggerRebirth, 200);
                 }
             }
 
-            // Events
             window.addEventListener('mousedown', e => handleInteraction(e.clientX, e.clientY));
             window.addEventListener('touchstart', e => {
                 e.preventDefault();
@@ -465,7 +489,6 @@
                     `translate(calc(-50% + ${sx}px), calc(-50% + ${sy}px))`;
             }, 50000);
 
-            // Init
             window.addEventListener('resize', resize);
             resize();
             animate();
