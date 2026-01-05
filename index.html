@@ -2,8 +2,8 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="Halit Cengiz Uzuner - Living System">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Halit Cengiz Uzuner - Persistent Memory">
     <title>Halit Cengiz Uzuner</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,105 +12,75 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body, html {
-            width: 100%;
-            height: 100%;
+            width: 100%; height: 100%;
             background: #000000;
             overflow: hidden;
             font-family: 'Playfair Display', serif;
             cursor: crosshair;
             -webkit-tap-highlight-color: transparent;
-            touch-action: none;
+            touch-action: none; /* Tablette scroll kilidi */
         }
 
         #constellation {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             z-index: 1;
         }
 
-        #constellation.glitch { filter: blur(2px) brightness(1.3); }
-
         .content {
-            position: absolute;
-            top: 50%; left: 50%;
+            position: absolute; top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 10;
-            text-align: center;
+            z-index: 10; text-align: center;
             width: 90%; max-width: 1200px;
-            pointer-events: none;
-            transition: transform 2s ease-in-out;
-            user-select: none;
+            pointer-events: none; user-select: none;
+            transition: transform 2s ease-in-out; /* Pixel Shift için */
         }
 
         h1 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            font-weight: 900;
-            letter-spacing: 0.2em;
-            color: #ffffff;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
+            font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900;
+            letter-spacing: 0.2em; color: #ffffff;
+            text-transform: uppercase; margin-bottom: 2rem;
             text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
-            line-height: 1.2;
         }
 
         .subtitle {
-            font-size: clamp(0.9rem, 2vw, 1.4rem);
-            font-weight: 400;
-            letter-spacing: 0.25em;
-            color: #aaaaaa;
-            text-transform: uppercase;
-            margin-bottom: 4rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: clamp(0.9rem, 2vw, 1.4rem); font-weight: 400;
+            letter-spacing: 0.25em; color: #aaaaaa;
+            text-transform: uppercase; margin-bottom: 4rem;
+            padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             display: inline-block;
-            transition: opacity 0.8s ease;
-            min-height: 2.5rem;
-        }
-        .subtitle.fade { opacity: 0; }
-
-        .data-stream {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: monospace;
-            font-size: 0.7rem;
-            color: #444;
-            letter-spacing: 0.2em;
-            z-index: 5;
-            pointer-events: none;
         }
 
-        /* Countdown Style */
-        .countdown {
-            display: flex; justify-content: center; gap: clamp(1.5rem, 4vw, 3rem); flex-wrap: wrap;
+        .memory-counter {
+            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+            color: #FFD700; font-family: monospace; font-size: 0.8rem;
+            letter-spacing: 0.3em; z-index: 20; pointer-events: none;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
-        .time-unit { display: flex; flex-direction: column; align-items: center; min-width: clamp(60px, 10vw, 100px); }
+
+        /* Countdown */
+        .countdown { display: flex; justify-content: center; gap: clamp(1.5rem, 4vw, 3rem); }
+        .time-unit { display: flex; flex-direction: column; align-items: center; }
         .time-value {
             font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; color: #ffffff;
-            line-height: 1; font-variant-numeric: tabular-nums;
+            font-variant-numeric: tabular-nums;
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         }
         .time-label {
-            font-size: clamp(0.7rem, 1.2vw, 0.9rem); font-weight: 400; letter-spacing: 0.2em;
-            color: #666; margin-top: 0.8rem; text-transform: uppercase;
+            font-size: 0.7rem; color: #666; margin-top: 0.5rem; letter-spacing: 0.2em;
         }
 
-        /* Aphorism Style */
+        /* Aphorism */
         .aphorism {
-            position: absolute;
-            font-size: clamp(1rem, 2.5vw, 1.5rem);
-            font-weight: 400; letter-spacing: 0.15em; color: #ffffff;
-            text-align: center; pointer-events: none; z-index: 8;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
-            max-width: 80vw;
-            animation: aphorism-fade 3s ease-in-out forwards;
+            position: absolute; font-size: clamp(1rem, 2vw, 1.5rem);
+            color: #fff; pointer-events: none; z-index: 8;
+            text-shadow: 0 0 20px rgba(255,255,255,0.6);
+            animation: fadeUp 2.5s forwards;
+            white-space: nowrap;
         }
-        @keyframes aphorism-fade {
-            0% { opacity: 0; transform: translate(-50%, -40%); }
-            20% { opacity: 1; transform: translate(-50%, -50%); }
-            80% { opacity: 1; transform: translate(-50%, -50%); }
-            100% { opacity: 0; transform: translate(-50%, -60%); }
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translate(-50%, 0); }
+            20% { opacity: 1; transform: translate(-50%, -20px); }
+            100% { opacity: 0; transform: translate(-50%, -40px); }
         }
     </style>
 </head>
@@ -120,127 +90,69 @@
 
     <div class="content" id="mainContent">
         <h1>HALİT CENGİZ UZUNER</h1>
-        <div class="subtitle" id="status">SİSTEM UYANIYOR</div>
+        <div class="subtitle">HAFIZA SİSTEMİ AKTİF</div>
         
         <div class="countdown">
-            <div class="time-unit"><div class="time-value" id="val1">00</div><div class="time-label">DÖNGÜ</div></div>
-            <div class="time-unit"><div class="time-value" id="val2">00</div><div class="time-label">EVRE</div></div>
-            <div class="time-unit"><div class="time-value" id="val3">00</div><div class="time-label">BELLEK</div></div>
-            <div class="time-unit"><div class="time-value" id="val4">00</div><div class="time-label">ETKİ</div></div>
+            <div class="time-unit"><div class="time-value" id="days">10</div><div class="time-label">GÜN</div></div>
+            <div class="time-unit"><div class="time-value" id="hours">00</div><div class="time-label">SAAT</div></div>
+            <div class="time-unit"><div class="time-value" id="minutes">00</div><div class="time-label">DAKİKA</div></div>
+            <div class="time-unit"><div class="time-value" id="seconds">00</div><div class="time-label">SANİYE</div></div>
         </div>
     </div>
 
-    <div class="data-stream" id="memoryLog">ID: UNKNOWN | VISIT: 0</div>
+    <div class="memory-counter" id="memCounter">HAFIZA: 0 İZ</div>
 
     <script>
         window.addEventListener('load', function() {
             // ============================================
-            // 1. BELLEK PROTOKOLÜ (LOCAL STORAGE)
+            // 1. HAFIZA ÇEKİRDEĞİ (LOCAL STORAGE)
             // ============================================
-            // Kullanıcıyı hatırlar. Tarayıcıyı kapatsa bile veriler kalır.
-            const MEMORY_KEY = 'hcu_system_memory';
-            let systemMemory = JSON.parse(localStorage.getItem(MEMORY_KEY)) || {
-                visits: 0,
-                interactions: 0,
-                firstContact: Date.now(),
-                marks: [] // Kullanıcının bıraktığı izler (koordinatlar)
-            };
-
-            // Ziyaret sayısını artır
-            systemMemory.visits++;
-            saveMemory();
-
-            function saveMemory() {
-                localStorage.setItem(MEMORY_KEY, JSON.stringify(systemMemory));
-                updateDataStream();
-            }
-
-            function updateDataStream() {
-                const id = systemMemory.firstContact.toString(36).toUpperCase().substring(0, 8);
-                document.getElementById('memoryLog').textContent = 
-                    `ID: ${id} | ZİYARET: ${systemMemory.visits} | İZLER: ${systemMemory.marks.length}`;
-            }
-
-            // ============================================
-            // 2. EVRİMLEŞEN STATÜ MESAJLARI
-            // ============================================
-            // Mesajlar kullanıcının "tecrübesine" göre değişir.
-            const statusElement = document.getElementById('status');
+            // Kullanıcının dokunduğu yerleri burada saklıyoruz
+            let persistentMarks = [];
             
-            function getEvolvingStatus() {
-                const v = systemMemory.visits;
-                const i = systemMemory.interactions;
+            // Başlangıçta hafızayı yükle
+            try {
+                const saved = localStorage.getItem('hcu_marks');
+                if (saved) {
+                    persistentMarks = JSON.parse(saved);
+                }
+            } catch(e) { console.log('Hafıza erişim hatası'); }
+
+            function saveMark(x, y) {
+                // Ekran oranına göre kaydet (0.0 - 1.0 arası)
+                // Böylece tablet dik/yatay dönse bile konum bozulmaz
+                const relX = x / window.innerWidth;
+                const relY = y / window.innerHeight;
                 
-                if (v === 1 && i < 5) return 'BAĞLANTI KURULDU';
-                if (v < 5) return 'VERİLER TASNİF EDİLİYOR';
-                if (v < 10) return 'AŞİNALIK TESPİT EDİLDİ';
-                if (systemMemory.marks.length > 5) return 'DIŞ MÜDAHALE ALGILANDI';
-                if (v > 20) return 'SİSTEM SİZİ TANIYOR';
-                if (v > 50) return 'SİMBİYOTİK BAĞ OLUŞTU';
+                persistentMarks.push({ x: relX, y: relY });
                 
-                const randoms = [
-                    'DÖNGÜ DEVAM EDİYOR', 'BELLEK YAZILIYOR', 
-                    'GERÇEKLİK İŞLENİYOR', 'ZAMAN BÜKÜLÜYOR'
-                ];
-                return randoms[Math.floor(Math.random() * randoms.length)];
+                // Maksimum 30 iz sakla (Eskileri sil)
+                if (persistentMarks.length > 30) persistentMarks.shift();
+                
+                localStorage.setItem('hcu_marks', JSON.stringify(persistentMarks));
+                updateCounter();
             }
 
-            function updateStatus() {
-                statusElement.classList.add('fade');
-                setTimeout(() => {
-                    statusElement.textContent = getEvolvingStatus();
-                    statusElement.classList.remove('fade');
-                }, 800);
+            function updateCounter() {
+                document.getElementById('memCounter').innerText = `HAFIZA: ${persistentMarks.length} İZ`;
             }
-            setInterval(updateStatus, 8000); // 8 saniyede bir durum güncelle
-            updateStatus();
+            updateCounter();
 
             // ============================================
-            // 3. SOYUT SAYAÇ (KRONOLOJİK DEĞİL, YAPISAL)
-            // ============================================
-            // Klasik saat değil, sistemin verilerini gösteren sayaç
-            function updateAbstractCounter() {
-                // Val1: Ziyaret Sayısı
-                document.getElementById('val1').textContent = String(systemMemory.visits).padStart(2, '0');
-                // Val2: Etkileşimlerin modülasyonu (0-99 arası döner)
-                document.getElementById('val2').textContent = String(systemMemory.interactions % 100).padStart(2, '0');
-                // Val3: Kayıtlı İz Sayısı
-                document.getElementById('val3').textContent = String(systemMemory.marks.length).padStart(2, '0');
-                // Val4: Saniyeler (Canlılık belirtisi)
-                const secs = new Date().getSeconds();
-                document.getElementById('val4').textContent = String(secs).padStart(2, '0');
-            }
-            setInterval(updateAbstractCounter, 1000);
-
-            // ============================================
-            // 4. OLED KORUMA (PIXEL SHIFT)
-            // ============================================
-            const contentElement = document.getElementById('mainContent');
-            function applyPixelShift() {
-                const shiftX = (Math.random() - 0.5) * 6; 
-                const shiftY = (Math.random() - 0.5) * 6;
-                contentElement.style.transform = `translate(calc(-50% + ${shiftX}px), calc(-50% + ${shiftY}px))`;
-            }
-            setInterval(applyPixelShift, 45000);
-
-            // ============================================
-            // 5. GÖRSEL MOTOR (HAFIZALI)
+            // 2. GÖRSEL MOTOR (CANVAS)
             // ============================================
             const canvas = document.getElementById('constellation');
             const ctx = canvas.getContext('2d');
-            let width, height, dpr;
+            let width, height;
             let particles = [];
-            let animationTime = 0;
-            let mouseX = null, mouseY = null;
-
-            // Mobil Kontrol
+            
+            // Mobil Tespiti
             const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            const repulsionRadius = isMobile ? 250 : 200;
 
-            function resizeCanvas() {
+            function resize() {
                 width = window.innerWidth;
                 height = window.innerHeight;
-                dpr = window.devicePixelRatio || 1;
+                const dpr = window.devicePixelRatio || 1;
                 canvas.width = width * dpr;
                 canvas.height = height * dpr;
                 canvas.style.width = width + 'px';
@@ -250,75 +162,146 @@
             }
 
             class Particle {
-                constructor(isMark = false, x = 0, y = 0) {
-                    this.isMark = isMark; // Kalıcı iz mi?
-                    
-                    if (isMark) {
-                        this.baseX = x;
-                        this.baseY = y;
-                        this.baseSize = Math.random() * 2 + 2; // İzler daha büyük
-                        this.color = 'rgba(255, 215, 0, 0.6)'; // Altın rengi (Hafıza)
-                    } else {
-                        this.baseX = Math.random() * width;
-                        this.baseY = Math.random() * height;
-                        this.baseSize = Math.random() * 1.5 + 1;
-                        this.color = 'rgba(255, 255, 255, 0.7)'; // Beyaz (Standart)
-                    }
-                    
-                    this.x = this.baseX;
-                    this.y = this.baseY;
-                    this.offsetX = Math.random() * 100;
-                    this.offsetY = Math.random() * 100;
-                    this.speed = isMark ? 0.0005 : 0.0015; // İzler daha ağır hareket eder
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * 0.5;
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                    this.size = Math.random() * 1.5 + 1;
                 }
-
-                update(time) {
-                    // Hafif salınım
-                    this.x = this.baseX + Math.sin(time * this.speed + this.offsetX) * 20;
-                    this.y = this.baseY + Math.cos(time * this.speed + this.offsetY) * 20;
-
-                    // Mouse İtme (İzler etkilenmez, sabittir - inatçıdır)
-                    if (!this.isMark && mouseX !== null && mouseY !== null) {
-                        const dx = this.x - mouseX;
-                        const dy = this.y - mouseY;
-                        const dist = Math.sqrt(dx*dx + dy*dy);
-                        if (dist < repulsionRadius) {
-                            const force = (1 - dist/repulsionRadius) * 2;
-                            const angle = Math.atan2(dy, dx);
-                            this.x += Math.cos(angle) * force * 20;
-                            this.y += Math.sin(angle) * force * 20;
-                        }
-                    }
+                update() {
+                    this.x += this.vx; this.y += this.vy;
+                    if (this.x < 0 || this.x > width) this.vx *= -1;
+                    if (this.y < 0 || this.y > height) this.vy *= -1;
                 }
-
                 draw() {
                     ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.baseSize, 0, Math.PI * 2);
-                    ctx.fillStyle = this.color;
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
+                    ctx.fillStyle = 'rgba(255,255,255,0.5)';
                     ctx.fill();
                 }
             }
 
             function initParticles() {
                 particles = [];
-                // 1. Standart Parçacıklar
-                const count = width < 768 ? 50 : 100;
-                for (let i = 0; i < count; i++) {
-                    particles.push(new Particle(false));
-                }
-                
-                // 2. Hafızadaki İzleri Yükle (En son 7 iz)
-                // İzler, koordinat sistemine (width/height) oranlı saklanmalıdır ama
-                // basitlik için direkt yüklüyoruz. Ekran boyutu değişirse kayabilir, sorun yok (entropi).
-                const marksToLoad = systemMemory.marks.slice(-7); 
-                marksToLoad.forEach(mark => {
-                    // Koordinatları ekran oranına göre normalize etmeye çalışabiliriz
-                    // ama şimdilik "chaos" iyidir.
-                    particles.push(new Particle(true, mark.x * width, mark.y * height));
+                const count = isMobile ? 40 : 80; // Tablette performans için 40
+                for(let i=0; i<count; i++) particles.push(new Particle());
+            }
+
+            function drawMemoryMarks(time) {
+                // Kalıcı Altın İzleri Çiz
+                persistentMarks.forEach(mark => {
+                    const absX = mark.x * width;
+                    const absY = mark.y * height;
+                    
+                    // Nefes alan altın efekti
+                    const pulse = 3 + Math.sin(time * 0.005) * 1; 
+                    
+                    ctx.beginPath();
+                    ctx.arc(absX, absY, pulse, 0, Math.PI*2);
+                    ctx.fillStyle = 'rgba(255, 215, 0, 0.8)'; // ALTIN
+                    ctx.shadowBlur = 15;
+                    ctx.shadowColor = 'rgba(255, 215, 0, 0.5)';
+                    ctx.fill();
+                    ctx.shadowBlur = 0; // Reset
                 });
             }
 
             function drawConnections() {
-                const maxDist = width < 768 ? 100 : 150;
+                // Sadece beyaz noktaları bağla, altınları yalnız bırak (Vurgu için)
+                const maxDist = isMobile ? 100 : 150;
+                for(let i=0; i<particles.length; i++) {
+                    for(let j=i+1; j<particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx*dx+dy*dy);
+                        if(dist < maxDist) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(255,255,255,${0.2 * (1 - dist/maxDist)})`;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            let time = 0;
+            function animate() {
+                time += 16;
+                ctx.fillStyle = 'rgba(0,0,0,0.1)'; // İz bırakma (Motion Blur)
+                ctx.fillRect(0, 0, width, height);
+
+                particles.forEach(p => { p.update(); p.draw(); });
+                drawMemoryMarks(time);
+                drawConnections();
                 
-                for (let i = 0; i < particles.length; i
+                requestAnimationFrame(animate);
+            }
+
+            // ============================================
+            // 3. ETKİLEŞİM (DOKUNMA = KAYIT)
+            // ============================================
+            function handleInput(x, y) {
+                saveMark(x, y);
+                spawnAphorism(x, y);
+            }
+
+            // Mouse
+            window.addEventListener('mousedown', e => handleInput(e.clientX, e.clientY));
+            
+            // Tablet/Touch (Passive: false ÖNEMLİ)
+            window.addEventListener('touchstart', e => {
+                e.preventDefault(); // Scroll engelle
+                if(e.touches.length > 0) {
+                    handleInput(e.touches[0].clientX, e.touches[0].clientY);
+                }
+            }, {passive: false});
+
+            // Aforizmalar
+            const aphorisms = ['HAFIZA KAYDEDİLDİ', 'İZ BIRAKILDI', 'ZAMAN BÜKÜLDÜ', 'VARLIK ONAYLANDI'];
+            function spawnAphorism(x, y) {
+                const el = document.createElement('div');
+                el.className = 'aphorism';
+                el.innerText = aphorisms[Math.floor(Math.random()*aphorisms.length)];
+                el.style.left = x + 'px'; el.style.top = y + 'px';
+                document.body.appendChild(el);
+                setTimeout(() => el.remove(), 2500);
+            }
+
+            // ============================================
+            // 4. OLED KORUMA & SAYAÇ
+            // ============================================
+            // Pixel Shift
+            setInterval(() => {
+                const sx = Math.random()*4 - 2;
+                const sy = Math.random()*4 - 2;
+                document.getElementById('mainContent').style.transform = `translate(calc(-50% + ${sx}px), calc(-50% + ${sy}px))`;
+            }, 60000);
+
+            // Sayaç
+            const target = new Date();
+            target.setDate(target.getDate() + 10);
+            function updateTime() {
+                const diff = target - new Date();
+                if(diff < 0) return;
+                const d = Math.floor(diff / (1000*60*60*24));
+                const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+                const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+                const s = Math.floor((diff % (1000*60)) / 1000);
+                document.getElementById('days').innerText = String(d).padStart(2,'0');
+                document.getElementById('hours').innerText = String(h).padStart(2,'0');
+                document.getElementById('minutes').innerText = String(m).padStart(2,'0');
+                document.getElementById('seconds').innerText = String(s).padStart(2,'0');
+            }
+            setInterval(updateTime, 1000);
+            updateTime();
+
+            // Başlat
+            window.addEventListener('resize', resize);
+            resize();
+            animate();
+        });
+    </script>
+</body>
+</html>
