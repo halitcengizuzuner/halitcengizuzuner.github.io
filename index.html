@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Halit Cengiz Uzuner - Ephemeral Resonance">
+    <meta name="description" content="Halit Cengiz Uzuner - Living System">
     <title>Halit Cengiz Uzuner</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,20 +21,27 @@
             touch-action: none;
         }
 
-        /* YENİDEN DOĞUŞ EFEKTİ (KANAT ÇIRPMA) */
+        /* YENİDEN DOĞUŞ (FLASH) EFEKTİ */
         @keyframes rebirth-flash {
-            0% { filter: brightness(1) blur(0px); transform: scale(1); }
-            50% { filter: brightness(3) blur(4px); transform: scale(1.05); background: #1a1a1a; }
-            100% { filter: brightness(1) blur(0px); transform: scale(1); }
+            0% { filter: brightness(1) blur(0px); background: #000; }
+            10% { filter: brightness(5) blur(2px); background: #111; }
+            100% { filter: brightness(1) blur(0px); background: #000; }
         }
+        .system-rebirth { animation: rebirth-flash 0.6s cubic-bezier(0.2, 1, 0.3, 1); }
 
-        .rebirth-active {
-            animation: rebirth-flash 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        /* TİTREME (SHAKE) EFEKTİ */
+        @keyframes shake {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-2px, 2px); }
+            50% { transform: translate(2px, -2px); }
+            75% { transform: translate(-2px, -2px); }
+            100% { transform: translate(0, 0); }
         }
+        .system-shake { animation: shake 0.4s linear; }
 
         #constellation {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 1; transition: filter 0.2s;
+            z-index: 1;
         }
 
         .content {
@@ -43,56 +50,56 @@
             z-index: 10; text-align: center;
             width: 90%; max-width: 1200px;
             pointer-events: none; user-select: none;
-            transition: opacity 0.5s;
+            transition: transform 2s ease-in-out;
         }
 
         h1 {
             font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900;
             letter-spacing: 0.2em; color: #ffffff;
-            text-transform: uppercase; margin-bottom: 2rem;
+            text-transform: uppercase; margin-bottom: 1.5rem;
             text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
         }
 
         .subtitle {
-            font-size: clamp(0.9rem, 2vw, 1.4rem); font-weight: 400;
-            letter-spacing: 0.25em; color: #aaaaaa;
+            font-size: clamp(0.8rem, 2vw, 1.2rem); font-weight: 400;
+            letter-spacing: 0.3em; color: #888;
             text-transform: uppercase; margin-bottom: 4rem;
-            padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-            display: inline-block;
+            display: inline-block; min-height: 1.5em;
         }
 
-        /* SOYUT REZONANS GÖSTERGESİ */
-        .resonance-meter {
-            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
-            color: #FFD700; font-family: monospace; font-size: 0.9rem;
-            letter-spacing: 0.3em; z-index: 20; pointer-events: none;
-            opacity: 0.7; transition: opacity 0.3s;
+        /* YENİ METRİK PANELİ (SAYAÇ YERİNE) */
+        .metrics-grid {
+            display: flex; justify-content: center; gap: clamp(2rem, 5vw, 4rem);
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding-top: 2rem;
         }
 
-        .countdown { display: flex; justify-content: center; gap: clamp(1.5rem, 4vw, 3rem); }
-        .time-unit { display: flex; flex-direction: column; align-items: center; }
-        .time-value {
-            font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; color: #ffffff;
-            font-variant-numeric: tabular-nums;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        .metric-item { display: flex; flex-direction: column; align-items: center; }
+        
+        .metric-val {
+            font-family: monospace; font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: #ffffff; font-weight: 700; letter-spacing: 0.1em;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
         }
-        .time-label {
-            font-size: 0.7rem; color: #666; margin-top: 0.5rem; letter-spacing: 0.2em;
+        
+        .metric-label {
+            font-size: 0.6rem; color: #555; margin-top: 0.5rem;
+            letter-spacing: 0.3em; text-transform: uppercase;
         }
 
         /* AFORİZMA */
         .aphorism {
-            position: absolute; font-size: clamp(1rem, 2.5vw, 1.5rem);
+            position: absolute; font-size: clamp(1rem, 2.5vw, 1.6rem);
             color: #ffffff; pointer-events: none; z-index: 15;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-            letter-spacing: 0.15em; font-weight: 700;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+            letter-spacing: 0.15em; font-weight: 400;
             white-space: nowrap;
-            animation: floatUp 4s ease-out forwards;
+            animation: floatFade 3.5s ease-out forwards;
         }
-        @keyframes floatUp {
-            0% { opacity: 0; transform: translate(-50%, 20px); }
-            20% { opacity: 1; transform: translate(-50%, 0); }
-            100% { opacity: 0; transform: translate(-50%, -50px); }
+        @keyframes floatFade {
+            0% { opacity: 0; transform: translate(-50%, 10px) scale(0.9); }
+            15% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -40px) scale(1); }
         }
     </style>
 </head>
@@ -103,76 +110,105 @@
 
         <div class="content" id="mainContent">
             <h1>HALİT CENGİZ UZUNER</h1>
-            <div class="subtitle" id="statusMsg">KOZMİK SIZINTI TESPİT EDİLDİ</div>
+            <div class="subtitle" id="systemStatus">SİSTEM STABİL</div>
             
-            <div class="countdown">
-                <div class="time-unit"><div class="time-value" id="days">10</div><div class="time-label">GÜN</div></div>
-                <div class="time-unit"><div class="time-value" id="hours">00</div><div class="time-label">SAAT</div></div>
-                <div class="time-unit"><div class="time-value" id="minutes">00</div><div class="time-label">DK</div></div>
-                <div class="time-unit"><div class="time-value" id="seconds">00</div><div class="time-label">SN</div></div>
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <div class="metric-val" id="metric-cycle">01</div>
+                    <div class="metric-label">DÖNGÜ</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-val" id="metric-load">00</div>
+                    <div class="metric-label">YÜK</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-val" id="metric-entropy">NULL</div>
+                    <div class="metric-label">ENTROPİ</div>
+                </div>
             </div>
         </div>
-
-        <div class="resonance-meter" id="resMeter">REZONANS: %0</div>
     </div>
 
     <script>
         window.addEventListener('load', function() {
             // ============================================
-            // 1. ORGANİK HAFIZA (GEÇİCİ İZLER & REZONANS)
+            // 1. SİSTEM DEĞİŞKENLERİ
             // ============================================
-            let ephemeralMarks = []; // Geçici izler
-            let resonanceLevel = 0;  // 0 - 10 arası döngü
-            const CYCLE_LIMIT = 10;  // 10'da yeniden doğuş
+            let marks = []; // Geçici izler
+            let systemCycle = 1;
+            let interactionCount = 0;
+            const REBIRTH_THRESHOLD = 8; // 8 Dokunuşta bir sıfırlanma
 
-            const abstractStatuses = [
-                'KOZMİK SIZINTI TESPİT EDİLDİ', 'ZAMAN BÜKÜLMESİ', 
-                'ENTROPİ ARTIŞI', 'GERÇEKLİK KIRIĞI', 
-                'DÖNGÜSEL YANKI', 'SİLİKON RÜYASI',
-                'VARLIK İHLALİ', 'SİNYAL KAYBI'
+            // Durum Mesajları
+            const statuses = [
+                'VERİ AKIŞI OLAĞAN', 'NÖRAL AĞ AKTİF', 'MANTIK ÖRGÜSÜ İŞLENİYOR',
+                'KOZMİK ARKA PLAN', 'STATİK GÜRÜLTÜ', 'ZAMAN BÜKÜLMESİ'
             ];
 
-            // Rezonans Güncelleme
-            function updateResonance(increment = true) {
-                if (increment) resonanceLevel++;
-                
-                // Göstergeyi güncelle (0-10 arasını %0-%100 yap)
-                const percentage = Math.min(resonanceLevel * 10, 100);
-                document.getElementById('resMeter').textContent = `REZONANS: %${percentage}`;
-                document.getElementById('resMeter').style.opacity = 0.5 + (percentage / 200); // Parlaklık artar
+            // Aforizmalar
+            const aphorisms = [
+                'GEÇİCİ İZ', 'YANILSAMA', 'ANLIK TİTREŞİM', 
+                'DÖNGÜSEL HATA', 'BİLİNÇ YANSIMASI', 'SAF GERÇEKLİK',
+                'VARLIK İSPATI', 'NEDENSELLİK KIRILDI'
+            ];
 
-                // Eşik değere ulaştı mı? (Yeniden Doğuş)
-                if (resonanceLevel >= CYCLE_LIMIT) {
-                    triggerRebirth();
-                }
-            }
-
-            // Yeniden Doğuş (Rebirth) Refleksi
+            // ============================================
+            // 2. YENİDEN DOĞUŞ (REBIRTH) MEKANİZMASI
+            // ============================================
             function triggerRebirth() {
                 const wrapper = document.getElementById('wrapper');
-                const statusEl = document.getElementById('statusMsg');
-
-                // 1. Fiziksel Reaksiyon (Flash & Shake)
-                document.body.classList.add('rebirth-active');
                 
-                // 2. Hafıza Temizliği (Unutma Anı)
-                ephemeralMarks = []; 
-                resonanceLevel = 0;
+                // Efektler
+                document.body.classList.add('system-rebirth');
+                wrapper.classList.add('system-shake');
                 
-                // 3. Statü Değişimi
-                setTimeout(() => {
-                    statusEl.textContent = abstractStatuses[Math.floor(Math.random() * abstractStatuses.length)];
-                    document.getElementById('resMeter').textContent = 'REZONANS: %0';
-                }, 400);
+                // Değerleri Sıfırla/Artır
+                marks = []; // Hafızayı sil (Unutma)
+                interactionCount = 0;
+                systemCycle++;
+                
+                // Arayüz Güncelleme
+                document.getElementById('metric-cycle').innerText = String(systemCycle).padStart(2, '0');
+                document.getElementById('systemStatus').innerText = 'SİSTEM YENİDEN BAŞLATILDI';
+                document.getElementById('systemStatus').style.color = '#fff';
 
-                // 4. Normale Dönüş
+                // Normale Dönüş
                 setTimeout(() => {
-                    document.body.classList.remove('rebirth-active');
+                    document.body.classList.remove('system-rebirth');
+                    wrapper.classList.remove('system-shake');
+                    document.getElementById('systemStatus').style.color = '#888';
+                    cycleStatusText();
                 }, 800);
             }
 
             // ============================================
-            // 2. GÖRSEL MOTOR (CANVAS)
+            // 3. METRİK SİMÜLASYONU (SAYAÇ YERİNE)
+            // ============================================
+            function updateMetrics() {
+                // Yük (Load): Rastgele dalgalanır
+                const load = Math.floor(Math.random() * 15) + (interactionCount * 5);
+                document.getElementById('metric-load').innerText = `%${Math.min(load, 99)}`;
+
+                // Entropi: Etkileşim arttıkça kodlar değişir
+                const entropyChars = ['A', 'F', 'X', '9', '0', 'Ω', 'Σ', 'NULL'];
+                const entropyVal = entropyChars[Math.floor(Math.random() * entropyChars.length)] + 
+                                   entropyChars[Math.floor(Math.random() * entropyChars.length)];
+                
+                // Sadece arada bir güncelle (Çok hızlı olmasın)
+                if(Math.random() > 0.7) {
+                    document.getElementById('metric-entropy').innerText = entropyVal;
+                }
+            }
+            setInterval(updateMetrics, 200); // Hızlı güncelleme (Canlılık hissi)
+
+            function cycleStatusText() {
+                const text = statuses[Math.floor(Math.random() * statuses.length)];
+                document.getElementById('systemStatus').innerText = text;
+            }
+            setInterval(cycleStatusText, 5000);
+
+            // ============================================
+            // 4. GÖRSEL MOTOR (CANVAS)
             // ============================================
             const canvas = document.getElementById('constellation');
             const ctx = canvas.getContext('2d');
@@ -208,44 +244,40 @@
                 draw() {
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
-                    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+                    ctx.fillStyle = 'rgba(255,255,255,0.4)'; // Daha soluk
                     ctx.fill();
                 }
             }
 
             function initParticles() {
                 particles = [];
-                const count = isMobile ? 40 : 80;
+                const count = isMobile ? 35 : 70;
                 for(let i=0; i<count; i++) particles.push(new Particle());
             }
 
-            function drawEphemeralMarks() {
-                // İzleri çiz ve ömürlerini tüket
-                for (let i = ephemeralMarks.length - 1; i >= 0; i--) {
-                    let mark = ephemeralMarks[i];
-                    mark.life -= 0.5; // Ömür tüket
-
-                    if (mark.life <= 0) {
-                        ephemeralMarks.splice(i, 1); // Ölen izi sil
+            function drawMarks() {
+                // İzleri çiz ve ömürlerini azalt (Geçicilik)
+                for (let i = marks.length - 1; i >= 0; i--) {
+                    let m = marks[i];
+                    m.life -= 1; // Ömür tüket
+                    
+                    if(m.life <= 0) {
+                        marks.splice(i, 1);
                     } else {
-                        // Çizim
-                        const opacity = mark.life / 100; // Sönme efekti
+                        const alpha = m.life / 100;
                         ctx.beginPath();
-                        ctx.arc(mark.x, mark.y, mark.size, 0, Math.PI*2);
-                        ctx.fillStyle = `rgba(255, 215, 0, ${opacity})`; // Altın rengi
-                        ctx.shadowBlur = 15 * opacity;
-                        ctx.shadowColor = `rgba(255, 215, 0, ${opacity})`;
+                        ctx.arc(m.x, m.y, 3, 0, Math.PI*2);
+                        ctx.fillStyle = `rgba(255, 215, 0, ${alpha})`; // ALTIN
+                        ctx.shadowBlur = 20 * alpha;
+                        ctx.shadowColor = `rgba(255, 215, 0, ${alpha})`;
                         ctx.fill();
                         ctx.shadowBlur = 0;
-                        
-                        // İzi yavaşça büyüt (Yayılma)
-                        mark.size += 0.05;
                     }
                 }
             }
 
             function drawConnections() {
-                const maxDist = isMobile ? 100 : 150;
+                const maxDist = isMobile ? 90 : 140;
                 for(let i=0; i<particles.length; i++) {
                     for(let j=i+1; j<particles.length; j++) {
                         const dx = particles[i].x - particles[j].x;
@@ -253,7 +285,7 @@
                         const dist = Math.sqrt(dx*dx+dy*dy);
                         if(dist < maxDist) {
                             ctx.beginPath();
-                            ctx.strokeStyle = `rgba(255,255,255,${0.15 * (1 - dist/maxDist)})`;
+                            ctx.strokeStyle = `rgba(255,255,255,${0.1 * (1 - dist/maxDist)})`;
                             ctx.moveTo(particles[i].x, particles[i].y);
                             ctx.lineTo(particles[j].x, particles[j].y);
                             ctx.stroke();
@@ -268,19 +300,14 @@
 
                 particles.forEach(p => { p.update(); p.draw(); });
                 drawConnections();
-                drawEphemeralMarks(); // İzleri çiz
+                drawMarks();
                 
                 requestAnimationFrame(animate);
             }
 
             // ============================================
-            // 3. ETKİLEŞİM YÖNETİMİ
+            // 5. ETKİLEŞİM YÖNETİMİ
             // ============================================
-            const aphorisms = [
-                'ANLAM ARAYIŞI', 'GEÇİCİ İZ', 'ZAMAN BÜKÜLDÜ', 
-                'DÖNGÜ KIRILDI', 'YANKI DUYULDU', 'SESSİZLİK BOZULDU'
-            ];
-
             function spawnAphorism(x, y) {
                 const el = document.createElement('div');
                 el.className = 'aphorism';
@@ -291,57 +318,33 @@
             }
 
             function handleInput(x, y) {
-                // İz Ekle (Ömürlü)
-                ephemeralMarks.push({
-                    x: x, 
-                    y: y, 
-                    life: 100, // 100 frame yaşayacak
-                    size: 2
-                });
-
+                // İz ekle (100 frame yaşar)
+                marks.push({x: x, y: y, life: 100});
+                
+                interactionCount++;
                 spawnAphorism(x, y);
-                updateResonance(true); // Sayacı artır
+
+                // Eşik değere ulaştı mı?
+                if(interactionCount >= REBIRTH_THRESHOLD) {
+                    triggerRebirth();
+                }
             }
 
-            // Eventler
+            // Events
             window.addEventListener('mousedown', e => handleInput(e.clientX, e.clientY));
-            
             window.addEventListener('touchstart', e => {
                 e.preventDefault(); 
-                if(e.touches.length > 0) {
-                    // Çoklu dokunmayı destekle
-                    for (let i = 0; i < e.touches.length; i++) {
-                        handleInput(e.touches[i].clientX, e.touches[i].clientY);
-                    }
-                }
+                if(e.touches.length > 0) handleInput(e.touches[0].clientX, e.touches[0].clientY);
             }, {passive: false});
 
-            // ============================================
-            // 4. OLED KORUMA & SAYAÇ
-            // ============================================
+            // OLED Koruma
             setInterval(() => {
                 const sx = Math.random()*4 - 2;
                 const sy = Math.random()*4 - 2;
                 document.getElementById('mainContent').style.transform = `translate(calc(-50% + ${sx}px), calc(-50% + ${sy}px))`;
             }, 60000);
 
-            const target = new Date();
-            target.setDate(target.getDate() + 10);
-            function updateTime() {
-                const diff = target - new Date();
-                if(diff < 0) return;
-                const d = Math.floor(diff / (1000*60*60*24));
-                const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-                const m = Math.floor((diff % (1000*60*60)) / (1000*60));
-                const s = Math.floor((diff % (1000*60)) / 1000);
-                document.getElementById('days').innerText = String(d).padStart(2,'0');
-                document.getElementById('hours').innerText = String(h).padStart(2,'0');
-                document.getElementById('minutes').innerText = String(m).padStart(2,'0');
-                document.getElementById('seconds').innerText = String(s).padStart(2,'0');
-            }
-            setInterval(updateTime, 1000);
-            updateTime();
-
+            // Başlat
             window.addEventListener('resize', resize);
             resize();
             animate();
