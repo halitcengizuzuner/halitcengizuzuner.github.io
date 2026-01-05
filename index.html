@@ -38,6 +38,13 @@
         }
         .pulse { animation: system-pulse 0.3s ease-out; }
 
+        /* QUANTUM FREEZE */
+        @keyframes quantum-freeze {
+            0% { filter: grayscale(0); }
+            100% { filter: grayscale(1) blur(1px); }
+        }
+        .frozen { animation: quantum-freeze 2s ease-out forwards; }
+
         #constellation {
             position: absolute; top: 0; left: 0;
             width: 100%; height: 100%; z-index: 1;
@@ -52,7 +59,6 @@
             transition: transform 2s ease-in-out;
         }
 
-        /* İSİM YAPISI - 3 KATMANLI */
         .name-container {
             display: flex;
             flex-direction: column;
@@ -80,14 +86,9 @@
             animation: letter-elastic 4s ease-in-out infinite;
         }
 
-        /* ELASTİK HAREKET - Her harf farklı faz */
         @keyframes letter-elastic {
-            0%, 100% { 
-                transform: translateY(0) scale(1);
-            }
-            50% { 
-                transform: translateY(-5px) scale(1.03);
-            }
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-5px) scale(1.03); }
         }
 
         .letter:nth-child(1) { animation-delay: 0s; }
@@ -107,6 +108,7 @@
         }
 
         .status.active { color: #aaa; }
+        .status.frozen { color: #ff6b6b; }
 
         .metrics {
             display: flex; justify-content: center;
@@ -135,6 +137,54 @@
             margin-top: 0.5rem; letter-spacing: 0.25em;
             text-transform: uppercase;
         }
+
+        /* CONTACT ZONE */
+        .contact-zone {
+            position: fixed;
+            bottom: 20px; right: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0);
+            letter-spacing: 0.15em;
+            cursor: help;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            z-index: 20;
+            opacity: 0;
+        }
+
+        .contact-zone.unlocked {
+            opacity: 1;
+            color: rgba(255, 255, 255, 0.35);
+            pointer-events: auto;
+        }
+
+        .contact-zone.unlocked:hover {
+            color: rgba(255, 255, 255, 0.85);
+            cursor: pointer;
+            letter-spacing: 0.2em;
+        }
+
+        .contact-label {
+            font-size: 0.5rem;
+            color: rgba(255, 255, 255, 0.25);
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.3em;
+        }
+
+        .copy-feedback {
+            position: fixed;
+            bottom: 60px; right: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.7rem;
+            color: #4ecca3;
+            letter-spacing: 0.2em;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 21;
+        }
+
+        .copy-feedback.show { opacity: 1; }
 
         .aphorism-panel {
             position: fixed; bottom: 30px; left: 50%;
@@ -169,6 +219,7 @@
             .name-container { gap: 0.3rem; }
             .name-line { gap: 0.2rem; }
             .metrics { gap: 1.5rem; padding: 1rem 0; }
+            .contact-zone { font-size: 0.55rem; }
         }
     </style>
 </head>
@@ -202,6 +253,13 @@
             </div>
         </div>
 
+        <div class="contact-zone" id="contactZone">
+            <div class="contact-label">CONTACT PROTOCOL</div>
+            <div id="contactText">68 61 6C 69 74 63 65 6E 67 69 7A 75 7A 75 6E 65 72 40 69 63 6C 6F 75 64 2E 63 6F 6D</div>
+        </div>
+
+        <div class="copy-feedback" id="copyFeedback">KOPYALANDI</div>
+
         <div class="aphorism-panel" id="aphorismPanel">
             VARLIK, ALGILAYANDIR
         </div>
@@ -210,7 +268,7 @@
     <script>
         window.addEventListener('load', function() {
             // ============================================
-            // NAME SYSTEM - 3 LAYER
+            // NAME SYSTEM
             // ============================================
             const nameLines = ['HALİT', 'CENGİZ', 'UZUNER'];
             let allLetters = [];
@@ -254,6 +312,114 @@
             }
 
             initName();
+
+            // ============================================
+            // CONTACT SYSTEM (7 TOUCH UNLOCK)
+            // ============================================
+            const emailEncoded = '68 61 6C 69 74 63 65 6E 67 69 7A 75 7A 75 6E 65 72 40 69 63 6C 6F 75 64 2E 63 6F 6D';
+            const emailDecoded = 'halitcengizuzuner@icloud.com';
+            let contactUnlocked = false;
+
+            function unlockContact() {
+                if (contactUnlocked) return;
+                contactUnlocked = true;
+                
+                const zone = document.getElementById('contactZone');
+                zone.classList.add('unlocked');
+                
+                // Unlock feedback
+                const status = document.getElementById('systemStatus');
+                status.textContent = 'PROTOKOL AKTİF';
+                status.classList.add('active');
+                setTimeout(() => {
+                    status.classList.remove('active');
+                    cycleStatus();
+                }, 2000);
+            }
+
+            function decodeEmail() {
+                const contactText = document.getElementById('contactText');
+                contactText.textContent = emailDecoded;
+            }
+
+            function encodeEmail() {
+                const contactText = document.getElementById('contactText');
+                contactText.textContent = emailEncoded;
+            }
+
+            document.getElementById('contactZone').addEventListener('mouseenter', decodeEmail);
+            document.getElementById('contactZone').addEventListener('mouseleave', () => {
+                if (contactUnlocked) encodeEmail();
+            });
+
+            document.getElementById('contactZone').addEventListener('click', () => {
+                if (!contactUnlocked) return;
+                
+                navigator.clipboard.writeText(emailDecoded).then(() => {
+                    const feedback = document.getElementById('copyFeedback');
+                    feedback.classList.add('show');
+                    setTimeout(() => feedback.classList.remove('show'), 1500);
+                });
+            });
+
+            // ============================================
+            // QUANTUM OBSERVER SYSTEM (SÜRPRIZ!)
+            // ============================================
+            let lastMouseMove = Date.now();
+            let systemFrozen = false;
+            let observerCheckInterval;
+
+            function freezeSystem() {
+                if (systemFrozen) return;
+                systemFrozen = true;
+                
+                document.getElementById('wrapper').classList.add('frozen');
+                const status = document.getElementById('systemStatus');
+                status.textContent = 'GÖZLEMCI KAYBOLDU';
+                status.classList.add('frozen');
+                
+                // Freeze particles
+                particles.forEach(p => {
+                    p.frozen = true;
+                });
+            }
+
+            function unfreezeSystem() {
+                if (!systemFrozen) return;
+                systemFrozen = false;
+                
+                document.getElementById('wrapper').classList.remove('frozen');
+                const status = document.getElementById('systemStatus');
+                status.textContent = 'GÖZLEMCI TESPİT EDİLDİ';
+                status.classList.remove('frozen');
+                status.classList.add('active');
+                
+                setTimeout(() => {
+                    status.classList.remove('active');
+                    cycleStatus();
+                }, 2000);
+                
+                // Unfreeze particles
+                particles.forEach(p => {
+                    p.frozen = false;
+                });
+            }
+
+            function checkObserver() {
+                const timeSinceMove = Date.now() - lastMouseMove;
+                if (timeSinceMove > 30000 && !systemFrozen) {
+                    freezeSystem();
+                }
+            }
+
+            observerCheckInterval = setInterval(checkObserver, 1000);
+
+            window.addEventListener('mousemove', () => {
+                lastMouseMove = Date.now();
+                if (systemFrozen) {
+                    unfreezeSystem();
+                }
+            });
 
             // ============================================
             // SYSTEM STATE
@@ -304,12 +470,11 @@
                 'HAREKET, VAROLUŞTUR',
                 'FORM, GEÇİCİDİR',
                 'ENERJI, DEĞİŞİMDİR',
-                'PATTERN, ANLAMDıR',
+                'PATTERN, ANLAMDIR',
                 'KAOS, DÜZEN ARAR',
                 'SÜREÇ, SONUÇTUR',
                 'AKIŞ, GERÇEKLİKTİR',
                 'SİSTEM, KENDİNİ BİLİR',
-                'VARLLIK, ALGIDIR',
                 'BİLGİ, İLİŞKİDİR',
                 'ZAMAN, HAREKET YARATIR',
                 'MEKAN, VARLIĞIN KOŞULUDUR',
@@ -321,7 +486,7 @@
                 'REZONANS, UYUMDUR',
                 'DALGA, TİTREŞİMDİR',
                 'QUANTUM, OLASILIKTIR',
-                'BELIRSIZLIK, POTANSİYELDIR',
+                'BELIRSIZLIK, POTANSİYELDİR',
                 'GÖZLEM, YARATIR',
                 'ÖLÇÜM, DEĞİŞTİRİR',
                 'PARÇACIK, DALGA DA OLABİLİR',
@@ -360,6 +525,7 @@
             setInterval(updateMetrics, 100);
 
             function cycleStatus() {
+                if (systemFrozen) return;
                 const status = statusMessages[Math.floor(Math.random() * statusMessages.length)];
                 document.getElementById('systemStatus').textContent = status;
             }
@@ -432,9 +598,12 @@
                     this.vx = this.baseVx;
                     this.vy = this.baseVy;
                     this.size = Math.random() * 1.5 + 0.8;
+                    this.frozen = false;
                 }
 
                 update() {
+                    if (this.frozen) return;
+                    
                     this.vx += (this.baseVx - this.vx) * 0.05;
                     this.vy += (this.baseVy - this.vy) * 0.05;
                     this.x += this.vx;
@@ -444,6 +613,8 @@
                 }
 
                 disturb(px, py, force) {
+                    if (this.frozen) return;
+                    
                     const dx = this.x - px;
                     const dy = this.y - py;
                     const dist = Math.sqrt(dx * dx + dy * dy);
@@ -550,6 +721,12 @@
 
                 interactionCount++;
 
+                // 7 TOUCH → UNLOCK CONTACT
+                if (interactionCount === 7) {
+                    unlockContact();
+                }
+
+                // 10 TOUCH → REBIRTH
                 if (interactionCount >= REBIRTH_THRESHOLD) {
                     setTimeout(triggerRebirth, 200);
                 }
