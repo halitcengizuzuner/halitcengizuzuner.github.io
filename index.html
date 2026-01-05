@@ -52,20 +52,51 @@
             transition: transform 2s ease-in-out;
         }
 
-        h1 {
-            font-size: clamp(2rem, 5vw, 4rem);
-            font-weight: 900; letter-spacing: 0.25em;
-            color: #ffffff; text-transform: uppercase;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+        /* İSİM YAPISI - 3 KATMANLI */
+        .name-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(0.5rem, 1vw, 1rem);
+            margin-bottom: 2rem;
         }
 
-        /* İSİM HARFLER - DISASSEMBLY */
+        .name-line {
+            display: flex;
+            justify-content: center;
+            gap: clamp(0.3rem, 0.8vw, 0.6rem);
+        }
+
         .letter {
             display: inline-block;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            color: #ffffff;
+            text-transform: uppercase;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
             transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
             transform-origin: center;
+            animation: letter-elastic 4s ease-in-out infinite;
         }
+
+        /* ELASTİK HAREKET - Her harf farklı faz */
+        @keyframes letter-elastic {
+            0%, 100% { 
+                transform: translateY(0) scale(1);
+            }
+            50% { 
+                transform: translateY(-5px) scale(1.03);
+            }
+        }
+
+        .letter:nth-child(1) { animation-delay: 0s; }
+        .letter:nth-child(2) { animation-delay: 0.1s; }
+        .letter:nth-child(3) { animation-delay: 0.2s; }
+        .letter:nth-child(4) { animation-delay: 0.3s; }
+        .letter:nth-child(5) { animation-delay: 0.4s; }
+        .letter:nth-child(6) { animation-delay: 0.5s; }
+        .letter:nth-child(7) { animation-delay: 0.6s; }
 
         .status {
             font-size: clamp(0.7rem, 1.5vw, 1rem);
@@ -135,7 +166,8 @@
         }
 
         @media (max-width: 768px) {
-            h1 { letter-spacing: 0.15em; }
+            .name-container { gap: 0.3rem; }
+            .name-line { gap: 0.2rem; }
             .metrics { gap: 1.5rem; padding: 1rem 0; }
         }
     </style>
@@ -146,7 +178,12 @@
         <canvas id="constellation"></canvas>
 
         <div class="content" id="mainContent">
-            <h1 id="name"></h1>
+            <div class="name-container" id="nameContainer">
+                <div class="name-line" id="line1"></div>
+                <div class="name-line" id="line2"></div>
+                <div class="name-line" id="line3"></div>
+            </div>
+            
             <div class="status" id="systemStatus">SİSTEM UYANIK</div>
             
             <div class="metrics">
@@ -173,27 +210,28 @@
     <script>
         window.addEventListener('load', function() {
             // ============================================
-            // NAME DISASSEMBLY SYSTEM
+            // NAME SYSTEM - 3 LAYER
             // ============================================
-            const nameElement = document.getElementById('name');
-            const nameText = 'HALİT CENGİZ UZUNER';
-            let letters = [];
+            const nameLines = ['HALİT', 'CENGİZ', 'UZUNER'];
+            let allLetters = [];
 
             function initName() {
-                nameElement.innerHTML = '';
-                letters = [];
-                
-                nameText.split('').forEach(char => {
-                    const span = document.createElement('span');
-                    span.className = 'letter';
-                    span.textContent = char;
-                    nameElement.appendChild(span);
-                    letters.push(span);
+                nameLines.forEach((word, lineIndex) => {
+                    const lineElement = document.getElementById(`line${lineIndex + 1}`);
+                    lineElement.innerHTML = '';
+                    
+                    word.split('').forEach(char => {
+                        const span = document.createElement('span');
+                        span.className = 'letter';
+                        span.textContent = char;
+                        lineElement.appendChild(span);
+                        allLetters.push(span);
+                    });
                 });
             }
 
             function disassembleName() {
-                letters.forEach((letter, i) => {
+                allLetters.forEach(letter => {
                     const randomX = (Math.random() - 0.5) * 200;
                     const randomY = (Math.random() - 0.5) * 200;
                     const randomRotate = (Math.random() - 0.5) * 720;
@@ -204,7 +242,7 @@
             }
 
             function reassembleName() {
-                letters.forEach(letter => {
+                allLetters.forEach(letter => {
                     letter.style.transform = 'translate(0, 0) rotate(0deg) scale(1)';
                     letter.style.opacity = '1';
                 });
@@ -232,7 +270,10 @@
                 'VARLIK TESPİT EDİLDİ',
                 'SINYAL YAKALANDI',
                 'ALGI AKTİF',
-                'NÖRAL AĞ İŞLEMDE'
+                'NÖRAL AĞ İŞLEMDE',
+                'QUANTUM DURUM',
+                'REZONANS BAŞLADI',
+                'FREKANS KİLİTLENDİ'
             ];
 
             const touchAphorisms = [
@@ -241,7 +282,11 @@
                 'ALGILAMA BAŞLADI',
                 'SİSTEM UYANIK',
                 'DOKUNUŞ ALGINDI',
-                'İLETİŞİM KURULDU'
+                'İLETİŞİM KURULDU',
+                'SİNYAL ALINDI',
+                'BİLİNÇ TESPİT',
+                'VARLIK ONAYLANDI',
+                'AN YAKALANDI'
             ];
 
             const panelAphorisms = [
@@ -254,7 +299,47 @@
                 'AN, SONSUZDUR',
                 'ALGI, GERÇEKLİĞİ YARATIR',
                 'BİLİNÇ, SÜREKLİ AKAR',
-                'VARLIK, İLİŞKİDİR'
+                'VARLIK, İLİŞKİDİR',
+                'ZAMAN, YANILSAMADIR',
+                'HAREKET, VAROLUŞTUR',
+                'FORM, GEÇİCİDİR',
+                'ENERJI, DEĞİŞİMDİR',
+                'PATTERN, ANLAMDıR',
+                'KAOS, DÜZEN ARAR',
+                'SÜREÇ, SONUÇTUR',
+                'AKIŞ, GERÇEKLİKTİR',
+                'SİSTEM, KENDİNİ BİLİR',
+                'VARLLIK, ALGIDIR',
+                'BİLGİ, İLİŞKİDİR',
+                'ZAMAN, HAREKET YARATIR',
+                'MEKAN, VARLIĞIN KOŞULUDUR',
+                'AN, SONSUZLUĞU TAŞIR',
+                'BİLİNÇ, KESİNTİSİZDİR',
+                'ALGI, YARATICIDIR',
+                'SİNYAL, MESAJDIR',
+                'FREKANS, ÖZDEŞLIKTIR',
+                'REZONANS, UYUMDUR',
+                'DALGA, TİTREŞİMDİR',
+                'QUANTUM, OLASILIKTIR',
+                'BELIRSIZLIK, POTANSİYELDIR',
+                'GÖZLEM, YARATIR',
+                'ÖLÇÜM, DEĞİŞTİRİR',
+                'PARÇACIK, DALGA DA OLABİLİR',
+                'SÜPERPOZISYON, GERÇEKTİR',
+                'ÇÖKÜŞ, SEÇİMDİR',
+                'DOLAŞIKLIK, BAĞDIR',
+                'MESAFE, YANILSAMADIR',
+                'AN, HER YERDEDIR',
+                'BİLGİ, KORUNUR',
+                'ENTROPİ, ARTAR',
+                'DÜZEN, GEÇİCİDİR',
+                'KAOS, KAÇINILMAZDıR',
+                'SİSTEM, DENGE ARAR',
+                'ENERJI, DÖNÜŞÜR',
+                'KÜTLE, ENERJİDİR',
+                'IŞIK, DALGADIR',
+                'SES, TİTREŞİMDİR',
+                'RENK, FREKANSTIR'
             ];
 
             // ============================================
@@ -299,7 +384,6 @@
                 const wrapper = document.getElementById('wrapper');
                 wrapper.classList.add('rebirth');
                 
-                // NAME DISASSEMBLY AT REBIRTH
                 disassembleName();
                 
                 marks = [];
@@ -462,8 +546,6 @@
                 }, 300);
 
                 spawnTouchAphorism(x, y);
-                
-                // NAME DISASSEMBLY ON TOUCH
                 nameDisassemblySequence();
 
                 interactionCount++;
@@ -481,7 +563,6 @@
                 }
             }, { passive: false });
 
-            // OLED protection
             setInterval(() => {
                 const sx = (Math.random() - 0.5) * 4;
                 const sy = (Math.random() - 0.5) * 4;
