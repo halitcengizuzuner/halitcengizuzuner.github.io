@@ -48,29 +48,28 @@
         .subtitle {
             font-size: clamp(1rem, 2.5vw, 1.8rem);
             font-weight: 400;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em; /* Harf aralığı artırıldı */
             color: #cccccc;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             line-height: 1.6;
+            text-transform: uppercase;
         }
         .highlight {
             display: inline-block;
             font-size: clamp(1.2rem, 3vw, 2rem);
             font-weight: 700;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.15em;
             color: #ffffff;
             border-bottom: 2px solid #ffffff;
             padding-bottom: 0.5rem;
-            margin-top: 2rem;
+            margin-top: 1rem;
+            text-transform: uppercase;
         }
         @media (max-width: 768px) {
             .content { padding: 1.5rem; }
             h1 { letter-spacing: 0.1em; margin-bottom: 1rem; }
             .subtitle { letter-spacing: 0.05em; margin-bottom: 2rem; }
             .highlight { margin-top: 1.5rem; }
-        }
-        @media (max-width: 480px) {
-            h1 { letter-spacing: 0.08em; }
         }
     </style>
 </head>
@@ -80,8 +79,8 @@
 
     <div class="content">
         <h1>HALİT CENGİZ UZUNER</h1>
-        <p class="subtitle">DİJİTAL EVİM HAZIRLANIYOR</p>
-        <div class="highlight">YAKINDA BURADAYIM</div>
+        <p class="subtitle">ZİHİNSEL TASNİF TAMAMLANIYOR</p>
+        <div class="highlight">SESSİZLİK BOZULUYOR</div>
     </div>
 
     <script>
@@ -90,7 +89,6 @@
 
         let width, height;
         let particles = [];
-        // Mobil/Masaüstü ayrımı
         const particleCount = window.innerWidth < 768 ? 40 : 80;
         const maxDistance = window.innerWidth < 768 ? 100 : 150;
         const particleSpeed = 0.15;
@@ -103,15 +101,12 @@
                 this.vy = (Math.random() - 0.5) * particleSpeed;
                 this.radius = Math.random() * 1.5 + 0.5;
             }
-
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
-
                 if (this.x < 0 || this.x > width) this.vx *= -1;
                 if (this.y < 0 || this.y > height) this.vy *= -1;
             }
-
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
@@ -123,8 +118,8 @@
         function init() {
             width = window.innerWidth;
             height = window.innerHeight;
-
-            // HiDPI / Retina Ekran Düzeltmesi (Alienware & Samsung Tablet için Kritik)
+            
+            // Retina/HiDPI Ekran Düzeltmesi
             const dpr = window.devicePixelRatio || 1;
             canvas.width = width * dpr;
             canvas.height = height * dpr;
@@ -144,7 +139,6 @@
                     const dx = particles[i].x - particles[j].x;
                     const dy = particles[i].y - particles[j].y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
-
                     if (distance < maxDistance) {
                         const opacity = (1 - distance / maxDistance) * 0.3;
                         ctx.beginPath();
@@ -159,22 +153,14 @@
         }
 
         function animate() {
-            // İz bırakma efekti (Motion Blur). 
-            // Tam keskinlik istenirse burayı 'ctx.clearRect(0, 0, width, height);' yapın.
             ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
             ctx.fillRect(0, 0, width, height);
-
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-
+            particles.forEach(p => { p.update(); p.draw(); });
             connectParticles();
             requestAnimationFrame(animate);
         }
 
         window.addEventListener('resize', init);
-
         init();
         animate();
     </script>
