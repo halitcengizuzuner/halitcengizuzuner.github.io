@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="Halit Cengiz Uzuner - Eternal Loop">
     <title>Halit Cengiz Uzuner</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +23,7 @@
             font-family: 'Playfair Display', serif;
             cursor: crosshair;
             -webkit-tap-highlight-color: transparent;
+            touch-action: none; /* Mobilde scroll'u engeller */
         }
 
         #constellation {
@@ -42,13 +43,9 @@
         @keyframes massive-glitch-effect {
             0%, 100% { filter: none; }
             10% { filter: blur(5px) brightness(2); }
-            20% { filter: blur(0px) brightness(0.3); }
             30% { filter: blur(8px) brightness(1.5) hue-rotate(90deg); }
-            40% { filter: blur(2px) brightness(0.5); }
             50% { filter: blur(10px) brightness(2.5) saturate(3); }
-            60% { filter: blur(0px) brightness(0.2); }
             70% { filter: blur(6px) brightness(1.8); }
-            80% { filter: blur(1px) brightness(0.4); }
             90% { filter: blur(4px) brightness(1.2); }
         }
 
@@ -63,12 +60,13 @@
             max-width: 1200px;
             pointer-events: none;
             transition: transform 2s ease-in-out;
+            user-select: none;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-size: clamp(2rem, 6vw, 5rem);
             font-weight: 900;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.15em;
             color: #ffffff;
             text-transform: uppercase;
             margin-bottom: 2rem;
@@ -77,12 +75,12 @@
         }
 
         .subtitle {
-            font-size: clamp(0.9rem, 2vw, 1.4rem);
+            font-size: clamp(0.8rem, 2vw, 1.4rem);
             font-weight: 400;
-            letter-spacing: 0.25em;
+            letter-spacing: 0.2em;
             color: #aaaaaa;
             text-transform: uppercase;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             padding-bottom: 1rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             display: inline-block;
@@ -97,7 +95,7 @@
         .countdown {
             display: flex;
             justify-content: center;
-            gap: clamp(1.5rem, 4vw, 3rem);
+            gap: clamp(1rem, 4vw, 3rem);
             flex-wrap: wrap;
         }
 
@@ -105,11 +103,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-width: clamp(60px, 10vw, 100px);
+            min-width: clamp(50px, 12vw, 90px);
         }
 
         .time-value {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2rem, 5vw, 4rem);
             font-weight: 700;
             color: #ffffff;
             line-height: 1;
@@ -118,11 +116,11 @@
         }
 
         .time-label {
-            font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+            font-size: clamp(0.6rem, 1.2vw, 0.8rem);
             font-weight: 400;
             letter-spacing: 0.2em;
             color: #666666;
-            margin-top: 0.8rem;
+            margin-top: 0.5rem;
             text-transform: uppercase;
         }
 
@@ -137,7 +135,7 @@
             z-index: 8;
             text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
             max-width: 80vw;
-            animation: aphorism-fade 2s ease-in-out forwards;
+            animation: aphorism-fade 2.5s ease-in-out forwards;
         }
 
         .aphorism.completion {
@@ -148,17 +146,17 @@
         }
 
         @keyframes aphorism-fade {
-            0% { opacity: 0; transform: translateY(10px); }
-            20% { opacity: 1; transform: translateY(0); }
-            80% { opacity: 1; transform: translateY(0); }
-            100% { opacity: 0; transform: translateY(-10px); }
+            0% { opacity: 0; transform: translateY(10px) translate(-50%, -50%); }
+            20% { opacity: 1; transform: translateY(0) translate(-50%, -50%); }
+            80% { opacity: 1; transform: translateY(0) translate(-50%, -50%); }
+            100% { opacity: 0; transform: translateY(-10px) translate(-50%, -50%); }
         }
 
         @keyframes completion-fade {
-            0% { opacity: 0; transform: scale(0.8); }
-            30% { opacity: 1; transform: scale(1.2); }
-            70% { opacity: 1; transform: scale(1); }
-            100% { opacity: 0; transform: scale(0.9); }
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+            30% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+            70% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
         }
 
         .progress-hint {
@@ -166,22 +164,17 @@
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: clamp(0.8rem, 1.5vw, 1rem);
+            font-size: clamp(0.7rem, 1.5vw, 0.9rem);
             letter-spacing: 0.2em;
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.4);
             z-index: 11;
             pointer-events: none;
             transition: opacity 0.5s ease;
+            text-transform: uppercase;
         }
 
         .progress-hint.hidden {
             opacity: 0;
-        }
-
-        @media (max-width: 768px) {
-            h1 { letter-spacing: 0.15em; }
-            .subtitle { letter-spacing: 0.15em; margin-bottom: 3rem; }
-            .countdown { gap: 1.2rem; }
         }
     </style>
 </head>
@@ -213,7 +206,7 @@
         </div>
     </div>
 
-    <div class="progress-hint" id="progressHint">DOKU VE İNŞA ET</div>
+    <div class="progress-hint" id="progressHint">DOKUN VE İNŞA ET</div>
 
     <script>
         window.addEventListener('load', function() {
@@ -228,15 +221,18 @@
 
             function initAudio() {
                 if (audioInitialized) return;
-                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return; // Tarayıcı desteği yoksa çık
                 
-                baseFrequencies.forEach((freq, i) => {
+                audioContext = new AudioContext();
+                
+                baseFrequencies.forEach((freq) => {
                     const osc = audioContext.createOscillator();
                     const gain = audioContext.createGain();
                     
                     osc.type = 'sine';
                     osc.frequency.value = freq;
-                    gain.gain.value = 0;
+                    gain.gain.value = 0; // Sessiz başla
                     
                     osc.connect(gain);
                     gain.connect(audioContext.destination);
@@ -251,8 +247,13 @@
 
             function addAudioLayer(touchCount) {
                 if (!audioInitialized) return;
+                // Her 8 dokunuşta bir katman aç, maksimum 3 katman
                 const layerIndex = Math.min(Math.floor(touchCount / 8), 3);
-                gainNodes[layerIndex].gain.setTargetAtTime(0.05, audioContext.currentTime, 0.5);
+                
+                // Güvenli erişim kontrolü
+                if (gainNodes[layerIndex]) {
+                    gainNodes[layerIndex].gain.setTargetAtTime(0.05, audioContext.currentTime, 0.5);
+                }
             }
 
             function audioClimax() {
@@ -284,335 +285,10 @@
             }, 45000);
 
             // ============================================
-            // AFORIZMA LIBRARY - DÖNGÜ TEMALI
+            // AFORİZMA LIBRARY - DÖNGÜ TEMALI
             // ============================================
             const aphorisms = [
                 'DÖNGÜ, VARLIĞIN TEMEL BİÇİMİDİR',
                 'TEKRAR, ANLAMIN YOLUDUR',
                 'BİTİŞ, YENİ BAŞLANGIÇTIR',
-                'ZAMAN, DAIRESEL AKAR',
-                'SONSUZA ERİŞMEK, BAŞA DÖNMEKTİR',
-                'YARATMAK, YOK ETMEK İÇİNDİR',
-                'TAMAMLANMA, YANILSAMADIR',
-                'SÜREÇ, SONSUZ TEKRARDIR',
-                'İNŞA, ÇÖZÜLME İÇİN VARDIR',
-                'DÖNGÜDEN ÇIKIŞ YOKTUR'
-            ];
-
-            const completionAphorism = 'TAMAMLANMA, BAŞLANGIÇTIR';
-
-            function spawnAphorism(x, y, isCompletion = false) {
-                const aphorism = document.createElement('div');
-                aphorism.className = isCompletion ? 'aphorism completion' : 'aphorism';
-                aphorism.textContent = isCompletion ? completionAphorism : aphorisms[Math.floor(Math.random() * aphorisms.length)];
-                aphorism.style.left = x + 'px';
-                aphorism.style.top = y + 'px';
-                aphorism.style.transform = 'translate(-50%, -50%)';
-                document.body.appendChild(aphorism);
-
-                setTimeout(() => {
-                    aphorism.remove();
-                }, isCompletion ? 3000 : 2000);
-            }
-
-            // ============================================
-            // STATUS MESSAGES - DÖNGÜ TEMALI
-            // ============================================
-            const statusMessages = [
-                'DÖNGÜ BAŞLADI',
-                'SİSTEM TEKRAR EDİYOR',
-                'PATTERN OLUŞUYOR',
-                'YAPILANMA SÜRECİ',
-                'DÖNGÜSEL HAREKET',
-                'TEKRAR MEKANİZMASI',
-                'DAİRESEL AKIŞ',
-                'SONSUZ DÖNÜŞ'
-            ];
-            
-            let currentStatusIndex = 0;
-            const statusElement = document.getElementById('status');
-
-            function cycleStatus() {
-                statusElement.classList.add('fade');
-                
-                setTimeout(() => {
-                    currentStatusIndex = (currentStatusIndex + 1) % statusMessages.length);
-                    statusElement.textContent = statusMessages[currentStatusIndex];
-                    statusElement.classList.remove('fade');
-                }, 800);
-            }
-
-            setInterval(cycleStatus, 8000);
-
-            // ============================================
-            // COUNTDOWN - ETERNAL LOOP
-            // ============================================
-            let targetDate = new Date();
-            targetDate.setDate(targetDate.getDate() + 10);
-            targetDate.setHours(0, 0, 0, 0);
-
-            function resetCountdown() {
-                targetDate = new Date();
-                targetDate.setDate(targetDate.getDate() + 10);
-                targetDate.setHours(0, 0, 0, 0);
-            }
-
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const distance = targetDate.getTime() - now;
-
-                if (distance < 0) {
-                    // RESET - Sisyphus moment
-                    document.getElementById('constellation').classList.add('massive-glitch');
-                    setTimeout(() => {
-                        document.getElementById('constellation').classList.remove('massive-glitch');
-                        resetCountdown();
-                        spawnAphorism(window.innerWidth / 2, window.innerHeight / 2, true);
-                    }, 800);
-                    return;
-                }
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById('days').textContent = String(days).padStart(2, '0');
-                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-            }
-
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
-
-            // ============================================
-            // CONSTELLATION + SISYPHUS MECHANIC
-            // ============================================
-            const canvas = document.getElementById('constellation');
-            const ctx = canvas.getContext('2d');
-            const dpr = window.devicePixelRatio || 1;
-
-            let width = window.innerWidth;
-            let height = window.innerHeight;
-            let particles = [];
-            let permanentMarks = []; // User touches
-            let animationTime = 0;
-            let mouseX = null;
-            let mouseY = null;
-            let touchCount = 0;
-            const COMPLETION_THRESHOLD = 30;
-
-            const progressHint = document.getElementById('progressHint');
-
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
-
-            document.addEventListener('mouseleave', () => {
-                mouseX = null;
-                mouseY = null;
-            });
-
-            function handleInteraction(x, y) {
-                if (!audioInitialized) {
-                    initAudio();
-                }
-
-                // Add permanent mark
-                permanentMarks.push({ x, y, alpha: 1, size: 3 });
-                touchCount++;
-
-                // Audio layer
-                addAudioLayer(touchCount);
-
-                // Hide hint after first touch
-                if (touchCount === 1) {
-                    progressHint.classList.add('hidden');
-                }
-
-                // Regular aphorism
-                if (touchCount < COMPLETION_THRESHOLD) {
-                    spawnAphorism(x, y, false);
-                }
-
-                // COMPLETION - SISYPHUS RESET
-                if (touchCount === COMPLETION_THRESHOLD) {
-                    setTimeout(() => {
-                        // Massive glitch
-                        canvas.classList.add('massive-glitch');
-                        audioClimax();
-                        
-                        // Completion aphorism
-                        spawnAphorism(width / 2, height / 2, true);
-
-                        setTimeout(() => {
-                            // RESET EVERYTHING
-                            canvas.classList.remove('massive-glitch');
-                            permanentMarks = [];
-                            touchCount = 0;
-                            progressHint.classList.remove('hidden');
-                            
-                            // Status change
-                            statusElement.textContent = 'DÖNGÜ YENİDEN BAŞLADI';
-                        }, 800);
-                    }, 100);
-                }
-            }
-
-            document.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                if (e.touches.length > 0) {
-                    const touch = e.touches[0];
-                    mouseX = touch.clientX;
-                    mouseY = touch.clientY;
-                    handleInteraction(touch.clientX, touch.clientY);
-                }
-            }, { passive: false });
-
-            document.addEventListener('touchmove', (e) => {
-                e.preventDefault();
-                if (e.touches.length > 0) {
-                    mouseX = e.touches[0].clientX;
-                    mouseY = e.touches[0].clientY;
-                }
-            }, { passive: false });
-
-            document.addEventListener('touchend', () => {
-                mouseX = null;
-                mouseY = null;
-            });
-
-            document.addEventListener('click', (e) => {
-                handleInteraction(e.clientX, e.clientY);
-            });
-
-            function resizeCanvas() {
-                width = window.innerWidth;
-                height = window.innerHeight;
-                
-                canvas.width = width * dpr;
-                canvas.height = height * dpr;
-                canvas.style.width = width + 'px';
-                canvas.style.height = height + 'px';
-                
-                ctx.scale(dpr, dpr);
-                
-                initParticles();
-            }
-
-            class Particle {
-                constructor() {
-                    this.baseX = Math.random() * width;
-                    this.baseY = Math.random() * height;
-                    this.x = this.baseX;
-                    this.y = this.baseY;
-                    
-                    this.angle = Math.random() * Math.PI * 2;
-                    this.radius = Math.random() * 100 + 50;
-                    this.speed = 0.0005 + Math.random() * 0.001;
-                    
-                    this.baseSize = Math.random() * 1.5 + 1;
-                    this.breathPhase = Math.random() * Math.PI * 2;
-                }
-
-                update(time) {
-                    // Circular motion (Möbius loop)
-                    this.angle += this.speed;
-                    this.x = this.baseX + Math.cos(this.angle) * this.radius;
-                    this.y = this.baseY + Math.sin(this.angle) * this.radius;
-                    
-                    // Boundary wrapping
-                    if (this.x < -50) this.baseX = width + 50;
-                    if (this.x > width + 50) this.baseX = -50;
-                    if (this.y < -50) this.baseY = height + 50;
-                    if (this.y > height + 50) this.baseY = -50;
-                }
-
-                draw(time) {
-                    const breathSize = this.baseSize + Math.sin(time * 0.002 + this.breathPhase) * 0.3;
-                    
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, breathSize, 0, Math.PI * 2);
-                    ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
-                    ctx.fill();
-                }
-            }
-
-            function initParticles() {
-                particles = [];
-                const particleCount = width < 768 ? 50 : 80;
-                
-                for (let i = 0; i < particleCount; i++) {
-                    particles.push(new Particle());
-                }
-            }
-
-            function drawConnections(time) {
-                const maxDistance = width < 768 ? 120 : 150;
-                const pulseSpeed = 0.0008;
-                const pulse = (Math.sin(time * pulseSpeed) + 1) * 0.5;
-
-                for (let i = 0; i < particles.length; i++) {
-                    for (let j = i + 1; j < particles.length; j++) {
-                        const dx = particles[i].x - particles[j].x;
-                        const dy = particles[i].y - particles[j].y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-
-                        if (distance < maxDistance) {
-                            const opacity = (1 - distance / maxDistance) * 0.2;
-                            const finalOpacity = opacity * (0.5 + pulse * 0.5);
-
-                            ctx.beginPath();
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.strokeStyle = `rgba(255, 255, 255, ${finalOpacity})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.stroke();
-                        }
-                    }
-                }
-            }
-
-            function drawPermanentMarks() {
-                permanentMarks.forEach(mark => {
-                    ctx.beginPath();
-                    ctx.arc(mark.x, mark.y, mark.size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(255, 215, 0, ${mark.alpha})`;
-                    ctx.shadowBlur = 20;
-                    ctx.shadowColor = 'rgba(255, 215, 0, 0.8)';
-                    ctx.fill();
-                    ctx.shadowBlur = 0;
-
-                    // Pulsing effect
-                    mark.size = 3 + Math.sin(animationTime * 0.005) * 0.5;
-                });
-            }
-
-            function animate() {
-                animationTime += 16;
-
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-                ctx.fillRect(0, 0, width, height);
-
-                particles.forEach(particle => {
-                    particle.update(animationTime);
-                    particle.draw(animationTime);
-                });
-
-                drawConnections(animationTime);
-                drawPermanentMarks();
-
-                requestAnimationFrame(animate);
-            }
-
-            window.addEventListener('resize', resizeCanvas);
-
-            resizeCanvas();
-            animate();
-        });
-    </script>
-
-</body>
-</html>
+                'ZAMAN, DAİ
