@@ -3,175 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Halit Cengiz Uzuner - Dijital İnşa Süreci">
     <title>Halit Cengiz Uzuner</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* CSS RESET */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            background-color: #000000;
-            color: #ffffff;
-            font-family: 'Playfair Display', serif;
-            overflow: hidden;
-            height: 100vh;
-            width: 100vw;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+        /* CSS SIFIRLAMA */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000; /* Simsiyah zemin */
+            overflow: hidden; /* Kaydırma çubuklarını gizle */
         }
 
-        /* KATMAN 1: ARKA PLAN ANIMASYONU (En altta ve sabit) */
-        canvas {
-            display: block;
-            position: fixed; /* Absolute yerine Fixed kullanıldı */
+        /* KATMAN 1: ARKA PLAN (EN ALT) */
+        #constellationCanvas {
+            position: fixed;
             top: 0;
             left: 0;
-            z-index: 1; /* En alt katman */
-            pointer-events: none; /* Tıklamaları engellemez */
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* İçeriğin arkasında kalması garanti */
         }
 
-        /* KATMAN 2: İÇERİK (Üstte) */
-        .content {
-            position: relative;
-            z-index: 10; /* Canvas'ın kesinlikle üstünde */
+        /* KATMAN 2: İÇERİK (ÜST) */
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             text-align: center;
-            padding: 2rem;
-            width: 100%;
-            max-width: 1200px;
+            color: #ffffff;
+            font-family: 'Playfair Display', serif;
+            width: 90%;
+            z-index: 10;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-size: clamp(2rem, 5vw, 4.5rem);
             font-weight: 900;
-            letter-spacing: 0.12em;
-            margin-bottom: 2rem;
+            letter-spacing: 0.15em;
+            margin: 0 0 2rem 0;
             text-transform: uppercase;
-            color: #ffffff;
-            text-shadow: 0 0 30px rgba(0,0,0,0.9); /* Okunabilirlik gölgesi */
+            text-shadow: 0 0 20px rgba(0,0,0,0.8);
         }
 
         .subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.6rem);
-            font-weight: 400;
-            letter-spacing: 0.15em;
-            color: #e0e0e0;
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            letter-spacing: 0.2em;
+            color: #cccccc;
             margin-bottom: 3rem;
             text-transform: uppercase;
+            border-bottom: 1px solid #666;
             display: inline-block;
-            border-bottom: 1px solid rgba(255,255,255,0.4);
-            padding-bottom: 1rem;
+            padding-bottom: 10px;
         }
 
-        /* SAYAÇ STİLLERİ */
-        .countdown-wrapper {
+        /* SAYAÇ */
+        .timer-box {
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin-top: 2rem;
         }
 
-        .time-unit {
+        .time-group {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .digit {
-            font-size: clamp(2rem, 5vw, 4rem);
+        .number {
+            font-size: clamp(2rem, 4vw, 3.5rem);
             font-weight: 700;
             line-height: 1;
             font-variant-numeric: tabular-nums;
         }
 
         .label {
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            margin-top: 0.8rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            margin-top: 0.5rem;
             color: #888;
-            text-transform: uppercase;
-        }
-
-        @media (max-width: 768px) {
-            .countdown-wrapper { gap: 1rem; }
-            h1 { letter-spacing: 0.05em; }
         }
     </style>
 </head>
 <body>
 
-    <canvas id="bgCanvas"></canvas>
+    <canvas id="constellationCanvas"></canvas>
 
-    <div class="content">
+    <div class="container">
         <h1>HALİT CENGİZ UZUNER</h1>
-        <p class="subtitle">DİJİTAL İNŞA SÜRECİ BAŞLADI</p>
-        
-        <div id="countdown-display" class="countdown-wrapper">
-            <div class="time-unit"><span class="digit">--</span><span class="label">GÜN</span></div>
-            <div class="time-unit"><span class="digit">--</span><span class="label">SAAT</span></div>
-            <div class="time-unit"><span class="digit">--</span><span class="label">DK</span></div>
-            <div class="time-unit"><span class="digit">--</span><span class="label">SN</span></div>
+        <div class="subtitle">DİJİTAL İNŞA SÜRECİ BAŞLADI</div>
+
+        <div class="timer-box" id="timer">
+            <div class="time-group"><span class="number" id="d">10</span><span class="label">GÜN</span></div>
+            <div class="time-group"><span class="number" id="h">00</span><span class="label">SAAT</span></div>
+            <div class="time-group"><span class="number" id="m">00</span><span class="label">DK</span></div>
+            <div class="time-group"><span class="number" id="s">00</span><span class="label">SN</span></div>
         </div>
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
+        window.onload = function() {
+            /* 1. SAYAÇ MOTORU */
+            // Hedef: Şu an + 10 gün
+            const target = new Date();
+            target.setDate(target.getDate() + 10);
+
+            function updateTimer() {
+                const now = new Date().getTime();
+                const diff = target - now;
+
+                if (diff < 0) return; // Süre dolduysa dur
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                // DOM Güncelleme
+                document.getElementById('d').innerText = days < 10 ? '0' + days : days;
+                document.getElementById('h').innerText = hours < 10 ? '0' + hours : hours;
+                document.getElementById('m').innerText = minutes < 10 ? '0' + minutes : minutes;
+                document.getElementById('s').innerText = seconds < 10 ? '0' + seconds : seconds;
+            }
             
-            // ---------------------------------------------------------
-            // MODÜL 1: SAYAÇ MOTORU (Hata Toleranslı)
-            // ---------------------------------------------------------
-            try {
-                // ŞİMDİ + 10 GÜN HESABI
-                const targetDate = new Date();
-                targetDate.setDate(targetDate.getDate() + 10); 
+            setInterval(updateTimer, 1000);
+            updateTimer(); // İlk tetikleme
 
-                const updateCounter = () => {
-                    const now = new Date().getTime();
-                    const diff = targetDate - now;
+            /* 2. ANIMASYON MOTORU */
+            const canvas = document.getElementById('constellationCanvas');
+            const ctx = canvas.getContext('2d');
+            let w, h, particles;
 
-                    if (diff < 0) {
-                        document.getElementById("countdown-display").innerHTML = "<div class='digit' style='font-size:2rem'>SİSTEM AKTİF</div>";
-                        return;
-                    }
+            // Retina/HiDPI Ayarı
+            const dpr = window.devicePixelRatio || 1;
 
-                    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-                    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                    const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-                    const fmt = (n) => n < 10 ? `0${n}` : n;
-
-                    document.getElementById("countdown-display").innerHTML = `
-                        <div class="time-unit"><span class="digit">${fmt(d)}</span><span class="label">GÜN</span></div>
-                        <div class="time-unit"><span class="digit">${fmt(h)}</span><span class="label">SAAT</span></div>
-                        <div class="time-unit"><span class="digit">${fmt(m)}</span><span class="label">DK</span></div>
-                        <div class="time-unit"><span class="digit">${fmt(s)}</span><span class="label">SN</span></div>
-                    `;
-                };
-
-                setInterval(updateCounter, 1000);
-                updateCounter(); // İlk çağrı
-                console.log("Sayaç Başlatıldı.");
-
-            } catch (err) {
-                console.error("Sayaç Hatası:", err);
-                document.getElementById("countdown-display").innerText = "SAYAÇ YÜKLENEMEDİ";
+            function resize() {
+                w = window.innerWidth;
+                h = window.innerHeight;
+                canvas.width = w * dpr;
+                canvas.height = h * dpr;
+                ctx.scale(dpr, dpr);
+                initParticles();
             }
 
-            // ---------------------------------------------------------
-            // MODÜL 2: ANIMASYON MOTORU (Hata Toleranslı)
-            // ---------------------------------------------------------
-            try {
-                const canvas = document.getElementById('bgCanvas');
-                const ctx = canvas.getContext('2d');
-                let w, h;
-                let particles = [];
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * w;
+                    this.y = Math.random() * h;
+                    this.vx = (Math.random() - 0.5) * 0.3; // Hız
+                    this.vy = (Math.random() - 0.5) * 0.3;
+                    this.size = Math.random() * 2 + 1;
+                }
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    if (this.x < 0 || this.x > w) this.vx *= -1;
+                    if (this.y < 0 || this.y > h) this.vy *= -1;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+                    ctx.fill();
+                }
+            }
+
+            function initParticles() {
+                particles = [];
+                const count = w < 800 ? 50 : 100;
+                for(let i=0; i<count; i++) particles.push(new Particle());
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, w, h); // Temizle
                 
-                // Mobil/Tablet algılaması için basit kontrol
-                const isMobile = window.innerWidth < 800;
-                const particleCount = isMobile ? 50 : 100;
-                const connectDist = isMobile ? 10
+                // Parçacıklar
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+
+                // Çizgiler
+                const limit = w < 800 ? 100 : 150;
+                for(let i=0; i<particles.length; i++) {
