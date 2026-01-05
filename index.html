@@ -3,74 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Halit Cengiz Uzuner - Hukukçu ve Entelektüel">
+    <meta name="description" content="Halit Cengiz Uzuner - Dijital İnşa Süreci">
     <title>Halit Cengiz Uzuner</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             background: #000000;
             color: #ffffff;
             font-family: 'Playfair Display', serif;
             overflow: hidden;
             height: 100vh;
+            width: 100vw;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative; /* Canvas ve Content için referans */
         }
+
+        /* Arka Plan Animasyonu Katmanı */
         canvas {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
+            z-index: 0; /* En altta */
+            display: block;
         }
+
+        /* İçerik Katmanı */
         .content {
             position: relative;
-            z-index: 10;
+            z-index: 10; /* Canvas'ın üzerinde */
             text-align: center;
             padding: 2rem;
             max-width: 90%;
+            /* Arka planın çok karışık olduğu anlarda okunabilirliği artırmak için hafif gölge */
+            text-shadow: 0 4px 30px rgba(0,0,0,0.8); 
         }
+
         h1 {
             font-size: clamp(2rem, 5vw, 4.5rem);
             font-weight: 900;
             letter-spacing: 0.15em;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             text-transform: uppercase;
             line-height: 1.2;
             color: #ffffff;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
         }
+
         .subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.8rem);
+            font-size: clamp(1rem, 2vw, 1.5rem);
             font-weight: 400;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.2em; /* Geniş aralık, otoriter duruş */
             color: #cccccc;
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
+            margin-bottom: 3rem;
             text-transform: uppercase;
-        }
-        .highlight {
+            border-bottom: 1px solid rgba(255,255,255,0.3);
             display: inline-block;
-            font-size: clamp(1rem, 2.5vw, 1.8rem); /* Sayaç için font boyutu ayarlandı */
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            color: #ffffff;
-            border-bottom: 2px solid #ffffff;
-            padding-bottom: 0.5rem;
-            margin-top: 1rem;
-            text-transform: uppercase;
-            min-width: 200px; /* Sayaç yüklenirken düzen bozulmasın */
+            padding-bottom: 1rem;
         }
+
+        /* Sayaç Tasarımı */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            font-variant-numeric: tabular-nums; /* Rakamların titremesini engeller */
+        }
+
+        .time-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .time-value {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        .time-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            color: #888888;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+        }
+
         @media (max-width: 768px) {
-            .content { padding: 1.5rem; }
-            h1 { letter-spacing: 0.1em; margin-bottom: 1rem; }
-            .subtitle { letter-spacing: 0.05em; margin-bottom: 2rem; }
-            .highlight { margin-top: 1.5rem; font-size: clamp(0.9rem, 2.5vw, 1.5rem); }
+            .countdown-container { gap: 1rem; }
+            h1 { letter-spacing: 0.1em; margin-bottom: 1.5rem; }
+            .subtitle { letter-spacing: 0.1em; margin-bottom: 2rem; }
         }
     </style>
 </head>
@@ -81,18 +111,26 @@
     <div class="content">
         <h1>HALİT CENGİZ UZUNER</h1>
         <p class="subtitle">DİJİTAL İNŞA SÜRECİ BAŞLADI</p>
-        <div class="highlight" id="countdown">SİSTEM YÜKLENİYOR...</div>
+        
+        <div class="countdown-container" id="countdown">
+            <div style="font-size: 1.2rem; letter-spacing: 0.1em;">SİSTEM YÜKLENİYOR...</div>
+        </div>
     </div>
 
     <script>
-        // --- CANVAS ANİMASYON KODU (Değişmedi) ---
+        /* -----------------------------------------------------------
+           1. CANVAS ANIMASYON MOTORU (Constellation Network)
+           ----------------------------------------------------------- */
         const canvas = document.getElementById('constellation');
         const ctx = canvas.getContext('2d');
+        
         let width, height;
         let particles = [];
-        const particleCount = window.innerWidth < 768 ? 40 : 80;
-        const maxDistance = window.innerWidth < 768 ? 100 : 150;
-        const particleSpeed = 0.15;
+        
+        // Ayarlar
+        const particleCount = window.innerWidth < 768 ? 45 : 90; // Parçacık sayısı artırıldı
+        const connectionDistance = window.innerWidth < 768 ? 100 : 160;
+        const particleSpeed = 0.2; // Hareket hızı biraz artırıldı
 
         class Particle {
             constructor() {
@@ -100,41 +138,32 @@
                 this.y = Math.random() * height;
                 this.vx = (Math.random() - 0.5) * particleSpeed;
                 this.vy = (Math.random() - 0.5) * particleSpeed;
-                this.radius = Math.random() * 1.5 + 0.5;
+                this.size = Math.random() * 2 + 1; // Daha belirgin noktalar
             }
+
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
+
+                // Ekran sınırlarından sekme
                 if (this.x < 0 || this.x > width) this.vx *= -1;
                 if (this.y < 0 || this.y > height) this.vy *= -1;
             }
+
             draw() {
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.8)'; // Daha parlak noktalar
                 ctx.fill();
             }
         }
-        function init() {
+
+        function initCanvas() {
             width = window.innerWidth;
             height = window.innerHeight;
+            
+            // Retina/HiDPI Desteği
             const dpr = window.devicePixelRatio || 1;
             canvas.width = width * dpr;
             canvas.height = height * dpr;
-            ctx.scale(dpr, dpr);
-            canvas.style.width = `${width}px`;
-            canvas.style.height = `${height}px`;
-            particles = [];
-            for (let i = 0; i < particleCount; i++) { particles.push(new Particle()); }
-        }
-        function connectParticles() {
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < maxDistance) {
-                        const opacity = (1 - distance / maxDistance) * 0.3;
-                        ctx.beginPath();
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
-                        ctx.lineWidth = 0.5;
+            ctx.scale(dpr, dpr
