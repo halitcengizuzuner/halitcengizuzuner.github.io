@@ -3,170 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Halit Cengiz Uzuner - Hukukçu ve Entelektüel">
     <title>Halit Cengiz Uzuner</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* CSS SIFIRLAMA */
-        body, html {
+        * {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #000000; /* Simsiyah zemin */
-            overflow: hidden; /* Kaydırma çubuklarını gizle */
+            box-sizing: border-box;
         }
 
-        /* KATMAN 1: ARKA PLAN (EN ALT) */
-        #constellationCanvas {
-            position: fixed;
+        body, html {
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            overflow: hidden;
+            font-family: 'Playfair Display', serif;
+        }
+
+        #constellation {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* İçeriğin arkasında kalması garanti */
+            z-index: 1;
         }
 
-        /* KATMAN 2: İÇERİK (ÜST) */
-        .container {
+        .content {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            text-align: center;
-            color: #ffffff;
-            font-family: 'Playfair Display', serif;
-            width: 90%;
             z-index: 10;
+            text-align: center;
+            width: 90%;
+            max-width: 1200px;
         }
 
         h1 {
-            font-size: clamp(2rem, 5vw, 4.5rem);
+            font-size: clamp(2.5rem, 6vw, 5rem);
             font-weight: 900;
-            letter-spacing: 0.15em;
-            margin: 0 0 2rem 0;
+            letter-spacing: 0.2em;
+            color: #ffffff;
             text-transform: uppercase;
-            text-shadow: 0 0 20px rgba(0,0,0,0.8);
+            margin-bottom: 2rem;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+            line-height: 1.2;
         }
 
         .subtitle {
-            font-size: clamp(1rem, 2vw, 1.5rem);
-            letter-spacing: 0.2em;
-            color: #cccccc;
-            margin-bottom: 3rem;
+            font-size: clamp(0.9rem, 2vw, 1.4rem);
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            color: #aaaaaa;
             text-transform: uppercase;
-            border-bottom: 1px solid #666;
+            margin-bottom: 4rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             display: inline-block;
-            padding-bottom: 10px;
         }
 
-        /* SAYAÇ */
-        .timer-box {
+        .countdown {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: clamp(1.5rem, 4vw, 3rem);
+            flex-wrap: wrap;
         }
 
-        .time-group {
+        .time-unit {
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-width: clamp(60px, 10vw, 100px);
         }
 
-        .number {
-            font-size: clamp(2rem, 4vw, 3.5rem);
+        .time-value {
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
+            color: #ffffff;
             line-height: 1;
             font-variant-numeric: tabular-nums;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         }
 
-        .label {
-            font-size: 0.7rem;
-            letter-spacing: 0.15em;
-            margin-top: 0.5rem;
-            color: #888;
+        .time-label {
+            font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            color: #666666;
+            margin-top: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                letter-spacing: 0.15em;
+            }
+
+            .subtitle {
+                letter-spacing: 0.15em;
+                margin-bottom: 3rem;
+            }
+
+            .countdown {
+                gap: 1.2rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <canvas id="constellationCanvas"></canvas>
+    <canvas id="constellation"></canvas>
 
-    <div class="container">
+    <div class="content">
         <h1>HALİT CENGİZ UZUNER</h1>
         <div class="subtitle">DİJİTAL İNŞA SÜRECİ BAŞLADI</div>
-
-        <div class="timer-box" id="timer">
-            <div class="time-group"><span class="number" id="d">10</span><span class="label">GÜN</span></div>
-            <div class="time-group"><span class="number" id="h">00</span><span class="label">SAAT</span></div>
-            <div class="time-group"><span class="number" id="m">00</span><span class="label">DK</span></div>
-            <div class="time-group"><span class="number" id="s">00</span><span class="label">SN</span></div>
+        
+        <div class="countdown">
+            <div class="time-unit">
+                <div class="time-value" id="days">10</div>
+                <div class="time-label">GÜN</div>
+            </div>
+            <div class="time-unit">
+                <div class="time-value" id="hours">00</div>
+                <div class="time-label">SAAT</div>
+            </div>
+            <div class="time-unit">
+                <div class="time-value" id="minutes">00</div>
+                <div class="time-label">DAKİKA</div>
+            </div>
+            <div class="time-unit">
+                <div class="time-value" id="seconds">00</div>
+                <div class="time-label">SANİYE</div>
+            </div>
         </div>
     </div>
 
     <script>
-        window.onload = function() {
-            /* 1. SAYAÇ MOTORU */
-            // Hedef: Şu an + 10 gün
-            const target = new Date();
-            target.setDate(target.getDate() + 10);
+        window.addEventListener('load', function() {
+            // ============================================
+            // SAYAÇ MOTORU
+            // ============================================
+            const targetDate = new Date();
+            targetDate.setDate(targetDate.getDate() + 10);
+            targetDate.setHours(0, 0, 0, 0);
 
-            function updateTimer() {
+            function updateCountdown() {
                 const now = new Date().getTime();
-                const diff = target - now;
+                const distance = targetDate.getTime() - now;
 
-                if (diff < 0) return; // Süre dolduysa dur
+                if (distance < 0) {
+                    document.getElementById('days').textContent = '00';
+                    document.getElementById('hours').textContent = '00';
+                    document.getElementById('minutes').textContent = '00';
+                    document.getElementById('seconds').textContent = '00';
+                    return;
+                }
 
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                // DOM Güncelleme
-                document.getElementById('d').innerText = days < 10 ? '0' + days : days;
-                document.getElementById('h').innerText = hours < 10 ? '0' + hours : hours;
-                document.getElementById('m').innerText = minutes < 10 ? '0' + minutes : minutes;
-                document.getElementById('s').innerText = seconds < 10 ? '0' + seconds : seconds;
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
             }
-            
-            setInterval(updateTimer, 1000);
-            updateTimer(); // İlk tetikleme
 
-            /* 2. ANIMASYON MOTORU */
-            const canvas = document.getElementById('constellationCanvas');
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+
+            // ============================================
+            // CONSTELLATION ANIMASYON MOTORU
+            // ============================================
+            const canvas = document.getElementById('constellation');
             const ctx = canvas.getContext('2d');
-            let w, h, particles;
-
-            // Retina/HiDPI Ayarı
             const dpr = window.devicePixelRatio || 1;
 
-            function resize() {
-                w = window.innerWidth;
-                h = window.innerHeight;
-                canvas.width = w * dpr;
-                canvas.height = h * dpr;
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+            let particles = [];
+            let animationTime = 0;
+
+            // HiDPI ayarı
+            function resizeCanvas() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                
+                canvas.width = width * dpr;
+                canvas.height = height * dpr;
+                canvas.style.width = width + 'px';
+                canvas.style.height = height + 'px';
+                
                 ctx.scale(dpr, dpr);
+                
                 initParticles();
             }
 
             class Particle {
                 constructor() {
-                    this.x = Math.random() * w;
-                    this.y = Math.random() * h;
-                    this.vx = (Math.random() - 0.5) * 0.3; // Hız
-                    this.vy = (Math.random() - 0.5) * 0.3;
-                    this.size = Math.random() * 2 + 1;
+                    this.baseX = Math.random() * width;
+                    this.baseY = Math.random() * height;
+                    this.x = this.baseX;
+                    this.y = this.baseY;
+                    
+                    // Organik hareket için parametreler
+                    this.offsetX = Math.random() * Math.PI * 2;
+                    this.offsetY = Math.random() * Math.PI * 2;
+                    this.radiusX = Math.random() * 30 + 20;
+                    this.radiusY = Math.random() * 30 + 20;
+                    this.speedX = (Math.random() - 0.5) * 0.0015;
+                    this.speedY = (Math.random() - 0.5) * 0.0015;
+                    
+                    // Breathing efekti için
+                    this.baseSize = Math.random() * 1.5 + 1;
+                    this.breathPhase = Math.random() * Math.PI * 2;
                 }
-                update() {
-                    this.x += this.vx;
-                    this.y += this.vy;
-                    if (this.x < 0 || this.x > w) this.vx *= -1;
-                    if (this.y < 0 || this.y > h) this.vy *= -1;
+
+                update(time) {
+                    // Sinüs dalgası ile organik hareket
+                    this.x = this.baseX + Math.sin(time * this.speedX + this.offsetX) * this.radiusX;
+                    this.y = this.baseY + Math.cos(time * this.speedY + this.offsetY) * this.radiusY;
+                    
+                    // Sınır kontrolü
+                    if (this.x < -50) this.baseX = width + 50;
+                    if (this.x > width + 50) this.baseX = -50;
+                    if (this.y < -50) this.baseY = height + 50;
+                    if (this.y > height + 50) this.baseY = -50;
                 }
-                draw() {
+
+                draw(time) {
+                    // Breathing efekti
+                    const breathSize = this.baseSize + Math.sin(time * 0.002 + this.breathPhase) * 0.3;
+                    
                     ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.arc(this.x, this.y, breathSize, 0, Math.PI * 2);
                     ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
                     ctx.fill();
                 }
@@ -174,19 +249,66 @@
 
             function initParticles() {
                 particles = [];
-                const count = w < 800 ? 50 : 100;
-                for(let i=0; i<count; i++) particles.push(new Particle());
+                const particleCount = width < 768 ? 50 : 100;
+                
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            function drawConnections(time) {
+                const maxDistance = width < 768 ? 120 : 180;
+                const pulseSpeed = 0.001;
+                const pulse = (Math.sin(time * pulseSpeed) + 1) * 0.5; // 0-1 arası
+
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < maxDistance) {
+                            const opacity = (1 - distance / maxDistance) * 0.25;
+                            const finalOpacity = opacity * (0.5 + pulse * 0.5); // Pulse efekti
+
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(255, 255, 255, ${finalOpacity})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
             }
 
             function animate() {
-                ctx.clearRect(0, 0, w, h); // Temizle
-                
-                // Parçacıklar
-                particles.forEach(p => {
-                    p.update();
-                    p.draw();
+                animationTime += 16; // ~60fps
+
+                // Fade efekti ile iz bırakma
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.03)';
+                ctx.fillRect(0, 0, width, height);
+
+                // Partikülleri güncelle ve çiz
+                particles.forEach(particle => {
+                    particle.update(animationTime);
+                    particle.draw(animationTime);
                 });
 
-                // Çizgiler
-                const limit = w < 800 ? 100 : 150;
-                for(let i=0; i<particles.length; i++) {
+                // Bağlantıları çiz
+                drawConnections(animationTime);
+
+                requestAnimationFrame(animate);
+            }
+
+            // Resize event
+            window.addEventListener('resize', resizeCanvas);
+
+            // Başlat
+            resizeCanvas();
+            animate();
+        });
+    </script>
+
+</body>
+</html>
