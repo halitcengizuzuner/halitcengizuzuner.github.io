@@ -3,68 +3,558 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="Halit Cengiz Uzuner - Living Consciousness">
-    <title>Halit Cengiz Uzuner</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>🎁 Gülnur'a Özel 🎁</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body, html {
-            width: 100%; height: 100%;
-            background: #000000;
+        
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
             overflow: hidden;
-            font-family: 'Playfair Display', serif;
-            cursor: crosshair;
-            -webkit-tap-highlight-color: transparent;
-            touch-action: none;
-        }
-
-        @keyframes rebirth-flash {
-            0% { filter: brightness(1); background: #000; }
-            15% { filter: brightness(8) blur(3px); background: #222; }
-            30% { filter: brightness(0.3); background: #000; }
-            45% { filter: brightness(6) blur(2px); background: #111; }
-            60% { filter: brightness(0.5); background: #000; }
-            100% { filter: brightness(1); background: #000; }
-        }
-        .rebirth { animation: rebirth-flash 1.2s cubic-bezier(0.4, 0, 0.2, 1); }
-
-        @keyframes system-pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
-        }
-        .pulse { animation: system-pulse 0.3s ease-out; }
-
-        @keyframes quantum-freeze {
-            0% { filter: grayscale(0); }
-            100% { filter: grayscale(1) blur(1px); }
-        }
-        .frozen { animation: quantum-freeze 2s ease-out forwards; }
-
-        #constellation {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%; z-index: 1;
-        }
-
-        .content {
-            position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10; text-align: center;
-            width: 90%; max-width: 1000px;
-            pointer-events: none;
-            transition: transform 2s ease-in-out;
-        }
-
-        .name-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-size: 200% 200%;
+            animation: gradient-shift 8s ease infinite;
+            height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: clamp(0.5rem, 1vw, 1rem);
-            margin-bottom: 2rem;
+            justify-content: center;
+            position: relative;
         }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #countdown-scene {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        #countdown-scene.hidden { display: none; }
+
+        .title {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        .gift-box {
+            width: clamp(150px, 40vw, 250px);
+            height: clamp(150px, 40vw, 250px);
+            margin: 0 auto 2rem;
+            position: relative;
+            animation: gift-breathe 3s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        @keyframes gift-breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .box-body {
+            width: 100%;
+            height: 70%;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            border-radius: 10px;
+            position: absolute;
+            bottom: 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .box-lid {
+            width: 110%;
+            height: 35%;
+            background: linear-gradient(135deg, #ffa8c5 0%, #ff6b9d 100%);
+            border-radius: 10px 10px 5px 5px;
+            position: absolute;
+            top: -5%;
+            left: -5%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .ribbon-v {
+            width: 15%;
+            height: 100%;
+            background: linear-gradient(to right, #ffd700 0%, #ffed4e 100%);
+            position: absolute;
+            left: 42.5%;
+            top: 0;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .ribbon-h {
+            width: 100%;
+            height: 15%;
+            background: linear-gradient(to bottom, #ffd700 0%, #ffed4e 100%);
+            position: absolute;
+            left: 0;
+            top: 42.5%;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .bow {
+            width: 40%;
+            height: 40%;
+            position: absolute;
+            top: -15%;
+            left: 30%;
+        }
+
+        .bow::before,
+        .bow::after {
+            content: '';
+            position: absolute;
+            width: 45%;
+            height: 80%;
+            background: #ffd700;
+            border-radius: 50% 50% 0 50%;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+
+        .bow::before {
+            left: 0;
+            transform: rotate(-30deg);
+        }
+
+        .bow::after {
+            right: 0;
+            transform: rotate(30deg) scaleX(-1);
+        }
+
+        .countdown-timer {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            color: #fff;
+            font-weight: 900;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.9),
+                         0 0 50px rgba(255, 107, 157, 0.8);
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+        }
+
+        .open-button {
+            display: none;
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+            border: none;
+            padding: 1.5rem 3rem;
+            font-size: 1.5rem;
+            font-weight: 900;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+            animation: button-pulse 1s ease-in-out infinite;
+            font-family: inherit;
+        }
+
+        .open-button.show { display: inline-block; }
+
+        @keyframes button-pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5); }
+            50% { transform: scale(1.1); box-shadow: 0 15px 40px rgba(255, 107, 157, 0.8); }
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            transform: rotate(45deg);
+            animation: float-up 6s ease-in infinite;
+            opacity: 0;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            left: -10px;
+            top: 0;
+        }
+
+        .heart::after {
+            left: 0;
+            top: -10px;
+        }
+
+        @keyframes float-up {
+            0% { bottom: -50px; opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.3; }
+            100% { bottom: 110vh; opacity: 0; }
+        }
+
+        #celebration-scene {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 20;
+        }
+
+        #celebration-scene.show { display: block; }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff6b9d;
+            animation: confetti-fall 3s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                top: -10%;
+                opacity: 1;
+                transform: translateX(0) rotate(0deg);
+            }
+            100% {
+                top: 110%;
+                opacity: 0;
+                transform: translateX(var(--tx)) rotate(720deg);
+            }
+        }
+
+        .flower {
+            position: absolute;
+            animation: flower-bloom 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            opacity: 0;
+        }
+
+        @keyframes flower-bloom {
+            0% { transform: scale(0) rotate(0deg); opacity: 0; }
+            60% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+            100% { transform: scale(1) rotate(360deg); opacity: 1; }
+        }
+
+        .petal {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            border-radius: 50% 0 50% 0;
+        }
+
+        .butterfly {
+            position: absolute;
+            font-size: 2rem;
+            animation: butterfly-fly 8s ease-in-out infinite;
+        }
+
+        @keyframes butterfly-fly {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(50px, -50px) rotate(10deg);
+            }
+            50% {
+                transform: translate(-30px, -80px) rotate(-10deg);
+            }
+            75% {
+                transform: translate(70px, -40px) rotate(5deg);
+            }
+        }
+
+        .message-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 90%;
+            animation: message-appear 1s ease-out 2s forwards;
+            opacity: 0;
+            z-index: 30;
+        }
+
+        @keyframes message-appear {
+            to { opacity: 1; }
+        }
+
+        .message-container h1 {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            color: #c44569;
+            margin-bottom: 1rem;
+        }
+
+        .message-container p {
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+            color: #666;
+            line-height: 1.8;
+            margin: 0.5rem 0;
+        }
+
+        .replay-button {
+            margin-top: 1.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            font-family: inherit;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px white;
+            animation: sparkle-twinkle 1.5s ease-in-out infinite;
+        }
+
+        @keyframes sparkle-twinkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown-scene">
+        <div class="title">GECEYİ BEKLİYOR...</div>
+        
+        <div class="gift-box">
+            <div class="box-body">
+                <div class="ribbon-v"></div>
+                <div class="ribbon-h"></div>
+            </div>
+            <div class="box-lid">
+                <div class="bow"></div>
+            </div>
+        </div>
+
+        <div class="countdown-timer" id="timer">--:--:--</div>
+        
+        <button class="open-button" id="openBtn">AÇ BENİ! 🎁</button>
+    </div>
+
+    <div id="hearts-container"></div>
+
+    <div id="celebration-scene">
+        <div class="message-container">
+            <h1>✨ İYİ Kİ DOĞDUN GÜLNUR! ✨</h1>
+            <p>Sevgili ablam,</p>
+            <p>Hayat dolu ruhun, dans eden gülüşün,<br>
+            ilmek ilmek ördüğün sıcacık dünyanda bir yıl daha!</p>
+            <p>54 yaş genç,<br>
+            Sen hep 5 yaşındasın! 🎈</p>
+            <p style="margin-top: 1rem;">Dahi ve bir melek (tescilli) 😊</p>
+            <p style="margin-top: 1rem; font-weight: 700;">Seni çok seviyorum.</p>
+            <p style="font-style: italic; color: #764ba2;">- Halit</p>
+            <button class="replay-button" onclick="replayCelebration()">TEKRAR AÇ! 🎉</button>
+        </div>
+    </div>
+
+    <script>
+        const targetDate = new Date('2025-01-21T00:00:00').getTime();
+        const timerEl = document.getElementById('timer');
+        const openBtn = document.getElementById('openBtn');
+        const countdownScene = document.getElementById('countdown-scene');
+        const celebrationScene = document.getElementById('celebration-scene');
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                timerEl.textContent = '00:00:00';
+                openBtn.classList.add('show');
+                return;
+            }
+
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            timerEl.textContent = 
+                `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            document.getElementById('hearts-container').appendChild(heart);
+            setTimeout(() => heart.remove(), 7000);
+        }
+
+        setInterval(createHeart, 800);
+
+        openBtn.addEventListener('click', triggerCelebration);
+
+        function triggerCelebration() {
+            countdownScene.classList.add('hidden');
+            celebrationScene.classList.add('show');
+
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => createConfetti(), i * 30);
+            }
+
+            setTimeout(() => {
+                for (let i = 0; i < 8; i++) {
+                    setTimeout(() => createFlower(), i * 200);
+                }
+            }, 500);
+
+            setTimeout(() => {
+                for (let i = 0; i < 5; i++) {
+                    createButterfly();
+                }
+            }, 1000);
+
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => createSparkle(), i * 100);
+            }
+
+            playBirthdayMelody();
+        }
+
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.setProperty('--tx', (Math.random() - 0.5) * 200 + 'px');
+            confetti.style.background = ['#ff6b9d', '#ffd700', '#667eea', '#f093fb', '#ffed4e'][Math.floor(Math.random() * 5)];
+            confetti.style.animationDelay = Math.random() * 0.5 + 's';
+            
+            if (Math.random() > 0.5) {
+                confetti.style.borderRadius = '50%';
+            }
+
+            celebrationScene.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 3500);
+        }
+
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            flower.style.left = Math.random() * 80 + 10 + '%';
+            flower.style.top = Math.random() * 60 + 20 + '%';
+
+            const colors = ['#ff6b9d', '#ffd700', '#667eea', '#f093fb', '#ffb88c'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+
+            for (let i = 0; i < 6; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.style.background = color;
+                petal.style.transform = `rotate(${i * 60}deg) translateY(-15px)`;
+                flower.appendChild(petal);
+            }
+
+            const center = document.createElement('div');
+            center.style.cssText = `
+                width: 15px; height: 15px;
+                background: #ffd700;
+                border-radius: 50%;
+                position: absolute;
+                top: 50%; left: 50%;
+                transform: translate(-50%, -50%);
+            `;
+            flower.appendChild(center);
+
+            celebrationScene.appendChild(flower);
+        }
+
+        function createButterfly() {
+            const butterfly = document.createElement('div');
+            butterfly.className = 'butterfly';
+            butterfly.textContent = '🦋';
+            butterfly.style.left = Math.random() * 80 + '%';
+            butterfly.style.top = Math.random() * 60 + 20 + '%';
+            butterfly.style.animationDelay = Math.random() * 2 + 's';
+            celebrationScene.appendChild(butterfly);
+        }
+
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 1 + 's';
+            celebrationScene.appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 3000);
+        }
+
+        function replayCelebration() {
+            celebrationScene.innerHTML = '';
+            celebrationScene.classList.remove('show');
+            countdownScene.classList.remove('hidden');
+            
+            setTimeout(() => {
+                triggerCelebration();
+            }, 100);
+        }
+
+        function playBirthdayMelody() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const notes = [
+                { freq: 523.25, duration: 0.3 },
+                { freq: 659.25, duration: 0.3 },
+                { freq: 783.99, duration: 0.3 },
+                { freq: 1046.50, duration: 0.4 },
+                { freq: 783.99, duration: 0.3 },
+                { freq: 659.25, duration: 0.3 },
+                { freq: 523.25, duration: 0.5 },
+            ];
+
+            let time = audioContext.currentTime;
+
+            notes.forEach(note => {
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+
+                oscillator.frequency.value = note.freq;
+                oscillator.type = 'sine';
+
+                gainNode.gain.setValueAtTime(0.3, time);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, time + note.duration);
+
+                oscillator.start(time);
+                oscillator.stop(time + note.duration);
+
+                time += note.duration + 0.1;
+            });
+        }
+    </script>
+</body>
+</html>        }
 
         .name-line {
             display: flex;
