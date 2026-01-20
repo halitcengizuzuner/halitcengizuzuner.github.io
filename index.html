@@ -11,9 +11,9 @@
         body {
             font-family: 'Comic Sans MS', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
             overflow: hidden;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            background-size: 200% 200%;
-            animation: gradient-shift 8s ease infinite;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 30%, #f093fb 60%, #ff6b9d 100%);
+            background-size: 400% 400%;
+            animation: rainbow-shift 6s ease infinite;
             height: 100vh;
             display: flex;
             align-items: center;
@@ -21,156 +21,192 @@
             position: relative;
         }
 
-        @keyframes gradient-shift {
+        @keyframes rainbow-shift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        #countdown-scene {
+        /* GIFT SCENE */
+        #gift-scene {
             text-align: center;
             position: relative;
             z-index: 10;
         }
 
-        #countdown-scene.hidden { display: none; }
-
-        .title {
-            font-size: clamp(1.5rem, 5vw, 2.5rem);
-            color: #fff;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-            margin-bottom: 2rem;
-            animation: pulse-glow 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.05); }
-        }
+        #gift-scene.hidden { display: none; }
 
         .gift-box {
-            width: clamp(150px, 40vw, 250px);
-            height: clamp(150px, 40vw, 250px);
-            margin: 0 auto 2rem;
+            width: clamp(220px, 60vw, 400px);
+            height: clamp(220px, 60vw, 400px);
+            margin: 0 auto 3rem;
             position: relative;
-            animation: gift-breathe 3s ease-in-out infinite;
+            animation: gift-float 3s ease-in-out infinite;
             cursor: pointer;
+            filter: drop-shadow(0 20px 60px rgba(0,0,0,0.4));
         }
 
-        @keyframes gift-breathe {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+        @keyframes gift-float {
+            0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+            50% { transform: translateY(-20px) scale(1.05) rotate(2deg); }
         }
 
         .box-body {
             width: 100%;
-            height: 70%;
-            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
-            border-radius: 10px;
+            height: 75%;
+            background: linear-gradient(135deg, #ff1744 0%, #d50000 50%, #ff1744 100%);
+            background-size: 200% 200%;
+            animation: shimmer 2s ease infinite;
+            border-radius: 15px;
             position: absolute;
             bottom: 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 50px rgba(255, 23, 68, 0.5),
+                        inset 0 -5px 20px rgba(0,0,0,0.2);
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .box-lid {
-            width: 110%;
-            height: 35%;
-            background: linear-gradient(135deg, #ffa8c5 0%, #ff6b9d 100%);
-            border-radius: 10px 10px 5px 5px;
+            width: 115%;
+            height: 40%;
+            background: linear-gradient(135deg, #ff5252 0%, #ff1744 50%, #ff5252 100%);
+            background-size: 200% 200%;
+            animation: shimmer 2s ease infinite 0.5s;
+            border-radius: 15px 15px 8px 8px;
             position: absolute;
-            top: -5%;
-            left: -5%;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            top: -8%;
+            left: -7.5%;
+            box-shadow: 0 10px 30px rgba(255, 23, 68, 0.4);
         }
 
         .ribbon-v {
-            width: 15%;
-            height: 100%;
-            background: linear-gradient(to right, #ffd700 0%, #ffed4e 100%);
+            width: 18%;
+            height: 105%;
+            background: linear-gradient(to right, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+            background-size: 200% 200%;
+            animation: gold-shimmer 1.5s ease infinite;
             position: absolute;
-            left: 42.5%;
-            top: 0;
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            left: 41%;
+            top: -2%;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            border-radius: 3px;
+        }
+
+        @keyframes gold-shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .ribbon-h {
-            width: 100%;
-            height: 15%;
-            background: linear-gradient(to bottom, #ffd700 0%, #ffed4e 100%);
+            width: 105%;
+            height: 18%;
+            background: linear-gradient(to bottom, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+            background-size: 200% 200%;
+            animation: gold-shimmer 1.5s ease infinite 0.3s;
             position: absolute;
-            left: 0;
-            top: 42.5%;
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            left: -2%;
+            top: 41%;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            border-radius: 3px;
         }
 
         .bow {
-            width: 40%;
-            height: 40%;
+            width: 50%;
+            height: 50%;
             position: absolute;
-            top: -15%;
-            left: 30%;
+            top: -20%;
+            left: 25%;
         }
 
         .bow::before,
         .bow::after {
             content: '';
             position: absolute;
-            width: 45%;
-            height: 80%;
-            background: #ffd700;
+            width: 50%;
+            height: 85%;
+            background: radial-gradient(circle, #ffed4e 0%, #ffd700 100%);
             border-radius: 50% 50% 0 50%;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.9);
+            animation: bow-wiggle 2s ease-in-out infinite;
+        }
+
+        @keyframes bow-wiggle {
+            0%, 100% { transform: rotate(-30deg); }
+            50% { transform: rotate(-35deg); }
         }
 
         .bow::before {
             left: 0;
-            transform: rotate(-30deg);
         }
 
         .bow::after {
             right: 0;
             transform: rotate(30deg) scaleX(-1);
+            animation: bow-wiggle-right 2s ease-in-out infinite;
         }
 
-        .countdown-timer {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            color: #fff;
-            font-weight: 900;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.9),
-                         0 0 50px rgba(255, 107, 157, 0.8);
-            margin-bottom: 2rem;
-            letter-spacing: 0.1em;
+        @keyframes bow-wiggle-right {
+            0%, 100% { transform: rotate(30deg) scaleX(-1); }
+            50% { transform: rotate(35deg) scaleX(-1); }
+        }
+
+        /* SPARKLES AROUND BOX */
+        .sparkle-ring {
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            top: -10%;
+            left: -10%;
+        }
+
+        .mini-sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 15px white;
+            animation: sparkle-orbit 3s linear infinite;
+        }
+
+        @keyframes sparkle-orbit {
+            0% { transform: rotate(0deg) translateX(140px) rotate(0deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: rotate(360deg) translateX(140px) rotate(-360deg); opacity: 0; }
         }
 
         .open-button {
-            display: none;
-            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            background: linear-gradient(135deg, #ff1744, #d50000);
             color: white;
             border: none;
-            padding: 1.5rem 3rem;
-            font-size: 1.5rem;
+            padding: 1.8rem 4rem;
+            font-size: 2rem;
             font-weight: 900;
-            border-radius: 50px;
+            border-radius: 60px;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
-            animation: button-pulse 1s ease-in-out infinite;
+            box-shadow: 0 15px 50px rgba(255, 23, 68, 0.6);
+            animation: button-bounce 1.2s ease-in-out infinite;
             font-family: inherit;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
-        .open-button.show { display: inline-block; }
-
-        @keyframes button-pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5); }
-            50% { transform: scale(1.1); box-shadow: 0 15px 40px rgba(255, 107, 157, 0.8); }
+        @keyframes button-bounce {
+            0%, 100% { transform: scale(1) translateY(0); }
+            50% { transform: scale(1.08) translateY(-5px); box-shadow: 0 20px 60px rgba(255, 23, 68, 0.8); }
         }
 
+        /* FLOATING HEARTS */
         .heart {
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background: rgba(255, 255, 255, 0.6);
+            width: 25px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.7);
             transform: rotate(45deg);
-            animation: float-up 6s ease-in infinite;
+            animation: float-up 7s ease-in infinite;
             opacity: 0;
         }
 
@@ -178,29 +214,23 @@
         .heart::after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background: rgba(255, 255, 255, 0.6);
+            width: 25px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.7);
             border-radius: 50%;
         }
 
-        .heart::before {
-            left: -10px;
-            top: 0;
-        }
-
-        .heart::after {
-            left: 0;
-            top: -10px;
-        }
+        .heart::before { left: -12px; top: 0; }
+        .heart::after { left: 0; top: -12px; }
 
         @keyframes float-up {
             0% { bottom: -50px; opacity: 0; }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.3; }
+            10% { opacity: 0.9; }
+            90% { opacity: 0.2; }
             100% { bottom: 110vh; opacity: 0; }
         }
 
+        /* CELEBRATION SCENE */
         #celebration-scene {
             display: none;
             position: fixed;
@@ -213,82 +243,72 @@
 
         #celebration-scene.show { display: block; }
 
+        /* CONTINUOUS ANIMATIONS */
         .confetti {
             position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #ff6b9d;
-            animation: confetti-fall 3s ease-out forwards;
-            opacity: 0;
+            width: 12px;
+            height: 12px;
+            animation: confetti-fall 4s linear infinite;
         }
 
         @keyframes confetti-fall {
-            0% {
-                top: -10%;
-                opacity: 1;
-                transform: translateX(0) rotate(0deg);
-            }
-            100% {
-                top: 110%;
-                opacity: 0;
-                transform: translateX(var(--tx)) rotate(720deg);
-            }
+            0% { top: -10%; opacity: 1; transform: translateX(0) rotate(0deg); }
+            100% { top: 110%; opacity: 0.3; transform: translateX(var(--tx)) rotate(720deg); }
         }
 
         .flower {
             position: absolute;
-            animation: flower-bloom 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            animation: flower-bloom 2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+                       flower-sway 4s ease-in-out infinite 2s;
             opacity: 0;
         }
 
         @keyframes flower-bloom {
             0% { transform: scale(0) rotate(0deg); opacity: 0; }
-            60% { transform: scale(1.2) rotate(180deg); opacity: 1; }
             100% { transform: scale(1) rotate(360deg); opacity: 1; }
         }
 
+        @keyframes flower-sway {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(5deg); }
+        }
+
         .petal {
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
             position: absolute;
             border-radius: 50% 0 50% 0;
         }
 
         .butterfly {
             position: absolute;
-            font-size: 2rem;
-            animation: butterfly-fly 8s ease-in-out infinite;
+            font-size: 2.5rem;
+            animation: butterfly-fly 10s ease-in-out infinite;
         }
 
         @keyframes butterfly-fly {
-            0%, 100% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-            25% {
-                transform: translate(50px, -50px) rotate(10deg);
-            }
-            50% {
-                transform: translate(-30px, -80px) rotate(-10deg);
-            }
-            75% {
-                transform: translate(70px, -40px) rotate(5deg);
-            }
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(60px, -60px) rotate(15deg); }
+            50% { transform: translate(-40px, -100px) rotate(-15deg); }
+            75% { transform: translate(80px, -50px) rotate(10deg); }
         }
 
+        /* MESSAGE */
         .message-container {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.97);
+            padding: 2.5rem;
+            border-radius: 25px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.4);
             max-width: 90%;
-            animation: message-appear 1s ease-out 2s forwards;
+            animation: message-appear 1.2s ease-out 1.5s forwards;
             opacity: 0;
             z-index: 30;
+            border: 3px solid rgba(255, 215, 0, 0.5);
         }
 
         @keyframes message-appear {
@@ -296,53 +316,46 @@
         }
 
         .message-container h1 {
-            font-size: clamp(1.5rem, 5vw, 2.5rem);
-            color: #c44569;
-            margin-bottom: 1rem;
+            font-size: clamp(1.8rem, 6vw, 3rem);
+            color: #d50000;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(213, 0, 0, 0.2);
         }
 
         .message-container p {
-            font-size: clamp(0.9rem, 3vw, 1.2rem);
-            color: #666;
-            line-height: 1.8;
-            margin: 0.5rem 0;
-        }
-
-        .replay-button {
-            margin-top: 1.5rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-            font-family: inherit;
+            font-size: clamp(1rem, 3.5vw, 1.4rem);
+            color: #555;
+            line-height: 2;
+            margin: 0.8rem 0;
         }
 
         .sparkle {
             position: absolute;
-            width: 4px;
-            height: 4px;
+            width: 6px;
+            height: 6px;
             background: white;
             border-radius: 50%;
-            box-shadow: 0 0 10px white;
-            animation: sparkle-twinkle 1.5s ease-in-out infinite;
+            box-shadow: 0 0 15px white;
+            animation: sparkle-twinkle 2s ease-in-out infinite;
         }
 
         @keyframes sparkle-twinkle {
             0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
         }
     </style>
 </head>
 <body>
-    <div id="countdown-scene">
-        <div class="title">GECEYİ BEKLİYOR...</div>
-        
+    <div id="gift-scene">
         <div class="gift-box">
+            <div class="sparkle-ring">
+                <div class="mini-sparkle" style="animation-delay: 0s;"></div>
+                <div class="mini-sparkle" style="animation-delay: 0.5s;"></div>
+                <div class="mini-sparkle" style="animation-delay: 1s;"></div>
+                <div class="mini-sparkle" style="animation-delay: 1.5s;"></div>
+                <div class="mini-sparkle" style="animation-delay: 2s;"></div>
+                <div class="mini-sparkle" style="animation-delay: 2.5s;"></div>
+            </div>
             <div class="box-body">
                 <div class="ribbon-v"></div>
                 <div class="ribbon-h"></div>
@@ -352,8 +365,6 @@
             </div>
         </div>
 
-        <div class="countdown-timer" id="timer">--:--:--</div>
-        
         <button class="open-button" id="openBtn">AÇ BENİ! 🎁</button>
     </div>
 
@@ -367,123 +378,125 @@
             ilmek ilmek ördüğün sıcacık dünyanda bir yıl daha!</p>
             <p>54 yaş genç,<br>
             Sen hep 5 yaşındasın! 🎈</p>
-            <p style="margin-top: 1rem;">Dahi ve bir melek (tescilli) 😊</p>
-            <p style="margin-top: 1rem; font-weight: 700;">Seni çok seviyorum.</p>
-            <p style="font-style: italic; color: #764ba2;">- Halit</p>
-            <button class="replay-button" onclick="replayCelebration()">TEKRAR AÇ! 🎉</button>
+            <p style="margin-top: 1.5rem;">Dahi ve bir melek (tescilli) 😊</p>
+            <p style="margin-top: 1.5rem; font-weight: 700; font-size: clamp(1.1rem, 4vw, 1.6rem);">Seni çok seviyorum.</p>
+            <p style="font-style: italic; color: #764ba2; font-size: clamp(1rem, 3.5vw, 1.3rem);">- Halit</p>
         </div>
     </div>
 
     <script>
-        const targetDate = new Date('2025-01-21T00:00:00').getTime();
-        const timerEl = document.getElementById('timer');
-        const openBtn = document.getElementById('openBtn');
-        const countdownScene = document.getElementById('countdown-scene');
+        const giftScene = document.getElementById('gift-scene');
         const celebrationScene = document.getElementById('celebration-scene');
+        const openBtn = document.getElementById('openBtn');
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            if (distance < 0) {
-                timerEl.textContent = '00:00:00';
-                openBtn.classList.add('show');
-                return;
-            }
-
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            timerEl.textContent = 
-                `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
+        // FLOATING HEARTS
         function createHeart() {
             const heart = document.createElement('div');
             heart.className = 'heart';
             heart.style.left = Math.random() * 100 + '%';
-            heart.style.animationDelay = Math.random() * 5 + 's';
-            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.animationDelay = Math.random() * 4 + 's';
+            heart.style.animationDuration = (Math.random() * 2 + 5) + 's';
+            const hue = Math.random() * 60 + 300; // Pink-purple range
+            heart.style.background = `hsla(${hue}, 100%, 80%, 0.7)`;
+            heart.querySelectorAll('::before, ::after').forEach(el => {
+                if(el) el.style.background = `hsla(${hue}, 100%, 80%, 0.7)`;
+            });
             document.getElementById('hearts-container').appendChild(heart);
-            setTimeout(() => heart.remove(), 7000);
+            setTimeout(() => heart.remove(), 8000);
         }
 
-        setInterval(createHeart, 800);
+        setInterval(createHeart, 600);
 
+        // CELEBRATION
         openBtn.addEventListener('click', triggerCelebration);
 
         function triggerCelebration() {
-            countdownScene.classList.add('hidden');
+            giftScene.classList.add('hidden');
             celebrationScene.classList.add('show');
 
-            for (let i = 0; i < 100; i++) {
-                setTimeout(() => createConfetti(), i * 30);
-            }
+            // CONTINUOUS confetti
+            setInterval(createConfetti, 80);
 
+            // Flowers
             setTimeout(() => {
-                for (let i = 0; i < 8; i++) {
-                    setTimeout(() => createFlower(), i * 200);
+                for (let i = 0; i < 12; i++) {
+                    setTimeout(() => createFlower(), i * 150);
                 }
-            }, 500);
+            }, 300);
 
+            // Butterflies
             setTimeout(() => {
-                for (let i = 0; i < 5; i++) {
+                for (let i = 0; i < 6; i++) {
                     createButterfly();
                 }
-            }, 1000);
+            }, 800);
 
-            for (let i = 0; i < 30; i++) {
-                setTimeout(() => createSparkle(), i * 100);
-            }
+            // Sparkles
+            setInterval(createSparkle, 200);
 
-            playBirthdayMelody();
+            // Music
+            playJoyfulMelody();
+
+            // After 30s - keep animations going
+            setTimeout(() => {
+                // Animations continue forever
+            }, 30000);
         }
 
         function createConfetti() {
             const confetti = document.createElement('div');
             confetti.className = 'confetti';
             confetti.style.left = Math.random() * 100 + '%';
-            confetti.style.setProperty('--tx', (Math.random() - 0.5) * 200 + 'px');
-            confetti.style.background = ['#ff6b9d', '#ffd700', '#667eea', '#f093fb', '#ffed4e'][Math.floor(Math.random() * 5)];
-            confetti.style.animationDelay = Math.random() * 0.5 + 's';
+            confetti.style.setProperty('--tx', (Math.random() - 0.5) * 300 + 'px');
+            confetti.style.animationDelay = Math.random() * 2 + 's';
             
-            if (Math.random() > 0.5) {
+            const colors = ['#ff6b9d', '#ffd700', '#667eea', '#f093fb', '#ffed4e', '#ff1744', '#00e676'];
+            confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+            
+            const shapes = ['circle', 'square', 'triangle'];
+            const shape = shapes[Math.floor(Math.random() * shapes.length)];
+            
+            if (shape === 'circle') {
                 confetti.style.borderRadius = '50%';
+            } else if (shape === 'triangle') {
+                confetti.style.width = '0';
+                confetti.style.height = '0';
+                confetti.style.borderLeft = '6px solid transparent';
+                confetti.style.borderRight = '6px solid transparent';
+                confetti.style.borderBottom = `12px solid ${confetti.style.background}`;
+                confetti.style.background = 'transparent';
             }
 
             celebrationScene.appendChild(confetti);
-            setTimeout(() => confetti.remove(), 3500);
+            setTimeout(() => confetti.remove(), 4500);
         }
 
         function createFlower() {
             const flower = document.createElement('div');
             flower.className = 'flower';
-            flower.style.left = Math.random() * 80 + 10 + '%';
-            flower.style.top = Math.random() * 60 + 20 + '%';
+            flower.style.left = Math.random() * 90 + 5 + '%';
+            flower.style.top = Math.random() * 70 + 15 + '%';
 
-            const colors = ['#ff6b9d', '#ffd700', '#667eea', '#f093fb', '#ffb88c'];
+            const colors = ['#ff6b9d', '#ffd700', '#667eea', '#f093fb', '#ffb88c', '#ff1744'];
             const color = colors[Math.floor(Math.random() * colors.length)];
 
             for (let i = 0; i < 6; i++) {
                 const petal = document.createElement('div');
                 petal.className = 'petal';
                 petal.style.background = color;
-                petal.style.transform = `rotate(${i * 60}deg) translateY(-15px)`;
+                petal.style.transform = `rotate(${i * 60}deg) translateY(-18px)`;
                 flower.appendChild(petal);
             }
 
             const center = document.createElement('div');
             center.style.cssText = `
-                width: 15px; height: 15px;
+                width: 18px; height: 18px;
                 background: #ffd700;
                 border-radius: 50%;
                 position: absolute;
                 top: 50%; left: 50%;
                 transform: translate(-50%, -50%);
+                box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
             `;
             flower.appendChild(center);
 
@@ -496,7 +509,7 @@
             butterfly.textContent = '🦋';
             butterfly.style.left = Math.random() * 80 + '%';
             butterfly.style.top = Math.random() * 60 + 20 + '%';
-            butterfly.style.animationDelay = Math.random() * 2 + 's';
+            butterfly.style.animationDelay = Math.random() * 3 + 's';
             celebrationScene.appendChild(butterfly);
         }
 
@@ -505,36 +518,30 @@
             sparkle.className = 'sparkle';
             sparkle.style.left = Math.random() * 100 + '%';
             sparkle.style.top = Math.random() * 100 + '%';
-            sparkle.style.animationDelay = Math.random() * 1 + 's';
+            sparkle.style.animationDelay = Math.random() * 1.5 + 's';
             celebrationScene.appendChild(sparkle);
             setTimeout(() => sparkle.remove(), 3000);
         }
 
-        function replayCelebration() {
-            celebrationScene.innerHTML = '';
-            celebrationScene.classList.remove('show');
-            countdownScene.classList.remove('hidden');
-            
-            setTimeout(() => {
-                triggerCelebration();
-            }, 100);
-        }
-
-        function playBirthdayMelody() {
+        function playJoyfulMelody() {
             const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            const notes = [
-                { freq: 523.25, duration: 0.3 },
-                { freq: 659.25, duration: 0.3 },
-                { freq: 783.99, duration: 0.3 },
-                { freq: 1046.50, duration: 0.4 },
-                { freq: 783.99, duration: 0.3 },
-                { freq: 659.25, duration: 0.3 },
-                { freq: 523.25, duration: 0.5 },
+            
+            // Happy birthday melody - more exciting
+            const melody = [
+                { freq: 523.25, duration: 0.25 }, // C
+                { freq: 587.33, duration: 0.25 }, // D
+                { freq: 659.25, duration: 0.3 },  // E
+                { freq: 783.99, duration: 0.3 },  // G
+                { freq: 1046.50, duration: 0.35 }, // C high
+                { freq: 987.77, duration: 0.25 }, // B
+                { freq: 880.00, duration: 0.3 },  // A
+                { freq: 783.99, duration: 0.3 },  // G
+                { freq: 1046.50, duration: 0.4 }, // C high
             ];
 
             let time = audioContext.currentTime;
 
-            notes.forEach(note => {
+            melody.forEach(note => {
                 const oscillator = audioContext.createOscillator();
                 const gainNode = audioContext.createGain();
 
@@ -542,15 +549,15 @@
                 gainNode.connect(audioContext.destination);
 
                 oscillator.frequency.value = note.freq;
-                oscillator.type = 'sine';
+                oscillator.type = 'triangle'; // Warmer sound
 
-                gainNode.gain.setValueAtTime(0.3, time);
+                gainNode.gain.setValueAtTime(0.35, time);
                 gainNode.gain.exponentialRampToValueAtTime(0.01, time + note.duration);
 
                 oscillator.start(time);
                 oscillator.stop(time + note.duration);
 
-                time += note.duration + 0.1;
+                time += note.duration + 0.05;
             });
         }
     </script>
