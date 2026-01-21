@@ -11,10 +11,8 @@
     <style>
         /* ============================================
            EVOLUTION LAYER - v1.0
-           15 günlük döngülerde sadece bu katman değişir
            ============================================ */
         :root {
-            /* Dönem: Gece Mavisi */
             --bg-primary: #0a0a14;
             --bg-secondary: #0f0f1a;
             --bg-tertiary: #14141f;
@@ -32,13 +30,10 @@
             
             --border-subtle: rgba(255, 255, 255, 0.06);
             
-            /* Tipografi */
             --font-display: 'Playfair Display', Georgia, serif;
             --font-body: 'Inter', -apple-system, sans-serif;
             
-            /* Versiyon */
             --site-version: "1.0";
-            --evolution-date: "Ocak 2026";
         }
 
         /* ============================================
@@ -57,6 +52,7 @@
             -webkit-tap-highlight-color: transparent;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            touch-action: manipulation;
         }
 
         body {
@@ -69,7 +65,7 @@
         }
 
         /* ============================================
-           CANVAS - PARTICLE SYSTEM
+           CANVAS
            ============================================ */
         #particles {
             position: fixed;
@@ -88,17 +84,18 @@
             position: relative;
             z-index: 10;
             text-align: center;
-            padding: 2rem;
+            padding: 1.5rem;
             max-width: 600px;
+            width: 100%;
         }
 
         /* İsim */
         .name {
             font-family: var(--font-display);
-            font-size: clamp(2.2rem, 6vw, 3.8rem);
+            font-size: clamp(2.4rem, 8vw, 3.8rem);
             font-weight: 500;
             letter-spacing: 0.02em;
-            line-height: 1.2;
+            line-height: 1.15;
             color: var(--text-primary);
             margin-bottom: 1.5rem;
             cursor: default;
@@ -107,25 +104,11 @@
 
         .name span {
             display: block;
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-                        opacity 0.4s ease;
-        }
-
-        .name:hover span {
-            transform: translateY(-2px);
-        }
-
-        .name span:nth-child(2) {
-            transition-delay: 0.05s;
-        }
-
-        .name span:nth-child(3) {
-            transition-delay: 0.1s;
         }
 
         /* Ayırıcı çizgi */
         .divider {
-            width: 60px;
+            width: 50px;
             height: 1px;
             background: linear-gradient(90deg, 
                 transparent, 
@@ -133,40 +116,105 @@
                 transparent);
             margin: 0 auto 1.5rem;
             opacity: 0.6;
+            animation: breathe 4s ease-in-out infinite;
         }
 
-        /* Alt metin */
-        .tagline {
-            font-size: 0.85rem;
-            font-weight: 300;
-            letter-spacing: 0.3em;
+        @keyframes breathe {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Bağlantı Noktası */
+        .protocol {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
             color: var(--text-muted);
-            margin-bottom: 3rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            display: inline-block;
+            padding: 0.75rem 1rem;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+
+        .protocol::after {
+            content: '';
+            position: absolute;
+            bottom: 0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .protocol:hover {
+            color: var(--text-secondary);
+        }
+
+        .protocol:hover::after {
+            width: 60%;
+        }
+
+        .protocol:active {
+            color: var(--accent);
+        }
+
+        .protocol.processing {
+            color: var(--accent);
+            pointer-events: none;
+        }
+
+        .protocol.processing::after {
+            width: 80%;
+            animation: pulse-line 0.6s ease-in-out infinite;
+        }
+
+        @keyframes pulse-line {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .protocol.hidden {
+            opacity: 0;
+            transform: translateY(-10px);
+            pointer-events: none;
+            position: absolute;
         }
 
         /* E-posta */
         .contact {
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 0.875rem 1.5rem;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 1rem 1.25rem;
             background: var(--accent-dim);
             border: 1px solid var(--border-subtle);
             border-radius: 6px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             text-decoration: none;
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+            position: absolute;
         }
 
-        .contact:hover {
-            background: rgba(78, 204, 163, 0.2);
-            border-color: rgba(78, 204, 163, 0.3);
-            transform: translateY(-1px);
+        .contact.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+            position: relative;
         }
 
         .contact:active {
-            transform: translateY(0);
+            background: rgba(78, 204, 163, 0.25);
+            border-color: rgba(78, 204, 163, 0.4);
         }
 
         .contact-icon {
@@ -175,31 +223,28 @@
             stroke: var(--accent);
             stroke-width: 1.5;
             fill: none;
+            flex-shrink: 0;
         }
 
         .contact-text {
             font-family: var(--font-body);
-            font-size: 0.9rem;
+            font-size: clamp(0.75rem, 3.5vw, 0.9rem);
             font-weight: 400;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.01em;
             color: var(--accent);
         }
 
-        .contact-hint {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            letter-spacing: 0.05em;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            margin-left: 0.5rem;
-        }
-
-        .contact:hover .contact-hint {
-            opacity: 1;
+        /* Action area */
+        .action-area {
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
         }
 
         /* Kopyalandı feedback */
-        .copied-feedback {
+        .feedback {
             position: fixed;
             bottom: 2rem;
             left: 50%;
@@ -208,62 +253,58 @@
             background: var(--bg-tertiary);
             border: 1px solid var(--accent);
             border-radius: 4px;
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
             color: var(--accent);
             opacity: 0;
             pointer-events: none;
             transition: all 0.3s ease;
+            z-index: 100;
         }
 
-        .copied-feedback.show {
+        .feedback.show {
             opacity: 1;
             transform: translateX(-50%) translateY(0);
         }
 
-        /* Versiyon göstergesi */
+        /* Versiyon */
         .version {
             position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            font-size: 0.65rem;
+            bottom: 1rem;
+            right: 1rem;
+            font-size: 0.6rem;
             letter-spacing: 0.15em;
             color: var(--text-muted);
-            opacity: 0.5;
+            opacity: 0.4;
         }
 
         /* ============================================
-           RESPONSIVE
+           DESKTOP ENHANCEMENTS
            ============================================ */
-        @media (max-width: 480px) {
+        @media (min-width: 600px) {
             .container {
-                padding: 1.5rem;
+                padding: 2rem;
             }
 
-            .contact {
-                padding: 0.75rem 1.25rem;
+            .contact:hover {
+                background: rgba(78, 204, 163, 0.2);
+                border-color: rgba(78, 204, 163, 0.3);
             }
+        }
 
+        @media (hover: hover) {
             .contact-hint {
-                display: none;
+                font-size: 0.65rem;
+                color: var(--text-muted);
+                letter-spacing: 0.05em;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                margin-left: 0.5rem;
             }
 
-            .version {
-                bottom: 1rem;
-                right: 1rem;
+            .contact:hover .contact-hint {
+                opacity: 1;
             }
-        }
-
-        /* ============================================
-           SUBTLE ANIMATIONS
-           ============================================ */
-        @keyframes breathe {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 0.7; }
-        }
-
-        .divider {
-            animation: breathe 4s ease-in-out infinite;
         }
     </style>
 </head>
@@ -280,19 +321,21 @@
 
         <div class="divider"></div>
 
-        <p class="tagline">Analitik Karar Mekanizması</p>
+        <div class="action-area">
+            <p class="protocol" id="protocol">Bağlantı Noktası</p>
 
-        <a class="contact" id="contact" href="mailto:halitcengizuzuner@icloud.com">
-            <svg class="contact-icon" viewBox="0 0 24 24">
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <path d="M22 6L12 13L2 6"/>
-            </svg>
-            <span class="contact-text">halitcengizuzuner@icloud.com</span>
-            <span class="contact-hint">kopyala</span>
-        </a>
+            <a class="contact" id="contact" href="mailto:halitcengizuzuner@icloud.com">
+                <svg class="contact-icon" viewBox="0 0 24 24">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="M22 6L12 13L2 6"/>
+                </svg>
+                <span class="contact-text">halitcengizuzuner@icloud.com</span>
+                <span class="contact-hint">basılı tut: kopyala</span>
+            </a>
+        </div>
     </div>
 
-    <div class="copied-feedback" id="feedback">KOPYALANDI</div>
+    <div class="feedback" id="feedback">KOPYALANDI</div>
 
     <div class="version">v<span id="ver"></span></div>
 
@@ -301,7 +344,7 @@
         'use strict';
 
         // ============================================
-        // PARTICLE SYSTEM - Minimal, Profesyonel
+        // PARTICLE SYSTEM
         // ============================================
         const canvas = document.getElementById('particles');
         const ctx = canvas.getContext('2d');
@@ -312,13 +355,15 @@
         let mouse = { x: null, y: null };
         let animationId;
 
+        const isMobile = window.innerWidth < 600;
+
         const CONFIG = {
-            particleCount: window.innerWidth < 600 ? 30 : 50,
-            particleSize: { min: 1, max: 2.5 },
-            speed: 0.3,
-            connectionDistance: 120,
-            mouseRadius: 100,
-            mouseForce: 0.5
+            particleCount: isMobile ? 25 : 45,
+            particleSize: { min: 1, max: 2 },
+            speed: 0.25,
+            connectionDistance: isMobile ? 100 : 120,
+            mouseRadius: isMobile ? 80 : 100,
+            mouseForce: 0.4
         };
 
         class Particle {
@@ -337,7 +382,6 @@
             }
 
             update() {
-                // Mouse etkileşimi
                 if (mouse.x !== null) {
                     const dx = this.x - mouse.x;
                     const dy = this.y - mouse.y;
@@ -351,14 +395,12 @@
                     }
                 }
 
-                // Hız sönümleme
                 this.vx += (this.baseVx - this.vx) * 0.02;
                 this.vy += (this.baseVy - this.vy) * 0.02;
 
                 this.x += this.vx;
                 this.y += this.vy;
 
-                // Sınır kontrolü
                 if (this.x < 0 || this.x > width) this.vx *= -1;
                 if (this.y < 0 || this.y > height) this.vy *= -1;
             }
@@ -412,17 +454,14 @@
 
         function animate() {
             ctx.clearRect(0, 0, width, height);
-
             particles.forEach(p => {
                 p.update();
                 p.draw();
             });
-
             drawConnections();
             animationId = requestAnimationFrame(animate);
         }
 
-        // Event listeners
         window.addEventListener('resize', () => {
             cancelAnimationFrame(animationId);
             init();
@@ -447,27 +486,78 @@
         }, { passive: true });
 
         window.addEventListener('touchend', () => {
-            mouse.x = null;
-            mouse.y = null;
+            setTimeout(() => {
+                mouse.x = null;
+                mouse.y = null;
+            }, 100);
         });
 
         // ============================================
-        // CONTACT COPY
+        // PROTOCOL INTERACTION
         // ============================================
+        const protocol = document.getElementById('protocol');
         const contact = document.getElementById('contact');
         const feedback = document.getElementById('feedback');
         const email = 'halitcengizuzuner@icloud.com';
+        let protocolActivated = false;
 
-        contact.addEventListener('click', (e) => {
-            e.preventDefault();
-            
+        function activateProtocol() {
+            if (protocolActivated) return;
+            protocolActivated = true;
+
+            protocol.classList.add('processing');
+            protocol.textContent = 'Bağlantı kuruluyor';
+
+            setTimeout(() => {
+                protocol.classList.add('hidden');
+                
+                setTimeout(() => {
+                    contact.classList.add('visible');
+                }, 150);
+            }, 1200);
+        }
+
+        protocol.addEventListener('click', activateProtocol);
+
+        // ============================================
+        // CONTACT - LONG PRESS TO COPY
+        // ============================================
+        let longPressTimer;
+        let isLongPress = false;
+
+        function showCopiedFeedback() {
             navigator.clipboard.writeText(email).then(() => {
                 feedback.classList.add('show');
                 setTimeout(() => feedback.classList.remove('show'), 2000);
-            }).catch(() => {
-                // Fallback: mailto açılır
-                window.location.href = 'mailto:' + email;
             });
+        }
+
+        // Touch events
+        contact.addEventListener('touchstart', (e) => {
+            isLongPress = false;
+            longPressTimer = setTimeout(() => {
+                isLongPress = true;
+                e.preventDefault();
+                showCopiedFeedback();
+            }, 500);
+        }, { passive: false });
+
+        contact.addEventListener('touchend', (e) => {
+            clearTimeout(longPressTimer);
+            if (isLongPress) {
+                e.preventDefault();
+            }
+            // Normal tap = mailto link works naturally
+        });
+
+        contact.addEventListener('touchmove', () => {
+            clearTimeout(longPressTimer);
+        });
+
+        // Desktop: right-click to copy
+        contact.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            showCopiedFeedback();
         });
 
         // ============================================
