@@ -9,9 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* ============================================
-           EVOLUTION LAYER - v1.0
-           ============================================ */
         :root {
             --bg-primary: #0a0a14;
             --bg-secondary: #0f0f1a;
@@ -23,7 +20,6 @@
             
             --accent: #4ecca3;
             --accent-dim: rgba(78, 204, 163, 0.15);
-            --accent-glow: rgba(78, 204, 163, 0.4);
             
             --particle-color: rgba(78, 204, 163, 0.35);
             --particle-line: rgba(78, 204, 163, 0.08);
@@ -36,9 +32,6 @@
             --site-version: "1.0";
         }
 
-        /* ============================================
-           BASE RESET
-           ============================================ */
         *, *::before, *::after {
             margin: 0;
             padding: 0;
@@ -52,7 +45,6 @@
             -webkit-tap-highlight-color: transparent;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            touch-action: manipulation;
         }
 
         body {
@@ -64,9 +56,6 @@
             justify-content: center;
         }
 
-        /* ============================================
-           CANVAS
-           ============================================ */
         #particles {
             position: fixed;
             top: 0;
@@ -77,9 +66,6 @@
             pointer-events: none;
         }
 
-        /* ============================================
-           MAIN CONTENT
-           ============================================ */
         .container {
             position: relative;
             z-index: 10;
@@ -89,7 +75,6 @@
             width: 100%;
         }
 
-        /* İsim */
         .name {
             font-family: var(--font-display);
             font-size: clamp(2.4rem, 8vw, 3.8rem);
@@ -106,7 +91,6 @@
             display: block;
         }
 
-        /* Ayırıcı çizgi */
         .divider {
             width: 50px;
             height: 1px;
@@ -124,7 +108,6 @@
             50% { opacity: 0.8; }
         }
 
-        /* Bağlantı Noktası */
         .protocol {
             font-size: 0.8rem;
             font-weight: 400;
@@ -136,8 +119,6 @@
             position: relative;
             display: inline-block;
             padding: 0.75rem 1rem;
-            border: 1px solid transparent;
-            border-radius: 4px;
         }
 
         .protocol::after {
@@ -186,7 +167,6 @@
             position: absolute;
         }
 
-        /* E-posta */
         .contact {
             display: inline-flex;
             align-items: center;
@@ -196,13 +176,12 @@
             background: var(--accent-dim);
             border: 1px solid var(--border-subtle);
             border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.4s ease;
             text-decoration: none;
             opacity: 0;
             transform: translateY(10px);
             pointer-events: none;
             position: absolute;
+            transition: all 0.4s ease, background 0.2s ease;
         }
 
         .contact.visible {
@@ -214,7 +193,6 @@
 
         .contact:active {
             background: rgba(78, 204, 163, 0.25);
-            border-color: rgba(78, 204, 163, 0.4);
         }
 
         .contact-icon {
@@ -234,7 +212,6 @@
             color: var(--accent);
         }
 
-        /* Action area */
         .action-area {
             min-height: 60px;
             display: flex;
@@ -243,7 +220,6 @@
             position: relative;
         }
 
-        /* Kopyalandı feedback */
         .feedback {
             position: fixed;
             bottom: 2rem;
@@ -267,7 +243,6 @@
             transform: translateX(-50%) translateY(0);
         }
 
-        /* Versiyon */
         .version {
             position: fixed;
             bottom: 1rem;
@@ -278,9 +253,6 @@
             opacity: 0.4;
         }
 
-        /* ============================================
-           DESKTOP ENHANCEMENTS
-           ============================================ */
         @media (min-width: 600px) {
             .container {
                 padding: 2rem;
@@ -289,21 +261,6 @@
             .contact:hover {
                 background: rgba(78, 204, 163, 0.2);
                 border-color: rgba(78, 204, 163, 0.3);
-            }
-        }
-
-        @media (hover: hover) {
-            .contact-hint {
-                font-size: 0.65rem;
-                color: var(--text-muted);
-                letter-spacing: 0.05em;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-                margin-left: 0.5rem;
-            }
-
-            .contact:hover .contact-hint {
-                opacity: 1;
             }
         }
     </style>
@@ -330,7 +287,6 @@
                     <path d="M22 6L12 13L2 6"/>
                 </svg>
                 <span class="contact-text">halitcengizuzuner@icloud.com</span>
-                <span class="contact-hint">basılı tut: kopyala</span>
             </a>
         </div>
     </div>
@@ -520,44 +476,42 @@
         protocol.addEventListener('click', activateProtocol);
 
         // ============================================
-        // CONTACT - LONG PRESS TO COPY
+        // CONTACT - Long press to copy (mobile)
+        // Normal tap = mailto works naturally
         // ============================================
-        let longPressTimer;
-        let isLongPress = false;
+        let longPressTimer = null;
+        let longPressTriggered = false;
 
-        function showCopiedFeedback() {
-            navigator.clipboard.writeText(email).then(() => {
-                feedback.classList.add('show');
-                setTimeout(() => feedback.classList.remove('show'), 2000);
-            });
-        }
-
-        // Touch events
-        contact.addEventListener('touchstart', (e) => {
-            isLongPress = false;
+        contact.addEventListener('touchstart', () => {
+            longPressTriggered = false;
             longPressTimer = setTimeout(() => {
-                isLongPress = true;
-                e.preventDefault();
-                showCopiedFeedback();
-            }, 500);
-        }, { passive: false });
+                longPressTriggered = true;
+                navigator.clipboard.writeText(email).then(() => {
+                    feedback.classList.add('show');
+                    setTimeout(() => feedback.classList.remove('show'), 2000);
+                });
+            }, 600);
+        }, { passive: true });
 
         contact.addEventListener('touchend', (e) => {
             clearTimeout(longPressTimer);
-            if (isLongPress) {
+            if (longPressTriggered) {
                 e.preventDefault();
             }
-            // Normal tap = mailto link works naturally
+            // If not long press, mailto link works naturally
         });
 
         contact.addEventListener('touchmove', () => {
             clearTimeout(longPressTimer);
-        });
+        }, { passive: true });
 
         // Desktop: right-click to copy
         contact.addEventListener('contextmenu', (e) => {
             e.preventDefault();
-            showCopiedFeedback();
+            navigator.clipboard.writeText(email).then(() => {
+                feedback.classList.add('show');
+                setTimeout(() => feedback.classList.remove('show'), 2000);
+            });
         });
 
         // ============================================
