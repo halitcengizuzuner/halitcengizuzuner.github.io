@@ -466,9 +466,12 @@
                 image: null,
                 readMore: { tr: 'TAMAMINI OKU', en: 'READ FULL' },
                 listenMore: { tr: 'ÖZETİNİ DİNLE', en: 'LISTEN SUMMARY' },
-                audioUrl: 'https://pub-09be185c608d4c1e80131e5f82eaca40.r2.dev/podcast.mp3',
+                audioUrl: { 
+                    tr: 'https://pub-09be185c608d4c1e80131e5f82eaca40.r2.dev/podcast.mp3',
+                    en: 'https://pub-09be185c608d4c1e80131e5f82eaca40.r2.dev/ElevenLabs_The_Evolution_of_Language_in_the_Digital_Age.mp3'
+                },
                 audioTitle: { tr: 'Podcast Özeti', en: 'Podcast Summary' },
-                audioSubtitle: { tr: '~15 dakikalık sesli özet', en: '~15 minute audio summary' }
+                audioSubtitle: { tr: '~15 dakikalık sesli özet', en: '~5 minute audio summary' }
             }
         ];
 
@@ -497,7 +500,9 @@
                 container.innerHTML = `<div class="empty-state"><div class="empty-state-icon">◇</div><p class="empty-state-text">${currentLang === 'tr' ? 'Henüz yayınlanmış araştırma notu yok.' : 'No research notes published yet.'}</p></div>`;
                 return;
             }
-            container.innerHTML = researchNotes.map(note => `
+            container.innerHTML = researchNotes.map(note => {
+                const audioUrl = note.audioUrl ? note.audioUrl[currentLang] : null;
+                return `
                 <div class="card">
                     <div class="card-image">
                         ${note.image ? `<img src="${note.image}" alt="">` : `<span class="card-placeholder-icon">◇</span>`}
@@ -517,8 +522,8 @@
                                     <polyline points="12 5 19 12 12 19"></polyline>
                                 </svg>
                             </a>
-                            ${note.audioUrl ? `
-                                <button class="card-action card-action-listen" onclick="openAudioModal('${note.audioUrl}', '${note.audioTitle[currentLang]}', '${note.audioSubtitle[currentLang]}')">
+                            ${audioUrl ? `
+                                <button class="card-action card-action-listen" onclick="openAudioModal('${audioUrl}', '${note.audioTitle[currentLang]}', '${note.audioSubtitle[currentLang]}')">
                                     <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
                                         <path d="M9 18V5l12-2v13"></path>
                                         <circle cx="6" cy="18" r="3"></circle>
@@ -530,7 +535,7 @@
                         </div>
                     </div>
                 </div>
-            `).join('');
+            `}).join('');
         }
 
         function formatDate(dateStr) {
