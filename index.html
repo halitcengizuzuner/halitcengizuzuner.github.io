@@ -3,531 +3,1035 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="Halit Cengiz Uzuner">
+    <meta name="description" content="Halit Cengiz Uzuner - Meraklı Zihin / Curious Mind">
     <title>Halit Cengiz Uzuner</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0a14;
-            --bg-secondary: #0f0f1a;
-            --bg-tertiary: #14141f;
-            
-            --text-primary: #e0e6ed;
-            --text-secondary: #8b9199;
-            --text-muted: #4a5058;
-            
-            --accent: #4ecca3;
-            --accent-dim: rgba(78, 204, 163, 0.15);
-            
-            --particle-color: rgba(78, 204, 163, 0.35);
-            --particle-line: rgba(78, 204, 163, 0.08);
-            
-            --border-subtle: rgba(255, 255, 255, 0.06);
-            
-            --font-display: 'Playfair Display', Georgia, serif;
-            --font-body: 'Inter', -apple-system, sans-serif;
-            
-            --site-version: "1.0";
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --text-primary: #ffffff;
+            --text-secondary: #888899;
+            --text-muted: #555566;
+            --accent-teal: #4ecca3;
+            --accent-teal-glow: rgba(78, 204, 163, 0.4);
+            --accent-gold: #d4af37;
+            --accent-gold-glow: rgba(212, 175, 55, 0.4);
+            --border-subtle: rgba(255, 255, 255, 0.08);
         }
 
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html, body {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            -webkit-tap-highlight-color: transparent;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        body {
+        body, html {
+            width: 100%; height: 100%;
             background: var(--bg-primary);
-            font-family: var(--font-body);
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
+            font-family: 'Playfair Display', serif;
+            cursor: crosshair;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: none;
         }
 
-        #particles {
+        /* ========== ANIMATIONS ========== */
+        @keyframes rebirth-flash {
+            0% { filter: brightness(1); background: var(--bg-primary); }
+            15% { filter: brightness(8) blur(3px); background: #222; }
+            30% { filter: brightness(0.3); background: var(--bg-primary); }
+            45% { filter: brightness(6) blur(2px); background: #111; }
+            60% { filter: brightness(0.5); background: var(--bg-primary); }
+            100% { filter: brightness(1); background: var(--bg-primary); }
+        }
+        .rebirth { animation: rebirth-flash 1.2s cubic-bezier(0.4, 0, 0.2, 1); }
+
+        @keyframes system-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        .pulse { animation: system-pulse 0.3s ease-out; }
+
+        @keyframes quantum-freeze {
+            0% { filter: grayscale(0); }
+            100% { filter: grayscale(1) blur(1px); }
+        }
+        .frozen { animation: quantum-freeze 2s ease-out forwards; }
+
+        @keyframes letter-elastic {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-5px) scale(1.03); }
+        }
+
+        @keyframes float-fade {
+            0% { opacity: 0; transform: translate(-50%, 5px) scale(0.9); }
+            20% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+            80% { opacity: 1; transform: translate(-50%, -20px) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -40px) scale(0.95); }
+        }
+
+        @keyframes logo-breathe {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.02); opacity: 1; }
+        }
+
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(30px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(30px) rotate(-360deg); }
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.6; }
+            50% { transform: scale(1.1); opacity: 0.2; }
+            100% { transform: scale(0.8); opacity: 0.6; }
+        }
+
+        /* ========== CANVAS ========== */
+        #constellation {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; z-index: 1;
+        }
+
+        /* ========== LANGUAGE SELECTOR ========== */
+        .lang-selector {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
+            top: 20px;
+            right: 25px;
+            z-index: 100;
+            display: flex;
+            gap: 8px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
         }
 
-        .container {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            padding: 1.5rem;
-            max-width: 600px;
-            width: 100%;
-        }
-
-        .name {
-            font-family: var(--font-display);
-            font-size: clamp(2.4rem, 8vw, 3.8rem);
-            font-weight: 500;
-            letter-spacing: 0.02em;
-            line-height: 1.15;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-            cursor: default;
-            user-select: none;
-        }
-
-        .name span {
-            display: block;
-        }
-
-        .divider {
-            width: 50px;
-            height: 1px;
-            background: linear-gradient(90deg, 
-                transparent, 
-                var(--accent) 50%, 
-                transparent);
-            margin: 0 auto 1.5rem;
-            opacity: 0.6;
-            animation: breathe 4s ease-in-out infinite;
-        }
-
-        @keyframes breathe {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 0.8; }
-        }
-
-        .protocol {
-            font-size: 0.8rem;
-            font-weight: 400;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--border-subtle);
             color: var(--text-muted);
+            padding: 6px 12px;
             cursor: pointer;
-            transition: all 0.4s ease;
-            position: relative;
-            display: inline-block;
-            padding: 0.75rem 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: inherit;
+            letter-spacing: inherit;
         }
 
-        .protocol::after {
-            content: '';
-            position: absolute;
-            bottom: 0.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 1px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        .protocol:hover {
+        .lang-btn:hover {
+            border-color: var(--accent-teal);
             color: var(--text-secondary);
         }
 
-        .protocol:hover::after {
-            width: 60%;
+        .lang-btn.active {
+            border-color: var(--accent-teal);
+            color: var(--accent-teal);
+            background: rgba(78, 204, 163, 0.1);
         }
 
-        .protocol:active {
-            color: var(--accent);
-        }
-
-        .protocol.processing {
-            color: var(--accent);
+        /* ========== MAIN CONTENT ========== */
+        .content {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10; text-align: center;
+            width: 90%; max-width: 1000px;
             pointer-events: none;
+            transition: transform 2s ease-in-out;
         }
 
-        .protocol.processing::after {
-            width: 80%;
-            animation: pulse-line 0.6s ease-in-out infinite;
-        }
-
-        @keyframes pulse-line {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-
-        .protocol.hidden {
-            opacity: 0;
-            transform: translateY(-10px);
-            pointer-events: none;
-            position: absolute;
-        }
-
-        .contact {
-            display: inline-flex;
-            align-items: center;
+        /* ========== LOGO ========== */
+        .logo-container {
+            margin-bottom: 1.5rem;
+            display: flex;
             justify-content: center;
-            gap: 0.6rem;
-            padding: 1rem 1.25rem;
-            background: var(--accent-dim);
+            align-items: center;
+        }
+
+        .logo-svg {
+            width: clamp(80px, 15vw, 120px);
+            height: clamp(80px, 15vw, 120px);
+            animation: logo-breathe 6s ease-in-out infinite;
+        }
+
+        .logo-core {
+            fill: none;
+            stroke: var(--accent-teal);
+            stroke-width: 1.5;
+        }
+
+        .logo-orbit {
+            fill: var(--accent-gold);
+            opacity: 0.9;
+        }
+
+        .logo-center {
+            fill: var(--text-primary);
+            opacity: 0.95;
+        }
+
+        .logo-ring {
+            fill: none;
+            stroke: var(--accent-teal);
+            stroke-width: 0.5;
+            opacity: 0.3;
+            animation: pulse-ring 4s ease-in-out infinite;
+        }
+
+        /* ========== NAME ========== */
+        .name-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(0.5rem, 1vw, 1rem);
+            margin-bottom: 1rem;
+        }
+
+        .name-line {
+            display: flex;
+            justify-content: center;
+            gap: clamp(0.3rem, 0.8vw, 0.6rem);
+        }
+
+        .letter {
+            display: inline-block;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-origin: center;
+            animation: letter-elastic 4s ease-in-out infinite;
+            will-change: transform, opacity;
+        }
+
+        .letter.assembled {
+            transform: translate(0, 0) rotate(0deg) scale(1) !important;
+            opacity: 1 !important;
+        }
+
+        .letter:nth-child(1) { animation-delay: 0s; }
+        .letter:nth-child(2) { animation-delay: 0.1s; }
+        .letter:nth-child(3) { animation-delay: 0.2s; }
+        .letter:nth-child(4) { animation-delay: 0.3s; }
+        .letter:nth-child(5) { animation-delay: 0.4s; }
+        .letter:nth-child(6) { animation-delay: 0.5s; }
+        .letter:nth-child(7) { animation-delay: 0.6s; }
+
+        /* ========== ABOUT SECTION ========== */
+        .about-section {
+            margin-bottom: 2rem;
+        }
+
+        .about-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            font-weight: 600;
+            color: var(--accent-teal);
+            letter-spacing: 0.3em;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .about-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+            font-style: italic;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 500px;
+            margin: 0 auto;
+            letter-spacing: 0.02em;
+        }
+
+        /* ========== STATUS ========== */
+        .status {
+            font-size: clamp(0.7rem, 1.5vw, 1rem);
+            font-weight: 400; 
+            letter-spacing: 0.4em;
+            color: var(--text-muted); 
+            text-transform: uppercase;
+            margin-bottom: 2rem; 
+            min-height: 1.5em;
+            transition: color 0.5s ease;
+        }
+
+        .status.active { color: var(--text-secondary); }
+        .status.frozen { color: #ff6b6b; }
+
+        /* ========== METRICS ========== */
+        .metrics {
+            display: flex; 
+            justify-content: center;
+            gap: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 2.5rem;
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1.5rem 0;
+        }
+
+        .metric-box {
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            min-width: 80px;
+        }
+
+        .metric-value {
+            font-family: 'Courier New', monospace;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--text-primary); 
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .metric-label {
+            font-size: 0.6rem; 
+            color: var(--text-muted);
+            margin-top: 0.5rem; 
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+
+        /* ========== NAV BUTTONS ========== */
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: clamp(1rem, 3vw, 2rem);
+            flex-wrap: wrap;
+            pointer-events: auto;
+        }
+
+        .nav-btn {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            background: transparent;
             border: 1px solid var(--border-subtle);
-            border-radius: 6px;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(78, 204, 163, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-btn:hover::before {
+            left: 100%;
+        }
+
+        .nav-btn:hover {
+            border-color: var(--accent-teal);
+            color: var(--accent-teal);
+            box-shadow: 0 0 20px var(--accent-teal-glow);
+        }
+
+        .nav-btn:active {
+            transform: scale(0.98);
+        }
+
+        .nav-btn.primary {
+            border-color: var(--accent-teal);
+            color: var(--accent-teal);
+        }
+
+        .nav-btn.primary:hover {
+            background: rgba(78, 204, 163, 0.15);
+        }
+
+        /* ========== EMAIL DISPLAY ========== */
+        .email-container {
+            margin-top: 1.5rem;
             opacity: 0;
             transform: translateY(10px);
+            transition: all 0.5s ease;
             pointer-events: none;
-            position: absolute;
-            transition: all 0.4s ease, background 0.2s ease;
         }
 
-        .contact.visible {
+        .email-container.show {
             opacity: 1;
             transform: translateY(0);
             pointer-events: auto;
-            position: relative;
         }
 
-        .contact:active {
-            background: rgba(78, 204, 163, 0.25);
-        }
-
-        .contact-icon {
-            width: 18px;
-            height: 18px;
-            stroke: var(--accent);
-            stroke-width: 1.5;
-            fill: none;
-            flex-shrink: 0;
-        }
-
-        .contact-text {
-            font-family: var(--font-body);
-            font-size: clamp(0.75rem, 3.5vw, 0.9rem);
-            font-weight: 400;
-            letter-spacing: 0.01em;
-            color: var(--accent);
-        }
-
-        .action-area {
-            min-height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .feedback {
-            position: fixed;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%) translateY(20px);
-            padding: 0.75rem 1.25rem;
-            background: var(--bg-tertiary);
-            border: 1px solid var(--accent);
+        .email-display {
+            font-family: 'Courier New', monospace;
+            font-size: clamp(0.8rem, 1.8vw, 1rem);
+            color: var(--accent-teal);
+            letter-spacing: 0.08em;
+            text-shadow: 0 0 20px var(--accent-teal-glow);
+            cursor: pointer;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid rgba(78, 204, 163, 0.3);
+            background: rgba(78, 204, 163, 0.05);
             border-radius: 4px;
-            font-size: 0.75rem;
-            letter-spacing: 0.15em;
-            color: var(--accent);
-            opacity: 0;
-            pointer-events: none;
             transition: all 0.3s ease;
-            z-index: 100;
+            display: inline-block;
         }
 
-        .feedback.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
+        .email-display:hover {
+            border-color: var(--accent-teal);
+            background: rgba(78, 204, 163, 0.1);
+            box-shadow: 0 0 25px var(--accent-teal-glow);
         }
 
-        .version {
-            position: fixed;
-            bottom: 1rem;
-            right: 1rem;
+        .email-label {
+            display: block;
             font-size: 0.6rem;
-            letter-spacing: 0.15em;
-            color: var(--text-muted);
-            opacity: 0.4;
+            color: rgba(78, 204, 163, 0.6);
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.3em;
         }
 
-        @media (min-width: 600px) {
-            .container {
-                padding: 2rem;
-            }
+        .copy-feedback {
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            letter-spacing: 0.2em;
+            margin-top: 0.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-shadow: 0 0 15px var(--accent-gold-glow);
+        }
 
-            .contact:hover {
-                background: rgba(78, 204, 163, 0.2);
-                border-color: rgba(78, 204, 163, 0.3);
-            }
+        .copy-feedback.show { opacity: 1; }
+
+        /* ========== APHORISM PANEL ========== */
+        .aphorism-panel {
+            position: fixed; 
+            bottom: 30px; 
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(0.8rem, 1.8vw, 1.1rem);
+            font-style: italic;
+            letter-spacing: 0.15em; 
+            color: rgba(255, 255, 255, 0.4);
+            z-index: 11;
+            pointer-events: none;
+            transition: opacity 0.8s ease;
+            max-width: 90%; 
+            text-align: center;
+        }
+
+        .aphorism-panel.fade { opacity: 0; }
+
+        /* ========== TOUCH APHORISM ========== */
+        .touch-aphorism {
+            position: absolute;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            color: var(--accent-gold); 
+            pointer-events: none;
+            z-index: 12; 
+            letter-spacing: 0.15em;
+            text-shadow: 0 0 25px var(--accent-gold-glow);
+            animation: float-fade 3s ease-out forwards;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .name-container { gap: 0.3rem; }
+            .name-line { gap: 0.2rem; }
+            .metrics { gap: 1.5rem; padding: 1rem 0; }
+            .nav-buttons { gap: 0.8rem; }
+            .nav-btn { padding: 0.8rem 1.2rem; font-size: 0.7rem; }
+            .lang-selector { top: 15px; right: 15px; }
+            .lang-btn { padding: 5px 10px; font-size: 0.75rem; }
+        }
+
+        @media (max-width: 480px) {
+            .nav-buttons { flex-direction: column; align-items: center; }
+            .nav-btn { width: 80%; max-width: 250px; }
         }
     </style>
 </head>
 <body>
 
-    <canvas id="particles"></canvas>
+    <div id="wrapper">
+        <canvas id="constellation"></canvas>
 
-    <div class="container">
-        <h1 class="name">
-            <span>Halit</span>
-            <span>Cengiz</span>
-            <span>Uzuner</span>
-        </h1>
+        <!-- Language Selector -->
+        <div class="lang-selector">
+            <button class="lang-btn active" data-lang="tr">TR</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
 
-        <div class="divider"></div>
-
-        <div class="action-area">
-            <p class="protocol" id="protocol">Bağlantı Noktası</p>
-
-            <a class="contact" id="contact" href="mailto:halitcengizuzuner@icloud.com">
-                <svg class="contact-icon" viewBox="0 0 24 24">
-                    <rect x="2" y="4" width="20" height="16" rx="2"/>
-                    <path d="M22 6L12 13L2 6"/>
+        <div class="content" id="mainContent">
+            
+            <!-- Logo -->
+            <div class="logo-container">
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Outer pulse ring -->
+                    <circle class="logo-ring" cx="50" cy="50" r="45"/>
+                    
+                    <!-- Main orbital path -->
+                    <ellipse class="logo-core" cx="50" cy="50" rx="35" ry="35"/>
+                    <ellipse class="logo-core" cx="50" cy="50" rx="35" ry="15" transform="rotate(60 50 50)" style="opacity: 0.6"/>
+                    <ellipse class="logo-core" cx="50" cy="50" rx="35" ry="15" transform="rotate(-60 50 50)" style="opacity: 0.6"/>
+                    
+                    <!-- Orbital particles -->
+                    <circle class="logo-orbit" cx="85" cy="50" r="3">
+                        <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="20s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle class="logo-orbit" cx="15" cy="50" r="2" style="opacity: 0.6">
+                        <animateTransform attributeName="transform" type="rotate" from="180 50 50" to="540 50 50" dur="15s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle class="logo-orbit" cx="50" cy="20" r="2.5" style="opacity: 0.8">
+                        <animateTransform attributeName="transform" type="rotate" from="90 50 50" to="450 50 50" dur="25s" repeatCount="indefinite"/>
+                    </circle>
+                    
+                    <!-- Center - Observer point -->
+                    <circle class="logo-center" cx="50" cy="50" r="6"/>
+                    <circle cx="50" cy="50" r="3" fill="var(--accent-teal)" opacity="0.8"/>
                 </svg>
-                <span class="contact-text">halitcengizuzuner@icloud.com</span>
-            </a>
+            </div>
+
+            <!-- Name -->
+            <div class="name-container" id="nameContainer">
+                <div class="name-line" id="line1"></div>
+                <div class="name-line" id="line2"></div>
+                <div class="name-line" id="line3"></div>
+            </div>
+            
+            <!-- About Section -->
+            <div class="about-section">
+                <div class="about-title" data-tr="Meraklı Zihin" data-en="Curious Mind">Meraklı Zihin</div>
+                <p class="about-text" data-tr="Soruların cevaplardan daha değerli olduğuna inanan biri. Alanı yok, adresi belirsiz, merakı sınırsız." data-en="A mind that believes questions are worth more than answers. No fixed field, no clear address, boundless curiosity.">Soruların cevaplardan daha değerli olduğuna inanan biri. Alanı yok, adresi belirsiz, merakı sınırsız.</p>
+            </div>
+
+            <!-- Status -->
+            <div class="status" id="systemStatus" data-tr="SİSTEM UYANIK" data-en="SYSTEM AWAKE">SİSTEM UYANIK</div>
+            
+            <!-- Metrics -->
+            <div class="metrics">
+                <div class="metric-box">
+                    <div class="metric-value" id="density">0.0</div>
+                    <div class="metric-label" data-tr="YOĞUNLUK" data-en="DENSITY">YOĞUNLUK</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-value" id="frequency">432Hz</div>
+                    <div class="metric-label" data-tr="FREKANS" data-en="FREQUENCY">FREKANS</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-value" id="resonance">~</div>
+                    <div class="metric-label" data-tr="REZONANS" data-en="RESONANCE">REZONANS</div>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="nav-buttons">
+                <button class="nav-btn primary" id="connectionBtn" data-tr="BAĞLANTI" data-en="CONNECTION">BAĞLANTI</button>
+                <a href="raporlar/index.html" class="nav-btn" data-tr="ARAŞTIRMA NOTLARI" data-en="RESEARCH NOTES">ARAŞTIRMA NOTLARI</a>
+            </div>
+
+            <!-- Email Container -->
+            <div class="email-container" id="emailContainer">
+                <div class="email-display" id="emailDisplay">
+                    <span class="email-label">CONTACT</span>
+                    halitcengizuzuner@icloud.com
+                </div>
+                <div class="copy-feedback" id="copyFeedback" data-tr="KOPYALANDI" data-en="COPIED">KOPYALANDI</div>
+            </div>
+        </div>
+
+        <!-- Aphorism Panel -->
+        <div class="aphorism-panel" id="aphorismPanel">
+            VARLIK, ALGILAYANDIR
         </div>
     </div>
 
-    <div class="feedback" id="feedback">KOPYALANDI</div>
-
-    <div class="version">v<span id="ver"></span></div>
-
     <script>
-    (function() {
-        'use strict';
-
-        // ============================================
-        // PARTICLE SYSTEM
-        // ============================================
-        const canvas = document.getElementById('particles');
-        const ctx = canvas.getContext('2d');
-        const dpr = window.devicePixelRatio || 1;
-        
-        let width, height;
-        let particles = [];
-        let mouse = { x: null, y: null };
-        let animationId;
-
-        const isMobile = window.innerWidth < 600;
-
-        const CONFIG = {
-            particleCount: isMobile ? 25 : 45,
-            particleSize: { min: 1, max: 2 },
-            speed: 0.25,
-            connectionDistance: isMobile ? 100 : 120,
-            mouseRadius: isMobile ? 80 : 100,
-            mouseForce: 0.4
-        };
-
-        class Particle {
-            constructor() {
-                this.reset();
-            }
-
-            reset() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * CONFIG.speed;
-                this.vy = (Math.random() - 0.5) * CONFIG.speed;
-                this.size = Math.random() * (CONFIG.particleSize.max - CONFIG.particleSize.min) + CONFIG.particleSize.min;
-                this.baseVx = this.vx;
-                this.baseVy = this.vy;
-            }
-
-            update() {
-                if (mouse.x !== null) {
-                    const dx = this.x - mouse.x;
-                    const dy = this.y - mouse.y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    
-                    if (dist < CONFIG.mouseRadius) {
-                        const force = (1 - dist / CONFIG.mouseRadius) * CONFIG.mouseForce;
-                        const angle = Math.atan2(dy, dx);
-                        this.vx += Math.cos(angle) * force;
-                        this.vy += Math.sin(angle) * force;
-                    }
+        window.addEventListener('load', function() {
+            
+            // ============================================
+            // LANGUAGE SYSTEM
+            // ============================================
+            let currentLang = localStorage.getItem('siteLang') || 
+                              (navigator.language.startsWith('tr') ? 'tr' : 'en');
+            
+            const translations = {
+                status: {
+                    tr: ['SİSTEM UYANIK', 'BİLİNÇ ALGILANDI', 'VARLIK TESPİT EDİLDİ', 'SİNYAL YAKALANDI', 'ALGI AKTİF', 'NÖRAL AĞ İŞLEMDE', 'QUANTUM DURUM', 'REZONANS BAŞLADI', 'FREKANS KİLİTLENDİ'],
+                    en: ['SYSTEM AWAKE', 'CONSCIOUSNESS DETECTED', 'PRESENCE IDENTIFIED', 'SIGNAL CAPTURED', 'PERCEPTION ACTIVE', 'NEURAL NET PROCESSING', 'QUANTUM STATE', 'RESONANCE INITIATED', 'FREQUENCY LOCKED']
+                },
+                frozen: { tr: 'GÖZLEMCİ KAYBOLDU', en: 'OBSERVER LOST' },
+                unfrozen: { tr: 'GÖZLEMCİ TESPİT EDİLDİ', en: 'OBSERVER DETECTED' },
+                protocol: { tr: 'PROTOKOL AKTİF', en: 'PROTOCOL ACTIVE' },
+                rebirth: { tr: 'SİSTEM YENİDEN DOĞDU', en: 'SYSTEM REBORN' },
+                touchAphorisms: {
+                    tr: ['İZ BIRAKTIN', 'VARLIĞIN KAYITLI', 'ALGILAMA BAŞLADI', 'SİSTEM UYANIK', 'DOKUNUŞ ALGINDI', 'İLETİŞİM KURULDU', 'SİNYAL ALINDI', 'BİLİNÇ TESPİT', 'VARLIK ONAYLANDI', 'AN YAKALANDI'],
+                    en: ['TRACE LEFT', 'PRESENCE RECORDED', 'PERCEPTION BEGAN', 'SYSTEM AWAKE', 'TOUCH DETECTED', 'CONNECTION MADE', 'SIGNAL RECEIVED', 'CONSCIOUSNESS FOUND', 'EXISTENCE CONFIRMED', 'MOMENT CAPTURED']
+                },
+                panelAphorisms: {
+                    tr: ['VARLIK, ALGILAYANDIR', 'GÖZLEMCİ, GÖZLENENDİR', 'SİSTEM, CANLININ ADIDIR', 'İLETİŞİM, VAROLUŞtur', 'DOKUNMAK, BİLMEKTİR', 'İZ, HAFIZA YARATIR', 'AN, SONSUZDUR', 'ALGI, GERÇEKLİĞİ YARATIR', 'BİLİNÇ, SÜREKLİ AKAR', 'VARLIK, İLİŞKİDİR', 'ZAMAN, YANILSAMADIR', 'HAREKET, VAROLUŞtur', 'FORM, GEÇİCİDİR', 'ENERJİ, DEĞİŞİMDİR', 'PATTERN, ANLAMDIR', 'KAOS, DÜZEN ARAR', 'SÜREÇ, SONUÇTUR', 'AKIŞ, GERÇEKLİKTİR', 'SİSTEM, KENDİNİ BİLİR', 'BİLGİ, İLİŞKİDİR'],
+                    en: ['EXISTENCE IS THE OBSERVER', 'THE OBSERVER IS OBSERVED', 'SYSTEM IS THE NAME OF LIFE', 'COMMUNICATION IS EXISTENCE', 'TO TOUCH IS TO KNOW', 'TRACE CREATES MEMORY', 'MOMENT IS INFINITE', 'PERCEPTION CREATES REALITY', 'CONSCIOUSNESS FLOWS', 'BEING IS RELATION', 'TIME IS ILLUSION', 'MOVEMENT IS EXISTENCE', 'FORM IS TEMPORARY', 'ENERGY IS CHANGE', 'PATTERN IS MEANING', 'CHAOS SEEKS ORDER', 'PROCESS IS RESULT', 'FLOW IS REALITY', 'SYSTEM KNOWS ITSELF', 'KNOWLEDGE IS RELATION']
                 }
+            };
 
-                this.vx += (this.baseVx - this.vx) * 0.02;
-                this.vy += (this.baseVy - this.vy) * 0.02;
-
-                this.x += this.vx;
-                this.y += this.vy;
-
-                if (this.x < 0 || this.x > width) this.vx *= -1;
-                if (this.y < 0 || this.y > height) this.vy *= -1;
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = getComputedStyle(document.documentElement)
-                    .getPropertyValue('--particle-color').trim();
-                ctx.fill();
-            }
-        }
-
-        function init() {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            canvas.width = width * dpr;
-            canvas.height = height * dpr;
-            canvas.style.width = width + 'px';
-            canvas.style.height = height + 'px';
-            ctx.scale(dpr, dpr);
-
-            particles = [];
-            for (let i = 0; i < CONFIG.particleCount; i++) {
-                particles.push(new Particle());
-            }
-        }
-
-        function drawConnections() {
-            const lineColor = getComputedStyle(document.documentElement)
-                .getPropertyValue('--particle-line').trim();
-
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-
-                    if (dist < CONFIG.connectionDistance) {
-                        const opacity = (1 - dist / CONFIG.connectionDistance);
-                        ctx.beginPath();
-                        ctx.strokeStyle = lineColor.replace('0.08', (0.08 * opacity).toFixed(3));
-                        ctx.lineWidth = 0.5;
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-            drawConnections();
-            animationId = requestAnimationFrame(animate);
-        }
-
-        window.addEventListener('resize', () => {
-            cancelAnimationFrame(animationId);
-            init();
-            animate();
-        });
-
-        window.addEventListener('mousemove', (e) => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-        });
-
-        window.addEventListener('mouseleave', () => {
-            mouse.x = null;
-            mouse.y = null;
-        });
-
-        window.addEventListener('touchmove', (e) => {
-            if (e.touches.length > 0) {
-                mouse.x = e.touches[0].clientX;
-                mouse.y = e.touches[0].clientY;
-            }
-        }, { passive: true });
-
-        window.addEventListener('touchend', () => {
-            setTimeout(() => {
-                mouse.x = null;
-                mouse.y = null;
-            }, 100);
-        });
-
-        // ============================================
-        // PROTOCOL INTERACTION
-        // ============================================
-        const protocol = document.getElementById('protocol');
-        const contact = document.getElementById('contact');
-        const feedback = document.getElementById('feedback');
-        const email = 'halitcengizuzuner@icloud.com';
-        let protocolActivated = false;
-
-        function activateProtocol() {
-            if (protocolActivated) return;
-            protocolActivated = true;
-
-            protocol.classList.add('processing');
-            protocol.textContent = 'Bağlantı kuruluyor';
-
-            setTimeout(() => {
-                protocol.classList.add('hidden');
+            function setLanguage(lang) {
+                currentLang = lang;
+                localStorage.setItem('siteLang', lang);
                 
-                setTimeout(() => {
-                    contact.classList.add('visible');
-                }, 150);
-            }, 1200);
-        }
+                // Update buttons
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.lang === lang);
+                });
+                
+                // Update all translatable elements
+                document.querySelectorAll('[data-tr]').forEach(el => {
+                    el.textContent = el.dataset[lang];
+                });
+                
+                // Update HTML lang attribute
+                document.documentElement.lang = lang;
+            }
 
-        protocol.addEventListener('click', activateProtocol);
+            // Initialize language
+            setLanguage(currentLang);
 
-        // ============================================
-        // CONTACT - Long press to copy (mobile)
-        // Normal tap = mailto works naturally
-        // ============================================
-        let longPressTimer = null;
-        let longPressTriggered = false;
+            // Language button listeners
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    setLanguage(btn.dataset.lang);
+                });
+            });
 
-        contact.addEventListener('touchstart', () => {
-            longPressTriggered = false;
-            longPressTimer = setTimeout(() => {
-                longPressTriggered = true;
-                navigator.clipboard.writeText(email).then(() => {
+            // ============================================
+            // NAME SYSTEM
+            // ============================================
+            const nameLines = ['HALİT', 'CENGİZ', 'UZUNER'];
+            let allLetters = [];
+
+            function initName() {
+                nameLines.forEach((word, lineIndex) => {
+                    const lineElement = document.getElementById(`line${lineIndex + 1}`);
+                    lineElement.innerHTML = '';
+                    
+                    word.split('').forEach(char => {
+                        const span = document.createElement('span');
+                        span.className = 'letter assembled';
+                        span.textContent = char;
+                        lineElement.appendChild(span);
+                        allLetters.push(span);
+                    });
+                });
+            }
+
+            function disassembleName() {
+                allLetters.forEach(letter => {
+                    letter.classList.remove('assembled');
+                    const randomX = (Math.random() - 0.5) * 200;
+                    const randomY = (Math.random() - 0.5) * 200;
+                    const randomRotate = (Math.random() - 0.5) * 720;
+                    
+                    letter.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotate}deg) scale(0.5)`;
+                    letter.style.opacity = '0';
+                });
+            }
+
+            function reassembleName() {
+                requestAnimationFrame(() => {
+                    allLetters.forEach(letter => {
+                        letter.style.transform = '';
+                        letter.style.opacity = '';
+                        letter.classList.add('assembled');
+                    });
+                });
+            }
+
+            function nameDisassemblySequence() {
+                disassembleName();
+                setTimeout(reassembleName, 700);
+            }
+
+            initName();
+
+            // ============================================
+            // CONNECTION SYSTEM
+            // ============================================
+            const emailText = 'halitcengizuzuner@icloud.com';
+            let emailVisible = false;
+
+            document.getElementById('connectionBtn').addEventListener('click', (e) => {
+                e.stopPropagation();
+                const container = document.getElementById('emailContainer');
+                emailVisible = !emailVisible;
+                container.classList.toggle('show', emailVisible);
+            });
+
+            document.getElementById('emailDisplay').addEventListener('click', (e) => {
+                e.stopPropagation();
+                navigator.clipboard.writeText(emailText).then(() => {
+                    const feedback = document.getElementById('copyFeedback');
                     feedback.classList.add('show');
                     setTimeout(() => feedback.classList.remove('show'), 2000);
                 });
-            }, 600);
-        }, { passive: true });
-
-        contact.addEventListener('touchend', (e) => {
-            clearTimeout(longPressTimer);
-            if (longPressTriggered) {
-                e.preventDefault();
-            }
-            // If not long press, mailto link works naturally
-        });
-
-        contact.addEventListener('touchmove', () => {
-            clearTimeout(longPressTimer);
-        }, { passive: true });
-
-        // Desktop: right-click to copy
-        contact.addEventListener('contextmenu', (e) => {
-            e.preventDefault();
-            navigator.clipboard.writeText(email).then(() => {
-                feedback.classList.add('show');
-                setTimeout(() => feedback.classList.remove('show'), 2000);
             });
+
+            // Mobile touch handling for email
+            document.getElementById('emailDisplay').addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Check if it's a long press (for copy) or tap (for mail app)
+                let longPress = false;
+                const timer = setTimeout(() => {
+                    longPress = true;
+                    navigator.clipboard.writeText(emailText).then(() => {
+                        const feedback = document.getElementById('copyFeedback');
+                        feedback.classList.add('show');
+                        setTimeout(() => feedback.classList.remove('show'), 2000);
+                    });
+                }, 500);
+
+                document.getElementById('emailDisplay').addEventListener('touchend', () => {
+                    clearTimeout(timer);
+                    if (!longPress) {
+                        window.location.href = 'mailto:' + emailText;
+                    }
+                }, { once: true });
+            }, { passive: false });
+
+            // Right-click to copy on desktop
+            document.getElementById('emailDisplay').addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                navigator.clipboard.writeText(emailText).then(() => {
+                    const feedback = document.getElementById('copyFeedback');
+                    feedback.classList.add('show');
+                    setTimeout(() => feedback.classList.remove('show'), 2000);
+                });
+            });
+
+            // ============================================
+            // QUANTUM OBSERVER SYSTEM
+            // ============================================
+            let lastMouseMove = Date.now();
+            let systemFrozen = false;
+            let observerCheckInterval;
+
+            function freezeSystem() {
+                if (systemFrozen) return;
+                systemFrozen = true;
+                
+                document.getElementById('wrapper').classList.add('frozen');
+                const status = document.getElementById('systemStatus');
+                status.textContent = translations.frozen[currentLang];
+                status.classList.add('frozen');
+                
+                particles.forEach(p => { p.frozen = true; });
+            }
+
+            function unfreezeSystem() {
+                if (!systemFrozen) return;
+                systemFrozen = false;
+                
+                document.getElementById('wrapper').classList.remove('frozen');
+                const status = document.getElementById('systemStatus');
+                status.textContent = translations.unfrozen[currentLang];
+                status.classList.remove('frozen');
+                status.classList.add('active');
+                
+                setTimeout(() => {
+                    status.classList.remove('active');
+                    cycleStatus();
+                }, 2000);
+                
+                particles.forEach(p => { p.frozen = false; });
+            }
+
+            function checkObserver() {
+                const timeSinceMove = Date.now() - lastMouseMove;
+                if (timeSinceMove > 30000 && !systemFrozen) {
+                    freezeSystem();
+                }
+            }
+
+            observerCheckInterval = setInterval(checkObserver, 1000);
+
+            window.addEventListener('mousemove', () => {
+                lastMouseMove = Date.now();
+                if (systemFrozen) unfreezeSystem();
+            });
+
+            window.addEventListener('touchstart', () => {
+                lastMouseMove = Date.now();
+                if (systemFrozen) unfreezeSystem();
+            }, { passive: true });
+
+            // ============================================
+            // SYSTEM STATE
+            // ============================================
+            let marks = [];
+            let interactionCount = 0;
+            let cycleCount = 0;
+            let densityLevel = 0;
+            const REBIRTH_THRESHOLD = 10;
+
+            // ============================================
+            // METRICS
+            // ============================================
+            function updateMetrics() {
+                densityLevel = Math.max(0, densityLevel - 0.02);
+                document.getElementById('density').textContent = densityLevel.toFixed(1);
+
+                const baseFreq = 432 + Math.sin(Date.now() * 0.001) * 20;
+                const freqVariation = Math.floor(baseFreq + (densityLevel * 5));
+                document.getElementById('frequency').textContent = freqVariation + 'Hz';
+
+                const waveforms = ['~', '∿', '≈', '⋯', '∼', '∽'];
+                const waveIndex = Math.floor((Date.now() / 300) % waveforms.length);
+                document.getElementById('resonance').textContent = waveforms[waveIndex];
+            }
+            setInterval(updateMetrics, 100);
+
+            function cycleStatus() {
+                if (systemFrozen) return;
+                const statusList = translations.status[currentLang];
+                const status = statusList[Math.floor(Math.random() * statusList.length)];
+                document.getElementById('systemStatus').textContent = status;
+            }
+            setInterval(cycleStatus, 7000);
+
+            function rotateAphorism() {
+                const panel = document.getElementById('aphorismPanel');
+                panel.classList.add('fade');
+                
+                setTimeout(() => {
+                    const aphorisms = translations.panelAphorisms[currentLang];
+                    const aphorism = aphorisms[Math.floor(Math.random() * aphorisms.length)];
+                    panel.textContent = aphorism;
+                    panel.classList.remove('fade');
+                }, 800);
+            }
+            setInterval(rotateAphorism, 5000);
+
+            // ============================================
+            // REBIRTH
+            // ============================================
+            function triggerRebirth() {
+                const wrapper = document.getElementById('wrapper');
+                wrapper.classList.add('rebirth');
+                
+                disassembleName();
+                
+                marks = [];
+                interactionCount = 0;
+                cycleCount++;
+                densityLevel = 0;
+                
+                const status = document.getElementById('systemStatus');
+                status.textContent = translations.rebirth[currentLang];
+                status.classList.add('active');
+
+                setTimeout(() => {
+                    reassembleName();
+                    wrapper.classList.remove('rebirth');
+                    status.classList.remove('active');
+                    cycleStatus();
+                }, 1300);
+            }
+
+            // ============================================
+            // CANVAS
+            // ============================================
+            const canvas = document.getElementById('constellation');
+            const ctx = canvas.getContext('2d');
+            const dpr = window.devicePixelRatio || 1;
+            let width, height, particles = [];
+            const isMobile = window.innerWidth < 800;
+
+            function resize() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = width * dpr;
+                canvas.height = height * dpr;
+                canvas.style.width = width + 'px';
+                canvas.style.height = height + 'px';
+                ctx.scale(dpr, dpr);
+                initParticles();
+            }
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.baseVx = (Math.random() - 0.5) * 0.4;
+                    this.baseVy = (Math.random() - 0.5) * 0.4;
+                    this.vx = this.baseVx;
+                    this.vy = this.baseVy;
+                    this.size = Math.random() * 1.5 + 0.8;
+                    this.frozen = false;
+                }
+
+                update() {
+                    if (this.frozen) return;
+                    
+                    this.vx += (this.baseVx - this.vx) * 0.05;
+                    this.vy += (this.baseVy - this.vy) * 0.05;
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    if (this.x < 0 || this.x > width) this.vx *= -1;
+                    if (this.y < 0 || this.y > height) this.vy *= -1;
+                }
+
+                disturb(px, py, force) {
+                    if (this.frozen) return;
+                    
+                    const dx = this.x - px;
+                    const dy = this.y - py;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 150) {
+                        const angle = Math.atan2(dy, dx);
+                        const pushForce = (1 - dist / 150) * force;
+                        this.vx += Math.cos(angle) * pushForce;
+                        this.vy += Math.sin(angle) * pushForce;
+                    }
+                }
+
+                draw() {
+                    const breathSize = this.size + Math.sin(Date.now() * 0.001) * 0.2;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, breathSize, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+                    ctx.fill();
+                }
+            }
+
+            function initParticles() {
+                particles = [];
+                const count = isMobile ? 40 : 70;
+                for (let i = 0; i < count; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            function drawMarks() {
+                for (let i = marks.length - 1; i >= 0; i--) {
+                    const m = marks[i];
+                    m.life -= 0.8;
+                    
+                    if (m.life <= 0) {
+                        marks.splice(i, 1);
+                    } else {
+                        const alpha = m.life / 240;
+                        ctx.beginPath();
+                        ctx.arc(m.x, m.y, 3 + Math.sin(Date.now() * 0.005) * 0.5, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(212, 175, 55, ${alpha * 0.8})`;
+                        ctx.shadowBlur = 15 * alpha;
+                        ctx.shadowColor = `rgba(212, 175, 55, ${alpha})`;
+                        ctx.fill();
+                        ctx.shadowBlur = 0;
+                    }
+                }
+            }
+
+            function drawConnections() {
+                const maxDist = isMobile ? 100 : 130;
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (dist < maxDist) {
+                            const alpha = (1 - dist / maxDist) * 0.15;
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            function animate() {
+                ctx.fillStyle = 'rgba(10, 10, 15, 0.08)';
+                ctx.fillRect(0, 0, width, height);
+                particles.forEach(p => { p.update(); p.draw(); });
+                drawConnections();
+                drawMarks();
+                requestAnimationFrame(animate);
+            }
+
+            // ============================================
+            // INTERACTION
+            // ============================================
+            function spawnTouchAphorism(x, y) {
+                const el = document.createElement('div');
+                el.className = 'touch-aphorism';
+                const aphorisms = translations.touchAphorisms[currentLang];
+                el.textContent = aphorisms[Math.floor(Math.random() * aphorisms.length)];
+                el.style.left = x + 'px';
+                el.style.top = y + 'px';
+                document.body.appendChild(el);
+                setTimeout(() => el.remove(), 3000);
+            }
+
+            function handleInteraction(x, y) {
+                marks.push({ x, y, life: 240 });
+                densityLevel = Math.min(9.9, densityLevel + 1.2);
+                particles.forEach(p => p.disturb(x, y, 2));
+                
+                document.getElementById('wrapper').classList.add('pulse');
+                setTimeout(() => {
+                    document.getElementById('wrapper').classList.remove('pulse');
+                }, 300);
+
+                spawnTouchAphorism(x, y);
+                nameDisassemblySequence();
+
+                interactionCount++;
+
+                if (interactionCount >= REBIRTH_THRESHOLD) {
+                    setTimeout(triggerRebirth, 200);
+                }
+            }
+
+            window.addEventListener('mousedown', e => {
+                // Don't trigger on nav buttons or email
+                if (e.target.closest('.nav-btn, .email-display, .lang-btn, .email-container')) return;
+                handleInteraction(e.clientX, e.clientY);
+            });
+            
+            window.addEventListener('touchstart', e => {
+                if (e.target.closest('.nav-btn, .email-display, .lang-btn, .email-container')) return;
+                if (e.touches.length > 0) {
+                    handleInteraction(e.touches[0].clientX, e.touches[0].clientY);
+                }
+            }, { passive: true });
+
+            // OLED protection
+            setInterval(() => {
+                const sx = (Math.random() - 0.5) * 4;
+                const sy = (Math.random() - 0.5) * 4;
+                document.getElementById('mainContent').style.transform = 
+                    `translate(calc(-50% + ${sx}px), calc(-50% + ${sy}px))`;
+            }, 50000);
+
+            window.addEventListener('resize', resize);
+            resize();
+            animate();
         });
-
-        // ============================================
-        // VERSION
-        // ============================================
-        document.getElementById('ver').textContent = 
-            getComputedStyle(document.documentElement)
-            .getPropertyValue('--site-version').replace(/"/g, '').trim();
-
-        // ============================================
-        // INIT
-        // ============================================
-        init();
-        animate();
-
-    })();
     </script>
 </body>
 </html>
