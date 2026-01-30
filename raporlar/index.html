@@ -292,6 +292,74 @@
         .card-action-listen:hover svg {
             transform: scale(1.1);
         }
+        /* Audio Player Modal */
+        .audio-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+        .audio-modal.active {
+            display: flex;
+        }
+        .audio-modal-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 60px var(--accent-purple-glow);
+        }
+        .audio-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            line-height: 1;
+        }
+        .audio-modal-close:hover {
+            color: var(--text-primary);
+        }
+        .audio-modal-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .audio-modal-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .audio-modal-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        .audio-player {
+            width: 100%;
+        }
+        .audio-player audio {
+            width: 100%;
+            height: 50px;
+            border-radius: 8px;
+            outline: none;
+        }
         .empty-state {
             grid-column: 1 / -1;
             text-align: center;
@@ -366,6 +434,21 @@
         <p class="footer-aphorism" data-tr="MERAK, BİLGİNİN ANAHTARIDIR" data-en="CURIOSITY IS THE KEY TO KNOWLEDGE">MERAK, BİLGİNİN ANAHTARIDIR</p>
     </footer>
 
+    <!-- Audio Player Modal -->
+    <div class="audio-modal" id="audioModal">
+        <div class="audio-modal-content">
+            <button class="audio-modal-close" onclick="closeAudioModal()">&times;</button>
+            <div class="audio-modal-icon">🎧</div>
+            <h3 class="audio-modal-title" id="audioModalTitle"></h3>
+            <p class="audio-modal-subtitle" id="audioModalSubtitle"></p>
+            <div class="audio-player">
+                <audio id="audioPlayer" controls preload="none">
+                    Tarayıcınız ses oynatmayı desteklemiyor.
+                </audio>
+            </div>
+        </div>
+    </div>
+
     <script>
         const researchNotes = [
             {
@@ -435,14 +518,14 @@
                                 </svg>
                             </a>
                             ${note.audioUrl ? `
-                                <a href="${note.audioUrl}" target="_blank" rel="noopener" class="card-action card-action-listen">
+                                <button class="card-action card-action-listen" onclick="openAudioModal('${note.audioUrl}', '${note.audioTitle[currentLang]}', '${note.audioSubtitle[currentLang]}')">
                                     <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
                                         <path d="M9 18V5l12-2v13"></path>
                                         <circle cx="6" cy="18" r="3"></circle>
                                         <circle cx="18" cy="16" r="3"></circle>
                                     </svg>
                                     ${note.listenMore[currentLang]}
-                                </a>
+                                </button>
                             ` : ''}
                         </div>
                     </div>
@@ -458,6 +541,45 @@
             };
             return `${date.getDate()} ${months[currentLang][date.getMonth()]} ${date.getFullYear()}`;
         }
+
+        // Audio Modal Functions
+        function openAudioModal(audioUrl, title, subtitle) {
+            const modal = document.getElementById('audioModal');
+            const player = document.getElementById('audioPlayer');
+            const titleEl = document.getElementById('audioModalTitle');
+            const subtitleEl = document.getElementById('audioModalSubtitle');
+            
+            titleEl.textContent = title;
+            subtitleEl.textContent = subtitle;
+            player.src = audioUrl;
+            modal.classList.add('active');
+            
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAudioModal() {
+            const modal = document.getElementById('audioModal');
+            const player = document.getElementById('audioPlayer');
+            
+            player.pause();
+            player.removeAttribute('src');
+            player.load();
+            modal.classList.remove('active');
+            
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('audioModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAudioModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeAudioModal();
+            }
+        });
 
         // Particles Background
         const canvas = document.getElementById('particles-bg');
