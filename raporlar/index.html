@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -40,11 +41,11 @@
             --accent-teal-glow: rgba(78, 204, 163, 0.4);
             --accent-gold: #d4af37;
             --accent-gold-glow: rgba(212, 175, 55, 0.4);
+            --accent-purple: #9b59b6;
+            --accent-purple-glow: rgba(155, 89, 182, 0.4);
             --border-subtle: rgba(255, 255, 255, 0.08);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body, html {
             min-height: 100%;
             background: var(--bg-primary);
@@ -52,12 +53,10 @@
             color: var(--text-primary);
             -webkit-tap-highlight-color: transparent;
         }
-
         body {
             padding: 2rem;
             padding-bottom: 4rem;
         }
-
         #particles-bg {
             position: fixed;
             top: 0;
@@ -67,7 +66,6 @@
             z-index: 0;
             pointer-events: none;
         }
-
         .lang-selector {
             position: fixed;
             top: 20px;
@@ -79,7 +77,6 @@
             font-size: 0.85rem;
             letter-spacing: 0.15em;
         }
-
         .lang-btn {
             background: transparent;
             border: 1px solid var(--border-subtle);
@@ -91,18 +88,15 @@
             font-size: inherit;
             letter-spacing: inherit;
         }
-
         .lang-btn:hover {
             border-color: var(--accent-teal);
             color: var(--text-secondary);
         }
-
         .lang-btn.active {
             border-color: var(--accent-teal);
             color: var(--accent-teal);
             background: rgba(78, 204, 163, 0.1);
         }
-
         .header {
             position: relative;
             z-index: 10;
@@ -110,7 +104,6 @@
             margin-bottom: 4rem;
             padding-top: 2rem;
         }
-
         .back-link {
             display: inline-flex;
             align-items: center;
@@ -123,17 +116,14 @@
             margin-bottom: 2rem;
             transition: color 0.3s ease;
         }
-
         .back-link:hover {
             color: var(--accent-teal);
         }
-
         .back-link svg {
             width: 16px;
             height: 16px;
             stroke: currentColor;
         }
-
         .page-title {
             font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 900;
@@ -144,7 +134,6 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .page-subtitle {
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(1rem, 2vw, 1.3rem);
@@ -152,7 +141,6 @@
             color: var(--text-secondary);
             letter-spacing: 0.1em;
         }
-
         .cards-container {
             position: relative;
             z-index: 10;
@@ -162,25 +150,20 @@
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2rem;
         }
-
         .card {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: 8px;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-decoration: none;
-            color: inherit;
             display: flex;
             flex-direction: column;
         }
-
         .card:hover {
             border-color: var(--accent-teal);
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px var(--accent-teal-glow);
         }
-
         .card-image {
             width: 100%;
             height: 200px;
@@ -193,7 +176,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .card-image::before {
             content: '';
             position: absolute;
@@ -203,33 +185,28 @@
                 radial-gradient(circle at 30% 40%, rgba(78, 204, 163, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 70% 60%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
         }
-
         .card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
         .card-placeholder-icon {
             font-size: 3rem;
             color: var(--text-muted);
             opacity: 0.5;
         }
-
         .card-content {
             padding: 1.5rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
-
         .card-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 1rem;
         }
-
         .card-category {
             font-family: 'Cormorant Garamond', serif;
             font-size: 0.7rem;
@@ -241,26 +218,19 @@
             border: 1px solid rgba(78, 204, 163, 0.3);
             border-radius: 3px;
         }
-
         .card-date {
             font-family: 'Courier New', monospace;
             font-size: 0.75rem;
             color: var(--text-muted);
             letter-spacing: 0.1em;
         }
-
         .card-title {
             font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 0.8rem;
             line-height: 1.3;
-            transition: color 0.3s ease;
+            color: var(--text-primary);
         }
-
-        .card:hover .card-title {
-            color: var(--accent-teal);
-        }
-
         .card-summary {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1rem;
@@ -268,62 +238,148 @@
             line-height: 1.6;
             flex-grow: 1;
         }
-
         .card-footer {
             margin-top: 1.5rem;
             padding-top: 1rem;
             border-top: 1px solid var(--border-subtle);
             display: flex;
-            justify-content: flex-end;
-        }
-
-        .card-read-more {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s ease;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
-
-        .card:hover .card-read-more {
-            color: var(--accent-teal);
+        .card-action {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            background: transparent;
         }
-
-        .card-read-more svg {
+        .card-action svg {
             width: 14px;
             height: 14px;
             stroke: currentColor;
             transition: transform 0.3s ease;
         }
-
-        .card:hover .card-read-more svg {
-            transform: translateX(4px);
+        .card-action-read {
+            color: var(--accent-teal);
+            border: 1px solid rgba(78, 204, 163, 0.3);
         }
-
+        .card-action-read:hover {
+            background: rgba(78, 204, 163, 0.15);
+            border-color: var(--accent-teal);
+        }
+        .card-action-read:hover svg {
+            transform: translateX(3px);
+        }
+        .card-action-listen {
+            color: var(--accent-purple);
+            border: 1px solid rgba(155, 89, 182, 0.3);
+        }
+        .card-action-listen:hover {
+            background: rgba(155, 89, 182, 0.15);
+            border-color: var(--accent-purple);
+        }
+        .card-action-listen:hover svg {
+            transform: scale(1.1);
+        }
+        /* Audio Player Modal */
+        .audio-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+        .audio-modal.active {
+            display: flex;
+        }
+        .audio-modal-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 60px var(--accent-purple-glow);
+        }
+        .audio-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            line-height: 1;
+        }
+        .audio-modal-close:hover {
+            color: var(--text-primary);
+        }
+        .audio-modal-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .audio-modal-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .audio-modal-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        .audio-player {
+            width: 100%;
+        }
+        .audio-player audio {
+            width: 100%;
+            height: 50px;
+            border-radius: 8px;
+            outline: none;
+        }
+        .audio-player audio::-webkit-media-controls-panel {
+            background: var(--bg-secondary);
+        }
         .empty-state {
             grid-column: 1 / -1;
             text-align: center;
             padding: 4rem 2rem;
         }
-
         .empty-state-icon {
             font-size: 4rem;
             margin-bottom: 1.5rem;
             opacity: 0.3;
         }
-
         .empty-state-text {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.2rem;
             font-style: italic;
             color: var(--text-muted);
         }
-
         .page-footer {
             position: relative;
             z-index: 10;
@@ -332,7 +388,6 @@
             padding-top: 2rem;
             border-top: 1px solid var(--border-subtle);
         }
-
         .footer-aphorism {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1rem;
@@ -340,25 +395,31 @@
             color: rgba(255, 255, 255, 0.3);
             letter-spacing: 0.1em;
         }
-
         @media (max-width: 768px) {
             body { padding: 1rem; }
             .cards-container { grid-template-columns: 1fr; gap: 1.5rem; }
             .card-image { height: 180px; }
             .lang-selector { top: 15px; right: 15px; }
             .lang-btn { padding: 5px 10px; font-size: 0.75rem; }
+            .card-footer {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .card-action {
+                justify-content: center;
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-
     <canvas id="particles-bg"></canvas>
-
+    
     <div class="lang-selector">
         <button class="lang-btn active" data-lang="tr">TR</button>
         <button class="lang-btn" data-lang="en">EN</button>
     </div>
-
+    
     <header class="header">
         <a href="../index.html" class="back-link">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -370,12 +431,28 @@
         <h1 class="page-title" data-tr="Araştırma Notları" data-en="Research Notes">Araştırma Notları</h1>
         <p class="page-subtitle" data-tr="Meraktan doğan keşifler" data-en="Discoveries born from curiosity">Meraktan doğan keşifler</p>
     </header>
-
+    
     <main class="cards-container" id="cardsContainer"></main>
-
+    
     <footer class="page-footer">
         <p class="footer-aphorism" data-tr="MERAK, BİLGİNİN ANAHTARIDIR" data-en="CURIOSITY IS THE KEY TO KNOWLEDGE">MERAK, BİLGİNİN ANAHTARIDIR</p>
     </footer>
+
+    <!-- Audio Player Modal -->
+    <div class="audio-modal" id="audioModal">
+        <div class="audio-modal-content">
+            <button class="audio-modal-close" onclick="closeAudioModal()">&times;</button>
+            <div class="audio-modal-icon">🎧</div>
+            <h3 class="audio-modal-title" id="audioModalTitle"></h3>
+            <p class="audio-modal-subtitle" id="audioModalSubtitle"></p>
+            <div class="audio-player">
+                <audio id="audioPlayer" controls preload="metadata">
+                    <source src="" type="audio/mpeg">
+                    Tarayıcınız ses oynatmayı desteklemiyor.
+                </audio>
+            </div>
+        </div>
+    </div>
 
     <script>
         const researchNotes = [
@@ -392,7 +469,11 @@
                     en: 'The transformation of "exactly so" and similar minimal agreement expressions in the digital age: epistemic failure or social bonding function? 3700 years of generational complaints, platform capitalism, and mapping of Turkish academic literature.' 
                 },
                 image: null,
-                readMore: { tr: 'RAPORU OKU', en: 'READ REPORT' }
+                readMore: { tr: 'TAMAMINI OKU', en: 'READ FULL' },
+                listenMore: { tr: 'ÖZETİNİ DİNLE', en: 'LISTEN SUMMARY' },
+                audioUrl: 'https://pub-09be185c608d4c1e80131e5f82eaca06.r2.dev/podcast.mp3',
+                audioTitle: { tr: 'Podcast Özeti', en: 'Podcast Summary' },
+                audioSubtitle: { tr: '~15 dakikalık sesli özet', en: '~15 minute audio summary' }
             }
         ];
 
@@ -422,8 +503,10 @@
                 return;
             }
             container.innerHTML = researchNotes.map(note => `
-                <a href="${note.id}.html" class="card">
-                    <div class="card-image">${note.image ? `<img src="${note.image}" alt="">` : `<span class="card-placeholder-icon">◇</span>`}</div>
+                <div class="card">
+                    <div class="card-image">
+                        ${note.image ? `<img src="${note.image}" alt="">` : `<span class="card-placeholder-icon">◇</span>`}
+                    </div>
                     <div class="card-content">
                         <div class="card-meta">
                             <span class="card-category">${note.category[currentLang]}</span>
@@ -432,10 +515,26 @@
                         <h2 class="card-title">${note.title[currentLang]}</h2>
                         <p class="card-summary">${note.summary[currentLang]}</p>
                         <div class="card-footer">
-                            <span class="card-read-more">${note.readMore[currentLang]}<svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                            <a href="${note.id}.html" class="card-action card-action-read">
+                                ${note.readMore[currentLang]}
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                            ${note.audioUrl ? `
+                                <button class="card-action card-action-listen" onclick="openAudioModal('${note.audioUrl}', '${note.audioTitle[currentLang]}', '${note.audioSubtitle[currentLang]}')">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                        <path d="M9 18V5l12-2v13"></path>
+                                        <circle cx="6" cy="18" r="3"></circle>
+                                        <circle cx="18" cy="16" r="3"></circle>
+                                    </svg>
+                                    ${note.listenMore[currentLang]}
+                                </button>
+                            ` : ''}
                         </div>
                     </div>
-                </a>
+                </div>
             `).join('');
         }
 
@@ -448,6 +547,49 @@
             return `${date.getDate()} ${months[currentLang][date.getMonth()]} ${date.getFullYear()}`;
         }
 
+        // Audio Modal Functions
+        function openAudioModal(audioUrl, title, subtitle) {
+            const modal = document.getElementById('audioModal');
+            const player = document.getElementById('audioPlayer');
+            const titleEl = document.getElementById('audioModalTitle');
+            const subtitleEl = document.getElementById('audioModalSubtitle');
+            
+            titleEl.textContent = title;
+            subtitleEl.textContent = subtitle;
+            player.src = audioUrl;
+            modal.classList.add('active');
+            
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAudioModal() {
+            const modal = document.getElementById('audioModal');
+            const player = document.getElementById('audioPlayer');
+            
+            player.pause();
+            player.currentTime = 0;
+            modal.classList.remove('active');
+            
+            // Restore body scroll
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on outside click
+        document.getElementById('audioModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAudioModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeAudioModal();
+            }
+        });
+
+        // Particles Background
         const canvas = document.getElementById('particles-bg');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -475,16 +617,19 @@
         function animateParticles() {
             ctx.fillStyle = 'rgba(10, 10, 15, 0.1)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
+
             particles.forEach(p => {
                 p.x += p.vx;
                 p.y += p.vy;
                 if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
                 if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
                 ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
                 ctx.fill();
             });
+
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
@@ -500,6 +645,7 @@
                     }
                 }
             }
+
             requestAnimationFrame(animateParticles);
         }
 
