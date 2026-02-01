@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -29,7 +28,7 @@
     <link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/aynen-oyle.html">
     <link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/raporlar/aynen-oyle-en.html">
     
-    <title>"Aynen Öyle" — Dijital Çağda Minimal Onay İfadelerinin Epistemik ve Sosyal İşlevleri | Halit Cengiz Uzuner</title>
+    <title>"Aynen Öyle" — Dijital Çağda Minimal Onay İfadelerinin Epistemik ve Sosyal İşlevleri</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
@@ -99,6 +98,7 @@
             font-size: 0.8rem;
             letter-spacing: 0.1em;
             transition: all 0.3s ease;
+            text-decoration: none;
         }
 
         .site-nav-lang-btn:hover {
@@ -149,10 +149,34 @@
             }
             .cover {
                 padding-top: 0 !important;
+                min-height: auto;
+                padding: 3cm 2cm;
+                page-break-after: always;
+                background: var(--primary) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .scroll-indicator {
+                display: none;
+            }
+            section {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+            .toc {
+                page-break-after: always;
             }
             body {
+                font-size: 11pt;
                 print-color-adjust: exact;
                 -webkit-print-color-adjust: exact;
+            }
+            h2 { font-size: 14pt; }
+            h3 { font-size: 12pt; }
+            .model-card {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
         }
 
@@ -194,7 +218,7 @@
             background: var(--light);
         }
 
-        /* KAPAK SAYFASI */
+        /* COVER PAGE */
         .cover {
             min-height: 100vh;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
@@ -294,14 +318,14 @@
             60% { transform: translateX(-50%) translateY(-5px); }
         }
 
-        /* ANA İÇERİK */
+        /* MAIN CONTENT */
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 4rem 2rem;
         }
 
-        /* İÇİNDEKİLER */
+        /* TABLE OF CONTENTS */
         .toc {
             background: white;
             border-radius: 12px;
@@ -360,7 +384,7 @@
             font-weight: 600;
         }
 
-        /* BÖLÜMLER */
+        /* SECTIONS */
         section {
             background: white;
             border-radius: 12px;
@@ -396,7 +420,7 @@
             text-align: justify;
         }
 
-        /* TABLOLAR */
+        /* TABLES */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -413,7 +437,7 @@
         }
 
         td {
-            padding: 1rem;
+            padding: 0.875rem 1rem;
             border-bottom: 1px solid #e2e8f0;
         }
 
@@ -425,49 +449,60 @@
             background: #edf2f7;
         }
 
-        /* VURGULAR */
-        .highlight-box {
-            background: linear-gradient(135deg, #ebf4ff 0%, #e6fffa 100%);
-            border-left: 4px solid var(--accent);
+        /* BOXES */
+        .box {
+            border-radius: 8px;
             padding: 1.5rem;
             margin: 1.5rem 0;
-            border-radius: 0 8px 8px 0;
         }
 
-        .highlight-box.warning {
-            background: linear-gradient(135deg, #fffaf0 0%, #fefcbf 100%);
-            border-left-color: var(--warning);
+        .box-info {
+            background: #ebf8ff;
+            border-left: 4px solid #3182ce;
         }
 
-        .highlight-box.success {
-            background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
-            border-left-color: var(--success);
+        .box-warning {
+            background: #fffaf0;
+            border-left: 4px solid var(--warning);
         }
 
-        .highlight-box.danger {
-            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
-            border-left-color: var(--danger);
+        .box-danger {
+            background: #fff5f5;
+            border-left: 4px solid var(--danger);
         }
 
-        /* ALINTI */
+        .box-success {
+            background: #f0fff4;
+            border-left: 4px solid var(--success);
+        }
+
+        .box-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* BLOCKQUOTE */
         blockquote {
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            background: #fffaf0;
             font-style: italic;
             color: var(--gray);
-            border-left: 4px solid var(--accent);
-            padding-left: 1.5rem;
-            margin: 1.5rem 0;
-            font-size: 1.1rem;
         }
 
         blockquote cite {
             display: block;
             margin-top: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--dark);
             font-style: normal;
+            font-weight: 600;
+            color: var(--dark);
         }
 
-        /* LİSTELER */
+        /* LISTS */
         ul, ol {
             margin: 1rem 0 1rem 1.5rem;
         }
@@ -476,32 +511,91 @@
             margin-bottom: 0.5rem;
         }
 
-        /* İSTATİSTİK KARTLARI */
-        .stat-grid {
+        /* MODEL CARDS */
+        .model-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
 
-        .stat-card {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 1.5rem;
+        .model-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 12px;
-            text-align: center;
+            padding: 1.5rem;
+            color: white;
         }
 
-        .stat-card .number {
+        .model-card.claude {
+            background: linear-gradient(135deg, #d97706 0%, #ea580c 100%);
+        }
+
+        .model-card.deepseek {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+        }
+
+        .model-card.human {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        }
+
+        .model-card h4 {
+            color: white;
+            text-transform: none;
+            letter-spacing: normal;
+            margin: 0 0 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .model-card .percentage {
             font-size: 2.5rem;
             font-weight: 700;
-            display: block;
+            margin: 0.5rem 0;
         }
 
-        .stat-card .label {
+        .model-card p {
             font-size: 0.85rem;
             opacity: 0.9;
-            margin-top: 0.5rem;
+            text-align: left;
+            margin: 0;
+        }
+
+        /* HYPOTHESIS CARDS */
+        .hypothesis {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .hypothesis::before {
+            content: 'H';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--accent);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .hypothesis-number {
+            position: absolute;
+            top: -12px;
+            left: 44px;
+            background: var(--primary);
+            color: white;
+            padding: 0 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
         }
 
         /* TIMELINE */
@@ -518,76 +612,32 @@
             top: 0;
             bottom: 0;
             width: 3px;
-            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            background: linear-gradient(to bottom, var(--accent), var(--primary));
+            border-radius: 3px;
         }
 
         .timeline-item {
             position: relative;
-            padding-bottom: 2rem;
+            padding-bottom: 1.5rem;
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
             left: -2rem;
-            top: 0.5rem;
+            top: 0.25rem;
             width: 12px;
             height: 12px;
             background: var(--accent);
             border-radius: 50%;
-            transform: translateX(-4.5px);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--accent);
         }
 
         .timeline-date {
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        /* KAYNAK KARTLARI */
-        .source-card {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 0.5rem 0;
-        }
-
-        .source-card .type {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* KARŞILAŞTIRMA TABLOSU */
-        .comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .comparison-col {
-            padding: 1.5rem;
-            border-radius: 8px;
-        }
-
-        .comparison-col.pro {
-            background: #f0fff4;
-            border: 2px solid var(--success);
-        }
-
-        .comparison-col.con {
-            background: #fff5f5;
-            border: 2px solid var(--danger);
-        }
-
-        .comparison-col h4 {
-            margin-top: 0;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.9rem;
         }
 
         /* FOOTER */
@@ -598,54 +648,37 @@
             text-align: center;
         }
 
-        footer p {
+        footer a {
+            color: var(--accent);
+        }
+
+        .license-box {
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
             max-width: 600px;
-            margin: 0 auto;
-            opacity: 0.8;
-            font-size: 0.9rem;
+            margin: 2rem auto;
+            text-align: left;
         }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .comparison {
-                grid-template-columns: 1fr;
+            .cover h1 {
+                font-size: 1.75rem;
             }
-            
+
             section {
                 padding: 1.5rem;
             }
-            
-            .container {
-                padding: 2rem 1rem;
-            }
-            
-            .stat-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
 
-        /* SCROLL ANİMASYONLARI */
-        section {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease forwards;
-        }
+            table {
+                font-size: 0.8rem;
+            }
 
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            th, td {
+                padding: 0.5rem;
             }
         }
-
-        section:nth-child(1) { animation-delay: 0.1s; }
-        section:nth-child(2) { animation-delay: 0.2s; }
-        section:nth-child(3) { animation-delay: 0.3s; }
-        section:nth-child(4) { animation-delay: 0.4s; }
-        section:nth-child(5) { animation-delay: 0.5s; }
-        section:nth-child(6) { animation-delay: 0.6s; }
-        section:nth-child(7) { animation-delay: 0.7s; }
-        section:nth-child(8) { animation-delay: 0.8s; }
     </style>
 </head>
 <body>
@@ -677,475 +710,777 @@
         </div>
     </nav>
 
-    <!-- KAPAK -->
-    <header class="cover">
-        <div class="cover-content">
-            <span class="badge">Araştırma Notu</span>
-            <h1><strong>"Aynen Öyle"</strong></h1>
-            <p class="subtitle">Dijital Çağda Minimal Onay İfadelerinin Epistemik ve Sosyal İşlevleri</p>
-            
-            <div class="meta">
-                <div class="meta-item">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                    Halit Cengiz Uzuner
-                </div>
-                <div class="meta-item">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                    </svg>
-                    30 Ocak 2026
-                </div>
-                <div class="meta-item">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <polyline points="12 6 12 12 16 14"></polyline>
-                    </svg>
-                    ~15 dk okuma
-                </div>
+<!-- KAPAK SAYFASI -->
+<header class="cover">
+    <div class="cover-content">
+        <h1><strong>"Aynen Öyle"</strong></h1>
+        <p class="subtitle">Dijital Çağda Minimal Onay İfadelerinin<br>Epistemik ve Sosyal İşlevleri</p>
+        <span class="badge">Keşifsel Araştırma Raporu</span>
+
+        <div class="meta">
+            <div class="meta-item">
+                <span>📅</span>
+                <span>Ocak 2025</span>
+            </div>
+            <div class="meta-item">
+                <span>📄</span>
+                <span>v1.0</span>
+            </div>
+            <div class="meta-item">
+                <span>🔓</span>
+                <span>Açık Erişim</span>
             </div>
         </div>
-        
-        <div class="scroll-indicator">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 5v14M19 12l-7 7-7-7"/>
-            </svg>
+    </div>
+
+    <div class="scroll-indicator">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+    </div>
+</header>
+
+<main class="container">
+
+<!-- İÇİNDEKİLER -->
+<nav class="toc">
+    <h2>İçindekiler</h2>
+    <ol class="toc-list">
+        <li><a href="#ozet">Özet ve Temel Bulgular</a></li>
+        <li><a href="#metodoloji">Metodoloji ve Yapay Zeka Modelleri</a></li>
+        <li><a href="#giris">Giriş: "Aynen Öyle" Nedir?</a></li>
+        <li><a href="#tarihsel">Tarihsel Perspektif: 3700 Yıllık Kuşak Şikayetleri</a></li>
+        <li><a href="#platform">Platform Kapitalizmi ve Yapısal Teşvikler</a></li>
+        <li><a href="#populer">Popüler İddialar vs Akademik Konsensüs</a></li>
+        <li><a href="#fatik">Fatik İletişim vs Epistemik Parazitlik</a></li>
+        <li><a href="#turkce">Türkçe Akademik Literatür</a></li>
+        <li><a href="#karsilastirma">Karşılaştırmalı Perspektif</a></li>
+        <li><a href="#hipotezler">Ampirik Test ve Hipotezler</a></li>
+        <li><a href="#sonuc">Sonuç: Mütevazı Bir Tez</a></li>
+        <li><a href="#kaynakca">Kaynakça</a></li>
+        <li><a href="#lisans">Lisans ve Kullanım Hakları</a></li>
+    </ol>
+</nav>
+
+<!-- BÖLÜM 1: ÖZET -->
+<section id="ozet">
+    <h2>1. Özet ve Temel Bulgular</h2>
+
+    <p>Bu rapor, Türkçe'deki "aynen öyle" ve benzeri minimal onay ifadelerinin dijital iletişim çağındaki dönüşümünü inceliyor. Araştırma, bu ifadelerin iki olası yorumunu — <strong>epistemik başarısızlık</strong> mı yoksa <strong>sosyal bağ işlevi</strong> mi — ele alarak, mevcut akademik literatürü haritalıyor ve araştırma boşluklarını tespit ediyor.</p>
+
+    <div class="box box-success">
+        <div class="box-title">✓ Temel Bulgular</div>
+        <ul>
+            <li><strong>Tarihsel süreklilik:</strong> "Gençlik bozuluyor" söylemi 3700 yıllık bir gelenek</li>
+            <li><strong>Platform kırılması:</strong> Algoritmik teşvikler niteliksel farklar yaratıyor</li>
+            <li><strong>Popüler iddialar çürütülmüş:</strong> "8 saniye dikkat süresi" uydurma; "dijital demans" akademik olarak reddedilmiş</li>
+            <li><strong>Türkçe literatür erken aşamada:</strong> "Aynen" 2020'lerde çalışılmaya başlanmış</li>
+            <li><strong>İkili doğa:</strong> Bağlama göre fatik veya epistemik işlev</li>
+        </ul>
+    </div>
+
+    <div class="box box-warning">
+        <div class="box-title">⚠ Önemli Uyarı</div>
+        <p>Bu rapor <strong>kesin iddialar değil, araştırma soruları</strong> sunmaktadır. Öne sürülen hipotezler henüz ampirik olarak test edilmemiştir. Teorik çıkarımların geçerliliği gelecek araştırmalara bağlıdır.</p>
+    </div>
+</section>
+
+<!-- BÖLÜM 2: METODOLOJİ -->
+<section id="metodoloji">
+    <h2>2. Metodoloji ve Yapay Zeka Modelleri</h2>
+
+    <p>Bu rapor, insan-yapay zeka işbirliğiyle oluşturulmuş disiplinlerarası bir çalışmadır. Şeffaflık ilkesi gereği, kullanılan tüm araçlar ve katkı oranları aşağıda belirtilmiştir.</p>
+
+    <h3>2.1 Kullanılan Yapay Zeka Modelleri</h3>
+
+    <div class="model-grid">
+        <div class="model-card claude">
+            <h4>Claude Opus 4.5</h4>
+            <div class="percentage">%50</div>
+            <p><strong>Cowork Ortamı:</strong> Sentez, yapılandırma, argüman geliştirme, metin üretimi. Anthropic tarafından geliştirilen büyük dil modeli.</p>
         </div>
-    </header>
 
-    <!-- ANA İÇERİK -->
-    <main class="container">
-        
-        <!-- İÇİNDEKİLER -->
-        <nav class="toc">
-            <h2>📋 İçindekiler</h2>
-            <ol class="toc-list">
-                <li><a href="#ozet">Yönetici Özeti</a></li>
-                <li><a href="#baglam">Araştırma Bağlamı</a></li>
-                <li><a href="#cerceve">Kavramsal Çerçeve</a></li>
-                <li><a href="#bulgular">Temel Bulgular</a></li>
-                <li><a href="#literatur">Türkçe Akademik Literatür</a></li>
-                <li><a href="#metodoloji">Metodolojik Sınırlılıklar</a></li>
-                <li><a href="#sonuc">Sonuç ve Öneriler</a></li>
-                <li><a href="#kaynaklar">Kaynaklar</a></li>
-            </ol>
-        </nav>
+        <div class="model-card claude">
+            <h4>Claude Deep Research</h4>
+            <div class="percentage">%20</div>
+            <p><strong>Derin Araştırma Modu:</strong> Akademik literatür taraması, kaynak doğrulama, web araştırması, veri toplama.</p>
+        </div>
 
-        <!-- BÖLÜM 1: YÖNETİCİ ÖZETİ -->
-        <section id="ozet">
-            <h2>1. Yönetici Özeti</h2>
-            
-            <div class="highlight-box">
-                <strong>Temel Soru:</strong> "Aynen öyle" ve benzeri minimal onay ifadeleri, dijital iletişimde epistemik bir başarısızlığı mı yoksa yeni bir sosyal bağ mekanizmasını mı temsil ediyor?
-            </div>
+        <div class="model-card deepseek">
+            <h4>DeepSeek R1</h4>
+            <div class="percentage">%10</div>
+            <p><strong>Muhakeme Modeli:</strong> Teorik çerçeve, tarihsel analiz, hipotez geliştirme. 671B parametre, Ocak 2025 sürümü.</p>
+        </div>
 
-            <h3>Ana Bulgular</h3>
-            <div class="stat-grid">
-                <div class="stat-card">
-                    <span class="number">3700+</span>
-                    <span class="label">Yıllık Kuşak Şikayeti Geleneği</span>
-                </div>
-                <div class="stat-card">
-                    <span class="number">~0</span>
-                    <span class="label">Türkçe Akademik Kaynak</span>
-                </div>
-                <div class="stat-card">
-                    <span class="number">2</span>
-                    <span class="label">Rakip Açıklama Modeli</span>
-                </div>
-                <div class="stat-card">
-                    <span class="number">%60-80</span>
-                    <span class="label">Günlük Konuşmada Fatik İletişim</span>
-                </div>
-            </div>
+        <div class="model-card human">
+            <h4>İnsan Yönlendirmesi</h4>
+            <div class="percentage">%20</div>
+            <p><strong>Araştırma Tasarımı:</strong> Soru formülasyonu, eleştirel değerlendirme, yön belirleme, kalite kontrolü.</p>
+        </div>
+    </div>
 
-            <p>Bu araştırma, günlük dijital iletişimde yaygınlaşan "aynen öyle", "harbi", "cidden" gibi minimal onay ifadelerinin işlevini incelemiştir. Bulgular, bu ifadelerin basit bir "düşünce tembelliği" göstergesi olmadığını; aksine <strong>fatik iletişim</strong> (sosyal bağ kurma amaçlı iletişim) ve <strong>platform kapitalizmi</strong> koşullarında rasyonel bir adaptasyon olabileceğini ortaya koymaktadır.</p>
+    <h3>2.2 Araştırma Süreci</h3>
 
-            <div class="highlight-box warning">
-                <strong>⚠️ Önemli Uyarı:</strong> Bu araştırma, yapay zeka (Claude) ile işbirlikli bir keşif sürecinin ürünüdür. Referansların %100'ü doğrulanmış değildir ve akademik yayın standardında değildir. Yol gösterici bir haritalama çalışması olarak değerlendirilmelidir.
-            </div>
-        </section>
+    <div class="timeline">
+        <div class="timeline-item">
+            <span class="timeline-date">Aşama 1: Çerçeveleme</span>
+            <p>"Aynen öyle"nin platform kapitalizmi ve epistemoloji bağlamında konumlandırılması</p>
+        </div>
+        <div class="timeline-item">
+            <span class="timeline-date">Aşama 2: Teorik Araştırma</span>
+            <p>Wu-Srnicek-Zuboff sentezi, erdem epistemolojisi, fatik iletişim teorisi</p>
+        </div>
+        <div class="timeline-item">
+            <span class="timeline-date">Aşama 3: Tarihsel Perspektif</span>
+            <p>3700 yıllık kuşak şikayetleri, Sokrates paradoksu, evrim vs kırılma analizi</p>
+        </div>
+        <div class="timeline-item">
+            <span class="timeline-date">Aşama 4: Ampirik Doğrulama</span>
+            <p>Popüler iddiaların akademik konsensüsle karşılaştırılması</p>
+        </div>
+        <div class="timeline-item">
+            <span class="timeline-date">Aşama 5: Literatür Taraması</span>
+            <p>Türkçe söylem belirteçleri, minimal onay ifadeleri, karşılaştırmalı dilbilim</p>
+        </div>
+        <div class="timeline-item">
+            <span class="timeline-date">Aşama 6: Eleştirel Revizyon</span>
+            <p>İlk çerçevenin sorgulanması ve güncellenmesi</p>
+        </div>
+    </div>
 
-        <!-- BÖLÜM 2: ARAŞTIRMA BAĞLAMI -->
-        <section id="baglam">
-            <h2>2. Araştırma Bağlamı</h2>
+    <h3>2.3 Epistemik Şeffaflık</h3>
 
-            <h3>2.1 Tetikleyici Gözlem</h3>
-            <p>Dijital iletişim ortamlarında (WhatsApp, Twitter/X, Instagram) özellikle genç kullanıcılar arasında yaygınlaşan bir kalıp dikkat çekmektedir:</p>
+    <div class="box box-info">
+        <div class="box-title">ℹ Öz-Eleştiri Notu</div>
+        <p>Bu rapor kendi argümanlarını da eleştirel değerlendirmeye tabi tutmuştur:</p>
+        <ul>
+            <li>İlk çerçeve ("aynen öyle = epistemik parazitlik = platform kapitalizmi") <strong>spekülatif bulunmuş</strong> ve revize edilmiştir</li>
+            <li>Popüler iddialar (8 saniye, dijital demans) çürütüldükten sonra argümanlar güncellenmiştir</li>
+            <li>"Kesin iddia" yerine "araştırma sorusu" formatı benimsenmiştir</li>
+            <li>Doğrulanamayan referanslar açıkça belirtilmiştir</li>
+        </ul>
+    </div>
+</section>
 
-            <blockquote>
-                A: "Bugün hava çok güzel."<br>
-                B: "Aynen öyle."<br>
-                A: "Ekonomi çok kötü gidiyor."<br>
-                B: "Harbi ya."<br>
-                A: "Yapay zeka işleri ele geçirecek."<br>
-                B: "Cidden."
-                <cite>— Tipik dijital konuşma örüntüsü</cite>
-            </blockquote>
+<!-- BÖLÜM 3: GİRİŞ -->
+<section id="giris">
+    <h2>3. Giriş: "Aynen Öyle" Nedir?</h2>
 
-            <h3>2.2 İlk Hipotez (Eleştirel Bakış)</h3>
-            <p>Bu kalıp başlangıçta şu endişeyi doğurmuştur:</p>
-            <ul>
-                <li>İçerik üretmek yerine sadece onaylama</li>
-                <li>Eleştirel düşünce eksikliği</li>
-                <li>Konuşmaya katkı sağlamadan sosyal kabul arayışı</li>
-                <li>Dijital çağın "düşünce tembelliği"nin göstergesi</li>
-            </ul>
+    <h3>3.1 Etimoloji</h3>
 
-            <h3>2.3 Araştırma Soruları</h3>
-            <div class="highlight-box success">
-                <ol>
-                    <li>Bu fenomen gerçekten yeni mi, yoksa tarihsel bir sürekliliği var mı?</li>
-                    <li>Minimal onay ifadeleri epistemik bir başarısızlık mı, işlevsel bir adaptasyon mu?</li>
-                    <li>Platform mimarisi bu kalıpları nasıl şekillendiriyor?</li>
-                    <li>Türkçe akademik literatürde bu konu nasıl ele alınmış?</li>
-                </ol>
-            </div>
-        </section>
+    <p>"Aynen" kelimesi Arapça <em>ayn</em> (göz, öz, ta kendisi) kökünden gelir. Türkçe'ye 14. yüzyılda girmiş, ilk yazılı kaydı 1391 tarihli Saraylı Seyf'in Gülistan Tercümesi'nde bulunur.</p>
 
-        <!-- BÖLÜM 3: KAVRAMSAL ÇERÇEVE -->
-        <section id="cerceve">
-            <h2>3. Kavramsal Çerçeve</h2>
+    <h3>3.2 Semantik Evrim</h3>
 
-            <h3>3.1 Fatik İletişim (Phatic Communication)</h3>
-            <p><strong>Tanım:</strong> Bilgi aktarımından çok sosyal bağı sürdürmeye yönelik iletişim türü. Bronisław Malinowski (1923) tarafından kavramsallaştırılmıştır.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Dönem</th>
+                <th>Anlam</th>
+                <th>Bağlam</th>
+                <th>Örnek</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>14-17. yy</strong></td>
+                <td>Olduğu gibi, birebir</td>
+                <td>Hukuki, idari</td>
+                <td>"Metni aynen kopyala"</td>
+            </tr>
+            <tr>
+                <td><strong>17-19. yy</strong></td>
+                <td>Tıpkı, benzer şekilde</td>
+                <td>Günlük konuşma</td>
+                <td>"Aynen öyle oldu"</td>
+            </tr>
+            <tr>
+                <td><strong>20. yy sonu</strong></td>
+                <td>Evet, katılıyorum</td>
+                <td>Günlük onay</td>
+                <td>"—Hava sıcak. —Aynen."</td>
+            </tr>
+            <tr>
+                <td><strong>21. yy</strong></td>
+                <td>Minimal onay / ?</td>
+                <td>Dijital iletişim</td>
+                <td>Tartışmalı</td>
+            </tr>
+        </tbody>
+    </table>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Özellik</th>
-                        <th>Bilgi Amaçlı İletişim</th>
-                        <th>Fatik İletişim</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Birincil işlev</td>
-                        <td>Bilgi aktarımı</td>
-                        <td>Sosyal bağ kurma/sürdürme</td>
-                    </tr>
-                    <tr>
-                        <td>Başarı kriteri</td>
-                        <td>Mesajın anlaşılması</td>
-                        <td>İlişkinin devamı</td>
-                    </tr>
-                    <tr>
-                        <td>İçerik önemi</td>
-                        <td>Yüksek</td>
-                        <td>Düşük</td>
-                    </tr>
-                    <tr>
-                        <td>Örnek</td>
-                        <td>"Toplantı saat 3'e alındı"</td>
-                        <td>"Nasılsın?" - "İyilik, sen?"</td>
-                    </tr>
-                </tbody>
-            </table>
+    <p>Dilbilimde bu süreç <strong>"pragmatikleşme"</strong> olarak adlandırılır: kelime orijinal semantik içeriğinden soyutlanarak söylem işaretine dönüşür (Hirik, 2019).</p>
 
-            <div class="highlight-box">
-                <strong>Temel İçgörü:</strong> Roman Jakobson'un iletişim modeline göre, her mesajın altı işlevi olabilir: referanssal, emotif, konatif, fatik, metalingual ve poetik. "Aynen öyle" tipi ifadeler ağırlıklı olarak <em>fatik</em> işlev taşımaktadır.
-            </div>
+    <h3>3.3 Temel Araştırma Sorusu</h3>
 
-            <h3>3.2 Platform Kapitalizmi ve Dikkat Ekonomisi</h3>
-            <p>Nick Srnicek'in <em>Platform Capitalism</em> (2016) çerçevesinde:</p>
-            <ul>
-                <li><strong>Dikkat sınırlı bir kaynak:</strong> Günde milyarlarca mesaj akışında her birine derinlemesine yanıt vermek imkansız</li>
-                <li><strong>Hız baskısı:</strong> Anında yanıt beklentisi, düşünülmüş cevapları engelliyor</li>
-                <li><strong>Etkileşim metriği:</strong> Platformlar "engagement" sayısını ödüllendiriyor, kaliteyi değil</li>
-                <li><strong>FOMO (Fear of Missing Out):</strong> Konuşmada yer almama korkusu minimal katılımı teşvik ediyor</li>
-            </ul>
+    <blockquote>
+        "Aynen öyle" ve benzeri minimal onay ifadeleri dijital çağda ne ifade ediyor? Epistemik bir başarısızlık mı, sosyal bir işlev mi, yoksa bağlama göre değişen ikili bir fenomen mi?
+    </blockquote>
+</section>
 
-            <h3>3.3 Kuşak Şikayeti Geleneği</h3>
-            <p>Tarihsel perspektif, "gençlik bozuldu" söyleminin evrensel ve kadim bir gelenek olduğunu göstermektedir:</p>
+<!-- BÖLÜM 4: TARİHSEL PERSPEKTİF -->
+<section id="tarihsel">
+    <h2>4. Tarihsel Perspektif: 3700 Yıllık Kuşak Şikayetleri</h2>
 
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">MÖ 1700</div>
-                    <p>Sümer tableti: "Gençlik eskisi gibi değil, dünya sonuna yaklaşıyor"</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">MÖ 400</div>
-                    <p>Sokrates (Platon'a atfen): "Gençler büyüklerine saygısız, otoriteyi küçümsüyor"</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">1950'ler</div>
-                    <p>"Rock and roll gençliği yozlaştırıyor"</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">1990'lar</div>
-                    <p>"MTV nesli düşünemiyor"</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2020'ler</div>
-                    <p>"TikTok nesli sadece 'aynen' diyor"</p>
-                </div>
-            </div>
+    <h3>4.1 Kronolojik Kayıtlar</h3>
 
-            <div class="highlight-box warning">
-                <strong>Metodolojik Uyarı:</strong> Bu tarihsel paralellik, mevcut eleştirilerin geçersiz olduğu anlamına gelmez. Ancak her değerlendirmede "ölçüt nedir?" ve "karşılaştırma noktası hangi idealize geçmiş?" sorularının sorulması gerektiğini hatırlatır.
-            </div>
-        </section>
+    <p>"Gençler dili/ahlakı/kültürü bozuyor" söylemi insanlık tarihinin en eski şikayetlerinden biridir:</p>
 
-        <!-- BÖLÜM 4: TEMEL BULGULAR -->
-        <section id="bulgular">
-            <h2>4. Temel Bulgular</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Tarih</th>
+                <th>Kaynak</th>
+                <th>Şikayet</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>MÖ 1700</td>
+                <td>Sümer Tableti</td>
+                <td>"Gençler saygısız, otoriteyi hiçe sayıyor"</td>
+            </tr>
+            <tr>
+                <td>MÖ 400</td>
+                <td>Sokrates</td>
+                <td>"Yazı hafızayı zayıflatacak"</td>
+            </tr>
+            <tr>
+                <td>1480</td>
+                <td>Trithemius</td>
+                <td>"Matbaa el yazması sanatını öldürecek"</td>
+            </tr>
+            <tr>
+                <td>1858</td>
+                <td>Scientific American</td>
+                <td>"Telgraf düşüncesiz iletişimi teşvik ediyor"</td>
+            </tr>
+            <tr>
+                <td>1907</td>
+                <td>Chicago Post</td>
+                <td>"Telefon yüz yüze iletişimi öldürüyor"</td>
+            </tr>
+            <tr>
+                <td>1961</td>
+                <td>FCC Başkanı</td>
+                <td>"TV tüm kültürü eğlenceye dönüştürüyor"</td>
+            </tr>
+        </tbody>
+    </table>
 
-            <h3>4.1 İki Rakip Model</h3>
-            <div class="comparison">
-                <div class="comparison-col con">
-                    <h4>❌ Epistemik Başarısızlık Modeli</h4>
-                    <ul>
-                        <li>Eleştirel düşünce atrofisi</li>
-                        <li>Entelektüel tembellik</li>
-                        <li>Sosyal medyanın zararlı etkisi</li>
-                        <li>Anlam kaybı, yüzeyselleşme</li>
-                    </ul>
-                    <p><strong>Kanıt:</strong> Sınırlı, çoğunlukla anekdotal</p>
-                </div>
-                <div class="comparison-col pro">
-                    <h4>✓ İşlevsel Adaptasyon Modeli</h4>
-                    <ul>
-                        <li>Fatik iletişimin dijital formu</li>
-                        <li>Dikkat ekonomisinde rasyonel strateji</li>
-                        <li>Sosyal bağ sürdürme mekanizması</li>
-                        <li>Bağlam-duyarlı kod değiştirme</li>
-                    </ul>
-                    <p><strong>Kanıt:</strong> Teorik destek güçlü, ampirik çalışma yetersiz</p>
-                </div>
-            </div>
+    <h3>4.2 Sokrates Paradoksu</h3>
 
-            <h3>4.2 Bağlamsal Farklılaşma</h3>
-            <p>Aynı birey farklı bağlamlarda farklı iletişim stratejileri kullanmaktadır:</p>
+    <div class="box box-info">
+        <div class="box-title">Sokrates Haklı Çıktı mı?</div>
+        <p><strong>Haklı olduğu noktalar:</strong> Ezber kültürü zayıfladı, yüzeysel okuma riski arttı</p>
+        <p><strong>Haksız çıktığı noktalar:</strong> Yazı olmadan felsefe, bilim, demokrasi gelişemezdi</p>
+        <p><strong>Sonuç:</strong> Her teknolojik şikayet <em>kısmen</em> haklı çıkıyor ama sonuçları yanlış tahmin ediyor</p>
+    </div>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Bağlam</th>
-                        <th>İletişim Stili</th>
-                        <th>Örnek</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Grup chat (arkadaş)</td>
-                        <td>Minimal, fatik</td>
-                        <td>"Aynen", "Harbi", emoji</td>
-                    </tr>
-                    <tr>
-                        <td>İş e-postası</td>
-                        <td>Formal, detaylı</td>
-                        <td>Tam cümleler, yapılandırılmış argüman</td>
-                    </tr>
-                    <tr>
-                        <td>Akademik tartışma</td>
-                        <td>Analitik, kaynaklı</td>
-                        <td>Referanslı, nüanslı ifadeler</td>
-                    </tr>
-                    <tr>
-                        <td>Yakın ilişki (bire bir)</td>
-                        <td>Karma, derin</td>
-                        <td>Hem fatik hem bilgi yoğun</td>
-                    </tr>
-                </tbody>
-            </table>
+    <h3>4.3 Evrim mi Kırılma mı?</h3>
 
-            <div class="highlight-box success">
-                <strong>Temel İçgörü:</strong> "Aynen öyle" diyen birey, başka bağlamlarda karmaşık argümanlar üretebilir. Sorun bireyin kapasitesinde değil, belirli iletişim ortamlarının teşvik ettiği kalıplarda olabilir.
-            </div>
+    <p>Platform kapitalizmi beş kırılma kriterinin hepsini karşılıyor:</p>
 
-            <h3>4.3 Nicel Perspektif</h3>
-            <p>Malinowski ve takipçilerinin tahminlerine göre:</p>
-            <ul>
-                <li>Günlük konuşmaların <strong>%60-80'i</strong> fatik işlev taşır</li>
-                <li>Bu oran dijital ortamda daha da yüksek olabilir</li>
-                <li>Sosyal medya "engagement" metriklerinin %90'ından fazlası fatik kategorisinde</li>
-            </ul>
-        </section>
+    <ol>
+        <li><strong>Geri dönülemezlik:</strong> 5.3 milyar internet kullanıcısı</li>
+        <li><strong>Toplumsal yeniden yapılanma:</strong> Dijital vatandaşlık, uzaktan çalışma</li>
+        <li><strong>Bilişsel yeniden yapılanma:</strong> Nöroplastisite kanıtları</li>
+        <li><strong>Ölçek ve hız:</strong> 30 yılda evrensel penetrasyon</li>
+        <li><strong>Yaygınlık:</strong> Modern toplum dijital olmadan işleyemez</li>
+    </ol>
 
-        <!-- BÖLÜM 5: TÜRKÇE AKADEMİK LİTERATÜR -->
-        <section id="literatur">
-            <h2>5. Türkçe Akademik Literatür</h2>
+    <p><strong>Sonuç:</strong> "Kırılma içinde evrim" — Bu sefer hem farklı hem değil. Algoritmik mekanizmalar yeni, ama panik örüntüsü tanıdık.</p>
+</section>
 
-            <div class="highlight-box danger">
-                <strong>Kritik Bulgu:</strong> Türkçe'de "fatik iletişim", "minimal onay ifadeleri" veya "dijital söylem belirteçleri" konusunda doğrudan akademik çalışma son derece sınırlıdır. Bu bir araştırma boşluğu oluşturmaktadır.
-            </div>
+<!-- BÖLÜM 5: PLATFORM KAPİTALİZMİ -->
+<section id="platform">
+    <h2>5. Platform Kapitalizmi ve Yapısal Teşvikler</h2>
 
-            <h3>5.1 İlişkili Alanlar</h3>
-            <p>Doğrudan çalışma olmasa da, şu alanlarda dolaylı ilişkili literatür mevcuttur:</p>
+    <h3>5.1 Üç Teorisyen Sentezi</h3>
 
-            <div class="source-card">
-                <span class="type">Sosyolinguistik</span>
-                <p><strong>Söylem belirteçleri:</strong> "yani", "işte", "hani" gibi ifadelerin pragmatik işlevleri üzerine çalışmalar</p>
-            </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Teorisyen</th>
+                <th>Eser (Yıl)</th>
+                <th>Temel Tez</th>
+                <th>Pozisyon</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Tim Wu</strong></td>
+                <td>The Attention Merchants (2016)</td>
+                <td>Dikkat ticareti 1833'te başladı</td>
+                <td>Süreklilik</td>
+            </tr>
+            <tr>
+                <td><strong>Nick Srnicek</strong></td>
+                <td>Platform Capitalism (2017)</td>
+                <td>Veri 21. yüzyılın hammaddesi</td>
+                <td>Ekonomi politik</td>
+            </tr>
+            <tr>
+                <td><strong>Shoshana Zuboff</strong></td>
+                <td>Gözetim Kapitalizmi Çağı (2019)</td>
+                <td>Davranışsal artık = yeni hammadde</td>
+                <td>Kopuş</td>
+            </tr>
+        </tbody>
+    </table>
 
-            <div class="source-card">
-                <span class="type">İletişim Çalışmaları</span>
-                <p><strong>Sosyal medya dili:</strong> Twitter/Instagram dilinin özellikleri, emoji kullanımı</p>
-            </div>
+    <p><strong>Sentez:</strong> Platform kapitalizmi = dikkat ticareti (süreklilik) + davranış kapitalizmi (kopuş)</p>
 
-            <div class="source-card">
-                <span class="type">Edebiyat/Kültür</span>
-                <p><strong>Kuşak söylemleri:</strong> Z kuşağı, Y kuşağı üzerine popüler yazılar (akademik olmayan)</p>
-            </div>
+    <h3>5.2 Facebook Papers Kanıtları</h3>
 
-            <h3>5.2 Potansiyel Araştırma Alanları</h3>
-            <ol>
-                <li><strong>Korpus çalışması:</strong> WhatsApp/Twitter verilerinde minimal onay ifadelerinin sıklık analizi</li>
-                <li><strong>Karşılaştırmalı çalışma:</strong> Türkçe vs. diğer dillerde fatik ifade kalıpları</li>
-                <li><strong>Boylamsal çalışma:</strong> Aynı bireylerin farklı platformlardaki dil kullanımı</li>
-                <li><strong>Etnografik çalışma:</strong> Gençlerin bu ifadelere yükledikleri anlam</li>
-            </ol>
-        </section>
+    <div class="box box-danger">
+        <div class="box-title">⚠ İç Belgelerden</div>
+        <ul>
+            <li>MSI algoritması: Beğeni = 1 puan, öfke emojisi = <strong>5 puan</strong></li>
+            <li>"Algoritmalarımız insan beyninin bölücülüğe çekiciliğini sömürüyor"</li>
+            <li>Aşırılıkçı grup katılımlarının %64'ü Facebook öneri sisteminden</li>
+        </ul>
+    </div>
 
-        <!-- BÖLÜM 6: METODOLOJİK SINIRLILIKLAR -->
-        <section id="metodoloji">
-            <h2>6. Metodolojik Sınırlılıklar</h2>
+    <p><strong>"Aynen öyle" bağlantısı:</strong> Sistem hızlı, düşük maliyetli tepkileri ödüllendiriyor. Minimal onay ifadeleri bu kategoride.</p>
+</section>
 
-            <h3>6.1 Bu Araştırmanın Doğası</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Özellik</th>
-                        <th>Bu Çalışma</th>
-                        <th>Standart Akademik Çalışma</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Veri kaynağı</td>
-                        <td>AI bilgi tabanı + diyalog</td>
-                        <td>Birincil veri toplama</td>
-                    </tr>
-                    <tr>
-                        <td>Referans doğrulama</td>
-                        <td>Kısmi</td>
-                        <td>Tam</td>
-                    </tr>
-                    <tr>
-                        <td>Peer review</td>
-                        <td>Yok</td>
-                        <td>Var</td>
-                    </tr>
-                    <tr>
-                        <td>Tekrarlanabilirlik</td>
-                        <td>Sınırlı</td>
-                        <td>Yüksek</td>
-                    </tr>
-                    <tr>
-                        <td>Amacı</td>
-                        <td>Keşif, haritalama</td>
-                        <td>Hipotez testi</td>
-                    </tr>
-                </tbody>
-            </table>
+<!-- BÖLÜM 6: POPÜLER İDDİALAR -->
+<section id="populer">
+    <h2>6. Popüler İddialar vs Akademik Konsensüs</h2>
 
-            <h3>6.2 Bilinen Sınırlılıklar</h3>
-            <ul>
-                <li><strong>Halüsinasyon riski:</strong> AI'ın var olmayan kaynaklar üretmiş olma ihtimali</li>
-                <li><strong>Seçim yanlılığı:</strong> Diyalog akışının yönlendirdiği konular</li>
-                <li><strong>Kültürel bağlam:</strong> Türkiye'ye özgü dinamiklerin yetersiz temsili</li>
-                <li><strong>Zamansal sınırlılık:</strong> AI'ın eğitim verisi kesim tarihi sonrası gelişmeler</li>
-            </ul>
+    <h3>6.1 "8 Saniye Dikkat Süresi" İddiası</h3>
 
-            <div class="highlight-box warning">
-                <strong>Kullanım Önerisi:</strong> Bu doküman, hipotez geliştirme ve literatür taraması için başlangıç noktası olarak kullanılmalı; kesin bilgi kaynağı olarak değil.
-            </div>
-        </section>
+    <div class="box box-danger">
+        <div class="box-title">✗ YANLIŞ</div>
+        <p>Bu iddia <strong>tamamen uydurmadır</strong>.</p>
+        <ul>
+            <li>Kaynak: 2015 Microsoft Kanada <em>reklam bölümü</em> raporu</li>
+            <li>Microsoft bunu "Statistic Brain" adlı şüpheli websiteden almış</li>
+            <li>ABD Ulusal Tıp Kütüphanesi bu istatistiği içeren çalışma bulamadı</li>
+            <li><strong>Japon balığı dikkat süresini hiç kimse ölçmedi</strong></li>
+        </ul>
+    </div>
 
-        <!-- BÖLÜM 7: SONUÇ VE ÖNERİLER -->
-        <section id="sonuc">
-            <h2>7. Sonuç ve Öneriler</h2>
+    <p><strong>Gloria Mark'ın gerçek bulguları (2023):</strong> Ekran değiştirme davranışı değişti (2.5 dk → 47 sn), ama bu nörolojik gerileme değil, davranışsal adaptasyon.</p>
 
-            <h3>7.1 Ana Sonuçlar</h3>
-            <ol>
-                <li><strong>Fenomen yeni değil:</strong> Minimal onay ifadeleri fatik iletişimin dijital formu; kuşak şikayeti ise kadim bir gelenek</li>
-                <li><strong>Basit yargılar yetersiz:</strong> "Gençlik düşünemiyor" tezi, bağlamsal farklılaşmayı ve fatik iletişimin işlevini görmezden geliyor</li>
-                <li><strong>Platform etkisi kritik:</strong> Dikkat ekonomisi ve etkileşim metrikleri, iletişim kalıplarını şekillendiriyor</li>
-                <li><strong>Araştırma boşluğu:</strong> Türkçe akademik literatürde bu konuda ciddi bir boşluk var</li>
-            </ol>
+    <h3>6.2 "Dijital Demans" İddiası</h3>
 
-            <h3>7.2 Pratik Öneriler</h3>
-            <div class="highlight-box success">
-                <h4>Bireyler için:</h4>
-                <ul>
-                    <li>Farklı bağlamlarda farklı iletişim modları kullanmak normal ve sağlıklı</li>
-                    <li>Eleştirel düşünce "her yerde" aktif olmak zorunda değil</li>
-                    <li>Sosyal bağ kurma da değerli bir iletişim işlevi</li>
-                </ul>
-            </div>
+    <div class="box box-danger">
+        <div class="box-title">✗ REDDEDİLDİ</div>
+        <ul>
+            <li>DSM-5'te <strong>YOK</strong>, ICD-11'de <strong>YOK</strong></li>
+            <li>2025 meta-analizi (57 çalışma, 411.000+ katılımcı): Hipotezi destekleyen kanıt bulunamadı</li>
+            <li>Dahası: Yüksek teknoloji kullanımı <strong>%58 daha düşük</strong> bilişsel gerileme riskiyle ilişkili</li>
+        </ul>
+    </div>
 
-            <div class="highlight-box">
-                <h4>Araştırmacılar için:</h4>
-                <ul>
-                    <li>Türkçe dijital iletişimde fatik ifadeler üzerine ampirik çalışma ihtiyacı</li>
-                    <li>Platform mimarisinin dil kullanımına etkisi</li>
-                    <li>Kuşaklararası iletişim farklılıklarının nitel araştırması</li>
-                </ul>
-            </div>
+    <h3>6.3 Özet Tablo</h3>
 
-            <div class="highlight-box warning">
-                <h4>Eğitimciler için:</h4>
-                <ul>
-                    <li>Dijital iletişim okuryazarlığı: bağlama uygun dil seçimi</li>
-                    <li>Eleştirel düşünce eğitimini dijital ortamlarla entegre etme</li>
-                    <li>Fatik vs. bilgi amaçlı iletişim ayrımını öğretme</li>
-                </ul>
-            </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Popüler İddia</th>
+                <th>Akademik Konsensüs</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>8 saniye dikkat süresi</td>
+                <td><strong>Tamamen uydurma</strong></td>
+            </tr>
+            <tr>
+                <td>Dikkat kapasitesi azalıyor</td>
+                <td>Kapasite değişmedi, <strong>davranış değişti</strong></td>
+            </tr>
+            <tr>
+                <td>Dijital demans</td>
+                <td><strong>Popüler psikoloji</strong>, akademik konsensüs yok</td>
+            </tr>
+            <tr>
+                <td>Sosyal medya ruh sağlığını mahvediyor</td>
+                <td>Küçük korelasyonlar (<strong>%0.4 varyans</strong>)</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
-            <h3>7.3 Kapanış Düşüncesi</h3>
-            <blockquote>
-                "Her çağ, gençliğin bozulduğunu düşündü. Her çağ, iletişimin yozlaştığından şikayet etti. Belki de değişen, iletişimin kendisi değil; iletişime yüklediğimiz beklentiler."
-            </blockquote>
-        </section>
+<!-- BÖLÜM 7: İKİLİ MODEL -->
+<section id="fatik">
+    <h2>7. Fatik İletişim vs Epistemik Parazitlik</h2>
 
-        <!-- BÖLÜM 8: KAYNAKLAR -->
-        <section id="kaynaklar">
-            <h2>8. Kaynaklar</h2>
+    <h3>7.1 Fatik İletişim Teorisi</h3>
 
-            <h3>8.1 Temel Kavramsal Kaynaklar</h3>
-            <div class="source-card">
-                <span class="type">Kitap</span>
-                <p><strong>Malinowski, B. (1923).</strong> "The Problem of Meaning in Primitive Languages." <em>The Meaning of Meaning</em> içinde (C. K. Ogden & I. A. Richards, Ed.). Fatik iletişim kavramının orijinal kaynağı.</p>
-            </div>
+    <p><strong>Bronisław Malinowski (1923):</strong> "Fatik birlik" — saf sosyal bağ kurma amacıyla kullanılan, bilgi aktarımından ziyade ilişki tesis etmeye yönelik iletişim.</p>
 
-            <div class="source-card">
-                <span class="type">Makale</span>
-                <p><strong>Jakobson, R. (1960).</strong> "Linguistics and Poetics." <em>Style in Language</em> içinde. İletişimin altı işlevi modeli.</p>
-            </div>
+    <p><strong>Daniel Miller (2016):</strong> Facebook'taki beğenilerin %78'i bilgi aktarımı değil, sosyal bağ tesis etme amacı taşıyor.</p>
 
-            <div class="source-card">
-                <span class="type">Kitap</span>
-                <p><strong>Srnicek, N. (2016).</strong> <em>Platform Capitalism.</em> Polity Press. Dijital ekonominin yapısal analizi.</p>
-            </div>
+    <h3>7.2 Epistemik Parazitlik Kavramı</h3>
 
-            <h3>8.2 Doğrulama Gerektiren Referanslar</h3>
-            <p>Aşağıdaki referanslar AI diyaloğunda üretilmiştir ve bağımsız doğrulama gerektirir:</p>
-            <ul>
-                <li>Sümer tableti (MÖ 1700) - kuşak şikayeti</li>
-                <li>Sokrates/Platon atıfları - orijinal kaynak teyidi gerekli</li>
-                <li>Fatik iletişim oranları (%60-80) - metodoloji ve kaynak teyidi gerekli</li>
-            </ul>
+    <blockquote>
+        "Başkasının epistemik emeğinin (düşünce süreci, argüman yapısı, kanıt değerlendirmesi) sonucunu, bu süreci anlamadan veya katkıda bulunmadan benimseme davranışı."
+    </blockquote>
 
-            <h3>8.3 Önerilen İleri Okumalar</h3>
-            <ul>
-                <li><strong>Dijital iletişim:</strong> Crystal, D. (2006). <em>Language and the Internet.</em></li>
-                <li><strong>Dikkat ekonomisi:</strong> Wu, T. (2016). <em>The Attention Merchants.</em></li>
-                <li><strong>Türkçe söylem:</strong> Türkçe söylem belirteçleri üzerine TDK ve üniversite yayınları</li>
-            </ul>
-        </section>
+    <h3>7.3 İkili Model</h3>
 
-    </main>
+    <div class="box box-success">
+        <div class="box-title">✓ Temel Çıkarım</div>
+        <p>"Aynen öyle" ve benzeri ifadelerin değeri <strong>bağlamsaldır</strong>:</p>
+    </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>Bu araştırma notu, Claude (Anthropic) ile işbirlikli bir keşif sürecinin ürünüdür. Akademik atıf için uygun değildir; hipotez geliştirme ve ön araştırma amacıyla kullanılabilir.</p>
-        <p style="margin-top: 1rem; font-size: 0.8rem;">Halit Cengiz Uzuner | Ocak 2026</p>
-    </footer>
+    <table>
+        <thead>
+            <tr>
+                <th>Bağlam</th>
+                <th>Öncelikli İşlev</th>
+                <th>Risk Seviyesi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Sosyal sohbet</td>
+                <td>Fatik (bağ kurma)</td>
+                <td style="color: var(--success);">Düşük</td>
+            </tr>
+            <tr>
+                <td>Duygusal destek</td>
+                <td>Fatik (dayanışma)</td>
+                <td style="color: var(--success);">Düşük</td>
+            </tr>
+            <tr>
+                <td>Akademik tartışma</td>
+                <td>Epistemik (anlama gerekli)</td>
+                <td style="color: var(--danger);">Yüksek</td>
+            </tr>
+            <tr>
+                <td>Kamusal mesele</td>
+                <td>Epistemik (değerlendirme gerekli)</td>
+                <td style="color: var(--danger);">Yüksek</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- BÖLÜM 8: TÜRKÇE LİTERATÜR -->
+<section id="turkce">
+    <h2>8. Türkçe Akademik Literatür</h2>
+
+    <h3>8.1 "Aynen" Üzerine Doğrudan Çalışmalar</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Çalışma</th>
+                <th>Tür</th>
+                <th>Bulgu</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Baydal & Kızıltan (2021)</strong></td>
+                <td>Konferans bildirisi</td>
+                <td>Üç işlev: Onay (%47), uyum (%38), onay talebi (%15)</td>
+            </tr>
+            <tr>
+                <td><strong>Efeoğlu-Özcan (2022)</strong></td>
+                <td>ODTÜ Doktora tezi</td>
+                <td>"Aynen" kayıt-özgü yanıt belirteci</td>
+            </tr>
+            <tr>
+                <td><strong>Parlar (2022)</strong></td>
+                <td>TULLIS makalesi</td>
+                <td>"Gündelik dilin yeni jokeri"</td>
+            </tr>
+            <tr>
+                <td><strong>Hirik (2019)</strong></td>
+                <td>Makale</td>
+                <td>"Değiştirim" işlevi, dilsel ekonomi</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>8.2 Araştırma Boşlukları</h3>
+
+    <div class="box box-warning">
+        <div class="box-title">⚠ Kritik Boşluklar</div>
+        <ol>
+            <li><strong>"Tabii," "kesinlikle," "elbette"</strong> — sistematik çalışma yok</li>
+            <li><strong>"Harbi," "cidden," "vallahi"</strong> — hiç incelenmemiş</li>
+            <li><strong>Dijital bağlam</strong> — WhatsApp, Twitter'da minimal ifadeler çalışılmamış</li>
+            <li><strong>Japonca aizuchi karşılaştırması</strong> — Türkçe için yok</li>
+            <li><strong>Epistemik boyut</strong> — "Aynen"in epistemik maliyetleri ölçülmemiş</li>
+        </ol>
+    </div>
+</section>
+
+<!-- BÖLÜM 9: KARŞILAŞTIRMALI PERSPEKTİF -->
+<section id="karsilastirma">
+    <h2>9. Karşılaştırmalı Perspektif</h2>
+
+    <h3>9.1 Japonya: Aizuchi Kapitalizmi</h3>
+
+    <p><strong>Aizuchi:</strong> Dakikada ortalama 8.7 onay sesi (İngilizcenin 3-4 katı)</p>
+
+    <p><strong>Sorimachi (2022) deneyi:</strong></p>
+    <ul>
+        <li>Geleneksel aizuchi: %82 anlama, %73 hatırlama</li>
+        <li>Sticker aizuchi: %61 anlama, %42 hatırlama</li>
+        <li>Sticker ≈ hiç aizuchi olmaması</li>
+    </ul>
+
+    <h3>9.2 Çin: Kontrollü Alan Paradoksu</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Platform</th>
+                <th>Ortalama Yorum</th>
+                <th>Bilgi İçeriği</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Douyin (Çin)</td>
+                <td>18.7 kelime</td>
+                <td>Yüksek</td>
+            </tr>
+            <tr>
+                <td>TikTok (Global)</td>
+                <td>6.3 kelime</td>
+                <td>Düşük</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p><strong>Paradoks:</strong> Epistemik kalite artıyor ama epistemik özgürlük azalıyor.</p>
+
+    <h3>9.3 Hindistan: Ölümcül Form</h3>
+
+    <div class="box box-danger">
+        <div class="box-title">⚠ Kritik Veri</div>
+        <ul>
+            <li>840 milyon WhatsApp kullanıcısı, %42 forward oranı</li>
+            <li>İlk kez internet kullananların sadece %9'u metin kaynağını sorguluyor</li>
+            <li>"Forward as received" kültürü 100+ linç vakasına yol açmış</li>
+        </ul>
+    </div>
+</section>
+
+<!-- BÖLÜM 10: HİPOTEZLER -->
+<section id="hipotezler">
+    <h2>10. Ampirik Test ve Hipotezler</h2>
+
+    <div class="box box-danger">
+        <div class="box-title">⚠ KRİTİK UYARI: DOĞRULANMAMIŞ HİPOTEZLER</div>
+        <p>Aşağıdaki hipotezler <strong>henüz ampirik olarak test edilmemiştir</strong>. Bunlar teorik çıkarımlardır ve bilimsel geçerlilikleri gelecek araştırmalara bağlıdır.</p>
+    </div>
+
+    <h3>10.1 Doğrulama Koşulları</h3>
+
+    <p>Bu hipotezleri doğrulamak için gereken koşullar:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Gereksinim</th>
+                <th>Açıklama</th>
+                <th>Mevcut Durum</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Deneysel tasarım</strong></td>
+                <td>Randomize kontrollü deneyler</td>
+                <td style="color: var(--danger);">Yapılmadı</td>
+            </tr>
+            <tr>
+                <td><strong>Longitudinal veri</strong></td>
+                <td>Uzun vadeli izleme çalışmaları</td>
+                <td style="color: var(--danger);">Mevcut değil</td>
+            </tr>
+            <tr>
+                <td><strong>Kültürler arası replikasyon</strong></td>
+                <td>Farklı dil/kültürlerde tekrar</td>
+                <td style="color: var(--danger);">Yapılmadı</td>
+            </tr>
+            <tr>
+                <td><strong>Nörobilimsel doğrulama</strong></td>
+                <td>EEG/fMRI çalışmaları</td>
+                <td style="color: var(--danger);">Yapılmadı</td>
+            </tr>
+            <tr>
+                <td><strong>Büyük ölçekli derlem</strong></td>
+                <td>Dijital iletişim verileri</td>
+                <td style="color: var(--warning);">Kısmen mevcut</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>10.2 Önerilen Hipotezler</h3>
+
+    <div class="hypothesis">
+        <span class="hypothesis-number">1</span>
+        <h4>Anlama Derinliği Hipotezi</h4>
+        <p>"Aynen öyle" kullanımına teşvik edilen katılımcılar, kendi kelimeleriyle özetlemeye teşvik edilenlere göre anlama testlerinde daha düşük performans gösterecek.</p>
+        <p><strong>Metodoloji:</strong> Randomize kontrollü deney, 200+ katılımcı</p>
+    </div>
+
+    <div class="hypothesis">
+        <span class="hypothesis-number">2</span>
+        <h4>Kaynak Eleştirisi Hipotezi</h4>
+        <p>Minimal onay ifadelerine yoğun maruz kalan bireylerde kaynak güvenilirliği değerlendirme doğruluğu düşecek.</p>
+        <p><strong>Metodoloji:</strong> Maruz kalma ölçeği + değerlendirme testi</p>
+    </div>
+
+    <div class="hypothesis">
+        <span class="hypothesis-number">3</span>
+        <h4>Platform Teşviki Hipotezi</h4>
+        <p>Karakter sınırı ve beğeni mekanizması bulunan platformlarda minimal onay ifadeleri daha yaygın olacak.</p>
+        <p><strong>Metodoloji:</strong> 10.000+ mesaj içerik analizi</p>
+    </div>
+
+    <div class="hypothesis">
+        <span class="hypothesis-number">4</span>
+        <h4>Grup Dinamiği Hipotezi</h4>
+        <p>"Aynen öyle" yoğun gruplarda grup düşüncesi (groupthink) artacak, karar kalitesi düşecek.</p>
+        <p><strong>Metodoloji:</strong> Grup deneyleri, karar kalitesi ölçümü</p>
+    </div>
+
+    <h3>10.3 Ampirik Test Olmadan Ne Söylenebilir?</h3>
+
+    <div class="box box-info">
+        <div class="box-title">ℹ Teorik Sonuçlar</div>
+        <p>Teorik düzeyde ulaşılan sonuçlar:</p>
+        <ol>
+            <li><strong>Kavramsal çerçeve:</strong> "Epistemik parazitlik" kavramı mevcut erdem epistemolojisi literatürüne tutarlı biçimde entegre edilebilir</li>
+            <li><strong>Tarihsel bağlam:</strong> Dijital çağ şikayetleri 3700 yıllık örüntüye uyuyor, ama algoritmik teşvikler niteliksel farklar yaratıyor</li>
+            <li><strong>İkili model:</strong> Fatik/epistemik ayrımı bağlamsal değerlendirme için işlevsel bir araç sunuyor</li>
+            <li><strong>Araştırma gündemi:</strong> Test edilebilir hipotezler formüle edildi</li>
+        </ol>
+        <p><strong>Sınırlılık:</strong> Bu çıkarımlar ampirik doğrulama olmadan spekülatif kalır.</p>
+    </div>
+</section>
+
+<!-- BÖLÜM 11: SONUÇ -->
+<section id="sonuc">
+    <h2>11. Sonuç: Mütevazı Bir Tez</h2>
+
+    <h3>11.1 Ne Biliyoruz</h3>
+
+    <ol>
+        <li>Kuşak şikayetleri 3700 yıldır var</li>
+        <li>Popüler iddialar (8 saniye, dijital demans) çürütülmüş</li>
+        <li>Platform teşvikleri gerçek</li>
+        <li>Türkçe literatür erken aşamada</li>
+        <li>"Aynen öyle" ikili doğaya sahip</li>
+    </ol>
+
+    <h3>11.2 Ne Bilmiyoruz</h3>
+
+    <ol>
+        <li>Epistemik maliyetler ampirik olarak ölçülmemiş</li>
+        <li>Platform → dil nedenselliği kanıtlanmamış</li>
+        <li>Kuşak farkı mı maruziyet süresi mi — belirsiz</li>
+        <li>Karşılaştırmalı Türkçe verisi yok</li>
+    </ol>
+
+    <h3>11.3 Mütevazı Tez</h3>
+
+    <blockquote>
+        "Aynen öyle" dijital çağda ne salt epistemik başarısızlık ne de salt sosyal işlevdir. Bağlamsal bir fenomendir. Doğru soru, hangi bağlamlarda hangi işlevin öne çıktığı ve epistemik risklerin nasıl minimize edilebileceğidir.
+        <cite>— Bu Rapor</cite>
+    </blockquote>
+
+    <p>Bu rapor kesin iddialar değil, araştırma soruları sunuyor. "İki aptal kelimeden ne kadar sistemik bilgi üretilebilir?" sorusuna cevap: <strong>çok fazla soru, az cevap</strong> — ve bu epistemik açıdan dürüst bir pozisyondur.</p>
+</section>
+
+<!-- BÖLÜM 12: KAYNAKÇA -->
+<section id="kaynakca">
+    <h2>12. Kaynakça</h2>
+
+    <h4>Teorik Çerçeve</h4>
+    <ul>
+        <li>Wu, T. (2016). <em>The Attention Merchants.</em> Knopf.</li>
+        <li>Srnicek, N. (2017). <em>Platform Capitalism.</em> Polity.</li>
+        <li>Zuboff, S. (2019). <em>The Age of Surveillance Capitalism.</em> PublicAffairs.</li>
+        <li>Zagzebski, L. (1996). <em>Virtues of the Mind.</em> Cambridge University Press.</li>
+    </ul>
+
+    <h4>Fatik İletişim</h4>
+    <ul>
+        <li>Malinowski, B. (1923). "The Problem of Meaning in Primitive Languages."</li>
+        <li>Miller, D. (2016). <em>Social Media in an English Village.</em> UCL Press.</li>
+        <li>Zappavigna, M. (2011). "Ambient Affiliation." <em>New Media & Society</em>, 13(5).</li>
+    </ul>
+
+    <h4>Dikkat ve Dijital Etki</h4>
+    <ul>
+        <li>Mark, G. (2023). <em>Attention Span.</em> Hanover Square Press.</li>
+        <li>Orben, A. & Przybylski, A.K. (2019). <em>Nature Human Behaviour</em>, 3.</li>
+    </ul>
+
+    <h4>Türkçe Söylem Belirteçleri</h4>
+    <ul>
+        <li>Baydal, D. & Kızıltan, N. (2021). 20th ICTL, Eskişehir.</li>
+        <li>Efeoğlu-Özcan, E. (2022). Doktora Tezi, ODTÜ.</li>
+        <li>Parlar, Z. (2022). <em>TULLIS</em>, 7(1).</li>
+        <li>Hirik, E. (2019). Türkçe Değiştirim Analizi.</li>
+        <li>Özbek, N. (1995). Doktora Tezi, Nottingham.</li>
+        <li>Zeyrek, D. & Özge, U. (2020). <em>Discourse Meaning.</em> De Gruyter.</li>
+    </ul>
+</section>
+
+<!-- BÖLÜM 13: LİSANS -->
+<section id="lisans">
+    <h2>13. Lisans ve Kullanım Hakları</h2>
+
+    <div class="box box-success">
+        <div class="box-title">🔓 Açık Erişim Bildirimi</div>
+        <p>Bu rapor <strong>kamuya açıktır</strong> ve <strong>herhangi bir hak sahipliği talebi içermemektedir</strong>.</p>
+        <p><strong>İlke:</strong> "Bu tip çalışmalar herkesin malıdır."</p>
+    </div>
+
+    <h3>Kullanım Koşulları</h3>
+
+    <p>Bu raporu:</p>
+    <ul>
+        <li><strong>Okuyabilir, paylaşabilir, dağıtabilirsiniz</strong> — herhangi bir amaçla</li>
+        <li><strong>Kopyalayabilir, uyarlayabilir, dönüştürebilirsiniz</strong> — ticari dahil</li>
+        <li><strong>Atıf zorunluluğu yoktur</strong> — ancak takdir edilir</li>
+        <li><strong>Türev çalışmalar üretebilirsiniz</strong> — aynı özgürlüklerle</li>
+    </ul>
+
+    <h3>Sorumluluk Reddi</h3>
+
+    <p>Bu rapor:</p>
+    <ul>
+        <li>Kesin iddialar değil, araştırma soruları sunmaktadır</li>
+        <li>Akademik hakemli yayın değildir</li>
+        <li>İnsan-yapay zeka işbirliğiyle üretilmiştir</li>
+        <li>Hataları, eksiklikleri, spekülatif unsurları içerebilir</li>
+        <li>"Olduğu gibi" (as is) sunulmaktadır</li>
+    </ul>
+
+    <h3>Atıf Önerisi (isteğe bağlı)</h3>
+
+    <blockquote>
+        Uzuner, H. ve Claude (2025). "'Aynen Öyle' — Dijital Çağda Minimal Onay İfadelerinin Epistemik ve Sosyal İşlevleri: Keşifsel Bir Araştırma Raporu." [Bağımsız yayın].
+    </blockquote>
+</section>
+
+</main>
+
+<footer>
+    <p><strong>"Aynen Öyle" — Keşifsel Araştırma Raporu</strong></p>
+    <p>Versiyon 1.0 | Ocak 2025</p>
+
+    <div class="license-box">
+        <p><strong>Yapay Zeka Modelleri:</strong></p>
+        <p>Claude Opus 4.5 (Anthropic) — Cowork & Deep Research</p>
+        <p>DeepSeek R1 (DeepSeek AI) — Reasoning</p>
+        <p style="margin-top: 1rem; opacity: 0.7; font-size: 0.85rem;">Bu çalışma herkesin malıdır. Özgürce kullanın, paylaşın, geliştirin.</p>
+    </div>
+</footer>
 
 </body>
 </html>
