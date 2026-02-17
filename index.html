@@ -505,6 +505,29 @@
 
         /* ========== RESPONSIVE ========== */
         @media (max-width: 768px) {
+            body, html {
+                overflow-y: auto;
+                overflow-x: hidden;
+                touch-action: pan-y;
+            }
+            .content {
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
+                margin: 0 auto;
+                padding-top: 3rem;
+                padding-bottom: 6rem;
+            }
+            .aphorism-panel {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                transform: none;
+                margin-top: 2rem;
+                padding-bottom: 2rem;
+                text-align: center;
+            }
             .name-container { gap: 0.3rem; }
             .name-line { gap: 0.2rem; }
             .metrics { gap: 1.5rem; padding: 1rem 0; }
@@ -1199,11 +1222,17 @@
             }, { passive: true });
 
             // OLED protection
+            const isMobileLayout = window.innerWidth <= 768;
             setInterval(() => {
                 const sx = (Math.random() - 0.5) * 4;
                 const sy = (Math.random() - 0.5) * 4;
-                document.getElementById('mainContent').style.transform = 
-                    `translate(calc(-50% + ${sx}px), calc(-50% + ${sy}px))`;
+                if (isMobileLayout) {
+                    document.getElementById('mainContent').style.transform = 
+                        `translate(${sx}px, ${sy}px)`;
+                } else {
+                    document.getElementById('mainContent').style.transform = 
+                        `translate(calc(-50% + ${sx}px), calc(-50% + ${sy}px))`;
+                }
             }, 50000);
 
             window.addEventListener('resize', resize);
