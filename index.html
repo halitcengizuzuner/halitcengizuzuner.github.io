@@ -651,18 +651,31 @@
             // ============================================
             const logoVideo = document.getElementById('logoVideo');
             const logoFallback = document.getElementById('logoFallback');
+            let videoConfirmedPlaying = false;
 
             function showVideo() {
+                videoConfirmedPlaying = true;
                 logoVideo.classList.add('playing');
                 logoFallback.classList.add('hidden');
             }
             function showFallback() {
+                if (videoConfirmedPlaying) return; // video zaten oynuyorsa geri alma
                 logoVideo.classList.remove('playing');
                 logoFallback.classList.remove('hidden');
+                // Fallback'in kesinlikle görünür olduğundan emin ol
+                logoFallback.style.opacity = '1';
             }
-            // Video gerçekten frame render ediyor mu kontrol et
+
+            // Güvenlik ağı: 3 saniye içinde video onaylanmazsa, ne olursa olsun fallback göster
+            setTimeout(() => {
+                if (!videoConfirmedPlaying) {
+                    showFallback();
+                }
+            }, 3000);
+
             function verifyVideoPlaying() {
-                if (logoVideo.paused || logoVideo.ended) {
+                if (videoConfirmedPlaying) return;
+                if (logoVideo.paused || logoVideo.ended || logoVideo.readyState < 2) {
                     showFallback();
                     return;
                 }
@@ -680,6 +693,9 @@
                     }).catch(() => {
                         showFallback();
                     });
+                } else {
+                    // Eski tarayıcılar: play() promise döndürmez
+                    setTimeout(verifyVideoPlaying, 1000);
                 }
             }
             logoVideo.addEventListener('playing', () => {
@@ -691,7 +707,7 @@
             });
             let videoStartAttempted = false;
             function tryStartVideo() {
-                if (videoStartAttempted) return;
+                if (videoStartAttempted || videoConfirmedPlaying) return;
                 videoStartAttempted = true;
                 if (logoVideo.paused) {
                     logoVideo.play().then(() => {
