@@ -652,47 +652,55 @@
             const logoVideo = document.getElementById('logoVideo');
             const logoFallback = document.getElementById('logoFallback');
 
+            function showVideo() {
+                logoVideo.classList.add('playing');
+                logoFallback.classList.add('hidden');
+            }
+            function showFallback() {
+                logoVideo.classList.remove('playing');
+                logoFallback.classList.remove('hidden');
+            }
+            // Video gerçekten frame render ediyor mu kontrol et
+            function verifyVideoPlaying() {
+                if (logoVideo.paused || logoVideo.ended) {
+                    showFallback();
+                    return;
+                }
+                if (logoVideo.videoWidth > 0 && logoVideo.videoHeight > 0) {
+                    showVideo();
+                } else {
+                    showFallback();
+                }
+            }
             function initVideoLogo() {
                 const playPromise = logoVideo.play();
-                
                 if (playPromise !== undefined) {
                     playPromise.then(() => {
-                        // Video başarıyla oynuyor
-                        logoVideo.classList.add('playing');
-                        logoFallback.classList.add('hidden');
+                        setTimeout(verifyVideoPlaying, 500);
                     }).catch(() => {
-                        // Autoplay engellendi veya video yüklenemedi — fallback kalır
-                        logoVideo.classList.remove('playing');
-                        logoFallback.classList.remove('hidden');
+                        showFallback();
                     });
                 }
             }
-
-            // Video metadata yüklenince
-            logoVideo.addEventListener('loadeddata', () => {
-                logoVideo.classList.add('playing');
-                logoFallback.classList.add('hidden');
+            logoVideo.addEventListener('playing', () => {
+                setTimeout(verifyVideoPlaying, 300);
             });
-
-            // Video hata verirse fallback göster
-            logoVideo.addEventListener('error', () => {
-                logoVideo.classList.remove('playing');
-                logoFallback.classList.remove('hidden');
+            logoVideo.addEventListener('error', showFallback);
+            logoVideo.querySelectorAll('source').forEach(source => {
+                source.addEventListener('error', showFallback);
             });
-
-            // iOS Safari: kullanıcı etkileşimi sonrası video başlatma denemesi
-            // (autoplay muted playsinline genellikle yeterli, ama yedek olarak)
             let videoStartAttempted = false;
             function tryStartVideo() {
                 if (videoStartAttempted) return;
                 videoStartAttempted = true;
                 if (logoVideo.paused) {
-                    logoVideo.play().catch(() => {});
+                    logoVideo.play().then(() => {
+                        setTimeout(verifyVideoPlaying, 500);
+                    }).catch(() => {});
                 }
             }
             window.addEventListener('touchstart', tryStartVideo, { once: true, passive: true });
             window.addEventListener('click', tryStartVideo, { once: true });
-
             initVideoLogo();
 
             // ============================================
