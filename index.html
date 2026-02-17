@@ -90,22 +90,6 @@
             100% { opacity: 0; transform: translate(-50%, -40px) scale(0.95); }
         }
 
-        @keyframes logo-breathe {
-            0%, 100% { transform: scale(1); opacity: 0.9; }
-            50% { transform: scale(1.02); opacity: 1; }
-        }
-
-        @keyframes orbit {
-            0% { transform: rotate(0deg) translateX(30px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(30px) rotate(-360deg); }
-        }
-
-        @keyframes pulse-ring {
-            0% { transform: scale(0.8); opacity: 0.6; }
-            50% { transform: scale(1.1); opacity: 0.2; }
-            100% { transform: scale(0.8); opacity: 0.6; }
-        }
-
         /* ========== CANVAS ========== */
         #constellation {
             position: absolute; top: 0; left: 0;
@@ -158,18 +142,71 @@
             transition: transform 2s ease-in-out;
         }
 
-        /* ========== LOGO ========== */
+        /* ========== VIDEO LOGO ========== */
         .logo-container {
             margin-bottom: 1.5rem;
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
 
-        .logo-svg {
-            width: clamp(80px, 15vw, 120px);
-            height: clamp(80px, 15vw, 120px);
-            animation: logo-breathe 6s ease-in-out infinite;
+        .logo-video-wrapper {
+            width: clamp(100px, 20vw, 160px);
+            height: clamp(100px, 20vw, 160px);
+            position: relative;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .logo-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* mix-blend-mode: siyah pikselleri transparan yapar, 
+               video zemini ile sayfa zemini (#0a0a0f) arasındaki 
+               renk farkını ortadan kaldırır */
+            mix-blend-mode: lighten;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .logo-video.playing {
+            opacity: 1;
+        }
+
+        /* SVG fallback: her zaman görünür, video oynayınca kaybolur */
+        .logo-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            transition: opacity 0.8s ease;
+        }
+
+        .logo-fallback.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .logo-fallback svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        @keyframes logo-breathe-fallback {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.02); opacity: 1; }
+        }
+
+        .logo-fallback svg {
+            animation: logo-breathe-fallback 6s ease-in-out infinite;
         }
 
         .logo-core {
@@ -186,6 +223,12 @@
         .logo-center {
             fill: var(--text-primary);
             opacity: 0.95;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.6; }
+            50% { transform: scale(1.1); opacity: 0.2; }
+            100% { transform: scale(0.8); opacity: 0.6; }
         }
 
         .logo-ring {
@@ -484,6 +527,10 @@
             .nav-btn { padding: 0.8rem 1.2rem; font-size: 0.7rem; }
             .lang-selector { top: 15px; right: 15px; }
             .lang-btn { padding: 5px 10px; font-size: 0.75rem; }
+            .logo-video-wrapper {
+                width: clamp(80px, 25vw, 120px);
+                height: clamp(80px, 25vw, 120px);
+            }
         }
 
         @media (max-width: 480px) {
@@ -505,35 +552,40 @@
 
         <div class="content" id="mainContent">
             
-            <!-- Logo -->
+            <!-- Video Logo -->
             <div class="logo-container">
-                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Outer pulse ring -->
-                    <circle class="logo-ring" cx="50" cy="50" r="45"/>
-                    
-                    <!-- Main orbital path -->
-                    <ellipse class="logo-core" cx="50" cy="50" rx="35" ry="35"/>
-                    <ellipse class="logo-core" cx="50" cy="50" rx="35" ry="15" transform="rotate(60 50 50)" style="opacity: 0.6"/>
-                    <ellipse class="logo-core" cx="50" cy="50" rx="35" ry="15" transform="rotate(-60 50 50)" style="opacity: 0.6"/>
-                    
-                    <!-- Orbital particles -->
-                    <circle class="logo-orbit" cx="85" cy="50" r="3">
-                        <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="20s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle class="logo-orbit" cx="15" cy="50" r="2" style="opacity: 0.6">
-                        <animateTransform attributeName="transform" type="rotate" from="180 50 50" to="540 50 50" dur="15s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle class="logo-orbit" cx="50" cy="20" r="2.5" style="opacity: 0.8">
-                        <animateTransform attributeName="transform" type="rotate" from="90 50 50" to="450 50 50" dur="25s" repeatCount="indefinite"/>
-                    </circle>
-                    
-                    <!-- Center - Observer point -->
-                    <circle class="logo-center" cx="50" cy="50" r="6"/>
-                    <circle cx="50" cy="50" r="3" fill="var(--accent-teal)" opacity="0.8"/>
-                </svg>
+                <div class="logo-video-wrapper">
+                    <video class="logo-video" id="logoVideo"
+                           autoplay muted playsinline loop
+                           preload="auto"
+                           poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Crect fill='%230a0a0f' width='1' height='1'/%3E%3C/svg%3E">
+                        <source src="assets/video/entity_loop.webm" type="video/webm">
+                        <source src="assets/video/entity_loop.mp4" type="video/mp4">
+                    </video>
+                    <!-- SVG Fallback: video yüklenemezse görünür -->
+                    <div class="logo-fallback" id="logoFallback">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle class="logo-ring" cx="50" cy="50" r="45"/>
+                            <ellipse class="logo-core" cx="50" cy="50" rx="35" ry="35"/>
+                            <ellipse class="logo-core" cx="50" cy="50" rx="35" ry="15" transform="rotate(60 50 50)" style="opacity: 0.6"/>
+                            <ellipse class="logo-core" cx="50" cy="50" rx="35" ry="15" transform="rotate(-60 50 50)" style="opacity: 0.6"/>
+                            <circle class="logo-orbit" cx="85" cy="50" r="3">
+                                <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="20s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle class="logo-orbit" cx="15" cy="50" r="2" style="opacity: 0.6">
+                                <animateTransform attributeName="transform" type="rotate" from="180 50 50" to="540 50 50" dur="15s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle class="logo-orbit" cx="50" cy="20" r="2.5" style="opacity: 0.8">
+                                <animateTransform attributeName="transform" type="rotate" from="90 50 50" to="450 50 50" dur="25s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle class="logo-center" cx="50" cy="50" r="6"/>
+                            <circle cx="50" cy="50" r="3" fill="var(--accent-teal)" opacity="0.8"/>
+                        </svg>
+                    </div>
+                </div>
             </div>
 
-            <!-- Name - STATIK HTML (Cloudflare bağımsız) -->
+            <!-- Name -->
             <div class="name-container" id="nameContainer">
                 <div class="name-line" id="line1">
                     <span class="letter assembled">H</span>
@@ -612,6 +664,55 @@
         window.addEventListener('load', function() {
             
             // ============================================
+            // VIDEO LOGO INITIALIZATION
+            // ============================================
+            const logoVideo = document.getElementById('logoVideo');
+            const logoFallback = document.getElementById('logoFallback');
+
+            function initVideoLogo() {
+                const playPromise = logoVideo.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        // Video başarıyla oynuyor
+                        logoVideo.classList.add('playing');
+                        logoFallback.classList.add('hidden');
+                    }).catch(() => {
+                        // Autoplay engellendi veya video yüklenemedi — fallback kalır
+                        logoVideo.classList.remove('playing');
+                        logoFallback.classList.remove('hidden');
+                    });
+                }
+            }
+
+            // Video metadata yüklenince
+            logoVideo.addEventListener('loadeddata', () => {
+                logoVideo.classList.add('playing');
+                logoFallback.classList.add('hidden');
+            });
+
+            // Video hata verirse fallback göster
+            logoVideo.addEventListener('error', () => {
+                logoVideo.classList.remove('playing');
+                logoFallback.classList.remove('hidden');
+            });
+
+            // iOS Safari: kullanıcı etkileşimi sonrası video başlatma denemesi
+            // (autoplay muted playsinline genellikle yeterli, ama yedek olarak)
+            let videoStartAttempted = false;
+            function tryStartVideo() {
+                if (videoStartAttempted) return;
+                videoStartAttempted = true;
+                if (logoVideo.paused) {
+                    logoVideo.play().catch(() => {});
+                }
+            }
+            window.addEventListener('touchstart', tryStartVideo, { once: true, passive: true });
+            window.addEventListener('click', tryStartVideo, { once: true });
+
+            initVideoLogo();
+
+            // ============================================
             // LANGUAGE SYSTEM
             // ============================================
             let currentLang = localStorage.getItem('siteLang') || 
@@ -682,24 +783,19 @@
                 currentLang = lang;
                 localStorage.setItem('siteLang', lang);
                 
-                // Update buttons
                 document.querySelectorAll('.lang-btn').forEach(btn => {
                     btn.classList.toggle('active', btn.dataset.lang === lang);
                 });
                 
-                // Update translatable elements
                 document.querySelectorAll('[data-tr]').forEach(el => {
                     el.textContent = el.dataset[lang];
                 });
                 
-                // Update HTML lang attribute
                 document.documentElement.lang = lang;
             }
 
-            // Initialize language
             setLanguage(currentLang);
 
-            // Language button listeners
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -708,7 +804,7 @@
             });
 
             // ============================================
-            // NAME SYSTEM - Statik HTML'den oku
+            // NAME SYSTEM
             // ============================================
             let allLetters = Array.from(document.querySelectorAll('.letter'));
 
@@ -761,12 +857,10 @@
                 });
             });
 
-            // Mobile touch handling for email
             document.getElementById('emailDisplay').addEventListener('touchstart', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 
-                // Check if it's a long press (for copy) or tap (for mail app)
                 let longPress = false;
                 const timer = setTimeout(() => {
                     longPress = true;
@@ -785,7 +879,6 @@
                 }, { once: true });
             }, { passive: false });
 
-            // Right-click to copy on desktop
             document.getElementById('emailDisplay').addEventListener('contextmenu', (e) => {
                 e.preventDefault();
                 navigator.clipboard.writeText(emailText).then(() => {
@@ -1083,7 +1176,6 @@
             }
 
             window.addEventListener('mousedown', e => {
-                // Don't trigger on nav buttons or email
                 if (e.target.closest('.nav-btn, .email-display, .lang-btn, .email-container')) return;
                 handleInteraction(e.clientX, e.clientY);
             });
