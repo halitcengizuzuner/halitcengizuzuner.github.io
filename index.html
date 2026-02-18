@@ -301,20 +301,29 @@
             background: var(--amber-soft);
         }
 
+        .nav-wrapper {
+            position: relative;
+        }
+
         .hamburger {
-            width: 42px; height: 42px;
             display: flex; flex-direction: column;
-            justify-content: center; align-items: center; gap: 5px;
+            justify-content: center; align-items: center; gap: 4px;
             background: var(--bg-surface);
             backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--border-glass);
             border-radius: 6px; cursor: pointer;
-            transition: all 0.3s ease; padding: 0;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0.7rem;
             box-shadow: 0 1px 4px rgba(0,0,0,0.04);
         }
         .hamburger:hover { background: var(--bg-surface-hover); }
 
-        .hamburger span {
+        .hamburger-lines {
+            display: flex; flex-direction: column; gap: 4px;
+            align-items: center;
+        }
+
+        .hamburger-lines span {
             display: block;
             width: 16px;
             height: 1.5px;
@@ -323,60 +332,68 @@
             transform-origin: center;
         }
 
-        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(2.3px, 2.3px); }
-        .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(2.3px, -2.3px); }
+        .hamburger.open .hamburger-lines span:nth-child(1) { transform: rotate(45deg) translate(2px, 2px); }
+        .hamburger.open .hamburger-lines span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.open .hamburger-lines span:nth-child(3) { transform: rotate(-45deg) translate(2px, -2px); }
 
-        /* Nav Overlay */
-        .nav-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 400;
-            background: var(--bg-overlay);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s ease;
+        .hamburger-label {
+            font-family: var(--font-mono);
+            font-size: 0.45rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-top: 2px;
         }
 
-        .nav-overlay.open { opacity: 1; pointer-events: auto; }
+        /* Nav Dropdown */
+        .nav-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: rgba(255,255,255,0.78);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--border-glass);
+            border-radius: 10px;
+            padding: 0.6rem 0;
+            min-width: 200px;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-8px);
+            transition: all 0.25s var(--ease-out-expo);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            z-index: 500;
+        }
+
+        .nav-dropdown.open {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
 
         .nav-menu {
             list-style: none;
-            text-align: center;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
         }
 
         .nav-link {
             font-family: var(--font-display);
-            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-size: 1.15rem;
             color: var(--text-muted);
             text-decoration: none;
-            display: inline-block;
-            transition: color 0.3s ease, transform 0.5s var(--ease-out-expo), opacity 0.5s ease;
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            padding: 0.55rem 1.2rem;
             cursor: pointer;
-            transform: translateY(100%);
-            opacity: 0;
+            transition: all 0.2s ease;
         }
 
-        .nav-overlay.open .nav-link {
-            transform: translateY(0);
-            opacity: 1;
+        .nav-link:hover {
+            color: var(--amber-deep);
+            background: rgba(184,134,11,0.04);
         }
-
-        .nav-overlay.open li:nth-child(1) .nav-link { transition-delay: 0.05s; }
-        .nav-overlay.open li:nth-child(2) .nav-link { transition-delay: 0.1s; }
-        .nav-overlay.open li:nth-child(3) .nav-link { transition-delay: 0.15s; }
-        .nav-overlay.open li:nth-child(4) .nav-link { transition-delay: 0.2s; }
-        .nav-overlay.open li:nth-child(5) .nav-link { transition-delay: 0.25s; }
-
-        .nav-link:hover { color: var(--amber-deep); }
 
         .nav-link-sub {
             display: block;
@@ -1544,20 +1561,22 @@
             <button class="lang-btn active" data-lang="tr">TR</button>
             <button class="lang-btn" data-lang="en">EN</button>
         </div>
-        <button class="hamburger" id="hamburgerBtn" aria-label="Menü">
-            <span></span><span></span><span></span>
-        </button>
+        <div class="nav-wrapper">
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menü">
+                <div class="hamburger-lines"><span></span><span></span><span></span></div>
+                <div class="hamburger-label" data-tr="menü" data-en="menu">menü</div>
+            </button>
+            <nav class="nav-dropdown" id="navDropdown">
+                <ul class="nav-menu">
+                    <li><a class="nav-link" data-page="home"><span data-tr="Ana" data-en="Home">Ana</span><span class="nav-link-sub" data-tr="organizma" data-en="organism">organizma</span></a></li>
+                    <li><a class="nav-link" data-page="core"><span data-tr="Çekirdek" data-en="Core">Çekirdek</span><span class="nav-link-sub" data-tr="düşünce gövdesi" data-en="thought trunk">düşünce gövdesi</span></a></li>
+                    <li><a class="nav-link" data-page="assembly"><span data-tr="Meclis" data-en="Assembly">Meclis</span><span class="nav-link-sub" data-tr="uzuvlar" data-en="limbs">uzuvlar</span></a></li>
+                    <li><a class="nav-link" data-page="emanations"><span data-tr="Yayılımlar" data-en="Emanations">Yayılımlar</span><span class="nav-link-sub" data-tr="çıktılar" data-en="outputs">çıktılar</span></a></li>
+                    <li><a class="nav-link" data-page="portal"><span data-tr="Portal" data-en="Portal">Portal</span><span class="nav-link-sub" data-tr="kapı" data-en="gate">kapı</span></a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-
-    <nav class="nav-overlay" id="navOverlay">
-        <ul class="nav-menu">
-            <li><a class="nav-link" data-page="home"><span data-tr="Ana" data-en="Home">Ana</span><span class="nav-link-sub" data-tr="organizma" data-en="organism">organizma</span></a></li>
-            <li><a class="nav-link" data-page="core"><span data-tr="Çekirdek" data-en="Core">Çekirdek</span><span class="nav-link-sub" data-tr="düşünce gövdesi" data-en="thought trunk">düşünce gövdesi</span></a></li>
-            <li><a class="nav-link" data-page="assembly"><span data-tr="Meclis" data-en="Assembly">Meclis</span><span class="nav-link-sub" data-tr="uzuvlar" data-en="limbs">uzuvlar</span></a></li>
-            <li><a class="nav-link" data-page="emanations"><span data-tr="Yayılımlar" data-en="Emanations">Yayılımlar</span><span class="nav-link-sub" data-tr="çıktılar" data-en="outputs">çıktılar</span></a></li>
-            <li><a class="nav-link" data-page="portal"><span data-tr="Portal" data-en="Portal">Portal</span><span class="nav-link-sub" data-tr="kapı" data-en="gate">kapı</span></a></li>
-        </ul>
-    </nav>
 
     <main class="page home active" id="page-home">
         <div class="entity-container" id="entityContainer">
@@ -1800,20 +1819,28 @@
 
     let currentPage = 'home';
     const hamburger = document.getElementById('hamburgerBtn');
-    const navOverlay = document.getElementById('navOverlay');
+    const navDropdown = document.getElementById('navDropdown');
 
-    hamburger.addEventListener('click', () => {
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
         hamburger.classList.toggle('open');
-        navOverlay.classList.toggle('open');
+        navDropdown.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-wrapper')) {
+            hamburger.classList.remove('open');
+            navDropdown.classList.remove('open');
+        }
     });
 
     function navigateTo(pageId) {
-        if (pageId === currentPage) { hamburger.classList.remove('open'); navOverlay.classList.remove('open'); return; }
+        if (pageId === currentPage) { hamburger.classList.remove('open'); navDropdown.classList.remove('open'); return; }
         const oldPage = document.getElementById('page-' + currentPage);
         const newPage = document.getElementById('page-' + pageId);
         if (!newPage) return;
         hamburger.classList.remove('open');
-        navOverlay.classList.remove('open');
+        navDropdown.classList.remove('open');
         oldPage.classList.add('exiting');
         setTimeout(() => {
             oldPage.classList.remove('active', 'exiting');
@@ -2269,7 +2296,7 @@
     let resizeTimer;
     window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(function() { renderOrbitals(); generateNerveNetwork(); }, 200); });
     document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') { hamburger.classList.remove('open'); navOverlay.classList.remove('open'); document.getElementById('audioModalClose').click(); }
+        if (e.key === 'Escape') { hamburger.classList.remove('open'); navDropdown.classList.remove('open'); document.getElementById('audioModalClose').click(); }
     });
 
     setLanguage(currentLang);
