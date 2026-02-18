@@ -1178,6 +1178,58 @@
 
         .audio-modal-close:hover { color: var(--text-secondary); }
 
+        /* Bottom entity ambient — organism's pulse at page bottom */
+        .bottom-entity {
+            position: fixed;
+            bottom: -5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: clamp(300px, 50vw, 600px);
+            height: clamp(300px, 50vw, 600px);
+            border-radius: 50%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.07;
+            mix-blend-mode: multiply;
+            filter: blur(2px);
+        }
+
+        .bottom-entity video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bottom-entity.loaded {
+            animation: bottom-breathe 8s ease-in-out infinite;
+        }
+
+        @keyframes bottom-breathe {
+            0%, 100% { opacity: 0.07; transform: translateX(-50%) scale(1); }
+            50% { opacity: 0.11; transform: translateX(-50%) scale(1.03); }
+        }
+
+        /* Fallback glow for when video doesn't load */
+        .bottom-entity-fallback {
+            position: fixed;
+            bottom: -8%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: clamp(300px, 45vw, 500px);
+            height: clamp(300px, 45vw, 500px);
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(184,134,11,0.08) 0%, rgba(184,134,11,0.03) 40%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            animation: bottom-glow 6s ease-in-out infinite;
+        }
+
+        @keyframes bottom-glow {
+            0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+            50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
+        }
+
         /* ========================================
            RESPONSIVE
            ======================================== */
@@ -1193,6 +1245,7 @@
             .fog-blob.purple-1 { width: 200px; height: 200px; }
             .fog-blob.orange-1 { width: 180px; height: 180px; }
             .fog-blob.blue-1 { width: 200px; height: 200px; }
+            .bottom-entity, .bottom-entity-fallback { width: 220px; height: 220px; bottom: -8%; }
         }
 
         @media (max-width: 480px) {
@@ -1207,6 +1260,7 @@
                 transition-duration: 0.01ms !important;
             }
             .fog-blob { display: none; }
+            .bottom-entity, .bottom-entity-fallback { display: none; }
         }
     </style>
 </head>
@@ -1334,6 +1388,16 @@
     </section>
 </div>
 
+<!-- BOTTOM ENTITY — organism's pulse at page bottom -->
+<div class="bottom-entity" id="bottomEntity">
+    <video muted playsinline loop preload="none"
+           poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Crect fill='%23D6CEC2' width='1' height='1'/%3E%3C/svg%3E">
+        <source src="assets/video/entity_loop.webm" type="video/webm">
+        <source src="assets/video/entity_loop.mp4" type="video/mp4">
+    </video>
+</div>
+<div class="bottom-entity-fallback" id="bottomEntityFallback"></div>
+
 <div class="audio-modal" id="audioModal">
     <div class="audio-modal-content">
         <div class="audio-modal-title" id="audioModalTitle"></div>
@@ -1387,13 +1451,9 @@
 
     const branches = [
         { date: '2026-01-30',
-          title: { tr: '"Aynen Öyle" — Minimal Onay İfadeleri', en: '"Aynen Öyle" — Minimal Affirmation Expressions' },
+          title: { tr: '\u201CAynen Öyle\u201D \u2014 Minimal Onay İfadeleri', en: '\u201CAynen Öyle\u201D \u2014 Minimal Affirmation Expressions' },
           desc: { tr: 'Epistemik ve sosyal işlevleri üzerine araştırma notu ve podcast özeti.', en: 'Research note on epistemic and social functions, with podcast summary.' },
-          status: 'completed' },
-        { date: '2026-02',
-          title: { tr: 'Direnme Dilekçesi — İİK m.58/3', en: 'Resistance Petition — ECA Art.58/3' },
-          desc: { tr: 'Çeyrek asırlık yerleşik içtihadı sorgulayan 76 sayfalık hukuki argümantasyon.', en: '76-page legal argumentation challenging a quarter-century of established case law.' },
-          status: 'active' }
+          status: 'completed' }
     ];
 
     const emanations = [
@@ -1591,6 +1651,37 @@
         video.play().catch(() => {});
     }
 
+    // Bottom entity ambient video
+    function initBottomEntity() {
+        var el = document.getElementById('bottomEntity');
+        var video = el.querySelector('video');
+        var fallback = document.getElementById('bottomEntityFallback');
+
+        video.preload = 'auto';
+
+        var confirmed = false;
+
+        function onPlaying() {
+            setTimeout(function() {
+                if (video.videoWidth > 0 && !video.paused) {
+                    confirmed = true;
+                    el.classList.add('loaded');
+                    fallback.style.display = 'none';
+                }
+            }, 500);
+        }
+
+        video.addEventListener('playing', onPlaying);
+        video.play().catch(function() {});
+
+        // Fallback: if video doesn't play after 3s, keep CSS glow
+        setTimeout(function() {
+            if (!confirmed) {
+                el.style.display = 'none';
+            }
+        }, 3000);
+    }
+
     // Nerve network — organism's connective tissue
     function generateNerveNetwork() {
         var svg = document.getElementById('nerveSvg');
@@ -1642,7 +1733,7 @@
             renderBranches();
             renderAssembly();
             renderEmanations();
-            setTimeout(initVideoLayer, 500);
+            setTimeout(function() { initVideoLayer(); initBottomEntity(); }, 500);
         }, 2000);
         setTimeout(() => { const o = document.getElementById('intro-overlay'); if (o) o.remove(); }, 2800);
     }
