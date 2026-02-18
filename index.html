@@ -420,25 +420,26 @@
            HOME — ORGANISM
            ======================================== */
         .home {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-rows: 1fr auto;
+            align-items: start;
+            justify-items: start;
             min-height: 100vh;
             min-height: 100dvh;
-            padding: 5rem 1.5rem 3rem;
+            padding: 5rem 2.5rem 3rem;
             position: relative;
+            gap: 0;
         }
 
         /* Subtle radial warmth behind entity */
         .home::before {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -55%);
-            width: min(500px, 80vw);
-            height: min(500px, 80vw);
+            top: 5rem;
+            left: 0;
+            width: min(420px, 65vw);
+            height: min(420px, 65vw);
             background: radial-gradient(circle, rgba(184, 134, 11, 0.05) 0%, transparent 65%);
             pointer-events: none;
             z-index: 0;
@@ -446,12 +447,14 @@
 
         .entity-container {
             position: relative;
-            width: clamp(280px, 60vw, 480px);
-            height: clamp(280px, 60vw, 480px);
+            width: clamp(220px, 42vw, 360px);
+            height: clamp(220px, 42vw, 360px);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 1;
+            grid-column: 1;
+            grid-row: 1;
         }
 
         .entity-core {
@@ -641,9 +644,28 @@
         .limb-node.sleeping .limb-label { opacity: 0.3; }
         .limb-node.sleeping .limb-dot::after { animation-duration: 8s; }
 
+        .home-info {
+            grid-column: 2;
+            grid-row: 1;
+            align-self: center;
+            padding-left: clamp(1rem, 3vw, 3rem);
+            z-index: 1;
+        }
+
+        .home-fullname-large {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            color: var(--text-primary);
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.01em;
+        }
+
+        .home-fullname-large span {
+            display: block;
+        }
+
         .home-philosophy {
-            margin-top: 3rem;
-            text-align: center;
             z-index: 1;
         }
 
@@ -653,11 +675,12 @@
             font-size: clamp(0.95rem, 2vw, 1.15rem);
             color: var(--text-muted);
             letter-spacing: 0.03em;
+            line-height: 1.6;
+            max-width: 380px;
         }
 
         .home-fullname {
-            margin-top: 0.8rem;
-            text-align: center;
+            margin-top: 1.5rem;
             z-index: 1;
         }
 
@@ -1235,7 +1258,28 @@
            ======================================== */
         @media (max-width: 768px) {
             .site-header { padding: 1rem; }
-            .entity-container { width: 280px; height: 280px; }
+            .home {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto;
+                justify-items: center;
+                padding: 5rem 1.5rem 3rem;
+            }
+            .entity-container {
+                grid-column: 1;
+                grid-row: 1;
+                width: 240px;
+                height: 240px;
+            }
+            .home-info {
+                grid-column: 1;
+                grid-row: 2;
+                padding-left: 0;
+                text-align: center;
+                align-self: start;
+                margin-top: 1rem;
+            }
+            .home-fullname-large { text-align: center; }
+            .home-philosophy p { margin: 0 auto; }
             .limb-tooltip { display: none; }
             .assembly-grid { grid-template-columns: 1fr; }
             .portal-actions { flex-direction: column; align-items: center; }
@@ -1316,7 +1360,7 @@
             <div class="entity-core" id="entityCore"></div>
             <div class="entity-video-layer" id="videoLayer">
                 <video muted playsinline loop preload="none"
-                       poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Crect fill='%23F5F0E8' width='1' height='1'/%3E%3C/svg%3E">
+                       poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Crect fill='%23D6CEC2' width='1' height='1'/%3E%3C/svg%3E">
                     <source src="assets/video/entity_loop.webm" type="video/webm">
                     <source src="assets/video/entity_loop.mp4" type="video/mp4">
                 </video>
@@ -1326,10 +1370,17 @@
             </div>
             <div class="orbital-ring" id="orbitalRing"></div>
         </div>
-        <div class="home-philosophy">
-            <p data-tr="Sorular cevaplardan değerlidir." data-en="Questions outweigh answers.">Sorular cevaplardan değerlidir.</p>
+        <div class="home-info">
+            <div class="home-fullname-large">
+                <span>Halit</span>
+                <span>Cengiz</span>
+                <span>Uzuner</span>
+            </div>
+            <div class="home-philosophy">
+                <p data-tr="1995'ten beri hukukçu. Uzun süredir aktif pratik yok. Kalan: düşünme disiplini, argümantasyon refleksi, ve sunumun mesajın parçası olduğu inancı." data-en="Jurist since 1995. Long out of active practice. What remains: thinking discipline, argumentation reflex, and the conviction that presentation is part of the message.">1995'ten beri hukukçu. Uzun süredir aktif pratik yok. Kalan: düşünme disiplini, argümantasyon refleksi, ve sunumun mesajın parçası olduğu inancı.</p>
+            </div>
+            <div class="home-fullname"><span data-tr="Meraklı Zihin" data-en="Curious Mind">Meraklı Zihin</span></div>
         </div>
-        <div class="home-fullname"><span>Halit Cengiz Uzuner</span></div>
     </main>
 
     <section class="page page-core" id="page-core">
