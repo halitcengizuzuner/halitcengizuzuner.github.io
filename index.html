@@ -994,14 +994,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             min-height: 100vh;
             min-height: 100dvh;
             position: relative;
             z-index: 1;
         }
 
-        .portal-header { text-align: center; margin-bottom: 2.5rem; }
+        .portal-header { text-align: center; margin-bottom: 1.5rem; }
 
         .portal-title {
             font-family: var(--font-display);
@@ -1147,9 +1147,40 @@
         .portal-form { width: 100%; }
 
         /* Portal existing user toggle */
-        .portal-existing-toggle { margin-top: 1.5rem; text-align: center; position: relative; z-index: 2; }
+        .portal-existing-toggle { margin: 0.5rem 0 2rem; text-align: center; position: relative; z-index: 2; }
         .portal-existing-toggle a { font-family: var(--font-body); font-size: 0.95rem; color: var(--amber-deep); text-decoration: none; cursor: pointer; transition: all 0.3s; opacity: 0.8; }
         .portal-existing-toggle a:hover { opacity: 1; text-decoration: underline; }
+
+        /* Portal choice tabs */
+        .portal-choice {
+            display: flex;
+            gap: 0;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-glass);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--bg-surface);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        }
+        .portal-choice-btn {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .portal-choice-btn:first-child { border-right: 1px solid var(--border-glass); }
+        .portal-choice-btn.active {
+            color: var(--amber-deep);
+            background: rgba(184, 134, 11, 0.08);
+            font-weight: 600;
+        }
+        .portal-choice-btn:hover:not(.active) { color: var(--text-secondary); background: rgba(255,255,255,0.3); }
 
         /* Portal Chat UI */
         .portal-login-form {
@@ -1611,8 +1642,12 @@
         <div class="portal-gate" id="portalGate">
             <div class="portal-header">
                 <h1 class="portal-title">Portal</h1>
-                <p class="portal-statement" data-tr="Bu kapı, karşılıklı ilgi üzerine kurulu bir iletişim kanalı açar. Kim olduğunuzu ve neden bağlantı kurmak istediğinizi anlatın. Talebiniz 48 saat içinde değerlendirilecek." data-en="This gate opens a communication channel built on mutual interest. Describe who you are and why you want to connect. Your request will be evaluated within 48 hours.">Bu kapı, karşılıklı ilgi üzerine kurulu bir iletişim kanalı açar. Kim olduğunuzu ve neden bağlantı kurmak istediğinizi anlatın. Talebiniz 48 saat içinde değerlendirilecek.</p>
             </div>
+            <div class="portal-choice">
+                <button class="portal-choice-btn active" id="portalChoiceNew" data-tr="İlk kez geliyorum" data-en="I'm new here">İlk kez geliyorum</button>
+                <button class="portal-choice-btn" id="portalChoiceExisting" data-tr="Hesabım var" data-en="I have an account">Hesabım var</button>
+            </div>
+            <p class="portal-statement" data-tr="Bu kapı, karşılıklı ilgi üzerine kurulu bir iletişim kanalı açar. Kim olduğunuzu ve neden bağlantı kurmak istediğinizi anlatın. Talebiniz 48 saat içinde değerlendirilecek." data-en="This gate opens a communication channel built on mutual interest. Describe who you are and why you want to connect. Your request will be evaluated within 48 hours.">Bu kapı, karşılıklı ilgi üzerine kurulu bir iletişim kanalı açar. Kim olduğunuzu ve neden bağlantı kurmak istediğinizi anlatın. Talebiniz 48 saat içinde değerlendirilecek.</p>
             <div class="portal-form" id="portalForm">
                 <textarea class="portal-textarea" id="portalRequestText" maxlength="2000"></textarea>
                 <div class="portal-char-count"><span id="portalCharCount">0</span> / 2000</div>
@@ -1623,9 +1658,6 @@
                     </button>
                 </div>
                 <div class="portal-error" id="portalGateError"></div>
-                <div class="portal-existing-toggle">
-                    <a id="portalShowLogin" data-tr="Zaten hesabınız var mı? Giriş yapın" data-en="Already have an account? Log in">Zaten hesabınız var mı? Giriş yapın</a>
-                </div>
             </div>
             <div class="portal-response" id="portalResponse">
                 <p id="portalResponseText"></p>
@@ -1641,8 +1673,12 @@
         <div class="portal-login" id="portalLogin" style="display:none;">
             <div class="portal-header">
                 <h1 class="portal-title">Portal</h1>
-                <p class="portal-statement" data-tr="Güvenli iletişim kanalı. Giriş bilgileriniz size özel olarak iletilmiştir." data-en="Secure communication channel. Login credentials have been provided to you privately.">Güvenli iletişim kanalı. Giriş bilgileriniz size özel olarak iletilmiştir.</p>
             </div>
+            <div class="portal-choice">
+                <button class="portal-choice-btn" id="portalChoiceNew2" data-tr="İlk kez geliyorum" data-en="I'm new here">İlk kez geliyorum</button>
+                <button class="portal-choice-btn active" id="portalChoiceExisting2" data-tr="Hesabım var" data-en="I have an account">Hesabım var</button>
+            </div>
+            <p class="portal-statement" data-tr="Güvenli iletişim kanalı. Giriş bilgileriniz size özel olarak iletilmiştir." data-en="Secure communication channel. Login credentials have been provided to you privately.">Güvenli iletişim kanalı. Giriş bilgileriniz size özel olarak iletilmiştir.</p>
             <div class="portal-login-form">
                 <input type="text" class="portal-input" id="portalUsername" autocomplete="username" style="margin-bottom:0.75rem;">
                 <input type="password" class="portal-input" id="portalPassword" autocomplete="current-password">
@@ -1650,9 +1686,6 @@
                 <div class="portal-actions">
                     <button class="portal-submit" id="portalLoginBtn" data-tr="Giriş Yap" data-en="Log In">Giriş Yap</button>
                 </div>
-            </div>
-            <div class="portal-existing-toggle">
-                <a id="portalShowGate" data-tr="← Yeni talep oluştur" data-en="← Create new request">← Yeni talep oluştur</a>
             </div>
         </div>
 
@@ -1954,17 +1987,20 @@
         document.getElementById('portalCharCount').textContent = this.value.length;
     });
 
-    // Gate/Login geçişleri
-    document.getElementById('portalShowLogin').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('portalGate').style.display = 'none';
-        document.getElementById('portalLogin').style.display = '';
-    });
-    document.getElementById('portalShowGate').addEventListener('click', function(e) {
-        e.preventDefault();
+    // Gate/Login geçişleri — choice butonları
+    function showGate() {
         document.getElementById('portalLogin').style.display = 'none';
         document.getElementById('portalGate').style.display = '';
-    });
+    }
+    function showLogin() {
+        document.getElementById('portalGate').style.display = 'none';
+        document.getElementById('portalLogin').style.display = '';
+    }
+    document.getElementById('portalChoiceExisting').addEventListener('click', showLogin);
+    document.getElementById('portalChoiceNew2').addEventListener('click', showGate);
+    // Choice butonlarındaki active state zaten HTML'de doğru ayarlı — 
+    // Gate'deki "İlk kez geliyorum" active, Login'deki "Hesabım var" active
+
     document.getElementById('portalPendingBack').addEventListener('click', function(e) {
         e.preventDefault();
         document.getElementById('portalPending').style.display = 'none';
@@ -1999,7 +2035,7 @@
             var data = await r.json();
             if (data.success) {
                 document.getElementById('portalForm').style.display = 'none';
-                var toggleEl = document.querySelector('#portalGate .portal-existing-toggle');
+                var toggleEl = document.querySelector('#portalGate .portal-choice');
                 if (toggleEl) toggleEl.style.display = 'none';
                 var resp = document.getElementById('portalResponse');
                 resp.classList.add('show');
@@ -2050,7 +2086,7 @@
                     errorEl.style.color = '';
                     if (data.success) {
                         document.getElementById('portalForm').style.display = 'none';
-                        var toggleEl = document.querySelector('#portalGate .portal-existing-toggle');
+                        var toggleEl = document.querySelector('#portalGate .portal-choice');
                         if (toggleEl) toggleEl.style.display = 'none';
                         var resp = document.getElementById('portalResponse');
                         resp.classList.add('show');
