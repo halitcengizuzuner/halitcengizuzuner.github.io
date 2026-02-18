@@ -528,6 +528,7 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
             pointer-events: none;
+            z-index: 5;
         }
 
         .connections-svg {
@@ -616,8 +617,13 @@
             opacity: 0;
             pointer-events: none;
             transition: all 0.25s var(--ease-out-expo);
-            z-index: 20;
+            z-index: 100;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .limb-tooltip.tooltip-below {
+            bottom: auto;
+            top: calc(100% + 14px);
         }
 
         .limb-node:hover .limb-tooltip {
@@ -1843,10 +1849,11 @@
             node.className = 'limb-node' + (limb.status === 'sleeping' ? ' sleeping' : '');
             node.style.left = x + 'px';
             node.style.top = y + 'px';
+            const tooltipBelow = y < h * 0.35;
             node.innerHTML = `
                 <div class="limb-dot" style="background:${limb.color}; color:${limb.color};"></div>
                 <div class="limb-label" style="color:${limb.color};">${limb.name}</div>
-                <div class="limb-tooltip">
+                <div class="limb-tooltip${tooltipBelow ? ' tooltip-below' : ''}">
                     <div class="limb-tooltip-name">${limb.tool}</div>
                     <div class="limb-tooltip-role">${limb.role[currentLang]}</div>
                 </div>`;
