@@ -1016,6 +1016,26 @@
             font-style: italic;
         }
 
+        .portal-choice {
+            display: flex; gap: 0.8rem; justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .portal-choice-btn {
+            font-family: var(--font-mono);
+            font-size: 0.6rem; font-weight: 400;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.4);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-glass);
+            padding: 0.7rem 1.5rem; border-radius: 4px;
+            cursor: pointer; transition: all 0.3s ease;
+        }
+        .portal-choice-btn:hover { border-color: var(--amber-ring); color: var(--amber-deep); }
+        .portal-choice-btn.active {
+            border-color: var(--amber); color: var(--amber-deep);
+            background: var(--amber-soft);
+        }
         .portal-form { width: 100%; }
 
         .portal-textarea {
@@ -1600,15 +1620,44 @@
         <div class="portal-login" id="portalLogin">
             <div class="portal-header">
                 <h1 class="portal-title">Portal</h1>
-                <p class="portal-statement" data-tr="Güvenli iletişim kanalı. Giriş bilgileriniz size özel olarak iletilmiştir." data-en="Secure communication channel. Login credentials have been provided to you privately.">Güvenli iletişim kanalı. Giriş bilgileriniz size özel olarak iletilmiştir.</p>
+                <p class="portal-statement" data-tr="Güvenli iletişim kanalı." data-en="Secure communication channel.">Güvenli iletişim kanalı.</p>
             </div>
-            <div class="portal-login-form">
+
+            <!-- Seçim butonları -->
+            <div class="portal-choice">
+                <button class="portal-choice-btn active" id="portalChoiceLogin" data-tr="Hesabım var" data-en="I have an account">Hesabım var</button>
+                <button class="portal-choice-btn" id="portalChoiceRequest" data-tr="Erişim talep et" data-en="Request access">Erişim talep et</button>
+            </div>
+
+            <!-- Giriş formu -->
+            <div class="portal-login-form" id="portalLoginForm">
                 <input type="text" class="portal-input" id="portalUsername" autocomplete="username" style="margin-bottom:0.75rem;">
                 <input type="password" class="portal-input" id="portalPassword" autocomplete="current-password">
                 <div class="portal-error" id="portalError"></div>
                 <div class="portal-actions">
                     <button class="portal-submit" id="portalLoginBtn" data-tr="Giriş Yap" data-en="Log In">Giriş Yap</button>
                 </div>
+            </div>
+
+            <!-- Talep formu -->
+            <div class="portal-form" id="portalRequestForm" style="display:none; max-width:360px; margin:0 auto;">
+                <p class="portal-statement" style="text-align:center; margin-bottom:1.5rem;" data-tr="Kendinizi tanıtın. Yazılı veya sesli." data-en="Introduce yourself. Text or voice.">Kendinizi tanıtın. Yazılı veya sesli.</p>
+                <textarea class="portal-textarea" id="portalRequestText" maxlength="500" rows="4"></textarea>
+                <div class="portal-char-count"><span id="portalCharCount">0</span> / 500</div>
+                <div class="portal-actions">
+                    <button class="portal-mic" id="portalMicBtn" title="Ses kaydı">
+                        <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+                    </button>
+                    <button class="portal-submit" id="portalRequestBtn" data-tr="Gönder" data-en="Submit">Gönder</button>
+                </div>
+                <div class="portal-error" id="portalRequestError"></div>
+            </div>
+
+            <!-- Talep sonuç -->
+            <div class="portal-response" id="portalResponse">
+                <p data-tr="Talebiniz alındı. 48 saat içinde değerlendirilecektir." data-en="Your request has been received. It will be evaluated within 48 hours.">Talebiniz alındı. 48 saat içinde değerlendirilecektir.</p>
+                <div class="portal-credentials" id="portalCredentials"></div>
+                <p class="portal-48h" data-tr="Bu bilgileri kaydedin — giriş için gerekecektir" data-en="Save these credentials — you'll need them to log in">Bu bilgileri kaydedin — giriş için gerekecektir</p>
             </div>
         </div>
 
@@ -1872,6 +1921,93 @@
     const PORTAL_API = 'https://portal.halitcengizuzuner.workers.dev';
     let portalUserId = null;
     let portalSession = null;
+
+    // Portal choice toggle
+    document.getElementById('portalChoiceLogin').addEventListener('click', () => {
+        document.getElementById('portalChoiceLogin').classList.add('active');
+        document.getElementById('portalChoiceRequest').classList.remove('active');
+        document.getElementById('portalLoginForm').style.display = '';
+        document.getElementById('portalRequestForm').style.display = 'none';
+        document.getElementById('portalResponse').classList.remove('show');
+    });
+    document.getElementById('portalChoiceRequest').addEventListener('click', () => {
+        document.getElementById('portalChoiceRequest').classList.add('active');
+        document.getElementById('portalChoiceLogin').classList.remove('active');
+        document.getElementById('portalLoginForm').style.display = 'none';
+        document.getElementById('portalRequestForm').style.display = '';
+    });
+
+    // Karakter sayacı
+    document.getElementById('portalRequestText').addEventListener('input', function() {
+        document.getElementById('portalCharCount').textContent = this.value.length;
+    });
+
+    // Ses kaydı
+    let mediaRecorder = null;
+    let audioChunks = [];
+    let isRecording = false;
+
+    document.getElementById('portalMicBtn').addEventListener('click', async () => {
+        const btn = document.getElementById('portalMicBtn');
+        if (isRecording) {
+            mediaRecorder.stop();
+            btn.classList.remove('recording');
+            isRecording = false;
+            return;
+        }
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
+            audioChunks = [];
+            mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+            mediaRecorder.onstop = () => {
+                stream.getTracks().forEach(t => t.stop());
+            };
+            mediaRecorder.start();
+            btn.classList.add('recording');
+            isRecording = true;
+        } catch (e) {
+            const errEl = document.getElementById('portalRequestError');
+            errEl.textContent = currentLang === 'tr' ? 'Mikrofon erişimi reddedildi' : 'Microphone access denied';
+        }
+    });
+
+    // Talep gönder
+    document.getElementById('portalRequestBtn').addEventListener('click', async () => {
+        const text = document.getElementById('portalRequestText').value.trim();
+        const errEl = document.getElementById('portalRequestError');
+        const hasAudio = audioChunks.length > 0;
+
+        if (!text && !hasAudio) {
+            errEl.textContent = currentLang === 'tr' ? 'Lütfen talebinizi yazın veya sesli iletin.' : 'Please write or record your request.';
+            return;
+        }
+        errEl.textContent = '';
+        document.getElementById('portalRequestBtn').disabled = true;
+
+        try {
+            const fd = new FormData();
+            fd.append('text', text);
+            if (hasAudio) {
+                const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                fd.append('audio', audioBlob, 'request.webm');
+            }
+            const r = await fetch(PORTAL_API + '/api/request-access', { method: 'POST', body: fd });
+            const data = await r.json();
+            if (data.success) {
+                document.getElementById('portalRequestForm').style.display = 'none';
+                document.getElementById('portalCredentials').innerHTML =
+                    `<code>${currentLang === 'tr' ? 'Kullanıcı' : 'Username'}: ${data.username}</code><code>${currentLang === 'tr' ? 'Şifre' : 'Password'}: ${data.password}</code>`;
+                document.getElementById('portalResponse').classList.add('show');
+                document.querySelector('.portal-choice').style.display = 'none';
+            } else {
+                errEl.textContent = data.error;
+            }
+        } catch (e) {
+            errEl.textContent = currentLang === 'tr' ? 'Bağlantı hatası' : 'Connection error';
+        }
+        document.getElementById('portalRequestBtn').disabled = false;
+    });
 
     document.getElementById('portalLoginBtn').addEventListener('click', portalLogin);
     document.getElementById('portalPassword').addEventListener('keydown', e => {
