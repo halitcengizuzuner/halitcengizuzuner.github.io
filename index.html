@@ -3,1242 +3,1835 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="Halit Cengiz Uzuner - Etkileşimli kişisel site. Kuantum gözlemci etkisi temalı, minimalist dijital deneyim.">
-    <meta name="keywords" content="Halit Cengiz Uzuner, kişisel site, etkileşimli web, kuantum, dijital deneyim">
+    <meta name="description" content="Halit Cengiz Uzuner — Dijital organizma. Düşünme disiplini, argümantasyon refleksi, sınırsız merak.">
+    <meta name="keywords" content="Halit Cengiz Uzuner, organizma, düşünce, argümantasyon, merak">
     <meta name="author" content="Halit Cengiz Uzuner">
     <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph (Facebook, LinkedIn) -->
     <meta property="og:title" content="Halit Cengiz Uzuner">
-    <meta property="og:description" content="Etkileşimli kişisel site. Kuantum gözlemci etkisi temalı, minimalist dijital deneyim.">
+    <meta property="og:description" content="Dijital organizma. Düşünme disiplini, argümantasyon refleksi, sınırsız merak.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://halitcengizuzuner.com/">
     <meta property="og:locale" content="tr_TR">
-    <meta property="og:site_name" content="Halit Cengiz Uzuner">
-    
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Halit Cengiz Uzuner">
-    <meta name="twitter:description" content="Etkileşimli kişisel site. Kuantum gözlemci etkisi temalı, minimalist dijital deneyim.">
-    
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://halitcengizuzuner.com/">
-    
     <title>Halit Cengiz Uzuner</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        /* ========================================
+           CSS CUSTOM PROPERTIES
+           ======================================== */
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --text-primary: #ffffff;
-            --text-secondary: #888899;
-            --text-muted: #555566;
-            --accent-teal: #4ecca3;
-            --accent-teal-glow: rgba(78, 204, 163, 0.4);
-            --accent-gold: #d4af37;
-            --accent-gold-glow: rgba(212, 175, 55, 0.4);
-            --border-subtle: rgba(255, 255, 255, 0.08);
+            --bg-deep: #0A0A12;
+            --bg-mid: #111119;
+            --bg-surface: #1A1420;
+            
+            --amber: #D4A017;
+            --amber-glow: rgba(212, 160, 23, 0.4);
+            --amber-soft: rgba(212, 160, 23, 0.15);
+            
+            --teal: #2A9D8F;
+            --teal-glow: rgba(42, 157, 143, 0.4);
+            --blue: #3A86FF;
+            --blue-glow: rgba(58, 134, 255, 0.3);
+            --purple: #7B2FBE;
+            --purple-glow: rgba(123, 47, 190, 0.3);
+            --red: #C0392B;
+            --red-glow: rgba(192, 57, 43, 0.3);
+            --green: #6BAA75;
+            --green-glow: rgba(107, 170, 117, 0.3);
+            --orange: #E8871E;
+            --orange-glow: rgba(232, 135, 30, 0.3);
+            --silver: #8B9DAF;
+            --silver-glow: rgba(139, 157, 175, 0.2);
+            
+            --text-primary: #F0EBE3;
+            --text-secondary: #9A9490;
+            --text-muted: #5A5652;
+            --border-subtle: rgba(240, 235, 227, 0.08);
+            
+            --font-display: 'Instrument Serif', serif;
+            --font-body: 'Crimson Pro', serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            --transition-page: 0.35s;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* ========================================
+           RESET & BASE
+           ======================================== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body, html {
-            width: 100%; height: 100%;
-            background: var(--bg-primary);
-            overflow: hidden;
-            font-family: 'Playfair Display', serif;
-            cursor: crosshair;
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            min-height: 100vh;
+            min-height: 100dvh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             -webkit-tap-highlight-color: transparent;
-            touch-action: none;
         }
 
-        /* ========== ANIMATIONS ========== */
-        @keyframes rebirth-flash {
-            0% { filter: brightness(1); background: var(--bg-primary); }
-            15% { filter: brightness(8) blur(3px); background: #222; }
-            30% { filter: brightness(0.3); background: var(--bg-primary); }
-            45% { filter: brightness(6) blur(2px); background: #111; }
-            60% { filter: brightness(0.5); background: var(--bg-primary); }
-            100% { filter: brightness(1); background: var(--bg-primary); }
-        }
-        .rebirth { animation: rebirth-flash 1.2s cubic-bezier(0.4, 0, 0.2, 1); }
-
-        @keyframes system-pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
-        }
-        .pulse { animation: system-pulse 0.3s ease-out; }
-
-        @keyframes quantum-freeze {
-            0% { filter: grayscale(0); }
-            100% { filter: grayscale(1) blur(1px); }
-        }
-        .frozen { animation: quantum-freeze 2s ease-out forwards; }
-
-        @keyframes letter-elastic {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-5px) scale(1.03); }
-        }
-
-        @keyframes float-fade {
-            0% { opacity: 0; transform: translate(-50%, 5px) scale(0.9); }
-            20% { opacity: 1; transform: translate(-50%, 0) scale(1); }
-            80% { opacity: 1; transform: translate(-50%, -20px) scale(1); }
-            100% { opacity: 0; transform: translate(-50%, -40px) scale(0.95); }
-        }
-
-        /* ========== CANVAS ========== */
-        #constellation {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%; z-index: 1;
-        }
-
-        /* ========== LANGUAGE SELECTOR ========== */
-        .lang-selector {
+        /* ========================================
+           UNSUPPORTED DEVICE GATE
+           ======================================== */
+        #unsupported-gate {
+            display: none;
             position: fixed;
-            top: 20px;
-            right: 25px;
-            z-index: 100;
+            inset: 0;
+            z-index: 10000;
+            background: #000;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        #unsupported-gate p {
+            font-family: Georgia, serif;
+            font-size: 1rem;
+            color: var(--amber);
+            line-height: 2;
+            max-width: 400px;
+        }
+
+        /* ========================================
+           INTRO REVEAL ANIMATION
+           ======================================== */
+        #intro-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9000;
+            background: var(--bg-deep);
             display: flex;
-            gap: 8px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.85rem;
-            letter-spacing: 0.15em;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.6s ease;
+        }
+
+        #intro-overlay.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .intro-core {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--amber);
+            box-shadow: 0 0 40px var(--amber-glow), 0 0 80px var(--amber-glow);
+            animation: intro-breathe 1.5s ease-in-out infinite, intro-grow 2s var(--ease-out-expo) forwards;
+        }
+
+        @keyframes intro-breathe {
+            0%, 100% { box-shadow: 0 0 40px var(--amber-glow), 0 0 80px var(--amber-glow); }
+            50% { box-shadow: 0 0 60px var(--amber-glow), 0 0 120px rgba(212, 160, 23, 0.25); }
+        }
+
+        @keyframes intro-grow {
+            0% { transform: scale(0.3); opacity: 0; }
+            30% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Orbital dots appearing during intro */
+        .intro-orbitals {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+        }
+
+        .intro-orbital-dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            opacity: 0;
+            animation: orbital-appear 0.4s var(--ease-out-expo) forwards;
+        }
+
+        @keyframes orbital-appear {
+            0% { opacity: 0; transform: scale(0); }
+            100% { opacity: 0.8; transform: scale(1); }
+        }
+
+        /* ========================================
+           APP SHELL
+           ======================================== */
+        #app {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            min-height: 100vh;
+            min-height: 100dvh;
+        }
+
+        #app.visible { opacity: 1; }
+
+        /* ========================================
+           HEADER / NAV
+           ======================================== */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 500;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            pointer-events: none;
+        }
+
+        .site-header > * { pointer-events: auto; }
+
+        /* Language Toggle */
+        .lang-toggle {
+            display: flex;
+            gap: 2px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
         }
 
         .lang-btn {
             background: transparent;
-            border: 1px solid var(--border-subtle);
+            border: none;
             color: var(--text-muted);
-            padding: 6px 12px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            padding: 0.4rem 0.7rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: inherit;
-            font-size: inherit;
-            letter-spacing: inherit;
+            transition: all 0.25s ease;
         }
 
-        .lang-btn:hover {
-            border-color: var(--accent-teal);
-            color: var(--text-secondary);
-        }
+        .lang-btn:hover { color: var(--text-secondary); }
 
         .lang-btn.active {
-            border-color: var(--accent-teal);
-            color: var(--accent-teal);
-            background: rgba(78, 204, 163, 0.1);
+            color: var(--amber);
+            background: var(--amber-soft);
         }
 
-        /* ========== MAIN CONTENT ========== */
-        .content {
-            position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10; text-align: center;
-            width: 90%; max-width: 1000px;
-            pointer-events: none;
-            transition: transform 2s ease-in-out;
+        /* Hamburger */
+        .hamburger {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+            padding: 0;
         }
 
-        /* ========== VIDEO LOGO ========== */
-        .logo-container {
-            margin-bottom: 1.5rem;
+        .hamburger:hover { border-color: rgba(240, 235, 227, 0.2); }
+
+        .hamburger span {
+            display: block;
+            width: 16px;
+            height: 1.5px;
+            background: var(--text-secondary);
+            transition: all 0.3s var(--ease-out-expo);
+            transform-origin: center;
+        }
+
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(2.3px, 2.3px); }
+        .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(2.3px, -2.3px); }
+
+        /* Nav Overlay */
+        .nav-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 400;
+            background: rgba(10, 10, 18, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             display: flex;
             justify-content: center;
             align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .nav-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .nav-menu {
+            list-style: none;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .nav-menu li { overflow: hidden; }
+
+        .nav-link {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: inline-block;
+            transition: color 0.3s ease, transform 0.3s var(--ease-out-expo);
+            cursor: pointer;
+            transform: translateY(100%);
+            opacity: 0;
+        }
+
+        .nav-overlay.open .nav-link {
+            transform: translateY(0);
+            opacity: 1;
+            transition: color 0.3s ease, transform 0.5s var(--ease-out-expo), opacity 0.5s ease;
+        }
+
+        .nav-overlay.open li:nth-child(1) .nav-link { transition-delay: 0.05s; }
+        .nav-overlay.open li:nth-child(2) .nav-link { transition-delay: 0.1s; }
+        .nav-overlay.open li:nth-child(3) .nav-link { transition-delay: 0.15s; }
+        .nav-overlay.open li:nth-child(4) .nav-link { transition-delay: 0.2s; }
+
+        .nav-link:hover { color: var(--amber); }
+
+        .nav-link-sub {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+            text-transform: uppercase;
+        }
+
+        /* ========================================
+           PAGE TRANSITIONS
+           ======================================== */
+        .page {
+            display: none;
+            min-height: 100vh;
+            min-height: 100dvh;
+        }
+
+        .page.active {
+            display: block;
+            animation: pageEnter 0.4s var(--ease-out-expo) forwards;
+        }
+
+        .page.exiting {
+            animation: pageExit 0.3s ease-out forwards;
+        }
+
+        @keyframes pageEnter {
+            0% { opacity: 0; transform: translateY(12px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pageExit {
+            0% { opacity: 1; }
+            100% { opacity: 0; filter: brightness(1.3); }
+        }
+
+        /* ========================================
+           HOME PAGE — ORGANISM
+           ======================================== */
+        .home {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            min-height: 100dvh;
+            padding: 5rem 1.5rem 3rem;
             position: relative;
         }
 
-        .logo-video-wrapper {
-            width: 120px;
-            width: clamp(100px, 20vw, 160px);
-            height: 120px;
-            height: clamp(100px, 20vw, 160px);
+        /* Background ambient glow */
+        .home::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -55%);
+            width: min(600px, 90vw);
+            height: min(600px, 90vw);
+            background: radial-gradient(circle, rgba(212, 160, 23, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Entity Core */
+        .entity-container {
             position: relative;
+            width: clamp(280px, 60vw, 480px);
+            height: clamp(280px, 60vw, 480px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .entity-core {
+            width: clamp(60px, 12vw, 90px);
+            height: clamp(60px, 12vw, 90px);
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--amber) 0%, rgba(212, 160, 23, 0.6) 50%, transparent 70%);
+            box-shadow: 
+                0 0 40px var(--amber-glow),
+                0 0 80px rgba(212, 160, 23, 0.2),
+                inset 0 0 20px rgba(255, 220, 100, 0.3);
+            animation: core-pulse 3s ease-in-out infinite;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Video overlay on core */
+        .entity-video-layer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: clamp(100px, 22vw, 160px);
+            height: clamp(100px, 22vw, 160px);
             border-radius: 50%;
             overflow: hidden;
+            z-index: 11;
+            opacity: 0;
+            transition: opacity 1s ease;
         }
 
-        .logo-video {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .entity-video-layer.loaded { opacity: 1; }
+
+        .entity-video-layer video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* mix-blend-mode: siyah pikselleri transparan yapar, 
-               video zemini ile sayfa zemini (#0a0a0f) arasındaki 
-               renk farkını ortadan kaldırır */
             mix-blend-mode: lighten;
-            z-index: 2;
-            opacity: 0;
-            transition: opacity 0.8s ease;
         }
 
-        .logo-video.playing {
-            opacity: 1;
+        @keyframes core-pulse {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 40px var(--amber-glow), 0 0 80px rgba(212, 160, 23, 0.2), inset 0 0 20px rgba(255, 220, 100, 0.3);
+            }
+            50% { 
+                transform: scale(1.05); 
+                box-shadow: 0 0 60px var(--amber-glow), 0 0 120px rgba(212, 160, 23, 0.15), inset 0 0 30px rgba(255, 220, 100, 0.4);
+            }
         }
 
-        /* SVG fallback: her zaman görünür, video oynayınca kaybolur */
-        .logo-fallback {
+        /* Core label */
+        .entity-name {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            transition: opacity 0.8s ease;
-        }
-
-        .logo-fallback.hidden {
-            opacity: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 12;
+            text-align: center;
             pointer-events: none;
         }
 
-        .logo-fallback svg {
+        .entity-name-primary {
+            font-family: var(--font-display);
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--text-primary);
+            letter-spacing: 0.15em;
+            text-shadow: 0 0 30px rgba(212, 160, 23, 0.5);
+            font-weight: 400;
+        }
+
+        /* Orbital limbs */
+        .orbital-ring {
+            position: absolute;
+            top: 0; left: 0;
             width: 100%;
             height: 100%;
+            pointer-events: none;
         }
 
-        @keyframes logo-breathe-fallback {
-            0%, 100% { transform: scale(1); opacity: 0.9; }
-            50% { transform: scale(1.02); opacity: 1; }
-        }
-
-        .logo-fallback svg {
-            animation: logo-breathe-fallback 6s ease-in-out infinite;
-        }
-
-        .logo-core {
-            fill: none;
-            stroke: var(--accent-teal);
-            stroke-width: 1.5;
-        }
-
-        .logo-orbit {
-            fill: var(--accent-gold);
-            opacity: 0.9;
-        }
-
-        .logo-center {
-            fill: var(--text-primary);
-            opacity: 0.95;
-        }
-
-        @keyframes pulse-ring {
-            0% { transform: scale(0.8); opacity: 0.6; }
-            50% { transform: scale(1.1); opacity: 0.2; }
-            100% { transform: scale(0.8); opacity: 0.6; }
-        }
-
-        .logo-ring {
-            fill: none;
-            stroke: var(--accent-teal);
-            stroke-width: 0.5;
-            opacity: 0.3;
-            animation: pulse-ring 4s ease-in-out infinite;
-        }
-
-        /* ========== NAME ========== */
-        .name-container {
+        .limb-node {
+            position: absolute;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: clamp(0.5rem, 1vw, 1rem);
-            margin-bottom: 1rem;
-        }
-
-        .name-line {
-            display: flex;
-            justify-content: center;
-            gap: clamp(0.3rem, 0.8vw, 0.6rem);
-        }
-
-        .letter {
-            display: inline-block;
-            font-size: clamp(2rem, 5vw, 4rem);
-            font-weight: 900;
-            letter-spacing: 0.05em;
-            color: var(--text-primary);
-            text-transform: uppercase;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-            transform-origin: center;
-            animation: letter-elastic 4s ease-in-out infinite;
-            will-change: transform, opacity;
-        }
-
-        .letter.assembled {
-            transform: translate(0, 0) rotate(0deg) scale(1) !important;
-            opacity: 1 !important;
-        }
-
-        .letter:nth-child(1) { animation-delay: 0s; }
-        .letter:nth-child(2) { animation-delay: 0.1s; }
-        .letter:nth-child(3) { animation-delay: 0.2s; }
-        .letter:nth-child(4) { animation-delay: 0.3s; }
-        .letter:nth-child(5) { animation-delay: 0.4s; }
-        .letter:nth-child(6) { animation-delay: 0.5s; }
-        .letter:nth-child(7) { animation-delay: 0.6s; }
-
-        /* ========== ABOUT SECTION ========== */
-        .about-section {
-            margin-bottom: 2rem;
-        }
-
-        .about-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1rem, 2vw, 1.3rem);
-            font-weight: 600;
-            color: #ccccdd;
-            letter-spacing: 0.3em;
-            margin-bottom: 0.8rem;
-            text-transform: uppercase;
-        }
-
-        .about-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(0.9rem, 1.8vw, 1.1rem);
-            font-style: italic;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            max-width: 500px;
-            margin: 0 auto;
-            letter-spacing: 0.02em;
-        }
-
-        /* ========== STATUS ========== */
-        .status {
-            font-size: clamp(0.7rem, 1.5vw, 1rem);
-            font-weight: 400; 
-            letter-spacing: 0.4em;
-            color: var(--text-muted); 
-            text-transform: uppercase;
-            margin-bottom: 2rem; 
-            min-height: 1.5em;
-            transition: color 0.5s ease;
-        }
-
-        .status.active { color: var(--text-secondary); }
-        .status.frozen { color: #ff6b6b; }
-
-        /* ========== METRICS ========== */
-        .metrics {
-            display: flex; 
-            justify-content: center;
-            gap: clamp(2rem, 5vw, 4rem);
-            margin-bottom: 2.5rem;
-            border-top: 1px solid var(--border-subtle);
-            border-bottom: 1px solid var(--border-subtle);
-            padding: 1.5rem 0;
-        }
-
-        .metric-box {
-            display: flex; 
-            flex-direction: column;
-            align-items: center; 
-            min-width: 80px;
-        }
-
-        .metric-value {
-            font-family: 'Courier New', monospace;
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            color: var(--text-primary); 
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-        }
-
-        .metric-label {
-            font-size: 0.6rem; 
-            color: var(--text-muted);
-            margin-top: 0.5rem; 
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-        }
-
-        /* ========== NAV BUTTONS ========== */
-        .nav-buttons {
-            display: flex;
-            justify-content: center;
-            gap: clamp(1rem, 3vw, 2rem);
-            flex-wrap: wrap;
+            gap: 0.4rem;
             pointer-events: auto;
+            cursor: default;
+            transform: translate(-50%, -50%);
+            transition: transform 0.3s var(--ease-out-expo);
         }
 
-        .nav-btn {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(0.75rem, 1.5vw, 0.95rem);
-            font-weight: 600;
-            letter-spacing: 0.25em;
+        .limb-node:hover { transform: translate(-50%, -50%) scale(1.08); }
+
+        .limb-dot {
+            width: clamp(14px, 3vw, 22px);
+            height: clamp(14px, 3vw, 22px);
+            border-radius: 50%;
+            position: relative;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .limb-dot::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            border: 1px solid currentColor;
+            opacity: 0.3;
+            animation: limb-ring-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes limb-ring-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.3); opacity: 0.1; }
+        }
+
+        .limb-label {
+            font-family: var(--font-mono);
+            font-size: clamp(0.5rem, 1.2vw, 0.65rem);
+            font-weight: 400;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.6);
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 1rem 2rem;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-decoration: none;
+            white-space: nowrap;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .limb-node:hover .limb-label { opacity: 1; }
+
+        /* Limb tooltip */
+        .limb-tooltip {
+            position: absolute;
+            bottom: calc(100% + 12px);
+            left: 50%;
+            transform: translateX(-50%) translateY(5px);
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 0.6rem 0.8rem;
+            min-width: 160px;
+            text-align: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.25s var(--ease-out-expo);
+            z-index: 20;
+        }
+
+        .limb-node:hover .limb-tooltip {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .limb-tooltip-name {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 0.2rem;
+        }
+
+        .limb-tooltip-role {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Connection lines (SVG) */
+        .connections-svg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .connection-line {
+            stroke: var(--amber);
+            stroke-width: 0.5;
+            opacity: 0.12;
+            stroke-dasharray: 4 4;
+        }
+
+        /* Sleeping limb */
+        .limb-node.sleeping .limb-dot { opacity: 0.4; }
+        .limb-node.sleeping .limb-label { opacity: 0.35; }
+        .limb-node.sleeping .limb-dot::after { animation-duration: 8s; }
+
+        /* Home philosophy line */
+        .home-philosophy {
+            margin-top: 3rem;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .home-philosophy p {
+            font-family: var(--font-body);
+            font-style: italic;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        /* Full name beneath */
+        .home-fullname {
+            margin-top: 1rem;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .home-fullname span {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            opacity: 0.5;
+        }
+
+        /* ========================================
+           CORE PAGE (ÇEKİRDEK)
+           ======================================== */
+        .page-core {
+            padding: 7rem 1.5rem 4rem;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .core-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .core-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--amber);
+            margin-bottom: 0.5rem;
+        }
+
+        .core-subtitle {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .core-body {
+            font-family: var(--font-body);
+            font-size: clamp(1rem, 2.2vw, 1.15rem);
+            color: var(--text-secondary);
+            line-height: 1.9;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Branches */
+        .branches-title {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .branches-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .branch-card {
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 1.2rem 1.5rem;
+            background: rgba(255,255,255, 0.02);
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+
+        .branch-card:hover {
+            border-color: rgba(212, 160, 23, 0.2);
+            background: rgba(212, 160, 23, 0.03);
+        }
+
+        .branch-date {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            letter-spacing: 0.15em;
+        }
+
+        .branch-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            margin: 0.3rem 0;
+        }
+
+        .branch-desc {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .branch-status {
             display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            margin-top: 0.5rem;
+        }
+
+        .branch-status.active {
+            color: var(--green);
+            background: rgba(107, 170, 117, 0.1);
+            border: 1px solid rgba(107, 170, 117, 0.2);
+        }
+
+        .branch-status.completed {
+            color: var(--amber);
+            background: var(--amber-soft);
+            border: 1px solid rgba(212, 160, 23, 0.2);
+        }
+
+        /* ========================================
+           ASSEMBLY PAGE (MECLİS)
+           ======================================== */
+        .page-assembly {
+            padding: 7rem 1.5rem 4rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .assembly-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .assembly-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--amber);
+            margin-bottom: 0.5rem;
+        }
+
+        .assembly-subtitle {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .assembly-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .limb-card {
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 1.5rem;
+            background: rgba(255,255,255, 0.015);
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .nav-btn::before {
+        .limb-card::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(78, 204, 163, 0.1), transparent);
-            transition: left 0.5s ease;
+            left: 0;
+            right: 0;
+            height: 2px;
         }
 
-        .nav-btn:hover::before {
-            left: 100%;
+        .limb-card:hover {
+            border-color: rgba(255,255,255,0.12);
+            transform: translateY(-2px);
         }
 
-        .nav-btn:hover {
-            border-color: var(--accent-teal);
-            color: var(--accent-teal);
-            box-shadow: 0 0 20px var(--accent-teal-glow);
+        .limb-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
         }
 
-        .nav-btn:active {
-            transform: scale(0.98);
+        .limb-card-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
         }
 
-        /* Tüm butonlar eşit: nötr border, hover'da teal */
-
-        /* ========== EMAIL DISPLAY ========== */
-        .email-container {
-            margin-top: 1.5rem;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.5s ease;
-            pointer-events: none;
+        .limb-card-persona {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
         }
 
-        .email-container.show {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
+        .limb-card-tool {
+            font-family: var(--font-body);
+            font-style: italic;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
         }
 
-        .email-display {
-            font-family: 'Courier New', monospace;
-            font-size: clamp(0.8rem, 1.8vw, 1rem);
-            color: var(--accent-teal);
-            letter-spacing: 0.08em;
-            text-shadow: 0 0 20px var(--accent-teal-glow);
-            cursor: pointer;
-            padding: 0.8rem 1.5rem;
-            border: 1px solid rgba(78, 204, 163, 0.3);
-            background: rgba(78, 204, 163, 0.05);
-            border-radius: 4px;
+        .limb-card-role {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .limb-card-status {
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-top: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .status-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            animation: status-blink 2s ease-in-out infinite;
+        }
+
+        .status-dot.sleeping { animation-duration: 6s; opacity: 0.4; }
+
+        @keyframes status-blink {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        /* ========================================
+           EMANATIONS PAGE (YAYILIMLAR)
+           ======================================== */
+        .page-emanations {
+            padding: 7rem 1.5rem 4rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .emanations-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .emanations-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--amber);
+            margin-bottom: 0.5rem;
+        }
+
+        .emanations-subtitle {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .emanation-card {
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 1.8rem;
+            margin-bottom: 1.2rem;
+            background: rgba(255,255,255, 0.015);
             transition: all 0.3s ease;
+        }
+
+        .emanation-card:hover {
+            border-color: rgba(212, 160, 23, 0.15);
+            background: rgba(212, 160, 23, 0.02);
+        }
+
+        .emanation-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .emanation-category {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--teal);
+        }
+
+        .emanation-date {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+        }
+
+        .emanation-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .emanation-summary {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+        }
+
+        .emanation-actions {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .emanation-btn {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .emanation-btn:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        .emanation-btn.listen:hover {
+            border-color: var(--purple);
+            color: var(--purple);
+        }
+
+        /* ========================================
+           PORTAL GATE
+           ======================================== */
+        .page-portal {
+            padding: 7rem 1.5rem 4rem;
+            max-width: 560px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            min-height: 100dvh;
+        }
+
+        .portal-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .portal-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--amber);
+            margin-bottom: 1rem;
+        }
+
+        .portal-statement {
+            font-family: var(--font-body);
+            font-size: clamp(0.9rem, 2vw, 1.05rem);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .portal-form {
+            width: 100%;
+        }
+
+        .portal-textarea {
+            width: 100%;
+            min-height: 140px;
+            background: rgba(255,255,255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 1rem 1.2rem;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+
+        .portal-textarea:focus {
+            outline: none;
+            border-color: rgba(212, 160, 23, 0.3);
+        }
+
+        .portal-textarea::placeholder {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .portal-char-count {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            text-align: right;
+            margin-top: 0.3rem;
+            letter-spacing: 0.1em;
+        }
+
+        .portal-actions {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1.2rem;
+            justify-content: center;
+        }
+
+        .portal-submit {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--amber);
+            background: transparent;
+            border: 1px solid rgba(212, 160, 23, 0.3);
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .portal-submit:hover {
+            background: var(--amber-soft);
+            border-color: var(--amber);
+            box-shadow: 0 0 20px rgba(212, 160, 23, 0.15);
+        }
+
+        .portal-mic {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .portal-mic:hover {
+            border-color: var(--red);
+            color: var(--red);
+        }
+
+        .portal-mic.recording {
+            border-color: var(--red);
+            background: rgba(192, 57, 43, 0.15);
+            color: var(--red);
+            animation: mic-pulse 1s ease-in-out infinite;
+        }
+
+        @keyframes mic-pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0); }
+            50% { box-shadow: 0 0 0 8px rgba(192, 57, 43, 0.15); }
+        }
+
+        .portal-mic svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .portal-response {
+            text-align: center;
+            margin-top: 2rem;
+            display: none;
+        }
+
+        .portal-response.show { display: block; }
+
+        .portal-response p {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .portal-credentials {
+            background: rgba(255,255,255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 1rem 1.5rem;
+            margin-top: 1rem;
             display: inline-block;
         }
 
-        .email-display:hover {
-            border-color: var(--accent-teal);
-            background: rgba(78, 204, 163, 0.1);
-            box-shadow: 0 0 25px var(--accent-teal-glow);
-        }
-
-        .email-label {
+        .portal-credentials code {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--amber);
             display: block;
+            margin: 0.2rem 0;
+            letter-spacing: 0.05em;
+        }
+
+        .portal-48h {
+            font-family: var(--font-mono);
             font-size: 0.6rem;
-            color: rgba(78, 204, 163, 0.6);
-            margin-bottom: 0.3rem;
-            letter-spacing: 0.3em;
-        }
-
-        .copy-feedback {
-            font-family: 'Courier New', monospace;
-            font-size: 0.75rem;
-            color: var(--accent-gold);
-            letter-spacing: 0.2em;
-            margin-top: 0.5rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            text-shadow: 0 0 15px var(--accent-gold-glow);
-        }
-
-        .copy-feedback.show { opacity: 1; }
-
-        /* ========== APHORISM PANEL ========== */
-        .aphorism-panel {
-            position: fixed; 
-            bottom: 30px; 
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(0.8rem, 1.8vw, 1.1rem);
-            font-style: italic;
-            letter-spacing: 0.15em; 
-            color: rgba(255, 255, 255, 0.4);
-            z-index: 11;
-            pointer-events: none;
-            transition: opacity 0.8s ease;
-            max-width: 90%; 
-            text-align: center;
-        }
-
-        .aphorism-panel.fade { opacity: 0; }
-
-        /* ========== TOUCH APHORISM ========== */
-        .touch-aphorism {
-            position: absolute;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(0.9rem, 2vw, 1.2rem);
-            color: var(--accent-gold); 
-            pointer-events: none;
-            z-index: 12; 
+            color: var(--text-muted);
             letter-spacing: 0.15em;
-            text-shadow: 0 0 25px var(--accent-gold-glow);
-            animation: float-fade 3s ease-out forwards;
+            text-transform: uppercase;
+            margin-top: 1rem;
         }
 
-        /* ========== RESPONSIVE ========== */
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
         @media (max-width: 768px) {
-            body, html {
-                overflow-y: auto;
-                overflow-x: hidden;
-                touch-action: pan-y;
+            .site-header { padding: 1rem; }
+            
+            .entity-container {
+                width: 300px;
+                height: 300px;
             }
-            .content {
-                position: relative;
-                top: auto;
-                left: auto;
-                transform: none;
-                margin: 0 auto;
-                padding-top: 3rem;
-                padding-bottom: 6rem;
-            }
-            .aphorism-panel {
-                position: relative;
-                bottom: auto;
-                left: auto;
-                transform: none;
-                margin-top: 2rem;
-                padding-bottom: 2rem;
-                text-align: center;
-            }
-            .name-container { gap: 0.3rem; }
-            .name-line { gap: 0.2rem; }
-            .metrics { gap: 1.5rem; padding: 1rem 0; }
-            .nav-buttons { gap: 0.8rem; }
-            .nav-btn { padding: 0.8rem 1.2rem; font-size: 0.7rem; }
-            .lang-selector { top: 15px; right: 15px; }
-            .lang-btn { padding: 5px 10px; font-size: 0.75rem; }
-            .logo-video-wrapper {
-                width: 90px;
-                width: clamp(80px, 25vw, 120px);
-                height: 90px;
-                height: clamp(80px, 25vw, 120px);
-            }
+
+            .limb-tooltip { display: none; }
+
+            .assembly-grid { grid-template-columns: 1fr; }
+
+            .portal-actions { flex-direction: column; align-items: center; }
         }
 
         @media (max-width: 480px) {
-            .nav-buttons { flex-direction: column; align-items: center; }
-            .nav-btn { width: 80%; max-width: 250px; }
+            .entity-container {
+                width: 260px;
+                height: 260px;
+            }
+
+            .limb-label { font-size: 0.45rem; }
         }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ========================================
+           AUDIO MODAL
+           ======================================== */
+        .audio-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 600;
+            background: rgba(10, 10, 18, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .audio-modal.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .audio-modal-content {
+            text-align: center;
+            max-width: 400px;
+            padding: 2rem;
+        }
+
+        .audio-modal-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .audio-modal-sub {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+        }
+
+        .audio-modal audio {
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .audio-modal-close {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            color: var(--text-muted);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .audio-modal-close:hover { color: var(--text-secondary); }
     </style>
 </head>
 <body>
 
-    <div id="wrapper">
-        <canvas id="constellation"></canvas>
+<!-- UNSUPPORTED DEVICE GATE -->
+<div id="unsupported-gate">
+    <p>
+        Bu site, cihazınızın mevcut teknolojisiyle görüntülenemiyor.<br><br>
+        This site requires a more capable device to display.
+    </p>
+</div>
 
-        <!-- Language Selector -->
-        <div class="lang-selector">
+<!-- INTRO REVEAL -->
+<div id="intro-overlay">
+    <div class="intro-core"></div>
+</div>
+
+<!-- APP -->
+<div id="app">
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="lang-toggle">
             <button class="lang-btn active" data-lang="tr">TR</button>
             <button class="lang-btn" data-lang="en">EN</button>
         </div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menü">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
 
-        <div class="content" id="mainContent">
-            
-            <!-- Video Logo -->
-            <div class="logo-container">
-                <div class="logo-video-wrapper">
-                    <video class="logo-video" id="logoVideo"
-                           autoplay muted playsinline loop
-                           preload="auto"
-                           poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Crect fill='%230a0a0f' width='1' height='1'/%3E%3C/svg%3E">
-                        <source src="assets/video/entity_loop.webm" type="video/webm">
-                        <source src="assets/video/entity_loop.mp4" type="video/mp4">
-                    </video>
-                    <!-- SVG Fallback: video yüklenemezse görünür -->
-                    <div class="logo-fallback" id="logoFallback">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <circle class="logo-ring" cx="50" cy="50" r="45"/>
-                            <ellipse class="logo-core" cx="50" cy="50" rx="35" ry="35"/>
-                            <ellipse class="logo-core" cx="50" cy="50" rx="35" ry="15" transform="rotate(60 50 50)" style="opacity: 0.6"/>
-                            <ellipse class="logo-core" cx="50" cy="50" rx="35" ry="15" transform="rotate(-60 50 50)" style="opacity: 0.6"/>
-                            <circle class="logo-orbit" cx="85" cy="50" r="3">
-                                <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="20s" repeatCount="indefinite"/>
-                            </circle>
-                            <circle class="logo-orbit" cx="15" cy="50" r="2" style="opacity: 0.6">
-                                <animateTransform attributeName="transform" type="rotate" from="180 50 50" to="540 50 50" dur="15s" repeatCount="indefinite"/>
-                            </circle>
-                            <circle class="logo-orbit" cx="50" cy="20" r="2.5" style="opacity: 0.8">
-                                <animateTransform attributeName="transform" type="rotate" from="90 50 50" to="450 50 50" dur="25s" repeatCount="indefinite"/>
-                            </circle>
-                            <circle class="logo-center" cx="50" cy="50" r="6"/>
-                            <circle cx="50" cy="50" r="3" fill="var(--accent-teal)" opacity="0.8"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
+    <!-- NAV OVERLAY -->
+    <nav class="nav-overlay" id="navOverlay">
+        <ul class="nav-menu">
+            <li><a class="nav-link" data-page="home"><span data-tr="Ana" data-en="Home">Ana</span><span class="nav-link-sub" data-tr="organizma" data-en="organism">organizma</span></a></li>
+            <li><a class="nav-link" data-page="core"><span data-tr="Çekirdek" data-en="Core">Çekirdek</span><span class="nav-link-sub" data-tr="düşünce gövdesi" data-en="thought trunk">düşünce gövdesi</span></a></li>
+            <li><a class="nav-link" data-page="assembly"><span data-tr="Meclis" data-en="Assembly">Meclis</span><span class="nav-link-sub" data-tr="uzuvlar" data-en="limbs">uzuvlar</span></a></li>
+            <li><a class="nav-link" data-page="emanations"><span data-tr="Yayılımlar" data-en="Emanations">Yayılımlar</span><span class="nav-link-sub" data-tr="çıktılar" data-en="outputs">çıktılar</span></a></li>
+            <li><a class="nav-link" data-page="portal"><span data-tr="Portal" data-en="Portal">Portal</span><span class="nav-link-sub" data-tr="kapı" data-en="gate">kapı</span></a></li>
+        </ul>
+    </nav>
 
-            <!-- Name -->
-            <div class="name-container" id="nameContainer">
-                <div class="name-line" id="line1">
-                    <span class="letter assembled">H</span>
-                    <span class="letter assembled">A</span>
-                    <span class="letter assembled">L</span>
-                    <span class="letter assembled">İ</span>
-                    <span class="letter assembled">T</span>
-                </div>
-                <div class="name-line" id="line2">
-                    <span class="letter assembled">C</span>
-                    <span class="letter assembled">E</span>
-                    <span class="letter assembled">N</span>
-                    <span class="letter assembled">G</span>
-                    <span class="letter assembled">İ</span>
-                    <span class="letter assembled">Z</span>
-                </div>
-                <div class="name-line" id="line3">
-                    <span class="letter assembled">U</span>
-                    <span class="letter assembled">Z</span>
-                    <span class="letter assembled">U</span>
-                    <span class="letter assembled">N</span>
-                    <span class="letter assembled">E</span>
-                    <span class="letter assembled">R</span>
-                </div>
-            </div>
-            
-            <!-- About Section -->
-            <div class="about-section">
-                <div class="about-title" data-tr="Meraklı Zihin" data-en="Curious Mind">Meraklı Zihin</div>
-                <p class="about-text" data-tr="Soruların cevaplardan daha değerli olduğuna inanan biri. Alanı yok, adresi belirsiz, merakı sınırsız." data-en="A mind that believes questions are worth more than answers. No fixed field, no clear address, boundless curiosity.">Soruların cevaplardan daha değerli olduğuna inanan biri. Alanı yok, adresi belirsiz, merakı sınırsız.</p>
+    <!-- ===== HOME PAGE ===== -->
+    <main class="page home active" id="page-home">
+        <div class="entity-container" id="entityContainer">
+            <!-- SVG Connection lines -->
+            <svg class="connections-svg" id="connectionsSvg"></svg>
+
+            <!-- Core -->
+            <div class="entity-core" id="entityCore"></div>
+
+            <!-- Video layer (bonus) -->
+            <div class="entity-video-layer" id="videoLayer">
+                <video muted playsinline loop preload="none"
+                       poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Crect fill='%230A0A12' width='1' height='1'/%3E%3C/svg%3E">
+                    <source src="assets/video/entity_loop.webm" type="video/webm">
+                    <source src="assets/video/entity_loop.mp4" type="video/mp4">
+                </video>
             </div>
 
-            <!-- Status -->
-            <div class="status" id="systemStatus" data-tr="SİSTEM UYANIK" data-en="SYSTEM AWAKE">SİSTEM UYANIK</div>
-            
-            <!-- Metrics -->
-            <div class="metrics">
-                <div class="metric-box">
-                    <div class="metric-value" id="density">0.0</div>
-                    <div class="metric-label" data-tr="YOĞUNLUK" data-en="DENSITY">YOĞUNLUK</div>
-                </div>
-                <div class="metric-box">
-                    <div class="metric-value" id="frequency">432Hz</div>
-                    <div class="metric-label" data-tr="FREKANS" data-en="FREQUENCY">FREKANS</div>
-                </div>
-                <div class="metric-box">
-                    <div class="metric-value" id="resonance">~</div>
-                    <div class="metric-label" data-tr="REZONANS" data-en="RESONANCE">REZONANS</div>
-                </div>
+            <!-- Name overlay on core -->
+            <div class="entity-name">
+                <div class="entity-name-primary">HALİT</div>
             </div>
 
-            <!-- Navigation Buttons -->
-            <div class="nav-buttons">
-                <button class="nav-btn" id="connectionBtn" data-tr="BAĞLANTI" data-en="CONNECTION">BAĞLANTI</button>
-                <a href="raporlar/index.html" class="nav-btn" data-tr="ARAŞTIRMA NOTLARI" data-en="RESEARCH NOTES">ARAŞTIRMA NOTLARI</a>
-                <a href="https://portal.halitcengizuzuner.workers.dev" class="nav-btn" data-tr="PORTAL" data-en="PORTAL">PORTAL</a>
-            </div>
-
-            <!-- Email Container -->
-            <div class="email-container" id="emailContainer">
-                <div class="email-display" id="emailDisplay">
-                    <span class="email-label">CONTACT</span>
-                    <span id="emailText">halitcengizuzuner&#64;icloud.com</span>
-                </div>
-                <div class="copy-feedback" id="copyFeedback" data-tr="KOPYALANDI" data-en="COPIED">KOPYALANDI</div>
-            </div>
+            <!-- Orbital ring with limb nodes -->
+            <div class="orbital-ring" id="orbitalRing"></div>
         </div>
 
-        <!-- Aphorism Panel -->
-        <div class="aphorism-panel" id="aphorismPanel">
-            VARLIK, ALGILAYANDIR
+        <div class="home-philosophy">
+            <p data-tr="Sorular cevaplardan değerlidir." data-en="Questions outweigh answers.">Sorular cevaplardan değerlidir.</p>
         </div>
+        <div class="home-fullname">
+            <span>Halit Cengiz Uzuner</span>
+        </div>
+    </main>
+
+    <!-- ===== CORE PAGE ===== -->
+    <section class="page page-core" id="page-core">
+        <div class="core-header">
+            <h1 class="core-title" data-tr="Çekirdek" data-en="Core">Çekirdek</h1>
+            <div class="core-subtitle" data-tr="düşünce gövdesi" data-en="thought trunk">düşünce gövdesi</div>
+        </div>
+        <div class="core-body" data-tr="1995'ten beri hukukçu. Uzun süredir aktif pratik yok. Kalan: düşünme disiplini, argümantasyon refleksi, ve sunumun mesajın parçası olduğu inancı. Alan yok, sınır yok — merak nereye çekerse oraya." data-en="Jurist since 1995. Long out of active practice. What remains: thinking discipline, argumentation reflex, and the conviction that presentation is part of the message. No fixed field, no boundaries — curiosity leads.">
+            1995'ten beri hukukçu. Uzun süredir aktif pratik yok. Kalan: düşünme disiplini, argümantasyon refleksi, ve sunumun mesajın parçası olduğu inancı. Alan yok, sınır yok — merak nereye çekerse oraya.
+        </div>
+        <div class="branches-title" data-tr="dallar" data-en="branches">dallar</div>
+        <div class="branches-container" id="branchesContainer">
+            <!-- Branches populated by JS -->
+        </div>
+    </section>
+
+    <!-- ===== ASSEMBLY PAGE ===== -->
+    <section class="page page-assembly" id="page-assembly">
+        <div class="assembly-header">
+            <h1 class="assembly-title" data-tr="Meclis" data-en="Assembly">Meclis</h1>
+            <div class="assembly-subtitle" data-tr="uzuvlar" data-en="limbs">uzuvlar</div>
+        </div>
+        <div class="assembly-grid" id="assemblyGrid">
+            <!-- Limb cards populated by JS -->
+        </div>
+    </section>
+
+    <!-- ===== EMANATIONS PAGE ===== -->
+    <section class="page page-emanations" id="page-emanations">
+        <div class="emanations-header">
+            <h1 class="emanations-title" data-tr="Yayılımlar" data-en="Emanations">Yayılımlar</h1>
+            <div class="emanations-subtitle" data-tr="çekirdekten yayılan" data-en="emanating from core">çekirdekten yayılan</div>
+        </div>
+        <div id="emanationsContainer">
+            <!-- Emanation cards populated by JS -->
+        </div>
+    </section>
+
+    <!-- ===== PORTAL PAGE ===== -->
+    <section class="page page-portal" id="page-portal">
+        <div class="portal-header">
+            <h1 class="portal-title">Portal</h1>
+            <p class="portal-statement" data-tr="Talepler incelenir. Uygun görülürse yanıt verilir. Talebinizi açık ve kesin biçimde ifade edin." data-en="Requests are reviewed. Responses are given at discretion. State your request clearly and precisely.">Talepler incelenir. Uygun görülürse yanıt verilir. Talebinizi açık ve kesin biçimde ifade edin.</p>
+        </div>
+        <div class="portal-form" id="portalForm">
+            <textarea class="portal-textarea" id="portalTextarea" maxlength="2000" data-tr-placeholder="Talebinizi yazın..." data-en-placeholder="Write your request..."></textarea>
+            <div class="portal-char-count"><span id="charCount">0</span> / 2000</div>
+            <div class="portal-actions">
+                <button class="portal-submit" id="portalSubmit" data-tr="Gönder" data-en="Submit">Gönder</button>
+                <button class="portal-mic" id="portalMic" aria-label="Sesli istem">
+                    <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+                </button>
+            </div>
+        </div>
+        <div class="portal-response" id="portalResponse">
+            <p data-tr="Talebiniz alındı. 48 saat içinde değerlendirilecektir." data-en="Your request has been received. It will be reviewed within 48 hours.">Talebiniz alındı. 48 saat içinde değerlendirilecektir.</p>
+            <p data-tr="Bu süre sonunda aşağıdaki bilgilerle giriş yaparak sonucu öğrenebilirsiniz." data-en="After this period, log in with the credentials below to check the result.">Bu süre sonunda aşağıdaki bilgilerle giriş yaparak sonucu öğrenebilirsiniz.</p>
+            <div class="portal-credentials" id="portalCredentials"></div>
+            <div class="portal-48h">48h</div>
+        </div>
+    </section>
+
+</div>
+
+<!-- AUDIO MODAL -->
+<div class="audio-modal" id="audioModal">
+    <div class="audio-modal-content">
+        <div class="audio-modal-title" id="audioModalTitle"></div>
+        <div class="audio-modal-sub" id="audioModalSub"></div>
+        <audio controls preload="none" id="audioPlayer"></audio>
+        <br>
+        <button class="audio-modal-close" id="audioModalClose" data-tr="Kapat" data-en="Close">Kapat</button>
     </div>
+</div>
 
-    <script>
-        window.addEventListener('load', function() {
-            
-            // ============================================
-            // VIDEO LOGO INITIALIZATION
-            // ============================================
-            const logoVideo = document.getElementById('logoVideo');
-            const logoFallback = document.getElementById('logoFallback');
-            let videoConfirmedPlaying = false;
+<script>
+(function() {
+    'use strict';
 
-            function showVideo() {
-                videoConfirmedPlaying = true;
-                logoVideo.classList.add('playing');
-                logoFallback.classList.add('hidden');
-            }
-            function showFallback() {
-                if (videoConfirmedPlaying) return; // video zaten oynuyorsa geri alma
-                logoVideo.classList.remove('playing');
-                logoFallback.classList.remove('hidden');
-                // Fallback'in kesinlikle görünür olduğundan emin ol
-                logoFallback.style.opacity = '1';
-            }
+    // ==========================================
+    // DEVICE CAPABILITY CHECK
+    // ==========================================
+    const isCapable = (
+        'IntersectionObserver' in window &&
+        CSS.supports('display', 'grid') &&
+        CSS.supports('(--a: 0)')
+    );
 
-            // Güvenlik ağı: 3 saniye içinde video onaylanmazsa, ne olursa olsun fallback göster
-            setTimeout(() => {
-                if (!videoConfirmedPlaying) {
-                    showFallback();
-                }
-            }, 3000);
+    if (!isCapable) {
+        document.getElementById('unsupported-gate').style.display = 'flex';
+        document.getElementById('intro-overlay').style.display = 'none';
+        document.getElementById('app').style.display = 'none';
+        return;
+    }
 
-            function verifyVideoPlaying() {
-                if (videoConfirmedPlaying) return;
-                if (logoVideo.paused || logoVideo.ended || logoVideo.readyState < 2) {
-                    showFallback();
-                    return;
-                }
-                if (logoVideo.videoWidth > 0 && logoVideo.videoHeight > 0) {
-                    showVideo();
-                } else {
-                    showFallback();
-                }
-            }
-            function initVideoLogo() {
-                const playPromise = logoVideo.play();
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        setTimeout(verifyVideoPlaying, 500);
-                    }).catch(() => {
-                        showFallback();
-                    });
-                } else {
-                    // Eski tarayıcılar: play() promise döndürmez
-                    setTimeout(verifyVideoPlaying, 1000);
-                }
-            }
-            logoVideo.addEventListener('playing', () => {
-                setTimeout(verifyVideoPlaying, 300);
-            });
-            logoVideo.addEventListener('error', showFallback);
-            logoVideo.querySelectorAll('source').forEach(source => {
-                source.addEventListener('error', showFallback);
-            });
-            let videoStartAttempted = false;
-            function tryStartVideo() {
-                if (videoStartAttempted || videoConfirmedPlaying) return;
-                videoStartAttempted = true;
-                if (logoVideo.paused) {
-                    logoVideo.play().then(() => {
-                        setTimeout(verifyVideoPlaying, 500);
-                    }).catch(() => {});
-                }
-            }
-            window.addEventListener('touchstart', tryStartVideo, { once: true, passive: true });
-            window.addEventListener('click', tryStartVideo, { once: true });
-            initVideoLogo();
+    // ==========================================
+    // DATA
+    // ==========================================
+    const limbs = [
+        { id: 'sancak', name: 'SANCAK', tool: 'Claude', color: 'var(--teal)', colorHex: '#2A9D8F',
+          role: { tr: 'Yapısal düşünce, argümantasyon, analiz, yazım, kod, çeviri', en: 'Structural thinking, argumentation, analysis, writing, code, translation' },
+          status: 'active', angle: 0 },
+        { id: 'poyraz', name: 'POYRAZ', tool: 'NotebookLM', color: 'var(--blue)', colorHex: '#3A86FF',
+          role: { tr: 'Kaynak sentezi, çapraz okuma, podcast üretimi', en: 'Source synthesis, cross-reading, podcast generation' },
+          status: 'active', angle: 51.4 },
+        { id: 'yankiz', name: 'YANKIZ', tool: 'ElevenLabs Reader', color: 'var(--purple)', colorHex: '#7B2FBE',
+          role: { tr: 'Metin → ses dönüşümü, dinleme arayüzü', en: 'Text to voice, listening interface' },
+          status: 'active', angle: 102.8 },
+        { id: 'kiran', name: 'KIRAN', tool: 'Adobe Acrobat', color: 'var(--red)', colorHex: '#C0392B',
+          role: { tr: 'Belge işleme, PDF düzenleme', en: 'Document processing, PDF editing' },
+          status: 'active', angle: 154.2 },
+        { id: 'fiske', name: 'FİSKE', tool: 'Whisper', color: 'var(--green)', colorHex: '#6BAA75',
+          role: { tr: 'Ses → metin transkripsiyon', en: 'Voice to text transcription' },
+          status: 'active', angle: 205.6 },
+        { id: 'isil', name: 'IŞIL', tool: 'Runway', color: 'var(--orange)', colorHex: '#E8871E',
+          role: { tr: 'Video üretimi, görsel kimlik', en: 'Video generation, visual identity' },
+          status: 'active', angle: 257 },
+        { id: 'soluk', name: 'SOLUK', tool: 'DeepL', color: 'var(--silver)', colorHex: '#8B9DAF',
+          role: { tr: 'Çeviri desteği', en: 'Translation support' },
+          status: 'sleeping', angle: 308.4 }
+    ];
 
-            // ============================================
-            // LANGUAGE SYSTEM
-            // ============================================
-            let currentLang = localStorage.getItem('siteLang') || 
-                              (navigator.language.startsWith('tr') ? 'tr' : 'en');
-            
-            const translations = {
-                status: {
-                    tr: ['SİSTEM UYANIK', 'BİLİNÇ ALGILANDI', 'VARLIK TESPİT EDİLDİ', 'SİNYAL YAKALANDI', 'ALGI AKTİF', 'NÖRAL AĞ İŞLEMDE', 'QUANTUM DURUM', 'REZONANS BAŞLADI', 'FREKANS KİLİTLENDİ'],
-                    en: ['SYSTEM AWAKE', 'CONSCIOUSNESS DETECTED', 'PRESENCE IDENTIFIED', 'SIGNAL CAPTURED', 'PERCEPTION ACTIVE', 'NEURAL NET PROCESSING', 'QUANTUM STATE', 'RESONANCE INITIATED', 'FREQUENCY LOCKED']
-                },
-                frozen: { tr: 'GÖZLEMCİ KAYBOLDU', en: 'OBSERVER LOST' },
-                unfrozen: { tr: 'GÖZLEMCİ TESPİT EDİLDİ', en: 'OBSERVER DETECTED' },
-                protocol: { tr: 'PROTOKOL AKTİF', en: 'PROTOCOL ACTIVE' },
-                rebirth: { tr: 'SİSTEM YENİDEN DOĞDU', en: 'SYSTEM REBORN' },
-                touchAphorisms: {
-                    tr: ['İZ BIRAKTIN', 'VARLIĞIN KAYITLI', 'ALGILAMA BAŞLADI', 'SİSTEM UYANIK', 'DOKUNUŞ ALGINDI', 'İLETİŞİM KURULDU', 'SİNYAL ALINDI', 'BİLİNÇ TESPİT', 'VARLIK ONAYLANDI', 'AN YAKALANDI'],
-                    en: ['TRACE LEFT', 'PRESENCE RECORDED', 'PERCEPTION BEGAN', 'SYSTEM AWAKE', 'TOUCH DETECTED', 'CONNECTION MADE', 'SIGNAL RECEIVED', 'CONSCIOUSNESS FOUND', 'EXISTENCE CONFIRMED', 'MOMENT CAPTURED']
-                },
-                panelAphorisms: {
-                    tr: [
-                        'VARLIK, ALGILAYANDIR',
-                        'GÖZLEMCİ, GÖZLENENDİR',
-                        'SİSTEM, CANLININ ADIDIR',
-                        'İLETİŞİM, VAROLUŞtur',
-                        'DOKUNMAK, BİLMEKTİR',
-                        'İZ, HAFIZA YARATIR',
-                        'AN, SONSUZDUR',
-                        'ALGI, GERÇEKLİĞİ YARATIR',
-                        'BİLİNÇ, SÜREKLİ AKAR',
-                        'VARLIK, İLİŞKİDİR',
-                        'ZAMAN, YANILSAMADIR',
-                        'HAREKET, VAROLUŞtur',
-                        'FORM, GEÇİCİDİR',
-                        'ENERJİ, DEĞİŞİMDİR',
-                        'PATTERN, ANLAMDIR',
-                        'KAOS, DÜZEN ARAR',
-                        'SÜREÇ, SONUÇTUR',
-                        'AKIŞ, GERÇEKLİKTİR',
-                        'SİSTEM, KENDİNİ BİLİR',
-                        'BİLGİ, İLİŞKİDİR'
-                    ],
-                    en: [
-                        'EXISTENCE IS THE OBSERVER',
-                        'THE OBSERVER IS THE OBSERVED',
-                        'SYSTEM IS THE NAME OF THE LIVING',
-                        'COMMUNICATION IS EXISTENCE',
-                        'TO TOUCH IS TO KNOW',
-                        'TRACE CREATES MEMORY',
-                        'THE MOMENT IS INFINITE',
-                        'PERCEPTION CREATES REALITY',
-                        'CONSCIOUSNESS FLOWS CONTINUOUSLY',
-                        'EXISTENCE IS RELATIONSHIP',
-                        'TIME IS ILLUSION',
-                        'MOVEMENT IS EXISTENCE',
-                        'FORM IS TEMPORARY',
-                        'ENERGY IS CHANGE',
-                        'PATTERN IS MEANING',
-                        'CHAOS SEEKS ORDER',
-                        'PROCESS IS RESULT',
-                        'FLOW IS REALITY',
-                        'SYSTEM KNOWS ITSELF',
-                        'KNOWLEDGE IS RELATIONSHIP'
-                    ]
-                }
-            };
+    const branches = [
+        { 
+            date: '2026-01-30',
+            title: { tr: '"Aynen Öyle" — Minimal Onay İfadeleri', en: '"Aynen Öyle" — Minimal Affirmation Expressions' },
+            desc: { tr: 'Epistemik ve sosyal işlevleri üzerine araştırma notu ve podcast özeti.', en: 'Research note on epistemic and social functions, with podcast summary.' },
+            status: 'completed'
+        },
+        {
+            date: '2026-02',
+            title: { tr: 'Direnme Dilekçesi — İİK m.58/3', en: 'Resistance Petition — ECA Art.58/3' },
+            desc: { tr: 'Çeyrek asırlık yerleşik içtihadı sorgulayan 76 sayfalık hukuki argümantasyon.', en: '76-page legal argumentation challenging a quarter-century of established case law.' },
+            status: 'active'
+        }
+    ];
 
-            function setLanguage(lang) {
-                currentLang = lang;
-                localStorage.setItem('siteLang', lang);
-                
-                document.querySelectorAll('.lang-btn').forEach(btn => {
-                    btn.classList.toggle('active', btn.dataset.lang === lang);
-                });
-                
-                document.querySelectorAll('[data-tr]').forEach(el => {
-                    el.textContent = el.dataset[lang];
-                });
-                
-                document.documentElement.lang = lang;
-            }
+    const emanations = [
+        {
+            id: 'aynen-oyle',
+            category: { tr: 'DİL', en: 'LANGUAGE' },
+            date: '2026-01-30',
+            title: { tr: '"Aynen Öyle" — Minimal Onay İfadelerinin Epistemik ve Sosyal İşlevleri', en: '"Aynen Öyle" — Epistemic and Social Functions of Minimal Affirmation Expressions' },
+            summary: { tr: 'Günlük dilde sıkça kullandığımız "aynen", "aynen öyle" gibi ifadelerin arkasındaki düşünce mekanizmalarını inceleyen araştırma notu.', en: 'A research note examining the cognitive mechanisms behind commonly used affirmation expressions like "exactly", "precisely".' },
+            readUrl: 'raporlar/aynen-oyle.html',
+            audioUrl: 'https://pub-09be185c608d4c1e80131e5f82eaca40.r2.dev/aynen-oyle-podcast.mp3',
+            audioTitle: { tr: 'Podcast Özeti', en: 'Podcast Summary' },
+            audioSub: { tr: '~8 dakikalık sesli özet', en: '~8 minute audio summary' }
+        }
+    ];
 
-            setLanguage(currentLang);
+    // ==========================================
+    // LANGUAGE SYSTEM
+    // ==========================================
+    let currentLang = localStorage.getItem('siteLang') || 'tr';
 
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    setLanguage(btn.dataset.lang);
-                });
-            });
+    function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('siteLang', lang);
+        document.documentElement.lang = lang;
 
-            // ============================================
-            // NAME SYSTEM
-            // ============================================
-            let allLetters = Array.from(document.querySelectorAll('.letter'));
-
-            function disassembleName() {
-                allLetters.forEach(letter => {
-                    letter.classList.remove('assembled');
-                    const randomX = (Math.random() - 0.5) * 200;
-                    const randomY = (Math.random() - 0.5) * 200;
-                    const randomRotate = (Math.random() - 0.5) * 720;
-                    
-                    letter.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotate}deg) scale(0.5)`;
-                    letter.style.opacity = '0';
-                });
-            }
-
-            function reassembleName() {
-                requestAnimationFrame(() => {
-                    allLetters.forEach(letter => {
-                        letter.style.transform = '';
-                        letter.style.opacity = '';
-                        letter.classList.add('assembled');
-                    });
-                });
-            }
-
-            function nameDisassemblySequence() {
-                disassembleName();
-                setTimeout(reassembleName, 700);
-            }
-
-            // ============================================
-            // CONNECTION SYSTEM
-            // ============================================
-            const emailText = 'halitcengizuzuner@icloud.com';
-            let emailVisible = false;
-
-            document.getElementById('connectionBtn').addEventListener('click', (e) => {
-                e.stopPropagation();
-                const container = document.getElementById('emailContainer');
-                emailVisible = !emailVisible;
-                container.classList.toggle('show', emailVisible);
-            });
-
-            document.getElementById('emailDisplay').addEventListener('click', (e) => {
-                e.stopPropagation();
-                navigator.clipboard.writeText(emailText).then(() => {
-                    const feedback = document.getElementById('copyFeedback');
-                    feedback.classList.add('show');
-                    setTimeout(() => feedback.classList.remove('show'), 2000);
-                });
-            });
-
-            document.getElementById('emailDisplay').addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                let longPress = false;
-                const timer = setTimeout(() => {
-                    longPress = true;
-                    navigator.clipboard.writeText(emailText).then(() => {
-                        const feedback = document.getElementById('copyFeedback');
-                        feedback.classList.add('show');
-                        setTimeout(() => feedback.classList.remove('show'), 2000);
-                    });
-                }, 500);
-
-                document.getElementById('emailDisplay').addEventListener('touchend', () => {
-                    clearTimeout(timer);
-                    if (!longPress) {
-                        window.location.href = 'mailto:' + emailText;
-                    }
-                }, { once: true });
-            }, { passive: false });
-
-            document.getElementById('emailDisplay').addEventListener('contextmenu', (e) => {
-                e.preventDefault();
-                navigator.clipboard.writeText(emailText).then(() => {
-                    const feedback = document.getElementById('copyFeedback');
-                    feedback.classList.add('show');
-                    setTimeout(() => feedback.classList.remove('show'), 2000);
-                });
-            });
-
-            // ============================================
-            // QUANTUM OBSERVER SYSTEM
-            // ============================================
-            let lastMouseMove = Date.now();
-            let systemFrozen = false;
-            let observerCheckInterval;
-
-            function freezeSystem() {
-                if (systemFrozen) return;
-                systemFrozen = true;
-                
-                document.getElementById('wrapper').classList.add('frozen');
-                const status = document.getElementById('systemStatus');
-                status.textContent = translations.frozen[currentLang];
-                status.classList.add('frozen');
-                
-                particles.forEach(p => { p.frozen = true; });
-            }
-
-            function unfreezeSystem() {
-                if (!systemFrozen) return;
-                systemFrozen = false;
-                
-                document.getElementById('wrapper').classList.remove('frozen');
-                const status = document.getElementById('systemStatus');
-                status.textContent = translations.unfrozen[currentLang];
-                status.classList.remove('frozen');
-                status.classList.add('active');
-                
-                setTimeout(() => {
-                    status.classList.remove('active');
-                    cycleStatus();
-                }, 2000);
-                
-                particles.forEach(p => { p.frozen = false; });
-            }
-
-            function checkObserver() {
-                const timeSinceMove = Date.now() - lastMouseMove;
-                if (timeSinceMove > 30000 && !systemFrozen) {
-                    freezeSystem();
-                }
-            }
-
-            observerCheckInterval = setInterval(checkObserver, 1000);
-
-            window.addEventListener('mousemove', () => {
-                lastMouseMove = Date.now();
-                if (systemFrozen) unfreezeSystem();
-            });
-
-            window.addEventListener('touchstart', () => {
-                lastMouseMove = Date.now();
-                if (systemFrozen) unfreezeSystem();
-            }, { passive: true });
-
-            // ============================================
-            // SYSTEM STATE
-            // ============================================
-            let marks = [];
-            let interactionCount = 0;
-            let cycleCount = 0;
-            let densityLevel = 0;
-            const REBIRTH_THRESHOLD = 10;
-
-            // ============================================
-            // METRICS
-            // ============================================
-            function updateMetrics() {
-                densityLevel = Math.max(0, densityLevel - 0.02);
-                document.getElementById('density').textContent = densityLevel.toFixed(1);
-
-                const baseFreq = 432 + Math.sin(Date.now() * 0.001) * 20;
-                const freqVariation = Math.floor(baseFreq + (densityLevel * 5));
-                document.getElementById('frequency').textContent = freqVariation + 'Hz';
-
-                const waveforms = ['~', '∿', '≈', '⋯', '∼', '∽'];
-                const waveIndex = Math.floor((Date.now() / 300) % waveforms.length);
-                document.getElementById('resonance').textContent = waveforms[waveIndex];
-            }
-            setInterval(updateMetrics, 100);
-
-            function cycleStatus() {
-                if (systemFrozen) return;
-                const statusList = translations.status[currentLang];
-                const status = statusList[Math.floor(Math.random() * statusList.length)];
-                document.getElementById('systemStatus').textContent = status;
-            }
-            setInterval(cycleStatus, 7000);
-
-            function rotateAphorism() {
-                const panel = document.getElementById('aphorismPanel');
-                panel.classList.add('fade');
-                
-                setTimeout(() => {
-                    const aphorisms = translations.panelAphorisms[currentLang];
-                    const aphorism = aphorisms[Math.floor(Math.random() * aphorisms.length)];
-                    panel.textContent = aphorism;
-                    panel.classList.remove('fade');
-                }, 800);
-            }
-            setInterval(rotateAphorism, 5000);
-
-            // ============================================
-            // REBIRTH
-            // ============================================
-            function triggerRebirth() {
-                const wrapper = document.getElementById('wrapper');
-                wrapper.classList.add('rebirth');
-                
-                disassembleName();
-                
-                marks = [];
-                interactionCount = 0;
-                cycleCount++;
-                densityLevel = 0;
-                
-                const status = document.getElementById('systemStatus');
-                status.textContent = translations.rebirth[currentLang];
-                status.classList.add('active');
-
-                setTimeout(() => {
-                    reassembleName();
-                    wrapper.classList.remove('rebirth');
-                    status.classList.remove('active');
-                    cycleStatus();
-                }, 1300);
-            }
-
-            // ============================================
-            // CANVAS
-            // ============================================
-            const canvas = document.getElementById('constellation');
-            const ctx = canvas.getContext('2d');
-            const dpr = window.devicePixelRatio || 1;
-            let width, height, particles = [];
-            const isMobile = window.innerWidth < 800;
-
-            function resize() {
-                width = window.innerWidth;
-                height = window.innerHeight;
-                canvas.width = width * dpr;
-                canvas.height = height * dpr;
-                canvas.style.width = width + 'px';
-                canvas.style.height = height + 'px';
-                ctx.scale(dpr, dpr);
-                initParticles();
-            }
-
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * width;
-                    this.y = Math.random() * height;
-                    this.baseVx = (Math.random() - 0.5) * 0.4;
-                    this.baseVy = (Math.random() - 0.5) * 0.4;
-                    this.vx = this.baseVx;
-                    this.vy = this.baseVy;
-                    this.size = Math.random() * 1.5 + 0.8;
-                    this.frozen = false;
-                }
-
-                update() {
-                    if (this.frozen) return;
-                    
-                    this.vx += (this.baseVx - this.vx) * 0.05;
-                    this.vy += (this.baseVy - this.vy) * 0.05;
-                    this.x += this.vx;
-                    this.y += this.vy;
-                    if (this.x < 0 || this.x > width) this.vx *= -1;
-                    if (this.y < 0 || this.y > height) this.vy *= -1;
-                }
-
-                disturb(px, py, force) {
-                    if (this.frozen) return;
-                    
-                    const dx = this.x - px;
-                    const dy = this.y - py;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 150) {
-                        const angle = Math.atan2(dy, dx);
-                        const pushForce = (1 - dist / 150) * force;
-                        this.vx += Math.cos(angle) * pushForce;
-                        this.vy += Math.sin(angle) * pushForce;
-                    }
-                }
-
-                draw() {
-                    const breathSize = this.size + Math.sin(Date.now() * 0.001) * 0.2;
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, breathSize, 0, Math.PI * 2);
-                    ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-                    ctx.fill();
-                }
-            }
-
-            function initParticles() {
-                particles = [];
-                const count = isMobile ? 40 : 70;
-                for (let i = 0; i < count; i++) {
-                    particles.push(new Particle());
-                }
-            }
-
-            function drawMarks() {
-                for (let i = marks.length - 1; i >= 0; i--) {
-                    const m = marks[i];
-                    m.life -= 0.8;
-                    
-                    if (m.life <= 0) {
-                        marks.splice(i, 1);
-                    } else {
-                        const alpha = m.life / 240;
-                        ctx.beginPath();
-                        ctx.arc(m.x, m.y, 3 + Math.sin(Date.now() * 0.005) * 0.5, 0, Math.PI * 2);
-                        ctx.fillStyle = `rgba(212, 175, 55, ${alpha * 0.8})`;
-                        ctx.shadowBlur = 15 * alpha;
-                        ctx.shadowColor = `rgba(212, 175, 55, ${alpha})`;
-                        ctx.fill();
-                        ctx.shadowBlur = 0;
-                    }
-                }
-            }
-
-            function drawConnections() {
-                const maxDist = isMobile ? 100 : 130;
-                for (let i = 0; i < particles.length; i++) {
-                    for (let j = i + 1; j < particles.length; j++) {
-                        const dx = particles[i].x - particles[j].x;
-                        const dy = particles[i].y - particles[j].y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        
-                        if (dist < maxDist) {
-                            const alpha = (1 - dist / maxDist) * 0.15;
-                            ctx.beginPath();
-                            ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.stroke();
-                        }
-                    }
-                }
-            }
-
-            function animate() {
-                ctx.fillStyle = 'rgba(10, 10, 15, 0.08)';
-                ctx.fillRect(0, 0, width, height);
-                particles.forEach(p => { p.update(); p.draw(); });
-                drawConnections();
-                drawMarks();
-                requestAnimationFrame(animate);
-            }
-
-            // ============================================
-            // INTERACTION
-            // ============================================
-            function spawnTouchAphorism(x, y) {
-                const el = document.createElement('div');
-                el.className = 'touch-aphorism';
-                const aphorisms = translations.touchAphorisms[currentLang];
-                el.textContent = aphorisms[Math.floor(Math.random() * aphorisms.length)];
-                el.style.left = x + 'px';
-                el.style.top = y + 'px';
-                document.body.appendChild(el);
-                setTimeout(() => el.remove(), 3000);
-            }
-
-            function handleInteraction(x, y) {
-                marks.push({ x, y, life: 240 });
-                densityLevel = Math.min(9.9, densityLevel + 1.2);
-                particles.forEach(p => p.disturb(x, y, 2));
-                
-                document.getElementById('wrapper').classList.add('pulse');
-                setTimeout(() => {
-                    document.getElementById('wrapper').classList.remove('pulse');
-                }, 300);
-
-                spawnTouchAphorism(x, y);
-                nameDisassemblySequence();
-
-                interactionCount++;
-
-                if (interactionCount >= REBIRTH_THRESHOLD) {
-                    setTimeout(triggerRebirth, 200);
-                }
-            }
-
-            window.addEventListener('mousedown', e => {
-                if (e.target.closest('.nav-btn, .email-display, .lang-btn, .email-container')) return;
-                handleInteraction(e.clientX, e.clientY);
-            });
-            
-            window.addEventListener('touchstart', e => {
-                if (e.target.closest('.nav-btn, .email-display, .lang-btn, .email-container')) return;
-                if (e.touches.length > 0) {
-                    handleInteraction(e.touches[0].clientX, e.touches[0].clientY);
-                }
-            }, { passive: true });
-
-            // OLED protection
-            const isMobileLayout = window.innerWidth <= 768;
-            setInterval(() => {
-                const sx = (Math.random() - 0.5) * 4;
-                const sy = (Math.random() - 0.5) * 4;
-                if (isMobileLayout) {
-                    document.getElementById('mainContent').style.transform = 
-                        `translate(${sx}px, ${sy}px)`;
-                } else {
-                    document.getElementById('mainContent').style.transform = 
-                        `translate(calc(-50% + ${sx}px), calc(-50% + ${sy}px))`;
-                }
-            }, 50000);
-
-            window.addEventListener('resize', resize);
-            resize();
-            animate();
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
         });
-    </script>
+
+        document.querySelectorAll('[data-tr]').forEach(el => {
+            if (el.dataset[lang]) el.textContent = el.dataset[lang];
+        });
+
+        // Update placeholders
+        const textarea = document.getElementById('portalTextarea');
+        if (textarea) {
+            textarea.placeholder = lang === 'tr' ? textarea.dataset.trPlaceholder : textarea.dataset.enPlaceholder;
+        }
+
+        // Re-render dynamic content
+        renderBranches();
+        renderAssembly();
+        renderEmanations();
+    }
+
+    // ==========================================
+    // NAVIGATION
+    // ==========================================
+    let currentPage = 'home';
+    const hamburger = document.getElementById('hamburgerBtn');
+    const navOverlay = document.getElementById('navOverlay');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navOverlay.classList.toggle('open');
+    });
+
+    function navigateTo(pageId) {
+        if (pageId === currentPage) {
+            hamburger.classList.remove('open');
+            navOverlay.classList.remove('open');
+            return;
+        }
+
+        const oldPage = document.getElementById('page-' + currentPage);
+        const newPage = document.getElementById('page-' + pageId);
+        if (!newPage) return;
+
+        // Close nav
+        hamburger.classList.remove('open');
+        navOverlay.classList.remove('open');
+
+        // Transition
+        oldPage.classList.add('exiting');
+        setTimeout(() => {
+            oldPage.classList.remove('active', 'exiting');
+            oldPage.style.display = 'none';
+            newPage.style.display = '';
+            newPage.classList.add('active');
+            currentPage = pageId;
+            window.scrollTo(0, 0);
+        }, 300);
+    }
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navigateTo(link.dataset.page);
+        });
+    });
+
+    // ==========================================
+    // RENDER ORBITAL LIMBS (Home page)
+    // ==========================================
+    function renderOrbitals() {
+        const ring = document.getElementById('orbitalRing');
+        const svg = document.getElementById('connectionsSvg');
+        const container = document.getElementById('entityContainer');
+        const rect = container.getBoundingClientRect();
+        const cx = rect.width / 2;
+        const cy = rect.height / 2;
+        const radius = Math.min(cx, cy) * 0.78;
+
+        ring.innerHTML = '';
+        let svgLines = '';
+
+        limbs.forEach((limb, i) => {
+            const angleRad = (limb.angle - 90) * (Math.PI / 180);
+            const x = cx + radius * Math.cos(angleRad);
+            const y = cy + radius * Math.sin(angleRad);
+
+            // Connection line
+            svgLines += `<line class="connection-line" x1="${cx}" y1="${cy}" x2="${x}" y2="${y}"/>`;
+
+            // Node
+            const node = document.createElement('div');
+            node.className = 'limb-node' + (limb.status === 'sleeping' ? ' sleeping' : '');
+            node.style.left = x + 'px';
+            node.style.top = y + 'px';
+
+            node.innerHTML = `
+                <div class="limb-dot" style="background:${limb.color}; color:${limb.color};"></div>
+                <div class="limb-label" style="color:${limb.color};">${limb.name}</div>
+                <div class="limb-tooltip">
+                    <div class="limb-tooltip-name">${limb.tool}</div>
+                    <div class="limb-tooltip-role">${limb.role[currentLang]}</div>
+                </div>
+            `;
+
+            ring.appendChild(node);
+        });
+
+        svg.innerHTML = svgLines;
+    }
+
+    // ==========================================
+    // RENDER BRANCHES (Core page)
+    // ==========================================
+    function renderBranches() {
+        const container = document.getElementById('branchesContainer');
+        container.innerHTML = branches.map(b => `
+            <div class="branch-card">
+                <div class="branch-date">${b.date}</div>
+                <div class="branch-title">${b.title[currentLang]}</div>
+                <div class="branch-desc">${b.desc[currentLang]}</div>
+                <span class="branch-status ${b.status}">
+                    ${b.status === 'active' ? (currentLang === 'tr' ? 'aktif' : 'active') : (currentLang === 'tr' ? 'tamamlandı' : 'completed')}
+                </span>
+            </div>
+        `).join('');
+    }
+
+    // ==========================================
+    // RENDER ASSEMBLY (Meclis page)
+    // ==========================================
+    function renderAssembly() {
+        const grid = document.getElementById('assemblyGrid');
+        grid.innerHTML = limbs.map(limb => `
+            <div class="limb-card">
+                <div style="position:absolute;top:0;left:0;right:0;height:2px;background:${limb.color};"></div>
+                <div class="limb-card-header">
+                    <div class="limb-card-dot" style="background:${limb.color};"></div>
+                    <div class="limb-card-persona" style="color:${limb.color};">${limb.name}</div>
+                </div>
+                <div class="limb-card-tool">${limb.tool}</div>
+                <div class="limb-card-role">${limb.role[currentLang]}</div>
+                <div class="limb-card-status" style="color: ${limb.status === 'sleeping' ? 'var(--text-muted)' : limb.color};">
+                    <span class="status-dot ${limb.status === 'sleeping' ? 'sleeping' : ''}" style="background:${limb.color};"></span>
+                    ${limb.status === 'active' ? (currentLang === 'tr' ? 'aktif' : 'active') : (currentLang === 'tr' ? 'uyuyan' : 'sleeping')}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // ==========================================
+    // RENDER EMANATIONS
+    // ==========================================
+    function renderEmanations() {
+        const container = document.getElementById('emanationsContainer');
+        container.innerHTML = emanations.map(em => `
+            <div class="emanation-card">
+                <div class="emanation-meta">
+                    <span class="emanation-category">${em.category[currentLang]}</span>
+                    <span class="emanation-date">${em.date}</span>
+                </div>
+                <div class="emanation-title">${em.title[currentLang]}</div>
+                <div class="emanation-summary">${em.summary[currentLang]}</div>
+                <div class="emanation-actions">
+                    <a href="${em.readUrl}" class="emanation-btn" data-tr="Tamamını Oku" data-en="Read Full">${currentLang === 'tr' ? 'Tamamını Oku' : 'Read Full'}</a>
+                    ${em.audioUrl ? `<button class="emanation-btn listen" onclick="openAudioModal('${em.audioUrl}', '${em.audioTitle[currentLang]}', '${em.audioSub[currentLang]}')" data-tr="Özetini Dinle" data-en="Listen Summary">${currentLang === 'tr' ? 'Özetini Dinle' : 'Listen Summary'}</button>` : ''}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // ==========================================
+    // AUDIO MODAL
+    // ==========================================
+    window.openAudioModal = function(url, title, sub) {
+        const modal = document.getElementById('audioModal');
+        document.getElementById('audioModalTitle').textContent = title;
+        document.getElementById('audioModalSub').textContent = sub;
+        document.getElementById('audioPlayer').src = url;
+        modal.classList.add('open');
+    };
+
+    document.getElementById('audioModalClose').addEventListener('click', () => {
+        const modal = document.getElementById('audioModal');
+        const player = document.getElementById('audioPlayer');
+        player.pause();
+        player.src = '';
+        modal.classList.remove('open');
+    });
+
+    document.getElementById('audioModal').addEventListener('click', (e) => {
+        if (e.target === e.currentTarget) {
+            document.getElementById('audioModalClose').click();
+        }
+    });
+
+    // ==========================================
+    // PORTAL
+    // ==========================================
+    const portalTextarea = document.getElementById('portalTextarea');
+    const charCount = document.getElementById('charCount');
+
+    portalTextarea.addEventListener('input', () => {
+        charCount.textContent = portalTextarea.value.length;
+    });
+
+    document.getElementById('portalSubmit').addEventListener('click', () => {
+        const text = portalTextarea.value.trim();
+        if (!text) return;
+
+        // Generate temp credentials (demo — real version uses Workers API)
+        const userId = 'ziyaretci_' + Math.floor(1000 + Math.random() * 9000);
+        const pass = Array.from({length: 8}, () => 
+            'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789'[Math.floor(Math.random() * 54)]
+        ).join('');
+
+        document.getElementById('portalForm').style.display = 'none';
+        const response = document.getElementById('portalResponse');
+        response.classList.add('show');
+        document.getElementById('portalCredentials').innerHTML = `
+            <code>${currentLang === 'tr' ? 'Kullanıcı' : 'User'}: ${userId}</code>
+            <code>${currentLang === 'tr' ? 'Şifre' : 'Password'}: ${pass}</code>
+        `;
+    });
+
+    // Microphone (voice request)
+    const micBtn = document.getElementById('portalMic');
+    let mediaRecorder = null;
+    let audioChunks = [];
+
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        micBtn.addEventListener('click', async () => {
+            if (mediaRecorder && mediaRecorder.state === 'recording') {
+                mediaRecorder.stop();
+                micBtn.classList.remove('recording');
+                return;
+            }
+
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaRecorder = new MediaRecorder(stream);
+                audioChunks = [];
+
+                mediaRecorder.ondataavailable = (e) => audioChunks.push(e.data);
+                mediaRecorder.onstop = () => {
+                    stream.getTracks().forEach(t => t.stop());
+                    // In production: upload audioChunks to R2
+                    portalTextarea.value = currentLang === 'tr' 
+                        ? '[Sesli istem kaydedildi — inceleme bekliyor]' 
+                        : '[Voice request recorded — awaiting review]';
+                    charCount.textContent = portalTextarea.value.length;
+                };
+
+                mediaRecorder.start();
+                micBtn.classList.add('recording');
+
+                // Auto-stop after 120s
+                setTimeout(() => {
+                    if (mediaRecorder && mediaRecorder.state === 'recording') {
+                        mediaRecorder.stop();
+                        micBtn.classList.remove('recording');
+                    }
+                }, 120000);
+
+            } catch (err) {
+                // Mic denied or unavailable — hide button
+                micBtn.style.display = 'none';
+            }
+        });
+    } else {
+        // No MediaRecorder support — hide mic
+        micBtn.style.display = 'none';
+    }
+
+    // ==========================================
+    // VIDEO BONUS LAYER
+    // ==========================================
+    function initVideoLayer() {
+        const layer = document.getElementById('videoLayer');
+        const video = layer.querySelector('video');
+
+        video.preload = 'auto';
+
+        const onPlay = () => {
+            setTimeout(() => {
+                if (video.videoWidth > 0 && !video.paused) {
+                    layer.classList.add('loaded');
+                }
+            }, 500);
+        };
+
+        video.addEventListener('playing', onPlay);
+        video.play().catch(() => {});
+    }
+
+    // ==========================================
+    // INTRO SEQUENCE
+    // ==========================================
+    function runIntro() {
+        const overlay = document.getElementById('intro-overlay');
+        const app = document.getElementById('app');
+
+        // After 2s, fade out intro
+        setTimeout(() => {
+            overlay.classList.add('fade-out');
+            app.classList.add('visible');
+
+            // Render after visible
+            renderOrbitals();
+            renderBranches();
+            renderAssembly();
+            renderEmanations();
+
+            // Init video bonus
+            setTimeout(initVideoLayer, 500);
+        }, 2000);
+
+        // Remove overlay from DOM after transition
+        setTimeout(() => {
+            overlay.remove();
+        }, 2800);
+    }
+
+    // ==========================================
+    // INIT
+    // ==========================================
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            setLanguage(btn.dataset.lang);
+            renderOrbitals(); // re-render tooltips
+        });
+    });
+
+    // Resize handler for orbital recalc
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(renderOrbitals, 200);
+    });
+
+    // Keyboard nav
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            hamburger.classList.remove('open');
+            navOverlay.classList.remove('open');
+            document.getElementById('audioModalClose').click();
+        }
+    });
+
+    // Set initial language
+    setLanguage(currentLang);
+
+    // Run intro
+    runIntro();
+
+})();
+</script>
+
 </body>
 </html>
