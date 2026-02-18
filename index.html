@@ -1140,6 +1140,185 @@
             margin-top: 1rem;
         }
 
+        /* Portal Chat UI */
+        .portal-login-form {
+            max-width: 360px;
+            margin: 1.5rem auto 0;
+        }
+        .portal-input {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            background: var(--bg-surface);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            backdrop-filter: blur(10px);
+        }
+        .portal-input:focus { outline: none; border-color: var(--amber); }
+        .portal-input::placeholder { color: var(--text-light); }
+        .portal-error {
+            color: var(--red);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            min-height: 1.5em;
+            margin: 0.5rem 0;
+            text-align: center;
+        }
+
+        .portal-chat {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 160px);
+            min-height: 400px;
+        }
+        .portal-chat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-subtle);
+            margin-bottom: 0.5rem;
+        }
+        .portal-chat-name {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+        .portal-chat-logout {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: none;
+            border: 1px solid var(--border-subtle);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .portal-chat-logout:hover { border-color: var(--red); color: var(--red); }
+
+        .portal-chat-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 0.5rem;
+        }
+        .portal-chat-tab {
+            flex: 1;
+            padding: 0.6rem;
+            text-align: center;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .portal-chat-tab.active { color: var(--amber); border-bottom-color: var(--amber); }
+
+        .portal-messages-wrap {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .portal-info-wrap {
+            flex: 1;
+            padding: 1.5rem;
+            font-family: var(--font-body);
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .pmsg {
+            max-width: 80%;
+            padding: 0.7rem 1rem;
+            border-radius: 12px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+        .pmsg-user {
+            align-self: flex-end;
+            background: var(--amber);
+            color: #fff;
+            border-bottom-right-radius: 4px;
+        }
+        .pmsg-admin {
+            align-self: flex-start;
+            background: var(--bg-surface);
+            color: var(--text-primary);
+            border-bottom-left-radius: 4px;
+        }
+        .pmsg-time {
+            font-size: 0.65rem;
+            opacity: 0.6;
+            margin-top: 0.2rem;
+        }
+        .pmsg-empty {
+            color: var(--text-light);
+            text-align: center;
+            padding: 3rem 1rem;
+            font-style: italic;
+            font-family: var(--font-body);
+        }
+
+        .portal-input-bar {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .portal-attach-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-subtle);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+        .portal-attach-btn:hover { border-color: var(--amber); }
+        .portal-msg-input {
+            flex: 1;
+            padding: 0.7rem 1rem;
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            background: var(--bg-surface);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+        }
+        .portal-msg-input:focus { outline: none; border-color: var(--amber); }
+        .portal-send-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--amber);
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            transition: background 0.3s;
+        }
+        .portal-send-btn:hover { background: var(--amber-deep); }
+        .portal-send-btn:disabled { background: var(--text-light); cursor: not-allowed; }
+
         /* ========================================
            AUDIO MODAL
            ======================================== */
@@ -1416,25 +1595,47 @@
 
     <section class="page page-portal" id="page-portal" style="position:relative;">
         <div class="page-gradient red-gradient"></div>
-        <div class="portal-header">
-            <h1 class="portal-title">Portal</h1>
-            <p class="portal-statement" data-tr="Talepler incelenir. Uygun görülürse yanıt verilir. Talebinizi açık ve kesin biçimde ifade edin." data-en="Requests are reviewed. Responses are given at discretion. State your request clearly and precisely.">Talepler incelenir. Uygun görülürse yanıt verilir. Talebinizi açık ve kesin biçimde ifade edin.</p>
-        </div>
-        <div class="portal-form" id="portalForm">
-            <textarea class="portal-textarea" id="portalTextarea" maxlength="2000" data-tr-placeholder="Talebinizi yazın..." data-en-placeholder="Write your request..."></textarea>
-            <div class="portal-char-count"><span id="charCount">0</span> / 2000</div>
-            <div class="portal-actions">
-                <button class="portal-submit" id="portalSubmit" data-tr="Gönder" data-en="Submit">Gönder</button>
-                <button class="portal-mic" id="portalMic" aria-label="Sesli istem">
-                    <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
-                </button>
+        
+        <!-- Portal Login -->
+        <div class="portal-login" id="portalLogin">
+            <div class="portal-header">
+                <h1 class="portal-title">Portal</h1>
+                <p class="portal-statement" data-tr="Güvenli iletişim kanalı. Giriş bilgileriniz size özel olarak iletilmiştir." data-en="Secure communication channel. Login credentials have been provided to you privately.">Güvenli iletişim kanalı. Giriş bilgileriniz size özel olarak iletilmiştir.</p>
+            </div>
+            <div class="portal-login-form">
+                <input type="text" class="portal-input" id="portalUsername" autocomplete="username" style="margin-bottom:0.75rem;">
+                <input type="password" class="portal-input" id="portalPassword" autocomplete="current-password">
+                <div class="portal-error" id="portalError"></div>
+                <div class="portal-actions">
+                    <button class="portal-submit" id="portalLoginBtn" data-tr="Giriş Yap" data-en="Log In">Giriş Yap</button>
+                </div>
             </div>
         </div>
-        <div class="portal-response" id="portalResponse">
-            <p data-tr="Talebiniz alındı. 48 saat içinde değerlendirilecektir." data-en="Your request has been received. It will be reviewed within 48 hours.">Talebiniz alındı. 48 saat içinde değerlendirilecektir.</p>
-            <p data-tr="Bu süre sonunda aşağıdaki bilgilerle giriş yaparak sonucu öğrenebilirsiniz." data-en="After this period, log in with the credentials below to check the result.">Bu süre sonunda aşağıdaki bilgilerle giriş yaparak sonucu öğrenebilirsiniz.</p>
-            <div class="portal-credentials" id="portalCredentials"></div>
-            <div class="portal-48h">48h</div>
+
+        <!-- Portal Chat (giriş sonrası) -->
+        <div class="portal-chat" id="portalChat" style="display:none;">
+            <div class="portal-chat-header">
+                <span class="portal-chat-name" id="portalChatName"></span>
+                <button class="portal-chat-logout" id="portalLogout" data-tr="Çıkış" data-en="Logout">Çıkış</button>
+            </div>
+            <div class="portal-chat-tabs">
+                <button class="portal-chat-tab active" data-ptab="messages" data-tr="Mesajlar" data-en="Messages">Mesajlar</button>
+                <button class="portal-chat-tab" data-ptab="info" data-tr="Bilgi" data-en="Info">Bilgi</button>
+            </div>
+            <div class="portal-messages-wrap" id="portalMessagesWrap">
+                <div class="portal-messages" id="portalMessages"></div>
+            </div>
+            <div class="portal-info-wrap" id="portalInfoWrap" style="display:none;">
+                <p id="portalInfoText"></p>
+            </div>
+            <div class="portal-input-bar" id="portalInputBar">
+                <label class="portal-attach-btn" title="Dosya ekle">
+                    📎
+                    <input type="file" id="portalFileInput" accept="image/*,audio/*,.pdf,.doc,.docx" style="display:none;">
+                </label>
+                <input type="text" class="portal-msg-input" id="portalMsgInput">
+                <button class="portal-send-btn" id="portalSendBtn">➤</button>
+            </div>
         </div>
     </section>
 </div>
@@ -1530,8 +1731,13 @@
         document.documentElement.lang = lang;
         document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
         document.querySelectorAll('[data-tr]').forEach(el => { if (el.dataset[lang]) el.textContent = el.dataset[lang]; });
-        const ta = document.getElementById('portalTextarea');
-        if (ta) ta.placeholder = lang === 'tr' ? ta.dataset.trPlaceholder : ta.dataset.enPlaceholder;
+        // Portal input placeholders
+        const pu = document.getElementById('portalUsername');
+        const pp = document.getElementById('portalPassword');
+        if (pu) pu.placeholder = lang === 'tr' ? 'Kullanıcı adı' : 'Username';
+        if (pp) pp.placeholder = lang === 'tr' ? 'Şifre' : 'Password';
+        const pmi = document.getElementById('portalMsgInput');
+        if (pmi) pmi.placeholder = lang === 'tr' ? 'Mesajınızı yazın...' : 'Write your message...';
         renderBranches();
         renderAssembly();
         renderEmanations();
@@ -1659,41 +1865,162 @@
         if (e.target === e.currentTarget) document.getElementById('audioModalClose').click();
     });
 
-    const portalTextarea = document.getElementById('portalTextarea');
-    const charCount = document.getElementById('charCount');
-    portalTextarea.addEventListener('input', () => { charCount.textContent = portalTextarea.value.length; });
 
-    document.getElementById('portalSubmit').addEventListener('click', () => {
-        if (!portalTextarea.value.trim()) return;
-        const uid = 'ziyaretci_' + Math.floor(1000 + Math.random() * 9000);
-        const pass = Array.from({length: 8}, () => 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789'[Math.floor(Math.random() * 54)]).join('');
-        document.getElementById('portalForm').style.display = 'none';
-        const r = document.getElementById('portalResponse');
-        r.classList.add('show');
-        document.getElementById('portalCredentials').innerHTML = `<code>${currentLang === 'tr' ? 'Kullanıcı' : 'User'}: ${uid}</code><code>${currentLang === 'tr' ? 'Şifre' : 'Password'}: ${pass}</code>`;
+    // ============================================
+    // PORTAL CHAT SYSTEM
+    // ============================================
+    const PORTAL_API = 'https://portal.halitcengizuzuner.workers.dev';
+    let portalUserId = null;
+    let portalSession = null;
+
+    document.getElementById('portalLoginBtn').addEventListener('click', portalLogin);
+    document.getElementById('portalPassword').addEventListener('keydown', e => {
+        if (e.key === 'Enter') portalLogin();
     });
 
-    const micBtn = document.getElementById('portalMic');
-    let mediaRecorder = null, audioChunks = [];
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        micBtn.addEventListener('click', async () => {
-            if (mediaRecorder && mediaRecorder.state === 'recording') { mediaRecorder.stop(); micBtn.classList.remove('recording'); return; }
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                mediaRecorder = new MediaRecorder(stream);
-                audioChunks = [];
-                mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
-                mediaRecorder.onstop = () => {
-                    stream.getTracks().forEach(t => t.stop());
-                    portalTextarea.value = currentLang === 'tr' ? '[Sesli istem kaydedildi — inceleme bekliyor]' : '[Voice request recorded — awaiting review]';
-                    charCount.textContent = portalTextarea.value.length;
-                };
-                mediaRecorder.start();
-                micBtn.classList.add('recording');
-                setTimeout(() => { if (mediaRecorder && mediaRecorder.state === 'recording') { mediaRecorder.stop(); micBtn.classList.remove('recording'); } }, 120000);
-            } catch (err) { micBtn.style.display = 'none'; }
+    async function portalLogin() {
+        const username = document.getElementById('portalUsername').value.trim();
+        const password = document.getElementById('portalPassword').value;
+        const errorEl = document.getElementById('portalError');
+        if (!username || !password) {
+            errorEl.textContent = currentLang === 'tr' ? 'Kullanıcı adı ve şifre gerekli' : 'Username and password required';
+            return;
+        }
+        errorEl.textContent = '';
+        document.getElementById('portalLoginBtn').disabled = true;
+        try {
+            const r = await fetch(PORTAL_API + '/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+            const data = await r.json();
+            if (data.success) {
+                portalUserId = data.userId;
+                portalSession = { password };
+                document.getElementById('portalChatName').textContent = data.name;
+                document.getElementById('portalInfoText').textContent = data.message || (currentLang === 'tr' ? 'Hoş geldiniz.' : 'Welcome.');
+                renderPortalMessages(data.messages || []);
+                document.getElementById('portalLogin').style.display = 'none';
+                document.getElementById('portalChat').style.display = 'flex';
+            } else {
+                errorEl.textContent = data.error;
+            }
+        } catch (e) {
+            errorEl.textContent = currentLang === 'tr' ? 'Bağlantı hatası' : 'Connection error';
+        }
+        document.getElementById('portalLoginBtn').disabled = false;
+    }
+
+    document.getElementById('portalLogout').addEventListener('click', () => {
+        portalUserId = null;
+        portalSession = null;
+        document.getElementById('portalChat').style.display = 'none';
+        document.getElementById('portalLogin').style.display = '';
+        document.getElementById('portalUsername').value = '';
+        document.getElementById('portalPassword').value = '';
+        document.getElementById('portalError').textContent = '';
+    });
+
+    // Tab switching
+    document.querySelectorAll('.portal-chat-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.portal-chat-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const isMessages = tab.dataset.ptab === 'messages';
+            document.getElementById('portalMessagesWrap').style.display = isMessages ? '' : 'none';
+            document.getElementById('portalInputBar').style.display = isMessages ? '' : 'none';
+            document.getElementById('portalInfoWrap').style.display = isMessages ? 'none' : '';
         });
-    } else { micBtn.style.display = 'none'; }
+    });
+
+    function renderPortalMessages(messages) {
+        const c = document.getElementById('portalMessages');
+        if (!messages.length) {
+            c.innerHTML = `<div class="pmsg-empty">${currentLang === 'tr' ? 'Henüz mesaj yok.' : 'No messages yet.'}</div>`;
+            return;
+        }
+        c.innerHTML = messages.map(m => {
+            const isUser = m.from === 'user';
+            const time = new Date(m.timestamp).toLocaleString(currentLang === 'tr' ? 'tr-TR' : 'en-US');
+            let content = '';
+            if (m.type === 'image') content = `<img src="${m.url}" style="max-width:100%;border-radius:6px;">`;
+            else if (m.type === 'audio') content = `<audio controls src="${m.url}" style="width:100%;"></audio><div style="font-size:0.75em;opacity:0.7;">${escapeHtmlPortal(m.text)}</div>`;
+            else if (m.type === 'file') content = `<a href="${m.url}" target="_blank" style="color:inherit;text-decoration:underline;">📎 ${escapeHtmlPortal(m.text)}</a>`;
+            else content = escapeHtmlPortal(m.text);
+            return `<div class="pmsg ${isUser ? 'pmsg-user' : 'pmsg-admin'}"><div>${content}</div><div class="pmsg-time">${time}</div></div>`;
+        }).join('');
+        c.scrollTop = c.scrollHeight;
+    }
+
+    function escapeHtmlPortal(t) {
+        const d = document.createElement('div');
+        d.textContent = t;
+        return d.innerHTML;
+    }
+
+    // Send message
+    document.getElementById('portalSendBtn').addEventListener('click', portalSendMsg);
+    document.getElementById('portalMsgInput').addEventListener('keydown', e => {
+        if (e.key === 'Enter') portalSendMsg();
+    });
+
+    async function portalSendMsg() {
+        const input = document.getElementById('portalMsgInput');
+        const text = input.value.trim();
+        if (!text || !portalUserId) return;
+        const btn = document.getElementById('portalSendBtn');
+        btn.disabled = true;
+        try {
+            const r = await fetch(PORTAL_API + '/api/' + portalUserId + '/message', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text })
+            });
+            const data = await r.json();
+            if (data.success) {
+                input.value = '';
+                appendPortalMsg(data.message);
+            }
+        } catch (e) {}
+        btn.disabled = false;
+        input.focus();
+    }
+
+    // File upload
+    document.getElementById('portalFileInput').addEventListener('change', async function() {
+        const file = this.files[0];
+        if (!file || !portalUserId) return;
+        try {
+            const fd = new FormData();
+            fd.append('file', file);
+            const r = await fetch(PORTAL_API + '/api/' + portalUserId + '/upload', {
+                method: 'POST',
+                body: fd
+            });
+            const data = await r.json();
+            if (data.success) appendPortalMsg(data.message);
+        } catch (e) {}
+        this.value = '';
+    });
+
+    function appendPortalMsg(m) {
+        const c = document.getElementById('portalMessages');
+        const empty = c.querySelector('.pmsg-empty');
+        if (empty) empty.remove();
+        const isUser = m.from === 'user';
+        const time = new Date(m.timestamp).toLocaleString(currentLang === 'tr' ? 'tr-TR' : 'en-US');
+        let content = '';
+        if (m.type === 'image') content = `<img src="${m.url}" style="max-width:100%;border-radius:6px;">`;
+        else if (m.type === 'audio') content = `<audio controls src="${m.url}" style="width:100%;"></audio>`;
+        else if (m.type === 'file') content = `<a href="${m.url}" target="_blank" style="color:inherit;">📎 ${escapeHtmlPortal(m.text)}</a>`;
+        else content = escapeHtmlPortal(m.text);
+        const div = document.createElement('div');
+        div.className = 'pmsg ' + (isUser ? 'pmsg-user' : 'pmsg-admin');
+        div.innerHTML = `<div>${content}</div><div class="pmsg-time">${time}</div>`;
+        c.appendChild(div);
+        c.scrollTop = c.scrollHeight;
+    }
 
     function initVideoLayer() {
         const layer = document.getElementById('videoLayer');
