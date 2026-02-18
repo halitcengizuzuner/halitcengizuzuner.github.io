@@ -1514,7 +1514,10 @@
           title: { tr: '"Aynen Öyle" — Minimal Onay İfadelerinin Epistemik ve Sosyal İşlevleri', en: '"Aynen Öyle" — Epistemic and Social Functions of Minimal Affirmation Expressions' },
           summary: { tr: 'Günlük dilde sıkça kullandığımız "aynen", "aynen öyle" gibi ifadelerin arkasındaki düşünce mekanizmalarını inceleyen araştırma notu.', en: 'A research note examining the cognitive mechanisms behind commonly used affirmation expressions.' },
           readUrl: 'raporlar/aynen-oyle.html',
-          audioUrl: 'https://pub-09be185c608d4c1e80131e5f82eaca40.r2.dev/aynen-oyle-podcast.mp3',
+          audioUrl: {
+              tr: 'https://pub-09be185c608d4c1e80131e5f82eaca40.r2.dev/podcast.mp3',
+              en: 'https://pub-09be185c608d4c1e80131e5f82eaca40.r2.dev/ElevenLabs_The_Evolution_of_Language_in_the_Digital_Age.mp3'
+          },
           audioTitle: { tr: 'Podcast Özeti', en: 'Podcast Summary' },
           audioSub: { tr: '~8 dakikalık sesli özet', en: '~8 minute audio summary' } }
     ];
@@ -1635,7 +1638,7 @@
                 <div class="emanation-summary">${em.summary[currentLang]}</div>
                 <div class="emanation-actions">
                     <a href="${em.readUrl}" class="emanation-btn">${currentLang === 'tr' ? 'Tamamını Oku' : 'Read Full'}</a>
-                    ${em.audioUrl ? `<button class="emanation-btn listen" onclick="openAudioModal('${em.audioUrl}','${em.audioTitle[currentLang]}','${em.audioSub[currentLang]}')">${currentLang === 'tr' ? 'Özetini Dinle' : 'Listen Summary'}</button>` : ''}
+                    ${em.audioUrl ? `<button class="emanation-btn listen" onclick="openAudioModal('${typeof em.audioUrl === 'object' ? em.audioUrl[currentLang] : em.audioUrl}','${em.audioTitle[currentLang]}','${em.audioSub[currentLang]}')">${currentLang === 'tr' ? 'Özetini Dinle' : 'Listen Summary'}</button>` : ''}
                 </div>
             </div>`).join('');
     }
