@@ -1140,15 +1140,6 @@
             margin-top: 1rem;
         }
 
-        /* Portal Gate (talep formu) */
-        .portal-gate { width: 100%; }
-        .portal-form { width: 100%; }
-
-        /* Portal existing user toggle */
-        .portal-existing-toggle { margin-top: 2.5rem; text-align: center; }
-        .portal-existing-toggle a { font-family: var(--font-body); font-size: 0.85rem; color: var(--text-light); text-decoration: none; cursor: pointer; transition: color 0.3s; }
-        .portal-existing-toggle a:hover { color: var(--amber-deep); }
-
         /* Portal Chat UI */
         .portal-login-form {
             max-width: 360px;
@@ -1605,38 +1596,8 @@
     <section class="page page-portal" id="page-portal" style="position:relative;">
         <div class="page-gradient red-gradient"></div>
         
-        <!-- PORTAL GATE — Yeni talep formu -->
-        <div class="portal-gate" id="portalGate">
-            <div class="portal-header">
-                <h1 class="portal-title">Portal</h1>
-                <p class="portal-statement" data-tr="Bu kapı, karşılıklı ilgi üzerine kurulu bir iletişim kanalı açar. Kim olduğunuzu ve neden bağlantı kurmak istediğinizi anlatın. Talebiniz 48 saat içinde değerlendirilecek." data-en="This gate opens a communication channel built on mutual interest. Describe who you are and why you want to connect. Your request will be evaluated within 48 hours.">Bu kapı, karşılıklı ilgi üzerine kurulu bir iletişim kanalı açar. Kim olduğunuzu ve neden bağlantı kurmak istediğinizi anlatın. Talebiniz 48 saat içinde değerlendirilecek.</p>
-            </div>
-            <div class="portal-form" id="portalForm">
-                <textarea class="portal-textarea" id="portalRequestText" maxlength="2000"></textarea>
-                <div class="portal-char-count"><span id="portalCharCount">0</span> / 2000</div>
-                <div class="portal-actions">
-                    <button class="portal-submit" id="portalRequestBtn" data-tr="Talep Gönder" data-en="Send Request">Talep Gönder</button>
-                    <button class="portal-mic" id="portalMicBtn" title="Sesli mesaj">
-                        <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
-                    </button>
-                </div>
-                <div class="portal-error" id="portalGateError"></div>
-            </div>
-            <div class="portal-response" id="portalResponse">
-                <p id="portalResponseText"></p>
-                <div class="portal-credentials" id="portalCredentials">
-                    <code id="portalCredUser"></code>
-                    <code id="portalCredPass"></code>
-                </div>
-                <div class="portal-48h" data-tr="48 SAAT İÇİNDE DEĞERLENDİRİLECEK" data-en="WILL BE EVALUATED WITHIN 48 HOURS">48 SAAT İÇİNDE DEĞERLENDİRİLECEK</div>
-            </div>
-            <div class="portal-existing-toggle">
-                <a id="portalShowLogin" data-tr="Zaten hesabınız var mı? Giriş yapın" data-en="Already have an account? Log in">Zaten hesabınız var mı? Giriş yapın</a>
-            </div>
-        </div>
-
-        <!-- PORTAL LOGIN — Mevcut kullanıcılar -->
-        <div class="portal-login" id="portalLogin" style="display:none;">
+        <!-- Portal Login -->
+        <div class="portal-login" id="portalLogin">
             <div class="portal-header">
                 <h1 class="portal-title">Portal</h1>
                 <p class="portal-statement" data-tr="Güvenli iletişim kanalı. Giriş bilgileriniz size özel olarak iletilmiştir." data-en="Secure communication channel. Login credentials have been provided to you privately.">Güvenli iletişim kanalı. Giriş bilgileriniz size özel olarak iletilmiştir.</p>
@@ -1649,12 +1610,9 @@
                     <button class="portal-submit" id="portalLoginBtn" data-tr="Giriş Yap" data-en="Log In">Giriş Yap</button>
                 </div>
             </div>
-            <div class="portal-existing-toggle">
-                <a id="portalShowGate" data-tr="← Yeni talep oluştur" data-en="← Create new request">← Yeni talep oluştur</a>
-            </div>
         </div>
 
-        <!-- PORTAL CHAT — Giriş sonrası -->
+        <!-- Portal Chat (giriş sonrası) -->
         <div class="portal-chat" id="portalChat" style="display:none;">
             <div class="portal-chat-header">
                 <span class="portal-chat-name" id="portalChatName"></span>
@@ -1671,36 +1629,15 @@
                 <p id="portalInfoText"></p>
             </div>
             <div class="portal-input-bar" id="portalInputBar">
-                <label class="portal-attach-btn" title="Dosya ekle">ðŸ“Ž<input type="file" id="portalFileInput" accept="image/*,audio/*,.pdf,.doc,.docx" style="display:none;"></label>
+                <label class="portal-attach-btn" title="Dosya ekle">
+                    📎
+                    <input type="file" id="portalFileInput" accept="image/*,audio/*,.pdf,.doc,.docx" style="display:none;">
+                </label>
                 <input type="text" class="portal-msg-input" id="portalMsgInput">
                 <button class="portal-send-btn" id="portalSendBtn">➤</button>
             </div>
         </div>
-
-        <!-- PORTAL PENDING -->
-        <div id="portalPending" style="display:none;">
-            <div class="portal-header">
-                <h1 class="portal-title">Portal</h1>
-                <p class="portal-statement" id="portalPendingText"></p>
-            </div>
-            <div class="portal-48h" data-tr="TALEBİNİZ DEĞERLENDİRİLİYOR" data-en="YOUR REQUEST IS BEING EVALUATED">TALEBİNİZ DEĞERLENDİRİLİYOR</div>
-            <div class="portal-existing-toggle" style="margin-top:2rem;">
-                <a id="portalPendingBack" data-tr="← Geri dön" data-en="← Go back">← Geri dön</a>
-            </div>
-        </div>
-
-        <!-- PORTAL REJECTED -->
-        <div id="portalRejected" style="display:none;">
-            <div class="portal-header">
-                <h1 class="portal-title">Portal</h1>
-                <p class="portal-statement" data-tr="Talebiniz bu aşamada uygun görülmedi. İletişim için farklı bir kanal deneyebilirsiniz." data-en="Your request was not approved at this time. You may try a different communication channel.">Talebiniz bu aşamada uygun görülmedi. İletişim için farklı bir kanal deneyebilirsiniz.</p>
-            </div>
-            <div class="portal-existing-toggle" style="margin-top:2rem;">
-                <a id="portalRejectedBack" data-tr="← Geri dön" data-en="← Go back">← Geri dön</a>
-            </div>
-        </div>
     </section>
-
 </div>
 
 <!-- BOTTOM ENTITY — organism's pulse at page bottom -->
@@ -1794,8 +1731,13 @@
         document.documentElement.lang = lang;
         document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
         document.querySelectorAll('[data-tr]').forEach(el => { if (el.dataset[lang]) el.textContent = el.dataset[lang]; });
-        // Portal placeholders
-        setPortalPlaceholders();
+        // Portal input placeholders
+        const pu = document.getElementById('portalUsername');
+        const pp = document.getElementById('portalPassword');
+        if (pu) pu.placeholder = lang === 'tr' ? 'Kullanıcı adı' : 'Username';
+        if (pp) pp.placeholder = lang === 'tr' ? 'Şifre' : 'Password';
+        const pmi = document.getElementById('portalMsgInput');
+        if (pmi) pmi.placeholder = lang === 'tr' ? 'Mesajınızı yazın...' : 'Write your message...';
         renderBranches();
         renderAssembly();
         renderEmanations();
@@ -1925,163 +1867,21 @@
 
 
     // ============================================
-    // PORTAL SYSTEM — Gate + Login + Chat
+    // PORTAL CHAT SYSTEM
     // ============================================
     const PORTAL_API = 'https://portal.halitcengizuzuner.workers.dev';
     let portalUserId = null;
     let portalSession = null;
-    let mediaRecorder = null;
-    let audioChunks = [];
 
-    // Portal placeholder'ları ayarla
-    function setPortalPlaceholders() {
-        const ta = document.getElementById('portalRequestText');
-        if (ta) ta.placeholder = currentLang === 'tr' 
-            ? 'Kim olduğunuzu ve neden bağlantı kurmak istediğinizi anlatın...' 
-            : 'Describe who you are and why you want to connect...';
-        const pu = document.getElementById('portalUsername');
-        const pp = document.getElementById('portalPassword');
-        if (pu) pu.placeholder = currentLang === 'tr' ? 'Kullanıcı adı' : 'Username';
-        if (pp) pp.placeholder = currentLang === 'tr' ? 'Şifre' : 'Password';
-        const pmi = document.getElementById('portalMsgInput');
-        if (pmi) pmi.placeholder = currentLang === 'tr' ? 'Mesajınızı yazın...' : 'Write your message...';
-    }
-
-    // Char counter
-    document.getElementById('portalRequestText').addEventListener('input', function() {
-        document.getElementById('portalCharCount').textContent = this.value.length;
-    });
-
-    // Gate/Login geçişleri
-    document.getElementById('portalShowLogin').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('portalGate').style.display = 'none';
-        document.getElementById('portalLogin').style.display = '';
-    });
-    document.getElementById('portalShowGate').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('portalLogin').style.display = 'none';
-        document.getElementById('portalGate').style.display = '';
-    });
-    document.getElementById('portalPendingBack').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('portalPending').style.display = 'none';
-        document.getElementById('portalLogin').style.display = '';
-    });
-    document.getElementById('portalRejectedBack').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('portalRejected').style.display = 'none';
-        document.getElementById('portalGate').style.display = '';
-    });
-
-    // ---- ERİŞİM TALEBİ (Gate) ----
-    document.getElementById('portalRequestBtn').addEventListener('click', portalSendRequest);
-
-    async function portalSendRequest() {
-        var text = document.getElementById('portalRequestText').value.trim();
-        var errorEl = document.getElementById('portalGateError');
-        if (!text || text.length < 20) {
-            errorEl.textContent = currentLang === 'tr' ? 'En az 20 karakter yazın.' : 'Write at least 20 characters.';
-            return;
-        }
-        errorEl.textContent = '';
-        var btn = document.getElementById('portalRequestBtn');
-        btn.disabled = true;
-        btn.textContent = currentLang === 'tr' ? 'Gönderiliyor...' : 'Sending...';
-        try {
-            var r = await fetch(PORTAL_API + '/api/request-access', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ text: text })
-            });
-            var data = await r.json();
-            if (data.success) {
-                document.getElementById('portalForm').style.display = 'none';
-                var toggleEl = document.querySelector('#portalGate .portal-existing-toggle');
-                if (toggleEl) toggleEl.style.display = 'none';
-                var resp = document.getElementById('portalResponse');
-                resp.classList.add('show');
-                document.getElementById('portalResponseText').textContent = currentLang === 'tr'
-                    ? 'Talebiniz alındı. Aşağıdaki bilgilerle durumunuzu kontrol edebilirsiniz:'
-                    : 'Your request has been received. You can check your status with these credentials:';
-                document.getElementById('portalCredUser').textContent = (currentLang === 'tr' ? 'Kullanıcı: ' : 'Username: ') + data.username;
-                document.getElementById('portalCredPass').textContent = (currentLang === 'tr' ? 'Şifre: ' : 'Password: ') + data.password;
-            } else {
-                errorEl.textContent = data.error || (currentLang === 'tr' ? 'Bir hata oluştu.' : 'An error occurred.');
-            }
-        } catch (e) {
-            errorEl.textContent = currentLang === 'tr' ? 'Bağlantı hatası.' : 'Connection error.';
-        }
-        btn.disabled = false;
-        btn.textContent = currentLang === 'tr' ? 'Talep Gönder' : 'Send Request';
-    }
-
-    // ---- SES KAYDI ----
-    document.getElementById('portalMicBtn').addEventListener('click', async function() {
-        var micBtn = this;
-        if (mediaRecorder && mediaRecorder.state === 'recording') {
-            mediaRecorder.stop();
-            micBtn.classList.remove('recording');
-            return;
-        }
-        try {
-            var stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-            audioChunks = [];
-            mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
-            mediaRecorder.ondataavailable = function(e) { if (e.data.size > 0) audioChunks.push(e.data); };
-            mediaRecorder.onstop = async function() {
-                stream.getTracks().forEach(function(t) { t.stop(); });
-                var blob = new Blob(audioChunks, { type: 'audio/webm' });
-                var text = document.getElementById('portalRequestText').value.trim() || '';
-                var errorEl = document.getElementById('portalGateError');
-                errorEl.textContent = currentLang === 'tr' ? 'Ses gönderiliyor...' : 'Sending audio...';
-                errorEl.style.color = 'var(--amber)';
-                try {
-                    var fd = new FormData();
-                    fd.append('audio', blob, 'request.webm');
-                    if (text) fd.append('text', text);
-                    var r = await fetch(PORTAL_API + '/api/request-access', {
-                        method: 'POST',
-                        body: fd
-                    });
-                    var data = await r.json();
-                    errorEl.style.color = '';
-                    if (data.success) {
-                        document.getElementById('portalForm').style.display = 'none';
-                        var toggleEl = document.querySelector('#portalGate .portal-existing-toggle');
-                        if (toggleEl) toggleEl.style.display = 'none';
-                        var resp = document.getElementById('portalResponse');
-                        resp.classList.add('show');
-                        document.getElementById('portalResponseText').textContent = currentLang === 'tr'
-                            ? 'Sesli talebiniz alındı. Aşağıdaki bilgilerle durumunuzu kontrol edebilirsiniz:'
-                            : 'Your voice request has been received. You can check your status with these credentials:';
-                        document.getElementById('portalCredUser').textContent = (currentLang === 'tr' ? 'Kullanıcı: ' : 'Username: ') + data.username;
-                        document.getElementById('portalCredPass').textContent = (currentLang === 'tr' ? 'Şifre: ' : 'Password: ') + data.password;
-                    } else {
-                        errorEl.textContent = data.error || (currentLang === 'tr' ? 'Bir hata oluştu.' : 'An error occurred.');
-                    }
-                } catch (e) {
-                    errorEl.style.color = '';
-                    errorEl.textContent = currentLang === 'tr' ? 'Bağlantı hatası.' : 'Connection error.';
-                }
-            };
-            mediaRecorder.start();
-            micBtn.classList.add('recording');
-        } catch (e) {
-            document.getElementById('portalGateError').textContent = currentLang === 'tr' ? 'Mikrofon erişimi reddedildi.' : 'Microphone access denied.';
-        }
-    });
-
-    // ---- GİRİŞ ----
     document.getElementById('portalLoginBtn').addEventListener('click', portalLogin);
-    document.getElementById('portalPassword').addEventListener('keydown', function(e) {
+    document.getElementById('portalPassword').addEventListener('keydown', e => {
         if (e.key === 'Enter') portalLogin();
     });
 
     async function portalLogin() {
-        var username = document.getElementById('portalUsername').value.trim();
-        var password = document.getElementById('portalPassword').value;
-        var errorEl = document.getElementById('portalError');
+        const username = document.getElementById('portalUsername').value.trim();
+        const password = document.getElementById('portalPassword').value;
+        const errorEl = document.getElementById('portalError');
         if (!username || !password) {
             errorEl.textContent = currentLang === 'tr' ? 'Kullanıcı adı ve şifre gerekli' : 'Username and password required';
             return;
@@ -2089,31 +1889,20 @@
         errorEl.textContent = '';
         document.getElementById('portalLoginBtn').disabled = true;
         try {
-            var r = await fetch(PORTAL_API + '/api/login', {
+            const r = await fetch(PORTAL_API + '/api/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username: username, password: password })
+                body: JSON.stringify({ username, password })
             });
-            var data = await r.json();
+            const data = await r.json();
             if (data.success) {
-                if (data.status === 'pending') {
-                    document.getElementById('portalLogin').style.display = 'none';
-                    document.getElementById('portalPending').style.display = '';
-                    document.getElementById('portalPendingText').textContent = currentLang === 'tr'
-                        ? 'Talebiniz hâlâ değerlendirme aşamasında. 48 saat içinde sonuçlanacaktır.'
-                        : 'Your request is still being evaluated. It will be resolved within 48 hours.';
-                } else if (data.status === 'rejected') {
-                    document.getElementById('portalLogin').style.display = 'none';
-                    document.getElementById('portalRejected').style.display = '';
-                } else {
-                    portalUserId = data.userId;
-                    portalSession = { password: password };
-                    document.getElementById('portalChatName').textContent = data.name;
-                    document.getElementById('portalInfoText').textContent = data.message || (currentLang === 'tr' ? 'Hoş geldiniz.' : 'Welcome.');
-                    renderPortalMessages(data.messages || []);
-                    document.getElementById('portalLogin').style.display = 'none';
-                    document.getElementById('portalChat').style.display = 'flex';
-                }
+                portalUserId = data.userId;
+                portalSession = { password };
+                document.getElementById('portalChatName').textContent = data.name;
+                document.getElementById('portalInfoText').textContent = data.message || (currentLang === 'tr' ? 'Hoş geldiniz.' : 'Welcome.');
+                renderPortalMessages(data.messages || []);
+                document.getElementById('portalLogin').style.display = 'none';
+                document.getElementById('portalChat').style.display = 'flex';
             } else {
                 errorEl.textContent = data.error;
             }
@@ -2123,8 +1912,7 @@
         document.getElementById('portalLoginBtn').disabled = false;
     }
 
-    // ---- ÇIKIŞ ----
-    document.getElementById('portalLogout').addEventListener('click', function() {
+    document.getElementById('portalLogout').addEventListener('click', () => {
         portalUserId = null;
         portalSession = null;
         document.getElementById('portalChat').style.display = 'none';
@@ -2134,12 +1922,12 @@
         document.getElementById('portalError').textContent = '';
     });
 
-    // ---- CHAT TABS ----
-    document.querySelectorAll('.portal-chat-tab').forEach(function(tab) {
-        tab.addEventListener('click', function() {
-            document.querySelectorAll('.portal-chat-tab').forEach(function(t) { t.classList.remove('active'); });
+    // Tab switching
+    document.querySelectorAll('.portal-chat-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.portal-chat-tab').forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
-            var isMessages = tab.dataset.ptab === 'messages';
+            const isMessages = tab.dataset.ptab === 'messages';
             document.getElementById('portalMessagesWrap').style.display = isMessages ? '' : 'none';
             document.getElementById('portalInputBar').style.display = isMessages ? '' : 'none';
             document.getElementById('portalInfoWrap').style.display = isMessages ? 'none' : '';
@@ -2147,49 +1935,49 @@
     });
 
     function renderPortalMessages(messages) {
-        var c = document.getElementById('portalMessages');
+        const c = document.getElementById('portalMessages');
         if (!messages.length) {
-            c.innerHTML = '<div class="pmsg-empty">' + (currentLang === 'tr' ? 'Henüz mesaj yok.' : 'No messages yet.') + '</div>';
+            c.innerHTML = `<div class="pmsg-empty">${currentLang === 'tr' ? 'Henüz mesaj yok.' : 'No messages yet.'}</div>`;
             return;
         }
-        c.innerHTML = messages.map(function(m) {
-            var isUser = m.from === 'user';
-            var time = new Date(m.timestamp).toLocaleString(currentLang === 'tr' ? 'tr-TR' : 'en-US');
-            var content = '';
-            if (m.type === 'image') content = '<img src="' + m.url + '" style="max-width:100%;border-radius:6px;">';
-            else if (m.type === 'audio') content = '<audio controls src="' + m.url + '" style="width:100%;"></audio><div style="font-size:0.75em;opacity:0.7;">' + escapeHtmlPortal(m.text) + '</div>';
-            else if (m.type === 'file') content = '<a href="' + m.url + '" target="_blank" style="color:inherit;text-decoration:underline;">ðŸ“Ž ' + escapeHtmlPortal(m.text) + '</a>';
+        c.innerHTML = messages.map(m => {
+            const isUser = m.from === 'user';
+            const time = new Date(m.timestamp).toLocaleString(currentLang === 'tr' ? 'tr-TR' : 'en-US');
+            let content = '';
+            if (m.type === 'image') content = `<img src="${m.url}" style="max-width:100%;border-radius:6px;">`;
+            else if (m.type === 'audio') content = `<audio controls src="${m.url}" style="width:100%;"></audio><div style="font-size:0.75em;opacity:0.7;">${escapeHtmlPortal(m.text)}</div>`;
+            else if (m.type === 'file') content = `<a href="${m.url}" target="_blank" style="color:inherit;text-decoration:underline;">📎 ${escapeHtmlPortal(m.text)}</a>`;
             else content = escapeHtmlPortal(m.text);
-            return '<div class="pmsg ' + (isUser ? 'pmsg-user' : 'pmsg-admin') + '"><div>' + content + '</div><div class="pmsg-time">' + time + '</div></div>';
+            return `<div class="pmsg ${isUser ? 'pmsg-user' : 'pmsg-admin'}"><div>${content}</div><div class="pmsg-time">${time}</div></div>`;
         }).join('');
         c.scrollTop = c.scrollHeight;
     }
 
     function escapeHtmlPortal(t) {
-        var d = document.createElement('div');
+        const d = document.createElement('div');
         d.textContent = t;
         return d.innerHTML;
     }
 
-    // ---- MESAJ GÖNDER ----
+    // Send message
     document.getElementById('portalSendBtn').addEventListener('click', portalSendMsg);
-    document.getElementById('portalMsgInput').addEventListener('keydown', function(e) {
+    document.getElementById('portalMsgInput').addEventListener('keydown', e => {
         if (e.key === 'Enter') portalSendMsg();
     });
 
     async function portalSendMsg() {
-        var input = document.getElementById('portalMsgInput');
-        var text = input.value.trim();
+        const input = document.getElementById('portalMsgInput');
+        const text = input.value.trim();
         if (!text || !portalUserId) return;
-        var btn = document.getElementById('portalSendBtn');
+        const btn = document.getElementById('portalSendBtn');
         btn.disabled = true;
         try {
-            var r = await fetch(PORTAL_API + '/api/' + portalUserId + '/message', {
+            const r = await fetch(PORTAL_API + '/api/' + portalUserId + '/message', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ text: text })
+                body: JSON.stringify({ text })
             });
-            var data = await r.json();
+            const data = await r.json();
             if (data.success) {
                 input.value = '';
                 appendPortalMsg(data.message);
@@ -2199,41 +1987,40 @@
         input.focus();
     }
 
-    // ---- DOSYA YÜKLEME ----
+    // File upload
     document.getElementById('portalFileInput').addEventListener('change', async function() {
-        var file = this.files[0];
+        const file = this.files[0];
         if (!file || !portalUserId) return;
         try {
-            var fd = new FormData();
+            const fd = new FormData();
             fd.append('file', file);
-            var r = await fetch(PORTAL_API + '/api/' + portalUserId + '/upload', {
+            const r = await fetch(PORTAL_API + '/api/' + portalUserId + '/upload', {
                 method: 'POST',
                 body: fd
             });
-            var data = await r.json();
+            const data = await r.json();
             if (data.success) appendPortalMsg(data.message);
         } catch (e) {}
         this.value = '';
     });
 
     function appendPortalMsg(m) {
-        var c = document.getElementById('portalMessages');
-        var empty = c.querySelector('.pmsg-empty');
+        const c = document.getElementById('portalMessages');
+        const empty = c.querySelector('.pmsg-empty');
         if (empty) empty.remove();
-        var isUser = m.from === 'user';
-        var time = new Date(m.timestamp).toLocaleString(currentLang === 'tr' ? 'tr-TR' : 'en-US');
-        var content = '';
-        if (m.type === 'image') content = '<img src="' + m.url + '" style="max-width:100%;border-radius:6px;">';
-        else if (m.type === 'audio') content = '<audio controls src="' + m.url + '" style="width:100%;"></audio>';
-        else if (m.type === 'file') content = '<a href="' + m.url + '" target="_blank" style="color:inherit;">ðŸ“Ž ' + escapeHtmlPortal(m.text) + '</a>';
+        const isUser = m.from === 'user';
+        const time = new Date(m.timestamp).toLocaleString(currentLang === 'tr' ? 'tr-TR' : 'en-US');
+        let content = '';
+        if (m.type === 'image') content = `<img src="${m.url}" style="max-width:100%;border-radius:6px;">`;
+        else if (m.type === 'audio') content = `<audio controls src="${m.url}" style="width:100%;"></audio>`;
+        else if (m.type === 'file') content = `<a href="${m.url}" target="_blank" style="color:inherit;">📎 ${escapeHtmlPortal(m.text)}</a>`;
         else content = escapeHtmlPortal(m.text);
-        var div = document.createElement('div');
+        const div = document.createElement('div');
         div.className = 'pmsg ' + (isUser ? 'pmsg-user' : 'pmsg-admin');
-        div.innerHTML = '<div>' + content + '</div><div class="pmsg-time">' + time + '</div>';
+        div.innerHTML = `<div>${content}</div><div class="pmsg-time">${time}</div>`;
         c.appendChild(div);
         c.scrollTop = c.scrollHeight;
     }
-
 
     function initVideoLayer() {
         const layer = document.getElementById('videoLayer');
