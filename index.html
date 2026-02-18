@@ -17,34 +17,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Light warm palette */
-            --bg-primary: #D6CEC2;
-            --bg-warm: #CCC3B5;
-            --bg-surface: rgba(255, 255, 255, 0.42);
-            --bg-surface-hover: rgba(255, 255, 255, 0.58);
-            --bg-surface-solid: #E8E2D8;
-            --bg-overlay: rgba(214, 206, 194, 0.93);
-            
-            --amber: #B8860B;
-            --amber-deep: #8B6508;
-            --amber-glow: rgba(184, 134, 11, 0.2);
-            --amber-soft: rgba(184, 134, 11, 0.08);
-            --amber-ring: rgba(184, 134, 11, 0.12);
-            
-            --teal: #1A7A6D;
-            --blue: #2563EB;
-            --purple: #6D28D9;
-            --red: #B91C1C;
-            --green: #15803D;
-            --orange: #C2410C;
-            --silver: #6B7280;
-            
-            --text-primary: #1A1A1A;
-            --text-secondary: #4A4540;
-            --text-muted: #8A8480;
-            --text-light: #B0AAA0;
-            --border-subtle: rgba(0, 0, 0, 0.06);
-            --border-glass: rgba(255, 255, 255, 0.35);
+            /* Muted professional palette */
+            --bg-primary: #E8E4DE;
+            --bg-warm: #DDD8D0;
+            --bg-surface: rgba(255, 255, 255, 0.50);
+            --bg-surface-hover: rgba(255, 255, 255, 0.65);
+            --bg-surface-solid: #F0ECE6;
+            --bg-overlay: rgba(232, 228, 222, 0.95);
+
+            --amber: #7A6B4E;
+            --amber-deep: #5C5038;
+            --amber-glow: rgba(122, 107, 78, 0.15);
+            --amber-soft: rgba(122, 107, 78, 0.06);
+            --amber-ring: rgba(122, 107, 78, 0.10);
+
+            --teal: #4A706A;
+            --blue: #4A6A8A;
+            --purple: #6B5B7B;
+            --red: #8B5A5A;
+            --green: #5A7A5A;
+            --orange: #8A6A4A;
+            --silver: #7A7A7A;
+
+            --text-primary: #2A2A2A;
+            --text-secondary: #4A4640;
+            --text-muted: #7A7670;
+            --text-light: #A09A90;
+            --border-subtle: rgba(0, 0, 0, 0.05);
+            --border-glass: rgba(255, 255, 255, 0.40);
             
             --font-display: 'Instrument Serif', serif;
             --font-body: 'Crimson Pro', serif;
@@ -94,7 +94,7 @@
             animation: fog-drift 25s ease-in-out infinite;
             will-change: transform;
         }
-        .fog-blob.amber-1 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(184,134,11,0.22) 0%, transparent 70%); top: 15%; left: 20%; animation-delay: 0s; animation-duration: 28s; }
+        .fog-blob.amber-1 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(122,107,78,0.22) 0%, transparent 70%); top: 15%; left: 20%; animation-delay: 0s; animation-duration: 28s; }
         .fog-blob.teal-1 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(26,122,109,0.18) 0%, transparent 70%); top: 50%; right: 10%; animation-delay: -8s; animation-duration: 32s; }
         .fog-blob.purple-1 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(109,40,217,0.14) 0%, transparent 70%); bottom: 20%; left: 10%; animation-delay: -15s; animation-duration: 30s; }
         .fog-blob.orange-1 { width: 280px; height: 280px; background: radial-gradient(circle, rgba(194,65,12,0.14) 0%, transparent 70%); top: 30%; right: 30%; animation-delay: -20s; animation-duration: 35s; }
@@ -162,14 +162,14 @@
         }
 
         .page-gradient.amber-gradient {
-            background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(184,134,11,0.1) 0%, transparent 70%);
+            background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(122,107,78,0.1) 0%, transparent 70%);
         }
 
         .page-gradient.multi-gradient {
             background: 
                 radial-gradient(ellipse 40% 40% at 25% 0%, rgba(26,122,109,0.08) 0%, transparent 60%),
                 radial-gradient(ellipse 40% 40% at 75% 0%, rgba(109,40,217,0.06) 0%, transparent 60%),
-                radial-gradient(ellipse 30% 30% at 50% 10%, rgba(184,134,11,0.07) 0%, transparent 60%);
+                radial-gradient(ellipse 30% 30% at 50% 10%, rgba(122,107,78,0.07) 0%, transparent 60%);
         }
 
         .page-gradient.teal-gradient {
@@ -188,7 +188,7 @@
             position: fixed;
             inset: 0;
             z-index: 10000;
-            background: #D6CEC2;
+            background: #E8E4DE;
             justify-content: center;
             align-items: center;
             text-align: center;
@@ -227,13 +227,13 @@
             height: 16px;
             border-radius: 50%;
             background: var(--amber);
-            box-shadow: 0 0 30px var(--amber-glow), 0 0 60px rgba(184, 134, 11, 0.1);
+            box-shadow: 0 0 30px var(--amber-glow), 0 0 60px rgba(122, 107, 78, 0.1);
             animation: intro-breathe-light 1.5s ease-in-out infinite, intro-grow 2s var(--ease-out-expo) forwards;
         }
 
         @keyframes intro-breathe-light {
-            0%, 100% { box-shadow: 0 0 30px var(--amber-glow), 0 0 60px rgba(184, 134, 11, 0.1); }
-            50% { box-shadow: 0 0 50px var(--amber-glow), 0 0 90px rgba(184, 134, 11, 0.08); }
+            0%, 100% { box-shadow: 0 0 30px var(--amber-glow), 0 0 60px rgba(122, 107, 78, 0.1); }
+            50% { box-shadow: 0 0 50px var(--amber-glow), 0 0 90px rgba(122, 107, 78, 0.08); }
         }
 
         @keyframes intro-grow {
@@ -392,7 +392,7 @@
 
         .nav-link:hover {
             color: var(--amber-deep);
-            background: rgba(184,134,11,0.04);
+            background: rgba(122,107,78,0.04);
         }
 
         .nav-link-sub {
@@ -457,7 +457,7 @@
             left: 0;
             width: min(420px, 65vw);
             height: min(420px, 65vw);
-            background: radial-gradient(circle, rgba(184, 134, 11, 0.05) 0%, transparent 65%);
+            background: radial-gradient(circle, rgba(122, 107, 78, 0.05) 0%, transparent 65%);
             pointer-events: none;
             z-index: 0;
         }
@@ -478,10 +478,10 @@
             width: clamp(56px, 11vw, 80px);
             height: clamp(56px, 11vw, 80px);
             border-radius: 50%;
-            background: radial-gradient(circle, var(--amber) 0%, rgba(184, 134, 11, 0.7) 40%, rgba(184, 134, 11, 0.15) 70%, transparent 100%);
+            background: radial-gradient(circle, var(--amber) 0%, rgba(122, 107, 78, 0.7) 40%, rgba(122, 107, 78, 0.15) 70%, transparent 100%);
             box-shadow:
                 0 0 30px var(--amber-glow),
-                0 0 60px rgba(184, 134, 11, 0.08);
+                0 0 60px rgba(122, 107, 78, 0.08);
             animation: core-pulse-light 3.5s ease-in-out infinite;
             position: relative;
             z-index: 2;
@@ -490,11 +490,11 @@
         @keyframes core-pulse-light {
             0%, 100% { 
                 transform: scale(1); 
-                box-shadow: 0 0 30px var(--amber-glow), 0 0 60px rgba(184, 134, 11, 0.08);
+                box-shadow: 0 0 30px var(--amber-glow), 0 0 60px rgba(122, 107, 78, 0.08);
             }
             50% { 
                 transform: scale(1.04); 
-                box-shadow: 0 0 45px var(--amber-glow), 0 0 80px rgba(184, 134, 11, 0.06);
+                box-shadow: 0 0 45px var(--amber-glow), 0 0 80px rgba(122, 107, 78, 0.06);
             }
         }
 
@@ -1071,7 +1071,7 @@
             resize: vertical; transition: all 0.3s ease;
             box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
         }
-        .portal-textarea:focus { outline: none; border-color: var(--amber-ring); box-shadow: 0 0 0 3px rgba(184,134,11,0.06), inset 0 1px 0 rgba(255,255,255,0.3); }
+        .portal-textarea:focus { outline: none; border-color: var(--amber-ring); box-shadow: 0 0 0 3px rgba(122,107,78,0.06), inset 0 1px 0 rgba(255,255,255,0.3); }
 
         .portal-textarea::placeholder { color: var(--text-light); font-style: italic; }
 
@@ -1464,7 +1464,7 @@
             width: clamp(300px, 45vw, 500px);
             height: clamp(300px, 45vw, 500px);
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(184,134,11,0.08) 0%, rgba(184,134,11,0.03) 40%, transparent 70%);
+            background: radial-gradient(circle, rgba(122,107,78,0.08) 0%, rgba(122,107,78,0.03) 40%, transparent 70%);
             pointer-events: none;
             z-index: 0;
             animation: bottom-glow 6s ease-in-out infinite;
@@ -1752,25 +1752,25 @@
     }
 
     const limbs = [
-        { id: 'sancak', name: 'SANCAK', tool: 'Claude', color: 'var(--teal)', colorHex: '#1A7A6D',
+        { id: 'sancak', name: 'SANCAK', tool: 'Claude', color: 'var(--teal)', colorHex: '#4A706A',
           role: { tr: 'Yapısal düşünce, argümantasyon, analiz, yazım, kod, çeviri', en: 'Structural thinking, argumentation, analysis, writing, code, translation' },
           status: 'active', angle: 0 },
-        { id: 'poyraz', name: 'POYRAZ', tool: 'NotebookLM', color: 'var(--blue)', colorHex: '#2563EB',
+        { id: 'poyraz', name: 'POYRAZ', tool: 'NotebookLM', color: 'var(--blue)', colorHex: '#4A6A8A',
           role: { tr: 'Kaynak sentezi, çapraz okuma, podcast üretimi', en: 'Source synthesis, cross-reading, podcast generation' },
           status: 'active', angle: 51.4 },
-        { id: 'yankiz', name: 'YANKIZ', tool: 'ElevenLabs Reader', color: 'var(--purple)', colorHex: '#6D28D9',
+        { id: 'yankiz', name: 'YANKIZ', tool: 'ElevenLabs Reader', color: 'var(--purple)', colorHex: '#6B5B7B',
           role: { tr: 'Metin → ses dönüşümü, dinleme arayüzü', en: 'Text to voice, listening interface' },
           status: 'active', angle: 102.8 },
-        { id: 'kiran', name: 'KIRAN', tool: 'Adobe Acrobat', color: 'var(--red)', colorHex: '#B91C1C',
+        { id: 'kiran', name: 'KIRAN', tool: 'Adobe Acrobat', color: 'var(--red)', colorHex: '#8B5A5A',
           role: { tr: 'Belge işleme, PDF düzenleme', en: 'Document processing, PDF editing' },
           status: 'active', angle: 154.2 },
-        { id: 'fiske', name: 'FİSKE', tool: 'Whisper', color: 'var(--green)', colorHex: '#15803D',
+        { id: 'fiske', name: 'FİSKE', tool: 'Whisper', color: 'var(--green)', colorHex: '#5A7A5A',
           role: { tr: 'Ses → metin transkripsiyon', en: 'Voice to text transcription' },
           status: 'active', angle: 205.6 },
-        { id: 'isil', name: 'IŞIL', tool: 'Runway', color: 'var(--orange)', colorHex: '#C2410C',
+        { id: 'isil', name: 'IŞIL', tool: 'Runway', color: 'var(--orange)', colorHex: '#8A6A4A',
           role: { tr: 'Video üretimi, görsel kimlik', en: 'Video generation, visual identity' },
           status: 'active', angle: 257 },
-        { id: 'soluk', name: 'SOLUK', tool: 'DeepL', color: 'var(--silver)', colorHex: '#6B7280',
+        { id: 'soluk', name: 'SOLUK', tool: 'DeepL', color: 'var(--silver)', colorHex: '#7A7A7A',
           role: { tr: 'Çeviri desteği', en: 'Translation support' },
           status: 'sleeping', angle: 308.4 }
     ];
