@@ -1369,15 +1369,17 @@
             position: fixed;
             inset: 0;
             z-index: 600;
-            background: var(--bg-overlay);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             display: flex;
             justify-content: center;
             align-items: center;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
 
         .audio-modal.open { opacity: 1; pointer-events: auto; }
@@ -1927,25 +1929,39 @@
                 <div class="emanation-summary">${em.summary[currentLang]}</div>
                 <div class="emanation-actions">
                     <a href="${em.readUrl}" class="emanation-btn">${currentLang === 'tr' ? 'Tamamını Oku' : 'Read Full'}</a>
-                    ${em.audioUrl ? `<button class="emanation-btn listen" onclick="openAudioModal('${typeof em.audioUrl === 'object' ? em.audioUrl[currentLang] : em.audioUrl}','${em.audioTitle[currentLang]}','${em.audioSub[currentLang]}')">${currentLang === 'tr' ? 'Özetini Dinle' : 'Listen Summary'}</button>` : ''}
+                    ${em.audioUrl ? `<a href="#" class="emanation-btn listen" data-audio-url="${typeof em.audioUrl === 'object' ? em.audioUrl[currentLang] : em.audioUrl}" data-audio-title="${em.audioTitle[currentLang]}" data-audio-sub="${em.audioSub[currentLang]}">${currentLang === 'tr' ? 'Özetini Dinle' : 'Listen Summary'}</a>` : ''}
                 </div>
             </div>`).join('');
     }
 
-    window.openAudioModal = function(url, title, sub) {
+    function openAudioModal(url, title, sub) {
         document.getElementById('audioModalTitle').textContent = title;
         document.getElementById('audioModalSub').textContent = sub;
-        document.getElementById('audioPlayer').src = url;
+        var player = document.getElementById('audioPlayer');
+        player.src = url;
+        player.load();
         document.getElementById('audioModal').classList.add('open');
-    };
+        document.body.style.overflow = 'hidden';
+    }
 
-    document.getElementById('audioModalClose').addEventListener('click', () => {
-        const p = document.getElementById('audioPlayer'); p.pause(); p.src = '';
+    function closeAudioModal() {
+        var p = document.getElementById('audioPlayer'); p.pause(); p.src = '';
         document.getElementById('audioModal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('click', function(e) {
+        var btn = e.target.closest('.emanation-btn.listen[data-audio-url]');
+        if (btn) {
+            e.preventDefault();
+            openAudioModal(btn.dataset.audioUrl, btn.dataset.audioTitle, btn.dataset.audioSub);
+        }
     });
 
-    document.getElementById('audioModal').addEventListener('click', e => {
-        if (e.target === e.currentTarget) document.getElementById('audioModalClose').click();
+    document.getElementById('audioModalClose').addEventListener('click', closeAudioModal);
+
+    document.getElementById('audioModal').addEventListener('click', function(e) {
+        if (e.target === e.currentTarget) closeAudioModal();
     });
 
 
