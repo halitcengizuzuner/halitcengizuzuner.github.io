@@ -1929,11 +1929,9 @@
     // Hash-based deep link (e.g. index.html#emanations)
     var hashPage = location.hash.replace('#', '');
     if (hashPage && document.getElementById('page-' + hashPage)) {
-        var def = document.getElementById('page-home');
-        if (def) { def.classList.remove('active'); def.style.display = 'none'; }
-        var target = document.getElementById('page-' + hashPage);
-        target.style.display = '';
-        target.classList.add('active');
+        document.getElementById('page-home').classList.remove('active');
+        document.getElementById('page-home').style.display = 'none';
+        document.getElementById('page-' + hashPage).classList.add('active');
         currentPage = hashPage;
     }
 
@@ -2432,7 +2430,18 @@
     });
 
     setLanguage(currentLang);
-    runIntro();
+
+    if (hashPage) {
+        // Skip intro when returning from a report
+        var introEl = document.getElementById('intro-overlay');
+        if (introEl) introEl.remove();
+        document.getElementById('app').classList.add('visible');
+        renderOrbitals();
+        generateNerveNetwork();
+        setTimeout(function() { initVideoLayer(); initBottomEntity(); }, 100);
+    } else {
+        runIntro();
+    }
 })();
 </script>
 </body>
