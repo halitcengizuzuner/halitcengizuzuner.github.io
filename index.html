@@ -1007,6 +1007,19 @@
             background: rgba(109, 40, 217, 0.04);
         }
 
+        .emanation-illustration {
+            text-align: center;
+            margin-bottom: 1.2rem;
+            opacity: 0.55;
+            transition: opacity 0.3s ease;
+        }
+        .emanation-card:hover .emanation-illustration { opacity: 0.75; }
+        .emanation-illustration svg {
+            width: 100%;
+            max-width: 260px;
+            height: auto;
+        }
+
         /* ========================================
            PORTAL
            ======================================== */
@@ -1796,7 +1809,8 @@
               en: 'https://pub-09be185c608d4c1e80131e5f82eaca40.r2.dev/ElevenLabs_The_Evolution_of_Language_in_the_Digital_Age.mp3'
           },
           audioTitle: { tr: 'Podcast Özeti', en: 'Podcast Summary' },
-          audioSub: { tr: '~8 dakikalık sesli özet', en: '~8 minute audio summary' } }
+          audioSub: { tr: '~8 dakikalık sesli özet', en: '~8 minute audio summary' },
+          illustration: '<svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="105" height="46" rx="10" stroke="#7A6B4E" stroke-width="1" opacity="0.35"/><line x1="24" y1="24" x2="100" y2="24" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><line x1="24" y1="33" x2="90" y2="33" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><line x1="24" y1="42" x2="68" y2="42" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><path d="M32 56 L26 70 L46 56" stroke="#7A6B4E" stroke-width="1" opacity="0.3" fill="none"/><circle cx="134" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><circle cx="145" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><circle cx="156" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><rect x="175" y="18" width="68" height="30" rx="10" stroke="#4A706A" stroke-width="1.2" opacity="0.4"/><circle cx="209" cy="33" r="2.5" fill="#4A706A" opacity="0.3"/><path d="M224 48 L232 60 L218 48" stroke="#4A706A" stroke-width="1.2" opacity="0.4" fill="none"/></svg>' }
     ];
 
     let currentLang = localStorage.getItem('siteLang') || 'tr';
@@ -1921,6 +1935,7 @@
     function renderEmanations() {
         document.getElementById('emanationsContainer').innerHTML = emanations.map(em => `
             <div class="emanation-card glass-card">
+                ${em.illustration ? `<div class="emanation-illustration">${em.illustration}</div>` : ''}
                 <div class="emanation-meta">
                     <span class="emanation-category">${em.category[currentLang]}</span>
                     <span class="emanation-date">${em.date}</span>
@@ -1928,8 +1943,8 @@
                 <div class="emanation-title">${em.title[currentLang]}</div>
                 <div class="emanation-summary">${em.summary[currentLang]}</div>
                 <div class="emanation-actions">
-                    <a href="${em.readUrl}" class="emanation-btn">${currentLang === 'tr' ? 'Tamamını Oku' : 'Read Full'}</a>
-                    ${em.audioUrl ? `<a href="#" class="emanation-btn listen" data-audio-url="${typeof em.audioUrl === 'object' ? em.audioUrl[currentLang] : em.audioUrl}" data-audio-title="${em.audioTitle[currentLang]}" data-audio-sub="${em.audioSub[currentLang]}">${currentLang === 'tr' ? 'Özetini Dinle' : 'Listen Summary'}</a>` : ''}
+                    <a href="${em.readUrl}" class="emanation-btn">${currentLang === 'tr' ? 'Oku' : 'Read'}</a>
+                    ${em.audioUrl ? `<a href="#" class="emanation-btn listen" data-audio-url="${typeof em.audioUrl === 'object' ? em.audioUrl[currentLang] : em.audioUrl}" data-audio-title="${em.audioTitle[currentLang]}" data-audio-sub="${em.audioSub[currentLang]}">${currentLang === 'tr' ? 'Podcast' : 'Podcast'}</a>` : ''}
                 </div>
             </div>`).join('');
     }
