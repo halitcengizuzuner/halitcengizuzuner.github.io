@@ -1438,6 +1438,31 @@
 
         .audio-modal-close:hover { color: var(--text-secondary); }
 
+        .audio-modal-langs {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .audio-lang-btn {
+            background: transparent;
+            border: 1px solid rgba(122,107,78,0.3);
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            padding: 0.3rem 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .audio-lang-btn.active {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .audio-lang-btn:hover {
+            border-color: var(--text-secondary);
+        }
+
         .audio-modal-attr {
             font-family: var(--font-mono);
             font-size: 0.45rem;
@@ -1750,6 +1775,10 @@
 
 <div class="audio-modal" id="audioModal">
     <div class="audio-modal-content">
+        <div class="audio-modal-langs" id="audioModalLangs" style="display:none;">
+            <button class="audio-lang-btn" data-lang="tr">TR</button>
+            <button class="audio-lang-btn" data-lang="en">EN</button>
+        </div>
         <div class="audio-modal-title" id="audioModalTitle"></div>
         <div class="audio-modal-sub" id="audioModalSub"></div>
         <audio controls preload="none" id="audioPlayer"></audio>
@@ -1958,7 +1987,7 @@
     }
 
     function renderEmanations() {
-        document.getElementById('emanationsContainer').innerHTML = emanations.map(em => `
+        document.getElementById('emanationsContainer').innerHTML = emanations.map((em, idx) => `
             <div class="emanation-card glass-card">
                 ${em.illustration ? `<div class="emanation-illustration">${em.illustration}</div>` : ''}
                 <div class="emanation-meta">
@@ -1969,33 +1998,68 @@
                 <div class="emanation-summary">${em.summary[currentLang]}</div>
                 <div class="emanation-actions">
                     <a href="${em.readUrl}" class="emanation-btn">${currentLang === 'tr' ? 'Oku' : 'Read'}</a>
-                    ${em.audioUrl ? `<a href="#" class="emanation-btn listen" data-audio-url="${typeof em.audioUrl === 'object' ? em.audioUrl[currentLang] : em.audioUrl}" data-audio-title="${em.audioTitle[currentLang]}" data-audio-sub="${em.audioSub[currentLang]}" data-audio-attr="${em.audioAttr ? (typeof em.audioAttr === 'object' ? em.audioAttr[currentLang] : em.audioAttr) : ''}">${currentLang === 'tr' ? 'Podcast' : 'Podcast'}</a>` : ''}
+                    ${em.audioUrl ? `<a href="#" class="emanation-btn listen" data-emanation-idx="${idx}">${currentLang === 'tr' ? 'Podcast' : 'Podcast'}</a>` : ''}
                 </div>
             </div>`).join('');
     }
 
-    function openAudioModal(url, title, sub, attr) {
+    var currentAudioEmanation = null;
+
+    function openAudioModal(idx) {
+        var em = emanations[idx];
+        currentAudioEmanation = em;
+        var hasMultiLang = typeof em.audioUrl === 'object' && em.audioUrl.tr && em.audioUrl.en;
+        var langsEl = document.getElementById('audioModalLangs');
+
+        if (hasMultiLang) {
+            langsEl.style.display = '';
+            setAudioLang(currentLang);
+        } else {
+            langsEl.style.display = 'none';
+            var url = typeof em.audioUrl === 'object' ? em.audioUrl[currentLang] : em.audioUrl;
+            var attr = em.audioAttr ? (typeof em.audioAttr === 'object' ? em.audioAttr[currentLang] : em.audioAttr) : '';
+            setAudioContent(url, em.audioTitle[currentLang], em.audioSub[currentLang], attr);
+        }
+
+        document.getElementById('audioModal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function setAudioLang(lang) {
+        var em = currentAudioEmanation;
+        var url = em.audioUrl[lang];
+        var attr = em.audioAttr ? (typeof em.audioAttr === 'object' ? em.audioAttr[lang] : em.audioAttr) : '';
+        setAudioContent(url, em.audioTitle[lang], em.audioSub[lang], attr);
+        document.querySelectorAll('.audio-lang-btn').forEach(function(b) {
+            b.classList.toggle('active', b.dataset.lang === lang);
+        });
+    }
+
+    function setAudioContent(url, title, sub, attr) {
         document.getElementById('audioModalTitle').textContent = title;
         document.getElementById('audioModalSub').textContent = sub;
         document.getElementById('audioModalAttr').textContent = attr || '';
         var player = document.getElementById('audioPlayer');
         player.src = url;
         player.load();
-        document.getElementById('audioModal').classList.add('open');
-        document.body.style.overflow = 'hidden';
     }
 
     function closeAudioModal() {
         var p = document.getElementById('audioPlayer'); p.pause(); p.src = '';
         document.getElementById('audioModal').classList.remove('open');
         document.body.style.overflow = '';
+        currentAudioEmanation = null;
     }
 
     document.addEventListener('click', function(e) {
-        var btn = e.target.closest('.emanation-btn.listen[data-audio-url]');
+        var btn = e.target.closest('.emanation-btn.listen[data-emanation-idx]');
         if (btn) {
             e.preventDefault();
-            openAudioModal(btn.dataset.audioUrl, btn.dataset.audioTitle, btn.dataset.audioSub, btn.dataset.audioAttr);
+            openAudioModal(parseInt(btn.dataset.emanationIdx));
+        }
+        var langBtn = e.target.closest('.audio-lang-btn');
+        if (langBtn && currentAudioEmanation) {
+            setAudioLang(langBtn.dataset.lang);
         }
     });
 
