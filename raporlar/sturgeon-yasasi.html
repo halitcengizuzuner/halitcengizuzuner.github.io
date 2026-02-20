@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sturgeon Yasası — Her Şeyin Yüzde Doksanı Çöptür. Vasatlığın evrensel dağılımı üzerine veri destekli bir araştırma notu.">
+    <meta name="keywords" content="Sturgeon Yasası, Sturgeon's Law, vasatlık, kalite dağılımı, Pareto, Gresham, Dunning-Kruger, ampirik analiz">
+    <meta name="author" content="Halit Cengiz Uzuner">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Sturgeon Yasası — Her Şeyin Yüzde Doksanı Çöptür">
+    <meta property="og:description" content="Vasatlığın evrensel dağılımı üzerine veri destekli bir araştırma notu. Theodore Sturgeon'ın ünlü gözleminin ampirik testleri.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://halitcengizuzuner.com/raporlar/sturgeon-yasasi.html">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:site_name" content="Halit Cengiz Uzuner">
+    <meta property="article:author" content="Halit Cengiz Uzuner">
+    <meta property="article:published_time" content="2026-02-20">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sturgeon Yasası — Her Şeyin Yüzde Doksanı Çöptür">
+    <meta name="twitter:description" content="Vasatlığın evrensel dağılımı üzerine veri destekli bir araştırma notu.">
+
+    <!-- Canonical ve Alternatif Dil -->
+    <link rel="canonical" href="https://halitcengizuzuner.com/raporlar/sturgeon-yasasi.html">
+    <link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/sturgeon-yasasi.html">
+    <link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/raporlar/sturgeon-yasasi-en.html">
+
+    <title>Sturgeon Yasası — "Her Şeyin Yüzde Doksanı Çöptür"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ========== SITE NAVIGATION ========== */
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(45, 36, 24, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .site-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .site-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            letter-spacing: 0.15em;
+            transition: color 0.3s ease;
+        }
+
+        .site-nav-back:hover {
+            color: #c9973e;
+        }
+
+        .site-nav-back svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+        }
+
+        .site-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .site-nav-lang {
+            display: flex;
+            gap: 8px;
+        }
+
+        .site-nav-lang-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.6);
+            padding: 4px 10px;
+            cursor: pointer;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .site-nav-lang-btn:hover {
+            border-color: #c9973e;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .site-nav-lang-btn.active {
+            border-color: #c9973e;
+            color: #c9973e;
+            background: rgba(201, 151, 62, 0.1);
+        }
+
+        .pdf-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.7);
+            padding: 4px 12px;
+            cursor: pointer;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+        }
+
+        .pdf-btn:hover {
+            border-color: #38a169;
+            color: #38a169;
+            background: rgba(56, 161, 105, 0.1);
+        }
+
+        .pdf-btn svg {
+            width: 14px;
+            height: 14px;
+            stroke: currentColor;
+        }
+
+        .cover {
+            padding-top: 60px !important;
+        }
+
+        @media print {
+            .site-nav {
+                display: none !important;
+            }
+            .cover {
+                padding-top: 0 !important;
+                min-height: auto;
+                padding: 3cm 2cm;
+                page-break-after: always;
+                background: var(--primary) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .scroll-indicator {
+                display: none;
+            }
+            section {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+            .toc {
+                page-break-after: always;
+            }
+            body {
+                font-size: 11pt;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            h2 { font-size: 14pt; }
+            h3 { font-size: 12pt; }
+            .model-card {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .site-nav {
+                padding: 0.6rem 1rem;
+            }
+            .site-nav-back span {
+                display: none;
+            }
+            .pdf-btn span {
+                display: none;
+            }
+        }
+
+        /* ========== ORIGINAL STYLES ========== */
+        :root {
+            --primary: #2d2418;
+            --secondary: #4a3828;
+            --accent: #c9973e;
+            --light: #f7fafc;
+            --dark: #1a202c;
+            --gray: #718096;
+            --success: #38a169;
+            --warning: #d69e2e;
+            --danger: #e53e3e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        /* COVER PAGE */
+        .cover {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201,151,62,0.15) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.3; }
+        }
+
+        .cover-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .cover h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+
+        .cover h1 strong {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .cover .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cover .meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+
+        .cover .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: var(--accent);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 2rem;
+        }
+
+        .cover .author {
+            margin-top: 1.5rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.6);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* MAIN CONTENT */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* TABLE OF CONTENTS */
+        .toc {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .toc h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .toc-list {
+            list-style: none;
+            counter-reset: toc-counter;
+        }
+
+        .toc-list li {
+            counter-increment: toc-counter;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .toc-list li:last-child {
+            border-bottom: none;
+        }
+
+        .toc-list a {
+            color: var(--dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.2s;
+        }
+
+        .toc-list a:hover {
+            color: var(--accent);
+        }
+
+        .toc-list a::before {
+            content: counter(toc-counter);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        /* SECTIONS */
+        section {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        h3 {
+            color: var(--secondary);
+            font-size: 1.25rem;
+            margin: 2rem 0 1rem;
+        }
+
+        h4 {
+            color: var(--gray);
+            font-size: 1rem;
+            margin: 1.5rem 0 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        /* TABLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 0.875rem 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        tr:hover {
+            background: #edf2f7;
+        }
+
+        /* BOXES */
+        .box {
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .box-info {
+            background: #ebf8ff;
+            border-left: 4px solid #3182ce;
+        }
+
+        .box-warning {
+            background: #fffaf0;
+            border-left: 4px solid var(--warning);
+        }
+
+        .box-danger {
+            background: #fff5f5;
+            border-left: 4px solid var(--danger);
+        }
+
+        .box-success {
+            background: #f0fff4;
+            border-left: 4px solid var(--success);
+        }
+
+        .box-highlight {
+            background: #fffbeb;
+            border-left: 4px solid var(--accent);
+        }
+
+        .box-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* BLOCKQUOTE */
+        blockquote {
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            background: #fffaf0;
+            font-style: italic;
+            color: var(--gray);
+        }
+
+        blockquote cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* LISTS */
+        ul, ol {
+            margin: 1rem 0 1rem 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* TIMELINE */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent), var(--primary));
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.25rem;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--accent);
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        /* STEP CARDS */
+        .step-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .step-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            color: white;
+            text-align: center;
+        }
+
+        .step-card .step-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-card h4 {
+            color: white;
+            text-transform: none;
+            letter-spacing: normal;
+            margin: 0 0 0.5rem;
+            font-size: 1rem;
+        }
+
+        .step-card p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            text-align: center;
+            margin: 0;
+        }
+
+        /* STAT CARDS */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.25rem;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        .stat-card:hover {
+            border-color: var(--accent);
+        }
+
+        .stat-card .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 0.25rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--accent);
+        }
+
+        .license-box {
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            max-width: 600px;
+            margin: 2rem auto;
+            text-align: left;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .cover h1 {
+                font-size: 1.75rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            table {
+                font-size: 0.8rem;
+            }
+
+            th, td {
+                padding: 0.5rem;
+            }
+
+            .step-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Site Navigation -->
+    <nav class="site-nav">
+        <div class="site-nav-left">
+            <a href="../index.html" class="site-nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span>RAPORLAR</span>
+            </a>
+        </div>
+        <div class="site-nav-right">
+            <button class="pdf-btn" onclick="window.print()">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>PDF</span>
+            </button>
+            <div class="site-nav-lang">
+                <button class="site-nav-lang-btn active">TR</button>
+                <a href="sturgeon-yasasi-en.html" class="site-nav-lang-btn">EN</a>
+            </div>
+        </div>
+    </nav>
+
+<!-- KAPAK SAYFASI -->
+<header class="cover">
+    <div class="cover-content">
+        <h1><strong>Sturgeon Yasası</strong></h1>
+        <p class="subtitle">"Her Şeyin Yüzde Doksanı Çöptür"<br>Vasatlığın Evrensel Dağılımı Üzerine Veri Destekli Bir Araştırma Notu</p>
+        <span class="badge">ARAŞTIRMA NOTU</span>
+
+        <div class="meta">
+            <div class="meta-item">
+                <span>&#x1F4C5;</span>
+                <span>Şubat 2026</span>
+            </div>
+            <div class="meta-item">
+                <span>&#x1F4C4;</span>
+                <span>v1.0</span>
+            </div>
+            <div class="meta-item">
+                <span>&#x1F513;</span>
+                <span>Açık Erişim</span>
+            </div>
+        </div>
+
+        <p class="author">Araştırma ve derleme: Claude Code, 20 Şubat 2026</p>
+    </div>
+
+    <div class="scroll-indicator">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+    </div>
+</header>
+
+<main class="container">
+
+<!-- İÇİNDEKİLER -->
+<nav class="toc">
+    <h2>İçindekiler</h2>
+    <ol class="toc-list">
+        <li><a href="#kaynak">Kaynak: Theodore Sturgeon</a></li>
+        <li><a href="#dogus">Yasa Nasıl Doğdu</a></li>
+        <li><a href="#arguman">Argüman Yapısı</a></li>
+        <li><a href="#ampirik">Ampirik Testler — %90 Gerçek mi?</a></li>
+        <li><a href="#yankilar">Yankılar — İlişkili Kavramlar</a></li>
+        <li><a href="#karsi">Karşı Argümanlar ve Sınırlılıklar</a></li>
+        <li><a href="#icgoru">Derin İçgörü — Çöp Oranı Alanın Gücünü Azaltmaz</a></li>
+        <li><a href="#sonuc">Sonuç</a></li>
+        <li><a href="#kaynaklar">Kaynaklar</a></li>
+        <li><a href="#lisans">Lisans ve Kullanım Hakları</a></li>
+    </ol>
+</nav>
+
+<!-- BÖLÜM 1: KAYNAK -->
+<section id="kaynak">
+    <h2>1. Kaynak: Theodore Sturgeon</h2>
+
+    <p>Theodore Sturgeon (1918–1985), Amerikan bilimkurgu yazarı. 400'den fazla eleştiri, 120'den fazla kısa hikâye, 11 roman. <em>More Than Human</em> (1953) ile International Fantasy Award kazandı. Star Trek'in orijinal serisine senaryo yazdı.</p>
+
+    <blockquote>
+        "1940'lardan 1960'lara kadar en etkili bilimkurgu yazarıydı."
+        <cite>— Samuel R. Delany</cite>
+    </blockquote>
+
+    <p>Sturgeon, döneminin bilimkurgu yazarları arasında ayrıksıydı: yalnızlık, aşk, cinsellik, hermafroditizm, eşcinsellik gibi konuları işleyen neredeyse tek isimdi. Kahramanları tipik olarak baskılanmış gençlerdi.</p>
+
+    <div class="stat-grid">
+        <div class="stat-card">
+            <div class="stat-value">400+</div>
+            <div class="stat-label">Eleştiri</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">120+</div>
+            <div class="stat-label">Kısa Hikâye</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">11</div>
+            <div class="stat-label">Roman</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">2000</div>
+            <div class="stat-label">Hall of Fame</div>
+        </div>
+    </div>
+
+    <p>2000 yılında Science Fiction and Fantasy Hall of Fame'e alındı.</p>
+</section>
+
+<!-- BÖLÜM 2: DOĞUŞ -->
+<section id="dogus">
+    <h2>2. Yasa Nasıl Doğdu</h2>
+
+    <h3>2.1 Bağlam</h3>
+
+    <p>1950'lerde bilimkurgu "Buck Rogers masalları" olarak küçümseniyordu. Eleştirmenler türün en kötü örneklerini seçip "bilimkurgunun %90'ı çöp" diyerek türü toptan reddediyordu.</p>
+
+    <h3>2.2 Orijinal Söz (Eylül 1953, Philadelphia WorldCon)</h3>
+
+    <blockquote>
+        "İnsanlar polisiye romandan söz ettiğinde The Maltese Falcon'ı ve The Big Sleep'i anarlar. Western'den söz ettiklerinde The Way West'i ve Shane'i anarlar. Ama bilimkurgudan söz ettiklerinde 'şu Buck Rogers masalları' derler ve 'bilimkurgunun yüzde doksanı çöptür' derler. Haklılar. Bilimkurgunun yüzde doksanı çöptür. Ama her şeyin yüzde doksanı çöptür. Önemli olan çöp olmayan yüzde ondur. Ve bilimkurgunun çöp olmayan yüzde onu, herhangi bir yerde yazılmakta olan herhangi bir şeyin en iyisi kadar iyi ya da daha iyidir."
+        <cite>— James Gunn'ın aktarımıyla</cite>
+    </blockquote>
+
+    <h3>2.3 Yazılı Form (Mart 1958, Venture Science Fiction)</h3>
+
+    <blockquote>
+        "Sturgeon'ın Vahyi'ni tekrarlıyorum; yirmi yıl boyunca bilimkurguyu, alanın en kötü örneklerini cephane olarak kullanan insanlara karşı bıktırıcı bir savunma sonunda benden sıkılarak çıkmıştır."
+        <br><br>
+        "Vahiy: Her şeyin yüzde doksanı çöptür."
+        <cite>— Theodore Sturgeon, Venture Science Fiction, Mart 1958</cite>
+    </blockquote>
+
+    <h3>2.4 İki Ayrı Formül</h3>
+
+    <div class="box box-info">
+        <div class="box-title">&#x2139;&#xFE0F; İki Formül</div>
+        <ul>
+            <li><strong>Sturgeon'ın Vahyi:</strong> "Her şeyin yüzde doksanı çöptür."</li>
+            <li><strong>Sturgeon Yasası:</strong> "Hiçbir şey her zaman mutlak değildir." (<em>Nothing is always absolutely so.</em>)</li>
+        </ul>
+        <p>İkincisi birincisinin üst ilkesi: %90 bile mutlak değil.</p>
+    </div>
+</section>
+
+<!-- BÖLÜM 3: ARGÜMAN YAPISI -->
+<section id="arguman">
+    <h2>3. Argüman Yapısı</h2>
+
+    <p>Sturgeon'ın savunması dört adımlı bir mantık zinciri:</p>
+
+    <div class="step-grid">
+        <div class="step-card">
+            <div class="step-number">1</div>
+            <h4>Kabul</h4>
+            <p>Bilimkurgunun %90'ı çöptür — doğrudan kabul, inkâr yok.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">2</div>
+            <h4>Genelleme</h4>
+            <p>Her şeyin %90'ı çöptür — bilimkurgu bu konuda özel değil.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">3</div>
+            <h4>Sonuç</h4>
+            <p>Bir türü en kötü örnekleriyle yargılamak mantık hatası.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">4</div>
+            <h4>İddia</h4>
+            <p>Tür, en iyi örnekleriyle değerlendirilmeli.</p>
+        </div>
+    </div>
+
+    <div class="box box-success">
+        <div class="box-title">&#x2713; Argüman Türü</div>
+        <p>Bu bir savunma argümanı: savunulanı yüceltmiyor, saldırının gerekçesini yıkıyor.</p>
+    </div>
+</section>
+
+<!-- BÖLÜM 4: AMPİRİK TESTLER -->
+<section id="ampirik">
+    <h2>4. Ampirik Testler — %90 Gerçek mi?</h2>
+
+    <p>%90 rakamı retorik — "büyük çoğunluk" demek için kullanılmış, kesin bir ölçüm değil. Ama veriler bunu destekliyor mu?</p>
+
+    <h3>4.1 Akademik Yayıncılık</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Veri</th>
+                <th>Oran</th>
+                <th>Kaynak</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>İnsani bilimlerde hiç alıntılanmayan makaleler</td>
+                <td><strong>%82</strong></td>
+                <td>Thomson Web of Science, LSE 2014</td>
+            </tr>
+            <tr>
+                <td>Doğa bilimlerinde hiç alıntılanmayan</td>
+                <td>%27</td>
+                <td>Thomson Web of Science, LSE 2014</td>
+            </tr>
+            <tr>
+                <td>Tıpta hiç alıntılanmayan</td>
+                <td>%12</td>
+                <td>Thomson Web of Science, LSE 2014</td>
+            </tr>
+            <tr>
+                <td>Psikoloji çalışmalarında doğrulanamama oranı</td>
+                <td><strong>%64</strong></td>
+                <td>Open Science Collaboration, 2015</td>
+            </tr>
+            <tr>
+                <td>Kanser araştırmalarında doğrulanamama</td>
+                <td><strong>%89</strong></td>
+                <td>Begley &amp; Ellis, 2012</td>
+            </tr>
+            <tr>
+                <td>Araştırma fonlarının israf oranı</td>
+                <td><strong>%85</strong></td>
+                <td>Chalmers &amp; Glasziou, The Lancet, 2009</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>4.2 Müzik</h3>
+
+    <p>Spotify verileri (2023 Luminate raporu):</p>
+
+    <div class="stat-grid">
+        <div class="stat-card">
+            <div class="stat-value">184M</div>
+            <div class="stat-label">Toplam parça</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">%24.8</div>
+            <div class="stat-label">Sıfır dinleme (45.6M)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">%86.2</div>
+            <div class="stat-label">1.000'den az dinleme</div>
+        </div>
+    </div>
+
+    <p>10 milyon sanatçının yarısı ömür boyu 100'den az toplam dinleme almış.</p>
+
+    <h3>4.3 Patentler</h3>
+
+    <p><strong>%97</strong> hiç para kazandırmaz. FTC: ticari başarı oranı <strong>%1'den az</strong>.</p>
+
+    <h3>4.4 Girişimler</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Gösterge</th>
+                <th>Oran</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>10 yılda kapanma oranı</td>
+                <td><strong>%65</strong></td>
+            </tr>
+            <tr>
+                <td>İlk kez girişimci başarı oranı</td>
+                <td>%18</td>
+            </tr>
+            <tr>
+                <td>Blockchain girişimleri başarısızlık</td>
+                <td><strong>%95</strong></td>
+            </tr>
+            <tr>
+                <td>AI girişimleri başarısızlık</td>
+                <td><strong>%90</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>4.5 Kitap Yayıncılığı</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Gösterge</th>
+                <th>Veri</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Yıllık yayın sayısı</td>
+                <td>~3 milyon kitap</td>
+            </tr>
+            <tr>
+                <td>100'den az kopya satışı</td>
+                <td><strong>%79</strong></td>
+            </tr>
+            <tr>
+                <td>2.000'den az kopya satışı</td>
+                <td><strong>%90</strong></td>
+            </tr>
+            <tr>
+                <td>NYT Best Seller'a girme oranı</td>
+                <td>%0.08</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>4.6 Film</h3>
+
+    <p>Rotten Tomatoes ortalama puanı: <strong>%46</strong>. Kârlılık: <strong>%59</strong> zarar.</p>
+
+    <h3>4.7 Yazılım</h3>
+
+    <p>Haftalık teknik borç oranı: <strong>%42</strong> (Stripe). ABD teknik borç maliyeti: <strong>2.41 trilyon dolar</strong>.</p>
+
+    <h3>4.8 Tıp</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Gösterge</th>
+                <th>Oran</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tanı hatası</td>
+                <td>%10-15</td>
+            </tr>
+            <tr>
+                <td>Yoğun bakım/ölüm tanı hatası</td>
+                <td><strong>%23</strong></td>
+            </tr>
+            <tr>
+                <td>Hekimlerin ayda en az bir hata bildirme oranı</td>
+                <td><strong>%50</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>4.9 Uygulamalar</h3>
+
+    <p>80+ uygulamadan <strong>%62</strong> hiç kullanılmıyor. iOS 30 gün tutma oranı: <strong>%3.7</strong>.</p>
+
+    <h3>4.10 Özet Tablo</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Alan</th>
+                <th>"Çöp" Oranı</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Akademik makaleler (insani bilimler, alıntılanmayan)</td>
+                <td><strong>%82</strong></td>
+            </tr>
+            <tr>
+                <td>Müzik (1.000'den az dinleme)</td>
+                <td><strong>%86.2</strong></td>
+            </tr>
+            <tr>
+                <td>Patentler (hiç kazandırmayan)</td>
+                <td><strong>%97</strong></td>
+            </tr>
+            <tr>
+                <td>Girişimler (blockchain)</td>
+                <td><strong>%95</strong></td>
+            </tr>
+            <tr>
+                <td>Girişimler (AI)</td>
+                <td><strong>%90</strong></td>
+            </tr>
+            <tr>
+                <td>Kitaplar (2.000'den az kopya)</td>
+                <td><strong>%90</strong></td>
+            </tr>
+            <tr>
+                <td>Film (zarar eden)</td>
+                <td><strong>%59</strong></td>
+            </tr>
+            <tr>
+                <td>Yazılım (haftalık teknik borç)</td>
+                <td><strong>%42</strong></td>
+            </tr>
+            <tr>
+                <td>Tıp (tanı hatası)</td>
+                <td>%10-15</td>
+            </tr>
+            <tr>
+                <td>Uygulamalar (hiç kullanılmayan)</td>
+                <td><strong>%62</strong></td>
+            </tr>
+            <tr>
+                <td>iOS uygulamaları (30 gün tutma)</td>
+                <td><strong>%96.3</strong> (kaybedilen)</td>
+            </tr>
+            <tr>
+                <td>Kanser araştırmaları (doğrulanamayan)</td>
+                <td><strong>%89</strong></td>
+            </tr>
+            <tr>
+                <td>Araştırma fonları (israf)</td>
+                <td><strong>%85</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="box box-info">
+        <div class="box-title">&#x2139;&#xFE0F; Değerlendirme</div>
+        <p>%90 rakamı kesin bir ölçüm değil, bir büyüklük sırası. Ama verilerin büyük çoğunluğu bu büyüklük sırasını destekliyor: kalite dağılımı hemen her alanda asimetrik ve ağır kuyruklu.</p>
+    </div>
+</section>
+
+<!-- BÖLÜM 5: YANKILAR -->
+<section id="yankilar">
+    <h2>5. Yankılar — İlişkili Kavramlar</h2>
+
+    <h3>5.1 Pareto İlkesi (%80/20)</h3>
+
+    <p><strong>Vilfredo Pareto, 1896:</strong> İtalya'da toprağın %80'i nüfusun %20'sine aitti. <strong>Joseph Juran</strong> bunu kalite kontrolüne uyarladı: "Sorunların %80'i nedenlerin %20'sinden gelir."</p>
+
+    <div class="box box-info">
+        <div class="box-title">&#x2139;&#xFE0F; Sturgeon — Pareto İlişkisi</div>
+        <p>Sturgeon ve Pareto aynı olguyu farklı açılardan gözlemliyor: Pareto değerin yoğunlaşmasını, Sturgeon çöp oranını ölçer. İkisi de normal dağılımın geçerli olmadığını gösterir.</p>
+    </div>
+
+    <h3>5.2 Güç Yasası Dağılımları</h3>
+
+    <p>Kalite normal dağılmaz, güç yasası izler. Az sayıda ürün orantısız etki yaratır. Bu dağılımda medyan, ortalamadan çok düşüktür — çoğunluk "ortalamanın altında"dır.</p>
+
+    <h3>5.3 Gresham Yasası: Kötü İyiyi Kovar</h3>
+
+    <p><strong>Parasal köken:</strong> Sir Thomas Gresham, 16. yüzyıl. Düşük değerli para piyasaya girdiğinde, yüksek değerli para dolaşımdan çekilir.</p>
+
+    <p><strong>Modern uygulamalar:</strong> Clickbait kaliteli gazeteciliği kovar. Ucuz moda sürdürülebilir üreticileri bitirir. Algoritmik içerik özgün içeriği görünmez kılar.</p>
+
+    <div class="box box-warning">
+        <div class="box-title">&#x26A0; Kritik Ayrım</div>
+        <p><strong>Sturgeon</strong> kalite dağılımının doğal olduğunu söyler. <strong>Gresham</strong> ise kalite düşüşünün kurumsal dinamiklerden kaynaklandığını iddia eder — kötü iyiyi aktif olarak siliyor.</p>
+        <p>Sturgeon betimler, Gresham mekanizma gösterir.</p>
+    </div>
+
+    <h3>5.4 Dunning-Kruger Etkisi</h3>
+
+    <p><strong>Kruger &amp; Dunning (1999):</strong> Alt çeyreklik performans gösteren katılımcılar kendilerini 62. yüzdelikte tahmin etti. Gerçek performansları: 12. yüzdelik.</p>
+
+    <div class="box box-danger">
+        <div class="box-title">&#x26A0; Sturgeon Bağlantısı</div>
+        <p>%90'ı üreten kişiler çoğu kez çöp ürettiklerinin farkında değil. Dunning-Kruger, Sturgeon'ın %90'ının neden bu kadar dirençli olduğunu açıklar: üretici kendi ürününü değerli sanar.</p>
+    </div>
+
+    <h3>5.5 Taleb: Sinyal ve Gürültü</h3>
+
+    <p>Nassim Nicholas Taleb'in <em>Fooled by Randomness</em> ve <em>The Black Swan</em> eserlerindeki analiz:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Gözlem Sıklığı</th>
+                <th>Sinyal</th>
+                <th>Gürültü</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Yıllık</td>
+                <td>%50</td>
+                <td>%50</td>
+            </tr>
+            <tr>
+                <td>Günlük</td>
+                <td>%5</td>
+                <td><strong>%95</strong></td>
+            </tr>
+            <tr>
+                <td>Saatlik</td>
+                <td>%0.5</td>
+                <td><strong>%99.5</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Gözlem sıklığı arttıkça gürültü oranı patlar. Sturgeon'ın %90'ı, Taleb'in "gürültüsü" ile eşdeğerdir: çoğunluk sinyal değil, gürültüdür.</p>
+
+    <h3>5.6 Sturgeon'dan Önce</h3>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <span class="timeline-date">MÖ ~500 — Herakleitos</span>
+            <p>"Çoğunluk kötüdür." Sturgeon'ın ruhu 2500 yıl önce Efes'te dolanıyordu.</p>
+        </div>
+        <div class="timeline-item">
+            <span class="timeline-date">MÖ 405 — Aristophanes</span>
+            <p><em>Kurbağalar</em> komedyasında edebiyatın büyük bölümünü "çöpür iş" olarak tanımlar.</p>
+        </div>
+        <div class="timeline-item">
+            <span class="timeline-date">1953 — Theodore Sturgeon</span>
+            <p>Gözlemi sistematik bir savunma argümanına dönüştürüp isim koyan ilk kişi.</p>
+        </div>
+    </div>
+</section>
+
+<!-- BÖLÜM 6: KARŞI ARGÜMANLAR -->
+<section id="karsi">
+    <h2>6. Karşı Argümanlar ve Sınırlılıklar</h2>
+
+    <h3>6.1 %90 Rakamı Keyfî</h3>
+
+    <p>Evet, retorik. "Büyük çoğunluk" demek için kullanılmış. Ama büyüklük sırası tutarlı: verilerin çoğu %60-97 aralığında, yani "çoğunluk vasattır" gözlemi geçerli.</p>
+
+    <h3>6.2 Hayatta Kalma Yanlılığı</h3>
+
+    <p>Bugünden geriye baktığımızda eski dönemler daha "kaliteli" görünür. Bunun üç sebebi var:</p>
+
+    <ul>
+        <li><strong>Zaman filtresi:</strong> Zamanın elediği çöp görünmez olur; geri kalan %10 "dönem" olur.</li>
+        <li><strong>Nostalji filtresi:</strong> Kişisel deneyimle seçilmiş örnekler tümü temsil etmez.</li>
+        <li><strong>İthalat filtresi:</strong> Başka kültürlerden yalnızca en iyiler gelir.</li>
+    </ul>
+
+    <h3>6.3 Alan Bağımlılığı</h3>
+
+    <p>Giriş engeli yüksek alanlarda oran düşer (tıp: %10-15 hata), düşük alanlarda artar (uygulama: %62 kullanılmayan). Dijitalleşme giriş engelini düşürdüğü her yerde çöp oranını artırıyor.</p>
+
+    <h3>6.4 "Çöp"ü Kim Belirler?</h3>
+
+    <p>Kalite öznel. Farklı kalite eksenleri var: ticari başarı, eleştirel beğeni, sürdürülebilir etki, teknik yetkinlik. Bir alanda "çöp" olan, başka eksende değerli olabilir.</p>
+
+    <h3>6.5 Oran Zamanla Değişiyor mu?</h3>
+
+    <blockquote>
+        "%90 düşük kalıyor olabilir."
+        <cite>— Tom Nichols, The Death of Expertise</cite>
+    </blockquote>
+
+    <p>Dijitalleşme üretim engelini düşürdü, çöp hacmi patladı. Oran aynı kalsa bile mutlak sayı katlandı.</p>
+
+    <h3>6.6 %90 Zorunlu mu?</h3>
+
+    <p>İnovasyon literatürü: başarısızlık bilgi üretir. Denemeden başarı gelmez, denemelerin çoğu başarısız olur.</p>
+
+    <div class="box box-highlight">
+        <div class="box-title">&#x1F4A1; Kilit İçgörü</div>
+        <p><strong>%90'ı ortadan kaldırırsan, %10 da ortadan kalkar — çünkü %10, %90'ın içinden çıkıyor.</strong></p>
+        <p>Evrimsel analoji: mutasyonların %99'u zararlı veya nötr, ama havuzu ortadan kaldırırsan adaptasyon durur. %90 çöp değil, deneme alanıdır.</p>
+    </div>
+</section>
+
+<!-- BÖLÜM 7: DERİN İÇGÖRÜ -->
+<section id="icgoru">
+    <h2>7. Derin İçgörü — Çöp Oranı Alanın Gücünü Azaltmaz</h2>
+
+    <h3>7.1 Sturgeon'ın Kendi Argümanı</h3>
+
+    <p>Yasanın amacı zaten bu: bilimkurgunun %90'ı çöp diye tür başarısız değildir. Aynı şey her alan için geçerli. Türü en kötü örnekleriyle yargılamak basit bir mantık hatası.</p>
+
+    <h3>7.2 Ekolojik Argüman</h3>
+
+    <p>Mutasyonların büyük çoğunluğu zararlı veya nötr. Ama havuz zorunlu: faydalı mutasyonlar ancak geniş bir deneme havuzundan çıkar. Başarısızlık, başarının önkoşulu.</p>
+
+    <h3>7.3 Seçilim Mekanizmaları</h3>
+
+    <p>Çöp havuzundan değeri çıkartan dört mekanizma:</p>
+
+    <ul>
+        <li><strong>Editöryal filtreler:</strong> Hakem değerlendirmesi, küratör seçimi, editöryal standartlar.</li>
+        <li><strong>Piyasa filtreleri:</strong> Tüketici tercihi, rekabet, fiyat sinyali.</li>
+        <li><strong>Zaman filtresi:</strong> Kalıcı etki bırakma, nesiller boyunca sürme.</li>
+        <li><strong>Topluluk filtreleri:</strong> Uzman konsensüsü, kanon oluşumu, kolektif bellek.</li>
+    </ul>
+
+    <h3>7.4 Asıl Tehlike</h3>
+
+    <p>Gresham + Taleb gürültü analizi birleştirildiğinde gerçek risk ortaya çıkar:</p>
+
+    <div class="box box-danger">
+        <div class="box-title">&#x26A0; Algoritmik Gresham Etkisi</div>
+        <p><strong>Algoritmik öneriler %90'ı ödüllendirdiğinde, %10 var ama bulunamaz hale gelir.</strong></p>
+        <p>Sorun çöp oranı değil — o doğal. Sorun, seçilim mekanizmalarının bozulması: clickbait algoritması kaliteyi değil etkileşimi ölçer, ve etkileşim genellikle kaliteyle ters orantılı. Filtre kırıldığında Sturgeon'ın doğal %90'ı, Gresham'ın aktif kovma mekanizmasına dönüşür.</p>
+    </div>
+</section>
+
+<!-- BÖLÜM 8: SONUÇ -->
+<section id="sonuc">
+    <h2>8. Sonuç</h2>
+
+    <blockquote>
+        "Sturgeon Yasası ne teselli ne sinizm. Bir gözlem aritmetiği."
+    </blockquote>
+
+    <h3>Üç Temel Çıktı</h3>
+
+    <p><strong>1. Çoğunluk her yerde vasattır.</strong> Alarm değil, arka plan. Alarm verilecek an: vasatlığın iyiyi kovmaya başladığı an (Gresham). Akademik yayıncılıkta %82 alıntılanmayan makale, müzikteki %86 dinlenmeyen parça — bunlar patolojik değil, doğal. Alarm: bu %86'nın algoritmik olarak %14'ün önüne geçmesi.</p>
+
+    <p><strong>2. %90'ın çöp olması, %10'un gücünü azaltmaz.</strong> Hukuk sistemindeki davaların çoğu önemsizdir ama içtihat yaratan kararların gücü bundan etkilenmez. Tıpta tanı hatası %10-15'tir ama doğru tanının hayat kurtarma gücü bundan azalmaz. Psikoloji çalışmalarının %64'ü doğrulanamaz ama doğrulanan %36'nın insani bilgiye katkısı bundan düşülmez.</p>
+
+    <p><strong>3. Ama %90'ın varlığı, %10'u bulmayı zorlaştırır.</strong> Bu pratik sorun, yasanın en az tartışılmış ama en önemli boyutu.</p>
+
+    <blockquote>
+        "Çöpe yuhalamakla vakit kaybetmeyin. İyinin peşine düşün ya da bulaşmayın."
+        <cite>— Daniel Dennett (serbest aktarım)</cite>
+    </blockquote>
+</section>
+
+<!-- BÖLÜM 9: KAYNAKLAR -->
+<section id="kaynaklar">
+    <h2>9. Kaynaklar</h2>
+
+    <h4>Sturgeon Yasası — Birincil Kaynaklar</h4>
+    <ul>
+        <li>Sturgeon, T. (1958). "On Hand." <em>Venture Science Fiction</em>, Mart 1958.</li>
+        <li>Gunn, J. (2002). "Theodore Sturgeon." <em>The Road to Science Fiction</em>, Scarecrow Press.</li>
+        <li>Delany, S.R. (2009). <em>The Jewel-Hinged Jaw.</em> Wesleyan University Press.</li>
+    </ul>
+
+    <h4>Ampirik Veriler</h4>
+    <ul>
+        <li>Begley, C.G. &amp; Ellis, L.M. (2012). "Raise standards for preclinical cancer research." <em>Nature</em>, 483.</li>
+        <li>Chalmers, I. &amp; Glasziou, P. (2009). "Avoidable waste in the production and reporting of research evidence." <em>The Lancet</em>, 374.</li>
+        <li>Luminate (2023). <em>Midyear Music Report.</em></li>
+        <li>Open Science Collaboration (2015). "Estimating the reproducibility of psychological science." <em>Science</em>, 349.</li>
+        <li>Stripe (2018). <em>The Developer Coefficient.</em></li>
+        <li>Thomson Web of Science / LSE (2014). Impact of Social Sciences Blog.</li>
+    </ul>
+
+    <h4>İlişkili Kavramlar</h4>
+    <ul>
+        <li>Dunning, D. &amp; Kruger, J. (1999). "Unskilled and Unaware of It." <em>Journal of Personality and Social Psychology</em>, 77(6).</li>
+        <li>Nichols, T. (2017). <em>The Death of Expertise.</em> Oxford University Press.</li>
+        <li>Pareto, V. (1896). <em>Cours d'économie politique.</em> Lausanne.</li>
+        <li>Taleb, N.N. (2001). <em>Fooled by Randomness.</em> Random House.</li>
+        <li>Taleb, N.N. (2007). <em>The Black Swan.</em> Random House.</li>
+    </ul>
+
+    <h4>Tarihsel Öncüller</h4>
+    <ul>
+        <li>Herakleitos, Fragmanlar (MÖ ~500). <em>Die Fragmente der Vorsokratiker</em>, Diels-Kranz.</li>
+        <li>Aristophanes (MÖ 405). <em>Kurbağalar.</em></li>
+    </ul>
+</section>
+
+<!-- BÖLÜM 10: LİSANS -->
+<section id="lisans">
+    <h2>10. Lisans ve Kullanım Hakları</h2>
+
+    <div class="box box-success">
+        <div class="box-title">&#x1F513; Açık Erişim Bildirimi</div>
+        <p>Bu rapor <strong>kamuya açıktır</strong> ve <strong>herhangi bir hak sahipliği talebi içermemektedir</strong>.</p>
+        <p><strong>İlke:</strong> "Bu tip çalışmalar herkesin malıdır."</p>
+    </div>
+
+    <h3>Kullanım Koşulları</h3>
+
+    <p>Bu raporu:</p>
+    <ul>
+        <li><strong>Okuyabilir, paylaşabilir, dağıtabilirsiniz</strong> — herhangi bir amaçla</li>
+        <li><strong>Kopyalayabilir, uyarlayabilir, dönüştürebilirsiniz</strong> — ticari dahil</li>
+        <li><strong>Atıf zorunluluğu yoktur</strong> — ancak takdir edilir</li>
+        <li><strong>Türev çalışmalar üretebilirsiniz</strong> — aynı özgürlüklerle</li>
+    </ul>
+
+    <h3>Sorumluluk Reddi</h3>
+
+    <p>Bu rapor:</p>
+    <ul>
+        <li>Kesin iddialar değil, veri destekli gözlemler sunmaktadır</li>
+        <li>Akademik hakemli yayın değildir</li>
+        <li>İnsan-yapay zekâ işbirliğiyle üretilmiştir</li>
+        <li>Hataları, eksiklikleri, spekülatif unsurları içerebilir</li>
+        <li>"Olduğu gibi" (as is) sunulmaktadır</li>
+    </ul>
+
+    <h3>Atıf Önerisi (isteğe bağlı)</h3>
+
+    <blockquote>
+        Uzuner, H. ve Claude Code (2026). "Sturgeon Yasası — Her Şeyin Yüzde Doksanı Çöptür: Veri Destekli Bir Araştırma Notu." [Bağımsız yayın].
+    </blockquote>
+</section>
+
+</main>
+
+<footer>
+    <p><strong>Sturgeon Yasası — Araştırma Notu</strong></p>
+    <p>Versiyon 1.0 | Şubat 2026</p>
+
+    <div class="license-box">
+        <p><strong>Yapay Zekâ Modeli:</strong></p>
+        <p>Claude Code / Claude Opus 4.6 (Anthropic) — Araştırma, derleme, metin üretimi</p>
+        <p style="margin-top: 1rem; opacity: 0.7; font-size: 0.85rem;">Bu çalışma herkesin malıdır. Özgürce kullanın, paylaşın, geliştirin.</p>
+    </div>
+</footer>
+
+</body>
+</html>

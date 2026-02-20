@@ -1438,6 +1438,15 @@
 
         .audio-modal-close:hover { color: var(--text-secondary); }
 
+        .audio-modal-attr {
+            font-family: var(--font-mono);
+            font-size: 0.45rem;
+            color: var(--text-light);
+            letter-spacing: 0.1em;
+            margin-top: 0.8rem;
+            opacity: 0.5;
+        }
+
         /* Bottom entity ambient — organism's pulse at page bottom */
         .bottom-entity {
             position: fixed;
@@ -1746,6 +1755,7 @@
         <audio controls preload="none" id="audioPlayer"></audio>
         <br>
         <button class="audio-modal-close" id="audioModalClose" data-tr="Kapat" data-en="Close">Kapat</button>
+        <div class="audio-modal-attr" id="audioModalAttr"></div>
     </div>
 </div>
 
@@ -1794,7 +1804,11 @@
         { date: '2026-01-30',
           title: { tr: '\u201CAynen Öyle\u201D \u2014 Minimal Onay İfadeleri', en: '\u201CAynen Öyle\u201D \u2014 Minimal Affirmation Expressions' },
           desc: { tr: 'Epistemik ve sosyal işlevleri üzerine araştırma notu ve podcast özeti.', en: 'Research note on epistemic and social functions, with podcast summary.' },
-          status: 'completed' }
+          status: 'completed' },
+        { date: '2026-02-20',
+          title: { tr: 'Sturgeon Yasası \u2014 Her \u015Eeyin %90\u2019\u0131', en: 'Sturgeon\u2019s Law \u2014 90% of Everything' },
+          desc: { tr: 'Vasatl\u0131\u011F\u0131n evrensel da\u011F\u0131l\u0131m\u0131 \u00FCzerine ara\u015Ft\u0131rma notu.', en: 'Research note on universal distribution of mediocrity.' },
+          status: 'active' }
     ];
 
     const emanations = [
@@ -1810,7 +1824,18 @@
           },
           audioTitle: { tr: 'Podcast Özeti', en: 'Podcast Summary' },
           audioSub: { tr: '~8 dakikalık sesli özet', en: '~8 minute audio summary' },
-          illustration: '<svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="105" height="46" rx="10" stroke="#7A6B4E" stroke-width="1" opacity="0.35"/><line x1="24" y1="24" x2="100" y2="24" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><line x1="24" y1="33" x2="90" y2="33" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><line x1="24" y1="42" x2="68" y2="42" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><path d="M32 56 L26 70 L46 56" stroke="#7A6B4E" stroke-width="1" opacity="0.3" fill="none"/><circle cx="134" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><circle cx="145" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><circle cx="156" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><rect x="175" y="18" width="68" height="30" rx="10" stroke="#4A706A" stroke-width="1.2" opacity="0.4"/><circle cx="209" cy="33" r="2.5" fill="#4A706A" opacity="0.3"/><path d="M224 48 L232 60 L218 48" stroke="#4A706A" stroke-width="1.2" opacity="0.4" fill="none"/></svg>' }
+          audioAttr: { tr: 'POYRAZ \u00B7 Google NotebookLM', en: 'YANKIZ \u00B7 ElevenLabs' },
+          illustration: '<svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="105" height="46" rx="10" stroke="#7A6B4E" stroke-width="1" opacity="0.35"/><line x1="24" y1="24" x2="100" y2="24" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><line x1="24" y1="33" x2="90" y2="33" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><line x1="24" y1="42" x2="68" y2="42" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><path d="M32 56 L26 70 L46 56" stroke="#7A6B4E" stroke-width="1" opacity="0.3" fill="none"/><circle cx="134" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><circle cx="145" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><circle cx="156" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><rect x="175" y="18" width="68" height="30" rx="10" stroke="#4A706A" stroke-width="1.2" opacity="0.4"/><circle cx="209" cy="33" r="2.5" fill="#4A706A" opacity="0.3"/><path d="M224 48 L232 60 L218 48" stroke="#4A706A" stroke-width="1.2" opacity="0.4" fill="none"/></svg>' },
+        { id: 'sturgeon-yasasi',
+          category: { tr: 'D\u00DC\u015E\u00DCNCE', en: 'THOUGHT' },
+          date: '2026-02-20',
+          title: { tr: 'Sturgeon Yasas\u0131 \u2014 \u201CHer \u015Eeyin Y\u00FCzde Doksan\u0131 \u00C7\u00F6pt\u00FCr\u201D', en: 'Sturgeon\u2019s Law \u2014 \u201CNinety Percent of Everything Is Crud\u201D' },
+          summary: { tr: 'Vasatl\u0131\u011F\u0131n evrensel da\u011F\u0131l\u0131m\u0131: bilimkurgudan kanser ara\u015Ft\u0131rmalar\u0131na, Spotify\u2019dan antik Yunan\u2019a uzanan veri destekli bir ara\u015Ft\u0131rma notu.', en: 'Universal distribution of mediocrity: a data-backed research note spanning sci-fi to cancer research, Spotify to ancient Greece.' },
+          readUrl: 'raporlar/sturgeon-yasasi.html',
+          audioUrl: null,
+          audioTitle: { tr: 'Podcast', en: 'Podcast' },
+          audioSub: { tr: '~45 dakika', en: '~45 minutes' },
+          illustration: '<svg viewBox="0 0 280 30" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="44" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="72" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="100" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="128" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="156" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="184" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="212" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="240" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="264" cy="15" r="5.5" fill="#4A706A" opacity="0.5"/></svg>' }
     ];
 
     let currentLang = localStorage.getItem('siteLang') || 'tr';
@@ -1944,14 +1969,15 @@
                 <div class="emanation-summary">${em.summary[currentLang]}</div>
                 <div class="emanation-actions">
                     <a href="${em.readUrl}" class="emanation-btn">${currentLang === 'tr' ? 'Oku' : 'Read'}</a>
-                    ${em.audioUrl ? `<a href="#" class="emanation-btn listen" data-audio-url="${typeof em.audioUrl === 'object' ? em.audioUrl[currentLang] : em.audioUrl}" data-audio-title="${em.audioTitle[currentLang]}" data-audio-sub="${em.audioSub[currentLang]}">${currentLang === 'tr' ? 'Podcast' : 'Podcast'}</a>` : ''}
+                    ${em.audioUrl ? `<a href="#" class="emanation-btn listen" data-audio-url="${typeof em.audioUrl === 'object' ? em.audioUrl[currentLang] : em.audioUrl}" data-audio-title="${em.audioTitle[currentLang]}" data-audio-sub="${em.audioSub[currentLang]}" data-audio-attr="${em.audioAttr ? (typeof em.audioAttr === 'object' ? em.audioAttr[currentLang] : em.audioAttr) : ''}">${currentLang === 'tr' ? 'Podcast' : 'Podcast'}</a>` : ''}
                 </div>
             </div>`).join('');
     }
 
-    function openAudioModal(url, title, sub) {
+    function openAudioModal(url, title, sub, attr) {
         document.getElementById('audioModalTitle').textContent = title;
         document.getElementById('audioModalSub').textContent = sub;
+        document.getElementById('audioModalAttr').textContent = attr || '';
         var player = document.getElementById('audioPlayer');
         player.src = url;
         player.load();
@@ -1969,7 +1995,7 @@
         var btn = e.target.closest('.emanation-btn.listen[data-audio-url]');
         if (btn) {
             e.preventDefault();
-            openAudioModal(btn.dataset.audioUrl, btn.dataset.audioTitle, btn.dataset.audioSub);
+            openAudioModal(btn.dataset.audioUrl, btn.dataset.audioTitle, btn.dataset.audioSub, btn.dataset.audioAttr);
         }
     });
 
