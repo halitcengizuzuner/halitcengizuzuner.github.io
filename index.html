@@ -1926,6 +1926,17 @@
         link.addEventListener('click', () => navigateTo(link.dataset.page));
     });
 
+    // Hash-based deep link (e.g. index.html#emanations)
+    var hashPage = location.hash.replace('#', '');
+    if (hashPage && document.getElementById('page-' + hashPage)) {
+        var def = document.getElementById('page-home');
+        if (def) { def.classList.remove('active'); def.style.display = 'none'; }
+        var target = document.getElementById('page-' + hashPage);
+        target.style.display = '';
+        target.classList.add('active');
+        currentPage = hashPage;
+    }
+
     function renderOrbitals() {
         const ring = document.getElementById('orbitalRing');
         const svg = document.getElementById('connectionsSvg');
