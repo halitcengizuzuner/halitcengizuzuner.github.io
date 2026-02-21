@@ -1862,7 +1862,7 @@
           title: { tr: 'Sturgeon Yasası \u2014 Her \u015Eeyin %90\u2019\u0131', en: 'Sturgeon\u2019s Law \u2014 90% of Everything' },
           desc: { tr: 'Vasatl\u0131\u011F\u0131n evrensel da\u011F\u0131l\u0131m\u0131 \u00FCzerine ara\u015Ft\u0131rma notu.', en: 'Research note on universal distribution of mediocrity.' },
           status: 'active' }
-    ];
+    ].sort((a, b) => b.date.localeCompare(a.date));
 
     const emanations = [
         { id: 'aynen-oyle',
@@ -1892,7 +1892,7 @@
           audioTitle: { tr: 'Podcast', en: 'Podcast' },
           audioSub: { tr: '~45 dakika', en: '~45 minutes' },
           illustration: '<svg viewBox="0 0 280 30" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="44" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="72" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="100" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="128" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="156" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="184" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="212" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="240" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="264" cy="15" r="5.5" fill="#4A706A" opacity="0.5"/></svg>' }
-    ];
+    ].sort((a, b) => b.date.localeCompare(a.date));
 
     let currentLang = localStorage.getItem('siteLang') || 'tr';
 
