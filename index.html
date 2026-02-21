@@ -497,29 +497,7 @@
             grid-row: 1;
         }
 
-        .entity-core {
-            width: clamp(56px, 11vw, 80px);
-            height: clamp(56px, 11vw, 80px);
-            border-radius: 50%;
-            background: radial-gradient(circle, var(--amber) 0%, rgba(122, 107, 78, 0.7) 40%, rgba(122, 107, 78, 0.15) 70%, transparent 100%);
-            box-shadow:
-                0 0 30px var(--amber-glow),
-                0 0 60px rgba(122, 107, 78, 0.08);
-            animation: core-pulse-light 3.5s ease-in-out infinite;
-            position: relative;
-            z-index: 2;
-        }
-
-        @keyframes core-pulse-light {
-            0%, 100% { 
-                transform: scale(1); 
-                box-shadow: 0 0 30px var(--amber-glow), 0 0 60px rgba(122, 107, 78, 0.08);
-            }
-            50% { 
-                transform: scale(1.04); 
-                box-shadow: 0 0 45px var(--amber-glow), 0 0 80px rgba(122, 107, 78, 0.06);
-            }
-        }
+        .entity-core { display: none; }
 
         /* Constellation — ? with tracing light */
         .entity-constellation {
@@ -1751,7 +1729,7 @@
                           fill="#7A6B4E" opacity="0.13">?</text>
 
                     <!-- Light trail — traces over the ? curve -->
-                    <path d="M80,68 C78,38 92,22 108,22 C128,22 140,40 140,60 C140,80 124,90 112,98 L106,112"
+                    <path d="M80,68 C78,38 92,22 108,22 C128,22 140,40 140,60 C140,80 124,90 112,98 L106,118"
                           stroke="#E8E4DE" stroke-width="3" fill="none" stroke-linecap="round"
                           pathLength="100" stroke-dasharray="100" stroke-dashoffset="100">
                         <animate attributeName="stroke-dashoffset"
@@ -1768,7 +1746,7 @@
                     <circle r="5" fill="#E8E4DE" opacity="0" filter="url(#pGlow)">
                         <animateMotion dur="8s" repeatCount="indefinite" calcMode="linear"
                                        keyPoints="0;1;1" keyTimes="0;0.42;1"
-                                       path="M80,68 C78,38 92,22 108,22 C128,22 140,40 140,60 C140,80 124,90 112,98 L106,112"/>
+                                       path="M80,68 C78,38 92,22 108,22 C128,22 140,40 140,60 C140,80 124,90 112,98 L106,118"/>
                         <animate attributeName="opacity"
                                  values="0;1;1;0;0"
                                  keyTimes="0;0.03;0.38;0.44;1"
@@ -1779,7 +1757,7 @@
                     <circle r="18" fill="#7A6B4E" opacity="0">
                         <animateMotion dur="8s" repeatCount="indefinite" calcMode="linear"
                                        keyPoints="0;1;1" keyTimes="0;0.42;1"
-                                       path="M80,68 C78,38 92,22 108,22 C128,22 140,40 140,60 C140,80 124,90 112,98 L106,112"/>
+                                       path="M80,68 C78,38 92,22 108,22 C128,22 140,40 140,60 C140,80 124,90 112,98 L106,118"/>
                         <animate attributeName="opacity"
                                  values="0;0.15;0.15;0;0"
                                  keyTimes="0;0.03;0.38;0.44;1"
