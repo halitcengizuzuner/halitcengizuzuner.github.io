@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Halit Cengiz Uzuner</title>
+    <script>
+        // GitHub Pages SPA fallback
+        // Gerçek dosya yoksa (örn. /core/) bu sayfa devreye girer,
+        // yolu sessionStorage'a kaydedip ana sayfaya yönlendirir.
+        var path = window.location.pathname;
+        var validPages = ['core', 'assembly', 'emanations', 'portal'];
+        var route = path.replace(/^\/|\/$/g, '');
+        if (validPages.indexOf(route) !== -1) {
+            sessionStorage.setItem('spa-redirect', path);
+            window.location.replace('/');
+        }
+    </script>
+</head>
+<body>
+    <p>Sayfa bulunamadı. <a href="/">Ana sayfaya dön.</a></p>
+</body>
+</html>

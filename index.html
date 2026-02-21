@@ -11,6 +11,30 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://halitcengizuzuner.com/">
     <link rel="canonical" href="https://halitcengizuzuner.com/">
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/">
+    <link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/">
+    <link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/">
+    <!-- OG extras -->
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="Halit Cengiz Uzuner">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Halit Cengiz Uzuner">
+    <meta name="twitter:description" content="Dijital organizma. Düşünme disiplini, argümantasyon refleksi, sınırsız merak.">
+    <!-- JSON-LD Person Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Halit Cengiz Uzuner",
+        "url": "https://halitcengizuzuner.com",
+        "description": "1995'ten beri hukukçu. Düşünme disiplini, argümantasyon refleksi, sınırsız merak.",
+        "jobTitle": "Hukukçu",
+        "knowsLanguage": ["tr", "en"]
+    }
+    </script>
     <title>Halit Cengiz Uzuner</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1617,11 +1641,11 @@
             </button>
             <nav class="nav-dropdown" id="navDropdown">
                 <ul class="nav-menu">
-                    <li><a class="nav-link" data-page="home"><span data-tr="Ana" data-en="Home">Ana</span><span class="nav-link-sub" data-tr="organizma" data-en="organism">organizma</span></a></li>
-                    <li><a class="nav-link" data-page="core"><span data-tr="Çekirdek" data-en="Core">Çekirdek</span><span class="nav-link-sub" data-tr="düşünce gövdesi" data-en="thought trunk">düşünce gövdesi</span></a></li>
-                    <li><a class="nav-link" data-page="assembly"><span data-tr="Meclis" data-en="Assembly">Meclis</span><span class="nav-link-sub" data-tr="uzuvlar" data-en="limbs">uzuvlar</span></a></li>
-                    <li><a class="nav-link" data-page="emanations"><span data-tr="Yayılımlar" data-en="Emanations">Yayılımlar</span><span class="nav-link-sub" data-tr="çıktılar" data-en="outputs">çıktılar</span></a></li>
-                    <li><a class="nav-link" data-page="portal"><span data-tr="Portal" data-en="Portal">Portal</span><span class="nav-link-sub" data-tr="kapı" data-en="gate">kapı</span></a></li>
+                    <li><a class="nav-link" href="/" data-page="home"><span data-tr="Ana" data-en="Home">Ana</span><span class="nav-link-sub" data-tr="organizma" data-en="organism">organizma</span></a></li>
+                    <li><a class="nav-link" href="/core/" data-page="core"><span data-tr="Çekirdek" data-en="Core">Çekirdek</span><span class="nav-link-sub" data-tr="düşünce gövdesi" data-en="thought trunk">düşünce gövdesi</span></a></li>
+                    <li><a class="nav-link" href="/assembly/" data-page="assembly"><span data-tr="Meclis" data-en="Assembly">Meclis</span><span class="nav-link-sub" data-tr="uzuvlar" data-en="limbs">uzuvlar</span></a></li>
+                    <li><a class="nav-link" href="/emanations/" data-page="emanations"><span data-tr="Yayılımlar" data-en="Emanations">Yayılımlar</span><span class="nav-link-sub" data-tr="çıktılar" data-en="outputs">çıktılar</span></a></li>
+                    <li><a class="nav-link" href="/portal/" data-page="portal"><span data-tr="Portal" data-en="Portal">Portal</span><span class="nav-link-sub" data-tr="kapı" data-en="gate">kapı</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -1885,6 +1909,53 @@
         renderBranches();
         renderAssembly();
         renderEmanations();
+        updateMeta(currentPage);
+    }
+
+    // ============================================
+    // SEO: Sayfa bazlı meta bilgileri
+    // ============================================
+    var pageMeta = {
+        home: {
+            title: { tr: 'Halit Cengiz Uzuner', en: 'Halit Cengiz Uzuner' },
+            desc: { tr: 'Dijital organizma. Düşünme disiplini, argümantasyon refleksi, sınırsız merak.', en: 'Digital organism. Thinking discipline, argumentation reflex, boundless curiosity.' }
+        },
+        core: {
+            title: { tr: 'Çekirdek — Halit Cengiz Uzuner', en: 'Core — Halit Cengiz Uzuner' },
+            desc: { tr: 'Düşünce gövdesi. 1995\'ten beri hukukçu. Düşünme disiplini, argümantasyon refleksi.', en: 'Thought trunk. Jurist since 1995. Thinking discipline, argumentation reflex.' }
+        },
+        assembly: {
+            title: { tr: 'Meclis — Halit Cengiz Uzuner', en: 'Assembly — Halit Cengiz Uzuner' },
+            desc: { tr: 'Uzuvlar. Claude, NotebookLM, ElevenLabs, Adobe Acrobat, Whisper, Runway, DeepL.', en: 'Limbs. Claude, NotebookLM, ElevenLabs, Adobe Acrobat, Whisper, Runway, DeepL.' }
+        },
+        emanations: {
+            title: { tr: 'Yayılımlar — Halit Cengiz Uzuner', en: 'Emanations — Halit Cengiz Uzuner' },
+            desc: { tr: 'Çekirdekten yayılan araştırma notları ve çıktılar.', en: 'Research notes and outputs emanating from core.' }
+        },
+        portal: {
+            title: { tr: 'Portal — Halit Cengiz Uzuner', en: 'Portal — Halit Cengiz Uzuner' },
+            desc: { tr: 'Güvenli iletişim kanalı.', en: 'Secure communication channel.' }
+        }
+    };
+
+    function updateMeta(pageId) {
+        var meta = pageMeta[pageId] || pageMeta.home;
+        document.title = meta.title[currentLang];
+        var descEl = document.querySelector('meta[name="description"]');
+        if (descEl) descEl.setAttribute('content', meta.desc[currentLang]);
+        var ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', meta.title[currentLang]);
+        var ogDesc = document.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', meta.desc[currentLang]);
+        var twTitle = document.querySelector('meta[name="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', meta.title[currentLang]);
+        var twDesc = document.querySelector('meta[name="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', meta.desc[currentLang]);
+        var canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) {
+            var url = pageId === 'home' ? 'https://halitcengizuzuner.com/' : 'https://halitcengizuzuner.com/' + pageId + '/';
+            canonical.setAttribute('href', url);
+        }
     }
 
     let currentPage = 'home';
@@ -1904,7 +1975,7 @@
         }
     });
 
-    function navigateTo(pageId) {
+    function navigateTo(pageId, skipPush) {
         if (pageId === currentPage) { hamburger.classList.remove('open'); navDropdown.classList.remove('open'); return; }
         const oldPage = document.getElementById('page-' + currentPage);
         const newPage = document.getElementById('page-' + pageId);
@@ -1919,6 +1990,11 @@
             newPage.classList.add('active');
             currentPage = pageId;
             window.scrollTo(0, 0);
+            if (!skipPush) {
+                var url = pageId === 'home' ? '/' : '/' + pageId + '/';
+                window.history.pushState({ page: pageId }, '', url);
+            }
+            updateMeta(pageId);
             if (pageId === 'home') {
                 requestAnimationFrame(() => { renderOrbitals(); generateNerveNetwork(); });
             }
@@ -1926,16 +2002,51 @@
     }
 
     document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => navigateTo(link.dataset.page));
+        link.addEventListener('click', (e) => { e.preventDefault(); navigateTo(link.dataset.page); });
     });
 
-    // Hash-based deep link (e.g. index.html#emanations)
-    var hashPage = location.hash.replace('#', '');
-    if (hashPage && document.getElementById('page-' + hashPage)) {
+    // popstate: tarayıcı geri/ileri
+    window.addEventListener('popstate', function(e) {
+        var pageId = (e.state && e.state.page) ? e.state.page : 'home';
+        if (pageId !== currentPage && document.getElementById('page-' + pageId)) {
+            var oldPage = document.getElementById('page-' + currentPage);
+            var newPage = document.getElementById('page-' + pageId);
+            oldPage.classList.remove('active');
+            oldPage.style.display = 'none';
+            newPage.style.display = '';
+            newPage.classList.add('active');
+            currentPage = pageId;
+            window.scrollTo(0, 0);
+            updateMeta(pageId);
+            if (pageId === 'home') {
+                requestAnimationFrame(() => { renderOrbitals(); generateNerveNetwork(); });
+            }
+        }
+    });
+
+    // SPA routing: pathname veya hash (geriye uyumluluk) veya 404 redirect
+    var validPages = { '': 'home', 'core': 'core', 'assembly': 'assembly', 'emanations': 'emanations', 'portal': 'portal' };
+    var initialRoute = '';
+    var spaRedirect = sessionStorage.getItem('spa-redirect');
+    if (spaRedirect) {
+        sessionStorage.removeItem('spa-redirect');
+        initialRoute = spaRedirect.replace(/^\/|\/$/g, '');
+    } else if (window.location.pathname !== '/') {
+        initialRoute = window.location.pathname.replace(/^\/|\/$/g, '');
+    } else if (window.location.hash) {
+        initialRoute = window.location.hash.replace('#', '');
+    }
+    var startPage = validPages[initialRoute] || 'home';
+    if (startPage !== 'home' && document.getElementById('page-' + startPage)) {
         document.getElementById('page-home').classList.remove('active');
         document.getElementById('page-home').style.display = 'none';
-        document.getElementById('page-' + hashPage).classList.add('active');
-        currentPage = hashPage;
+        document.getElementById('page-' + startPage).classList.add('active');
+        currentPage = startPage;
+        var cleanUrl = '/' + startPage + '/';
+        window.history.replaceState({ page: startPage }, '', cleanUrl);
+        updateMeta(startPage);
+    } else {
+        window.history.replaceState({ page: 'home' }, '', window.location.pathname === '/' ? '/' : '/');
     }
 
     function renderOrbitals() {
@@ -2434,8 +2545,8 @@
 
     setLanguage(currentLang);
 
-    if (hashPage) {
-        // Skip intro when returning from a report
+    if (startPage !== 'home') {
+        // Skip intro when deep-linking or returning from a report
         var introEl = document.getElementById('intro-overlay');
         if (introEl) introEl.remove();
         document.getElementById('app').classList.add('visible');
