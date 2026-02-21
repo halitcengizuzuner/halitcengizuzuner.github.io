@@ -725,17 +725,52 @@
             max-width: 380px;
         }
 
-        .home-fullname {
-            margin-top: 1.5rem;
+        .home-sigil {
+            margin-top: 1.8rem;
             z-index: 1;
         }
 
-        .home-fullname span {
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            letter-spacing: 0.35em;
-            color: var(--text-light);
-            text-transform: uppercase;
+        .home-sigil svg {
+            width: 48px;
+            height: 48px;
+        }
+
+        .sigil-pen {
+            animation: sigil-write 3s ease-in-out infinite;
+            transform-origin: 24px 34px;
+        }
+
+        .sigil-line-1 {
+            stroke-dasharray: 22;
+            stroke-dashoffset: 22;
+            animation: sigil-draw 3s ease-in-out infinite;
+        }
+
+        .sigil-line-2 {
+            stroke-dasharray: 16;
+            stroke-dashoffset: 16;
+            animation: sigil-draw 3s ease-in-out 0.4s infinite;
+        }
+
+        .sigil-line-3 {
+            stroke-dasharray: 10;
+            stroke-dashoffset: 10;
+            animation: sigil-draw 3s ease-in-out 0.8s infinite;
+        }
+
+        @keyframes sigil-write {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            15% { transform: translate(8px, 0) rotate(-2deg); }
+            35% { transform: translate(0, 3px) rotate(0deg); }
+            55% { transform: translate(6px, 3px) rotate(-1deg); }
+            75% { transform: translate(0, 6px) rotate(0deg); }
+        }
+
+        @keyframes sigil-draw {
+            0% { stroke-dashoffset: inherit; }
+            30% { stroke-dashoffset: 0; }
+            70% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: inherit; }
         }
 
         /* ========================================
@@ -1732,7 +1767,21 @@
             <div class="home-philosophy">
                 <p data-tr="Sorular cevaplardan önemlidir." data-en="Questions matter more than answers.">Sorular cevaplardan önemlidir.</p>
             </div>
-            <div class="home-fullname"><span data-tr="Meraklı Zihin" data-en="Curious Mind">Meraklı Zihin</span></div>
+            <div class="home-sigil">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- kağıt -->
+                    <rect x="8" y="6" width="26" height="34" rx="2" stroke="#7A6B4E" stroke-width="0.8" opacity="0.2" fill="none"/>
+                    <!-- yazılan satırlar -->
+                    <line class="sigil-line-1" x1="13" y1="16" x2="35" y2="16" stroke="#7A6B4E" stroke-width="0.7" opacity="0.35" stroke-linecap="round"/>
+                    <line class="sigil-line-2" x1="13" y1="22" x2="29" y2="22" stroke="#7A6B4E" stroke-width="0.7" opacity="0.35" stroke-linecap="round"/>
+                    <line class="sigil-line-3" x1="13" y1="28" x2="23" y2="28" stroke="#4A706A" stroke-width="0.7" opacity="0.4" stroke-linecap="round"/>
+                    <!-- kalem -->
+                    <g class="sigil-pen">
+                        <line x1="30" y1="30" x2="38" y2="10" stroke="#7A6B4E" stroke-width="1.2" opacity="0.5" stroke-linecap="round"/>
+                        <line x1="38" y1="10" x2="39" y2="8" stroke="#4A706A" stroke-width="0.8" opacity="0.6" stroke-linecap="round"/>
+                    </g>
+                </svg>
+            </div>
         </div>
     </main>
 
