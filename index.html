@@ -1919,6 +1919,9 @@
             newPage.classList.add('active');
             currentPage = pageId;
             window.scrollTo(0, 0);
+            if (pageId === 'home') {
+                requestAnimationFrame(() => { renderOrbitals(); generateNerveNetwork(); });
+            }
         }, 300);
     }
 
