@@ -1531,12 +1531,18 @@
             letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--text-secondary);
+            background: transparent;
             border: 1px solid var(--border-subtle);
             padding: 0.45rem 1rem;
             border-radius: 4px;
-            text-decoration: none;
+            cursor: pointer;
             margin-top: 0.8rem;
             transition: all 0.3s ease;
+        }
+
+        .audio-modal-download:disabled {
+            opacity: 0.5;
+            cursor: wait;
         }
 
         .audio-modal-download:hover {
@@ -1908,7 +1914,7 @@
         <div class="audio-modal-sub" id="audioModalSub"></div>
         <audio controls preload="metadata" id="audioPlayer"></audio>
         <br>
-        <a class="audio-modal-download" id="audioModalDownload" href="#" download data-tr="İndir" data-en="Download">İndir</a>
+        <button class="audio-modal-download" id="audioModalDownload" data-tr="İndir" data-en="Download">İndir</button>
         <br>
         <button class="audio-modal-close" id="audioModalClose" data-tr="Kapat" data-en="Close">Kapat</button>
         <div class="audio-modal-attr" id="audioModalAttr"></div>
@@ -2328,6 +2334,8 @@
         });
     }
 
+    var currentAudioUrl = '';
+
     function setAudioContent(url, title, sub, attr) {
         document.getElementById('audioModalTitle').textContent = title;
         document.getElementById('audioModalSub').textContent = sub;
@@ -2335,10 +2343,37 @@
         var player = document.getElementById('audioPlayer');
         player.src = url;
         player.load();
+        currentAudioUrl = url;
         var dl = document.getElementById('audioModalDownload');
-        dl.href = url;
+        dl.disabled = false;
         dl.textContent = currentLang === 'tr' ? 'İndir' : 'Download';
     }
+
+    document.getElementById('audioModalDownload').addEventListener('click', function() {
+        if (!currentAudioUrl) return;
+        var btn = this;
+        var origText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = currentLang === 'tr' ? 'İndiriliyor...' : 'Downloading...';
+        fetch(currentAudioUrl)
+            .then(function(r) { return r.blob(); })
+            .then(function(blob) {
+                var a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = currentAudioUrl.split('/').pop();
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(a.href);
+                btn.disabled = false;
+                btn.textContent = origText;
+            })
+            .catch(function() {
+                window.open(currentAudioUrl, '_blank');
+                btn.disabled = false;
+                btn.textContent = origText;
+            });
+    });
 
     function closeAudioModal() {
         var p = document.getElementById('audioPlayer'); p.pause(); p.src = '';
