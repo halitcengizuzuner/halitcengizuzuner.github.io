@@ -2024,17 +2024,22 @@
         }
     });
 
-    // SPA routing: pathname veya hash (geriye uyumluluk) veya 404 redirect
+    // SPA routing: query param > sessionStorage > pathname > hash
     var validPages = { '': 'home', 'core': 'core', 'assembly': 'assembly', 'emanations': 'emanations', 'portal': 'portal' };
     var initialRoute = '';
-    var spaRedirect = sessionStorage.getItem('spa-redirect');
-    if (spaRedirect) {
-        sessionStorage.removeItem('spa-redirect');
-        initialRoute = spaRedirect.replace(/^\/|\/$/g, '');
-    } else if (window.location.pathname !== '/') {
-        initialRoute = window.location.pathname.replace(/^\/|\/$/g, '');
-    } else if (window.location.hash) {
-        initialRoute = window.location.hash.replace('#', '');
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('p')) {
+        initialRoute = urlParams.get('p');
+    } else {
+        var spaRedirect = sessionStorage.getItem('spa-redirect');
+        if (spaRedirect) {
+            sessionStorage.removeItem('spa-redirect');
+            initialRoute = spaRedirect.replace(/^\/|\/$/g, '');
+        } else if (window.location.pathname !== '/') {
+            initialRoute = window.location.pathname.replace(/^\/|\/$/g, '');
+        } else if (window.location.hash) {
+            initialRoute = window.location.hash.replace('#', '');
+        }
     }
     var startPage = validPages[initialRoute] || 'home';
     if (startPage !== 'home' && document.getElementById('page-' + startPage)) {
