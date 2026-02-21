@@ -746,10 +746,12 @@
             color: var(--amber-deep);
             line-height: 1.5;
             opacity: 0;
+            -webkit-animation: sigil-appear 5s ease-in-out infinite;
             animation: sigil-appear 5s ease-in-out infinite;
         }
 
         .sigil-text-line2 {
+            -webkit-animation-delay: 0.8s;
             animation-delay: 0.8s;
         }
 
@@ -760,6 +762,15 @@
             width: 20px;
             height: 20px;
             animation: sigil-nudge 5s ease-in-out infinite;
+        }
+
+        @-webkit-keyframes sigil-appear {
+            0% { opacity: 0; }
+            15% { opacity: 0; }
+            30% { opacity: 1; }
+            75% { opacity: 1; }
+            90% { opacity: 0; }
+            100% { opacity: 0; }
         }
 
         @keyframes sigil-appear {
@@ -2671,12 +2682,12 @@
         video.addEventListener('playing', onPlaying);
         video.play().catch(function() {});
 
-        // Fallback: if video doesn't play after 3s, keep CSS glow
+        // Fallback: if video doesn't play after 8s, keep CSS glow
         setTimeout(function() {
             if (!confirmed) {
                 el.style.display = 'none';
             }
-        }, 3000);
+        }, 8000);
     }
 
     // Nerve network — organism's connective tissue
