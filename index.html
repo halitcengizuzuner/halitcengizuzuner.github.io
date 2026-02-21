@@ -555,10 +555,9 @@
 
         .entity-name-primary {
             font-family: var(--font-display);
-            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-size: clamp(1.4rem, 3vw, 2rem);
             color: var(--bg-primary);
-            letter-spacing: 0.15em;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.15);
+            text-shadow: 0 1px 6px rgba(0,0,0,0.2);
             font-weight: 400;
         }
 
@@ -1615,9 +1614,8 @@
             overflow: hidden;
             pointer-events: none;
             z-index: 0;
-            opacity: 0.07;
+            opacity: 0.04;
             mix-blend-mode: multiply;
-            filter: blur(2px);
         }
 
         .bottom-entity video {
@@ -1631,8 +1629,8 @@
         }
 
         @keyframes bottom-breathe {
-            0%, 100% { opacity: 0.07; transform: translateX(-50%) scale(1); }
-            50% { opacity: 0.11; transform: translateX(-50%) scale(1.03); }
+            0%, 100% { opacity: 0.04; filter: blur(3px); transform: translateX(-50%) scale(1); }
+            50% { opacity: 0.22; filter: blur(0px); transform: translateX(-50%) scale(1.03); }
         }
 
         /* Fallback glow for when video doesn't load */
@@ -1770,7 +1768,7 @@
                 </video>
             </div>
             <div class="entity-name">
-                <div class="entity-name-primary">HALİT</div>
+                <div class="entity-name-primary">?</div>
             </div>
             <div class="orbital-ring" id="orbitalRing"></div>
         </div>
