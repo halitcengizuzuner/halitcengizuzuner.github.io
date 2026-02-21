@@ -521,19 +521,20 @@
             }
         }
 
-        /* Constellation — star system ? */
+        /* Constellation — ? with tracing light */
         .entity-constellation {
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: clamp(140px, 28vw, 220px);
-            height: clamp(140px, 28vw, 220px);
+            width: clamp(170px, 36vw, 300px);
+            height: clamp(170px, 36vw, 300px);
             z-index: 3;
             pointer-events: none;
         }
 
         .entity-constellation svg {
             width: 100%; height: 100%;
+            overflow: visible;
         }
 
         /* Orbital ring */
@@ -1739,42 +1740,35 @@
                 <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <filter id="pGlow" x="-200%" y="-200%" width="500%" height="500%">
-                            <feGaussianBlur stdDeviation="2" result="b"/>
+                            <feGaussianBlur stdDeviation="3" result="b"/>
                             <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
                         </filter>
                     </defs>
 
-                    <!-- The ? glyph — always visible, the anchor -->
-                    <text x="108" y="135" text-anchor="middle"
-                          font-family="'Instrument Serif', serif" font-size="100"
-                          fill="#7A6B4E" opacity="0.18">?</text>
+                    <!-- The ? — large, always present -->
+                    <text x="106" y="148" text-anchor="middle"
+                          font-family="'Instrument Serif', serif" font-size="168"
+                          fill="#7A6B4E" opacity="0.13">?</text>
 
-                    <!-- Ambient dust -->
-                    <circle cx="22" cy="78" r="0.7" fill="#7A6B4E" opacity="0.1"/>
-                    <circle cx="178" cy="60" r="0.5" fill="#4A706A" opacity="0.08"/>
-                    <circle cx="38" cy="24" r="0.6" fill="#7A6B4E" opacity="0.06"/>
-                    <circle cx="165" cy="168" r="0.6" fill="#4A706A" opacity="0.06"/>
-                    <circle cx="175" cy="34" r="0.5" fill="#7A6B4E" opacity="0.06"/>
-
-                    <!-- ? trail — the particle traces this path over the glyph -->
-                    <path d="M74,60 C72,32 90,16 108,16 C130,16 142,36 142,56 C142,76 124,86 110,93 L104,104"
-                          stroke="#E8E4DE" stroke-width="1.8" fill="none" stroke-linecap="round"
+                    <!-- Light trail — traces over the ? curve -->
+                    <path d="M80,68 C78,38 92,22 108,22 C128,22 140,40 140,60 C140,80 124,90 112,98 L106,112"
+                          stroke="#E8E4DE" stroke-width="3" fill="none" stroke-linecap="round"
                           pathLength="100" stroke-dasharray="100" stroke-dashoffset="100">
                         <animate attributeName="stroke-dashoffset"
                                  values="100;0;0;100"
                                  keyTimes="0;0.42;0.58;0.92"
                                  dur="8s" repeatCount="indefinite"/>
                         <animate attributeName="opacity"
-                                 values="0;0.5;0.5;0"
+                                 values="0;0.55;0.55;0"
                                  keyTimes="0;0.06;0.54;0.88"
                                  dur="8s" repeatCount="indefinite"/>
                     </path>
 
                     <!-- Moving particle -->
-                    <circle r="4" fill="#E8E4DE" opacity="0" filter="url(#pGlow)">
+                    <circle r="5" fill="#E8E4DE" opacity="0" filter="url(#pGlow)">
                         <animateMotion dur="8s" repeatCount="indefinite" calcMode="linear"
                                        keyPoints="0;1;1" keyTimes="0;0.42;1"
-                                       path="M74,60 C72,32 90,16 108,16 C130,16 142,36 142,56 C142,76 124,86 110,93 L104,104"/>
+                                       path="M80,68 C78,38 92,22 108,22 C128,22 140,40 140,60 C140,80 124,90 112,98 L106,112"/>
                         <animate attributeName="opacity"
                                  values="0;1;1;0;0"
                                  keyTimes="0;0.03;0.38;0.44;1"
@@ -1782,12 +1776,12 @@
                     </circle>
 
                     <!-- Particle halo -->
-                    <circle r="14" fill="#7A6B4E" opacity="0">
+                    <circle r="18" fill="#7A6B4E" opacity="0">
                         <animateMotion dur="8s" repeatCount="indefinite" calcMode="linear"
                                        keyPoints="0;1;1" keyTimes="0;0.42;1"
-                                       path="M74,60 C72,32 90,16 108,16 C130,16 142,36 142,56 C142,76 124,86 110,93 L104,104"/>
+                                       path="M80,68 C78,38 92,22 108,22 C128,22 140,40 140,60 C140,80 124,90 112,98 L106,112"/>
                         <animate attributeName="opacity"
-                                 values="0;0.12;0.12;0;0"
+                                 values="0;0.15;0.15;0;0"
                                  keyTimes="0;0.03;0.38;0.44;1"
                                  dur="8s" repeatCount="indefinite"/>
                     </circle>
