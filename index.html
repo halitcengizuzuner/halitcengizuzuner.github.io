@@ -785,6 +785,45 @@
             margin-bottom: 1.5rem;
         }
 
+        .branch-filters {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .branch-filter-btn {
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            padding: 0.4rem 0.9rem;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .branch-filter-btn:hover {
+            border-color: var(--amber-ring);
+            color: var(--amber-deep);
+        }
+
+        .branch-filter-btn.active {
+            border-color: var(--amber-ring);
+            color: var(--amber-deep);
+            background: rgba(122, 107, 78, 0.06);
+        }
+
+        .branch-filter-count {
+            font-size: 0.5rem;
+            opacity: 0.5;
+            margin-left: 0.2rem;
+        }
+
         .branch-card {
             padding: 1.3rem 1.5rem;
             margin-bottom: 1rem;
@@ -957,6 +996,45 @@
             letter-spacing: 0.3em;
             color: var(--text-light);
             text-transform: uppercase;
+        }
+
+        .emanation-filters {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .emanation-filter-btn {
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            padding: 0.4rem 0.9rem;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .emanation-filter-btn:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        .emanation-filter-btn.active {
+            border-color: var(--teal);
+            color: var(--teal);
+            background: rgba(26, 122, 109, 0.06);
+        }
+
+        .emanation-filter-count {
+            font-size: 0.5rem;
+            opacity: 0.5;
+            margin-left: 0.2rem;
         }
 
         .emanation-card { padding: 1.8rem; margin-bottom: 1.2rem; }
@@ -1690,6 +1768,7 @@
             1995'ten beri hukukçu. Uzun süredir aktif pratik yok. Kalan: düşünme disiplini, argümantasyon refleksi, ve sunumun mesajın parçası olduğu inancı. Alan yok, sınır yok — merak nereye çekerse oraya.
         </div>
         <div class="branches-title" data-tr="dallar" data-en="branches">dallar</div>
+        <div class="branch-filters" id="branchFilters"></div>
         <div class="branches-container" id="branchesContainer"></div>
     </section>
 
@@ -1708,6 +1787,7 @@
             <h1 class="emanations-title" data-tr="Yayılımlar" data-en="Emanations">Yayılımlar</h1>
             <div class="emanations-subtitle" data-tr="çekirdekten yayılan" data-en="emanating from core">çekirdekten yayılan</div>
         </div>
+        <div class="emanation-filters" id="emanationFilters"></div>
         <div id="emanationsContainer"></div>
     </section>
 
@@ -1890,7 +1970,7 @@
               en: 'https://pub-09be185c608d4c1e80131e5f82eaca40.r2.dev/sturgeon-yasasi-en.m4a'
           },
           audioTitle: { tr: 'Podcast', en: 'Podcast' },
-          audioSub: { tr: '~45 dakika', en: '~45 minutes' },
+          audioSub: { tr: 'TR ~20 dk · EN ~23 dk', en: 'TR ~20 min · EN ~23 min' },
           illustration: '<svg viewBox="0 0 280 30" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="44" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="72" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="100" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="128" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="156" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="184" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="212" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="240" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="264" cy="15" r="5.5" fill="#4A706A" opacity="0.5"/></svg>' }
     ].sort((a, b) => b.date.localeCompare(a.date));
 
@@ -2090,15 +2170,44 @@
         svg.innerHTML = svgLines;
     }
 
-    function renderBranches() {
-        document.getElementById('branchesContainer').innerHTML = branches.map(b => `
-            <div class="branch-card glass-card">
-                <div class="branch-date">${b.date}</div>
-                <div class="branch-title">${b.title[currentLang]}</div>
-                <div class="branch-desc">${b.desc[currentLang]}</div>
-                <span class="branch-status ${b.status}">${b.status === 'active' ? (currentLang === 'tr' ? 'aktif' : 'active') : (currentLang === 'tr' ? 'tamamlandı' : 'completed')}</span>
-            </div>`).join('');
+    var activeBranchFilter = 'all';
+
+    function renderBranchFilters() {
+        var counts = { active: 0, completed: 0 };
+        branches.forEach(function(b) { counts[b.status]++; });
+        var labels = {
+            all: currentLang === 'tr' ? 'Tümü' : 'All',
+            active: currentLang === 'tr' ? 'Aktif' : 'Active',
+            completed: currentLang === 'tr' ? 'Tamamlandı' : 'Completed'
+        };
+        var html = '';
+        ['all', 'active', 'completed'].forEach(function(key) {
+            var count = key === 'all' ? branches.length : counts[key];
+            if (key !== 'all' && count === 0) return;
+            html += '<button class="branch-filter-btn' + (activeBranchFilter === key ? ' active' : '') + '" data-filter="' + key + '">' + labels[key] + '<span class="branch-filter-count">' + count + '</span></button>';
+        });
+        document.getElementById('branchFilters').innerHTML = html;
     }
+
+    function renderBranches() {
+        renderBranchFilters();
+        document.getElementById('branchesContainer').innerHTML = branches.map(function(b) {
+            var hidden = activeBranchFilter !== 'all' && activeBranchFilter !== b.status;
+            return '<div class="branch-card glass-card"' + (hidden ? ' style="display:none;"' : '') + '>' +
+                '<div class="branch-date">' + b.date + '</div>' +
+                '<div class="branch-title">' + b.title[currentLang] + '</div>' +
+                '<div class="branch-desc">' + b.desc[currentLang] + '</div>' +
+                '<span class="branch-status ' + b.status + '">' + (b.status === 'active' ? (currentLang === 'tr' ? 'aktif' : 'active') : (currentLang === 'tr' ? 'tamamlandı' : 'completed')) + '</span>' +
+            '</div>';
+        }).join('');
+    }
+
+    document.getElementById('branchFilters').addEventListener('click', function(e) {
+        var btn = e.target.closest('.branch-filter-btn');
+        if (!btn) return;
+        activeBranchFilter = btn.dataset.filter;
+        renderBranches();
+    });
 
     function renderAssembly() {
         document.getElementById('assemblyGrid').innerHTML = limbs.map(l => `
@@ -2117,22 +2226,51 @@
             </div>`).join('');
     }
 
-    function renderEmanations() {
-        document.getElementById('emanationsContainer').innerHTML = emanations.map((em, idx) => `
-            <div class="emanation-card glass-card">
-                ${em.illustration ? `<div class="emanation-illustration">${em.illustration}</div>` : ''}
-                <div class="emanation-meta">
-                    <span class="emanation-category">${em.category[currentLang]}</span>
-                    <span class="emanation-date">${em.date}</span>
-                </div>
-                <div class="emanation-title">${em.title[currentLang]}</div>
-                <div class="emanation-summary">${em.summary[currentLang]}</div>
-                <div class="emanation-actions">
-                    <a href="${em.readUrl}" class="emanation-btn">${currentLang === 'tr' ? 'Oku' : 'Read'}</a>
-                    ${em.audioUrl ? `<a href="#" class="emanation-btn listen" data-emanation-idx="${idx}">${currentLang === 'tr' ? 'Podcast' : 'Podcast'}</a>` : ''}
-                </div>
-            </div>`).join('');
+    var activeFilter = 'all';
+
+    function renderEmanationFilters() {
+        var cats = {};
+        emanations.forEach(function(em) {
+            var key = em.category.en.toLowerCase();
+            if (!cats[key]) cats[key] = { tr: em.category.tr, en: em.category.en, count: 0 };
+            cats[key].count++;
+        });
+        var allLabel = currentLang === 'tr' ? 'Tümü' : 'All';
+        var html = '<button class="emanation-filter-btn' + (activeFilter === 'all' ? ' active' : '') + '" data-filter="all">' + allLabel + '<span class="emanation-filter-count">' + emanations.length + '</span></button>';
+        Object.keys(cats).forEach(function(key) {
+            var c = cats[key];
+            html += '<button class="emanation-filter-btn' + (activeFilter === key ? ' active' : '') + '" data-filter="' + key + '">' + c[currentLang] + '<span class="emanation-filter-count">' + c.count + '</span></button>';
+        });
+        document.getElementById('emanationFilters').innerHTML = html;
     }
+
+    function renderEmanations() {
+        renderEmanationFilters();
+        document.getElementById('emanationsContainer').innerHTML = emanations.map(function(em, idx) {
+            var catKey = em.category.en.toLowerCase();
+            var hidden = activeFilter !== 'all' && activeFilter !== catKey;
+            return '<div class="emanation-card glass-card" data-category="' + catKey + '"' + (hidden ? ' style="display:none;"' : '') + '>' +
+                (em.illustration ? '<div class="emanation-illustration">' + em.illustration + '</div>' : '') +
+                '<div class="emanation-meta">' +
+                    '<span class="emanation-category">' + em.category[currentLang] + '</span>' +
+                    '<span class="emanation-date">' + em.date + '</span>' +
+                '</div>' +
+                '<div class="emanation-title">' + em.title[currentLang] + '</div>' +
+                '<div class="emanation-summary">' + em.summary[currentLang] + '</div>' +
+                '<div class="emanation-actions">' +
+                    '<a href="' + em.readUrl + '" class="emanation-btn">' + (currentLang === 'tr' ? 'Oku' : 'Read') + '</a>' +
+                    (em.audioUrl ? '<a href="#" class="emanation-btn listen" data-emanation-idx="' + idx + '">' + 'Podcast' + '</a>' : '') +
+                '</div>' +
+            '</div>';
+        }).join('');
+    }
+
+    document.getElementById('emanationFilters').addEventListener('click', function(e) {
+        var btn = e.target.closest('.emanation-filter-btn');
+        if (!btn) return;
+        activeFilter = btn.dataset.filter;
+        renderEmanations();
+    });
 
     var currentAudioEmanation = null;
 
