@@ -2120,6 +2120,11 @@
 
     // popstate: tarayıcı geri/ileri
     window.addEventListener('popstate', function(e) {
+        // Modal açıksa kapat, sayfa değiştirme
+        if (document.getElementById('audioModal').classList.contains('open')) {
+            closeAudioModal(true);
+            return;
+        }
         var pageId = (e.state && e.state.page) ? e.state.page : 'home';
         if (pageId !== currentPage && document.getElementById('page-' + pageId)) {
             var oldPage = document.getElementById('page-' + currentPage);
@@ -2322,6 +2327,7 @@
 
         document.getElementById('audioModal').classList.add('open');
         document.body.style.overflow = 'hidden';
+        window.history.pushState({ modal: 'audio' }, '');
     }
 
     function setAudioLang(lang) {
@@ -2375,11 +2381,14 @@
             });
     });
 
-    function closeAudioModal() {
+    function closeAudioModal(skipHistory) {
+        var modal = document.getElementById('audioModal');
+        if (!modal.classList.contains('open')) return;
         var p = document.getElementById('audioPlayer'); p.pause(); p.src = '';
-        document.getElementById('audioModal').classList.remove('open');
+        modal.classList.remove('open');
         document.body.style.overflow = '';
         currentAudioEmanation = null;
+        if (!skipHistory) window.history.back();
     }
 
     document.addEventListener('click', function(e) {
