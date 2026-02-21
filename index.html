@@ -1524,6 +1524,27 @@
 
         .audio-modal audio { width: 100%; max-width: 300px; }
 
+        .audio-modal-download {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 0.45rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .audio-modal-download:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+            background: rgba(26, 122, 109, 0.04);
+        }
+
         .audio-modal-close {
             font-family: var(--font-mono);
             font-size: 0.6rem;
@@ -1885,7 +1906,9 @@
         </div>
         <div class="audio-modal-title" id="audioModalTitle"></div>
         <div class="audio-modal-sub" id="audioModalSub"></div>
-        <audio controls preload="none" id="audioPlayer"></audio>
+        <audio controls preload="metadata" id="audioPlayer"></audio>
+        <br>
+        <a class="audio-modal-download" id="audioModalDownload" href="#" download data-tr="İndir" data-en="Download">İndir</a>
         <br>
         <button class="audio-modal-close" id="audioModalClose" data-tr="Kapat" data-en="Close">Kapat</button>
         <div class="audio-modal-attr" id="audioModalAttr"></div>
@@ -2312,6 +2335,9 @@
         var player = document.getElementById('audioPlayer');
         player.src = url;
         player.load();
+        var dl = document.getElementById('audioModalDownload');
+        dl.href = url;
+        dl.textContent = currentLang === 'tr' ? 'İndir' : 'Download';
     }
 
     function closeAudioModal() {
