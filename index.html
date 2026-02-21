@@ -728,49 +728,48 @@
         .home-sigil {
             margin-top: 1.8rem;
             z-index: 1;
+            position: relative;
         }
 
         .home-sigil svg {
-            width: 48px;
-            height: 48px;
+            width: 140px;
+            height: 52px;
         }
 
         .sigil-pen {
-            animation: sigil-write 3s ease-in-out infinite;
-            transform-origin: 24px 34px;
-        }
-
-        .sigil-line-1 {
-            stroke-dasharray: 22;
-            stroke-dashoffset: 22;
-            animation: sigil-draw 3s ease-in-out infinite;
-        }
-
-        .sigil-line-2 {
-            stroke-dasharray: 16;
-            stroke-dashoffset: 16;
-            animation: sigil-draw 3s ease-in-out 0.4s infinite;
-        }
-
-        .sigil-line-3 {
-            stroke-dasharray: 10;
-            stroke-dashoffset: 10;
-            animation: sigil-draw 3s ease-in-out 0.8s infinite;
+            animation: sigil-write 4s ease-in-out infinite;
         }
 
         @keyframes sigil-write {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            15% { transform: translate(8px, 0) rotate(-2deg); }
-            35% { transform: translate(0, 3px) rotate(0deg); }
-            55% { transform: translate(6px, 3px) rotate(-1deg); }
-            75% { transform: translate(0, 6px) rotate(0deg); }
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(60px, 0); }
+            55% { transform: translate(60px, 4px); }
+            100% { transform: translate(0, 4px); }
         }
 
-        @keyframes sigil-draw {
-            0% { stroke-dashoffset: inherit; }
-            30% { stroke-dashoffset: 0; }
-            70% { stroke-dashoffset: 0; }
-            100% { stroke-dashoffset: inherit; }
+        .sigil-text {
+            font-family: var(--font-mono);
+            font-size: 7px;
+            letter-spacing: 0.12em;
+            fill: var(--text-light);
+        }
+
+        .sigil-text-line {
+            opacity: 0;
+            animation: sigil-appear 4s ease-in-out infinite;
+        }
+
+        .sigil-text-line:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes sigil-appear {
+            0% { opacity: 0; }
+            20% { opacity: 0; }
+            40% { opacity: 0.6; }
+            70% { opacity: 0.6; }
+            85% { opacity: 0; }
+            100% { opacity: 0; }
         }
 
         /* ========================================
@@ -1768,17 +1767,18 @@
                 <p data-tr="Sorular cevaplardan önemlidir." data-en="Questions matter more than answers.">Sorular cevaplardan önemlidir.</p>
             </div>
             <div class="home-sigil">
-                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 140 52" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <!-- kağıt -->
-                    <rect x="8" y="6" width="26" height="34" rx="2" stroke="#7A6B4E" stroke-width="0.8" opacity="0.2" fill="none"/>
-                    <!-- yazılan satırlar -->
-                    <line class="sigil-line-1" x1="13" y1="16" x2="35" y2="16" stroke="#7A6B4E" stroke-width="0.7" opacity="0.35" stroke-linecap="round"/>
-                    <line class="sigil-line-2" x1="13" y1="22" x2="29" y2="22" stroke="#7A6B4E" stroke-width="0.7" opacity="0.35" stroke-linecap="round"/>
-                    <line class="sigil-line-3" x1="13" y1="28" x2="23" y2="28" stroke="#4A706A" stroke-width="0.7" opacity="0.4" stroke-linecap="round"/>
+                    <rect x="2" y="4" width="110" height="44" rx="3" stroke="#7A6B4E" stroke-width="0.6" opacity="0.15" fill="none"/>
+                    <!-- yazılan metin -->
+                    <text class="sigil-text">
+                        <tspan class="sigil-text-line" x="10" y="22" id="sigilLine1">menüyü keşfet</tspan>
+                        <tspan class="sigil-text-line" x="10" y="34" id="sigilLine2">↗ sağ üst köşe</tspan>
+                    </text>
                     <!-- kalem -->
-                    <g class="sigil-pen">
-                        <line x1="30" y1="30" x2="38" y2="10" stroke="#7A6B4E" stroke-width="1.2" opacity="0.5" stroke-linecap="round"/>
-                        <line x1="38" y1="10" x2="39" y2="8" stroke="#4A706A" stroke-width="0.8" opacity="0.6" stroke-linecap="round"/>
+                    <g class="sigil-pen" style="transform-origin: 8px 20px;">
+                        <line x1="8" y1="18" x2="14" y2="4" stroke="#7A6B4E" stroke-width="1" opacity="0.4" stroke-linecap="round"/>
+                        <circle cx="8" cy="19" r="0.8" fill="#4A706A" opacity="0.5"/>
                     </g>
                 </svg>
             </div>
@@ -2044,6 +2044,11 @@
         if (pp) pp.placeholder = lang === 'tr' ? 'Şifre' : 'Password';
         const pmi = document.getElementById('portalMsgInput');
         if (pmi) pmi.placeholder = lang === 'tr' ? 'Mesajınızı yazın...' : 'Write your message...';
+        // Sigil text
+        var sl1 = document.getElementById('sigilLine1');
+        var sl2 = document.getElementById('sigilLine2');
+        if (sl1) sl1.textContent = lang === 'tr' ? 'menüyü keşfet' : 'discover the menu';
+        if (sl2) sl2.textContent = lang === 'tr' ? '↗ sağ üst köşe' : '↗ top right corner';
         renderAssembly();
         renderEmanations();
         updateMeta(currentPage);
