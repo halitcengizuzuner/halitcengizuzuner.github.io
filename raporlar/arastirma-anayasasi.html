@@ -1,0 +1,2564 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Araştırma Anayasası — v0.5</title>
+<meta name="description" content="Araştırma Anayasası — Hatalardan damıtılan ilkeler. Nasıl araştırıyoruz, neden böyle yapıyoruz, hangi hatalardan ne öğrendik.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Araştırma Anayasası — Hatalardan Damıtılan İlkeler">
+<meta property="og:description" content="Hatalardan damıtılan araştırma ilkeleri. Araştırma yöntemini kendi üstüne uygulayan bir meta-araştırma.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/raporlar/arastirma-anayasasi.html">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-02-25">
+<link rel="canonical" href="https://halitcengizuzuner.com/raporlar/arastirma-anayasasi.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/arastirma-anayasasi.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/raporlar/arastirma-anayasasi-en.html">
+<style>
+/* ══════════════════════════════════════════════════════════════
+   TEMEL DEĞİŞKENLER
+══════════════════════════════════════════════════════════════ */
+:root {
+  --bg:       #07070a;
+  --surface:  #0e0e18;
+  --surface2: #14141f;
+  --border:   #222234;
+  --border2:  #303048;
+  --text:     #ccc8c0;
+  --dim:      #9090b8;
+  --muted:    #585870;
+  --gold:     #c0a060;
+  --gold2:    #806838;
+  --kaynak:   #42b0a8;
+  --uretim:   #c85050;
+  --surec:    #b89020;
+  --dil:      #4ea060;
+  --tutum:    #7848a8;
+  --cerceve:  #a8a8b8;
+  --ai:       #4070c8;
+  --fire:     #e06020;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; font-size: 17px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SCROLL ANİMASYON SİSTEMİ
+══════════════════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+.reveal.from-left  { transform: translateX(-40px); }
+.reveal.from-right { transform: translateX(40px); }
+.reveal.scale-in   { transform: scale(.92); }
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HERO — YILDIZLI GÖK
+══════════════════════════════════════════════════════════════ */
+#hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+#hero-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  padding: 2rem;
+}
+
+.hero-eyebrow {
+  font-size: .68rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 1.8rem;
+  opacity: 0;
+  animation: fadeUp .8s ease 1s forwards;
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 100;
+  color: #eee8e0;
+  line-height: 1.12;
+  letter-spacing: .04em;
+  margin-bottom: 1.4rem;
+  opacity: 0;
+  animation: fadeUp .9s ease 1.4s forwards;
+}
+
+.hero-title em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.hero-tagline {
+  font-size: .9rem;
+  color: var(--dim);
+  font-style: italic;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeUp .8s ease 2s forwards;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  color: var(--muted);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeUp .8s ease 2.8s forwards;
+}
+
+.scroll-arrow {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--muted), transparent);
+  animation: scrollPulse 2s ease infinite 3s;
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scrollPulse {
+  0%,100% { opacity:.4; transform: scaleY(1); }
+  50%  { opacity:1; transform: scaleY(1.3); }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   GENEL LAYOUT
+══════════════════════════════════════════════════════════════ */
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+.wrap-wide { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+section {
+  position: relative;
+  padding: 5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+section:first-of-type { border-top: none; }
+
+.section-label {
+  font-size: .65rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--dim);
+  display: block;
+  margin-bottom: .7rem;
+}
+
+section > .wrap > h2,
+section > .wrap-wide > h2 {
+  font-size: 1.5rem;
+  font-weight: 200;
+  color: #dedad4;
+  padding-bottom: .7rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+  letter-spacing: .02em;
+}
+
+p { margin-bottom: 1.15rem; line-height: 1.82; }
+p:last-child { margin-bottom: 0; }
+strong { color: #dedad4; font-weight: 600; }
+em { font-style: italic; color: #d0ccc4; }
+
+/* ══════════════════════════════════════════════════════════════
+   PREAMBÜL — MAĞARA DUVARI ESTETİĞİ
+══════════════════════════════════════════════════════════════ */
+#preamble {
+  background: radial-gradient(ellipse at 30% 60%, rgba(80,50,20,.18) 0%, transparent 70%),
+              radial-gradient(ellipse at 70% 30%, rgba(60,40,15,.12) 0%, transparent 60%);
+}
+
+.preambule-quote {
+  font-size: 1.3rem;
+  font-weight: 200;
+  font-style: italic;
+  color: var(--gold);
+  line-height: 1.5;
+  margin-bottom: 3rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--gold2);
+}
+
+.cave-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.cave-cell {
+  background: var(--surface);
+  padding: 1.75rem 2rem;
+  position: relative;
+}
+
+.cave-cell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 80%, rgba(80,50,20,.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cave-label {
+  font-size: .68rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: .6rem;
+}
+
+.cave-cell p { font-size: .92rem; color: var(--text); line-height: 1.7; margin: 0; }
+
+/* Araştırmacı dağılım SVG wrapper */
+.researcher-fig {
+  float: right;
+  margin: 0 0 1.5rem 2rem;
+  max-width: 260px;
+}
+
+.researcher-fig svg { width: 100%; display: block; }
+.fig-caption { font-size: .7rem; color: var(--dim); margin-top: .5rem; line-height: 1.45; }
+.fig-num { font-weight: 600; color: var(--gold); }
+.clearfix::after { content:''; display:table; clear:both; }
+
+/* ══════════════════════════════════════════════════════════════
+   ÇERÇEVE — ORKESTRA
+══════════════════════════════════════════════════════════════ */
+#cerceve {
+  background: linear-gradient(180deg, transparent 0%, rgba(176,176,188,.03) 50%, transparent 100%);
+}
+
+.framework-box {
+  border: 1px solid var(--cerceve);
+  border-radius: 12px;
+  padding: 2.5rem;
+  background: rgba(176,176,188,.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.framework-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(176,176,188,.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.fw-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--cerceve);
+  margin-bottom: 1.2rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.pull-quote {
+  border-left: 2px solid var(--gold);
+  margin: 2.2rem 0;
+  padding: 1rem 1.75rem;
+  background: rgba(192,160,96,.06);
+  border-radius: 0 8px 8px 0;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #d8d4cc;
+  line-height: 1.62;
+}
+
+.pull-quote .attr {
+  font-size: .74rem;
+  color: var(--dim);
+  margin-top: .5rem;
+  font-style: normal;
+  display: block;
+  letter-spacing: .04em;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   İLKELER BÖLÜMÜ — GENEL
+══════════════════════════════════════════════════════════════ */
+.cluster-header {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin: 4.5rem 0 2.5rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid var(--border);
+}
+.cluster-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.cluster-header h3 {
+  font-size: .72rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--cluster-color);
+}
+
+.principle {
+  margin-bottom: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid var(--border);
+}
+.principle:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+.principle-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.principle-num {
+  font-size: 2.8rem;
+  font-weight: 100;
+  color: var(--muted);
+  line-height: 1;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+.principle-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--p-color, var(--text));
+  letter-spacing: .02em;
+}
+.principle-body { font-size: .95rem; line-height: 1.82; }
+
+.principle-body h4 {
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 2.2rem 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+.principle-body h4::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.example-box {
+  background: var(--surface);
+  border-left: 2px solid var(--p-color, var(--border2));
+  border-radius: 0 8px 8px 0;
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+  font-size: .9rem;
+  color: var(--dim);
+  line-height: 1.72;
+}
+.example-box strong { color: var(--text); }
+.example-box p { margin-bottom: .8rem; font-size: .9rem; }
+.example-box p:last-child { margin-bottom: 0; }
+
+.source-tag {
+  font-size: .7rem;
+  color: var(--muted);
+  letter-spacing: .04em;
+  margin-top: 1.2rem;
+  display: block;
+}
+
+figure { margin: 0; display: block; }
+figure.float-right { float: right; margin: 0 0 1.5rem 2rem; max-width: 280px; }
+figure.float-left { float: left; margin: 0 2rem 1.5rem 0; max-width: 260px; }
+figure.full-width { margin: 2.2rem 0; width: 100%; }
+figcaption { font-size: .7rem; color: var(--dim); margin-top: .55rem; line-height: 1.45; letter-spacing: .02em; }
+
+/* ══════════════════════════════════════════════════════════════
+   İÇİNE GİRMEK — SAHNE ESTETİĞİ
+══════════════════════════════════════════════════════════════ */
+#icine-girmek-section {
+  background: #050508;
+  padding: 5rem 0 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+#icine-girmek-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 60%;
+  height: 300px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.spotlight-title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.spotlight-title .section-label { text-align: center; }
+
+.spotlight-title h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 100;
+  color: #eee8e0;
+  letter-spacing: .06em;
+  margin-top: .5rem;
+}
+
+/* Karakter kartları */
+.character-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.character-card {
+  background: var(--surface);
+  padding: 2.5rem 3rem;
+  position: relative;
+  overflow: hidden;
+  transition: background .4s ease;
+}
+
+.character-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--c-color, var(--border2));
+}
+
+.character-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 300px;
+  background: radial-gradient(ellipse at 0% 50%, rgba(255,255,255,.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.character-card:hover {
+  background: color-mix(in srgb, var(--c-color) 5%, var(--surface));
+}
+
+.char-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.char-badge {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--c-color);
+  background: rgba(255,255,255,.05);
+  border: 1px solid var(--c-color);
+  border-radius: 4px;
+  padding: .25rem .6rem;
+  flex-shrink: 0;
+}
+
+.char-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #dedad4;
+}
+
+.char-context {
+  font-size: .78rem;
+  color: var(--dim);
+  font-style: italic;
+}
+
+.char-body { font-size: .93rem; line-height: 1.82; color: var(--text); }
+.char-body p { margin-bottom: 1rem; }
+.char-body p:last-child { margin-bottom: 0; }
+
+/* Spotlight SVG animasyonu */
+.spotlight-svg {
+  position: absolute;
+  top: 0; right: -20px;
+  width: 200px;
+  height: 200px;
+  pointer-events: none;
+  opacity: .12;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   NIGHT ON EARTH — SİNEMA ESTETİĞİ
+══════════════════════════════════════════════════════════════ */
+#night-on-earth {
+  background: #030305;
+  padding: 0;
+  border-top: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Film grain overlay */
+#night-on-earth::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+.film-header {
+  padding: 5rem 0 3rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.film-header .film-strip-top {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.film-hole {
+  width: 12px; height: 16px;
+  border-radius: 3px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.32);
+}
+
+.film-title {
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  font-weight: 100;
+  color: #e8e4dc;
+  letter-spacing: .1em;
+  margin-bottom: .6rem;
+}
+
+.film-subtitle {
+  font-size: .78rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.25);
+}
+
+/* Film poster */
+.film-poster-wrap {
+  max-width: 320px;
+  margin: 0 auto 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.film-poster-wrap img {
+  width: 100%;
+  border-radius: 4px;
+  display: block;
+  box-shadow: 0 0 60px rgba(0,0,0,.8), 0 0 120px rgba(0,0,0,.4);
+}
+
+.film-poster-svg {
+  width: 100%;
+  border-radius: 4px;
+  display: block;
+  box-shadow: 0 0 60px rgba(0,0,0,.8);
+}
+
+/* Şehir segmentleri */
+.city-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 auto 0;
+  max-width: 640px;
+  position: relative;
+  z-index: 2;
+}
+
+.city-tab {
+  flex: 1;
+  padding: .85rem .5rem;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.55);
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  transition: all .3s ease;
+  border-right: 1px solid rgba(255,255,255,.15);
+  position: relative;
+}
+
+.city-tab:last-child { border-right: none; }
+
+.city-tab::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--tab-color, transparent);
+  transition: transform .3s ease;
+  transform: scaleX(0);
+}
+
+.city-tab.active {
+  color: var(--tab-color, #fff);
+  background: rgba(255,255,255,.06);
+}
+
+.city-tab.active::before { transform: scaleX(1); }
+.city-tab:hover { color: rgba(255,255,255,.6); background: rgba(255,255,255,.05); }
+
+/* City panels */
+.city-panels { position: relative; z-index: 2; }
+
+.city-panel {
+  display: none;
+  padding: 4rem 0 5rem;
+  position: relative;
+}
+
+.city-panel.active { display: block; }
+
+.city-bg {
+  position: absolute;
+  inset: 0;
+  transition: opacity .6s ease;
+}
+
+.city-panel .city-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* LA: Warm amber */
+.panel-la .city-bg {
+  background: radial-gradient(ellipse at 70% 30%, rgba(140,80,20,.12) 0%, transparent 60%),
+              radial-gradient(ellipse at 20% 80%, rgba(100,50,10,.08) 0%, transparent 50%);
+}
+
+/* NY: Yellow neon */
+.panel-ny .city-bg {
+  background: radial-gradient(ellipse at 50% 40%, rgba(180,140,20,.1) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 80%, rgba(60,40,0,.08) 0%, transparent 50%);
+}
+
+/* Paris: Cool blue */
+.panel-paris .city-bg {
+  background: radial-gradient(ellipse at 40% 30%, rgba(30,60,120,.12) 0%, transparent 60%),
+              radial-gradient(ellipse at 60% 70%, rgba(10,30,80,.08) 0%, transparent 50%);
+}
+
+/* Roma: Terracotta warm */
+.panel-roma .city-bg {
+  background: radial-gradient(ellipse at 60% 40%, rgba(140,60,20,.12) 0%, transparent 60%),
+              radial-gradient(ellipse at 30% 70%, rgba(100,40,10,.08) 0%, transparent 50%);
+}
+
+/* Helsinki: Ice cold */
+.panel-helsinki .city-bg {
+  background: radial-gradient(ellipse at 50% 20%, rgba(20,60,100,.14) 0%, transparent 60%),
+              radial-gradient(ellipse at 50% 80%, rgba(10,30,60,.1) 0%, transparent 50%);
+}
+
+.city-scene-header {
+  margin-bottom: 2.5rem;
+}
+
+.city-name {
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 100;
+  letter-spacing: .08em;
+  color: #e8e4dc;
+  margin-bottom: .4rem;
+}
+
+.city-meta {
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+}
+
+.city-cast {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: .8rem;
+}
+
+.cast-tag {
+  font-size: .72rem;
+  color: rgba(255,255,255,.65);
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.2);
+  padding: .2rem .7rem;
+  border-radius: 4px;
+}
+
+.dialogue-box {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #c8c4bc;
+  font-size: .95rem;
+  line-height: 1.65;
+  position: relative;
+}
+
+.dialogue-box::before {
+  content: '"';
+  position: absolute;
+  top: -.5rem;
+  left: 1rem;
+  font-size: 3rem;
+  color: rgba(255,255,255,.08);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.city-analysis { font-size: .93rem; line-height: 1.82; color: rgba(200,196,192,.85); }
+.city-analysis p { margin-bottom: 1rem; }
+.city-analysis p:last-child { margin-bottom: 0; }
+.city-analysis strong { color: #e0dcD4; }
+
+/* Helsinki canvas wrapper */
+.helsinki-snow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   DOĞRULAMA — GAZETECİ PANOSU
+══════════════════════════════════════════════════════════════ */
+#dogrulama-section {
+  background: var(--bg);
+  position: relative;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.news-clip {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.news-clip::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--clip-color, var(--border2));
+}
+
+.news-clip-label {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--clip-color, var(--dim));
+  display: block;
+  margin-bottom: .6rem;
+}
+
+.news-clip h4 {
+  font-size: .98rem;
+  font-weight: 600;
+  color: #dedad4;
+  margin-bottom: .8rem;
+  line-height: 1.3;
+}
+
+.news-clip p { font-size: .85rem; color: var(--dim); line-height: 1.65; margin-bottom: .5rem; }
+.news-clip p:last-child { margin-bottom: 0; }
+.news-clip .nc-year { font-size: .7rem; color: var(--muted); margin-top: .8rem; display: block; }
+
+/* ══════════════════════════════════════════════════════════════
+   ANTİPERFORMANS — MİNİMAL + SAYAÇ
+══════════════════════════════════════════════════════════════ */
+#antiperformans-section {
+  background: radial-gradient(ellipse at 50% 50%, rgba(120,72,168,.04) 0%, transparent 70%);
+}
+
+.counter-block {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin: 2.5rem 0;
+  padding: 2.5rem;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+}
+
+.counter-item { text-align: center; flex: 1; min-width: 120px; }
+
+.counter-num {
+  font-size: 3rem;
+  font-weight: 100;
+  color: var(--tutum);
+  line-height: 1;
+  display: block;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: .4rem;
+}
+
+.counter-label {
+  font-size: .7rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--dim);
+  line-height: 1.4;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   YAPAY ZEKA — TERMİNAL ESTETİĞİ
+══════════════════════════════════════════════════════════════ */
+#ai-section {
+  background: #020409;
+  position: relative;
+  overflow: hidden;
+}
+
+#ai-canvas {
+  position: absolute;
+  inset: 0;
+  opacity: .15;
+  z-index: 0;
+}
+
+.ai-content { position: relative; z-index: 1; }
+
+.terminal-window {
+  background: #0a0d14;
+  border: 1px solid rgba(64,112,200,.3);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 0 40px rgba(64,112,200,.1), inset 0 0 40px rgba(64,112,200,.03);
+}
+
+.terminal-bar {
+  background: rgba(255,255,255,.04);
+  padding: .6rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  border-bottom: 1px solid rgba(64,112,200,.15);
+}
+
+.terminal-dot { width: 8px; height: 8px; border-radius: 50%; }
+.td-red { background: #e05050; }
+.td-yellow { background: #d09020; }
+.td-green { background: #40a050; }
+.terminal-title { font-size: .72rem; color: rgba(64,112,200,.6); letter-spacing: .08em; margin-left: .5rem; font-family: monospace; }
+
+.terminal-body {
+  padding: 1.5rem 2rem;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+  font-size: .82rem;
+  line-height: 1.7;
+}
+
+.t-line { color: rgba(64,112,200,.75); margin-bottom: .25rem; }
+.t-line.active { color: #78a8f0; }
+.t-line.output { color: rgba(120,168,240,.7); padding-left: 1rem; }
+.t-cursor { display: inline-block; width: 7px; height: 13px; background: var(--ai); animation: blink .8s step-end infinite; vertical-align: text-bottom; margin-left: 1px; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+.ai-capabilities {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(64,112,200,.15);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.ai-cap {
+  background: rgba(10,13,20,.9);
+  padding: 1.5rem;
+}
+
+.ai-cap-label {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ai);
+  display: block;
+  margin-bottom: .7rem;
+}
+
+.ai-cap p { font-size: .88rem; color: rgba(180,196,220,.7); line-height: 1.65; margin: 0; }
+.ai-cap p strong { color: rgba(200,216,240,.9); }
+
+/* Meta kanıt kutusu */
+.meta-evidence {
+  background: rgba(64,112,200,.05);
+  border: 1px solid rgba(64,112,200,.25);
+  border-radius: 10px;
+  padding: 2rem 2.25rem;
+  margin: 2.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.meta-evidence::before {
+  content: 'ÖZ-KANIT';
+  position: absolute;
+  top: 1rem; right: 1.5rem;
+  font-size: .62rem;
+  letter-spacing: .2em;
+  color: rgba(64,112,200,.4);
+  font-weight: 700;
+}
+
+.meta-evidence p { font-size: .93rem; line-height: 1.8; color: rgba(180,196,220,.8); margin-bottom: 1rem; }
+.meta-evidence p:last-child { margin-bottom: 0; }
+.meta-evidence p strong { color: rgba(200,216,240,.95); }
+
+/* Gözlem kutusu */
+.observation-box {
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.obs-label {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 1.2rem;
+  padding-bottom: .7rem;
+  border-bottom: 1px solid var(--border2);
+}
+
+.observation-box p { font-size: .93rem; color: var(--dim); line-height: 1.8; margin-bottom: 1rem; }
+.observation-box p:last-child { margin-bottom: 0; }
+
+/* Kapılar grid */
+.doors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1px;
+  background: rgba(64,112,200,.15);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.door {
+  background: rgba(10,13,20,.92);
+  padding: 1.4rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: background .3s ease;
+}
+
+.door:hover { background: rgba(20,24,40,.95); }
+
+.door::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: rgba(64,112,200,.3);
+}
+
+.door-icon {
+  font-size: 1.4rem;
+  display: block;
+  margin-bottom: .6rem;
+}
+
+.door-name {
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(100,148,240,.8);
+  display: block;
+  margin-bottom: .5rem;
+}
+
+.door p { font-size: .84rem; color: rgba(160,176,200,.6); line-height: 1.6; margin: 0; }
+.door p strong { color: rgba(180,196,220,.85); }
+
+/* ══════════════════════════════════════════════════════════════
+   ATEŞ EFEKTİ (Bedel Ödeme / Marshall)
+══════════════════════════════════════════════════════════════ */
+.fire-section {
+  position: relative;
+  overflow: hidden;
+  background: #04020a;
+  padding: 4rem 0;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+#fire-canvas {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 200px;
+  opacity: .6;
+}
+
+.fire-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.fire-quote {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #e8b060;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.fire-attr {
+  font-size: .78rem;
+  letter-spacing: .1em;
+  color: rgba(200,150,80,.5);
+  text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ARAŞTIRMA SÜRECİ — AKIŞ
+══════════════════════════════════════════════════════════════ */
+.flow-outer {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  margin: 2rem 0;
+}
+
+.flow-steps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  min-width: max-content;
+}
+
+.flow-step {
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: .9rem 1.1rem;
+  min-width: 130px;
+  max-width: 155px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.fs-num { font-size: .6rem; color: var(--dim); letter-spacing: .1em; text-transform: uppercase; margin-bottom: .2rem; }
+.fs-title { font-size: .82rem; font-weight: 600; margin-bottom: .25rem; }
+.fs-desc { font-size: .74rem; color: var(--dim); line-height: 1.4; }
+.flow-arr { color: var(--muted); font-size: .9rem; padding: 0 .3rem; flex-shrink: 0; }
+
+/* ══════════════════════════════════════════════════════════════
+   KARŞILAŞTIRMA (İlham/Red)
+══════════════════════════════════════════════════════════════ */
+.compare-source {
+  font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--dim); margin: 2.5rem 0 .75rem;
+}
+
+.compare-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1px; background: var(--border);
+  border-radius: 10px; overflow: hidden; margin-bottom: 1.5rem;
+}
+
+.cg-col { background: var(--surface); padding: 1.5rem; }
+.cg-col h4 { font-size: .76rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; margin-bottom: 1rem; padding-bottom: .5rem; border-bottom: 1px solid var(--border2); }
+.cg-col.aldik h4 { color: var(--dil); }
+.cg-col.almadik h4 { color: var(--uretim); }
+.cg-col ul { list-style: none; }
+.cg-col li { font-size: .84rem; padding: .45rem 0; border-bottom: 1px solid var(--border); line-height: 1.5; }
+.cg-col li:last-child { border-bottom: none; }
+
+/* ══════════════════════════════════════════════════════════════
+   AÇIK SORULAR
+══════════════════════════════════════════════════════════════ */
+.qs-list { list-style: none; }
+.qs-list li { padding: 1.2rem 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: auto 1fr; gap: 1.2rem; align-items: start; }
+.qs-list li:last-child { border-bottom: none; }
+.qs-num { font-size: 1.5rem; font-weight: 100; color: var(--muted); line-height: 1.1; }
+.qs-text { font-size: .92rem; line-height: 1.72; }
+.qs-text strong { color: #d0ccc4; display: block; margin-bottom: .25rem; }
+
+/* ══════════════════════════════════════════════════════════════
+   KONUYA ÖZEL ALT İLKELER
+══════════════════════════════════════════════════════════════ */
+.sub-principles { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+.sub-card { background: var(--surface); border: 1px solid var(--border2); border-radius: 10px; padding: 1.5rem; }
+.sub-card h4 { font-size: .88rem; font-weight: 600; margin-bottom: .9rem; display: flex; align-items: center; gap: .5rem; }
+.sub-card ul { list-style: none; }
+.sub-card li { font-size: .84rem; padding: .35rem 0 .35rem .9rem; border-bottom: 1px solid var(--border); position: relative; line-height: 1.55; }
+.sub-card li::before { content: '›'; position: absolute; left: 0; color: var(--muted); }
+.sub-card li:last-child { border-bottom: none; }
+
+/* ══════════════════════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════════════════════ */
+footer {
+  padding: 4rem 0 5rem;
+  border-top: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 400px; height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold2), transparent);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; }
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSİF
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 680px) {
+  .cave-grid, .compare-grid, .ai-capabilities, .news-grid { grid-template-columns: 1fr; }
+  figure.float-right, figure.float-left { float: none; max-width: 100%; margin: 1.5rem 0; }
+  .character-card { padding: 1.75rem 1.5rem; }
+  .city-tabs { flex-wrap: wrap; }
+  .city-tab { min-width: calc(33% - 1px); }
+  .counter-block { gap: 1.5rem; }
+  .ai-capabilities { grid-template-columns: 1fr; }
+  .doors-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Site Nav ── */
+.site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: rgba(7, 7, 10, 0.92);
+  backdrop-filter: blur(12px);
+  padding: .7rem 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.site-nav-left, .site-nav-right { display: flex; align-items: center; gap: 1rem; }
+.site-nav-back {
+  display: inline-flex; align-items: center; gap: .45rem;
+  font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45); text-decoration: none; transition: color .2s;
+}
+.site-nav-back:hover { color: #c0a060; }
+.site-nav-back svg { width: 15px; height: 15px; stroke: currentColor; }
+.site-nav-lang { display: flex; gap: 5px; }
+.site-nav-lang-btn {
+  background: transparent; border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.4); padding: 3px 10px; cursor: pointer;
+  font-size: .7rem; letter-spacing: .12em; transition: all .2s;
+  text-decoration: none; display: inline-block;
+}
+.site-nav-lang-btn:hover { border-color: #c0a060; color: rgba(255,255,255,0.75); }
+.site-nav-lang-btn.active { border-color: #c0a060; color: #c0a060; background: rgba(192,160,96,.07); }
+body { padding-top: 56px; }
+@media print { .site-nav { display: none !important; } }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-left">
+    <a href="/?p=emanations" class="site-nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      <span>YAYILIMLAR</span>
+    </a>
+  </div>
+  <div class="site-nav-right">
+    <div class="site-nav-lang">
+      <button class="site-nav-lang-btn active">TR</button>
+      <a href="arastirma-anayasasi-en.html" class="site-nav-lang-btn">EN</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HERO — YILDIZLI GÖK
+═══════════════════════════════════════════════════════════════ -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Araştırma Anayasası · v0.5 · Şubat 2026</p>
+    <h1 class="hero-title">Hatalardan Damıtılan<br><em>İlkeler</em></h1>
+    <p class="hero-tagline">Gazetecilik değil bilim. Kurallar değil ilkeler.<br>Kendi merakını gideren kişilerin yöntemi.</p>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-arrow"></div>
+    Kaydır
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PREAMBÜL
+═══════════════════════════════════════════════════════════════ -->
+<section id="preamble">
+  <div class="wrap">
+    <span class="section-label reveal">§ Preambül</span>
+    <h2 class="reveal">Nerede duruyoruz, neden buradayız</h2>
+
+    <p class="preambule-quote reveal">
+      "Herhangi bir sabit yöntem kuralı, ilerlemeyi engellerdi."<br>
+      <span style="font-size:.78rem;color:var(--gold2);font-style:normal;letter-spacing:.08em;">— Paul Feyerabend</span>
+    </p>
+
+    <div class="cave-grid reveal">
+      <div class="cave-cell">
+        <span class="cave-label">Neden</span>
+        <p>Kendi merakını gideren kişilerin yaptığı araştırmalar. Bilim dünyasına katkı, unvan, kariyer derdi yok. Soru sormak ve dürüst yanıt bulmak.</p>
+      </div>
+      <div class="cave-cell">
+        <span class="cave-label">Nasıl</span>
+        <p>Kurallar değil ilkeler. Her araştırma kendi yolunu bulur. Sabit yöntem reçetesi yok. Rehber eden ilkeler hataların içinden damıtıldı.</p>
+      </div>
+      <div class="cave-cell">
+        <span class="cave-label">Sınır</span>
+        <p>Ulaşılabilir en iyi sonuç, mümkün olan en iyi sonuç değil. "Her zaman senden daha iyisi vardır." Durma noktasını sezgiyle bulacağız.</p>
+      </div>
+      <div class="cave-cell">
+        <span class="cave-label">Ölçü</span>
+        <p>İnsana ne kattığıyla ölçülür. Akademik standartlarla değil. Ama akademinin özgünlük ve eleştirel mesafe talebinden ilham alınır.</p>
+      </div>
+    </div>
+
+    <div class="clearfix reveal">
+      <div class="researcher-fig float-right">
+        <svg viewBox="0 0 260 145" xmlns="http://www.w3.org/2000/svg">
+          <rect width="260" height="145" fill="#0e0e18"/>
+          <line x1="28" y1="120" x2="240" y2="120" stroke="#26263a" stroke-width="1"/>
+          <line x1="28" y1="25" x2="28" y2="120" stroke="#26263a" stroke-width="1"/>
+          <path d="M36,118 Q65,115 92,100 Q112,85 136,46 Q157,78 175,96 Q200,114 228,118" fill="none" stroke="#42b0a8" stroke-width="1.5"/>
+          <path d="M36,118 Q65,115 92,100 Q112,85 136,46 Q157,78 175,96 Q200,114 228,118 L228,118 L36,118Z" fill="rgba(66,176,168,.06)"/>
+          <circle cx="225" cy="117" r="4" fill="none" stroke="#c0a060" stroke-width="1.5"/>
+          <line x1="225" y1="115" x2="225" y2="94" stroke="#c0a060" stroke-width="1" stroke-dasharray="3,3"/>
+          <text x="136" y="136" text-anchor="middle" fill="#5a5a72" font-size="8.5" font-family="-apple-system,sans-serif">merak giderme standardı</text>
+          <text x="108" y="40" text-anchor="middle" fill="#42b0a8" font-size="8.5" font-family="-apple-system,sans-serif">çoğunluk</text>
+          <text x="236" y="90" fill="#c0a060" font-size="8" font-family="-apple-system,sans-serif">marjinal</text>
+        </svg>
+        <p class="fig-caption"><span class="fig-num">Şek. 1</span> — Araştırmacı dağılımı. Yapı, derinliğin alt sınırını çizer.</p>
+      </div>
+
+      <p><strong>Araştırmacının niteliği araştırmanın standardını belirler.</strong> Herkesin merak giderme biçimi farklı. Bazıları az bakarak tatmin olur; bazıları konuya içinden bakmadıkça rahat etmez. Bu ayrım önemsiz değil: araştırmayı yapan kişinin yapısı, araştırmanın derinliğinin alt sınırını çizer. Araç, zaman, kaynak değil — yapı belirleyendir.</p>
+
+      <p>Aynı soruya farklı kişilerin verdiği yanıtlar nitelik olarak uçurum kadar ayrılabilir. Araştırmacının niteliğini bilmeden araştırmanın niteliğini bilemezsin.</p>
+
+      <p>Bu belgedeki ilkeler bir yerden geliyor: hatalardan. Yıllar içinde üretilen ve sonradan "bu neden çalışmadı?" sorusuyla geri döndüğümüz çalışmalar — her biri bir şeyi öğretti. Bu belgede yazılı her ilkenin arkasında, sessizce duran bir hata var.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ÇERÇEVE İLKE
+═══════════════════════════════════════════════════════════════ -->
+<section id="cerceve">
+  <div class="wrap">
+    <span class="section-label reveal">§ Çerçeve İlke</span>
+    <h2 class="reveal">Canlı Metot</h2>
+
+    <div class="framework-box reveal">
+      <p class="fw-title">Her araştırma kendi yolunu bulur.</p>
+
+      <p>Evrensel yöntem reçetesi yok. İlkeler sabit; uygulaması her seferinde farklı. Araştırma ilkelere dayanır, reçetelere değil.</p>
+
+      <p>Araştırmanın bir özelliği var — aslında hayattaki her şeyin özelliği. Eğer insan içine girip yaşayabiliyorsa, araştırma o insanla konuşmaya başlar. İçine girersen onu yaşamaya başlarsın; onu yaşamaya başlarsan araştırma sana geri bakar.</p>
+
+      <p>Bu çalışma bir orkestra gibi ilerliyor: insan merak ediyor, sezgiyle yön veriyor, düzeltiyor; yapay zeka tarayıp, derliyor, sorguluyor. Şef-müzisyen hiyerarşisi değil — karşılıklı yönlendirme. İlkelerin kendisi de bu orkestrayla doğdu.</p>
+
+      <div class="pull-quote" style="margin-top:1.5rem;">
+        "Formülasyondan önce pratik: araştırma metodu adını koymadan önce yaşamaya başladı."
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     İLKELER — KÜME I: KAYNAK
+═══════════════════════════════════════════════════════════════ -->
+<section id="ilkeler" style="padding-bottom: 0;">
+  <div class="wrap">
+    <span class="section-label reveal">§ İlkeler</span>
+    <h2 class="reveal">14 İlke, 5 Küme</h2>
+
+    <div class="cluster-header reveal" style="--cluster-color: var(--kaynak)">
+      <div class="cluster-dot" style="background: var(--kaynak)"></div>
+      <h3>I. Kaynak Kullanma</h3>
+    </div>
+
+    <!-- İlke 01: Birincil Kaynak / İÇİNE GİRMEK -->
+    <div class="principle" style="--p-color: var(--kaynak)">
+      <div class="principle-header reveal">
+        <span class="principle-num">01</span>
+        <span class="principle-name">Birincil Kaynak Önceliği</span>
+      </div>
+      <div class="principle-body">
+        <p class="reveal">Araştırma konusu ne ise, önce o şeyin kendi metinlerinden başla. Hukuk dilini araştırıyorsan önce hukuk metinlerini oku, sonra hukuk dilini araştıranları. Tersi her zaman çarpık sonuç üretir.</p>
+        <p class="reveal">Bizzat yaşandı: WebSearch'e "hukuk dili eleştirisi" yazılınca dilciler, sosyologlar, blog yazarları çıktı — hukuk metinlerinin kendisi değil. Dışarıdan bakanlara dayanan 6.000 kelimelik metin çöpe gitti. Düzeltme: Mecelle, İİK, TBK'nın kendisinden başlayınca tablo değişti.</p>
+        <p class="reveal">Ama birincil kaynağa bakmak yetmez. <strong>O kaynağın perspektifinden bakabilmek gerekiyor.</strong> Bu pasif okuma değil — o dünyanın mantığının içine girmek.</p>
+        <div class="example-box reveal">
+          <p>Hukuk dilini dilbilimci gözüyle araştırınca "arkaik", "karmaşık" çıkıyor. Hukukçu gözüyle araştırınca "kesin", "kapsayan" çıkıyor. İkisi de yanlış değil, ikisi de eksik. <strong>İçine girmek</strong>, o dilin neden böyle işlediğini o dilin kendi mantığından anlamak demek.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- İlke 02 -->
+    <div class="principle" style="--p-color: var(--kaynak)">
+      <div class="principle-header reveal">
+        <span class="principle-num">02</span>
+        <span class="principle-name">Kaynak Konumu Tanımlama</span>
+      </div>
+      <div class="principle-body">
+        <p class="reveal">Her kaynağın bir perspektifi var. O perspektifi tanımlamadan kaynağı kullanmak, onun körlüğünü miras almaktır. "Bu kişi nerede duruyor ve nereden bakıyor?" sorusu ilk soru olmalı.</p>
+        <div class="example-box reveal">
+          <p><strong>Dilciler</strong> hukuk dilini "karmaşık" buluyordu — dil perspektifinden bakıyorlardı. <strong>Hukukçular</strong> aynı dili "kesin" buluyordu — hukuk perspektifinden. İkisi de yanlış değildi, ikisi de eksikti. Kemal Gözler — velüt ders kitabı yazarı — hukuk dili uzmanı değil. Unvan otomatik otorite yapmıyor.</p>
+        </div>
+        <span class="source-tag reveal">Damıtıldığı yer: Hukuk dili araştırması + Türkçe oturumları</span>
+      </div>
+    </div>
+
+    <!-- İlke 03: DOĞRULAMA -->
+    <div class="principle" style="--p-color: var(--kaynak)">
+      <div class="principle-header reveal">
+        <span class="principle-num">03</span>
+        <span class="principle-name">Doğrulama Refleksi</span>
+      </div>
+      <div class="principle-body">
+        <p class="reveal">İddia kimden gelirse gelsin doğrulanır. Kaynak güvenilirliği insana değil, iddiaya bağlı. Bu bir güvensizlik meselesi değil — bir yöntem meselesi. Akademik dünyanın en büyük skandalları doğrulama refleksinin olmadığı yerde çıktı.</p>
+      </div>
+    </div>
+
+    <!-- İlke 04 -->
+    <div class="principle" style="--p-color: var(--kaynak)">
+      <div class="principle-header reveal">
+        <span class="principle-num">04</span>
+        <span class="principle-name">Somut Atıf</span>
+      </div>
+      <div class="principle-body">
+        <p class="reveal">Soyut atıf yok. Bir karara, bir metne, bir veriye atıf yapıyorsan o şeyin kendisine ulaşmış ol. Atıfın arkasında gerçek metin olsun — indir, oku, ekine koy.</p>
+        <p class="reveal">Yapay zekanın ürettiği araştırmalarda soyut atıf halüsinasyonun başlıca kaynağı. Karar numarasını yazdı — gerçek mi? Konuyla ilgili mi? Metne ulaşmadan iddia değil, rivayet.</p>
+        <span class="source-tag reveal">Damıtıldığı yer: Hukuk araştırma altyapısı — Yargıtay, UYAP, AYM doğrudan erişim</span>
+      </div>
+    </div>
+
+    <!-- KÜME II: ÜRETİM -->
+    <div class="cluster-header reveal" style="--cluster-color: var(--uretim)">
+      <div class="cluster-dot" style="background: var(--uretim)"></div>
+      <h3>II. Üretim</h3>
+    </div>
+
+    <div class="principle" style="--p-color: var(--uretim)">
+      <div class="principle-header reveal">
+        <span class="principle-num">05</span>
+        <span class="principle-name">Özgünlük</span>
+      </div>
+      <div class="principle-body">
+        <p class="reveal">Her araştırmada yeni bir şey olsun: yeni veri, yeni bağlam, yeni sentez, yeni yorumlama, mevcut bilginin düzeltilmesi — en az biri. Tesadüfen doğru söylemek yetmez; katkının izlenebilir olması gerekir.</p>
+        <div class="example-box reveal">
+          <p><strong>Sturgeon Yasası raporu:</strong> kavram başkasının (Theodore Sturgeon), ama Pareto + Gresham + Dunning-Kruger bağlantısı bizim.<br>
+          <strong>"Aynen Öyle" raporu:</strong> fatik iletişim + epistemik parazitlik sentezi özgün.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="principle" style="--p-color: var(--uretim)">
+      <div class="principle-header reveal">
+        <span class="principle-num">06</span>
+        <span class="principle-name">Meseleyi Açmak</span>
+      </div>
+      <div class="principle-body">
+        <p class="reveal">Tez savunmak değil, meseleyi açmak. Tez meselenin içinden çıkabilir — ama mesele tezden büyük olmalı. "Bu hangi koşullarda yanlışlanabilir?" sorusu sorulmalı.</p>
+        <p class="reveal">Richard Feynman 1974'te "Cargo Cult Science" konuşmasında bunu tarif etti: Pasifik adalarındaki yerliler, uçakları geri getirmek için ahşaptan kulak koruyucular takıyor, pistin başına bekçi koyuyor, uçakları taklit ediyordu. Tüm ritüeli gerçekleştiriyorlardı; sadece uçaklar inmiyordu. Araştırma da böyle olabilir: formlar, prosedürler, tablolar — ama en önemli şey eksik. "Bu hangi koşullarda yanlış?" sorusu sorulmuyorsa, Cargo Cult Science yapılıyor.</p>
+        <span class="source-tag reveal">Damıtıldığı yer: Beta raporların değerlendirmesi + Feynman "Cargo Cult Science" (1974)</span>
+      </div>
+    </div>
+
+    <!-- KÜME III: SÜREÇ -->
+    <div class="cluster-header reveal" style="--cluster-color: var(--surec)">
+      <div class="cluster-dot" style="background: var(--surec)"></div>
+      <h3>III. Süreç</h3>
+    </div>
+
+    <div class="principle" style="--p-color: var(--surec)">
+      <div class="principle-header reveal">
+        <span class="principle-num">07</span>
+        <span class="principle-name">Hız-Derinlik Dengesi</span>
+      </div>
+      <div class="principle-body">
+        <p class="reveal">Biriktirmek düşünmek değil. Hacim aşaması ve analiz aşaması birbirinden ayrılmalı. On dakikada otuz kaynak taramak etkileyici — ama etkileyici olmak derinlik değil.</p>
+        <p class="reveal">Diederik Stapel, Tilburg Üniversitesi Profesörü, 2011'e kadar hiç saha araştırması yapmadan elli sekiz makale yayımladı. Öğrencilerine "ham veri" olarak sunduğu sayılar baştan sona kurmaydı. Suçlamanın patlak vermesi tesadüftü: bir öğrencisi "bu veriler hipoteze çok mükemmel uyuyor" diyerek şaka yaptı. O şaka gerçekti. Ellisekiz makale geri çekildi. Hız hacim üretiyor, hacim derinlik illüzyonu yaratıyor.</p>
+        <span class="source-tag reveal">Negatif örnek: Stapel davası (Tilburg Ün., 2011) — Pozitif örnek: Darwin (24 yıl, 1 kitap)</span>
+      </div>
+    </div>
+
+    <div class="principle" style="--p-color: var(--surec)">
+      <div class="principle-header reveal">
+        <span class="principle-num">08</span>
+        <span class="principle-name">Yinelemeli İlerleme <em style="font-size:.8rem;font-weight:400;color:var(--dim)">(iterasyon)</em></span>
+      </div>
+      <div class="principle-body">
+        <p class="reveal">İlk çalışmayı silme, üstüne çık. Hatalı olduğu ortaya çıksa bile hata kaydedilir, neden hatalı olduğu anlaşılır, sonraki adım hatanın üstüne çıkar. Yüzde doksanın çöp olması yüzde onun varlığı için gerekiyor.</p>
+        <p class="reveal">Bu belge: v0.1, v0.2, v0.3, v0.4, v0.5 — her versiyon öncekinin üstünde. Öncekiler atılmadı, git deposunda her commit geri dönülebilir bir referans olarak duruyor.</p>
+      </div>
+    </div>
+
+    <div class="principle" style="--p-color: var(--surec)">
+      <div class="principle-header reveal">
+        <span class="principle-num">09</span>
+        <span class="principle-name">Harita Öncelikli Çalışma</span>
+      </div>
+      <div class="principle-body clearfix">
+        <figure class="full-width reveal">
+          <svg viewBox="0 0 700 150" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+            <rect width="700" height="150" fill="#0e0e18"/>
+            <text x="155" y="18" text-anchor="middle" fill="#5a5a72" font-size="8.5" font-family="-apple-system,sans-serif" letter-spacing=".08em">MALZEME (60 PDF)</text>
+            <circle cx="75" cy="52" r="3.5" fill="#26263a"/> <circle cx="110" cy="38" r="3.5" fill="#26263a"/> <circle cx="142" cy="60" r="3.5" fill="#26263a"/>
+            <circle cx="185" cy="44" r="3.5" fill="#26263a"/> <circle cx="88" cy="84" r="3.5" fill="#26263a"/> <circle cx="165" cy="90" r="3.5" fill="#26263a"/>
+            <circle cx="215" cy="70" r="3.5" fill="#26263a"/> <circle cx="130" cy="106" r="3.5" fill="#26263a"/> <circle cx="55" cy="112" r="3.5" fill="#26263a"/>
+            <circle cx="238" cy="95" r="3.5" fill="#26263a"/> <circle cx="98" cy="124" r="3.5" fill="#26263a"/> <circle cx="198" cy="124" r="3.5" fill="#26263a"/>
+            <line x1="285" y1="75" x2="355" y2="75" stroke="#c0a060" stroke-width="1.5"/><polygon points="353,71 365,75 353,79" fill="#c0a060"/>
+            <text x="320" y="68" text-anchor="middle" fill="#c0a060" font-size="8" font-family="-apple-system,sans-serif">harita</text>
+            <text x="520" y="18" text-anchor="middle" fill="#b89020" font-size="8.5" font-family="-apple-system,sans-serif" letter-spacing=".08em">HARİTA</text>
+            <line x1="405" y1="48" x2="465" y2="66" stroke="#303045" stroke-width="1"/><line x1="465" y1="66" x2="538" y2="52" stroke="#303045" stroke-width="1"/>
+            <line x1="538" y1="52" x2="595" y2="76" stroke="#303045" stroke-width="1"/><line x1="465" y1="66" x2="486" y2="110" stroke="#303045" stroke-width="1"/>
+            <line x1="405" y1="48" x2="444" y2="100" stroke="#303045" stroke-width="1"/><line x1="595" y1="76" x2="576" y2="120" stroke="#303045" stroke-width="1"/>
+            <circle cx="405" cy="48" r="3.5" fill="#42b0a8"/><circle cx="465" cy="66" r="3.5" fill="#42b0a8"/><circle cx="538" cy="52" r="3.5" fill="#42b0a8"/>
+            <circle cx="595" cy="76" r="3.5" fill="#42b0a8"/><circle cx="486" cy="110" r="3.5" fill="#42b0a8"/><circle cx="444" cy="100" r="3.5" fill="#42b0a8"/>
+            <circle cx="576" cy="120" r="3.5" fill="#42b0a8"/>
+            <circle cx="515" cy="90" r="7" fill="none" stroke="#b89020" stroke-width="1" stroke-dasharray="2,2"/>
+            <text x="515" y="94" text-anchor="middle" fill="#b89020" font-size="8" font-family="-apple-system,sans-serif">?</text>
+            <line x1="432" y1="68" x2="440" y2="76" stroke="#c85050" stroke-width="1.5"/><line x1="440" y1="68" x2="432" y2="76" stroke="#c85050" stroke-width="1.5"/>
+          </svg>
+          <figcaption><span class="fig-num">Şek. 2</span> — Malzeme ile harita aynı şey değil. Harita: bağlantılar (─), boşluklar (?), çelişkiler (✕).</figcaption>
+        </figure>
+        <p class="reveal">Araştırma bilgi toplamak değil, harita çizmek. Bilgi haritanın malzemesi, haritanın kendisi değil. Malzemelerin arasındaki ilişkiler, çelişkiler, boşluklar — harita bunları görünür kılar.</p>
+        <span class="source-tag reveal">Damıtıldığı yer: "Dilekçeyi yazmadan önce günlerce harita çizerdin"</span>
+      </div>
+    </div>
+  </div><!-- /wrap -->
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     İÇİNE GİRMEK — SİNEMA ESTETİĞİ
+═══════════════════════════════════════════════════════════════ -->
+<section id="icine-girmek-section" style="border-top: none;">
+  <div class="wrap-wide">
+    <div class="spotlight-title">
+      <span class="section-label">İlke 01 · Derinlemesi</span>
+      <h2>İçine Girmek</h2>
+    </div>
+
+    <p class="reveal" style="max-width:700px;margin:0 auto 3rem;text-align:center;color:var(--dim);font-size:.95rem;">Birincil kaynağa bakmak yetmiyor. O kaynağın baktığı yerden bakabilmek gerekiyor. Pasif gözlem değil — o dünyanın mantığının içine girmek. Tarih boyunca bu ilkeyi en somut uygulayan insanlar araştırmacı değil, aktör, gazeteci ve bilim insanları oldu.</p>
+
+    <div class="character-grid">
+
+      <!-- Frank Abagnale -->
+      <div class="character-card reveal" style="--c-color: var(--gold)">
+        <div class="char-header">
+          <span class="char-badge">1960'lar · ABD</span>
+          <div>
+            <div class="char-name">Frank Abagnale Jr. — Dört Kimlik</div>
+            <div class="char-context">Pan Am Pilotu · Doktor · Avukat · Banka Veznedarı</div>
+          </div>
+        </div>
+        <div class="char-body">
+          <p>Frank Abagnale 1960'larda Pan Am pilotu, Louisiana'da doktor, Georgia'da avukat ve banka veznedarı olarak çalıştı — hiçbir eğitim almadan. Yakalanana kadar geçen yıllarda yalnızca sahte kimlik kullanmadı; her kimliğin içine girdi.</p>
+          <p>Pilot olmak için Pan Am'ın üniform tedarikçisini telefonla aradı. Toy mağazasından Pan Am modeli aldı, rozeti söktü, sahte kimliğe yapıştırdı. Uçağa bindi ve pilotların birbirleriyle nasıl selamlaştığını, kapıya nasıl yaklaştığını izledi, kopyaladı. "Deadheading" kelimesini — başka havayollarının pilotlarının ücret ödemeden uçuş yapması geleneğini — o gün, uçaktaki bir konuşmayı duyarak öğrendi.</p>
+          <p>Doktor olduğunda, bilmediği terimleri not aldı, gece araştırdı, sabah kullandı. "Bu prosedürde ne düşünüyorsunuz?" diye sordu — yanıtı dinledi, beden dilini kopyaladı. Avukat olduğunda baro sınavına gerçekten çalıştı — üçüncü denemede geçti. Ama hukuki terminolojiyi öğrenmek için bir hukuk bürosunu da gözlemleyerek içeriden öğrendi.</p>
+          <p>Abagnale'nin çarpıcı yanı şu: belgelerin işe yaramasını sağlayan şey belgeler değildi. Her dünyanın içinden nasıl göründüğünü içselleştirmesiydi — pilotlar nasıl yürür, hekimler muayene odasında hastaya nasıl bakar, avukatlar meslektaşlarına nasıl konuşur.</p>
+          <p style="font-size:.8rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.8rem;margin-top:.5rem;"><em>Not: Abagnale'nin hikayesinin önemli bir kısmı tarihsel olarak tartışmalı. Ama film ve kitap, "içine girme" metodolojisinin nasıl işlediğini göstermek için güçlü bir anlatı sunuyor.</em></p>
+        </div>
+      </div>
+
+      <!-- Temple Grandin -->
+      <div class="character-card reveal" style="--c-color: var(--dil)">
+        <div class="char-header">
+          <span class="char-badge">1974 · Arizona</span>
+          <div>
+            <div class="char-name">Temple Grandin — Sığırın Gözünden Bakmak</div>
+            <div class="char-context">Mühendis · Etolog · Otizm</div>
+          </div>
+        </div>
+        <div class="char-body">
+          <p>1970'lerin başında bir üniversite öğrencisi hayvancılık endüstrisini değiştirecek bir şeyi yapıyordu: sürünüyordu. Harfiyyen yerde sürünerek kesimhane rampalarından geçiyor, ineklerin yürüdüğü koridorları dizleriyle dolaşıyordu.</p>
+          <p>Temple Grandin otizmli bir araştırmacıydı. Sığırlar neden rampalarda çılgına dönüyor? Mühendisler bunu "hayvan davranışı" olarak kategorize etmişti, çözüm olarak daha güçlü rampa öneriyordu. Grandin ise rampaların içinden baktı — harfiyyen.</p>
+          <p>Ve gördü: zemin yansımaları tehdit sinyali veriyordu. Aydınlatma açıları kaçma refleksi tetikliyordu. Rampanın dönüş açısı, hayvanlara ilerlemenin mümkün olmadığını hissettiriyordu. Bunların hiçbirini mühendisler görmemişti — çünkü hiçbiri yerde sürünmemişti.</p>
+          <p>Grandin'in çözümü: serpantin (eğri) koridorlar, gölgeleri ortadan kaldıran aydınlatma, zemin dokusu değişikliği. Bugün ABD ve Kanada'daki et işleme tesislerinin <strong>yüzde ellisinden fazlası</strong> Grandin'in tasarladığı ekipmanla çalışıyor.</p>
+          <p>Otizm burada araç oldu: Grandin kendi ifadesiyle görsel ve duyusal verilerle düşünüyor, hayvanlar gibi. Dışarıdan analiz değil — içeriden bak.</p>
+        </div>
+      </div>
+
+      <!-- Orwell Paris -->
+      <div class="character-card reveal" style="--c-color: var(--surec)">
+        <div class="char-header">
+          <span class="char-badge">1929 · Paris</span>
+          <div>
+            <div class="char-name">George Orwell — Paris'in Altındaki Mutfak</div>
+            <div class="char-context">Yazar · Gazeteci · Hôtel X Bulaşıkçısı</div>
+          </div>
+        </div>
+        <div class="char-body">
+          <p>1929'da Paris. George Orwell bir gazeteci olarak değil, plongeur (bulaşıkçı) olarak çalışmaya başladı. Hôtel X'in mutfak bodrununda haftada altı gün, günde on iki saat. Bakır tencereler, buhar, birikmiş yağ.</p>
+          <p>Paris'in büyük otelleri yüzeyden bakılınca tantanalı görünür. İçeriden — bodrum katından — farklı bir dünya. Orwell gördü: zengin müşterilerin masasına çıkan yemekler, zemini çürük ahşap olan, duvarda haşere gezdirilen, nem kokusuyla dolu bir bodrumdan çıkıyor.</p>
+          <p>Orwell orada gözlemci olarak değil, işçi olarak bulundu. Bu ayrım kritik: gözlemci istediği zaman ayrılabilir; işçi ayrılamaz. Ayrılamamak, o dünyanın içinde kalmayı zorunlu kılar — ve zorunluluk, görmeyi mümkün kılar.</p>
+          <p>Orwell'in öğrendiği şey soyut yoksulluk analizi değildi — plongeur'ün zihinsel durumuydu: <em>"yorgunluktan siyasi düşünce üretme kapasitesinin kapanması."</em> Bu içgörü yalnızca içeriden gelen birine görünür.</p>
+          <p><em>"Down and Out in Paris and London" (1933) bu deneyimin ürünü.</em></p>
+        </div>
+      </div>
+
+      <!-- Orwell England -->
+      <div class="character-card reveal" style="--c-color: var(--surec)">
+        <div class="char-header">
+          <span class="char-badge">1931 · İngiltere</span>
+          <div>
+            <div class="char-name">George Orwell — Serseride Yürümek</div>
+            <div class="char-context">Yorkshire · Güney İngiltere · 49 Tramp</div>
+          </div>
+        </div>
+        <div class="char-body">
+          <p>1931. Orwell eski giysilerle kasıtlı olarak İngiltere'de serseri (tramp) olarak dolaştı. "The Spike" (1931) adlı makalesi bu deneyimden doğdu.</p>
+          <p>Bir spike (sosyal yardım yurdu) beklerken kırk dokuz kişilik bir kafileyle birlikte. Yurda girildiğinde kıyafetler alınıyor, ham pamuklu gömlek veriliyor, üçer dakikalık banyoları için altı kişinin kullandığı yağlı bir havlu. Öğün: ekmek ve çay.</p>
+          <p>En vurucu gözlem: otel mutfaklarında çöpe atılan et ve ekmek dolu kaplar, iki yüz metre ötede karnı yarım dolu serseri kalabalığı. "Bu kasıtlı bir politikaydı."</p>
+          <p>Dışarıdan "yoksulluk vahim" diyebilirdi. İçine girince kavradığı şey farklıydı: <strong>yorgunluk insanı ideoloji üretmekten alıkoyar.</strong> Bu sezgi "1984"te praxis haline geldi.</p>
+        </div>
+      </div>
+
+      <!-- Wallraff -->
+      <div class="character-card reveal" style="--c-color: var(--uretim)">
+        <div class="char-header">
+          <span class="char-badge">1983–1985 · Batı Almanya</span>
+          <div>
+            <div class="char-name">Günter Wallraff — İki Yıl Ali Olmak</div>
+            <div class="char-context">Alman Gazeteci → Türk Göçmen İşçi</div>
+          </div>
+        </div>
+        <div class="char-body">
+          <p>1983. Alman gazeteci Günter Wallraff Türk göçmen kimliği aldı. Adını Ali Sigirlioğlu koydu, saçını boyattı, koyu lens taktı, aksan çalıştı. Türkçesi kırık olacaktı — Yunan anası, Türk babası, Pire'de büyüdü.</p>
+          <p>İki yıl boyunca Batı Almanya'nın en ağır işlerine girdi: McDonald's mutfağı, Thyssen çelik fabrikası, nükleer atık taşıma, alüminyum eritme tesisi. Her yerde Ali olarak çalıştı.</p>
+          <p>Gördükleri: Koruyucu ekipman verilmiyor. İş kazaları rapor edilmiyor. Fazla mesai ödenmiyor. Yöneticiler Ali'ye Almanca dışında bir şey bildiği için alenen aşağılıyor. Tuvalet dışında konuşması yasaklanan işçiler — Türkçe konuştukları için.</p>
+          <p>Kitabın son sahnesi: Bir geçici iş bürosu patronu, Wallraff'tan arızalı bir nükleer santralde tehlikeli radyasyona maruz kalacak beş Türk işçi seçmesini istedi. Wallraff kimliğini ifşa etti.</p>
+          <p><em>"Ganz Unten" (1985): 4 milyon kopya, 30 dil.</em> Dışarıdan bir araştırmacı fabrika kapısında durdurulurdu. İçeriden Ali, her şeyi gördü.</p>
+        </div>
+      </div>
+
+      <!-- Aktörler -->
+      <div class="character-card reveal" style="--c-color: var(--tutum)">
+        <div class="char-header">
+          <span class="char-badge">Stanislavski · Day-Lewis · De Niro</span>
+          <div>
+            <div class="char-name">Method Aktörler — Yaşamak, Oynamak Değil</div>
+            <div class="char-context">Tiyatro · Sinema</div>
+          </div>
+        </div>
+        <div class="char-body">
+          <p>Stanislavski'nin sistemi şunu söylüyordu: aktör rolü <em>temsil</em> etmez, <em>yaşar</em>. "Magic If" — "Bu karakterin koşullarında olsaydım ne hissederdim?" Dışarıdan analiz değil, içeriden yaşantı.</p>
+          <p><strong>Daniel Day-Lewis</strong> <em>My Left Foot</em> (1989) için çekimler boyunca tekerlekli sandalyeden kalkmadı. Set çalışanları onu besledi. Sonuç: omuriliğinin öne eğri duruşundan iki kaburga kırığı — ve Oscar.</p>
+          <p><em>There Will Be Blood</em> (2007) için daha ileri gitti: California çölünde izole bir kulübede aylarca, petrol sondaj kaynakları okuyarak. Sesini — John Huston'a benzetilen, yağ ve açgözlülükle ıslatılmış o sesi — aylarca süren obsesif denemelerle buldu.</p>
+          <p><strong>Robert De Niro</strong> <em>Taxi Driver</em> (1976) için New York Taksi Şoförleri Birliği'ne üye oldu. Gerçek taksi ehliyeti aldı. Çekim öncesinde hafta sonları on iki saatlik vardiyalar yaptı — kamerasız, set olmadan. Sadece bir yolcu onu tanıdı; o da başka bir aktördü.</p>
+          <p>Araştırmada "method acting": konuya girmek için birebir yaşamak mümkün olmasa da, o dünyanın içinden bakan kaynaklara öncelik vermek, o dünyanın dilini, ritüellerini, mantığını öğrenmek aynı ilkeden geliyor.</p>
+        </div>
+      </div>
+
+      <!-- Jane Goodall -->
+      <div class="character-card reveal" style="--c-color: var(--kaynak)">
+        <div class="char-header">
+          <span class="char-badge">1960 · Gombe, Tanzanya</span>
+          <div>
+            <div class="char-name">Jane Goodall — Şempanzenin Güvenini Kazanmak</div>
+            <div class="char-context">Primatolog · 1 Yıl Sabırlı Varlık</div>
+          </div>
+        </div>
+        <div class="char-body">
+          <p>14 Temmuz 1960. Jane Goodall Tanzanya'nın Gombe Stream'ine vardı, yirmi altı yaşında, resmi zooloji eğitimi yok. Louis Leakey onu kasıtlı olarak önyargısız biri olarak seçmişti.</p>
+          <p>İlk başta şempanzeler kaçıyordu. Yaklaşık bir yıl sonra, David Greybeard adını verdiği erkek şempanze ona alışmaya başladı.</p>
+          <p>4 Kasım 1960'ta Goodall, David Greybeard'ı termit tümseğinin başında gözlemledi. Hayvan bir ot sapını termit deliğine sokup çıkarıyordu — üstünde yapışan termitlerle. Özel amaçla değiştirilmiş nesne — alet kullanımı. O güne kadar yalnızca insanlara atfediliyordu.</p>
+          <p>Goodall, Louis Leakey'e telgraf çekti. Leakey'nin yanıtı meşhurdur: <em>"Now we must redefine tool, redefine man, or accept chimpanzees as humans."</em></p>
+          <p>Bu keşif mümkün oldu çünkü Goodall sabırlı, patronize etmeyen, varlıksal bir yakınlıkla çalıştı — hızlı yaklaşmadı, ani hareket ve yüksek ses yoktu. Bilimsel mesafe değil: <strong>içeriden güven.</strong></p>
+        </div>
+      </div>
+
+    </div><!-- /character-grid -->
+
+    <div class="pull-quote reveal" style="max-width:700px;margin:0 auto;">
+      "İçine girmek sadece gözlemlemek değil — o dünyanın dilini, ritüellerini, kısayollarını ve içeriden nasıl göründüğünü içselleştirmek."
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     DOĞRULAMA REFLEKSİ — GAZETECİ PANOSU
+═══════════════════════════════════════════════════════════════ -->
+<section id="dogrulama-section">
+  <div class="wrap">
+    <span class="section-label reveal">İlke 03 · Derinlemesi</span>
+    <h2 class="reveal">Doğrulama Refleksi — Tarihin En Pahalı Hataları</h2>
+    <p class="reveal">Doğrulama refleksinin yokluğunun maliyeti soyut değil — ölçülebilir.</p>
+
+    <div class="news-grid">
+
+      <div class="news-clip reveal" style="--clip-color: var(--uretim)">
+        <span class="news-clip-label">Akademik Dolandırıcılık</span>
+        <h4>Andrew Wakefield — MMR Aşısı ve Otizm Yalanı</h4>
+        <p>1998'de <em>The Lancet</em>'te yayımlanan on iki çocukluk vakasına dayanan makale, MMR aşısı ile otizm arasında nedensellik bağı kurdu. Veriler fabrike edilmişti. Makale on iki yıl yayımda kaldı.</p>
+        <p>Sonuç: İngiltere'de aşı oranı yüzde doksan ikiden yüzde yetmiş üçe, Londra'nın bazı bölgelerinde yüzde elliye düştü. Kızamık salgınları patlak verdi. Ölümler yaşandı.</p>
+        <p>2010'da araştırmanın tamamen uydurulduğu anlaşıldı. Wakefield tıp lisansını kaybetti. "Yayımlandı" yeterliydi — doğrulama gelmedi.</p>
+        <span class="nc-year">The Lancet, 1998 / geri çekilme: 2010</span>
+      </div>
+
+      <div class="news-clip reveal" style="--clip-color: var(--uretim)">
+        <span class="news-clip-label">Gazetecilik Skandalı</span>
+        <h4>Jayson Blair — New York Times'ın İç Çöküşü</h4>
+        <p><em>New York Times</em>'ın genç muhabiri otuz altı makale yazdı — hiçbirini araştırmadan. Kaynaklarla görüşmedi, bölgelere gitmedi, birebir alıntıladığı sözleri uydurdu.</p>
+        <p>Yıllarca kimse doğrulamadı. Gazetenin kendi araştırması açığa çıkardı. Bu, kurumsal güvenilirliğin doğrulama refleksini nasıl erittiğinin örneği.</p>
+        <span class="nc-year">NYT, 2003</span>
+      </div>
+
+      <div class="news-clip reveal" style="--clip-color: var(--surec)">
+        <span class="news-clip-label">Doğrulamanın Reddi</span>
+        <h4>Semmelweis — Tıp Camiası El Yıkamayı Reddetti</h4>
+        <p>1847. Ignaz Semmelweis klor çözeltisiyle el yıkamayı zorunlu kıldığında ölüm oranı bir ayda yüzde onsekizden yüzde iki virgül ikiye indi. Veriler önündeydi.</p>
+        <p>Tıp camiası kabul etmedi — çünkü kabul etmek, doktorların kendi elleriyle hasta öldürdüklerini itiraf etmek anlamına geliyordu. "Semmelweis refleksi" bugün bilişsel bilimlerde özel bir kavram: yeni bilgiyi mevcut inançlarla çeliştiği için otomatik olarak reddetmek.</p>
+        <span class="nc-year">Viyana Hastanesi, 1847</span>
+      </div>
+
+      <div class="news-clip reveal" style="--clip-color: var(--kaynak)">
+        <span class="news-clip-label">Küçük Ölçek</span>
+        <h4>Günlük Doğrulama Örnekleri</h4>
+        <p><strong>"Sıkıysa Yakala" başrolü:</strong> "Brad Pitt" denildi — doğrulama: Leonardo DiCaprio.</p>
+        <p><strong>İİK madde numarası:</strong> "4949 sayılı kanun" sanıldı — doğrulama: 2004 sayılı kanun.</p>
+        <p><strong>"Ayşe Teyze" kökeni:</strong> "reklam" denildi — araştırıldı: Güngör Uras 1982'de yarattı, ACE reklamı 1990.</p>
+        <p>Küçük hatalar büyük örneklerle aynı ilkeden kaynaklanıyor: doğrulama refleksi yok.</p>
+        <span class="nc-year">Bu oturumlarda yaşandı</span>
+      </div>
+
+    </div>
+
+    <p class="reveal" style="font-size:.88rem;color:var(--dim);">John Ioannidis 2005'te PLOS Medicine'de "Neden Yayımlanan Araştırma Bulgularının Çoğu Yanlış?" makalesini yayımladı. Metodolojik hatalar, küçük örneklem boyutları, yayın yanlılığı — bulgular tekrarlanamıyor. Doğrulama refleksi olmadan "yayımlandı" yeterliydi. Artık yetmiyor.</p>
+    <span class="source-tag reveal">Ioannidis (2005), PLOS Medicine · Wakefield (1998/2010) · Blair (2003) · Semmelweis (1847)</span>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     NIGHT ON EARTH — SİNEMA
+═══════════════════════════════════════════════════════════════ -->
+<section id="night-on-earth" style="border-top: 1px solid #111118;">
+  <div class="film-header wrap-wide">
+    <div class="film-strip-top">
+      <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+      <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+      <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+      <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+    </div>
+    <p class="film-subtitle reveal">İlke 10 · Türkçe Düşünme · Derinlemesi</p>
+    <h2 class="film-title reveal">Night on Earth</h2>
+    <p style="color:rgba(255,255,255,.3);font-size:.82rem;margin:.5rem 0 2rem;letter-spacing:.1em;" class="reveal">JİM JARMUSCH · 1991 · Beş Şehir · Aynı Gece · Beş Dil Sorunu</p>
+  </div>
+
+  <!-- Gerçek film posteri -->
+  <div class="film-poster-wrap reveal">
+    <svg viewBox="0 0 280 420" xmlns="http://www.w3.org/2000/svg" class="film-poster-svg">
+      <defs>
+        <radialGradient id="cityGlow" cx="50%" cy="30%" r="60%">
+          <stop offset="0%" stop-color="rgba(180,140,60,.15)"/>
+          <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+        </radialGradient>
+      </defs>
+      <rect width="280" height="420" fill="#060608"/>
+      <rect width="280" height="420" fill="url(#cityGlow)"/>
+      <!-- Gece şehri silhouette -->
+      <rect x="0" y="280" width="280" height="140" fill="#04040a"/>
+      <!-- Binalar -->
+      <rect x="10" y="240" width="20" height="80" fill="#0a0a12"/><rect x="35" y="260" width="15" height="60" fill="#0a0a12"/>
+      <rect x="55" y="220" width="25" height="100" fill="#0a0a12"/><rect x="85" y="250" width="18" height="70" fill="#0a0a12"/>
+      <rect x="108" y="230" width="30" height="90" fill="#0a0a12"/><rect x="143" y="255" width="20" height="65" fill="#0a0a12"/>
+      <rect x="168" y="238" width="25" height="82" fill="#0a0a12"/><rect x="198" y="248" width="22" height="72" fill="#0a0a12"/>
+      <rect x="225" y="225" width="28" height="95" fill="#0a0a12"/><rect x="258" y="260" width="22" height="60" fill="#0a0a12"/>
+      <!-- Pencere ışıkları -->
+      <rect x="14" y="248" width="4" height="4" fill="rgba(200,180,80,.3)"/>
+      <rect x="20" y="248" width="4" height="4" fill="rgba(200,180,80,.2)"/>
+      <rect x="58" y="228" width="4" height="4" fill="rgba(200,180,80,.4)"/>
+      <rect x="65" y="235" width="4" height="4" fill="rgba(200,180,80,.25)"/>
+      <rect x="112" y="238" width="4" height="4" fill="rgba(200,180,80,.35)"/>
+      <rect x="119" y="245" width="4" height="4" fill="rgba(200,180,80,.2)"/>
+      <rect x="230" y="233" width="4" height="4" fill="rgba(200,180,80,.3)"/>
+      <rect x="238" y="240" width="4" height="4" fill="rgba(200,180,80,.4)"/>
+      <!-- Taksi ışığı -->
+      <ellipse cx="140" cy="300" rx="30" ry="12" fill="rgba(180,140,40,.15)"/>
+      <rect x="118" y="290" width="44" height="24" rx="4" fill="rgba(20,16,8,.9)"/>
+      <rect x="122" y="294" width="36" height="16" rx="2" fill="#b89030" opacity=".8"/>
+      <text x="140" y="305" text-anchor="middle" fill="#050503" font-size="7" font-weight="700" font-family="-apple-system,sans-serif">TAXI</text>
+      <!-- Başlık metni -->
+      <text x="140" y="70" text-anchor="middle" fill="rgba(200,196,190,.9)" font-size="24" font-family="Georgia,serif" font-weight="400" letter-spacing="8">NIGHT</text>
+      <text x="140" y="50" text-anchor="middle" fill="rgba(200,196,190,.4)" font-size="10" font-family="-apple-system,sans-serif" letter-spacing="6">ON EARTH</text>
+      <line x1="40" y1="80" x2="240" y2="80" stroke="rgba(180,140,60,.3)" stroke-width=".5"/>
+      <text x="140" y="100" text-anchor="middle" fill="rgba(160,140,100,.5)" font-size="8" font-family="-apple-system,sans-serif" letter-spacing="3">JIM JARMUSCH</text>
+      <!-- Şehir noktaları -->
+      <circle cx="60" cy="170" r="3" fill="#4ea060"/><text x="67" y="174" fill="rgba(78,160,96,.7)" font-size="7" font-family="-apple-system,sans-serif">LOS ANGELES</text>
+      <circle cx="60" cy="185" r="3" fill="#42b0a8"/><text x="67" y="189" fill="rgba(66,176,168,.7)" font-size="7" font-family="-apple-system,sans-serif">NEW YORK</text>
+      <circle cx="60" cy="200" r="3" fill="#6090d0"/><text x="67" y="204" fill="rgba(96,144,208,.7)" font-size="7" font-family="-apple-system,sans-serif">PARİS</text>
+      <circle cx="60" cy="215" r="3" fill="#c85050"/><text x="67" y="219" fill="rgba(200,80,80,.7)" font-size="7" font-family="-apple-system,sans-serif">ROMA</text>
+      <circle cx="60" cy="230" r="3" fill="#8060c0"/><text x="67" y="234" fill="rgba(128,96,192,.7)" font-size="7" font-family="-apple-system,sans-serif">HELSİNKİ</text>
+      <!-- Altta -->
+      <text x="140" y="400" text-anchor="middle" fill="rgba(100,90,70,.4)" font-size="6.5" font-family="-apple-system,sans-serif" letter-spacing="2">WINONA RYDER · GENA ROWLANDS</text>
+      <text x="140" y="412" text-anchor="middle" fill="rgba(100,90,70,.4)" font-size="6.5" font-family="-apple-system,sans-serif" letter-spacing="2">ROBERTO BENIGNI · ARMIN MUELLER-STAHL</text>
+    </svg>
+  </div>
+
+  <!-- Şehir sekmeler -->
+  <div class="wrap-wide">
+    <div style="max-width:640px;margin:0 auto 0;">
+      <div class="city-tabs" id="cityTabs">
+        <button class="city-tab active" data-panel="la" style="--tab-color:#a88040">LA</button>
+        <button class="city-tab" data-panel="ny" style="--tab-color:#c8b030">NY</button>
+        <button class="city-tab" data-panel="paris" style="--tab-color:#5080c8">PARİS</button>
+        <button class="city-tab" data-panel="roma" style="--tab-color:#c05040">ROMA</button>
+        <button class="city-tab" data-panel="helsinki" style="--tab-color:#7060b8">HELSİNKİ</button>
+      </div>
+    </div>
+
+    <div class="city-panels">
+
+      <!-- LA -->
+      <div class="city-panel panel-la active" id="panel-la">
+        <div class="city-bg"></div>
+        <div class="city-content wrap">
+          <div class="city-scene-header">
+            <h3 class="city-name">Los Angeles</h3>
+            <p class="city-meta">19:07 PST · Saat 19</p>
+            <div class="city-cast">
+              <span class="cast-tag">Corky — Winona Ryder</span>
+              <span class="cast-tag">Victoria — Gena Rowlands</span>
+            </div>
+          </div>
+          <div class="city-analysis">
+            <p>Corky on yedi yaşında, geceye kadar taksi kullanıyor. Victoria Hollywood yapım direktörü, havalimanından şehre gidiyor. Yolculuk boyunca Victoria Corky'de bir şeyler görüyor — bir enerji, bir ham yetenek — ve ona oyunculuk teklif ediyor. Corky dinliyor, gülümsüyor ve reddediyor. Mekanik teknisyen olmak istiyor.</p>
+            <p>Bu segment sınıf çatışması değil — daha ince bir şey. Victoria'nın sunduğu şey Corky'nin hayal edemeyeceği bir dünya değil; hayal edebiliyor ama istemiyor. Bunu söyleme biçimi sokak diliyle geliyor.</p>
+            <div class="dialogue-box">
+              Orijinal deyim: "Can't live with 'em, can't live without 'em."<br>
+              Corky'nin versiyonu: "Can't live with 'em, <strong>can't shoot 'em.</strong>"
+            </div>
+            <p>İkinci yarıyı değiştiriyor — orijinali tam bilmiyor ama biliyormuş gibi devam ediyor. Bunu Türkçe'de tam sokak diline uyarlarsan Corky'yi o dile hakim biri haline getirirsin. Kızın yarım kalan kalıbını yok etmiş olursun. <strong>Bozukluğu korumak da anlam aktarımının parçası.</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- NY -->
+      <div class="city-panel panel-ny" id="panel-ny">
+        <div class="city-bg"></div>
+        <div class="city-content wrap">
+          <div class="city-scene-header">
+            <h3 class="city-name">New York</h3>
+            <p class="city-meta">22:07 EST · Gece Yarısı Yaklaşırken</p>
+            <div class="city-cast">
+              <span class="cast-tag">Helmut — Armin Mueller-Stahl</span>
+              <span class="cast-tag">Yo-Yo — Giancarlo Esposito</span>
+              <span class="cast-tag">Angela — Rosie Perez</span>
+            </div>
+          </div>
+          <div class="city-analysis">
+            <p>Helmut Doğu Alman, eski sirk palyaçosu. New York'ta ilk iş günü. Yo-Yo'yu almaya çalışıyor ama otomatik vitesi kullanamıyor — Doğu Almanya'da araba otomatik değildi. Yo-Yo direksiyona geçiyor ve kendi şoförünü taşıyor.</p>
+            <div class="dialogue-box">
+              Yo-Yo: "New York is <strong>cool</strong>."<br>
+              Helmut: "Yes, it is <strong>cold</strong>."<br>
+              Yo-Yo: "No — cool! Hip! Happening!"
+            </div>
+            <p>"Cool"un kültürel anlamı yalnızca o dilin içinden erişilebilir. Sözlükte yok — bağlamda var.</p>
+            <p>İsimler bile çevrilemiyor: Yo-Yo "Helmut" ismini duyunca güler. Helmut "Yo-Yo" ismini duyunca anlamlandıramaz. Herkesin "normal" bulduğu isim öbürünün kulağına absürd geliyor. Dil bariyerinin altında başka bir şey var: <strong>dünya görüşü bariyeri.</strong></p>
+            <p>Yine de aralarında bir bağ kuruluyor — ama bu bağ kelimelerin tam aktarımından değil, ikisinin de marjinal olmasından kaynaklanıyor. Yo-Yo Siyah olduğu için taksiler durmuyor; Helmut Alman olduğu için sisteme yabancı.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paris -->
+      <div class="city-panel panel-paris" id="panel-paris">
+        <div class="city-bg"></div>
+        <div class="city-content wrap">
+          <div class="city-scene-header">
+            <h3 class="city-name">Paris</h3>
+            <p class="city-meta">04:07 CET · Şafak Öncesi</p>
+            <div class="city-cast">
+              <span class="cast-tag">Şoför — Isaach de Bankolé (Fildişi Sahili)</span>
+              <span class="cast-tag">Kör Kadın — Béatrice Dalle</span>
+            </div>
+          </div>
+          <div class="city-analysis">
+            <p>Fildişi Sahilli şoför arabasına iki sarhoş diplomat alıyor. Şoförün Fildişi Sahilli olduğunu duyunca diplomatlar güler:</p>
+            <div class="dialogue-box">
+              <strong>"Il y voit rien"</strong> — "Hiçbir şeyi göremez."<br><br>
+              Fransızcada "Ivoirien" (Fildişi Sahilli) ile "il y voit rien" (hiçbir şey göremez) arasındaki ses benzerliği bir sözcük oyununa dönüşür.
+            </div>
+            <p>Bu kelime oyunu, sömürge sonrası Fransa'daki intra-Afrika hiyerarşisini bir cümleye sıkıştırıyor. Şoför diplomatları arabadan atar.</p>
+            <p>Sonra kör kadını alıyor. İki karakterin diyaloğu şu eksende döner: Şoför körlüğü bir kayıp olarak çerçeveler. Kadın reddeder — görmenin bir yük olabileceğini, algının gözün tekelinde olmadığını söylüyor.</p>
+            <p>Dilin içinde gömülü olan anlam: "il voit rien" hem "görmüyor" hem "kör" anlamına geliyor — şoföre kullanılan söz, kadının durumunu da tanımlıyor. Türkçeye çevirmek için bu çift anlam seçilmek zorunda — ve seçim, sahnenin anlamını değiştiriyor.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Roma -->
+      <div class="city-panel panel-roma" id="panel-roma">
+        <div class="city-bg"></div>
+        <div class="city-content wrap">
+          <div class="city-scene-header">
+            <h3 class="city-name">Roma</h3>
+            <p class="city-meta">04:07 CET · Aynı An, Farklı Şehir</p>
+            <div class="city-cast">
+              <span class="cast-tag">Gino — Roberto Benigni</span>
+              <span class="cast-tag">Rahip — Paolo Bonacelli</span>
+            </div>
+          </div>
+          <div class="city-analysis">
+            <p>Gino gece geç saatte bir rahibi arabasına alıyor. Rahip hasta, yürüyemiyor. Gino günahlarını itiraf etmek istiyor. Rahip "Ben resmi görevde değilim" diyor. Gino duymaz — ve başlar.</p>
+            <div class="dialogue-box">
+              Küçük günahlardan başlıyor.<br>
+              Giderek grafik, giderek absürd itiraflar silsilesi.<br>
+              Rahip gittikçe soluklaşıyor, nitro glisinini çıkarıyor.<br>
+              Tümsekte ilaç yere düşüyor.<br>
+              Rahip hayatını kaybediyor.
+            </div>
+            <p>Benigni'nin Floransalı aksanı ve sokak İtalyancası İtalyan seyircisine katman katman anlam taşıyor. Türkçeye çevrildiğinde bu katman düşüyor.</p>
+            <p>Dil burada kasıtsız bir silah haline geliyor. Gino rahip öldürmeyi istemedi — ama söyledikleri öldürücüydü. İki söyleme sistemi çarpıştı: Güney İtalya'nın güneşli itiraf geleneği ile kuzey Avrupa'nın ahlak dili. Benigni itiraf ettiği için değil, sesi çıktığı için konuştu. Anlamın karşıya geçmesi hiç hesapta yoktu.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Helsinki -->
+      <div class="city-panel panel-helsinki" id="panel-helsinki">
+        <div class="city-bg"></div>
+        <canvas class="helsinki-snow" id="helsinki-canvas"></canvas>
+        <div class="city-content wrap" style="position:relative;z-index:1;">
+          <div class="city-scene-header">
+            <h3 class="city-name">Helsinki</h3>
+            <p class="city-meta">05:07 EET · Eksi 10°C · Kar</p>
+            <div class="city-cast">
+              <span class="cast-tag">Mika — Matti Pellonpää</span>
+              <span class="cast-tag">Sarhoşlar — Kaurismäki Kadrosu</span>
+            </div>
+          </div>
+          <div class="city-analysis">
+            <p>Son segment en kısa ve en ağır. Üç sarhoş adam, yorgun bir şoför. Jarmusch karakterlere kasıtlı olarak Aki ve Mika adlarını verdi — Fin sinemasının iki büyük ismine, Aki ve Mika Kaurismäki'ye, saygı.</p>
+            <p>Sarhoşlar Mika'ya arkadaşlarını anlatıyor: dün işini kaybetti, yeni arabası mahvoldu, karısı boşanmak istiyor, genç kızının hamile olduğu ortaya çıktı. Dört felaket.</p>
+            <div class="dialogue-box">
+              Mika: "Is that all?"<br><br>
+              <span style="font-size:.82rem;color:rgba(180,176,168,.5);">Hepsi bu mu?</span>
+            </div>
+            <p>Bu cümle, Kuzey Avrupa acısının en özlü ifadesi. Ağıt yok, empati performansı yok. Doğrudan rekabet: benim hikayem daha ağır.</p>
+            <p>Mika anlatıyor: Yıllarca çocukları olmadı. Bir gün karısı hamile kaldı. Bebek prematüre, kuvöze konuldu. Doktorlar bir hafta yaşar dedi. Mika bağlanmadı — kaybolursa ikisi de biter. Bebek beklenenin ötesinde yaşadı. Karısı dedi ki: "Çocuğumuza senin de sevgin lazım." Mika bağlandı. Bebek öldü.</p>
+            <p>Son sahne: Gün ağarıyor. Mika arabayı boş bir parkın etrafında yavaşça sürer. Tek başına. Hiçbir şey söylenmez. Tom Waits'in müziği seyrek, zil sesleri az — sessizliği çerçeveler, doldurmaz.</p>
+            <p><strong>Fince'de söylenmeyenin ağırlığı söylenenden daha büyük.</strong> Bunu Türkçeye taşımak mümkün ama çerçeveyi not etmek şart.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /city-panels -->
+  </div>
+
+  <div class="wrap" style="padding-top:4rem;padding-bottom:5rem;position:relative;z-index:2;">
+    <div class="pull-quote" style="border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.03);">
+      <span style="color:rgba(200,196,192,.8);">Dil, anlamı garanti etmez. Aynı dili konuşmak (Corky ve Victoria) anlaşmayı sağlamaz; farklı diller konuşmak (Helmut ve Yo-Yo) anlaşmayı engellemez. En etkili iletişim Roma'da tamamen kırılır (yoktur), Helsinki'de ise neredeyse kelimesiz gerçekleşir.</span>
+    </div>
+    <p class="reveal" style="font-size:.85rem;color:rgba(160,156,148,.5);margin-top:1.5rem;">Türkçe düşünme ilkesi burada kristalleşiyor: kaynak dili aktarmak yetmez. O dilde gömülü olan dünya görüşünü — bozuklukları, yanlış anlamaları, kasıtlı kırıkları dahil — aktarmak gerekiyor. Yoksa çeviri değil, özet.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ANTİPERFORMANS — SAYAÇ
+═══════════════════════════════════════════════════════════════ -->
+<section id="antiperformans-section">
+  <div class="wrap">
+    <span class="section-label reveal">İlkeler 11–14 · Tutum</span>
+    <h2 class="reveal">Antiperformans &amp; Bedel Ödeme</h2>
+
+    <p class="reveal">Antiperformans akademik dünyada nadir. Darwin bunu yaptı.</p>
+
+    <div class="counter-block reveal">
+      <div class="counter-item">
+        <span class="counter-num" data-target="24" data-suffix=" yıl">0</span>
+        <span class="counter-label">Darwin'in Galapagos'tan<br>yayına kadar beklediği süre</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" data-target="5" data-suffix=" hafta">0</span>
+        <span class="counter-label">Galapagos'ta<br>geçirilen süre</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" data-target="28000" data-suffix="">0</span>
+        <span class="counter-label">Mendel'in<br>bezelye bitkisi</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" data-target="40" data-suffix=" kopya">0</span>
+        <span class="counter-label">Mendel'in dağıttığı<br>baskı sayısı</span>
+      </div>
+    </div>
+
+    <p class="reveal"><strong>Darwin</strong> Galapagos'a 1835'te uğradı. Beş hafta kaldı. <em>On the Origin of Species</em>'i 1859'da yayımladı. Aradan yirmi dört yıl geçmişti. Bu sürede tek bir makale yayımlamadı, kimseyi ikna etmeye çalışmadı. Alfred Russel Wallace'ın bağımsız olarak aynı sonuca ulaştığını öğrenince harekete geçti — ama o ana kadar bekledi. Hazır olmadan sunmak istemiyordu.</p>
+
+    <p class="reveal"><strong>Mendel</strong> 1856–1863 arasında Brno'daki Augustin manastırında sekiz yıl boyunca yaklaşık 28.000 bezelye bitkisiyle deneyler yürüttü. Çalışmasını 1866'da yayımladı. Tanıtım, ağ kurma, ikna girişimi yoktu. Kırk baskı dağıttı — ikisinin nerede olduğu biliniyor. Manastır piskoposu gülerdi. Mendel 1884'te öldü. Kalıtım yasaları 1900'de yeniden keşfedildi — on altı yıl sonra. Performans kaygısı sıfırdı; çünkü izleyici de sıfırdı.</p>
+
+    <div class="pull-quote reveal">
+      "Montaigne 1571'de 38 yaşında manastır kulesine çekildi. Hedef: okumak ve kendini düşünmek. Ortaya çıkan 'Essais' kelimesi Fransızcada 'girişim, sınama' anlamına geliyor. 'Okuyucumu değil, kendimi eğitiyorum.' Kesin sonuca ulaşmak hedef değildi; meselenin içinde kalmak hedefti."
+    </div>
+
+    <h4 class="reveal" style="font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:3rem 0 1rem;">Sınırları Bilmek · Dikkatin Meşruiyeti</h4>
+
+    <p class="reveal">Ulaşılabilir en iyi sonuç, mümkün olan en iyi sonuç değil. "Her zaman senden daha iyisi vardır" — gerçekçilik. Dikkati çalmak ile dikkati hak etmek arasında bir sınır var. İğne batırarak dikkat çekmek — sahte hayret, dramatik ambalaj, jargon şişirmesi — dikkati çalar. Karşı tarafın meseleyi yaşamasını sağlayarak dikkat çekmek dikkati hak eder.</p>
+  </div>
+</section>
+
+
+<!-- BEDEL ÖDEME — ATEŞ -->
+<section style="padding: 0; border-top: none;">
+  <div class="wrap" style="padding: 3rem 0;">
+    <div class="fire-section reveal">
+      <canvas id="fire-canvas"></canvas>
+      <div class="fire-content">
+        <p class="fire-quote">"Bedel ödemekten muaf olmanın istenmeyen sonuçları vardır, çünkü kararlarının etkisinden yalıtılmış insanlar öğrenmez."</p>
+        <p class="fire-attr">Nassim Nicholas Taleb · Skin in the Game</p>
+        <p style="color:rgba(200,160,80,.6);font-size:.88rem;margin-top:2rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;">Barry Marshall 1984'te H. pylori içeren solüsyonu kendisi içti. Sekiz gün içinde gastrit geliştirdi. Mide ülserinin bakteriyel kaynaklı olduğunu kanıtladı. 2005 Nobel Tıp Ödülü. Bedel ödemek burada metafor değil — gerçekti.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     YAPAY ZEKA — TERMİNAL
+═══════════════════════════════════════════════════════════════ -->
+<section id="ai-section">
+  <canvas id="ai-canvas"></canvas>
+  <div class="wrap ai-content">
+    <span class="section-label reveal" style="color:rgba(64,112,200,.7);">§ Yapay Zeka ve Araştırma</span>
+    <h2 class="reveal" style="color:#8aacf0;">Araştırmada Yapay Zeka<br><span style="font-weight:400;color:rgba(64,112,200,.6);font-size:.7em;">Gereklilik · Yöntem · Sınır</span></h2>
+
+    <div class="terminal-window reveal">
+      <div class="terminal-bar">
+        <div class="terminal-dot td-red"></div>
+        <div class="terminal-dot td-yellow"></div>
+        <div class="terminal-dot td-green"></div>
+        <span class="terminal-title">arastirma-metodu · ajan sistemi</span>
+      </div>
+      <div class="terminal-body">
+        <div class="t-line">$ araştırma başlat: "Night on Earth — beş segment"</div>
+        <div class="t-line active">⟶ 3 paralel ajan başlatıldı</div>
+        <div class="t-line output">  [ajan-1] Night on Earth segmentleri araştırılıyor...</div>
+        <div class="t-line output">  [ajan-2] "İçine girmek" örnekleri: Orwell, Wallraff, Grandin...</div>
+        <div class="t-line output">  [ajan-3] Antiperformans: Darwin, Mendel, Montaigne...</div>
+        <div class="t-line active">⟶ Tüm ajanlar tamamlandı — toplam: 47 kaynak</div>
+        <div class="t-line output">  Film posteri URL: tmdb.org → doğrulandı</div>
+        <div class="t-line output">  Wallraff baskı sayısı: 4M → doğrulandı</div>
+        <div class="t-line output">  Darwin Galapagos tarihi: 1835, 5 hafta → doğrulandı</div>
+        <div class="t-line active">$ <span class="t-cursor"></span></div>
+      </div>
+    </div>
+
+    <p class="reveal">"Yapay zeka kullandım" demek hiçbir şey söylemiyor. Hangi yapay zekayı, nasıl, ne için kullandığın belirleyici.</p>
+
+    <div class="ai-capabilities reveal">
+      <div class="ai-cap">
+        <span class="ai-cap-label">Tür Önemli: Sohbet vs Ajan</span>
+        <p><strong>Chat sohbet eder, ajan araştırır.</strong> Chat verdiği bilginin kaynağına erişemez; ajan web'e çıkar, belgeleri okur, kaynakları doğrular. Bu belgede kullandığımız: ajan sistemi. Night on Earth sahneleri, Wallraff'ın kitabı, Grandin'in çalışmaları — ajan taradı, buldu, çapraz kontrol etti.</p>
+      </div>
+      <div class="ai-cap">
+        <span class="ai-cap-label">Paralel Araştırma</span>
+        <p>Bu belgenin Night on Earth sahnelerini araştıran, "içine girmek" örneklerini araştıran ve diğer ilkelerin kanıt tabanını araştıran <strong>üç ayrı araştırma kolu aynı anda</strong> yürütüldü. Tek araştırmacı bunu sıralı yapardı — saatler, belki günler. Paralel yapıldı.</p>
+      </div>
+      <div class="ai-cap">
+        <span class="ai-cap-label">Dil Engeli Yok</span>
+        <p>İtalyanca, Fince, Fransızca kaynaklara erişmek eskiden dil bilmek gerektiriyordu. Yapay zeka bu engeli kaldırıyor. <strong>Yarın Japonca bir çalışma</strong> araştırılacaksa dil engeli yok. Alan bilgisi demokratikleşiyor.</p>
+      </div>
+      <div class="ai-cap">
+        <span class="ai-cap-label">Sınırlar</span>
+        <p>Otuz yıl mahkeme koridorlarında geçirmiş birinin <strong>"bu tutmaz" sezgisi</strong> yapay zekada yok. Yapay zeka kaynakları tarayabilir ama bedeli neyin nerede ödendiğini bilemez. Son yargı insana ait.</p>
+      </div>
+    </div>
+
+    <div class="observation-box reveal">
+      <span class="obs-label">Gözlem · Anonim</span>
+      <p>Bir hukukçuyu tanıdım. Mahkeme koridorlarında otuz yıl geçirmiş. Dilekçeyi yazmadan önce saatlerce harita çizerdi — ilişkileri görünür kılmadan yazmaya oturmazdı. Yazma bir saatti; harita aşaması günler sürerdi.</p>
+      <p>Araştırmaya da aynı mantıkla yaklaştı. Yapay zeka ile çalışmaya başladığında öğrenmesi gereken tek şey şuydu: komut vermek değil, konuşmak. "Bunu araştır" değil, "bu meseleyi benimle düşün." İki kelimelik fark — ama yöntemin özü.</p>
+      <p>Şimdi ne yapıyor? Kahvesiyle oturuyor, bir meseleden bahsediyor. Yapay zeka araştırıyor, sunuyor, tartışıyor. Adam okuyup düzeltiyor — "bu yanlış", "buradan git", "bunu genişlet." Ve araştırma kendi kendini yeniden düzenliyor. Eskiden haftalara yayılan bir araştırma, birkaç saatte ortaya çıkıyor.</p>
+    </div>
+
+    <div class="meta-evidence reveal">
+      <p><strong>Bu belge, kendi ilkelerini kendi üstüne uygulayarak yazıldı.</strong></p>
+      <p>Bu belgeyi okurken fark etmemek mümkün değil: araştırma metodunu araştırıyoruz. Ve bu araştırmayı yapay zeka ile el ele yürütüyoruz. Bu tesadüf değil — öz-uygulama.</p>
+      <p>Birincil kaynak önceliği: Night on Earth'ün sahneleri özetten değil, filmin kendisinden araştırıldı. Doğrulama refleksi: "Brad Pitt" iddiası reddedildi, DiCaprio doğrulandı. Türkçe düşünme: her kavram önce Türkçe kuruldu. Yinelemeli ilerleme: v0.1, v0.2, v0.3, v0.4, v0.5 — öncekiler git deposunda duruyor.</p>
+      <p>Yapay zeka kullanımı konusunda da bu belge kendi pratiğini gösteriyor — yalnızca anlatmıyor, yapıyor. <strong>Belge hem nesne hem özne.</strong></p>
+    </div>
+
+    <h4 class="reveal" style="font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(64,112,200,.5);margin:2.5rem 0 1.2rem;">Yapay Zekanın Açtığı Kapılar</h4>
+
+    <div class="doors-grid reveal">
+      <div class="door">
+        <span class="door-icon">⊡</span>
+        <span class="door-name">Kapsam</span>
+        <p><strong>Beş dilde</strong> kaynaklar aynı oturumda taranabiliyor. Tek araştırmacı için imkansız.</p>
+      </div>
+      <div class="door">
+        <span class="door-icon">⊞</span>
+        <span class="door-name">Uzmanlık Haritası</span>
+        <p>Hiç bilmediğin bir alanda <strong>başlangıç haritası</strong> — kritik isimler, tartışmalar, kırılma noktaları.</p>
+      </div>
+      <div class="door">
+        <span class="door-icon">⊟</span>
+        <span class="door-name">Çapraz Kontrol</span>
+        <p>Bir iddia <strong>üç ayrı kaynakla eş zamanlı</strong> kontrol edilebiliyor. Doğrulama refleksi için paha biçilmez.</p>
+      </div>
+      <div class="door">
+        <span class="door-icon">◈</span>
+        <span class="door-name">Düşünme Ortağı</span>
+        <p>"Bunu söylüyorum, nerede yanlış olabilirim?" sorusuna cevap. <strong>Akademisyenler buna danışma kurulu diyor.</strong></p>
+      </div>
+      <div class="door">
+        <span class="door-icon">◉</span>
+        <span class="door-name">Sentez</span>
+        <p>Elli kaynak okunduktan sonra ortak örüntüleri çıkarmak. Yapay zeka örüntüleri görünür kılıyor; <strong>insan yargısı</strong> anlamlı olup olmadığına karar veriyor.</p>
+      </div>
+      <div class="door">
+        <span class="door-icon">◊</span>
+        <span class="door-name">Hafıza</span>
+        <p>Oturum başındaki düzeltme oturumun sonunda hâlâ geçerli. <strong>İnsan unutur; ajan unutmaz.</strong></p>
+      </div>
+    </div>
+
+  </div><!-- /wrap -->
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ARAŞTIRMA SÜRECİ
+═══════════════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <span class="section-label reveal">§ Araştırma Süreci</span>
+    <h2 class="reveal">Tipik Akış — Sabit Değil, Rehber</h2>
+    <div class="flow-outer reveal">
+      <div class="flow-steps">
+        <div class="flow-step" style="border-color:var(--kaynak)"><div class="fs-num" style="color:var(--kaynak)">01</div><div class="fs-title" style="color:var(--kaynak)">Konu</div><div class="fs-desc">Merak noktasını belirle</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step" style="border-color:var(--kaynak)"><div class="fs-num" style="color:var(--kaynak)">02</div><div class="fs-title" style="color:var(--kaynak)">Birincil Kaynak</div><div class="fs-desc">Önce şeyin kendisi</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step" style="border-color:var(--kaynak)"><div class="fs-num" style="color:var(--kaynak)">03</div><div class="fs-title" style="color:var(--kaynak)">Konum Tanımla</div><div class="fs-desc">Kim ne diyor, nereden</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step" style="border-color:var(--surec)"><div class="fs-num" style="color:var(--surec)">04</div><div class="fs-title" style="color:var(--surec)">Harita Çiz</div><div class="fs-desc">İlişkiler, boşluklar</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step" style="border-color:var(--uretim)"><div class="fs-num" style="color:var(--uretim)">05</div><div class="fs-title" style="color:var(--uretim)">Özgün Bağlantı</div><div class="fs-desc">Kurulmamış bağlantı</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step" style="border-color:var(--kaynak)"><div class="fs-num" style="color:var(--kaynak)">06</div><div class="fs-title" style="color:var(--kaynak)">Doğrula</div><div class="fs-desc">Her iddia, somut kaynak</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step" style="border-color:var(--dil)"><div class="fs-num" style="color:var(--dil)">07</div><div class="fs-title" style="color:var(--dil)">Türkçe Kur</div><div class="fs-desc">Aktarma değil, kurma</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step" style="border-color:var(--uretim)"><div class="fs-num" style="color:var(--uretim)">08</div><div class="fs-title" style="color:var(--uretim)">Meseleyi Aç</div><div class="fs-desc">Sınırlar, karşı argüman</div></div>
+        <div class="flow-arr">↻</div>
+        <div class="flow-step" style="border-color:var(--surec)"><div class="fs-num" style="color:var(--surec)">09</div><div class="fs-title" style="color:var(--surec)">Yinele</div><div class="fs-desc">İlk çalışmayı silme</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     KONUYA ÖZEL ALT İLKELER
+═══════════════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <span class="section-label reveal">§ Konuya Özel Alt İlkeler</span>
+    <h2 class="reveal">Alan Bazında Ek İlkeler</h2>
+    <div class="sub-principles">
+      <div class="sub-card reveal" style="border-color:var(--kaynak)">
+        <h4><span style="color:var(--kaynak)">⚖</span> Hukuk Araştırması</h4>
+        <ul>
+          <li>Birincil kaynak = kanun metni + mahkeme kararı</li>
+          <li>Atıf doğrulama zorunlu — karar numarası + tam metin</li>
+          <li>Mevzuat güncelliği kontrolü — mülga mı, yürürlükte mi</li>
+          <li><strong>Dolanbaçlı dilin savunması:</strong> "Fazlaya ilişkin haklarımız saklı kalmak kaydıyla" — dışarıdan şişkin, içeriden kapsam aracı</li>
+          <li>Kitaptaki hukuk ile yaşayan hukuk ayrımı</li>
+          <li>Açık kaynaklar: Yargıtay, UYAP, AYM, mevzuat.gov.tr</li>
+        </ul>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--dil)">
+        <h4><span style="color:var(--dil)">✎</span> Dil ve Çeviri</h4>
+        <ul>
+          <li>Türkçe düşünme ilkesi merkeze</li>
+          <li>Kaynak dil çekim kuvveti sürekli denetim</li>
+          <li>Bozukluğu korumak da anlam aktarımı — Corky örneği</li>
+          <li>Night on Earth: her segment için kültürel katman notu</li>
+          <li>Tek kalıba sıkıştırma yasağı</li>
+          <li>Somut bağlam ilkesi — kelime soyutlaştırılınca boşalır</li>
+        </ul>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--ai)">
+        <h4><span style="color:var(--ai)">◈</span> Yapay Zeka Destekli Araştırma</h4>
+        <ul>
+          <li>Ajan sistemi kullan — chat değil</li>
+          <li>Her üretilen iddiayı doğrula — halüsinasyon riski var</li>
+          <li>Paralel araştırma kolları — bağımsız sorular eş zamanlı</li>
+          <li>Bağlam tutmak: düzeltmeler oturum sonunda da geçerli</li>
+          <li>Son yargı insana ait — sezgi yapay zekada yok</li>
+          <li>Modelin bilgi kesme tarihi kontrol edilmeli</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     İLHAM VE RED
+═══════════════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <span class="section-label reveal">§ İlham ve Red</span>
+    <h2 class="reveal">İki Araştırma Dosyasından Ne Aldık, Ne Almadık</h2>
+    <p class="compare-source reveal">Doktora Düzeyi Araştırma Dosyası</p>
+    <div class="compare-grid reveal">
+      <div class="cg-col aldik"><h4>Aldıklarımız</h4><ul>
+        <li><strong>Özgün katkı taksonomisi:</strong> 7 tür — araştırmayı tartmak için ölçü</li>
+        <li><strong>Gazetecilik-araştırma ayrımı:</strong> tez savunmak vs meseleyi açmak</li>
+        <li><strong>Betimleyici vs analitik:</strong> "ne var" değil "ne anlama geliyor"</li>
+        <li><strong>Eleştirel mesafe:</strong> iç pusula olarak</li>
+      </ul></div>
+      <div class="cg-col almadik"><h4>Almadıklarımız</h4><ul>
+        <li>Sayfa sayısı istatistikleri — doktora öğrencisi değiliz</li>
+        <li>150-300 kaynak "normu" — bizim ölçümüz bu değil</li>
+        <li>Program gereksinimleri — kurumsal işleyiş</li>
+        <li>Tamamlanma süreleri — zamanla yarışmıyoruz</li>
+      </ul></div>
+    </div>
+    <p class="compare-source reveal">Akademik Araştırma Eleştirisi Dosyası</p>
+    <div class="compare-grid reveal">
+      <div class="cg-col aldik"><h4>Aldıklarımız</h4><ul>
+        <li><strong>Feyerabend — canlı metot:</strong> sabit yöntem kuralı yok</li>
+        <li><strong>Taleb — bedel ödeme:</strong> konuyla ilişki kur</li>
+        <li><strong>Bağımsız araştırmacı geleneği:</strong> Darwin, Marx, Freud kurum dışında</li>
+        <li><strong>Ioannidis uyarısı:</strong> "doğrulandı" yetmiyor</li>
+      </ul></div>
+      <div class="cg-col almadik"><h4>Almadıklarımız</h4><ul>
+        <li>Tekrarlanabilirlik krizi detayları — akademinin iç meselesi</li>
+        <li>P-hacking / HARKing — istatistiksel test yapmıyoruz</li>
+        <li>Hakem değerlendirmesi — sistemiyle çalışmıyoruz</li>
+        <li>"Yayınla ya da yok ol" baskısı — kariyer değil</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     AÇIK SORULAR
+═══════════════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <span class="section-label reveal">§ Açık Sorular</span>
+    <h2 class="reveal">Henüz Yanıtlanmamış</h2>
+    <ul class="qs-list">
+      <li class="reveal"><span class="qs-num">1</span><div class="qs-text"><strong>İlkelerin tartışılması</strong>Her birinin geçerliliği, sınırı, çelişkisi ayrı ayrı konuşulmalı. Bazıları aynı şeyi farklı söylüyor olabilir.</div></li>
+      <li class="reveal"><span class="qs-num">2</span><div class="qs-text"><strong>Dikkat sınırı</strong>Retorik meşru, iğne batırmak değil. Ama ikisi arasındaki somut sınır nerede? Ölçüt ne?</div></li>
+      <li class="reveal"><span class="qs-num">3</span><div class="qs-text"><strong>Ölçek = nitelik?</strong>Yapay zekanın ölçek değiştirerek sistemi "çökertmesi" — bu başka alanlarda da geçerli mi?</div></li>
+      <li class="reveal"><span class="qs-num">4</span><div class="qs-text"><strong>Yapay zeka halüsinasyonu vs araştırma hatası</strong>Mekanizma farklı, sonuç aynı. İkisine nasıl farklı davranılır?</div></li>
+      <li class="reveal"><span class="qs-num">5</span><div class="qs-text"><strong>Öz-uygulama</strong>Bu belgenin kendisi kendi ilkelerine tabi tutuluyor mu? Bu soruyu sormak yetmiyor — cevaplamak gerekiyor.</div></li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <p>Araştırma Anayasası — Taslak v0.5<br>Şubat 2026 · Tartışmaya Açık · Canlı Belge</p>
+      <p style="text-align:right">Bu belge canlıdır.<br>Her araştırmadan sonra kendini günceller.<br>Önceki versiyonlar git deposunda duruyor.</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════════════════════ -->
+<script>
+/* ──────────────────────────────────────────────────────────────
+   HERO CANVAS — YILDIZ TARLA
+────────────────────────────────────────────────────────────── */
+(function() {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let stars = [], W, H;
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function makeStars(n) {
+    stars = [];
+    for (let i = 0; i < n; i++) {
+      stars.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() * 1.2 + 0.2,
+        a: Math.random(),
+        da: (Math.random() - 0.5) * 0.008,
+        speed: Math.random() * 0.1
+      });
+    }
+  }
+
+  function draw() {
+    ctx.fillStyle = '#07070a';
+    ctx.fillRect(0, 0, W, H);
+    stars.forEach(s => {
+      s.a += s.da;
+      if (s.a <= 0 || s.a >= 1) s.da *= -1;
+      s.y += s.speed;
+      if (s.y > H) { s.y = 0; s.x = Math.random() * W; }
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(200,196,188,${s.a * 0.7})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  makeStars(300);
+  draw();
+  window.addEventListener('resize', () => { resize(); makeStars(300); });
+})();
+
+/* ──────────────────────────────────────────────────────────────
+   SCROLL REVEAL
+────────────────────────────────────────────────────────────── */
+(function() {
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => io.observe(el));
+})();
+
+/* ──────────────────────────────────────────────────────────────
+   CITY TABS
+────────────────────────────────────────────────────────────── */
+(function() {
+  const tabs = document.querySelectorAll('.city-tab');
+  const panels = document.querySelectorAll('.city-panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      const panel = document.getElementById('panel-' + tab.dataset.panel);
+      if (panel) {
+        panel.classList.add('active');
+        if (tab.dataset.panel === 'helsinki') startSnow();
+        else stopSnow();
+      }
+    });
+  });
+})();
+
+/* ──────────────────────────────────────────────────────────────
+   HELSİNKİ KAR EFEKTİ
+────────────────────────────────────────────────────────────── */
+let snowAnim = null;
+let snowFlakes = [];
+
+function startSnow() {
+  const canvas = document.getElementById('helsinki-canvas');
+  if (!canvas) return;
+  const panel = document.getElementById('panel-helsinki');
+  canvas.width = panel.offsetWidth;
+  canvas.height = panel.offsetHeight;
+  const ctx = canvas.getContext('2d');
+  snowFlakes = [];
+  for (let i = 0; i < 120; i++) {
+    snowFlakes.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 2.5 + 0.8,
+      vx: (Math.random() - 0.5) * 0.6,
+      vy: Math.random() * 1.2 + 0.4,
+      a: Math.random() * 0.6 + 0.2
+    });
+  }
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    snowFlakes.forEach(f => {
+      f.x += f.vx;
+      f.y += f.vy;
+      if (f.y > canvas.height) { f.y = -5; f.x = Math.random() * canvas.width; }
+      if (f.x < 0 || f.x > canvas.width) f.vx *= -1;
+      ctx.beginPath();
+      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(180,190,220,${f.a})`;
+      ctx.fill();
+    });
+    snowAnim = requestAnimationFrame(animate);
+  }
+  if (snowAnim) cancelAnimationFrame(snowAnim);
+  animate();
+}
+
+function stopSnow() {
+  if (snowAnim) { cancelAnimationFrame(snowAnim); snowAnim = null; }
+  const canvas = document.getElementById('helsinki-canvas');
+  if (canvas) canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   ATEŞ EFEKTİ
+────────────────────────────────────────────────────────────── */
+(function() {
+  const canvas = document.getElementById('fire-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width = 300;
+  const H = canvas.height = 200;
+  const particles = [];
+
+  function Particle() {
+    this.reset();
+  }
+  Particle.prototype.reset = function() {
+    this.x = W / 2 + (Math.random() - 0.5) * 60;
+    this.y = H - 10;
+    this.vx = (Math.random() - 0.5) * 1.5;
+    this.vy = -(Math.random() * 2.5 + 1.5);
+    this.life = 1;
+    this.decay = Math.random() * 0.02 + 0.012;
+    this.size = Math.random() * 8 + 4;
+  };
+  Particle.prototype.update = function() {
+    this.x += this.vx;
+    this.y += this.vy;
+    this.vy -= 0.04;
+    this.life -= this.decay;
+    this.size *= 0.985;
+    if (this.life <= 0) this.reset();
+  };
+
+  for (let i = 0; i < 80; i++) { const p = new Particle(); p.life = Math.random(); particles.push(p); }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) animateFire(); });
+  }, { threshold: 0.3 });
+  io.observe(canvas.closest('.fire-section') || document.body);
+
+  let fireAnim = null;
+  function animateFire() {
+    if (fireAnim) return;
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach(p => {
+        p.update();
+        const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
+        const r = Math.floor(255);
+        const gr = Math.floor(80 + 120 * p.life);
+        const b = Math.floor(0);
+        g.addColorStop(0, `rgba(${r},${gr},${b},${p.life * 0.9})`);
+        g.addColorStop(0.5, `rgba(${r},${Math.floor(gr * 0.4)},0,${p.life * 0.4})`);
+        g.addColorStop(1, `rgba(60,0,0,0)`);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = g;
+        ctx.fill();
+      });
+      fireAnim = requestAnimationFrame(draw);
+    }
+    draw();
+  }
+})();
+
+/* ──────────────────────────────────────────────────────────────
+   AI CANVAS — MATRİS YAĞMURU
+────────────────────────────────────────────────────────────── */
+(function() {
+  const canvas = document.getElementById('ai-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, cols, drops;
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789∂∫∑∏√∞≈∆ΩπΨΦΞΛ';
+  const fontSize = 12;
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+    cols = Math.floor(W / fontSize);
+    drops = Array(cols).fill(1).map(() => Math.random() * -100);
+  }
+
+  function draw() {
+    ctx.fillStyle = 'rgba(2,4,9,.06)';
+    ctx.fillRect(0, 0, W, H);
+    ctx.font = fontSize + 'px monospace';
+    for (let i = 0; i < cols; i++) {
+      const ch = chars[Math.floor(Math.random() * chars.length)];
+      const brightness = Math.random() * 0.15;
+      ctx.fillStyle = `rgba(64,112,200,${brightness})`;
+      ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
+      if (drops[i] * fontSize > H && Math.random() > 0.975) drops[i] = 0;
+      drops[i] += 0.3;
+    }
+    requestAnimationFrame(draw);
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { resize(); draw(); io.disconnect(); } });
+  });
+  io.observe(canvas);
+  window.addEventListener('resize', resize);
+})();
+
+/* ──────────────────────────────────────────────────────────────
+   SAYAÇ ANİMASYONU
+────────────────────────────────────────────────────────────── */
+(function() {
+  const counters = document.querySelectorAll('[data-target]');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      let current = 0;
+      const steps = 60;
+      const increment = target / steps;
+      const interval = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(interval);
+        }
+        el.textContent = (target > 1000 ? Math.floor(current).toLocaleString('tr') : Math.floor(current)) + suffix;
+      }, 25);
+      io.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => io.observe(c));
+})();
+</script>
+</body>
+</html>

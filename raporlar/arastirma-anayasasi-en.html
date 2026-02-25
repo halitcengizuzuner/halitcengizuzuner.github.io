@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Constitution — v0.5</title>
+<meta name="description" content="Research Constitution — Principles distilled from mistakes. How we research, why we do it this way, what we learned from mistakes.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Research Constitution — Principles Distilled from Mistakes">
+<meta property="og:description" content="Principles distilled from mistakes. A meta-research that applies its own method to itself.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/raporlar/arastirma-anayasasi-en.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-02-25">
+<link rel="canonical" href="https://halitcengizuzuner.com/raporlar/arastirma-anayasasi-en.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/arastirma-anayasasi.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/raporlar/arastirma-anayasasi-en.html">
+<style>
+/* ══════════════════════════════════════════════════════════════
+   CORE VARIABLES
+══════════════════════════════════════════════════════════════ */
+:root {
+  --bg:       #07070a;
+  --surface:  #0e0e18;
+  --surface2: #14141f;
+  --border:   #222234;
+  --border2:  #303048;
+  --text:     #ccc8c0;
+  --dim:      #9090b8;
+  --muted:    #585870;
+  --gold:     #c0a060;
+  --gold2:    #806838;
+  --kaynak:   #42b0a8;
+  --uretim:   #c85050;
+  --surec:    #b89020;
+  --dil:      #4ea060;
+  --tutum:    #7848a8;
+  --cerceve:  #a8a8b8;
+  --ai:       #4070c8;
+  --fire:     #e06020;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; font-size: 17px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+.reveal.from-left  { transform: translateX(-40px); }
+.reveal.from-right { transform: translateX(40px); }
+.reveal.scale-in   { transform: scale(.92); }
+.reveal.visible { opacity: 1; transform: none; }
+
+#hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+#hero-canvas { position: absolute; inset: 0; z-index: 0; }
+.hero-content { position: relative; z-index: 1; max-width: 680px; padding: 2rem; }
+.hero-eyebrow { font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; color: var(--dim); margin-bottom: 1.8rem; opacity: 0; animation: fadeUp .8s ease 1s forwards; }
+.hero-title { font-size: clamp(2.2rem, 6vw, 4rem); font-weight: 100; color: #eee8e0; line-height: 1.12; letter-spacing: .04em; margin-bottom: 1.4rem; opacity: 0; animation: fadeUp .9s ease 1.4s forwards; }
+.hero-title em { font-style: normal; color: var(--gold); }
+.hero-tagline { font-size: .9rem; color: var(--dim); font-style: italic; margin-bottom: 3rem; line-height: 1.6; opacity: 0; animation: fadeUp .8s ease 2s forwards; }
+.hero-scroll { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); z-index: 1; display: flex; flex-direction: column; align-items: center; gap: .5rem; color: var(--muted); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; opacity: 0; animation: fadeUp .8s ease 2.8s forwards; }
+.scroll-arrow { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--muted), transparent); animation: scrollPulse 2s ease infinite 3s; }
+
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes scrollPulse { 0%,100% { opacity:.4; transform: scaleY(1); } 50% { opacity:1; transform: scaleY(1.3); } }
+
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+.wrap-wide { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+section { position: relative; padding: 5rem 0; border-top: 1px solid var(--border); }
+section:first-of-type { border-top: none; }
+.section-label { font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); display: block; margin-bottom: .7rem; }
+section > .wrap > h2, section > .wrap-wide > h2 { font-size: 1.5rem; font-weight: 200; color: #dedad4; padding-bottom: .7rem; border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; letter-spacing: .02em; }
+
+p { margin-bottom: 1.15rem; line-height: 1.82; }
+p:last-child { margin-bottom: 0; }
+strong { color: #dedad4; font-weight: 600; }
+em { font-style: italic; color: #d0ccc4; }
+
+#preamble { background: radial-gradient(ellipse at 30% 60%, rgba(80,50,20,.18) 0%, transparent 70%), radial-gradient(ellipse at 70% 30%, rgba(60,40,15,.12) 0%, transparent 60%); }
+.preambule-quote { font-size: 1.3rem; font-weight: 200; font-style: italic; color: var(--gold); line-height: 1.5; margin-bottom: 3rem; padding-left: 1.5rem; border-left: 2px solid var(--gold2); }
+.cave-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 2.5rem; }
+.cave-cell { background: var(--surface); padding: 1.75rem 2rem; position: relative; }
+.cave-cell::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 80%, rgba(80,50,20,.06) 0%, transparent 60%); pointer-events: none; }
+.cave-label { font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: .6rem; }
+.cave-cell p { font-size: .92rem; color: var(--text); line-height: 1.7; margin: 0; }
+.researcher-fig { float: right; margin: 0 0 1.5rem 2rem; max-width: 260px; }
+.researcher-fig svg { width: 100%; display: block; }
+.fig-caption { font-size: .7rem; color: var(--dim); margin-top: .5rem; line-height: 1.45; }
+.fig-num { font-weight: 600; color: var(--gold); }
+.clearfix::after { content:''; display:table; clear:both; }
+
+#cerceve { background: linear-gradient(180deg, transparent 0%, rgba(176,176,188,.03) 50%, transparent 100%); }
+.framework-box { border: 1px solid var(--cerceve); border-radius: 12px; padding: 2.5rem; background: rgba(176,176,188,.04); position: relative; overflow: hidden; }
+.framework-box::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(176,176,188,.06) 0%, transparent 70%); pointer-events: none; }
+.fw-title { font-size: 1.1rem; font-weight: 500; color: var(--cerceve); margin-bottom: 1.2rem; letter-spacing: .08em; text-transform: uppercase; }
+.pull-quote { border-left: 2px solid var(--gold); margin: 2.2rem 0; padding: 1rem 1.75rem; background: rgba(192,160,96,.06); border-radius: 0 8px 8px 0; font-size: 1.05rem; font-style: italic; color: #d8d4cc; line-height: 1.62; }
+.pull-quote .attr { font-size: .74rem; color: var(--dim); margin-top: .5rem; font-style: normal; display: block; letter-spacing: .04em; }
+
+.cluster-header { display: flex; align-items: center; gap: .75rem; margin: 4.5rem 0 2.5rem; padding-bottom: .75rem; border-bottom: 1px solid var(--border); }
+.cluster-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.cluster-header h3 { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; color: var(--cluster-color); }
+.principle { margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--border); }
+.principle:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.principle-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; }
+.principle-num { font-size: 2.8rem; font-weight: 100; color: var(--muted); line-height: 1; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+.principle-name { font-size: 1.1rem; font-weight: 600; color: var(--p-color, var(--text)); letter-spacing: .02em; }
+.principle-body { font-size: .95rem; line-height: 1.82; }
+.principle-body h4 { font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); margin: 2.2rem 0 1rem; display: flex; align-items: center; gap: .6rem; }
+.principle-body h4::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.example-box { background: var(--surface); border-left: 2px solid var(--p-color, var(--border2)); border-radius: 0 8px 8px 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0; font-size: .9rem; color: var(--dim); line-height: 1.72; }
+.example-box strong { color: var(--text); }
+.example-box p { margin-bottom: .8rem; font-size: .9rem; }
+.example-box p:last-child { margin-bottom: 0; }
+.source-tag { font-size: .7rem; color: var(--muted); letter-spacing: .04em; margin-top: 1.2rem; display: block; }
+figure { margin: 0; display: block; }
+figure.float-right { float: right; margin: 0 0 1.5rem 2rem; max-width: 280px; }
+figure.float-left { float: left; margin: 0 2rem 1.5rem 0; max-width: 260px; }
+figure.full-width { margin: 2.2rem 0; width: 100%; }
+figcaption { font-size: .7rem; color: var(--dim); margin-top: .55rem; line-height: 1.45; letter-spacing: .02em; }
+
+#icine-girmek-section { background: #050508; padding: 5rem 0 6rem; position: relative; overflow: hidden; }
+#icine-girmek-section::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 300px; background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.04) 0%, transparent 70%); pointer-events: none; }
+.spotlight-title { text-align: center; margin-bottom: 4rem; }
+.spotlight-title .section-label { text-align: center; }
+.spotlight-title h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 100; color: #eee8e0; letter-spacing: .06em; margin-top: .5rem; }
+.character-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 3rem; }
+.character-card { background: var(--surface); padding: 2.5rem 3rem; position: relative; overflow: hidden; transition: background .4s ease; }
+.character-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--c-color, var(--border2)); }
+.character-card::after { content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 300px; background: radial-gradient(ellipse at 0% 50%, rgba(255,255,255,.03) 0%, transparent 60%); pointer-events: none; }
+.character-card:hover { background: color-mix(in srgb, var(--c-color) 5%, var(--surface)); }
+.char-header { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem; }
+.char-badge { font-size: .65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--c-color); background: rgba(255,255,255,.05); border: 1px solid var(--c-color); border-radius: 4px; padding: .25rem .6rem; flex-shrink: 0; }
+.char-name { font-size: 1.05rem; font-weight: 600; color: #dedad4; }
+.char-context { font-size: .78rem; color: var(--dim); font-style: italic; }
+.char-body { font-size: .93rem; line-height: 1.82; color: var(--text); }
+.char-body p { margin-bottom: 1rem; }
+.char-body p:last-child { margin-bottom: 0; }
+
+#night-on-earth { background: #030305; padding: 0; border-top: none; position: relative; overflow: hidden; }
+#night-on-earth::after { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1; mix-blend-mode: overlay; }
+.film-header { padding: 5rem 0 3rem; text-align: center; position: relative; z-index: 2; }
+.film-header .film-strip-top { display: flex; gap: 4px; justify-content: center; margin-bottom: 3rem; }
+.film-hole { width: 12px; height: 16px; border-radius: 3px; background: transparent; border: 1px solid rgba(255,255,255,.32); }
+.film-title { font-size: clamp(1.6rem, 4vw, 2.8rem); font-weight: 100; color: #e8e4dc; letter-spacing: .1em; margin-bottom: .6rem; }
+.film-subtitle { font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.25); }
+.film-poster-wrap { max-width: 320px; margin: 0 auto 3rem; position: relative; z-index: 2; }
+.film-poster-wrap img { width: 100%; border-radius: 4px; display: block; box-shadow: 0 0 60px rgba(0,0,0,.8), 0 0 120px rgba(0,0,0,.4); }
+.film-poster-svg { width: 100%; border-radius: 4px; display: block; box-shadow: 0 0 60px rgba(0,0,0,.8); }
+.city-tabs { display: flex; justify-content: center; gap: 0; border: 1px solid rgba(255,255,255,.2); border-radius: 8px; overflow: hidden; margin: 0 auto 0; max-width: 640px; position: relative; z-index: 2; }
+.city-tab { flex: 1; padding: .85rem .5rem; text-align: center; cursor: pointer; border: none; background: rgba(255,255,255,.04); color: rgba(255,255,255,.55); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; transition: all .3s ease; border-right: 1px solid rgba(255,255,255,.15); position: relative; }
+.city-tab:last-child { border-right: none; }
+.city-tab::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--tab-color, transparent); transition: transform .3s ease; transform: scaleX(0); }
+.city-tab.active { color: var(--tab-color, #fff); background: rgba(255,255,255,.06); }
+.city-tab.active::before { transform: scaleX(1); }
+.city-tab:hover { color: rgba(255,255,255,.6); background: rgba(255,255,255,.05); }
+.city-panels { position: relative; z-index: 2; }
+.city-panel { display: none; padding: 4rem 0 5rem; position: relative; }
+.city-panel.active { display: block; }
+.city-bg { position: absolute; inset: 0; transition: opacity .6s ease; }
+.city-panel .city-content { position: relative; z-index: 1; }
+.panel-la .city-bg { background: radial-gradient(ellipse at 70% 30%, rgba(140,80,20,.12) 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(100,50,10,.08) 0%, transparent 50%); }
+.panel-ny .city-bg { background: radial-gradient(ellipse at 50% 40%, rgba(180,140,20,.1) 0%, transparent 60%), radial-gradient(ellipse at 80% 80%, rgba(60,40,0,.08) 0%, transparent 50%); }
+.panel-paris .city-bg { background: radial-gradient(ellipse at 40% 30%, rgba(30,60,120,.12) 0%, transparent 60%), radial-gradient(ellipse at 60% 70%, rgba(10,30,80,.08) 0%, transparent 50%); }
+.panel-roma .city-bg { background: radial-gradient(ellipse at 60% 40%, rgba(140,60,20,.12) 0%, transparent 60%), radial-gradient(ellipse at 30% 70%, rgba(100,40,10,.08) 0%, transparent 50%); }
+.panel-helsinki .city-bg { background: radial-gradient(ellipse at 50% 20%, rgba(20,60,100,.14) 0%, transparent 60%), radial-gradient(ellipse at 50% 80%, rgba(10,30,60,.1) 0%, transparent 50%); }
+.city-scene-header { margin-bottom: 2.5rem; }
+.city-name { font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 100; letter-spacing: .08em; color: #e8e4dc; margin-bottom: .4rem; }
+.city-meta { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+.city-cast { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: .8rem; }
+.cast-tag { font-size: .72rem; color: rgba(255,255,255,.65); background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.2); padding: .2rem .7rem; border-radius: 4px; }
+.dialogue-box { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.2); border-radius: 8px; padding: 1.5rem 2rem; margin: 1.5rem 0; font-style: italic; color: #c8c4bc; font-size: .95rem; line-height: 1.65; position: relative; }
+.dialogue-box::before { content: '"'; position: absolute; top: -.5rem; left: 1rem; font-size: 3rem; color: rgba(255,255,255,.08); font-family: Georgia, serif; line-height: 1; }
+.city-analysis { font-size: .93rem; line-height: 1.82; color: rgba(200,196,192,.85); }
+.city-analysis p { margin-bottom: 1rem; }
+.city-analysis p:last-child { margin-bottom: 0; }
+.city-analysis strong { color: #e0dcd4; }
+.helsinki-snow { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+
+#dogrulama-section { background: var(--bg); position: relative; }
+.news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
+.news-clip { background: var(--surface); border: 1px solid var(--border2); border-radius: 8px; padding: 1.5rem; position: relative; overflow: hidden; }
+.news-clip::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--clip-color, var(--border2)); }
+.news-clip-label { font-size: .65rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--clip-color, var(--dim)); display: block; margin-bottom: .6rem; }
+.news-clip h4 { font-size: .98rem; font-weight: 600; color: #dedad4; margin-bottom: .8rem; line-height: 1.3; }
+.news-clip p { font-size: .85rem; color: var(--dim); line-height: 1.65; margin-bottom: .5rem; }
+.news-clip p:last-child { margin-bottom: 0; }
+.news-clip .nc-year { font-size: .7rem; color: var(--muted); margin-top: .8rem; display: block; }
+
+#antiperformans-section { background: radial-gradient(ellipse at 50% 50%, rgba(120,72,168,.04) 0%, transparent 70%); }
+.counter-block { display: flex; gap: 3rem; flex-wrap: wrap; margin: 2.5rem 0; padding: 2.5rem; background: var(--surface2); border: 1px solid var(--border2); border-radius: 12px; }
+.counter-item { text-align: center; flex: 1; min-width: 120px; }
+.counter-num { font-size: 3rem; font-weight: 100; color: var(--tutum); line-height: 1; display: block; font-variant-numeric: tabular-nums; margin-bottom: .4rem; }
+.counter-label { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); line-height: 1.4; }
+
+#ai-section { background: #020409; position: relative; overflow: hidden; }
+#ai-canvas { position: absolute; inset: 0; opacity: .15; z-index: 0; }
+.ai-content { position: relative; z-index: 1; }
+.terminal-window { background: #0a0d14; border: 1px solid rgba(64,112,200,.3); border-radius: 10px; overflow: hidden; margin: 2rem 0; box-shadow: 0 0 40px rgba(64,112,200,.1), inset 0 0 40px rgba(64,112,200,.03); }
+.terminal-bar { background: rgba(255,255,255,.04); padding: .6rem 1rem; display: flex; align-items: center; gap: .5rem; border-bottom: 1px solid rgba(64,112,200,.15); }
+.terminal-dot { width: 8px; height: 8px; border-radius: 50%; }
+.td-red { background: #e05050; }
+.td-yellow { background: #d09020; }
+.td-green { background: #40a050; }
+.terminal-title { font-size: .72rem; color: rgba(64,112,200,.6); letter-spacing: .08em; margin-left: .5rem; font-family: monospace; }
+.terminal-body { padding: 1.5rem 2rem; font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace; font-size: .82rem; line-height: 1.7; }
+.t-line { color: rgba(64,112,200,.75); margin-bottom: .25rem; }
+.t-line.active { color: #78a8f0; }
+.t-line.output { color: rgba(120,168,240,.7); padding-left: 1rem; }
+.t-cursor { display: inline-block; width: 7px; height: 13px; background: var(--ai); animation: blink .8s step-end infinite; vertical-align: text-bottom; margin-left: 1px; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.ai-capabilities { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(64,112,200,.15); border-radius: 10px; overflow: hidden; margin: 2rem 0; }
+.ai-cap { background: rgba(10,13,20,.9); padding: 1.5rem; }
+.ai-cap-label { font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ai); display: block; margin-bottom: .7rem; }
+.ai-cap p { font-size: .88rem; color: rgba(180,196,220,.7); line-height: 1.65; margin: 0; }
+.ai-cap p strong { color: rgba(200,216,240,.9); }
+.meta-evidence { background: rgba(64,112,200,.05); border: 1px solid rgba(64,112,200,.25); border-radius: 10px; padding: 2rem 2.25rem; margin: 2.5rem 0; position: relative; overflow: hidden; }
+.meta-evidence::before { content: 'SELF-EVIDENCE'; position: absolute; top: 1rem; right: 1.5rem; font-size: .62rem; letter-spacing: .2em; color: rgba(64,112,200,.4); font-weight: 700; }
+.meta-evidence p { font-size: .93rem; line-height: 1.8; color: rgba(180,196,220,.8); margin-bottom: 1rem; }
+.meta-evidence p:last-child { margin-bottom: 0; }
+.meta-evidence p strong { color: rgba(200,216,240,.95); }
+.observation-box { background: var(--surface2); border: 1px solid var(--border2); border-radius: 10px; padding: 2rem; margin: 2rem 0; position: relative; }
+.obs-label { font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 1.2rem; padding-bottom: .7rem; border-bottom: 1px solid var(--border2); }
+.observation-box p { font-size: .93rem; color: var(--dim); line-height: 1.8; margin-bottom: 1rem; }
+.observation-box p:last-child { margin-bottom: 0; }
+.doors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1px; background: rgba(64,112,200,.15); border-radius: 10px; overflow: hidden; margin: 2rem 0; }
+.door { background: rgba(10,13,20,.92); padding: 1.4rem 1.5rem; position: relative; overflow: hidden; transition: background .3s ease; }
+.door:hover { background: rgba(20,24,40,.95); }
+.door::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: rgba(64,112,200,.3); }
+.door-icon { font-size: 1.4rem; display: block; margin-bottom: .6rem; }
+.door-name { font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(100,148,240,.8); display: block; margin-bottom: .5rem; }
+.door p { font-size: .84rem; color: rgba(160,176,200,.6); line-height: 1.6; margin: 0; }
+.door p strong { color: rgba(180,196,220,.85); }
+
+.fire-section { position: relative; overflow: hidden; background: #04020a; padding: 4rem 0; border-radius: 12px; margin: 2rem 0; }
+#fire-canvas { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 300px; height: 200px; opacity: .6; }
+.fire-content { position: relative; z-index: 1; text-align: center; padding: 0 2rem; }
+.fire-quote { font-size: 1.3rem; font-style: italic; color: #e8b060; line-height: 1.5; margin-bottom: 1rem; }
+.fire-attr { font-size: .78rem; letter-spacing: .1em; color: rgba(200,150,80,.5); text-transform: uppercase; }
+
+.flow-outer { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2rem 1.5rem; margin: 2rem 0; }
+.flow-steps { display: flex; align-items: center; gap: 0; min-width: max-content; }
+.flow-step { background: var(--surface2); border: 1px solid var(--border2); border-radius: 8px; padding: .9rem 1.1rem; min-width: 130px; max-width: 155px; text-align: center; flex-shrink: 0; }
+.fs-num { font-size: .6rem; color: var(--dim); letter-spacing: .1em; text-transform: uppercase; margin-bottom: .2rem; }
+.fs-title { font-size: .82rem; font-weight: 600; margin-bottom: .25rem; }
+.fs-desc { font-size: .74rem; color: var(--dim); line-height: 1.4; }
+.flow-arr { color: var(--muted); font-size: .9rem; padding: 0 .3rem; flex-shrink: 0; }
+
+.compare-source { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); margin: 2.5rem 0 .75rem; }
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 1.5rem; }
+.cg-col { background: var(--surface); padding: 1.5rem; }
+.cg-col h4 { font-size: .76rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; margin-bottom: 1rem; padding-bottom: .5rem; border-bottom: 1px solid var(--border2); }
+.cg-col.aldik h4 { color: var(--dil); }
+.cg-col.almadik h4 { color: var(--uretim); }
+.cg-col ul { list-style: none; }
+.cg-col li { font-size: .84rem; padding: .45rem 0; border-bottom: 1px solid var(--border); line-height: 1.5; }
+.cg-col li:last-child { border-bottom: none; }
+
+.qs-list { list-style: none; }
+.qs-list li { padding: 1.2rem 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: auto 1fr; gap: 1.2rem; align-items: start; }
+.qs-list li:last-child { border-bottom: none; }
+.qs-num { font-size: 1.5rem; font-weight: 100; color: var(--muted); line-height: 1.1; }
+.qs-text { font-size: .92rem; line-height: 1.72; }
+.qs-text strong { color: #d0ccc4; display: block; margin-bottom: .25rem; }
+
+.sub-principles { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+.sub-card { background: var(--surface); border: 1px solid var(--border2); border-radius: 10px; padding: 1.5rem; }
+.sub-card h4 { font-size: .88rem; font-weight: 600; margin-bottom: .9rem; display: flex; align-items: center; gap: .5rem; }
+.sub-card ul { list-style: none; }
+.sub-card li { font-size: .84rem; padding: .35rem 0 .35rem .9rem; border-bottom: 1px solid var(--border); position: relative; line-height: 1.55; }
+.sub-card li::before { content: '›'; position: absolute; left: 0; color: var(--muted); }
+.sub-card li:last-child { border-bottom: none; }
+
+footer { padding: 4rem 0 5rem; border-top: 1px solid var(--border); position: relative; overflow: hidden; }
+footer::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 400px; height: 1px; background: linear-gradient(to right, transparent, var(--gold2), transparent); }
+.footer-inner { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; }
+footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; }
+
+@media (max-width: 680px) {
+  .cave-grid, .compare-grid, .ai-capabilities, .news-grid { grid-template-columns: 1fr; }
+  figure.float-right, figure.float-left { float: none; max-width: 100%; margin: 1.5rem 0; }
+  .character-card { padding: 1.75rem 1.5rem; }
+  .city-tabs { flex-wrap: wrap; }
+  .city-tab { min-width: calc(33% - 1px); }
+  .counter-block { gap: 1.5rem; }
+  .ai-capabilities { grid-template-columns: 1fr; }
+  .doors-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Site Nav ── */
+.site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: rgba(7, 7, 10, 0.92);
+  backdrop-filter: blur(12px);
+  padding: .7rem 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.site-nav-left, .site-nav-right { display: flex; align-items: center; gap: 1rem; }
+.site-nav-back {
+  display: inline-flex; align-items: center; gap: .45rem;
+  font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45); text-decoration: none; transition: color .2s;
+}
+.site-nav-back:hover { color: #c0a060; }
+.site-nav-back svg { width: 15px; height: 15px; stroke: currentColor; }
+.site-nav-lang { display: flex; gap: 5px; }
+.site-nav-lang-btn {
+  background: transparent; border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.4); padding: 3px 10px; cursor: pointer;
+  font-size: .7rem; letter-spacing: .12em; transition: all .2s;
+  text-decoration: none; display: inline-block;
+}
+.site-nav-lang-btn:hover { border-color: #c0a060; color: rgba(255,255,255,0.75); }
+.site-nav-lang-btn.active { border-color: #c0a060; color: #c0a060; background: rgba(192,160,96,.07); }
+body { padding-top: 56px; }
+@media print { .site-nav { display: none !important; } }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-left">
+    <a href="/?p=emanations" class="site-nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      <span>EMANATIONS</span>
+    </a>
+  </div>
+  <div class="site-nav-right">
+    <div class="site-nav-lang">
+      <a href="arastirma-anayasasi.html" class="site-nav-lang-btn">TR</a>
+      <button class="site-nav-lang-btn active">EN</button>
+    </div>
+  </div>
+</nav>
+
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Research Constitution · v0.5 · February 2026</p>
+    <h1 class="hero-title">Principles Distilled<br>from <em>Mistakes</em></h1>
+    <p class="hero-tagline">Not journalism. Science. Not rules. Principles.<br>The method of those who answer to their own curiosity.</p>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-arrow"></div>
+    Scroll
+  </div>
+</section>
+
+
+<section id="preamble">
+  <div class="wrap">
+    <span class="section-label reveal">§ Preamble</span>
+    <h2 class="reveal">Where we stand, and why</h2>
+
+    <p class="preambule-quote reveal">
+      "The existence of a general rule of method would block progress."<br>
+      <span style="font-size:.78rem;color:var(--gold2);font-style:normal;letter-spacing:.08em;">— Paul Feyerabend</span>
+    </p>
+
+    <div class="cave-grid reveal">
+      <div class="cave-cell">
+        <span class="cave-label">Why</span>
+        <p>Research done by people answering to their own curiosity. No ambition to contribute to science, no titles, no institutional stakes. Ask the question. Find the honest answer.</p>
+      </div>
+      <div class="cave-cell">
+        <span class="cave-label">How</span>
+        <p>Not rules — principles. Each inquiry finds its own path. No universal method recipe. The guiding principles were distilled from inside mistakes.</p>
+      </div>
+      <div class="cave-cell">
+        <span class="cave-label">Limit</span>
+        <p>The best result reachable, not the best result possible. "There is always someone better than you." The stopping point is found by intuition.</p>
+      </div>
+      <div class="cave-cell">
+        <span class="cave-label">Measure</span>
+        <p>Measured by what it adds to the person. Not by academic standards. But the academy's demand for originality and critical distance serves as inspiration.</p>
+      </div>
+    </div>
+
+    <div class="clearfix reveal">
+      <div class="researcher-fig float-right">
+        <svg viewBox="0 0 260 145" xmlns="http://www.w3.org/2000/svg">
+          <rect width="260" height="145" fill="#0e0e18"/>
+          <line x1="28" y1="120" x2="240" y2="120" stroke="#26263a" stroke-width="1"/>
+          <line x1="28" y1="25" x2="28" y2="120" stroke="#26263a" stroke-width="1"/>
+          <path d="M36,118 Q65,115 92,100 Q112,85 136,46 Q157,78 175,96 Q200,114 228,118" fill="none" stroke="#42b0a8" stroke-width="1.5"/>
+          <path d="M36,118 Q65,115 92,100 Q112,85 136,46 Q157,78 175,96 Q200,114 228,118 L228,118 L36,118Z" fill="rgba(66,176,168,.06)"/>
+          <circle cx="225" cy="117" r="4" fill="none" stroke="#c0a060" stroke-width="1.5"/>
+          <line x1="225" y1="115" x2="225" y2="94" stroke="#c0a060" stroke-width="1" stroke-dasharray="3,3"/>
+          <text x="136" y="136" text-anchor="middle" fill="#5a5a72" font-size="8.5" font-family="-apple-system,sans-serif">curiosity satisfaction standard</text>
+          <text x="108" y="40" text-anchor="middle" fill="#42b0a8" font-size="8.5" font-family="-apple-system,sans-serif">majority</text>
+          <text x="236" y="90" fill="#c0a060" font-size="8" font-family="-apple-system,sans-serif">marginal</text>
+        </svg>
+        <p class="fig-caption"><span class="fig-num">Fig. 1</span> — Researcher distribution. Structure sets the floor of depth.</p>
+      </div>
+
+      <p><strong>The researcher's quality determines the research's standard.</strong> Everyone satisfies curiosity differently. Some accept surface-level answers; others cannot rest until they have seen the thing from inside. This distinction is not trivial: the researcher's structure sets the lower bound of depth — not tools, time, or resources.</p>
+
+      <p>Two people answering the same question can produce results that differ in quality by an abyss. Without knowing the researcher's quality, you cannot know the research's quality.</p>
+
+      <p>Every principle in this document comes from somewhere: from mistakes. Work produced over the years that, when revisited, prompted the question "why did this fail?" — each taught something. Behind every principle written here, a silent mistake stands watching.</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="cerceve">
+  <div class="wrap">
+    <span class="section-label reveal">§ Framework Principle</span>
+    <h2 class="reveal">Living Method</h2>
+
+    <div class="framework-box reveal">
+      <p class="fw-title">Every inquiry finds its own path.</p>
+      <p>No universal method recipe. Principles are fixed; their application varies each time. Research rests on principles, not recipes.</p>
+      <p>Research has a property — actually everything in life has it. If a person can enter it and live it, the research begins speaking to that person. Enter it and you begin to live it; begin to live it and the research looks back at you.</p>
+      <p>This work moves like an orchestra: the human wonders, steers by intuition, corrects; the AI scans, assembles, questions. Not a conductor-musician hierarchy — mutual guidance. The principles themselves were born through this orchestra.</p>
+      <div class="pull-quote" style="margin-top:1.5rem;">
+        "Practice before formulation: the research method began to be lived before it had a name."
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="ilkeler" style="padding-bottom: 0;">
+  <div class="wrap">
+    <span class="section-label reveal">§ Principles</span>
+    <h2 class="reveal">14 Principles, 5 Clusters</h2>
+
+    <div class="cluster-header reveal" style="--cluster-color: var(--kaynak)">
+      <div class="cluster-dot" style="background: var(--kaynak)"></div>
+      <h3>I. Source Use</h3>
+    </div>
+
+    <div class="principle" style="--p-color: var(--kaynak)">
+      <div class="principle-header reveal">
+        <span class="principle-num">01</span>
+        <span class="principle-name">Primary Source Priority</span>
+      </div>
+      <div class="principle-body">
+        <p class="reveal">Whatever the subject, start with the object's own texts. Researching legal language? Read the legal texts first, then those who write about them. The reverse always produces distorted results.</p>
+        <p class="reveal">Lived directly: searching "critique of legal language" returned linguists, sociologists, bloggers — not the legal texts themselves. Six thousand words built on outside observers went to waste. Starting from the primary legislation changed everything.</p>
+        <p class="reveal">But looking at primary sources is not enough. <strong>You need to look from inside their perspective.</strong> This is not passive reading — it is entering the logic of that world.</p>
+        <div class="example-box reveal">
+          <p>Researching legal language through a linguist's eyes yields "archaic," "complex." Through a lawyer's eyes: "precise," "comprehensive." Neither is wrong; neither is complete. <strong>Entering the subject</strong> means understanding why the language works the way it does — from within its own logic.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="principle" style="--p-color: var(--kaynak)">
+      <div class="principle-header reveal">
+        <span class="principle-num">02</span>
+        <span class="principle-name">Source Position Mapping</span>
+      </div>
+      <div class="principle-body">
+        <p class="reveal">Every source has a perspective. Using a source without identifying that perspective inherits its blindness. "Where does this person stand, and from where are they looking?" must be the first question.</p>
+        <div class="example-box reveal">
+          <p><strong>Linguists</strong> found legal language "complex" — looking from a language perspective. <strong>Lawyers</strong> found it "precise" — looking from a legal perspective. Neither was wrong; neither was complete. A prolific textbook author is not automatically an authority on legal language. Title does not confer expertise.</p>
+        </div>
+        <span class="source-tag reveal">Distilled from: Legal language research + language sessions</span>
+      </div>
+    </div>
+
+    <div class="principle" style="--p-color: var(--kaynak)">
+      <div class="principle-header reveal">
+        <span class="principle-num">03</span>
+        <span class="principle-name">Verification Reflex</span>
+      </div>
+      <div class="principle-body">
+        <p class="reveal">Claims are verified regardless of who makes them. Source credibility attaches to the claim, not the person. This is not distrust — it is method. The biggest scandals in academic history emerged exactly where the verification reflex was absent.</p>
+      </div>
+    </div>
+
+    <div class="principle" style="--p-color: var(--kaynak)">
+      <div class="principle-header reveal">
+        <span class="principle-num">04</span>
+        <span class="principle-name">Concrete Citation</span>
+      </div>
+      <div class="principle-body">
+        <p class="reveal">No abstract citation. If you cite a decision, a text, a datum — you have reached the thing itself. The citation must have a real text behind it.</p>
+        <p class="reveal">In AI-produced research, abstract citations are the primary source of hallucination. The model wrote a case number — is it real? Is it relevant? Without the text: not a claim, a rumor.</p>
+        <span class="source-tag reveal">Distilled from: Legal research infrastructure — direct access to primary court databases</span>
+      </div>
+    </div>
+
+    <div class="cluster-header reveal" style="--cluster-color: var(--uretim)">
+      <div class="cluster-dot" style="background: var(--uretim)"></div>
+      <h3>II. Production</h3>
+    </div>
+
+    <div class="principle" style="--p-color: var(--uretim)">
+      <div class="principle-header reveal">
+        <span class="principle-num">05</span>
+        <span class="principle-name">Originality</span>
+      </div>
+      <div class="principle-body">
+        <p class="reveal">Every piece of research must contain something new: new data, new context, new synthesis, new interpretation, correction of existing knowledge — at least one. Being accidentally right is not enough; the contribution must be traceable.</p>
+        <div class="example-box reveal">
+          <p><strong>Sturgeon's Law report:</strong> The concept was Sturgeon's, but the Pareto + Gresham + Dunning-Kruger connection was original.<br>
+          <strong>Phatic communication report:</strong> The phatic communication + epistemic parasitism synthesis was original.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="principle" style="--p-color: var(--uretim)">
+      <div class="principle-header reveal">
+        <span class="principle-num">06</span>
+        <span class="principle-name">Opening the Problem</span>
+      </div>
+      <div class="principle-body">
+        <p class="reveal">Not defending a thesis — opening a problem. A thesis can emerge from inside the problem, but the problem must be larger than the thesis. The question "under what conditions could this be wrong?" must be asked.</p>
+        <p class="reveal">Richard Feynman described this in his 1974 "Cargo Cult Science" lecture: Pacific islanders wore wooden headphones, posted guards at the runway, mimicked aircraft — performing every ritual. The planes just didn't land. Research can look the same way: forms, procedures, tables — but the most important thing absent. If "under what conditions is this wrong?" is never asked, you are doing Cargo Cult Science.</p>
+        <span class="source-tag reveal">Distilled from: Assessment of beta reports + Feynman "Cargo Cult Science" (1974)</span>
+      </div>
+    </div>
+
+    <div class="cluster-header reveal" style="--cluster-color: var(--surec)">
+      <div class="cluster-dot" style="background: var(--surec)"></div>
+      <h3>III. Process</h3>
+    </div>
+
+    <div class="principle" style="--p-color: var(--surec)">
+      <div class="principle-header reveal">
+        <span class="principle-num">07</span>
+        <span class="principle-name">Speed–Depth Balance</span>
+      </div>
+      <div class="principle-body">
+        <p class="reveal">Accumulation is not thinking. The gathering phase and the analysis phase must be separated. Scanning thirty sources in ten minutes is impressive — but being impressive is not depth.</p>
+        <p class="reveal">Diederik Stapel, Professor at Tilburg University, published fifty-eight papers through 2011 without conducting any field research. The numbers he gave students as "raw data" were entirely fabricated. Exposure was accidental: a student joked "these data fit the hypothesis too perfectly." The joke was the truth. Fifty-eight papers retracted. Speed produces volume; volume creates the illusion of depth.</p>
+        <span class="source-tag reveal">Negative: Stapel case (Tilburg, 2011) — Positive: Darwin (24 years, 1 book)</span>
+      </div>
+    </div>
+
+    <div class="principle" style="--p-color: var(--surec)">
+      <div class="principle-header reveal">
+        <span class="principle-num">08</span>
+        <span class="principle-name">Iterative Progress</span>
+      </div>
+      <div class="principle-body">
+        <p class="reveal">Don't delete the first draft — build on top of it. Even if wrong, record the mistake, understand why it failed, let the next step stand on the mistake. Ninety percent being garbage is necessary for ten percent to exist.</p>
+        <p class="reveal">This document: v0.1, v0.2, v0.3, v0.4, v0.5 — each version built on the last. The previous ones sit in the git repository as retrievable references.</p>
+      </div>
+    </div>
+
+    <div class="principle" style="--p-color: var(--surec)">
+      <div class="principle-header reveal">
+        <span class="principle-num">09</span>
+        <span class="principle-name">Map-First Work</span>
+      </div>
+      <div class="principle-body clearfix">
+        <figure class="full-width reveal">
+          <svg viewBox="0 0 700 150" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+            <rect width="700" height="150" fill="#0e0e18"/>
+            <text x="155" y="18" text-anchor="middle" fill="#5a5a72" font-size="8.5" font-family="-apple-system,sans-serif" letter-spacing=".08em">MATERIAL (60 PDFs)</text>
+            <circle cx="75" cy="52" r="3.5" fill="#26263a"/> <circle cx="110" cy="38" r="3.5" fill="#26263a"/> <circle cx="142" cy="60" r="3.5" fill="#26263a"/>
+            <circle cx="185" cy="44" r="3.5" fill="#26263a"/> <circle cx="88" cy="84" r="3.5" fill="#26263a"/> <circle cx="165" cy="90" r="3.5" fill="#26263a"/>
+            <circle cx="215" cy="70" r="3.5" fill="#26263a"/> <circle cx="130" cy="106" r="3.5" fill="#26263a"/> <circle cx="55" cy="112" r="3.5" fill="#26263a"/>
+            <circle cx="238" cy="95" r="3.5" fill="#26263a"/> <circle cx="98" cy="124" r="3.5" fill="#26263a"/> <circle cx="198" cy="124" r="3.5" fill="#26263a"/>
+            <line x1="285" y1="75" x2="355" y2="75" stroke="#c0a060" stroke-width="1.5"/><polygon points="353,71 365,75 353,79" fill="#c0a060"/>
+            <text x="320" y="68" text-anchor="middle" fill="#c0a060" font-size="8" font-family="-apple-system,sans-serif">map</text>
+            <text x="520" y="18" text-anchor="middle" fill="#b89020" font-size="8.5" font-family="-apple-system,sans-serif" letter-spacing=".08em">MAP</text>
+            <line x1="405" y1="48" x2="465" y2="66" stroke="#303045" stroke-width="1"/><line x1="465" y1="66" x2="538" y2="52" stroke="#303045" stroke-width="1"/>
+            <line x1="538" y1="52" x2="595" y2="76" stroke="#303045" stroke-width="1"/><line x1="465" y1="66" x2="486" y2="110" stroke="#303045" stroke-width="1"/>
+            <line x1="405" y1="48" x2="444" y2="100" stroke="#303045" stroke-width="1"/><line x1="595" y1="76" x2="576" y2="120" stroke="#303045" stroke-width="1"/>
+            <circle cx="405" cy="48" r="3.5" fill="#42b0a8"/><circle cx="465" cy="66" r="3.5" fill="#42b0a8"/><circle cx="538" cy="52" r="3.5" fill="#42b0a8"/>
+            <circle cx="595" cy="76" r="3.5" fill="#42b0a8"/><circle cx="486" cy="110" r="3.5" fill="#42b0a8"/><circle cx="444" cy="100" r="3.5" fill="#42b0a8"/>
+            <circle cx="576" cy="120" r="3.5" fill="#42b0a8"/>
+            <circle cx="515" cy="90" r="7" fill="none" stroke="#b89020" stroke-width="1" stroke-dasharray="2,2"/>
+            <text x="515" y="94" text-anchor="middle" fill="#b89020" font-size="8" font-family="-apple-system,sans-serif">?</text>
+            <line x1="432" y1="68" x2="440" y2="76" stroke="#c85050" stroke-width="1.5"/><line x1="440" y1="68" x2="432" y2="76" stroke="#c85050" stroke-width="1.5"/>
+          </svg>
+          <figcaption><span class="fig-num">Fig. 2</span> — Material and map are not the same. Map: connections (─), gaps (?), contradictions (✕).</figcaption>
+        </figure>
+        <p class="reveal">Research is not collecting information — it is drawing a map. Information is the material of the map, not the map itself. Relationships between materials, their contradictions, their gaps — the map makes these visible.</p>
+        <span class="source-tag reveal">Distilled from: "You used to spend days drawing maps before you wrote a brief"</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="icine-girmek-section" style="border-top: none;">
+  <div class="wrap-wide">
+    <div class="spotlight-title">
+      <span class="section-label">Principle 01 · Deep Dive</span>
+      <h2>Entering the Subject</h2>
+    </div>
+
+    <p class="reveal" style="max-width:700px;margin:0 auto 3rem;text-align:center;color:var(--dim);font-size:.95rem;">Looking at primary sources is not enough. You need to look from inside where that source looks. Not passive observation — entering the logic of that world. Throughout history, the people who applied this most concretely were not researchers — they were actors, journalists, and scientists.</p>
+
+    <div class="character-grid">
+
+      <div class="character-card reveal" style="--c-color: var(--gold)">
+        <div class="char-header">
+          <span class="char-badge">1960s · USA</span>
+          <div>
+            <div class="char-name">Frank Abagnale Jr. — Four Identities</div>
+            <div class="char-context">Pan Am Pilot · Doctor · Lawyer · Bank Teller</div>
+          </div>
+        </div>
+        <div class="char-body">
+          <p>In the 1960s Frank Abagnale worked as a Pan Am pilot, a Louisiana doctor, a Georgia attorney, and a bank teller — without any training. During the years before he was caught, he did not merely use false identities; he entered each one.</p>
+          <p>To become a pilot, he called Pan Am's uniform supplier by phone. He bought a Pan Am model from a toy store, removed the badge, attached it to a fake ID. He boarded a plane and watched how pilots greeted each other — and copied it. He learned the word "deadheading" by overhearing a conversation on his first flight.</p>
+          <p>When he became a doctor, he noted down terms he didn't know, researched them overnight, used them the next morning. "What do you think of this procedure?" — and listened carefully, copying body language. When he became a lawyer, he genuinely studied for the bar exam — and passed on the third attempt.</p>
+          <p>Abagnale's striking quality: what made the documents work was not the documents themselves. It was his internalizing how each world looked from inside — how pilots walk, how physicians look at patients, how attorneys speak to colleagues.</p>
+          <p style="font-size:.8rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.8rem;margin-top:.5rem;"><em>Note: A significant portion of Abagnale's story is historically contested. But the film and book present a compelling narrative for illustrating how "entering the subject" works.</em></p>
+        </div>
+      </div>
+
+      <div class="character-card reveal" style="--c-color: var(--dil)">
+        <div class="char-header">
+          <span class="char-badge">1974 · Arizona</span>
+          <div>
+            <div class="char-name">Temple Grandin — Seeing Through the Cow's Eyes</div>
+            <div class="char-context">Engineer · Ethologist · Autism</div>
+          </div>
+        </div>
+        <div class="char-body">
+          <p>In the early 1970s, a university student was doing something that would change the livestock industry: crawling. Literally crawling on the ground through slaughterhouse ramps, moving through the corridors cows walked on, on her knees.</p>
+          <p>Temple Grandin was an autistic researcher. Why do cattle go berserk on ramps? Engineers categorized it as "animal behavior" and recommended stronger ramps. Grandin looked from inside the ramps — literally.</p>
+          <p>And she saw: floor reflections were signaling threat. Lighting angles were triggering flight responses. The turn angle made animals feel forward movement was impossible. None of the engineers had seen any of this — because none had crawled on the ground.</p>
+          <p>Grandin's solution: serpentine corridors, shadow-eliminating lighting, floor texture changes. Today <strong>more than fifty percent</strong> of US and Canadian meat processing facilities operate with equipment Grandin designed.</p>
+          <p>Autism was the tool: Grandin says she thinks in visual and sensory data, like animals. Not analysis from outside — look from within.</p>
+        </div>
+      </div>
+
+      <div class="character-card reveal" style="--c-color: var(--surec)">
+        <div class="char-header">
+          <span class="char-badge">1929 · Paris</span>
+          <div>
+            <div class="char-name">George Orwell — The Kitchen Beneath Paris</div>
+            <div class="char-context">Writer · Journalist · Hôtel X Dishwasher</div>
+          </div>
+        </div>
+        <div class="char-body">
+          <p>1929, Paris. George Orwell began working not as a journalist, but as a <em>plongeur</em> — dishwasher. In the kitchen basement of Hôtel X, six days a week, twelve hours a day. Copper pots, steam, accumulated grease.</p>
+          <p>The great hotels of Paris look glamorous from the surface. From inside — from the basement — a different world. Orwell saw: the meals reaching wealthy guests' tables came from a basement with rotting wooden floors, insects on the walls, damp throughout.</p>
+          <p>Orwell was there not as an observer but as a worker. This distinction is critical: an observer can leave whenever they want; a worker cannot. The inability to leave makes remaining necessary — and necessity makes seeing possible.</p>
+          <p>What he learned was not abstract poverty analysis — it was the mental state of the <em>plongeur</em>: <em>"the closing of the capacity for political thought through exhaustion."</em> This insight is only visible to someone who came from inside.</p>
+          <p><em>"Down and Out in Paris and London" (1933) was the product of this experience.</em></p>
+        </div>
+      </div>
+
+      <div class="character-card reveal" style="--c-color: var(--surec)">
+        <div class="char-header">
+          <span class="char-badge">1931 · England</span>
+          <div>
+            <div class="char-name">George Orwell — Walking as a Tramp</div>
+            <div class="char-context">Yorkshire · Southern England · 49 Tramps</div>
+          </div>
+        </div>
+        <div class="char-body">
+          <p>1931. Orwell deliberately wandered England as a tramp in old clothes. "The Spike" (1931) was born from this experience.</p>
+          <p>Waiting for a spike (workhouse) with a column of forty-nine. Upon entering: clothing taken, raw cotton shirt given, a greasy towel shared between six for three-minute baths. Meal: bread and tea.</p>
+          <p>The most striking observation: waste containers full of meat and bread from hotel kitchens, two hundred meters from a half-starved tramp crowd. "This was deliberate policy."</p>
+          <p>He could have said from outside "poverty is dire." What he grasped from inside was different: <strong>exhaustion deprives people of the capacity to produce ideology.</strong> This insight became praxis in "1984."</p>
+        </div>
+      </div>
+
+      <div class="character-card reveal" style="--c-color: var(--uretim)">
+        <div class="char-header">
+          <span class="char-badge">1983–1985 · West Germany</span>
+          <div>
+            <div class="char-name">Günter Wallraff — Two Years as Ali</div>
+            <div class="char-context">German Journalist → Turkish Migrant Worker</div>
+          </div>
+        </div>
+        <div class="char-body">
+          <p>1983. German journalist Günter Wallraff took on the identity of a Turkish migrant. He named himself Ali Sigirlioğlu, dyed his hair, wore dark contact lenses, practiced an accent. His Turkish would be broken — Greek mother, Turkish father, raised in Piraeus.</p>
+          <p>For two years he took the hardest jobs in West Germany: McDonald's kitchen, Thyssen steel plant, nuclear waste transport, aluminum smelting. He worked as Ali everywhere.</p>
+          <p>What he saw: no protective equipment. Accidents not reported. Overtime unpaid. Managers publicly humiliating Ali for knowing something other than German. Workers banned from speaking outside toilet breaks — for speaking Turkish.</p>
+          <p>The book's final scene: a temp agency boss asked Wallraff to select five Turkish workers to be exposed to dangerous radiation in a malfunctioning nuclear plant. Wallraff revealed his identity.</p>
+          <p><em>"Ganz Unten" (1985): 4 million copies, 30 languages.</em> An outside researcher would have been stopped at the factory gate. Inside, Ali saw everything.</p>
+        </div>
+      </div>
+
+      <div class="character-card reveal" style="--c-color: var(--tutum)">
+        <div class="char-header">
+          <span class="char-badge">Stanislavski · Day-Lewis · De Niro</span>
+          <div>
+            <div class="char-name">Method Actors — Living It, Not Playing It</div>
+            <div class="char-context">Theatre · Cinema</div>
+          </div>
+        </div>
+        <div class="char-body">
+          <p>Stanislavski's system said this: an actor does not <em>represent</em> a role — they <em>live</em> it. "Magic If" — "What would I feel if I were in this character's circumstances?" Not outside analysis — lived experience from within.</p>
+          <p><strong>Daniel Day-Lewis</strong> refused to leave his wheelchair throughout filming <em>My Left Foot</em> (1989). Set crew fed him. Result: two broken ribs from the forward curvature of his spine — and an Oscar.</p>
+          <p>For <em>There Will Be Blood</em> (2007): months of isolation in a California desert cabin reading oil drilling sources. His voice — that John Huston-esque voice soaked in oil and greed — found through obsessive months of experiment.</p>
+          <p><strong>Robert De Niro</strong> became a member of the New York Taxi Drivers' Union for <em>Taxi Driver</em> (1976). Obtained a real taxi license. Before filming, worked twelve-hour weekend shifts — no camera, no set. Only one passenger recognized him; the passenger was another actor.</p>
+          <p>The "method acting" approach in research: even where full immersion is impossible, prioritizing sources that look from inside that world — learning its language, rituals, logic — comes from the same principle.</p>
+        </div>
+      </div>
+
+      <div class="character-card reveal" style="--c-color: var(--kaynak)">
+        <div class="char-header">
+          <span class="char-badge">1960 · Gombe, Tanzania</span>
+          <div>
+            <div class="char-name">Jane Goodall — Earning the Chimpanzee's Trust</div>
+            <div class="char-context">Primatologist · 1 Year of Patient Presence</div>
+          </div>
+        </div>
+        <div class="char-body">
+          <p>July 14, 1960. Jane Goodall arrived at Gombe Stream in Tanzania, twenty-six years old, no formal zoology degree. Louis Leakey had chosen her deliberately as someone free of preconceptions.</p>
+          <p>At first the chimpanzees fled. About a year later, a male she named David Greybeard began to accept her presence.</p>
+          <p>November 4, 1960: Goodall observed David Greybeard at a termite mound. The animal was inserting a grass stem into a termite hole and withdrawing it — with termites clinging on. A specially modified object — tool use. Until that day, attributed exclusively to humans.</p>
+          <p>Goodall telegraphed Louis Leakey. His response is famous: <em>"Now we must redefine tool, redefine man, or accept chimpanzees as humans."</em></p>
+          <p>This discovery was possible because Goodall worked with patient, non-patronizing, existential closeness — no rushing, no sudden movements. Not scientific distance: <strong>trust from within.</strong></p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pull-quote reveal" style="max-width:700px;margin:0 auto;">
+      "Entering the subject is not just observing — it is internalizing that world's language, rituals, shortcuts, and how it looks from inside."
+    </div>
+  </div>
+</section>
+
+
+<section id="dogrulama-section">
+  <div class="wrap">
+    <span class="section-label reveal">Principle 03 · Deep Dive</span>
+    <h2 class="reveal">Verification Reflex — History's Most Expensive Mistakes</h2>
+    <p class="reveal">The cost of the absent verification reflex is not abstract — it is measurable.</p>
+
+    <div class="news-grid">
+
+      <div class="news-clip reveal" style="--clip-color: var(--uretim)">
+        <span class="news-clip-label">Academic Fraud</span>
+        <h4>Andrew Wakefield — The MMR Vaccine and Autism Lie</h4>
+        <p>A 1998 paper in <em>The Lancet</em>, based on twelve childhood cases, claimed a causal link between MMR vaccine and autism. Data were fabricated. The paper remained published twelve years.</p>
+        <p>Result: England's vaccination rate fell from 92% to 73%, in some parts of London to 50%. Measles outbreaks erupted. Deaths followed.</p>
+        <p>In 2010 the research was found entirely invented. Wakefield lost his license. "Published" had been sufficient — verification never came.</p>
+        <span class="nc-year">The Lancet, 1998 / retraction: 2010</span>
+      </div>
+
+      <div class="news-clip reveal" style="--clip-color: var(--uretim)">
+        <span class="news-clip-label">Journalism Scandal</span>
+        <h4>Jayson Blair — The New York Times's Internal Collapse</h4>
+        <p>A young <em>New York Times</em> reporter wrote thirty-six articles — without researching any. He never spoke to sources, never visited locations, fabricated verbatim quotes.</p>
+        <p>For years nobody verified. The newspaper's own investigation exposed it. This shows how institutional credibility erodes the verification reflex.</p>
+        <span class="nc-year">NYT, 2003</span>
+      </div>
+
+      <div class="news-clip reveal" style="--clip-color: var(--surec)">
+        <span class="news-clip-label">Refusal to Verify</span>
+        <h4>Semmelweis — Medicine Refused to Wash Its Hands</h4>
+        <p>1847. When Ignaz Semmelweis made chlorine solution handwashing mandatory, mortality fell in one month from 18% to 2.2%. The data were there.</p>
+        <p>The medical establishment refused — because acceptance would mean admitting doctors were killing patients with their own hands. "Semmelweis reflex" is today a cognitive science concept: automatic rejection of new information because it conflicts with existing beliefs.</p>
+        <span class="nc-year">Vienna Hospital, 1847</span>
+      </div>
+
+      <div class="news-clip reveal" style="--clip-color: var(--kaynak)">
+        <span class="news-clip-label">Small Scale</span>
+        <h4>Everyday Verification Examples</h4>
+        <p><strong>"Catch Me If You Can" lead:</strong> Said to be "Brad Pitt" — verified: Leonardo DiCaprio.</p>
+        <p><strong>Film year:</strong> Assumed to be one year — verified: different year entirely.</p>
+        <p><strong>Darwinist "natural selection" in popular use:</strong> Often misattributed or misquoted — the actual sentence is different.</p>
+        <p>Small mistakes originate from the same principle as great ones: no verification reflex.</p>
+        <span class="nc-year">Occurred in these sessions</span>
+      </div>
+
+    </div>
+
+    <p class="reveal" style="font-size:.88rem;color:var(--dim);">John Ioannidis published "Why Most Published Research Findings Are False" in PLOS Medicine in 2005. Methodological errors, small sample sizes, publication bias — findings could not be replicated. Without the verification reflex, "published" was sufficient. No longer.</p>
+    <span class="source-tag reveal">Ioannidis (2005), PLOS Medicine · Wakefield (1998/2010) · Blair (2003) · Semmelweis (1847)</span>
+  </div>
+</section>
+
+
+<section id="night-on-earth" style="border-top: 1px solid #111118;">
+  <div class="film-header wrap-wide">
+    <div class="film-strip-top">
+      <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+      <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+      <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+      <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+    </div>
+    <p class="film-subtitle reveal">Principle 10 · Language Fidelity · Deep Dive</p>
+    <h2 class="film-title reveal">Night on Earth</h2>
+    <p style="color:rgba(255,255,255,.3);font-size:.82rem;margin:.5rem 0 2rem;letter-spacing:.1em;" class="reveal">JIM JARMUSCH · 1991 · Five Cities · Same Night · Five Language Problems</p>
+  </div>
+
+  <div class="film-poster-wrap reveal">
+    <svg viewBox="0 0 280 420" xmlns="http://www.w3.org/2000/svg" class="film-poster-svg">
+      <defs><radialGradient id="cityGlow" cx="50%" cy="30%" r="60%"><stop offset="0%" stop-color="rgba(180,140,60,.15)"/><stop offset="100%" stop-color="rgba(0,0,0,0)"/></radialGradient></defs>
+      <rect width="280" height="420" fill="#060608"/>
+      <rect width="280" height="420" fill="url(#cityGlow)"/>
+      <rect x="0" y="280" width="280" height="140" fill="#04040a"/>
+      <rect x="10" y="240" width="20" height="80" fill="#0a0a12"/><rect x="35" y="260" width="15" height="60" fill="#0a0a12"/>
+      <rect x="55" y="220" width="25" height="100" fill="#0a0a12"/><rect x="85" y="250" width="18" height="70" fill="#0a0a12"/>
+      <rect x="108" y="230" width="30" height="90" fill="#0a0a12"/><rect x="143" y="255" width="20" height="65" fill="#0a0a12"/>
+      <rect x="168" y="238" width="25" height="82" fill="#0a0a12"/><rect x="198" y="248" width="22" height="72" fill="#0a0a12"/>
+      <rect x="225" y="225" width="28" height="95" fill="#0a0a12"/><rect x="258" y="260" width="22" height="60" fill="#0a0a12"/>
+      <rect x="14" y="248" width="4" height="4" fill="rgba(200,180,80,.3)"/><rect x="20" y="248" width="4" height="4" fill="rgba(200,180,80,.2)"/>
+      <rect x="58" y="228" width="4" height="4" fill="rgba(200,180,80,.4)"/><rect x="65" y="235" width="4" height="4" fill="rgba(200,180,80,.25)"/>
+      <rect x="112" y="238" width="4" height="4" fill="rgba(200,180,80,.35)"/><rect x="119" y="245" width="4" height="4" fill="rgba(200,180,80,.2)"/>
+      <rect x="230" y="233" width="4" height="4" fill="rgba(200,180,80,.3)"/><rect x="238" y="240" width="4" height="4" fill="rgba(200,180,80,.4)"/>
+      <ellipse cx="140" cy="300" rx="30" ry="12" fill="rgba(180,140,40,.15)"/>
+      <rect x="118" y="290" width="44" height="24" rx="4" fill="rgba(20,16,8,.9)"/>
+      <rect x="122" y="294" width="36" height="16" rx="2" fill="#b89030" opacity=".8"/>
+      <text x="140" y="305" text-anchor="middle" fill="#050503" font-size="7" font-weight="700" font-family="-apple-system,sans-serif">TAXI</text>
+      <text x="140" y="70" text-anchor="middle" fill="rgba(200,196,190,.9)" font-size="24" font-family="Georgia,serif" font-weight="400" letter-spacing="8">NIGHT</text>
+      <text x="140" y="50" text-anchor="middle" fill="rgba(200,196,190,.4)" font-size="10" font-family="-apple-system,sans-serif" letter-spacing="6">ON EARTH</text>
+      <line x1="40" y1="80" x2="240" y2="80" stroke="rgba(180,140,60,.3)" stroke-width=".5"/>
+      <text x="140" y="100" text-anchor="middle" fill="rgba(160,140,100,.5)" font-size="8" font-family="-apple-system,sans-serif" letter-spacing="3">JIM JARMUSCH</text>
+      <circle cx="60" cy="170" r="3" fill="#4ea060"/><text x="67" y="174" fill="rgba(78,160,96,.7)" font-size="7" font-family="-apple-system,sans-serif">LOS ANGELES</text>
+      <circle cx="60" cy="185" r="3" fill="#42b0a8"/><text x="67" y="189" fill="rgba(66,176,168,.7)" font-size="7" font-family="-apple-system,sans-serif">NEW YORK</text>
+      <circle cx="60" cy="200" r="3" fill="#6090d0"/><text x="67" y="204" fill="rgba(96,144,208,.7)" font-size="7" font-family="-apple-system,sans-serif">PARIS</text>
+      <circle cx="60" cy="215" r="3" fill="#c85050"/><text x="67" y="219" fill="rgba(200,80,80,.7)" font-size="7" font-family="-apple-system,sans-serif">ROME</text>
+      <circle cx="60" cy="230" r="3" fill="#8060c0"/><text x="67" y="234" fill="rgba(128,96,192,.7)" font-size="7" font-family="-apple-system,sans-serif">HELSINKI</text>
+      <text x="140" y="400" text-anchor="middle" fill="rgba(100,90,70,.4)" font-size="6.5" font-family="-apple-system,sans-serif" letter-spacing="2">WINONA RYDER · GENA ROWLANDS</text>
+      <text x="140" y="412" text-anchor="middle" fill="rgba(100,90,70,.4)" font-size="6.5" font-family="-apple-system,sans-serif" letter-spacing="2">ROBERTO BENIGNI · ARMIN MUELLER-STAHL</text>
+    </svg>
+  </div>
+
+  <div class="wrap-wide">
+    <div style="max-width:640px;margin:0 auto 0;">
+      <div class="city-tabs" id="cityTabs">
+        <button class="city-tab active" data-panel="la" style="--tab-color:#a88040">LA</button>
+        <button class="city-tab" data-panel="ny" style="--tab-color:#c8b030">NY</button>
+        <button class="city-tab" data-panel="paris" style="--tab-color:#5080c8">PARIS</button>
+        <button class="city-tab" data-panel="roma" style="--tab-color:#c05040">ROME</button>
+        <button class="city-tab" data-panel="helsinki" style="--tab-color:#7060b8">HELSINKI</button>
+      </div>
+    </div>
+
+    <div class="city-panels">
+
+      <div class="city-panel panel-la active" id="panel-la">
+        <div class="city-bg"></div>
+        <div class="city-content wrap">
+          <div class="city-scene-header">
+            <h3 class="city-name">Los Angeles</h3>
+            <p class="city-meta">19:07 PST · 7 PM</p>
+            <div class="city-cast">
+              <span class="cast-tag">Corky — Winona Ryder</span>
+              <span class="cast-tag">Victoria — Gena Rowlands</span>
+            </div>
+          </div>
+          <div class="city-analysis">
+            <p>Corky is seventeen, driving a cab into the night. Victoria is a Hollywood casting director, going from the airport into the city. During the ride Victoria sees something in Corky — an energy, a raw talent — and offers her an acting career. Corky listens, smiles, and declines. She wants to be a mechanic.</p>
+            <p>This segment is not a class conflict — something more subtle. What Victoria offers is not a world Corky cannot imagine; she can imagine it, but doesn't want it. Her way of saying this comes in street speech.</p>
+            <div class="dialogue-box">
+              The original saying: "Can't live with 'em, can't live without 'em."<br>
+              Corky's version: "Can't live with 'em, <strong>can't shoot 'em.</strong>"
+            </div>
+            <p>She changes the second half — doesn't fully know the original but keeps going as if she does. The broken idiom is the character. <strong>Preserving the fracture is part of meaning transfer.</strong> Smooth it over and you erase Corky herself.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="city-panel panel-ny" id="panel-ny">
+        <div class="city-bg"></div>
+        <div class="city-content wrap">
+          <div class="city-scene-header">
+            <h3 class="city-name">New York</h3>
+            <p class="city-meta">22:07 EST · Approaching Midnight</p>
+            <div class="city-cast">
+              <span class="cast-tag">Helmut — Armin Mueller-Stahl</span>
+              <span class="cast-tag">Yo-Yo — Giancarlo Esposito</span>
+              <span class="cast-tag">Angela — Rosie Perez</span>
+            </div>
+          </div>
+          <div class="city-analysis">
+            <p>Helmut is East German, a former circus clown. His first working day in New York. He tries to pick up Yo-Yo but cannot operate automatic transmission — East Germany didn't have automatic cars. Yo-Yo takes the wheel and drives his own driver.</p>
+            <div class="dialogue-box">
+              Yo-Yo: "New York is <strong>cool</strong>."<br>
+              Helmut: "Yes, it is <strong>cold</strong>."<br>
+              Yo-Yo: "No — cool! Hip! Happening!"
+            </div>
+            <p>The cultural meaning of "cool" is only accessible from inside that language. It isn't in the dictionary — it's in context.</p>
+            <p>Even names can't be translated: Yo-Yo laughs when he hears "Helmut." Helmut can't make sense of "Yo-Yo." Each finds the other's "normal" name absurd. Beneath the language barrier something else: <strong>a worldview barrier.</strong></p>
+            <p>A connection is still forged — but it comes not from perfect word transfer, but from both being marginal. Yo-Yo doesn't get cabs because he's Black; Helmut is foreign to the system because he's German.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="city-panel panel-paris" id="panel-paris">
+        <div class="city-bg"></div>
+        <div class="city-content wrap">
+          <div class="city-scene-header">
+            <h3 class="city-name">Paris</h3>
+            <p class="city-meta">04:07 CET · Before Dawn</p>
+            <div class="city-cast">
+              <span class="cast-tag">Driver — Isaach de Bankolé (Ivory Coast)</span>
+              <span class="cast-tag">Blind Woman — Béatrice Dalle</span>
+            </div>
+          </div>
+          <div class="city-analysis">
+            <p>An Ivorian driver picks up two drunk diplomats. When they hear the driver is from Ivory Coast, the diplomats laugh:</p>
+            <div class="dialogue-box">
+              <strong>"Il y voit rien"</strong> — "He can't see a thing."<br><br>
+              In French, "Ivoirien" (Ivorian) and "il y voit rien" (he can't see a thing) share a sound similarity — a linguistic weapon layered with post-colonial contempt.
+            </div>
+            <p>This wordplay compresses the intra-African hierarchy of post-colonial France into a single sentence. The driver throws the diplomats out.</p>
+            <p>Then he picks up a blind woman. The dialogue between them revolves on this axis: the driver frames blindness as a loss. The woman rejects this — saying that seeing can be a burden, that perception is not the eye's monopoly.</p>
+            <p>The meaning embedded in language: "il voit rien" means both "he doesn't see" and "he's blind" — the phrase used against the driver also defines the woman's situation. Translating requires choosing the double meaning — and the choice changes the scene's meaning entirely.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="city-panel panel-roma" id="panel-roma">
+        <div class="city-bg"></div>
+        <div class="city-content wrap">
+          <div class="city-scene-header">
+            <h3 class="city-name">Rome</h3>
+            <p class="city-meta">04:07 CET · Same Moment, Different City</p>
+            <div class="city-cast">
+              <span class="cast-tag">Gino — Roberto Benigni</span>
+              <span class="cast-tag">Priest — Paolo Bonacelli</span>
+            </div>
+          </div>
+          <div class="city-analysis">
+            <p>Gino picks up a priest late at night. The priest is ill, barely walking. Gino wants to confess his sins. The priest says "I am not on official duty." Gino doesn't hear it — and begins.</p>
+            <div class="dialogue-box">
+              Starting with minor sins.<br>
+              A cascading sequence of increasingly graphic, increasingly absurd confessions.<br>
+              The priest grows paler, reaches for his nitroglycerin.<br>
+              The pill falls on a bump in the road.<br>
+              The priest dies.
+            </div>
+            <p>Benigni's Florentine accent and street Italian carry layers of meaning to Italian audiences. In translation, this layer falls away.</p>
+            <p>Language becomes an involuntary weapon. Gino didn't intend to kill a priest — but what he said was lethal. Two speech systems collided: southern Italy's sunny tradition of confession and northern European moral language. Benigni spoke not because he was confessing but because his voice came out. The passing of meaning was never part of the calculation.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="city-panel panel-helsinki" id="panel-helsinki">
+        <div class="city-bg"></div>
+        <canvas class="helsinki-snow" id="helsinki-canvas"></canvas>
+        <div class="city-content wrap" style="position:relative;z-index:1;">
+          <div class="city-scene-header">
+            <h3 class="city-name">Helsinki</h3>
+            <p class="city-meta">05:07 EET · –10°C · Snow</p>
+            <div class="city-cast">
+              <span class="cast-tag">Mika — Matti Pellonpää</span>
+              <span class="cast-tag">Drunks — Kaurismäki ensemble</span>
+            </div>
+          </div>
+          <div class="city-analysis">
+            <p>The final segment: the shortest and the heaviest. Three drunk men, a tired driver. Jarmusch gave the characters the names Aki and Mika — a tribute to Finnish cinema's two great figures, Aki and Mika Kaurismäki.</p>
+            <p>The drunks tell Mika about their friend: yesterday he lost his job, his new car is totaled, his wife wants a divorce, it came out his daughter is pregnant. Four disasters.</p>
+            <div class="dialogue-box">
+              Mika: "Is that all?"<br><br>
+              <span style="font-size:.82rem;color:rgba(180,176,168,.5);">The most concise expression of Nordic suffering.</span>
+            </div>
+            <p>No lament, no performance of empathy. Direct competition: my story is heavier.</p>
+            <p>Mika tells his: They had no children for years. One day his wife became pregnant. The baby was premature, put in an incubator. Doctors said it would live a week. Mika didn't let himself attach — if it were lost, they'd both be destroyed. The baby survived. His wife said: "Our child needs your love too." Mika attached. The baby died.</p>
+            <p>Final scene: dawn breaking. Mika slowly drives around an empty park. Alone. Nothing said. Tom Waits's music is sparse, the bell tones few — it frames the silence, does not fill it.</p>
+            <p><strong>In Finnish, the weight of what is unspoken is greater than what is spoken.</strong> Carrying this into another language is possible — but noting the frame is essential.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-top:4rem;padding-bottom:5rem;position:relative;z-index:2;">
+    <div class="pull-quote" style="border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.03);">
+      <span style="color:rgba(200,196,192,.8);">Language does not guarantee meaning. Speaking the same language (Corky and Victoria) does not produce understanding; speaking different languages (Helmut and Yo-Yo) does not prevent it. Communication fails most completely in Rome (it doesn't exist), and in Helsinki takes place almost without words.</span>
+    </div>
+    <p class="reveal" style="font-size:.85rem;color:rgba(160,156,148,.5);margin-top:1.5rem;">Language fidelity crystallizes here: transferring the source language is not enough. Transferring the worldview embedded in that language — including its fractures, misunderstandings, deliberate breaks — is required. Otherwise it's not translation; it's summary.</p>
+  </div>
+</section>
+
+
+<section id="antiperformans-section">
+  <div class="wrap">
+    <span class="section-label reveal">Principles 11–14 · Attitude</span>
+    <h2 class="reveal">Antiperformance &amp; Skin in the Game</h2>
+
+    <p class="reveal">Antiperformance is rare in academic culture. Darwin did it.</p>
+
+    <div class="counter-block reveal">
+      <div class="counter-item">
+        <span class="counter-num" data-target="24" data-suffix=" yrs">0</span>
+        <span class="counter-label">Darwin's wait from<br>Galápagos to publication</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" data-target="5" data-suffix=" wks">0</span>
+        <span class="counter-label">Time spent<br>in the Galápagos</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" data-target="28000" data-suffix="">0</span>
+        <span class="counter-label">Mendel's<br>pea plants</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" data-target="40" data-suffix=" copies">0</span>
+        <span class="counter-label">Copies Mendel<br>distributed</span>
+      </div>
+    </div>
+
+    <p class="reveal"><strong>Darwin</strong> visited the Galápagos in 1835. Five weeks. He published <em>On the Origin of Species</em> in 1859. Twenty-four years. Not a single paper in between, no attempt to persuade anyone. He moved when Wallace arrived at the same conclusion independently — but until that moment he waited. He did not want to present before he was ready.</p>
+
+    <p class="reveal"><strong>Mendel</strong> conducted experiments for eight years at the Augustinian monastery in Brno, with approximately 28,000 pea plants. Published in 1866. No promotion, no networking. Distributed forty copies — the whereabouts of two are known. The monastery's bishop laughed. Mendel died in 1884. The laws of heredity were rediscovered in 1900 — sixteen years later. Performance anxiety was zero; because the audience was zero.</p>
+
+    <div class="pull-quote reveal">
+      "Montaigne retreated to a monastery tower in 1571 at age 38. Goal: to read and think about himself. The word 'Essais' means 'attempt, trial' in French. 'I educate myself, not the reader.' Reaching a definitive conclusion was not the goal; remaining inside the problem was the goal."
+    </div>
+
+    <h4 class="reveal" style="font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:3rem 0 1rem;">Knowing the Limits · Legitimacy of Attention</h4>
+
+    <p class="reveal">The best result reachable is not the best result possible. "There is always someone better than you" — this is realism. There is a line between seizing attention and earning it. Seizing it through needle-pricking — fake wonder, dramatic packaging, jargon inflation — steals attention. Earning it by making the other person live the problem earns it honestly.</p>
+  </div>
+</section>
+
+
+<section style="padding: 0; border-top: none;">
+  <div class="wrap" style="padding: 3rem 0;">
+    <div class="fire-section reveal">
+      <canvas id="fire-canvas"></canvas>
+      <div class="fire-content">
+        <p class="fire-quote">"Unintended consequences of being protected from the consequences of your decisions: people who are insulated from the effects of their decisions do not learn."</p>
+        <p class="fire-attr">Nassim Nicholas Taleb · Skin in the Game</p>
+        <p style="color:rgba(200,160,80,.6);font-size:.88rem;margin-top:2rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;">Barry Marshall drank a solution containing H. pylori in 1984. Within eight days he had developed gastritis. He proved that stomach ulcers are bacterial in origin. 2005 Nobel Prize in Medicine. Having skin in the game was not a metaphor here — it was literal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="ai-section">
+  <canvas id="ai-canvas"></canvas>
+  <div class="wrap ai-content">
+    <span class="section-label reveal" style="color:rgba(64,112,200,.7);">§ AI and Research</span>
+    <h2 class="reveal" style="color:#8aacf0;">Artificial Intelligence in Research<br><span style="font-weight:400;color:rgba(64,112,200,.6);font-size:.7em;">Necessity · Method · Limits</span></h2>
+
+    <div class="terminal-window reveal">
+      <div class="terminal-bar">
+        <div class="terminal-dot td-red"></div>
+        <div class="terminal-dot td-yellow"></div>
+        <div class="terminal-dot td-green"></div>
+        <span class="terminal-title">research-constitution · agent system</span>
+      </div>
+      <div class="terminal-body">
+        <div class="t-line">$ research start: "Night on Earth — five segments"</div>
+        <div class="t-line active">⟶ 3 parallel agents launched</div>
+        <div class="t-line output">  [agent-1] Night on Earth segments being researched...</div>
+        <div class="t-line output">  [agent-2] "Entering the subject" examples: Orwell, Wallraff, Grandin...</div>
+        <div class="t-line output">  [agent-3] Antiperformance: Darwin, Mendel, Montaigne...</div>
+        <div class="t-line active">⟶ All agents complete — total: 47 sources</div>
+        <div class="t-line output">  Film poster URL: tmdb.org → verified</div>
+        <div class="t-line output">  Wallraff print run: 4M → verified</div>
+        <div class="t-line output">  Darwin Galápagos date: 1835, 5 weeks → verified</div>
+        <div class="t-line active">$ <span class="t-cursor"></span></div>
+      </div>
+    </div>
+
+    <p class="reveal">Saying "I used AI" says nothing. Which AI, how, for what purpose — these are the determining questions.</p>
+
+    <div class="ai-capabilities reveal">
+      <div class="ai-cap">
+        <span class="ai-cap-label">Type Matters: Chat vs Agent</span>
+        <p><strong>Chat converses; agents research.</strong> Chat cannot access the sources it draws on; an agent goes out to the web, reads documents, verifies sources. What we used in this document: an agent system. Night on Earth scenes, Wallraff's book, Grandin's work — the agent scanned, found, cross-checked.</p>
+      </div>
+      <div class="ai-cap">
+        <span class="ai-cap-label">Parallel Research</span>
+        <p>This document's research into Night on Earth scenes, "entering the subject" examples, and the evidence base for other principles was conducted with <strong>three separate research threads simultaneously</strong>. A single researcher would do this sequentially — hours, perhaps days. Done in parallel.</p>
+      </div>
+      <div class="ai-cap">
+        <span class="ai-cap-label">No Language Barrier</span>
+        <p>Accessing Italian, Finnish, French sources used to require knowing the language. AI removes this barrier. If <strong>a Japanese study</strong> needs to be researched tomorrow, no language barrier. Domain knowledge is being democratized.</p>
+      </div>
+      <div class="ai-cap">
+        <span class="ai-cap-label">Limits</span>
+        <p>The <strong>"this won't hold" intuition</strong> of someone who has spent thirty years in courtroom corridors is not present in AI. AI can scan sources, but it cannot know where and at what cost experience was earned. Final judgment belongs to the human.</p>
+      </div>
+    </div>
+
+    <div class="observation-box reveal">
+      <span class="obs-label">Observation · Anonymous</span>
+      <p>I knew a lawyer. Thirty years in courtroom corridors. Before writing a brief, they would spend hours drawing maps — they wouldn't sit down to write without making the relationships visible. The writing took an hour; the mapping stage took days.</p>
+      <p>They approached research with the same logic. When they began working with AI, the only thing they needed to learn was this: not to give commands, but to talk. Not "research this" but "think through this problem with me." A two-word difference — but the essence of the method.</p>
+      <p>What do they do now? Sit with their coffee, talk through a problem. The AI researches, presents, debates. They read and correct — "this is wrong," "go from here," "expand this." Research that used to take weeks appears in a few hours.</p>
+    </div>
+
+    <div class="meta-evidence reveal">
+      <p><strong>This document was written applying its own principles to itself.</strong></p>
+      <p>Reading this document, it is impossible not to notice: we are researching the research method. And we are running this research hand in hand with AI. This is not coincidence — it is self-application.</p>
+      <p>Primary source priority: Night on Earth's scenes were researched from the film itself, not summaries. Verification reflex: the "Brad Pitt" claim was rejected, DiCaprio verified. Language fidelity: every concept was first constructed in its own terms. Iterative progress: v0.1, v0.2, v0.3, v0.4, v0.5 — earlier versions sit in the git repository.</p>
+      <p>On AI use, this document also shows its own practice — it does not merely describe, it does. <strong>The document is both object and subject.</strong></p>
+    </div>
+
+    <h4 class="reveal" style="font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(64,112,200,.5);margin:2.5rem 0 1.2rem;">Doors AI Opens</h4>
+
+    <div class="doors-grid reveal">
+      <div class="door"><span class="door-icon">⊡</span><span class="door-name">Scope</span><p>Sources in <strong>five languages</strong> scanned in the same session. Impossible for a single researcher.</p></div>
+      <div class="door"><span class="door-icon">⊞</span><span class="door-name">Expertise Map</span><p><strong>Starting map</strong> of a field you know nothing about — key figures, debates, turning points.</p></div>
+      <div class="door"><span class="door-icon">⊟</span><span class="door-name">Cross-Check</span><p>A claim checked against <strong>three separate sources simultaneously</strong>. Invaluable for the verification reflex.</p></div>
+      <div class="door"><span class="door-icon">◈</span><span class="door-name">Thinking Partner</span><p>An answer to "I'm saying this — where could I be wrong?" <strong>Academics call this an advisory board.</strong></p></div>
+      <div class="door"><span class="door-icon">◉</span><span class="door-name">Synthesis</span><p>After fifty sources are read, extracting common patterns. AI makes patterns visible; <strong>human judgment</strong> decides if they're meaningful.</p></div>
+      <div class="door"><span class="door-icon">◊</span><span class="door-name">Memory</span><p>A correction made at the start of a session is still valid at the end. <strong>Humans forget; agents don't.</strong></p></div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="wrap">
+    <span class="section-label reveal">§ Research Process</span>
+    <h2 class="reveal">Typical Flow — A Guide, Not a Rule</h2>
+    <div class="flow-outer reveal">
+      <div class="flow-steps">
+        <div class="flow-step" style="border-color:var(--kaynak)"><div class="fs-num" style="color:var(--kaynak)">01</div><div class="fs-title" style="color:var(--kaynak)">Topic</div><div class="fs-desc">Define the curiosity point</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step" style="border-color:var(--kaynak)"><div class="fs-num" style="color:var(--kaynak)">02</div><div class="fs-title" style="color:var(--kaynak)">Primary Source</div><div class="fs-desc">The thing itself first</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step" style="border-color:var(--kaynak)"><div class="fs-num" style="color:var(--kaynak)">03</div><div class="fs-title" style="color:var(--kaynak)">Map Positions</div><div class="fs-desc">Who says what, from where</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step" style="border-color:var(--surec)"><div class="fs-num" style="color:var(--surec)">04</div><div class="fs-title" style="color:var(--surec)">Draw the Map</div><div class="fs-desc">Relations, gaps</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step" style="border-color:var(--uretim)"><div class="fs-num" style="color:var(--uretim)">05</div><div class="fs-title" style="color:var(--uretim)">Original Link</div><div class="fs-desc">The unmade connection</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step" style="border-color:var(--kaynak)"><div class="fs-num" style="color:var(--kaynak)">06</div><div class="fs-title" style="color:var(--kaynak)">Verify</div><div class="fs-desc">Every claim, concrete source</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step" style="border-color:var(--dil)"><div class="fs-num" style="color:var(--dil)">07</div><div class="fs-title" style="color:var(--dil)">Build in Language</div><div class="fs-desc">Construct, don't transfer</div></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step" style="border-color:var(--uretim)"><div class="fs-num" style="color:var(--uretim)">08</div><div class="fs-title" style="color:var(--uretim)">Open the Problem</div><div class="fs-desc">Limits, counter-argument</div></div>
+        <div class="flow-arr">↻</div>
+        <div class="flow-step" style="border-color:var(--surec)"><div class="fs-num" style="color:var(--surec)">09</div><div class="fs-title" style="color:var(--surec)">Iterate</div><div class="fs-desc">Don't delete the first draft</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="wrap">
+    <span class="section-label reveal">§ Domain Sub-Principles</span>
+    <h2 class="reveal">Field-Specific Additional Principles</h2>
+    <div class="sub-principles">
+      <div class="sub-card reveal" style="border-color:var(--kaynak)">
+        <h4><span style="color:var(--kaynak)">⚖</span> Legal Research</h4>
+        <ul>
+          <li>Primary source = statutory text + court decision</li>
+          <li>Citation verification mandatory — case number + full text</li>
+          <li>Currency control — is the statute still in force?</li>
+          <li><strong>Defense of convoluted language:</strong> dense clauses are scoping tools, not just complexity</li>
+          <li>Distinction between law in books and living law</li>
+          <li>Open sources: primary court databases, official gazette, legislation portals</li>
+        </ul>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--dil)">
+        <h4><span style="color:var(--dil)">✎</span> Language &amp; Translation</h4>
+        <ul>
+          <li>Language fidelity principle at center</li>
+          <li>Constant monitoring for source-language pull</li>
+          <li>Preserving fractures is also meaning transfer — Corky example</li>
+          <li>Night on Earth: cultural layer note for every segment</li>
+          <li>No forcing into a single template</li>
+          <li>Concrete context principle — words emptied by abstraction</li>
+        </ul>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--ai)">
+        <h4><span style="color:var(--ai)">◈</span> AI-Assisted Research</h4>
+        <ul>
+          <li>Use agent system — not chat</li>
+          <li>Verify every produced claim — hallucination risk exists</li>
+          <li>Parallel research threads — independent questions simultaneously</li>
+          <li>Context preservation: corrections still valid at session end</li>
+          <li>Final judgment belongs to the human — intuition absent in AI</li>
+          <li>Model knowledge cutoff date must be checked</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="wrap">
+    <span class="section-label reveal">§ Inspiration and Rejection</span>
+    <h2 class="reveal">What We Took and Left from Two Research Files</h2>
+    <p class="compare-source reveal">Doctoral-Level Research File</p>
+    <div class="compare-grid reveal">
+      <div class="cg-col aldik"><h4>What We Took</h4><ul>
+        <li><strong>Originality taxonomy:</strong> 7 types — a measure for weighing research</li>
+        <li><strong>Journalism–research distinction:</strong> defending a thesis vs opening a problem</li>
+        <li><strong>Descriptive vs analytical:</strong> not "what exists" but "what does it mean"</li>
+        <li><strong>Critical distance:</strong> as an internal compass</li>
+      </ul></div>
+      <div class="cg-col almadik"><h4>What We Left</h4><ul>
+        <li>Page count statistics — we are not doctoral students</li>
+        <li>150–300 source "norm" — not our measure</li>
+        <li>Program requirements — institutional procedures</li>
+        <li>Completion times — we are not racing the clock</li>
+      </ul></div>
+    </div>
+    <p class="compare-source reveal">Academic Research Critique File</p>
+    <div class="compare-grid reveal">
+      <div class="cg-col aldik"><h4>What We Took</h4><ul>
+        <li><strong>Feyerabend — living method:</strong> no fixed method rule</li>
+        <li><strong>Taleb — skin in the game:</strong> form a relation with the subject</li>
+        <li><strong>Independent researcher tradition:</strong> Darwin, Marx, Freud outside institutions</li>
+        <li><strong>Ioannidis warning:</strong> "verified" is no longer enough</li>
+      </ul></div>
+      <div class="cg-col almadik"><h4>What We Left</h4><ul>
+        <li>Replication crisis details — an internal matter of academia</li>
+        <li>P-hacking / HARKing — we don't run statistical tests</li>
+        <li>Peer review — we don't work within that system</li>
+        <li>"Publish or perish" pressure — not a career concern</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="wrap">
+    <span class="section-label reveal">§ Open Questions</span>
+    <h2 class="reveal">Not Yet Answered</h2>
+    <ul class="qs-list">
+      <li class="reveal"><span class="qs-num">1</span><div class="qs-text"><strong>Discussing each principle separately</strong>The validity, limits, and contradictions of each need to be discussed individually. Some may be saying the same thing in different words.</div></li>
+      <li class="reveal"><span class="qs-num">2</span><div class="qs-text"><strong>The attention boundary</strong>Rhetoric is legitimate; needle-pricking is not. But where exactly is the concrete line between the two? What is the criterion?</div></li>
+      <li class="reveal"><span class="qs-num">3</span><div class="qs-text"><strong>Scale = quality?</strong>AI changing scale and "collapsing" the system — does this apply in other fields too?</div></li>
+      <li class="reveal"><span class="qs-num">4</span><div class="qs-text"><strong>AI hallucination vs research error</strong>The mechanism differs; the result is the same. How do we treat them differently?</div></li>
+      <li class="reveal"><span class="qs-num">5</span><div class="qs-text"><strong>Self-application</strong>Is this document itself subject to its own principles? Asking the question is not enough — answering it is required.</div></li>
+    </ul>
+  </div>
+</section>
+
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <p>Research Constitution — Draft v0.5<br>February 2026 · Open to Discussion · Living Document</p>
+      <p style="text-align:right">This document is alive.<br>It updates itself after every research session.<br>Previous versions sit in the git repository.</p>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function() {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let stars = [], W, H;
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  function makeStars(n) { stars = []; for (let i = 0; i < n; i++) { stars.push({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.2 + 0.2, a: Math.random(), da: (Math.random() - 0.5) * 0.008, speed: Math.random() * 0.1 }); } }
+  function draw() { ctx.fillStyle = '#07070a'; ctx.fillRect(0, 0, W, H); stars.forEach(s => { s.a += s.da; if (s.a <= 0 || s.a >= 1) s.da *= -1; s.y += s.speed; if (s.y > H) { s.y = 0; s.x = Math.random() * W; } ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fillStyle = `rgba(200,196,188,${s.a * 0.7})`; ctx.fill(); }); requestAnimationFrame(draw); }
+  resize(); makeStars(300); draw();
+  window.addEventListener('resize', () => { resize(); makeStars(300); });
+})();
+
+(function() {
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => io.observe(el));
+})();
+
+(function() {
+  const tabs = document.querySelectorAll('.city-tab');
+  const panels = document.querySelectorAll('.city-panel');
+  tabs.forEach(tab => { tab.addEventListener('click', () => { tabs.forEach(t => t.classList.remove('active')); panels.forEach(p => p.classList.remove('active')); tab.classList.add('active'); const panel = document.getElementById('panel-' + tab.dataset.panel); if (panel) { panel.classList.add('active'); if (tab.dataset.panel === 'helsinki') startSnow(); else stopSnow(); } }); });
+})();
+
+let snowAnim = null, snowFlakes = [];
+function startSnow() {
+  const canvas = document.getElementById('helsinki-canvas');
+  if (!canvas) return;
+  const panel = document.getElementById('panel-helsinki');
+  canvas.width = panel.offsetWidth; canvas.height = panel.offsetHeight;
+  const ctx = canvas.getContext('2d');
+  snowFlakes = [];
+  for (let i = 0; i < 120; i++) { snowFlakes.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * 2.5 + 0.8, vx: (Math.random() - 0.5) * 0.6, vy: Math.random() * 1.2 + 0.4, a: Math.random() * 0.6 + 0.2 }); }
+  function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); snowFlakes.forEach(f => { f.x += f.vx; f.y += f.vy; if (f.y > canvas.height) { f.y = -5; f.x = Math.random() * canvas.width; } if (f.x < 0 || f.x > canvas.width) f.vx *= -1; ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2); ctx.fillStyle = `rgba(180,190,220,${f.a})`; ctx.fill(); }); snowAnim = requestAnimationFrame(animate); }
+  if (snowAnim) cancelAnimationFrame(snowAnim);
+  animate();
+}
+function stopSnow() { if (snowAnim) { cancelAnimationFrame(snowAnim); snowAnim = null; } const canvas = document.getElementById('helsinki-canvas'); if (canvas) canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height); }
+
+(function() {
+  const canvas = document.getElementById('fire-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width = 300, H = canvas.height = 200;
+  const particles = [];
+  function Particle() { this.reset(); }
+  Particle.prototype.reset = function() { this.x = W / 2 + (Math.random() - 0.5) * 60; this.y = H - 10; this.vx = (Math.random() - 0.5) * 1.5; this.vy = -(Math.random() * 2.5 + 1.5); this.life = 1; this.decay = Math.random() * 0.02 + 0.012; this.size = Math.random() * 8 + 4; };
+  Particle.prototype.update = function() { this.x += this.vx; this.y += this.vy; this.vy -= 0.04; this.life -= this.decay; this.size *= 0.985; if (this.life <= 0) this.reset(); };
+  for (let i = 0; i < 80; i++) { const p = new Particle(); p.life = Math.random(); particles.push(p); }
+  const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) animateFire(); }); }, { threshold: 0.3 });
+  io.observe(canvas.closest('.fire-section') || document.body);
+  let fireAnim = null;
+  function animateFire() { if (fireAnim) return; function draw() { ctx.clearRect(0, 0, W, H); particles.forEach(p => { p.update(); const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size); const r = 255, gr = Math.floor(80 + 120 * p.life); g.addColorStop(0, `rgba(${r},${gr},0,${p.life * 0.9})`); g.addColorStop(0.5, `rgba(${r},${Math.floor(gr * 0.4)},0,${p.life * 0.4})`); g.addColorStop(1, `rgba(60,0,0,0)`); ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fillStyle = g; ctx.fill(); }); fireAnim = requestAnimationFrame(draw); } draw(); }
+})();
+
+(function() {
+  const canvas = document.getElementById('ai-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, cols, drops;
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789∂∫∑∏√∞≈∆ΩπΨΦΞΛ';
+  const fontSize = 12;
+  function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; cols = Math.floor(W / fontSize); drops = Array(cols).fill(1).map(() => Math.random() * -100); }
+  function draw() { ctx.fillStyle = 'rgba(2,4,9,.06)'; ctx.fillRect(0, 0, W, H); ctx.font = fontSize + 'px monospace'; for (let i = 0; i < cols; i++) { const ch = chars[Math.floor(Math.random() * chars.length)]; ctx.fillStyle = `rgba(64,112,200,${Math.random() * 0.15})`; ctx.fillText(ch, i * fontSize, drops[i] * fontSize); if (drops[i] * fontSize > H && Math.random() > 0.975) drops[i] = 0; drops[i] += 0.3; } requestAnimationFrame(draw); }
+  const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { resize(); draw(); io.disconnect(); } }); });
+  io.observe(canvas);
+  window.addEventListener('resize', resize);
+})();
+
+(function() {
+  const counters = document.querySelectorAll('[data-target]');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      let current = 0;
+      const steps = 60, increment = target / steps;
+      const interval = setInterval(() => {
+        current += increment;
+        if (current >= target) { current = target; clearInterval(interval); }
+        el.textContent = (target > 1000 ? Math.floor(current).toLocaleString('en') : Math.floor(current)) + suffix;
+      }, 25);
+      io.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => io.observe(c));
+})();
+</script>
+</body>
+</html>
