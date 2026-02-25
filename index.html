@@ -61,6 +61,7 @@
             --green: #5A7A5A;
             --orange: #8A6A4A;
             --silver: #7A7A7A;
+            --indigo: #4A4A7A;
 
             --text-primary: #2A2A2A;
             --text-secondary: #4A4640;
@@ -1967,24 +1968,27 @@
         { id: 'sancak', name: 'SANCAK', tool: 'Claude', color: 'var(--teal)', colorHex: '#4A706A',
           role: { tr: 'Yapısal düşünce, argümantasyon, analiz, yazım, kod, çeviri', en: 'Structural thinking, argumentation, analysis, writing, code, translation' },
           status: 'active', angle: 0 },
+        { id: 'dalgic', name: 'DALGIÇ', tool: 'DeepSeek', color: 'var(--indigo)', colorHex: '#4A4A7A',
+          role: { tr: 'Alternatif akıl yürütme, çapraz doğrulama, farklı hinterland', en: 'Alternative reasoning, cross-verification, different hinterland' },
+          status: 'active', angle: 45 },
         { id: 'poyraz', name: 'POYRAZ', tool: 'NotebookLM', color: 'var(--blue)', colorHex: '#4A6A8A',
           role: { tr: 'Kaynak sentezi, çapraz okuma, podcast üretimi', en: 'Source synthesis, cross-reading, podcast generation' },
-          status: 'active', angle: 51.4 },
+          status: 'active', angle: 90 },
         { id: 'yankiz', name: 'YANKIZ', tool: 'ElevenLabs Reader', color: 'var(--purple)', colorHex: '#6B5B7B',
           role: { tr: 'Metin → ses dönüşümü, dinleme arayüzü', en: 'Text to voice, listening interface' },
-          status: 'active', angle: 102.8 },
+          status: 'active', angle: 135 },
         { id: 'kiran', name: 'KIRAN', tool: 'Adobe Acrobat', color: 'var(--red)', colorHex: '#8B5A5A',
           role: { tr: 'Belge işleme, PDF düzenleme', en: 'Document processing, PDF editing' },
-          status: 'active', angle: 154.2 },
+          status: 'active', angle: 180 },
         { id: 'fiske', name: 'FİSKE', tool: 'Whisper', color: 'var(--green)', colorHex: '#5A7A5A',
           role: { tr: 'Ses → metin transkripsiyon', en: 'Voice to text transcription' },
-          status: 'active', angle: 205.6 },
+          status: 'active', angle: 225 },
         { id: 'isil', name: 'IŞIL', tool: 'Runway', color: 'var(--orange)', colorHex: '#8A6A4A',
           role: { tr: 'Video üretimi, görsel kimlik', en: 'Video generation, visual identity' },
-          status: 'active', angle: 257 },
+          status: 'active', angle: 270 },
         { id: 'soluk', name: 'SOLUK', tool: 'DeepL', color: 'var(--silver)', colorHex: '#7A7A7A',
           role: { tr: 'Çeviri desteği', en: 'Translation support' },
-          status: 'sleeping', angle: 308.4 }
+          status: 'sleeping', angle: 315 }
     ];
 
     const emanations = [
