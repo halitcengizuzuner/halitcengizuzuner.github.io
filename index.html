@@ -1434,127 +1434,25 @@
         .portal-send-btn:disabled { background: var(--text-light); cursor: not-allowed; }
 
         /* ========================================
-           AUDIO MODAL
+           EMANATION PORTAL GATE
            ======================================== */
-        .audio-modal {
-            position: fixed;
-            inset: 0;
-            z-index: 600;
-            background: rgba(0, 0, 0, 0.35);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-        }
-
-        .audio-modal.open { opacity: 1; pointer-events: auto; }
-
-        .audio-modal-content {
-            text-align: center; max-width: 400px; padding: 2.5rem;
-            background: rgba(255,255,255,0.7);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border-radius: 14px; border: 1px solid var(--border-glass);
-            box-shadow: 0 10px 50px rgba(0,0,0,0.08);
-        }
-
-        .audio-modal-title {
-            font-family: var(--font-display);
-            font-size: 1.25rem;
-            color: var(--text-primary);
-            margin-bottom: 0.3rem;
-        }
-
-        .audio-modal-sub {
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            color: var(--text-light);
-            letter-spacing: 0.15em;
-            margin-bottom: 1.5rem;
-        }
-
-        .audio-modal audio { width: 100%; max-width: 300px; }
-
-        .audio-modal-download {
-            display: inline-block;
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-secondary);
-            background: transparent;
-            border: 1px solid var(--border-subtle);
-            padding: 0.45rem 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 0.8rem;
-            transition: all 0.3s ease;
-        }
-
-        .audio-modal-download:disabled {
-            opacity: 0.5;
-            cursor: wait;
-        }
-
-        .audio-modal-download:hover {
-            border-color: var(--teal);
-            color: var(--teal);
-            background: rgba(26, 122, 109, 0.04);
-        }
-
-        .audio-modal-close {
+        .emanation-gate {
             font-family: var(--font-mono);
             font-size: 0.6rem;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.08em;
             color: var(--text-muted);
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            margin-top: 1.2rem;
-            padding: 0.5rem 1rem;
-            transition: color 0.3s ease;
-            text-transform: uppercase;
-        }
-
-        .audio-modal-close:hover { color: var(--text-secondary); }
-
-        .audio-modal-langs {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
-        .audio-lang-btn {
-            background: transparent;
-            border: 1px solid rgba(122,107,78,0.3);
-            color: var(--text-secondary);
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            letter-spacing: 0.15em;
-            padding: 0.3rem 0.8rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .audio-lang-btn.active {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-        .audio-lang-btn:hover {
-            border-color: var(--text-secondary);
-        }
-
-        .audio-modal-attr {
-            font-family: var(--font-mono);
-            font-size: 0.45rem;
-            color: var(--text-light);
-            letter-spacing: 0.1em;
             margin-top: 0.8rem;
-            opacity: 0.5;
+            padding: 0.6rem 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .emanation-gate a {
+            color: var(--teal);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(26,122,109,0.3);
+            transition: border-color 0.3s;
+        }
+        .emanation-gate a:hover {
+            border-color: var(--teal);
         }
 
         /* Bottom entity ambient — organism's pulse at page bottom */
@@ -1930,22 +1828,6 @@
 </div>
 <div class="bottom-entity-fallback" id="bottomEntityFallback"></div>
 
-<div class="audio-modal" id="audioModal">
-    <div class="audio-modal-content">
-        <div class="audio-modal-langs" id="audioModalLangs" style="display:none;">
-            <button class="audio-lang-btn" data-lang="tr">TR</button>
-            <button class="audio-lang-btn" data-lang="en">EN</button>
-        </div>
-        <div class="audio-modal-title" id="audioModalTitle"></div>
-        <div class="audio-modal-sub" id="audioModalSub"></div>
-        <audio controls preload="metadata" id="audioPlayer"></audio>
-        <br>
-        <button class="audio-modal-download" id="audioModalDownload" data-tr="İndir" data-en="Download">İndir</button>
-        <br>
-        <button class="audio-modal-close" id="audioModalClose" data-tr="Kapat" data-en="Close">Kapat</button>
-        <div class="audio-modal-attr" id="audioModalAttr"></div>
-    </div>
-</div>
 
 <script>
 (function() {
@@ -1996,43 +1878,25 @@
           category: { tr: 'DÜŞÜNCE', en: 'THOUGHT' },
           date: '2026-02-25',
           title: { tr: 'Araştırma Anayasası — Hatalardan Damıtılan İlkeler', en: 'Research Constitution — Principles Distilled from Mistakes' },
-          summary: { tr: 'Nasıl araştırıyoruz, neden böyle yapıyoruz, hangi hatalardan ne öğrendik. Araştırma yöntemini kendi üstüne uygulayan bir meta-araştırma.', en: 'How we research, why we do it this way, what we learned from mistakes. A meta-research that applies its own method to itself.' },
-          readUrl: '/raporlar/arastirma-anayasasi.html',
-          audioUrl: {
-              tr: 'https://pub-09be185c608d4c1e80131e5f82eaca40.r2.dev/arastirma-anayasasi-tr.mp3',
-              en: 'https://pub-09be185c608d4c1e80131e5f82eaca40.r2.dev/arastirma-anayasasi-en.mp3'
-          },
-          audioTitle: { tr: 'Podcast', en: 'Podcast' },
-          audioSub: { tr: 'TR ~30 dk · EN ~23 dk', en: 'TR ~30 min · EN ~23 min' },
-          audioAttr: { tr: 'POYRAZ · Google NotebookLM', en: 'POYRAZ · Google NotebookLM' },
+          summary: { en: 'How we research, why we do it this way, what we learned from mistakes. A meta-research that applies its own method to itself.' },
+          teaser: 'Her ilkenin arkasında sessizce duran bir hata var. Bu belge, hatalardan damıtılan 14 araştırma ilkesini — kaynak kullanmadan yapay zekaya, bedel ödemeden film analizine — kendi üstüne uygulayarak sınıyor. Araştırma yöntemini araştıran bir meta-araştırma. Soru: bu belgenin kendisi kendi ilkelerine dayanıyor mu?',
+          readUrlEn: '/raporlar/arastirma-anayasasi-en.html',
         },
         { id: 'aynen-oyle',
           category: { tr: 'DİL', en: 'LANGUAGE' },
           date: '2026-01-30',
-          title: { tr: '"Aynen Öyle" — Minimal Onay İfadelerinin Epistemik ve Sosyal İşlevleri', en: '"Aynen Öyle" — Epistemic and Social Functions of Minimal Affirmation Expressions' },
-          summary: { tr: 'Günlük dilde sıkça kullandığımız "aynen", "aynen öyle" gibi ifadelerin arkasındaki düşünce mekanizmalarını inceleyen araştırma notu.', en: 'A research note examining the cognitive mechanisms behind commonly used affirmation expressions.' },
-          readUrl: '/raporlar/aynen-oyle.html',
-          audioUrl: {
-              tr: 'https://pub-09be185c608d4c1e80131e5f82eaca40.r2.dev/podcast.mp3',
-              en: 'https://pub-09be185c608d4c1e80131e5f82eaca40.r2.dev/ElevenLabs_The_Evolution_of_Language_in_the_Digital_Age.mp3'
-          },
-          audioTitle: { tr: 'Podcast', en: 'Podcast' },
-          audioSub: { tr: 'TR ~18 dk · EN ~5 dk', en: 'TR ~18 min · EN ~5 min' },
-          audioAttr: { tr: 'POYRAZ · Google NotebookLM', en: 'YANKIZ · ElevenLabs' },
+          title: { tr: '\u201CAynen Öyle\u201D — Minimal Onay İfadelerinin Epistemik ve Sosyal İşlevleri', en: '\u201CAynen Öyle\u201D — Epistemic and Social Functions of Minimal Affirmation Expressions' },
+          summary: { en: 'A research note examining the cognitive mechanisms behind commonly used affirmation expressions.' },
+          teaser: 'İki aptal kelimeden ne kadar sistemik bilgi üretilebilir? \u201C8 saniye dikkat süresi\u201D uydurma, \u201Cdijital demans\u201D akademik olarak çürütülmüş, kuşak şikayetleri 3700 yıllık bir gelenek. Peki \u201Caynen öyle\u201D dediğimizde gerçekte ne yapıyoruz — bağ mı kuruyoruz, yoksa düşünmekten mi kaçınıyoruz?',
+          readUrlEn: '/raporlar/aynen-oyle-en.html',
           illustration: '<svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="105" height="46" rx="10" stroke="#7A6B4E" stroke-width="1" opacity="0.35"/><line x1="24" y1="24" x2="100" y2="24" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><line x1="24" y1="33" x2="90" y2="33" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><line x1="24" y1="42" x2="68" y2="42" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><path d="M32 56 L26 70 L46 56" stroke="#7A6B4E" stroke-width="1" opacity="0.3" fill="none"/><circle cx="134" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><circle cx="145" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><circle cx="156" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><rect x="175" y="18" width="68" height="30" rx="10" stroke="#4A706A" stroke-width="1.2" opacity="0.4"/><circle cx="209" cy="33" r="2.5" fill="#4A706A" opacity="0.3"/><path d="M224 48 L232 60 L218 48" stroke="#4A706A" stroke-width="1.2" opacity="0.4" fill="none"/></svg>' },
         { id: 'sturgeon-yasasi',
-          category: { tr: 'D\u00DC\u015E\u00DCNCE', en: 'THOUGHT' },
+          category: { tr: 'DÜŞÜNCE', en: 'THOUGHT' },
           date: '2026-02-20',
-          title: { tr: 'Sturgeon Yasas\u0131 \u2014 \u201CHer \u015Eeyin Y\u00FCzde Doksan\u0131 \u00C7\u00F6pt\u00FCr\u201D', en: 'Sturgeon\u2019s Law \u2014 \u201CNinety Percent of Everything Is Crud\u201D' },
-          summary: { tr: 'Vasatl\u0131\u011F\u0131n evrensel da\u011F\u0131l\u0131m\u0131: bilimkurgudan kanser ara\u015Ft\u0131rmalar\u0131na, Spotify\u2019dan antik Yunan\u2019a uzanan veri destekli bir ara\u015Ft\u0131rma notu.', en: 'Universal distribution of mediocrity: a data-backed research note spanning sci-fi to cancer research, Spotify to ancient Greece.' },
-          readUrl: '/raporlar/sturgeon-yasasi.html',
-          audioUrl: {
-              tr: 'https://pub-09be185c608d4c1e80131e5f82eaca40.r2.dev/sturgeon-yasasi-tr.mp3',
-              en: 'https://pub-09be185c608d4c1e80131e5f82eaca40.r2.dev/sturgeon-yasasi-en.mp3'
-          },
-          audioTitle: { tr: 'Podcast', en: 'Podcast' },
-          audioSub: { tr: 'TR ~20 dk · EN ~23 dk', en: 'TR ~20 min · EN ~23 min' },
-          audioAttr: { tr: 'POYRAZ · Google NotebookLM', en: 'POYRAZ · Google NotebookLM' },
+          title: { tr: 'Sturgeon Yasası \u2014 \u201CHer Şeyin Yüzde Doksanı Çöptür\u201D', en: 'Sturgeon\u2019s Law \u2014 \u201CNinety Percent of Everything Is Crud\u201D' },
+          summary: { en: 'Universal distribution of mediocrity: a data-backed research note spanning sci-fi to cancer research, Spotify to ancient Greece.' },
+          teaser: 'Akademik makalelerin %82\u2019si hiç alıntılanmıyor. Spotify\u2019daki parçaların %86\u2019sı hiç dinlenmiyor. Girişimlerin %90\u2019ı batıyor. Sturgeon 1953\u2019te bunu söylediğinde bilimkurguyu savunuyordu. Veri ona hak veriyor — ama asıl tehlike, algoritmalar %90\u2019ı ödüllendirdiğinde %10\u2019un var ama bulunamaz hale gelmesi.',
+          readUrlEn: '/raporlar/sturgeon-yasasi-en.html',
           illustration: '<svg viewBox="0 0 280 30" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="44" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="72" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="100" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="128" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="156" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="184" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="212" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="240" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="264" cy="15" r="5.5" fill="#4A706A" opacity="0.5"/></svg>' }
     ].sort((a, b) => b.date.localeCompare(a.date));
 
@@ -2151,11 +2015,6 @@
 
     // popstate: tarayıcı geri/ileri
     window.addEventListener('popstate', function(e) {
-        // Modal açıksa kapat, sayfa değiştirme
-        if (document.getElementById('audioModal').classList.contains('open')) {
-            closeAudioModal(true);
-            return;
-        }
         var pageId = (e.state && e.state.page) ? e.state.page : 'home';
         if (pageId !== currentPage && document.getElementById('page-' + pageId)) {
             var oldPage = document.getElementById('page-' + currentPage);
@@ -2276,6 +2135,14 @@
         document.getElementById('emanationsContainer').innerHTML = emanations.map(function(em, idx) {
             var catKey = em.category.en.toLowerCase();
             var hidden = activeFilter !== 'all' && activeFilter !== catKey;
+            var isTr = currentLang === 'tr';
+            var summaryText = isTr ? em.teaser : em.summary.en;
+            var actions = '';
+            if (isTr) {
+                actions = '<div class="emanation-gate">Tamamını okumak için <a href="#" onclick="navigateTo(\'portal\'); return false;">Portal\u2019dan erişim talep edin</a>.</div>';
+            } else {
+                actions = '<div class="emanation-actions"><a href="' + em.readUrlEn + '" class="emanation-btn">Read</a></div>';
+            }
             return '<div class="emanation-card glass-card" data-category="' + catKey + '"' + (hidden ? ' style="display:none;"' : '') + '>' +
                 (em.illustration ? '<div class="emanation-illustration">' + em.illustration + '</div>' : '') +
                 '<div class="emanation-meta">' +
@@ -2283,11 +2150,8 @@
                     '<span class="emanation-date">' + em.date + '</span>' +
                 '</div>' +
                 '<div class="emanation-title">' + em.title[currentLang] + '</div>' +
-                '<div class="emanation-summary">' + em.summary[currentLang] + '</div>' +
-                '<div class="emanation-actions">' +
-                    '<a href="' + em.readUrl + '" class="emanation-btn">' + (currentLang === 'tr' ? 'Oku' : 'Read') + '</a>' +
-                    (em.audioUrl ? '<a href="#" class="emanation-btn listen" data-emanation-idx="' + idx + '">' + 'Podcast' + '</a>' : '') +
-                '</div>' +
+                '<div class="emanation-summary">' + summaryText + '</div>' +
+                actions +
             '</div>';
         }).join('');
     }
@@ -2298,109 +2162,6 @@
         activeFilter = btn.dataset.filter;
         renderEmanations();
     });
-
-    var currentAudioEmanation = null;
-
-    function openAudioModal(idx) {
-        var em = emanations[idx];
-        currentAudioEmanation = em;
-        var hasMultiLang = typeof em.audioUrl === 'object' && em.audioUrl.tr && em.audioUrl.en;
-        var langsEl = document.getElementById('audioModalLangs');
-
-        if (hasMultiLang) {
-            langsEl.style.display = '';
-            setAudioLang(currentLang);
-        } else {
-            langsEl.style.display = 'none';
-            var url = typeof em.audioUrl === 'object' ? em.audioUrl[currentLang] : em.audioUrl;
-            var attr = em.audioAttr ? (typeof em.audioAttr === 'object' ? em.audioAttr[currentLang] : em.audioAttr) : '';
-            setAudioContent(url, em.audioTitle[currentLang], em.audioSub[currentLang], attr);
-        }
-
-        document.getElementById('audioModal').classList.add('open');
-        document.body.style.overflow = 'hidden';
-        window.history.pushState({ modal: 'audio' }, '');
-    }
-
-    function setAudioLang(lang) {
-        var em = currentAudioEmanation;
-        var url = em.audioUrl[lang];
-        var attr = em.audioAttr ? (typeof em.audioAttr === 'object' ? em.audioAttr[lang] : em.audioAttr) : '';
-        setAudioContent(url, em.audioTitle[lang], em.audioSub[lang], attr);
-        document.querySelectorAll('.audio-lang-btn').forEach(function(b) {
-            b.classList.toggle('active', b.dataset.lang === lang);
-        });
-    }
-
-    var currentAudioUrl = '';
-
-    function setAudioContent(url, title, sub, attr) {
-        document.getElementById('audioModalTitle').textContent = title;
-        document.getElementById('audioModalSub').textContent = sub;
-        document.getElementById('audioModalAttr').textContent = attr || '';
-        var player = document.getElementById('audioPlayer');
-        player.src = url;
-        player.load();
-        currentAudioUrl = url;
-        var dl = document.getElementById('audioModalDownload');
-        dl.disabled = false;
-        dl.textContent = currentLang === 'tr' ? 'İndir' : 'Download';
-    }
-
-    document.getElementById('audioModalDownload').addEventListener('click', function() {
-        if (!currentAudioUrl) return;
-        var btn = this;
-        var origText = btn.textContent;
-        btn.disabled = true;
-        btn.textContent = currentLang === 'tr' ? 'İndiriliyor...' : 'Downloading...';
-        fetch(currentAudioUrl)
-            .then(function(r) { return r.blob(); })
-            .then(function(blob) {
-                var a = document.createElement('a');
-                a.href = URL.createObjectURL(blob);
-                a.download = currentAudioUrl.split('/').pop();
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(a.href);
-                btn.disabled = false;
-                btn.textContent = origText;
-            })
-            .catch(function() {
-                window.open(currentAudioUrl, '_blank');
-                btn.disabled = false;
-                btn.textContent = origText;
-            });
-    });
-
-    function closeAudioModal(skipHistory) {
-        var modal = document.getElementById('audioModal');
-        if (!modal.classList.contains('open')) return;
-        var p = document.getElementById('audioPlayer'); p.pause(); p.src = '';
-        modal.classList.remove('open');
-        document.body.style.overflow = '';
-        currentAudioEmanation = null;
-        if (!skipHistory) window.history.back();
-    }
-
-    document.addEventListener('click', function(e) {
-        var btn = e.target.closest('.emanation-btn.listen[data-emanation-idx]');
-        if (btn) {
-            e.preventDefault();
-            openAudioModal(parseInt(btn.dataset.emanationIdx));
-        }
-        var langBtn = e.target.closest('.audio-lang-btn');
-        if (langBtn && currentAudioEmanation) {
-            setAudioLang(langBtn.dataset.lang);
-        }
-    });
-
-    document.getElementById('audioModalClose').addEventListener('click', closeAudioModal);
-
-    document.getElementById('audioModal').addEventListener('click', function(e) {
-        if (e.target === e.currentTarget) closeAudioModal();
-    });
-
 
     // ============================================
     // PORTAL CHAT SYSTEM
