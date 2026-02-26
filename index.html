@@ -2137,12 +2137,10 @@
             var hidden = activeFilter !== 'all' && activeFilter !== catKey;
             var isTr = currentLang === 'tr';
             var summaryText = isTr ? em.teaser : em.summary.en;
-            var actions = '';
-            if (isTr) {
-                actions = '<div class="emanation-gate">Tamamını okumak için <a href="#" class="gate-portal-link">Portal\u2019dan erişim talep edin</a>.</div>';
-            } else {
-                actions = '<div class="emanation-actions"><a href="' + em.readUrlEn + '" class="emanation-btn">Read</a></div>';
-            }
+            var gateText = isTr
+                ? 'Tamamını okumak için <a href="#" class="gate-portal-link">Portal\u2019dan erişim talep edin</a>.'
+                : 'To read the full report, <a href="#" class="gate-portal-link">request access via Portal</a>.';
+            var actions = '<div class="emanation-gate">' + gateText + '</div>';
             return '<div class="emanation-card glass-card" data-category="' + catKey + '"' + (hidden ? ' style="display:none;"' : '') + '>' +
                 (em.illustration ? '<div class="emanation-illustration">' + em.illustration + '</div>' : '') +
                 '<div class="emanation-meta">' +
