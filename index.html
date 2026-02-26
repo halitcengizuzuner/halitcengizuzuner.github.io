@@ -2286,6 +2286,11 @@
                 body: JSON.stringify({ username, password })
             });
             const data = await r.json();
+            if (data.success && data.status === 'admin') {
+                window.open(PORTAL_API + '/admin', '_blank');
+                document.getElementById('portalLoginBtn').disabled = false;
+                return;
+            }
             if (data.success) {
                 portalUserId = data.userId;
                 portalSession = { password };
