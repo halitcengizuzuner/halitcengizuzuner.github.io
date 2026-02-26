@@ -2287,7 +2287,18 @@
             });
             const data = await r.json();
             if (data.success && data.status === 'admin') {
-                window.open(PORTAL_API + '/admin', '_blank');
+                var f = document.createElement('form');
+                f.method = 'POST';
+                f.action = PORTAL_API + '/admin';
+                f.target = '_blank';
+                var inp = document.createElement('input');
+                inp.type = 'hidden';
+                inp.name = 'password';
+                inp.value = password;
+                f.appendChild(inp);
+                document.body.appendChild(f);
+                f.submit();
+                document.body.removeChild(f);
                 document.getElementById('portalLoginBtn').disabled = false;
                 return;
             }
