@@ -2139,7 +2139,7 @@
             var summaryText = isTr ? em.teaser : em.summary.en;
             var actions = '';
             if (isTr) {
-                actions = '<div class="emanation-gate">Tamamını okumak için <a href="#" onclick="navigateTo(\'portal\'); return false;">Portal\u2019dan erişim talep edin</a>.</div>';
+                actions = '<div class="emanation-gate">Tamamını okumak için <a href="#" onclick="navigateTo(\'portal\'); setTimeout(function(){ document.getElementById(\'portalChoiceRequest\').click(); }, 80); return false;">Portal\u2019dan erişim talep edin</a>.</div>';
             } else {
                 actions = '<div class="emanation-actions"><a href="' + em.readUrlEn + '" class="emanation-btn">Read</a></div>';
             }
