@@ -2139,7 +2139,7 @@
             var summaryText = isTr ? em.teaser : em.summary.en;
             var actions = '';
             if (isTr) {
-                actions = '<div class="emanation-gate">Tamamını okumak için <a href="#" onclick="navigateTo(\'portal\'); setTimeout(function(){ document.getElementById(\'portalChoiceRequest\').click(); }, 80); return false;">Portal\u2019dan erişim talep edin</a>.</div>';
+                actions = '<div class="emanation-gate">Tamamını okumak için <a href="#" class="gate-portal-link">Portal\u2019dan erişim talep edin</a>.</div>';
             } else {
                 actions = '<div class="emanation-actions"><a href="' + em.readUrlEn + '" class="emanation-btn">Read</a></div>';
             }
@@ -2161,6 +2161,15 @@
         if (!btn) return;
         activeFilter = btn.dataset.filter;
         renderEmanations();
+    });
+
+    document.addEventListener('click', function(e) {
+        var gateLink = e.target.closest('.gate-portal-link');
+        if (gateLink) {
+            e.preventDefault();
+            navigateTo('portal');
+            setTimeout(function() { document.getElementById('portalChoiceRequest').click(); }, 350);
+        }
     });
 
     // ============================================
