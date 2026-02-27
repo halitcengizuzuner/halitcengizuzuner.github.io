@@ -549,7 +549,8 @@
             pointer-events: auto;
             cursor: default;
             transform: translate(-50%, -50%);
-            transition: transform 0.3s var(--ease-out-expo);
+            transition: transform 0.3s var(--ease-out-expo), z-index 0s;
+            z-index: 1;
         }
 
         .limb-node:hover { transform: translate(-50%, -50%) scale(1.1); z-index: 200; }
