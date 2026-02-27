@@ -552,7 +552,7 @@
             transition: transform 0.3s var(--ease-out-expo);
         }
 
-        .limb-node:hover { transform: translate(-50%, -50%) scale(1.1); }
+        .limb-node:hover { transform: translate(-50%, -50%) scale(1.1); z-index: 200; }
 
         .limb-dot {
             width: clamp(14px, 3vw, 20px);
@@ -1034,6 +1034,30 @@
             margin-bottom: 1.2rem;
         }
 
+        .emanation-doc-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.8rem;
+            padding: 0.5rem 0.7rem;
+            background: rgba(26,122,109,0.04);
+            border-radius: 6px;
+            border-left: 2px solid var(--teal);
+        }
+        .emanation-doc-type {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            color: var(--teal);
+            font-weight: 500;
+        }
+        .emanation-doc-pages {
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            color: var(--text-light);
+            letter-spacing: 0.08em;
+        }
+
         .emanation-actions { display: flex; gap: 0.7rem; flex-wrap: wrap; }
 
         .emanation-btn {
@@ -1350,6 +1374,56 @@
             font-family: var(--font-body);
             color: var(--text-secondary);
             line-height: 1.7;
+        }
+
+        .portal-reports-wrap {
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+        .portal-reports-grid {
+            display: grid;
+            gap: 0.8rem;
+        }
+        .portal-report-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 1.2rem;
+            transition: border-color 0.3s ease;
+        }
+        .portal-report-card:hover {
+            border-color: var(--teal);
+        }
+        .portal-report-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            margin-bottom: 0.4rem;
+        }
+        .portal-report-desc {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+        }
+        .portal-report-btn {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--teal);
+            text-decoration: none;
+            border: 1px solid var(--border-subtle);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .portal-report-btn:hover {
+            border-color: var(--teal);
+            background: rgba(26, 122, 109, 0.04);
         }
 
         .pmsg {
@@ -1798,10 +1872,14 @@
             </div>
             <div class="portal-chat-tabs">
                 <button class="portal-chat-tab active" data-ptab="messages" data-tr="Mesajlar" data-en="Messages">Mesajlar</button>
+                <button class="portal-chat-tab" data-ptab="reports" data-tr="Raporlar" data-en="Reports">Raporlar</button>
                 <button class="portal-chat-tab" data-ptab="info" data-tr="Bilgi" data-en="Info">Bilgi</button>
             </div>
             <div class="portal-messages-wrap" id="portalMessagesWrap">
                 <div class="portal-messages" id="portalMessages"></div>
+            </div>
+            <div class="portal-reports-wrap" id="portalReportsWrap" style="display:none;">
+                <div class="portal-reports-grid" id="portalReports"></div>
             </div>
             <div class="portal-info-wrap" id="portalInfoWrap" style="display:none;">
                 <p id="portalInfoText"></p>
@@ -1880,6 +1958,13 @@
           title: { tr: 'Araştırma Anayasası — Hatalardan Damıtılan İlkeler', en: 'Research Constitution — Principles Distilled from Mistakes' },
           summary: { en: 'How we research, why we do it this way, what we learned from mistakes. A meta-research that applies its own method to itself.' },
           teaser: 'Her ilkenin arkasında sessizce duran bir hata var. Bu belge, hatalardan damıtılan 14 araştırma ilkesini — kaynak kullanmadan yapay zekaya, bedel ödemeden film analizine — kendi üstüne uygulayarak sınıyor. Araştırma yöntemini araştıran bir meta-araştırma. Soru: bu belgenin kendisi kendi ilkelerine dayanıyor mu?',
+          docType: { tr: 'Meta-araştırma', en: 'Meta-research' },
+          pages: 35,
+          sections: 12,
+          hook: {
+            tr: 'Her ilkenin arkasında bir hata var. 14 ilke, 5 küme, 1 soru: bu belge kendi ilkelerine dayanıyor mu?',
+            en: 'Behind every principle stands a mistake. 14 principles, 5 clusters, 1 question: does this document withstand its own rules?'
+          },
           readUrlEn: '/raporlar/arastirma-anayasasi-en.html',
           illustration: '<svg viewBox="0 0 280 50" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="140" cy="25" r="8" stroke="#7A6B4E" stroke-width="1" opacity="0.4"/><circle cx="140" cy="25" r="2" fill="#4A706A" opacity="0.5"/><line x1="132" y1="25" x2="60" y2="15" stroke="#7A6B4E" stroke-width="0.6" opacity="0.2"/><line x1="132" y1="25" x2="60" y2="35" stroke="#7A6B4E" stroke-width="0.6" opacity="0.2"/><line x1="148" y1="25" x2="220" y2="15" stroke="#7A6B4E" stroke-width="0.6" opacity="0.2"/><line x1="148" y1="25" x2="220" y2="35" stroke="#7A6B4E" stroke-width="0.6" opacity="0.2"/><line x1="140" y1="17" x2="140" y2="5" stroke="#7A6B4E" stroke-width="0.6" opacity="0.2"/><circle cx="60" cy="15" r="3" fill="#7A6B4E" opacity="0.12"/><circle cx="60" cy="35" r="3" fill="#7A6B4E" opacity="0.12"/><circle cx="220" cy="15" r="3" fill="#7A6B4E" opacity="0.12"/><circle cx="220" cy="35" r="3" fill="#7A6B4E" opacity="0.12"/><circle cx="140" cy="5" r="3" fill="#7A6B4E" opacity="0.12"/><path d="M132 25 Q100 10 60 15" fill="none" stroke="#4A706A" stroke-width="0.5" opacity="0.15" stroke-dasharray="2,2"/><path d="M148 25 Q180 10 220 15" fill="none" stroke="#4A706A" stroke-width="0.5" opacity="0.15" stroke-dasharray="2,2"/></svg>'
         },
@@ -1889,6 +1974,13 @@
           title: { tr: '\u201CAynen Öyle\u201D — Minimal Onay İfadelerinin Epistemik ve Sosyal İşlevleri', en: '\u201CAynen Öyle\u201D — Epistemic and Social Functions of Minimal Affirmation Expressions' },
           summary: { en: 'A research note examining the cognitive mechanisms behind commonly used affirmation expressions.' },
           teaser: 'İki aptal kelimeden ne kadar sistemik bilgi üretilebilir? \u201C8 saniye dikkat süresi\u201D uydurma, \u201Cdijital demans\u201D akademik olarak çürütülmüş, kuşak şikayetleri 3700 yıllık bir gelenek. Peki \u201Caynen öyle\u201D dediğimizde gerçekte ne yapıyoruz — bağ mı kuruyoruz, yoksa düşünmekten mi kaçınıyoruz?',
+          docType: { tr: 'Araştırma notu', en: 'Research note' },
+          pages: 13,
+          sections: 14,
+          hook: {
+            tr: 'İki kelimeden ne kadar sistem çıkar? 3700 yıllık kuşak şikayeti, %8 saniye yalanı, ve "aynen öyle" dediğimizde aslında ne yaptığımız.',
+            en: 'How much system can two words yield? 3,700 years of generational complaint, the 8-second myth, and what we actually do when we say "exactly."'
+          },
           readUrlEn: '/raporlar/aynen-oyle-en.html',
           illustration: '<svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="105" height="46" rx="10" stroke="#7A6B4E" stroke-width="1" opacity="0.35"/><line x1="24" y1="24" x2="100" y2="24" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><line x1="24" y1="33" x2="90" y2="33" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><line x1="24" y1="42" x2="68" y2="42" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><path d="M32 56 L26 70 L46 56" stroke="#7A6B4E" stroke-width="1" opacity="0.3" fill="none"/><circle cx="134" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><circle cx="145" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><circle cx="156" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><rect x="175" y="18" width="68" height="30" rx="10" stroke="#4A706A" stroke-width="1.2" opacity="0.4"/><circle cx="209" cy="33" r="2.5" fill="#4A706A" opacity="0.3"/><path d="M224 48 L232 60 L218 48" stroke="#4A706A" stroke-width="1.2" opacity="0.4" fill="none"/></svg>' },
         { id: 'sturgeon-yasasi',
@@ -1897,6 +1989,13 @@
           title: { tr: 'Sturgeon Yasası \u2014 \u201CHer Şeyin Yüzde Doksanı Çöptür\u201D', en: 'Sturgeon\u2019s Law \u2014 \u201CNinety Percent of Everything Is Crud\u201D' },
           summary: { en: 'Universal distribution of mediocrity: a data-backed research note spanning sci-fi to cancer research, Spotify to ancient Greece.' },
           teaser: 'Akademik makalelerin %82\u2019si hiç alıntılanmıyor. Spotify\u2019daki parçaların %86\u2019sı hiç dinlenmiyor. Girişimlerin %90\u2019ı batıyor. Sturgeon 1953\u2019te bunu söylediğinde bilimkurguyu savunuyordu. Veri ona hak veriyor — ama asıl tehlike, algoritmalar %90\u2019ı ödüllendirdiğinde %10\u2019un var ama bulunamaz hale gelmesi.',
+          docType: { tr: 'Araştırma notu', en: 'Research note' },
+          pages: 13,
+          sections: 11,
+          hook: {
+            tr: 'Makalelerin %82\'si hiç alıntılanmıyor. Şarkıların %86\'sı hiç dinlenmiyor. Girişimlerin %90\'ı batıyor. Peki algoritmalar %90\'ı ödüllendirdiğinde?',
+            en: 'Papers: 82% never cited. Songs: 86% never played. Startups: 90% fail. But what happens when algorithms reward the 90%?'
+          },
           readUrlEn: '/raporlar/sturgeon-yasasi-en.html',
           illustration: '<svg viewBox="0 0 280 30" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="44" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="72" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="100" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="128" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="156" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="184" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="212" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="240" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="264" cy="15" r="5.5" fill="#4A706A" opacity="0.5"/></svg>' }
     ].sort((a, b) => b.date.localeCompare(a.date));
@@ -2137,12 +2236,31 @@
             var catKey = em.category.en.toLowerCase();
             var hidden = activeFilter !== 'all' && activeFilter !== catKey;
             var isTr = currentLang === 'tr';
-            var summaryText = isTr ? em.teaser : em.summary.en;
-            var gateText = isTr
-                ? 'Tamamını okumak için <a href="#" class="gate-portal-link">Portal\u2019dan erişim talep edin</a>.'
-                : 'To read the full report, <a href="#" class="gate-portal-link">request access via Portal</a>.';
-            var actions = '<div class="emanation-gate">' + gateText + '</div>';
-            return '<div class="emanation-card glass-card" data-category="' + catKey + '"' + (hidden ? ' style="display:none;"' : '') + '>' +
+            var summaryText = isTr ? (em.hook ? em.hook.tr : em.teaser) : (em.hook ? em.hook.en : em.summary.en);
+            var docInfoHtml = '';
+            if (em.docType) {
+                var pagesLabel = isTr ? 'sayfa' : 'pages';
+                var sectionsLabel = isTr ? 'bölüm' : 'sections';
+                var pagesStr = em.pages ? em.pages + ' ' + pagesLabel : '';
+                var sectionsStr = em.sections ? em.sections + ' ' + sectionsLabel : '';
+                var metaStr = [pagesStr, sectionsStr].filter(Boolean).join(' · ');
+                docInfoHtml = '<div class="emanation-doc-info">' +
+                    '<span class="emanation-doc-type">' + em.docType[currentLang] + '</span>' +
+                    (metaStr ? '<span class="emanation-doc-pages">' + metaStr + '</span>' : '') +
+                '</div>';
+            }
+            // Erişim zinciri: login sonrası rapor varsa "Raporu Aç", yoksa gate
+            var actions = '';
+            if (typeof portalUserReports !== 'undefined' && portalUserReports && portalUserReports.find(function(r) { return r.id === em.id; })) {
+                var openLabel = isTr ? 'Raporu Aç' : 'Open Report';
+                actions = '<div class="emanation-actions"><a href="' + PORTAL_API + '/' + portalUserId + '/rapor/' + em.id + '" target="_blank" class="emanation-btn">' + openLabel + ' →</a></div>';
+            } else {
+                var gateText = isTr
+                    ? 'Tamamını okumak için <a href="#" class="gate-portal-link" data-emanation-id="' + em.id + '">Portal\u2019dan erişim talep edin</a>.'
+                    : 'To read the full report, <a href="#" class="gate-portal-link" data-emanation-id="' + em.id + '">request access via Portal</a>.';
+                actions = '<div class="emanation-gate">' + gateText + '</div>';
+            }
+            return '<div class="emanation-card glass-card" data-category="' + catKey + '" data-emanation-id="' + em.id + '"' + (hidden ? ' style="display:none;"' : '') + '>' +
                 (em.illustration ? '<div class="emanation-illustration">' + em.illustration + '</div>' : '') +
                 '<div class="emanation-meta">' +
                     '<span class="emanation-category">' + em.category[currentLang] + '</span>' +
@@ -2150,6 +2268,7 @@
                 '</div>' +
                 '<div class="emanation-title">' + em.title[currentLang] + '</div>' +
                 '<div class="emanation-summary">' + summaryText + '</div>' +
+                docInfoHtml +
                 actions +
             '</div>';
         }).join('');
@@ -2166,8 +2285,22 @@
         var gateLink = e.target.closest('.gate-portal-link');
         if (gateLink) {
             e.preventDefault();
+            var emanationId = gateLink.getAttribute('data-emanation-id');
             navigateTo('portal');
-            setTimeout(function() { document.getElementById('portalChoiceRequest').click(); }, 350);
+            setTimeout(function() {
+                document.getElementById('portalChoiceRequest').click();
+                if (emanationId) {
+                    var em = emanations.find(function(x) { return x.id === emanationId; });
+                    if (em) {
+                        var prefix = '[Erişim: ' + em.title[currentLang] + '] ';
+                        var textarea = document.getElementById('portalRequestText');
+                        if (textarea && !textarea.value.startsWith('[Erişim:')) {
+                            textarea.value = prefix + textarea.value;
+                            document.getElementById('portalCharCount').textContent = textarea.value.length;
+                        }
+                    }
+                }
+            }, 350);
         }
     });
 
@@ -2177,6 +2310,7 @@
     const PORTAL_API = 'https://portal.halitcengizuzuner.workers.dev';
     let portalUserId = null;
     let portalSession = null;
+    let portalUserReports = null;
 
     // Portal choice toggle
     document.getElementById('portalChoiceLogin').addEventListener('click', () => {
@@ -2306,9 +2440,12 @@
             if (data.success) {
                 portalUserId = data.userId;
                 portalSession = { password };
+                portalUserReports = data.reports || [];
                 document.getElementById('portalChatName').textContent = data.name;
                 document.getElementById('portalInfoText').textContent = data.message || (currentLang === 'tr' ? 'Hoş geldiniz.' : 'Welcome.');
                 renderPortalMessages(data.messages || []);
+                renderPortalReports(portalUserReports);
+                renderEmanations(); // Emanation kartlarını rapor durumuna göre güncelle
                 document.getElementById('portalLogin').style.display = 'none';
                 document.getElementById('portalChat').style.display = 'flex';
             } else {
@@ -2323,11 +2460,13 @@
     document.getElementById('portalLogout').addEventListener('click', () => {
         portalUserId = null;
         portalSession = null;
+        portalUserReports = null;
         document.getElementById('portalChat').style.display = 'none';
         document.getElementById('portalLogin').style.display = '';
         document.getElementById('portalUsername').value = '';
         document.getElementById('portalPassword').value = '';
         document.getElementById('portalError').textContent = '';
+        renderEmanations(); // Gate'leri geri getir
     });
 
     // Tab switching
@@ -2335,10 +2474,11 @@
         tab.addEventListener('click', () => {
             document.querySelectorAll('.portal-chat-tab').forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
-            const isMessages = tab.dataset.ptab === 'messages';
-            document.getElementById('portalMessagesWrap').style.display = isMessages ? '' : 'none';
-            document.getElementById('portalInputBar').style.display = isMessages ? '' : 'none';
-            document.getElementById('portalInfoWrap').style.display = isMessages ? 'none' : '';
+            const ptab = tab.dataset.ptab;
+            document.getElementById('portalMessagesWrap').style.display = ptab === 'messages' ? '' : 'none';
+            document.getElementById('portalInputBar').style.display = ptab === 'messages' ? '' : 'none';
+            document.getElementById('portalReportsWrap').style.display = ptab === 'reports' ? '' : 'none';
+            document.getElementById('portalInfoWrap').style.display = ptab === 'info' ? '' : 'none';
         });
     });
 
@@ -2365,6 +2505,22 @@
         const d = document.createElement('div');
         d.textContent = t;
         return d.innerHTML;
+    }
+
+    function renderPortalReports(reports) {
+        const c = document.getElementById('portalReports');
+        if (!reports || !reports.length) {
+            c.innerHTML = '<div class="pmsg-empty">' + (currentLang === 'tr' ? 'Henüz atanmış rapor yok.' : 'No reports assigned yet.') + '</div>';
+            return;
+        }
+        c.innerHTML = reports.map(function(r) {
+            var openLabel = currentLang === 'tr' ? 'Raporu Aç →' : 'Open Report →';
+            return '<div class="portal-report-card">' +
+                '<div class="portal-report-title">' + escapeHtmlPortal(r.title) + '</div>' +
+                (r.description ? '<div class="portal-report-desc">' + escapeHtmlPortal(r.description) + '</div>' : '') +
+                '<a href="' + PORTAL_API + '/' + portalUserId + '/rapor/' + r.id + '" target="_blank" class="portal-report-btn">' + openLabel + '</a>' +
+            '</div>';
+        }).join('');
     }
 
     // Send message
