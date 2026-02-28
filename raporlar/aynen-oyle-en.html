@@ -679,9 +679,17 @@
                 padding: 0.5rem;
             }
         }
+
+        /* Reading Progress + Back Pulse */
+        .reading-progress { position: fixed; top: 0; left: 0; height: 2px; width: 0%; background: linear-gradient(90deg, #ed8936, #4A706A); z-index: 10001; transition: width 0.1s linear; pointer-events: none; }
+        .site-nav-back { position: relative; }
+        .site-nav-back::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: #ed8936; position: absolute; left: -10px; top: 50%; transform: translateY(-50%); animation: back-pulse 2s ease-in-out infinite; }
+        @keyframes back-pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; box-shadow: 0 0 4px rgba(237,137,54,0.4); } }
+        @media (prefers-reduced-motion: reduce) { .reading-progress { transition: none; } .site-nav-back::before { animation: none; opacity: 0.6; } }
     </style>
 </head>
 <body>
+<div class="reading-progress"></div>
 
     <!-- Site Navigation -->
     <nav class="site-nav">
@@ -1484,6 +1492,7 @@
     </div>
 </footer>
 
+<script>(function(){var b=document.querySelector('.reading-progress');if(!b)return;window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;b.style.width=(h>0?(window.scrollY/h)*100:0)+'%';});})();</script>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "bf905439cb494c0aac6a1fa1d4de00ef"}'></script>
 </body>
 </html>

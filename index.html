@@ -994,8 +994,8 @@
             margin-left: 0.2rem;
         }
 
-        .emanation-card { padding: 1.8rem; margin-bottom: 1.2rem; }
-        .emanation-card:hover { border-color: var(--amber-ring); }
+        .emanation-card { padding: 1.8rem; margin-bottom: 1.2rem; border-left: 2px solid transparent; cursor: pointer; transition: all 0.3s ease; }
+        .emanation-card:hover { border-color: var(--amber-ring); border-left-color: var(--teal); box-shadow: 0 4px 20px rgba(74, 112, 106, 0.08), 0 0 0 1px rgba(74, 112, 106, 0.05); }
 
         .emanation-meta {
             display: flex;
@@ -1093,14 +1093,20 @@
         .emanation-illustration {
             text-align: center;
             margin-bottom: 1.2rem;
-            opacity: 0.55;
-            transition: opacity 0.3s ease;
+            opacity: 0.45;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: scale(0.97);
+            animation: illustration-breathe 6s ease-in-out infinite;
         }
-        .emanation-card:hover .emanation-illustration { opacity: 0.75; }
+        .emanation-card:hover .emanation-illustration { opacity: 0.85; transform: scale(1.0); animation: none; }
         .emanation-illustration svg {
             width: 100%;
-            max-width: 260px;
+            max-width: 360px;
             height: auto;
+        }
+        @keyframes illustration-breathe {
+            0%, 100% { opacity: 0.45; }
+            50% { opacity: 0.55; }
         }
 
         .home-email {
@@ -1170,6 +1176,133 @@
         }
 
         /* ========================================
+           READING TIME
+           ======================================== */
+        .emanation-reading-time {
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            color: var(--text-light);
+            letter-spacing: 0.1em;
+        }
+        .emanation-reading-time::before {
+            content: '\00b7';
+            margin: 0 0.5rem;
+            color: var(--text-light);
+        }
+
+        /* ========================================
+           ACCORDION — SECTION PREVIEW
+           ======================================== */
+        .emanation-sections {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s var(--ease-out-expo), opacity 0.3s ease;
+            opacity: 0;
+            padding: 0 0.2rem;
+        }
+        .emanation-card.expanded .emanation-sections {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 0.8rem;
+        }
+        .emanation-section-item {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            padding: 0.3rem 0.6rem;
+            border-left: 1px solid var(--border-subtle);
+            transition: all 0.2s ease;
+            line-height: 1.6;
+        }
+        .emanation-section-item:hover {
+            border-left-color: var(--teal);
+            color: var(--text-secondary);
+        }
+        .emanation-expand-hint {
+            font-family: var(--font-mono);
+            font-size: 0.5rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 0.8rem;
+            transition: color 0.2s ease;
+        }
+        .emanation-expand-hint:hover { color: var(--teal); }
+        .emanation-card.expanded .hint-expand { display: none; }
+        .emanation-card:not(.expanded) .hint-collapse { display: none; }
+
+        /* ========================================
+           HOME — LATEST EMANATION PULSE
+           ======================================== */
+        .home-latest {
+            margin-top: 1.5rem;
+        }
+        .home-latest-inner {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.5rem 0.9rem;
+            background: var(--bg-surface);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glass);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .home-latest-inner:hover {
+            background: var(--bg-surface-hover);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+        .home-latest-pulse {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--teal);
+            animation: pulse-dot 2s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 0.5; box-shadow: 0 0 0 0 rgba(74,112,106,0.3); }
+            50% { opacity: 1; box-shadow: 0 0 0 4px rgba(74,112,106,0); }
+        }
+        .home-latest-date {
+            font-family: var(--font-mono);
+            font-size: 0.5rem;
+            color: var(--text-light);
+            letter-spacing: 0.1em;
+        }
+        .home-latest-title {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ========================================
+           HOME — STAGGERED ENTRY
+           ======================================== */
+        .home-info > * {
+            opacity: 0;
+            transform: translateY(12px);
+        }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .home.stagger-in .home-fullname-large { animation: fadeInUp 0.5s ease forwards; animation-delay: 2.3s; }
+        .home.stagger-in .home-philosophy { animation: fadeInUp 0.5s ease forwards; animation-delay: 2.6s; }
+        .home.stagger-in .home-email { animation: fadeInUp 0.5s ease forwards; animation-delay: 2.8s; }
+        .home.stagger-in .home-sigil { animation: fadeInUp 0.5s ease forwards; animation-delay: 3.0s; }
+        .home.stagger-in .home-latest { animation: fadeInUp 0.5s ease forwards; animation-delay: 3.3s; }
+
+        .home.stagger-in.quick .home-fullname-large { animation-delay: 0.1s; }
+        .home.stagger-in.quick .home-philosophy { animation-delay: 0.2s; }
+        .home.stagger-in.quick .home-email { animation-delay: 0.3s; }
+        .home.stagger-in.quick .home-sigil { animation-delay: 0.4s; }
+        .home.stagger-in.quick .home-latest { animation-delay: 0.5s; }
+
+        /* ========================================
            RESPONSIVE
            ======================================== */
         @media (max-width: 768px) {
@@ -1197,6 +1330,8 @@
             .home-fullname-large { text-align: center; }
             .home-philosophy p { margin: 0 auto; }
             .limb-tooltip { display: none; }
+            .home-latest-inner { flex-wrap: wrap; }
+            .home-latest { text-align: center; }
             .assembly-grid { grid-template-columns: 1fr; }
 
             .fog-blob { filter: blur(60px); }
@@ -1333,6 +1468,7 @@
                     </svg>
                 </div>
             </div>
+            <div class="home-latest" id="homeLatest"></div>
         </div>
     </main>
 
@@ -1472,6 +1608,11 @@
           docType: { tr: 'Meta-araştırma', en: 'Meta-research' },
           pages: 35,
           sections: 12,
+          readingTime: { tr: '~25 dk', en: '~25 min' },
+          sectionTitles: {
+            tr: ['Nerede duruyoruz', 'Canlı Metot', '14 İlke, 5 Küme', 'İçine Girmek', 'Doğrulama Refleksi', 'Night on Earth', 'Antiperformans & Bedel Ödeme', 'Araştırmada Yapay Zeka', 'Tipik Akış', 'Alan Bazında Ek İlkeler', 'İki Araştırma Dosyasından Ne Aldık', 'Henüz Yanıtlanmamış'],
+            en: ['Where We Stand', 'Living Method', '14 Principles, 5 Clusters', 'Getting Inside', 'Verification Reflex', 'Night on Earth', 'Anti-performance & Paying the Price', 'AI in Research', 'Typical Flow', 'Field-Specific Principles', 'What Two Research Files Taught Us', 'Not Yet Answered']
+          },
           hook: {
             tr: 'Her ilkenin arkasında bir hata var. 14 ilke, 5 küme, 1 soru: bu belge kendi ilkelerine dayanıyor mu?',
             en: 'Behind every principle stands a mistake. 14 principles, 5 clusters, 1 question: does this document withstand its own rules?'
@@ -1489,6 +1630,11 @@
           docType: { tr: 'Araştırma notu', en: 'Research note' },
           pages: 13,
           sections: 14,
+          readingTime: { tr: '~10 dk', en: '~10 min' },
+          sectionTitles: {
+            tr: ['Özet ve Temel Bulgular', 'Metodoloji', 'Giriş', 'Tarihsel Perspektif', 'Platform Kapitalizmi', 'Popüler İddialar vs Akademik Konsensüs', 'Fatik İletişim vs Epistemik Parazitlik', 'Türkçe Akademik Literatür', 'Karşılaştırmalı Perspektif', 'Ampirik Test', 'Sonuç'],
+            en: ['Summary and Key Findings', 'Methodology', 'Introduction', 'Historical Perspective', 'Platform Capitalism', 'Popular Claims vs Academic Consensus', 'Phatic Communication vs Epistemic Parasitism', 'Turkish Academic Literature', 'Comparative Perspective', 'Empirical Test', 'Conclusion']
+          },
           hook: {
             tr: 'İki kelimeden ne kadar sistem çıkar? 3700 yıllık kuşak şikayeti, 8 saniye yalanı, ve "aynen öyle" dediğimizde aslında ne yaptığımız.',
             en: 'How much system can two words yield? 3,700 years of generational complaint, the 8-second myth, and what we actually do when we say "exactly."'
@@ -1505,6 +1651,11 @@
           docType: { tr: 'Araştırma notu', en: 'Research note' },
           pages: 13,
           sections: 11,
+          readingTime: { tr: '~10 dk', en: '~10 min' },
+          sectionTitles: {
+            tr: ['Kaynak: Theodore Sturgeon', 'Yasa Nasıl Doğdu', 'Argüman Yapısı', 'Ampirik Testler', 'Yankılar', 'Karşı Argümanlar', 'Derin İçgörü', 'Sonuç'],
+            en: ['Source: Theodore Sturgeon', 'How the Law Was Born', 'Argument Structure', 'Empirical Tests', 'Echoes', 'Counter-Arguments', 'Deep Insight', 'Conclusion']
+          },
           hook: {
             tr: 'Makalelerin %82\'si hiç alıntılanmıyor. Şarkıların %86\'sı hiç dinlenmiyor. Girişimlerin %90\'ı batıyor. Peki algoritmalar %90\'ı ödüllendirdiğinde?',
             en: 'Papers: 82% never cited. Songs: 86% never played. Startups: 90% fail. But what happens when algorithms reward the 90%?'
@@ -1524,6 +1675,7 @@
         document.querySelectorAll('[data-tr]').forEach(el => { if (el.dataset[lang]) el.textContent = el.dataset[lang]; });
         renderAssembly();
         renderEmanations();
+        renderHomeLatest();
         updateMeta(currentPage);
     }
 
@@ -1608,6 +1760,17 @@
             updateMeta(pageId);
             if (pageId === 'home') {
                 requestAnimationFrame(() => { renderOrbitals(); generateNerveNetwork(); });
+                if (!newPage.classList.contains('stagger-in')) {
+                    newPage.classList.add('stagger-in', 'quick');
+                }
+                // Nerve pulse — organism reacts to return
+                var nerveSvg = document.getElementById('nerveSvg');
+                nerveSvg.style.transition = 'opacity 0.3s ease';
+                nerveSvg.style.opacity = '0.15';
+                setTimeout(function() {
+                    nerveSvg.style.transition = 'opacity 1.5s ease';
+                    nerveSvg.style.opacity = '';
+                }, 400);
             }
         }, 300);
     }
@@ -1746,24 +1909,40 @@
                 var sectionsLabel = isTr ? 'bölüm' : 'sections';
                 var pagesStr = em.pages ? em.pages + ' ' + pagesLabel : '';
                 var sectionsStr = em.sections ? em.sections + ' ' + sectionsLabel : '';
-                var metaStr = [pagesStr, sectionsStr].filter(Boolean).join(' · ');
+                var metaStr = [pagesStr, sectionsStr].filter(Boolean).join(' \u00b7 ');
                 docInfoHtml = '<div class="emanation-doc-info">' +
                     '<span class="emanation-doc-type">' + em.docType[currentLang] + '</span>' +
                     (metaStr ? '<span class="emanation-doc-pages">' + metaStr + '</span>' : '') +
                 '</div>';
             }
+            var readingTimeHtml = em.readingTime ? '<span class="emanation-reading-time">' + em.readingTime[currentLang] + '</span>' : '';
+            var sectionsHtml = '';
+            if (em.sectionTitles && em.sectionTitles[currentLang]) {
+                var titles = em.sectionTitles[currentLang];
+                var hintExpand = isTr ? 'b\u00f6l\u00fcmleri g\u00f6r \u2193' : 'see sections \u2193';
+                var hintCollapse = isTr ? 'kapat \u2191' : 'close \u2191';
+                sectionsHtml = '<div class="emanation-expand-hint">' +
+                    '<span class="hint-expand">' + hintExpand + '</span>' +
+                    '<span class="hint-collapse">' + hintCollapse + '</span>' +
+                '</div>' +
+                '<div class="emanation-sections">' +
+                    titles.map(function(t) { return '<div class="emanation-section-item">' + t + '</div>'; }).join('') +
+                '</div>';
+            }
             var readUrl = isTr ? (em.readUrl || em.readUrlEn) : em.readUrlEn;
             var readLabel = isTr ? 'Oku' : 'Read';
-            var actions = readUrl ? '<div class="emanation-actions"><a href="' + readUrl + '" target="_blank" class="emanation-btn">' + readLabel + ' →</a></div>' : '';
+            var actions = readUrl ? '<div class="emanation-actions"><a href="' + readUrl + '" target="_blank" class="emanation-btn">' + readLabel + ' \u2192</a></div>' : '';
             return '<div class="emanation-card glass-card" data-category="' + catKey + '" data-emanation-id="' + em.id + '"' + (hidden ? ' style="display:none;"' : '') + '>' +
                 (em.illustration ? '<div class="emanation-illustration">' + em.illustration + '</div>' : '') +
                 '<div class="emanation-meta">' +
                     '<span class="emanation-category">' + em.category[currentLang] + '</span>' +
                     '<span class="emanation-date">' + em.date + '</span>' +
+                    readingTimeHtml +
                 '</div>' +
                 '<div class="emanation-title">' + em.title[currentLang] + '</div>' +
                 '<div class="emanation-summary">' + summaryText + '</div>' +
                 docInfoHtml +
+                sectionsHtml +
                 actions +
             '</div>';
         }).join('');
@@ -1775,6 +1954,31 @@
         activeFilter = btn.dataset.filter;
         renderEmanations();
     });
+
+    // Accordion: card click toggles section preview
+    document.getElementById('emanationsContainer').addEventListener('click', function(e) {
+        if (e.target.closest('.emanation-btn')) return;
+        var card = e.target.closest('.emanation-card');
+        if (card) card.classList.toggle('expanded');
+    });
+
+    // Home latest emanation pulse
+    function renderHomeLatest() {
+        var latest = emanations[0];
+        if (!latest) return;
+        var isTr = currentLang === 'tr';
+        var titleText = latest.title[currentLang];
+        if (titleText.length > 50) titleText = titleText.substring(0, 47) + '\u2026';
+        document.getElementById('homeLatest').innerHTML =
+            '<div class="home-latest-inner" id="homeLatestLink">' +
+                '<span class="home-latest-pulse"></span>' +
+                '<span class="home-latest-date">' + latest.date + '</span>' +
+                '<span class="home-latest-title">' + titleText + '</span>' +
+            '</div>';
+        document.getElementById('homeLatestLink').addEventListener('click', function() {
+            navigateTo('emanations');
+        });
+    }
 
 
 
@@ -1859,6 +2063,8 @@
             generateNerveNetwork();
             renderAssembly();
             renderEmanations();
+            renderHomeLatest();
+            document.getElementById('page-home').classList.add('stagger-in');
             setTimeout(function() { initBottomEntity(); }, 500);
         }, 2000);
         setTimeout(() => { const o = document.getElementById('intro-overlay'); if (o) o.remove(); }, 2800);
@@ -1883,6 +2089,7 @@
         document.getElementById('app').classList.add('visible');
         renderOrbitals();
         generateNerveNetwork();
+        renderHomeLatest();
         setTimeout(function() { initBottomEntity(); }, 100);
     } else {
         runIntro();

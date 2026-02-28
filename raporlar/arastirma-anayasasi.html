@@ -1260,10 +1260,25 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
 .site-nav-lang-btn:hover { border-color: #c0a060; color: rgba(255,255,255,0.75); }
 .site-nav-lang-btn.active { border-color: #c0a060; color: #c0a060; background: rgba(192,160,96,.07); }
 body { padding-top: 56px; }
+.pdf-btn {
+  display: inline-flex; align-items: center; gap: .35rem;
+  background: transparent; border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.45); padding: 3px 10px; cursor: pointer;
+  font-size: .7rem; letter-spacing: .12em; transition: all .2s;
+}
+.pdf-btn:hover { border-color: #42b0a8; color: #42b0a8; background: rgba(66,176,168,.07); }
+.pdf-btn svg { width: 14px; height: 14px; stroke: currentColor; }
 @media print { .site-nav { display: none !important; } }
+@media (max-width: 768px) { .pdf-btn span { display: none; } }
+.reading-progress { position: fixed; top: 0; left: 0; height: 2px; width: 0%; background: linear-gradient(90deg, #806838, #c0a060); z-index: 10001; transition: width 0.1s linear; pointer-events: none; }
+.site-nav-back { position: relative; }
+.site-nav-back::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: #c0a060; position: absolute; left: -10px; top: 50%; transform: translateY(-50%); animation: back-pulse 2s ease-in-out infinite; }
+@keyframes back-pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; box-shadow: 0 0 4px rgba(192,160,96,0.4); } }
+@media (prefers-reduced-motion: reduce) { .reading-progress { transition: none; } .site-nav-back::before { animation: none; opacity: 0.6; } }
 </style>
 </head>
 <body>
+<div class="reading-progress"></div>
 
 <nav class="site-nav">
   <div class="site-nav-left">
@@ -1276,6 +1291,14 @@ body { padding-top: 56px; }
     </a>
   </div>
   <div class="site-nav-right">
+    <button class="pdf-btn" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      <span>PDF</span>
+    </button>
     <div class="site-nav-lang">
       <button class="site-nav-lang-btn active">TR</button>
       <a href="arastirma-anayasasi-en.html" class="site-nav-lang-btn">EN</a>
@@ -2560,5 +2583,6 @@ function stopSnow() {
   counters.forEach(c => io.observe(c));
 })();
 </script>
+<script>(function(){var b=document.querySelector('.reading-progress');if(!b)return;window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;b.style.width=(h>0?(window.scrollY/h)*100:0)+'%';});})();</script>
 </body>
 </html>
