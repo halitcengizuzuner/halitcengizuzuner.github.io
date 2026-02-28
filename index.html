@@ -1103,37 +1103,18 @@
             height: auto;
         }
 
-        /* ========================================
-           İLETİŞİM / CONTACT
-           ======================================== */
-        .page-contact {
-            padding: 7rem 1.5rem 4rem;
-            max-width: 540px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            min-height: 100dvh;
+        .home-email {
+            margin-top: 0.8rem;
         }
-        .contact-header { text-align: center; }
-        .contact-title {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 5vw, 3rem);
-            color: var(--amber-deep);
-            margin-bottom: 1.5rem;
-        }
-        .contact-email a {
+        .home-email a {
             font-family: var(--font-mono);
-            font-size: clamp(0.85rem, 2vw, 1rem);
-            color: var(--teal);
+            font-size: 0.6rem;
+            color: var(--text-muted);
             text-decoration: none;
-            border-bottom: 1px solid rgba(26,122,109,0.3);
-            transition: border-color 0.3s;
-            letter-spacing: 0.03em;
+            letter-spacing: 0.08em;
+            transition: color 0.3s;
         }
-        .contact-email a:hover { border-color: var(--teal); }
+        .home-email a:hover { color: var(--teal); }
 
 
 
@@ -1285,7 +1266,6 @@
                     <li><a class="nav-link" href="/core/" data-page="core"><span data-tr="Çekirdek" data-en="Core">Çekirdek</span><span class="nav-link-sub" data-tr="düşünce katmanları" data-en="thought layers">düşünce katmanları</span></a></li>
                     <li><a class="nav-link" href="/assembly/" data-page="assembly"><span data-tr="Meclis" data-en="Assembly">Meclis</span><span class="nav-link-sub" data-tr="uzuvlar" data-en="limbs">uzuvlar</span></a></li>
                     <li><a class="nav-link" href="/emanations/" data-page="emanations"><span data-tr="Yayılımlar" data-en="Emanations">Yayılımlar</span><span class="nav-link-sub" data-tr="çıktılar" data-en="outputs">çıktılar</span></a></li>
-                    <li><a class="nav-link" href="/contact/" data-page="contact"><span data-tr="İletişim" data-en="Contact">İletişim</span><span class="nav-link-sub">avukathalituzuner@gmail.com</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -1342,6 +1322,7 @@
             <div class="home-philosophy">
                 <p data-tr="Sorular cevaplardan önemlidir." data-en="Questions matter more than answers.">Sorular cevaplardan önemlidir.</p>
             </div>
+            <div class="home-email"><a href="mailto:avukathalituzuner@gmail.com">avukathalituzuner@gmail.com</a></div>
             <div class="home-sigil">
                 <div class="sigil-paper">
                     <div class="sigil-text" id="sigilLine1" data-tr="sağ üstten başla" data-en="start top right">sağ üstten başla</div>
@@ -1424,13 +1405,6 @@
         <div id="emanationsContainer"></div>
     </section>
 
-    <section class="page page-contact" id="page-contact" style="position:relative;">
-        <div class="page-gradient red-gradient"></div>
-        <div class="contact-header">
-            <h1 class="contact-title" data-tr="İletişim" data-en="Contact">İletişim</h1>
-            <p class="contact-email"><a href="mailto:avukathalituzuner@gmail.com">avukathalituzuner@gmail.com</a></p>
-        </div>
-    </section>
 </div>
 
 <!-- BOTTOM ENTITY — organism's pulse at page bottom -->
@@ -1572,10 +1546,6 @@
         emanations: {
             title: { tr: 'Yayılımlar — Halit Cengiz Uzuner', en: 'Emanations — Halit Cengiz Uzuner' },
             desc: { tr: 'Çekirdekten yayılan araştırma notları ve çıktılar.', en: 'Research notes and outputs emanating from core.' }
-        },
-        contact: {
-            title: { tr: 'İletişim — Halit Cengiz Uzuner', en: 'Contact — Halit Cengiz Uzuner' },
-            desc: { tr: 'avukathalituzuner@gmail.com', en: 'avukathalituzuner@gmail.com' }
         }
     };
 
@@ -1666,7 +1636,7 @@
     });
 
     // SPA routing: query param > sessionStorage > pathname > hash
-    var validPages = { '': 'home', 'core': 'core', 'assembly': 'assembly', 'emanations': 'emanations', 'contact': 'contact' };
+    var validPages = { '': 'home', 'core': 'core', 'assembly': 'assembly', 'emanations': 'emanations' };
     var initialRoute = '';
     var urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('p')) {
