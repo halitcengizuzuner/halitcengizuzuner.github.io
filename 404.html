@@ -8,7 +8,7 @@
         // Gerçek dosya yoksa (örn. /core/) bu sayfa devreye girer,
         // yolu sessionStorage'a kaydedip ana sayfaya yönlendirir.
         var path = window.location.pathname;
-        var validPages = ['core', 'assembly', 'emanations', 'portal'];
+        var validPages = ['core', 'assembly', 'emanations', 'contact'];
         var route = path.replace(/^\/|\/$/g, '');
         if (validPages.indexOf(route) !== -1) {
             sessionStorage.setItem('spa-redirect', path);

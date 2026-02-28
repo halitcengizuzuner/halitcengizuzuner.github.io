@@ -1104,9 +1104,9 @@
         }
 
         /* ========================================
-           PORTAL
+           İLETİŞİM / CONTACT
            ======================================== */
-        .page-portal {
+        .page-contact {
             padding: 7rem 1.5rem 4rem;
             max-width: 540px;
             margin: 0 auto;
@@ -1117,418 +1117,25 @@
             min-height: 100vh;
             min-height: 100dvh;
         }
-
-        .portal-header { text-align: center; margin-bottom: 2.5rem; }
-
-        .portal-title {
+        .contact-header { text-align: center; }
+        .contact-title {
             font-family: var(--font-display);
             font-size: clamp(2rem, 5vw, 3rem);
             color: var(--amber-deep);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
-
-        .portal-statement {
-            font-family: var(--font-body);
-            font-size: clamp(0.95rem, 2vw, 1.05rem);
-            color: var(--text-secondary);
-            line-height: 1.8;
-            font-style: italic;
-        }
-
-        .portal-choice {
-            display: flex; gap: 0.8rem; justify-content: center;
-            margin-bottom: 2rem;
-        }
-        .portal-choice-btn {
+        .contact-email a {
             font-family: var(--font-mono);
-            font-size: 0.6rem; font-weight: 400;
-            letter-spacing: 0.15em; text-transform: uppercase;
-            color: var(--text-muted);
-            background: rgba(255,255,255,0.4);
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--border-glass);
-            padding: 0.7rem 1.5rem; border-radius: 4px;
-            cursor: pointer; transition: all 0.3s ease;
-        }
-        .portal-choice-btn:hover { border-color: var(--amber-ring); color: var(--amber-deep); }
-        .portal-choice-btn.active {
-            border-color: var(--amber); color: var(--amber-deep);
-            background: var(--amber-soft);
-        }
-        .portal-form { width: 100%; }
-
-        .portal-textarea {
-            width: 100%; min-height: 140px;
-            background: rgba(255,255,255,0.5);
-            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--border-glass); border-radius: 10px;
-            padding: 1rem 1.2rem; color: var(--text-primary);
-            font-family: var(--font-body); font-size: 0.95rem; line-height: 1.6;
-            resize: vertical; transition: all 0.3s ease;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
-        }
-        .portal-textarea:focus { outline: none; border-color: var(--amber-ring); box-shadow: 0 0 0 3px rgba(122,107,78,0.06), inset 0 1px 0 rgba(255,255,255,0.3); }
-
-        .portal-textarea::placeholder { color: var(--text-light); font-style: italic; }
-
-        .portal-char-count {
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            color: var(--text-light);
-            text-align: right;
-            margin-top: 0.3rem;
-            letter-spacing: 0.1em;
-        }
-
-        .portal-actions {
-            display: flex;
-            gap: 0.8rem;
-            margin-top: 1.2rem;
-            justify-content: center;
-        }
-
-        .portal-submit {
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            font-weight: 400;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--amber-deep);
-            background: transparent;
-            border: 1px solid var(--amber-ring);
-            padding: 0.8rem 2rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .portal-submit:hover {
-            background: var(--amber-soft);
-            border-color: var(--amber);
-        }
-
-        .portal-mic {
-            width: 44px; height: 44px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--border-glass);
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            padding: 0;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-        }
-
-        .portal-mic:hover { border-color: var(--red); color: var(--red); }
-
-        .portal-mic.recording {
-            border-color: var(--red);
-            background: rgba(185, 28, 28, 0.06);
-            color: var(--red);
-            animation: mic-pulse-light 1s ease-in-out infinite;
-        }
-
-        @keyframes mic-pulse-light {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(185, 28, 28, 0); }
-            50% { box-shadow: 0 0 0 8px rgba(185, 28, 28, 0.08); }
-        }
-
-        .portal-mic svg { width: 18px; height: 18px; fill: currentColor; }
-
-        .portal-response { text-align: center; margin-top: 2rem; display: none; }
-        .portal-response.show { display: block; }
-
-        .portal-response p {
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 0.5rem;
-        }
-
-        .portal-credentials {
-            background: rgba(255,255,255,0.6);
-            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--border-glass);
-            border-radius: 8px;
-            padding: 1rem 1.5rem;
-            margin-top: 1rem;
-            display: inline-block;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
-        }
-
-        .portal-credentials code {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--amber-deep);
-            display: block;
-            margin: 0.2rem 0;
-            letter-spacing: 0.05em;
-        }
-
-        .portal-48h {
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            color: var(--text-light);
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-top: 1rem;
-        }
-
-        /* Portal Chat UI */
-        .portal-login-form {
-            max-width: 360px;
-            margin: 1.5rem auto 0;
-        }
-        .portal-input {
-            width: 100%;
-            padding: 0.85rem 1rem;
-            border: 1px solid var(--border-subtle);
-            border-radius: 8px;
-            background: var(--bg-surface);
-            color: var(--text-primary);
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            backdrop-filter: blur(10px);
-        }
-        .portal-input:focus { outline: none; border-color: var(--amber); }
-        .portal-input::placeholder { color: var(--text-light); }
-        .portal-error {
-            color: var(--red);
-            font-family: var(--font-body);
-            font-size: 0.85rem;
-            min-height: 1.5em;
-            margin: 0.5rem 0;
-            text-align: center;
-        }
-
-        .portal-chat {
-            max-width: 700px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            height: calc(100vh - 160px);
-            min-height: 400px;
-        }
-        .portal-chat-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--border-subtle);
-            margin-bottom: 0.5rem;
-        }
-        .portal-chat-name {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            color: var(--text-primary);
-        }
-        .portal-chat-logout {
-            font-family: var(--font-body);
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            background: none;
-            border: 1px solid var(--border-subtle);
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .portal-chat-logout:hover { border-color: var(--red); color: var(--red); }
-
-        .portal-chat-tabs {
-            display: flex;
-            gap: 0;
-            margin-bottom: 0.5rem;
-        }
-        .portal-chat-tab {
-            flex: 1;
-            padding: 0.6rem;
-            text-align: center;
-            font-family: var(--font-body);
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
-            color: var(--text-muted);
-            background: none;
-            border: none;
-            border-bottom: 2px solid transparent;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .portal-chat-tab.active { color: var(--amber); border-bottom-color: var(--amber); }
-
-        .portal-messages-wrap {
-            flex: 1;
-            overflow-y: auto;
-            padding: 0.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-        }
-        .portal-info-wrap {
-            flex: 1;
-            padding: 1.5rem;
-            font-family: var(--font-body);
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        .portal-reports-wrap {
-            flex: 1;
-            padding: 1.5rem;
-            overflow-y: auto;
-        }
-        .portal-reports-grid {
-            display: grid;
-            gap: 0.8rem;
-        }
-        .portal-report-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: 10px;
-            padding: 1.2rem;
-            transition: border-color 0.3s ease;
-        }
-        .portal-report-card:hover {
-            border-color: var(--teal);
-        }
-        .portal-report-title {
-            font-family: var(--font-display);
-            font-size: 1.05rem;
-            color: var(--text-primary);
-            margin-bottom: 0.4rem;
-        }
-        .portal-report-desc {
-            font-family: var(--font-body);
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 0.8rem;
-            line-height: 1.5;
-        }
-        .portal-report-btn {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--teal);
-            text-decoration: none;
-            border: 1px solid var(--border-subtle);
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        .portal-report-btn:hover {
-            border-color: var(--teal);
-            background: rgba(26, 122, 109, 0.04);
-        }
-
-        .pmsg {
-            max-width: 80%;
-            padding: 0.7rem 1rem;
-            border-radius: 12px;
-            font-family: var(--font-body);
-            font-size: 0.9rem;
-            line-height: 1.5;
-            word-wrap: break-word;
-        }
-        .pmsg-user {
-            align-self: flex-end;
-            background: var(--amber);
-            color: #fff;
-            border-bottom-right-radius: 4px;
-        }
-        .pmsg-admin {
-            align-self: flex-start;
-            background: var(--bg-surface);
-            color: var(--text-primary);
-            border-bottom-left-radius: 4px;
-        }
-        .pmsg-time {
-            font-size: 0.65rem;
-            opacity: 0.6;
-            margin-top: 0.2rem;
-        }
-        .pmsg-empty {
-            color: var(--text-light);
-            text-align: center;
-            padding: 3rem 1rem;
-            font-style: italic;
-            font-family: var(--font-body);
-        }
-
-        .portal-input-bar {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-            padding: 0.75rem 0;
-            border-top: 1px solid var(--border-subtle);
-        }
-        .portal-attach-btn {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--border-subtle);
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s;
-            flex-shrink: 0;
-        }
-        .portal-attach-btn:hover { border-color: var(--amber); }
-        .portal-msg-input {
-            flex: 1;
-            padding: 0.7rem 1rem;
-            border: 1px solid var(--border-subtle);
-            border-radius: 20px;
-            background: var(--bg-surface);
-            color: var(--text-primary);
-            font-family: var(--font-body);
-            font-size: 0.9rem;
-        }
-        .portal-msg-input:focus { outline: none; border-color: var(--amber); }
-        .portal-send-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--amber);
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-            transition: background 0.3s;
-        }
-        .portal-send-btn:hover { background: var(--amber-deep); }
-        .portal-send-btn:disabled { background: var(--text-light); cursor: not-allowed; }
-
-        /* ========================================
-           EMANATION PORTAL GATE
-           ======================================== */
-        .emanation-gate {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            letter-spacing: 0.08em;
-            color: var(--text-muted);
-            margin-top: 0.8rem;
-            padding: 0.6rem 0;
-            border-top: 1px solid var(--border-subtle);
-        }
-        .emanation-gate a {
+            font-size: clamp(0.85rem, 2vw, 1rem);
             color: var(--teal);
             text-decoration: none;
             border-bottom: 1px solid rgba(26,122,109,0.3);
             transition: border-color 0.3s;
+            letter-spacing: 0.03em;
         }
-        .emanation-gate a:hover {
-            border-color: var(--teal);
-        }
+        .contact-email a:hover { border-color: var(--teal); }
+
+
 
         /* Bottom entity ambient — organism's pulse at page bottom */
         .bottom-entity {
@@ -1610,7 +1217,7 @@
             .home-philosophy p { margin: 0 auto; }
             .limb-tooltip { display: none; }
             .assembly-grid { grid-template-columns: 1fr; }
-            .portal-actions { flex-direction: column; align-items: center; }
+
             .fog-blob { filter: blur(60px); }
             .fog-blob.amber-1 { width: 250px; height: 250px; }
             .fog-blob.teal-1 { width: 220px; height: 220px; }
@@ -1678,7 +1285,7 @@
                     <li><a class="nav-link" href="/core/" data-page="core"><span data-tr="Çekirdek" data-en="Core">Çekirdek</span><span class="nav-link-sub" data-tr="düşünce katmanları" data-en="thought layers">düşünce katmanları</span></a></li>
                     <li><a class="nav-link" href="/assembly/" data-page="assembly"><span data-tr="Meclis" data-en="Assembly">Meclis</span><span class="nav-link-sub" data-tr="uzuvlar" data-en="limbs">uzuvlar</span></a></li>
                     <li><a class="nav-link" href="/emanations/" data-page="emanations"><span data-tr="Yayılımlar" data-en="Emanations">Yayılımlar</span><span class="nav-link-sub" data-tr="çıktılar" data-en="outputs">çıktılar</span></a></li>
-                    <li><a class="nav-link" href="/portal/" data-page="portal"><span data-tr="Portal" data-en="Portal">Portal</span><span class="nav-link-sub" data-tr="kapı" data-en="gate">kapı</span></a></li>
+                    <li><a class="nav-link" href="/contact/" data-page="contact"><span data-tr="İletişim" data-en="Contact">İletişim</span><span class="nav-link-sub">avukathalituzuner@gmail.com</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -1817,82 +1424,11 @@
         <div id="emanationsContainer"></div>
     </section>
 
-    <section class="page page-portal" id="page-portal" style="position:relative;">
+    <section class="page page-contact" id="page-contact" style="position:relative;">
         <div class="page-gradient red-gradient"></div>
-        
-        <!-- Portal Login -->
-        <div class="portal-login" id="portalLogin">
-            <div class="portal-header">
-                <h1 class="portal-title">Portal</h1>
-                <p class="portal-statement" data-tr="Güvenli iletişim kanalı." data-en="Secure communication channel.">Güvenli iletişim kanalı.</p>
-            </div>
-
-            <!-- Seçim butonları -->
-            <div class="portal-choice">
-                <button class="portal-choice-btn active" id="portalChoiceLogin" data-tr="Hesabım var" data-en="I have an account">Hesabım var</button>
-                <button class="portal-choice-btn" id="portalChoiceRequest" data-tr="Erişim talep et" data-en="Request access">Erişim talep et</button>
-            </div>
-
-            <!-- Giriş formu -->
-            <div class="portal-login-form" id="portalLoginForm">
-                <input type="text" class="portal-input" id="portalUsername" autocomplete="username" style="margin-bottom:0.75rem;">
-                <input type="password" class="portal-input" id="portalPassword" autocomplete="current-password">
-                <div class="portal-error" id="portalError"></div>
-                <div class="portal-actions">
-                    <button class="portal-submit" id="portalLoginBtn" data-tr="Giriş Yap" data-en="Log In">Giriş Yap</button>
-                </div>
-            </div>
-
-            <!-- Talep formu -->
-            <div class="portal-form" id="portalRequestForm" style="display:none; max-width:360px; margin:0 auto;">
-                <p class="portal-statement" style="text-align:center; margin-bottom:1.5rem;" data-tr="Kendinizi tanıtın. Yazılı veya sesli." data-en="Introduce yourself. Text or voice.">Kendinizi tanıtın. Yazılı veya sesli.</p>
-                <textarea class="portal-textarea" id="portalRequestText" maxlength="500" rows="4"></textarea>
-                <div class="portal-char-count"><span id="portalCharCount">0</span> / 500</div>
-                <div class="portal-actions">
-                    <button class="portal-mic" id="portalMicBtn" title="Ses kaydı">
-                        <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
-                    </button>
-                    <button class="portal-submit" id="portalRequestBtn" data-tr="Gönder" data-en="Submit">Gönder</button>
-                </div>
-                <div class="portal-error" id="portalRequestError"></div>
-            </div>
-
-            <!-- Talep sonuç -->
-            <div class="portal-response" id="portalResponse">
-                <p data-tr="Talebiniz alındı. 48 saat içinde değerlendirilecektir." data-en="Your request has been received. It will be evaluated within 48 hours.">Talebiniz alındı. 48 saat içinde değerlendirilecektir.</p>
-                <div class="portal-credentials" id="portalCredentials"></div>
-                <p class="portal-48h" data-tr="Bu bilgileri kaydedin — giriş için gerekecektir" data-en="Save these credentials — you'll need them to log in">Bu bilgileri kaydedin — giriş için gerekecektir</p>
-            </div>
-        </div>
-
-        <!-- Portal Chat (giriş sonrası) -->
-        <div class="portal-chat" id="portalChat" style="display:none;">
-            <div class="portal-chat-header">
-                <span class="portal-chat-name" id="portalChatName"></span>
-                <button class="portal-chat-logout" id="portalLogout" data-tr="Çıkış" data-en="Logout">Çıkış</button>
-            </div>
-            <div class="portal-chat-tabs">
-                <button class="portal-chat-tab active" data-ptab="messages" data-tr="Mesajlar" data-en="Messages">Mesajlar</button>
-                <button class="portal-chat-tab" data-ptab="reports" data-tr="Raporlar" data-en="Reports">Raporlar</button>
-                <button class="portal-chat-tab" data-ptab="info" data-tr="Bilgi" data-en="Info">Bilgi</button>
-            </div>
-            <div class="portal-messages-wrap" id="portalMessagesWrap">
-                <div class="portal-messages" id="portalMessages"></div>
-            </div>
-            <div class="portal-reports-wrap" id="portalReportsWrap" style="display:none;">
-                <div class="portal-reports-grid" id="portalReports"></div>
-            </div>
-            <div class="portal-info-wrap" id="portalInfoWrap" style="display:none;">
-                <p id="portalInfoText"></p>
-            </div>
-            <div class="portal-input-bar" id="portalInputBar">
-                <label class="portal-attach-btn" title="Dosya ekle">
-                    📎
-                    <input type="file" id="portalFileInput" accept="image/*,audio/*,.pdf,.doc,.docx" style="display:none;">
-                </label>
-                <input type="text" class="portal-msg-input" id="portalMsgInput">
-                <button class="portal-send-btn" id="portalSendBtn">➤</button>
-            </div>
+        <div class="contact-header">
+            <h1 class="contact-title" data-tr="İletişim" data-en="Contact">İletişim</h1>
+            <p class="contact-email"><a href="mailto:avukathalituzuner@gmail.com">avukathalituzuner@gmail.com</a></p>
         </div>
     </section>
 </div>
@@ -1966,6 +1502,7 @@
             tr: 'Her ilkenin arkasında bir hata var. 14 ilke, 5 küme, 1 soru: bu belge kendi ilkelerine dayanıyor mu?',
             en: 'Behind every principle stands a mistake. 14 principles, 5 clusters, 1 question: does this document withstand its own rules?'
           },
+          readUrl: '/raporlar/arastirma-anayasasi.html',
           readUrlEn: '/raporlar/arastirma-anayasasi-en.html',
           illustration: '<svg viewBox="0 0 280 50" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="140" cy="25" r="8" stroke="#7A6B4E" stroke-width="1" opacity="0.4"/><circle cx="140" cy="25" r="2" fill="#4A706A" opacity="0.5"/><line x1="132" y1="25" x2="60" y2="15" stroke="#7A6B4E" stroke-width="0.6" opacity="0.2"/><line x1="132" y1="25" x2="60" y2="35" stroke="#7A6B4E" stroke-width="0.6" opacity="0.2"/><line x1="148" y1="25" x2="220" y2="15" stroke="#7A6B4E" stroke-width="0.6" opacity="0.2"/><line x1="148" y1="25" x2="220" y2="35" stroke="#7A6B4E" stroke-width="0.6" opacity="0.2"/><line x1="140" y1="17" x2="140" y2="5" stroke="#7A6B4E" stroke-width="0.6" opacity="0.2"/><circle cx="60" cy="15" r="3" fill="#7A6B4E" opacity="0.12"/><circle cx="60" cy="35" r="3" fill="#7A6B4E" opacity="0.12"/><circle cx="220" cy="15" r="3" fill="#7A6B4E" opacity="0.12"/><circle cx="220" cy="35" r="3" fill="#7A6B4E" opacity="0.12"/><circle cx="140" cy="5" r="3" fill="#7A6B4E" opacity="0.12"/><path d="M132 25 Q100 10 60 15" fill="none" stroke="#4A706A" stroke-width="0.5" opacity="0.15" stroke-dasharray="2,2"/><path d="M148 25 Q180 10 220 15" fill="none" stroke="#4A706A" stroke-width="0.5" opacity="0.15" stroke-dasharray="2,2"/></svg>'
         },
@@ -1982,6 +1519,7 @@
             tr: 'İki kelimeden ne kadar sistem çıkar? 3700 yıllık kuşak şikayeti, %8 saniye yalanı, ve "aynen öyle" dediğimizde aslında ne yaptığımız.',
             en: 'How much system can two words yield? 3,700 years of generational complaint, the 8-second myth, and what we actually do when we say "exactly."'
           },
+          readUrl: '/raporlar/aynen-oyle.html',
           readUrlEn: '/raporlar/aynen-oyle-en.html',
           illustration: '<svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="105" height="46" rx="10" stroke="#7A6B4E" stroke-width="1" opacity="0.35"/><line x1="24" y1="24" x2="100" y2="24" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><line x1="24" y1="33" x2="90" y2="33" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><line x1="24" y1="42" x2="68" y2="42" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><path d="M32 56 L26 70 L46 56" stroke="#7A6B4E" stroke-width="1" opacity="0.3" fill="none"/><circle cx="134" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><circle cx="145" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><circle cx="156" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><rect x="175" y="18" width="68" height="30" rx="10" stroke="#4A706A" stroke-width="1.2" opacity="0.4"/><circle cx="209" cy="33" r="2.5" fill="#4A706A" opacity="0.3"/><path d="M224 48 L232 60 L218 48" stroke="#4A706A" stroke-width="1.2" opacity="0.4" fill="none"/></svg>' },
         { id: 'sturgeon-yasasi',
@@ -1997,6 +1535,7 @@
             tr: 'Makalelerin %82\'si hiç alıntılanmıyor. Şarkıların %86\'sı hiç dinlenmiyor. Girişimlerin %90\'ı batıyor. Peki algoritmalar %90\'ı ödüllendirdiğinde?',
             en: 'Papers: 82% never cited. Songs: 86% never played. Startups: 90% fail. But what happens when algorithms reward the 90%?'
           },
+          readUrl: '/raporlar/sturgeon-yasasi.html',
           readUrlEn: '/raporlar/sturgeon-yasasi-en.html',
           illustration: '<svg viewBox="0 0 280 30" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="44" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="72" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="100" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="128" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="156" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="184" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="212" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="240" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="264" cy="15" r="5.5" fill="#4A706A" opacity="0.5"/></svg>' }
     ].sort((a, b) => b.date.localeCompare(a.date));
@@ -2009,13 +1548,6 @@
         document.documentElement.lang = lang;
         document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
         document.querySelectorAll('[data-tr]').forEach(el => { if (el.dataset[lang]) el.textContent = el.dataset[lang]; });
-        // Portal input placeholders
-        const pu = document.getElementById('portalUsername');
-        const pp = document.getElementById('portalPassword');
-        if (pu) pu.placeholder = lang === 'tr' ? 'Kullanıcı adı' : 'Username';
-        if (pp) pp.placeholder = lang === 'tr' ? 'Şifre' : 'Password';
-        const pmi = document.getElementById('portalMsgInput');
-        if (pmi) pmi.placeholder = lang === 'tr' ? 'Mesajınızı yazın...' : 'Write your message...';
         renderAssembly();
         renderEmanations();
         updateMeta(currentPage);
@@ -2041,9 +1573,9 @@
             title: { tr: 'Yayılımlar — Halit Cengiz Uzuner', en: 'Emanations — Halit Cengiz Uzuner' },
             desc: { tr: 'Çekirdekten yayılan araştırma notları ve çıktılar.', en: 'Research notes and outputs emanating from core.' }
         },
-        portal: {
-            title: { tr: 'Portal — Halit Cengiz Uzuner', en: 'Portal — Halit Cengiz Uzuner' },
-            desc: { tr: 'Güvenli iletişim kanalı.', en: 'Secure communication channel.' }
+        contact: {
+            title: { tr: 'İletişim — Halit Cengiz Uzuner', en: 'Contact — Halit Cengiz Uzuner' },
+            desc: { tr: 'avukathalituzuner@gmail.com', en: 'avukathalituzuner@gmail.com' }
         }
     };
 
@@ -2134,7 +1666,7 @@
     });
 
     // SPA routing: query param > sessionStorage > pathname > hash
-    var validPages = { '': 'home', 'core': 'core', 'assembly': 'assembly', 'emanations': 'emanations', 'portal': 'portal' };
+    var validPages = { '': 'home', 'core': 'core', 'assembly': 'assembly', 'emanations': 'emanations', 'contact': 'contact' };
     var initialRoute = '';
     var urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('p')) {
@@ -2250,17 +1782,9 @@
                     (metaStr ? '<span class="emanation-doc-pages">' + metaStr + '</span>' : '') +
                 '</div>';
             }
-            // Erişim zinciri: login sonrası rapor varsa "Raporu Aç", yoksa gate
-            var actions = '';
-            if (typeof portalUserReports !== 'undefined' && portalUserReports && portalUserReports.find(function(r) { return r.id === em.id; })) {
-                var openLabel = isTr ? 'Raporu Aç' : 'Open Report';
-                actions = '<div class="emanation-actions"><a href="' + PORTAL_API + '/' + portalUserId + '/rapor/' + em.id + '" target="_blank" class="emanation-btn">' + openLabel + ' →</a></div>';
-            } else {
-                var gateText = isTr
-                    ? 'Tamamını okumak için <a href="#" class="gate-portal-link" data-emanation-id="' + em.id + '">Portal\u2019dan erişim talep edin</a>.'
-                    : 'To read the full report, <a href="#" class="gate-portal-link" data-emanation-id="' + em.id + '">request access via Portal</a>.';
-                actions = '<div class="emanation-gate">' + gateText + '</div>';
-            }
+            var readUrl = isTr ? (em.readUrl || em.readUrlEn) : em.readUrlEn;
+            var readLabel = isTr ? 'Oku' : 'Read';
+            var actions = readUrl ? '<div class="emanation-actions"><a href="' + readUrl + '" target="_blank" class="emanation-btn">' + readLabel + ' →</a></div>' : '';
             return '<div class="emanation-card glass-card" data-category="' + catKey + '" data-emanation-id="' + em.id + '"' + (hidden ? ' style="display:none;"' : '') + '>' +
                 (em.illustration ? '<div class="emanation-illustration">' + em.illustration + '</div>' : '') +
                 '<div class="emanation-meta">' +
@@ -2282,310 +1806,7 @@
         renderEmanations();
     });
 
-    document.addEventListener('click', function(e) {
-        var gateLink = e.target.closest('.gate-portal-link');
-        if (gateLink) {
-            e.preventDefault();
-            var emanationId = gateLink.getAttribute('data-emanation-id');
-            navigateTo('portal');
-            setTimeout(function() {
-                document.getElementById('portalChoiceRequest').click();
-                if (emanationId) {
-                    var em = emanations.find(function(x) { return x.id === emanationId; });
-                    if (em) {
-                        var prefix = '[Erişim: ' + em.title[currentLang] + '] ';
-                        var textarea = document.getElementById('portalRequestText');
-                        if (textarea && !textarea.value.startsWith('[Erişim:')) {
-                            textarea.value = prefix + textarea.value;
-                            document.getElementById('portalCharCount').textContent = textarea.value.length;
-                        }
-                    }
-                }
-            }, 350);
-        }
-    });
 
-    // ============================================
-    // PORTAL CHAT SYSTEM
-    // ============================================
-    const PORTAL_API = 'https://portal.halitcengizuzuner.workers.dev';
-    let portalUserId = null;
-    let portalSession = null;
-    let portalUserReports = null;
-
-    // Portal choice toggle
-    document.getElementById('portalChoiceLogin').addEventListener('click', () => {
-        document.getElementById('portalChoiceLogin').classList.add('active');
-        document.getElementById('portalChoiceRequest').classList.remove('active');
-        document.getElementById('portalLoginForm').style.display = '';
-        document.getElementById('portalRequestForm').style.display = 'none';
-        document.getElementById('portalResponse').classList.remove('show');
-    });
-    document.getElementById('portalChoiceRequest').addEventListener('click', () => {
-        document.getElementById('portalChoiceRequest').classList.add('active');
-        document.getElementById('portalChoiceLogin').classList.remove('active');
-        document.getElementById('portalLoginForm').style.display = 'none';
-        document.getElementById('portalRequestForm').style.display = '';
-    });
-
-    // Karakter sayacı
-    document.getElementById('portalRequestText').addEventListener('input', function() {
-        document.getElementById('portalCharCount').textContent = this.value.length;
-    });
-
-    // Ses kaydı
-    let mediaRecorder = null;
-    let audioChunks = [];
-    let isRecording = false;
-
-    document.getElementById('portalMicBtn').addEventListener('click', async () => {
-        const btn = document.getElementById('portalMicBtn');
-        if (isRecording) {
-            mediaRecorder.stop();
-            btn.classList.remove('recording');
-            isRecording = false;
-            return;
-        }
-        try {
-            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-            mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
-            audioChunks = [];
-            mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
-            mediaRecorder.onstop = () => {
-                stream.getTracks().forEach(t => t.stop());
-            };
-            mediaRecorder.start();
-            btn.classList.add('recording');
-            isRecording = true;
-        } catch (e) {
-            const errEl = document.getElementById('portalRequestError');
-            errEl.textContent = currentLang === 'tr' ? 'Mikrofon erişimi reddedildi' : 'Microphone access denied';
-        }
-    });
-
-    // Talep gönder
-    document.getElementById('portalRequestBtn').addEventListener('click', async () => {
-        const text = document.getElementById('portalRequestText').value.trim();
-        const errEl = document.getElementById('portalRequestError');
-        const hasAudio = audioChunks.length > 0;
-
-        if (!text && !hasAudio) {
-            errEl.textContent = currentLang === 'tr' ? 'Lütfen talebinizi yazın veya sesli iletin.' : 'Please write or record your request.';
-            return;
-        }
-        errEl.textContent = '';
-        document.getElementById('portalRequestBtn').disabled = true;
-
-        try {
-            const fd = new FormData();
-            fd.append('text', text);
-            if (hasAudio) {
-                const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
-                fd.append('audio', audioBlob, 'request.webm');
-            }
-            const r = await fetch(PORTAL_API + '/api/request-access', { method: 'POST', body: fd });
-            const data = await r.json();
-            if (data.success) {
-                document.getElementById('portalRequestForm').style.display = 'none';
-                document.getElementById('portalCredentials').innerHTML =
-                    `<code>${currentLang === 'tr' ? 'Kullanıcı' : 'Username'}: ${data.username}</code><code>${currentLang === 'tr' ? 'Şifre' : 'Password'}: ${data.password}</code>`;
-                document.getElementById('portalResponse').classList.add('show');
-                document.querySelector('.portal-choice').style.display = 'none';
-            } else {
-                errEl.textContent = data.error;
-            }
-        } catch (e) {
-            errEl.textContent = currentLang === 'tr' ? 'Bağlantı hatası' : 'Connection error';
-        }
-        document.getElementById('portalRequestBtn').disabled = false;
-    });
-
-    document.getElementById('portalLoginBtn').addEventListener('click', portalLogin);
-    document.getElementById('portalPassword').addEventListener('keydown', e => {
-        if (e.key === 'Enter') portalLogin();
-    });
-
-    async function portalLogin() {
-        const username = document.getElementById('portalUsername').value.trim();
-        const password = document.getElementById('portalPassword').value;
-        const errorEl = document.getElementById('portalError');
-        if (!username || !password) {
-            errorEl.textContent = currentLang === 'tr' ? 'Kullanıcı adı ve şifre gerekli' : 'Username and password required';
-            return;
-        }
-        errorEl.textContent = '';
-        document.getElementById('portalLoginBtn').disabled = true;
-        try {
-            const r = await fetch(PORTAL_API + '/api/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, password })
-            });
-            const data = await r.json();
-            if (data.success && data.status === 'admin') {
-                var f = document.createElement('form');
-                f.method = 'POST';
-                f.action = PORTAL_API + '/admin';
-                f.target = '_blank';
-                var inp = document.createElement('input');
-                inp.type = 'hidden';
-                inp.name = 'password';
-                inp.value = password;
-                f.appendChild(inp);
-                document.body.appendChild(f);
-                f.submit();
-                document.body.removeChild(f);
-                document.getElementById('portalLoginBtn').disabled = false;
-                return;
-            }
-            if (data.success) {
-                portalUserId = data.userId;
-                portalSession = { password };
-                portalUserReports = data.reports || [];
-                document.getElementById('portalChatName').textContent = data.name;
-                document.getElementById('portalInfoText').textContent = data.message || (currentLang === 'tr' ? 'Hoş geldiniz.' : 'Welcome.');
-                renderPortalMessages(data.messages || []);
-                renderPortalReports(portalUserReports);
-                renderEmanations(); // Emanation kartlarını rapor durumuna göre güncelle
-                document.getElementById('portalLogin').style.display = 'none';
-                document.getElementById('portalChat').style.display = 'flex';
-            } else {
-                errorEl.textContent = data.error;
-            }
-        } catch (e) {
-            errorEl.textContent = currentLang === 'tr' ? 'Bağlantı hatası' : 'Connection error';
-        }
-        document.getElementById('portalLoginBtn').disabled = false;
-    }
-
-    document.getElementById('portalLogout').addEventListener('click', () => {
-        portalUserId = null;
-        portalSession = null;
-        portalUserReports = null;
-        document.getElementById('portalChat').style.display = 'none';
-        document.getElementById('portalLogin').style.display = '';
-        document.getElementById('portalUsername').value = '';
-        document.getElementById('portalPassword').value = '';
-        document.getElementById('portalError').textContent = '';
-        renderEmanations(); // Gate'leri geri getir
-    });
-
-    // Tab switching
-    document.querySelectorAll('.portal-chat-tab').forEach(tab => {
-        tab.addEventListener('click', () => {
-            document.querySelectorAll('.portal-chat-tab').forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            const ptab = tab.dataset.ptab;
-            document.getElementById('portalMessagesWrap').style.display = ptab === 'messages' ? '' : 'none';
-            document.getElementById('portalInputBar').style.display = ptab === 'messages' ? '' : 'none';
-            document.getElementById('portalReportsWrap').style.display = ptab === 'reports' ? '' : 'none';
-            document.getElementById('portalInfoWrap').style.display = ptab === 'info' ? '' : 'none';
-        });
-    });
-
-    function renderPortalMessages(messages) {
-        const c = document.getElementById('portalMessages');
-        if (!messages.length) {
-            c.innerHTML = `<div class="pmsg-empty">${currentLang === 'tr' ? 'Henüz mesaj yok.' : 'No messages yet.'}</div>`;
-            return;
-        }
-        c.innerHTML = messages.map(m => {
-            const isUser = m.from === 'user';
-            const time = new Date(m.timestamp).toLocaleString(currentLang === 'tr' ? 'tr-TR' : 'en-US');
-            let content = '';
-            if (m.type === 'image') content = `<img src="${m.url}" style="max-width:100%;border-radius:6px;">`;
-            else if (m.type === 'audio') content = `<audio controls src="${m.url}" style="width:100%;"></audio><div style="font-size:0.75em;opacity:0.7;">${escapeHtmlPortal(m.text)}</div>`;
-            else if (m.type === 'file') content = `<a href="${m.url}" target="_blank" style="color:inherit;text-decoration:underline;">📎 ${escapeHtmlPortal(m.text)}</a>`;
-            else content = escapeHtmlPortal(m.text);
-            return `<div class="pmsg ${isUser ? 'pmsg-user' : 'pmsg-admin'}"><div>${content}</div><div class="pmsg-time">${time}</div></div>`;
-        }).join('');
-        c.scrollTop = c.scrollHeight;
-    }
-
-    function escapeHtmlPortal(t) {
-        const d = document.createElement('div');
-        d.textContent = t;
-        return d.innerHTML;
-    }
-
-    function renderPortalReports(reports) {
-        const c = document.getElementById('portalReports');
-        if (!reports || !reports.length) {
-            c.innerHTML = '<div class="pmsg-empty">' + (currentLang === 'tr' ? 'Henüz atanmış rapor yok.' : 'No reports assigned yet.') + '</div>';
-            return;
-        }
-        c.innerHTML = reports.map(function(r) {
-            var openLabel = currentLang === 'tr' ? 'Raporu Aç →' : 'Open Report →';
-            return '<div class="portal-report-card">' +
-                '<div class="portal-report-title">' + escapeHtmlPortal(r.title) + '</div>' +
-                (r.description ? '<div class="portal-report-desc">' + escapeHtmlPortal(r.description) + '</div>' : '') +
-                '<a href="' + PORTAL_API + '/' + portalUserId + '/rapor/' + r.id + '" target="_blank" class="portal-report-btn">' + openLabel + '</a>' +
-            '</div>';
-        }).join('');
-    }
-
-    // Send message
-    document.getElementById('portalSendBtn').addEventListener('click', portalSendMsg);
-    document.getElementById('portalMsgInput').addEventListener('keydown', e => {
-        if (e.key === 'Enter') portalSendMsg();
-    });
-
-    async function portalSendMsg() {
-        const input = document.getElementById('portalMsgInput');
-        const text = input.value.trim();
-        if (!text || !portalUserId) return;
-        const btn = document.getElementById('portalSendBtn');
-        btn.disabled = true;
-        try {
-            const r = await fetch(PORTAL_API + '/api/' + portalUserId + '/message', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ text })
-            });
-            const data = await r.json();
-            if (data.success) {
-                input.value = '';
-                appendPortalMsg(data.message);
-            }
-        } catch (e) {}
-        btn.disabled = false;
-        input.focus();
-    }
-
-    // File upload
-    document.getElementById('portalFileInput').addEventListener('change', async function() {
-        const file = this.files[0];
-        if (!file || !portalUserId) return;
-        try {
-            const fd = new FormData();
-            fd.append('file', file);
-            const r = await fetch(PORTAL_API + '/api/' + portalUserId + '/upload', {
-                method: 'POST',
-                body: fd
-            });
-            const data = await r.json();
-            if (data.success) appendPortalMsg(data.message);
-        } catch (e) {}
-        this.value = '';
-    });
-
-    function appendPortalMsg(m) {
-        const c = document.getElementById('portalMessages');
-        const empty = c.querySelector('.pmsg-empty');
-        if (empty) empty.remove();
-        const isUser = m.from === 'user';
-        const time = new Date(m.timestamp).toLocaleString(currentLang === 'tr' ? 'tr-TR' : 'en-US');
-        let content = '';
-        if (m.type === 'image') content = `<img src="${m.url}" style="max-width:100%;border-radius:6px;">`;
-        else if (m.type === 'audio') content = `<audio controls src="${m.url}" style="width:100%;"></audio>`;
-        else if (m.type === 'file') content = `<a href="${m.url}" target="_blank" style="color:inherit;">📎 ${escapeHtmlPortal(m.text)}</a>`;
-        else content = escapeHtmlPortal(m.text);
-        const div = document.createElement('div');
-        div.className = 'pmsg ' + (isUser ? 'pmsg-user' : 'pmsg-admin');
-        div.innerHTML = `<div>${content}</div><div class="pmsg-time">${time}</div>`;
-        c.appendChild(div);
-        c.scrollTop = c.scrollHeight;
-    }
 
     // Bottom entity ambient video
     function initBottomEntity() {
