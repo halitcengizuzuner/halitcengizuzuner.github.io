@@ -31,7 +31,7 @@
     <title>"Aynen Öyle" — Dijital Çağda Minimal Onay İfadelerinin Epistemik ve Sosyal İşlevleri</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         /* ========== SITE NAVIGATION ========== */
         .site-nav {
@@ -40,7 +40,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(26, 54, 93, 0.95);
+            background: rgba(14, 14, 20, 0.92);
             backdrop-filter: blur(10px);
             padding: 0.8rem 2rem;
             display: flex;
@@ -59,11 +59,12 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.85rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
             color: rgba(255,255,255,0.7);
             text-decoration: none;
             letter-spacing: 0.15em;
+            text-transform: uppercase;
             transition: color 0.3s ease;
         }
 
@@ -94,8 +95,8 @@
             color: rgba(255,255,255,0.6);
             padding: 4px 10px;
             cursor: pointer;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
             letter-spacing: 0.1em;
             transition: all 0.3s ease;
             text-decoration: none;
@@ -121,8 +122,8 @@
             color: rgba(255,255,255,0.7);
             padding: 4px 12px;
             cursor: pointer;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
             letter-spacing: 0.1em;
             transition: all 0.3s ease;
         }
@@ -163,6 +164,8 @@
                 page-break-inside: avoid;
                 box-shadow: none;
                 border: 1px solid #ddd;
+                background: white !important;
+                color: #1a202c !important;
             }
             .toc {
                 page-break-after: always;
@@ -197,12 +200,14 @@
             --primary: #1a365d;
             --secondary: #2c5282;
             --accent: #ed8936;
-            --light: #f7fafc;
-            --dark: #1a202c;
-            --gray: #718096;
-            --success: #38a169;
-            --warning: #d69e2e;
-            --danger: #e53e3e;
+            --light: #0c0c10;
+            --dark: #ccc8c0;
+            --gray: #9090a0;
+            --success: #4aba7a;
+            --warning: #d6a030;
+            --danger: #e05050;
+            --surface: #141418;
+            --border: #252530;
         }
 
         * {
@@ -212,7 +217,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Crimson Pro', serif;
             line-height: 1.7;
             color: var(--dark);
             background: var(--light);
@@ -327,15 +332,16 @@
 
         /* TABLE OF CONTENTS */
         .toc {
-            background: white;
+            background: var(--surface);
             border-radius: 12px;
             padding: 2rem;
             margin-bottom: 3rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            box-shadow: none;
+            border: 1px solid var(--border);
         }
 
         .toc h2 {
-            color: var(--primary);
+            color: var(--accent);
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
@@ -350,7 +356,7 @@
         .toc-list li {
             counter-increment: toc-counter;
             padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--border);
         }
 
         .toc-list li:last-child {
@@ -386,15 +392,16 @@
 
         /* SECTIONS */
         section {
-            background: white;
+            background: var(--surface);
             border-radius: 12px;
             padding: 2.5rem;
             margin-bottom: 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            box-shadow: none;
+            border: 1px solid var(--border);
         }
 
         h2 {
-            color: var(--primary);
+            color: var(--accent);
             font-size: 1.75rem;
             margin-bottom: 1.5rem;
             padding-bottom: 0.75rem;
@@ -402,7 +409,7 @@
         }
 
         h3 {
-            color: var(--secondary);
+            color: #e09040;
             font-size: 1.25rem;
             margin: 2rem 0 1rem;
         }
@@ -438,15 +445,15 @@
 
         td {
             padding: 0.875rem 1rem;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid var(--border);
         }
 
         tr:nth-child(even) {
-            background: #f8fafc;
+            background: rgba(255,255,255,0.03);
         }
 
         tr:hover {
-            background: #edf2f7;
+            background: rgba(255,255,255,0.06);
         }
 
         /* BOXES */
@@ -457,22 +464,22 @@
         }
 
         .box-info {
-            background: #ebf8ff;
+            background: rgba(49,130,206,0.1);
             border-left: 4px solid #3182ce;
         }
 
         .box-warning {
-            background: #fffaf0;
+            background: rgba(214,158,46,0.1);
             border-left: 4px solid var(--warning);
         }
 
         .box-danger {
-            background: #fff5f5;
+            background: rgba(229,62,62,0.1);
             border-left: 4px solid var(--danger);
         }
 
         .box-success {
-            background: #f0fff4;
+            background: rgba(56,161,105,0.1);
             border-left: 4px solid var(--success);
         }
 
@@ -489,7 +496,7 @@
             border-left: 4px solid var(--accent);
             padding: 1rem 1.5rem;
             margin: 1.5rem 0;
-            background: #fffaf0;
+            background: rgba(237,137,54,0.08);
             font-style: italic;
             color: var(--gray);
         }
@@ -561,8 +568,8 @@
 
         /* HYPOTHESIS CARDS */
         .hypothesis {
-            background: white;
-            border: 2px solid #e2e8f0;
+            background: var(--surface);
+            border: 2px solid var(--border);
             border-radius: 8px;
             padding: 1.5rem;
             margin: 1rem 0;
@@ -630,13 +637,13 @@
             height: 12px;
             background: var(--accent);
             border-radius: 50%;
-            border: 3px solid white;
+            border: 3px solid var(--surface);
             box-shadow: 0 0 0 3px var(--accent);
         }
 
         .timeline-date {
             font-weight: 700;
-            color: var(--primary);
+            color: var(--accent);
             font-size: 0.9rem;
         }
 
