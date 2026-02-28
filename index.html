@@ -40,19 +40,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Instrument+Serif:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Muted professional palette */
-            --bg-primary: #E8E4DE;
-            --bg-warm: #DDD8D0;
-            --bg-surface: rgba(255, 255, 255, 0.50);
-            --bg-surface-hover: rgba(255, 255, 255, 0.65);
-            --bg-surface-solid: #F0ECE6;
-            --bg-overlay: rgba(232, 228, 222, 0.95);
+            /* Warm parchment palette — organism ground */
+            --bg-primary: #D2CCC2;
+            --bg-warm: #C8C0B4;
+            --bg-surface: rgba(255, 255, 255, 0.35);
+            --bg-surface-hover: rgba(255, 255, 255, 0.50);
+            --bg-surface-solid: #E0D8CE;
+            --bg-overlay: rgba(210, 204, 194, 0.95);
 
             --amber: #7A6B4E;
             --amber-deep: #5C5038;
-            --amber-glow: rgba(122, 107, 78, 0.15);
-            --amber-soft: rgba(122, 107, 78, 0.06);
-            --amber-ring: rgba(122, 107, 78, 0.10);
+            --amber-glow: rgba(122, 107, 78, 0.20);
+            --amber-soft: rgba(122, 107, 78, 0.08);
+            --amber-ring: rgba(122, 107, 78, 0.14);
 
             --teal: #4A706A;
             --blue: #4A6A8A;
@@ -64,11 +64,11 @@
             --indigo: #4A4A7A;
 
             --text-primary: #2A2A2A;
-            --text-secondary: #4A4640;
-            --text-muted: #7A7670;
-            --text-light: #A09A90;
-            --border-subtle: rgba(0, 0, 0, 0.05);
-            --border-glass: rgba(255, 255, 255, 0.40);
+            --text-secondary: #44403A;
+            --text-muted: #6A6660;
+            --text-light: #908A80;
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --border-glass: rgba(0, 0, 0, 0.06);
             
             --font-display: 'Instrument Serif', serif;
             --font-body: 'Crimson Pro', serif;
@@ -118,11 +118,11 @@
             animation: fog-drift 25s ease-in-out infinite;
             will-change: transform;
         }
-        .fog-blob.amber-1 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(122,107,78,0.22) 0%, transparent 70%); top: 15%; left: 20%; animation-delay: 0s; animation-duration: 28s; }
-        .fog-blob.teal-1 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(26,122,109,0.18) 0%, transparent 70%); top: 50%; right: 10%; animation-delay: -8s; animation-duration: 32s; }
-        .fog-blob.purple-1 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(109,40,217,0.14) 0%, transparent 70%); bottom: 20%; left: 10%; animation-delay: -15s; animation-duration: 30s; }
-        .fog-blob.orange-1 { width: 280px; height: 280px; background: radial-gradient(circle, rgba(194,65,12,0.14) 0%, transparent 70%); top: 30%; right: 30%; animation-delay: -20s; animation-duration: 35s; }
-        .fog-blob.blue-1 { width: 320px; height: 320px; background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 70%); bottom: 30%; right: 20%; animation-delay: -5s; animation-duration: 26s; }
+        .fog-blob.amber-1 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(122,107,78,0.40) 0%, transparent 70%); top: 15%; left: 20%; animation-delay: 0s; animation-duration: 28s; }
+        .fog-blob.teal-1 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(26,122,109,0.32) 0%, transparent 70%); top: 50%; right: 10%; animation-delay: -8s; animation-duration: 32s; }
+        .fog-blob.purple-1 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(109,40,217,0.26) 0%, transparent 70%); bottom: 20%; left: 10%; animation-delay: -15s; animation-duration: 30s; }
+        .fog-blob.orange-1 { width: 280px; height: 280px; background: radial-gradient(circle, rgba(194,65,12,0.26) 0%, transparent 70%); top: 30%; right: 30%; animation-delay: -20s; animation-duration: 35s; }
+        .fog-blob.blue-1 { width: 320px; height: 320px; background: radial-gradient(circle, rgba(37,99,235,0.22) 0%, transparent 70%); bottom: 30%; right: 20%; animation-delay: -5s; animation-duration: 26s; }
         @keyframes fog-drift {
             0% { opacity: 0.7; transform: translate(0, 0) scale(1); }
             25% { opacity: 1; transform: translate(30px, -20px) scale(1.1); }
@@ -138,12 +138,12 @@
             -webkit-backdrop-filter: blur(var(--blur-card));
             border: 1px solid var(--border-glass);
             border-radius: 10px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.4);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.25);
             transition: all 0.3s ease;
         }
         .glass-card:hover {
             background: var(--bg-surface-hover);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.5);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.09), inset 0 1px 0 rgba(255,255,255,0.3);
         }
 
         /* Nerve network — organism's connective tissue across all pages */
@@ -158,7 +158,7 @@
         .nerve-network svg {
             width: 100%;
             height: 100%;
-            opacity: 0.06;
+            opacity: 0.14;
         }
 
         .nerve-line {
@@ -186,22 +186,22 @@
         }
 
         .page-gradient.amber-gradient {
-            background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(122,107,78,0.1) 0%, transparent 70%);
+            background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(122,107,78,0.25) 0%, transparent 70%);
         }
 
         .page-gradient.multi-gradient {
-            background: 
-                radial-gradient(ellipse 40% 40% at 25% 0%, rgba(26,122,109,0.08) 0%, transparent 60%),
-                radial-gradient(ellipse 40% 40% at 75% 0%, rgba(109,40,217,0.06) 0%, transparent 60%),
-                radial-gradient(ellipse 30% 30% at 50% 10%, rgba(122,107,78,0.07) 0%, transparent 60%);
+            background:
+                radial-gradient(ellipse 40% 40% at 25% 0%, rgba(26,122,109,0.20) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 40% at 75% 0%, rgba(109,40,217,0.16) 0%, transparent 60%),
+                radial-gradient(ellipse 30% 30% at 50% 10%, rgba(122,107,78,0.18) 0%, transparent 60%);
         }
 
         .page-gradient.teal-gradient {
-            background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(26,122,109,0.1) 0%, transparent 70%);
+            background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(26,122,109,0.25) 0%, transparent 70%);
         }
 
         .page-gradient.red-gradient {
-            background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(185,28,28,0.08) 0%, transparent 70%);
+            background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(185,28,28,0.20) 0%, transparent 70%);
         }
 
         /* ========================================
@@ -212,7 +212,7 @@
             position: fixed;
             inset: 0;
             z-index: 10000;
-            background: #E8E4DE;
+            background: #D2CCC2;
             justify-content: center;
             align-items: center;
             text-align: center;
@@ -234,7 +234,7 @@
             position: fixed;
             inset: 0;
             z-index: 9000;
-            background: var(--bg-primary);
+            background: #D2CCC2;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -374,10 +374,10 @@
             position: absolute;
             top: calc(100% + 8px);
             right: 0;
-            background: rgba(255,255,255,0.78);
+            background: rgba(255,255,255,0.65);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            border: 1px solid var(--border-glass);
+            border: 1px solid rgba(0,0,0,0.06);
             border-radius: 10px;
             padding: 0.6rem 0;
             min-width: 200px;
@@ -385,7 +385,7 @@
             pointer-events: none;
             transform: translateY(-8px);
             transition: all 0.25s var(--ease-out-expo);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
             z-index: 500;
         }
 
@@ -481,7 +481,7 @@
             left: 0;
             width: min(420px, 65vw);
             height: min(420px, 65vw);
-            background: radial-gradient(circle, rgba(122, 107, 78, 0.05) 0%, transparent 65%);
+            background: radial-gradient(circle, rgba(122, 107, 78, 0.12) 0%, transparent 65%);
             pointer-events: none;
             z-index: 0;
         }
@@ -498,7 +498,6 @@
             grid-row: 1;
         }
 
-        .entity-core { display: none; }
 
         /* Constellation — ? with tracing light */
         .entity-constellation {
@@ -536,7 +535,7 @@
         .connection-line {
             stroke: var(--amber);
             stroke-width: 0.8;
-            opacity: 0.1;
+            opacity: 0.2;
             stroke-dasharray: 3 6;
         }
 
@@ -601,10 +600,10 @@
             bottom: calc(100% + 14px);
             left: 50%;
             transform: translateX(-50%) translateY(5px);
-            background: rgba(255,255,255,0.72);
+            background: rgba(255,255,255,0.60);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border-glass);
+            border: 1px solid rgba(0,0,0,0.06);
             border-radius: 10px;
             padding: 0.7rem 0.9rem;
             min-width: 170px;
@@ -785,10 +784,17 @@
             margin-bottom: 1.2rem;
         }
 
+        .core-layer:nth-child(2) { background: rgba(255,255,255,0.35); }
+        .core-layer:nth-child(3) { background: rgba(255,255,255,0.30); border-left: 2px solid rgba(122,107,78,0.08); }
+        .core-layer:nth-child(4) { background: rgba(255,255,255,0.25); border-left: 2px solid rgba(122,107,78,0.12); }
+        .core-layer:nth-child(5) { background: rgba(255,255,255,0.20); border-left: 2px solid rgba(122,107,78,0.16); }
+        .core-layer:nth-child(6) { background: rgba(255,255,255,0.16); border-left: 2px solid rgba(74,112,106,0.18); }
+        .core-layer:nth-child(7) { background: rgba(255,255,255,0.12); border-left: 2px solid rgba(74,112,106,0.24); }
+
         .core-layer-illustration {
             text-align: center;
             margin-bottom: 1rem;
-            opacity: 0.7;
+            opacity: 0.85;
         }
 
         .core-layer-illustration svg {
@@ -1136,8 +1142,7 @@
             overflow: hidden;
             pointer-events: none;
             z-index: 0;
-            opacity: 0.04;
-            mix-blend-mode: multiply;
+            opacity: 0.12;
         }
 
         .bottom-entity video {
@@ -1151,8 +1156,8 @@
         }
 
         @keyframes bottom-breathe {
-            0%, 100% { opacity: 0.04; filter: blur(3px); transform: translateX(-50%) scale(1); }
-            50% { opacity: 0.22; filter: blur(0px); transform: translateX(-50%) scale(1.03); }
+            0%, 100% { opacity: 0.12; filter: blur(2px); transform: translateX(-50%) scale(1); }
+            50% { opacity: 0.35; filter: blur(0px); transform: translateX(-50%) scale(1.03); }
         }
 
         /* Fallback glow for when video doesn't load */
@@ -1164,7 +1169,7 @@
             width: clamp(300px, 45vw, 500px);
             height: clamp(300px, 45vw, 500px);
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(122,107,78,0.08) 0%, rgba(122,107,78,0.03) 40%, transparent 70%);
+            background: radial-gradient(circle, rgba(122,107,78,0.18) 0%, rgba(122,107,78,0.07) 40%, transparent 70%);
             pointer-events: none;
             z-index: 0;
             animation: bottom-glow 6s ease-in-out infinite;
@@ -1409,7 +1414,6 @@
     <main class="page home active" id="page-home">
         <div class="entity-container" id="entityContainer">
             <svg class="connections-svg" id="connectionsSvg"></svg>
-            <div class="entity-core" id="entityCore"></div>
             <div class="entity-constellation">
                 <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
