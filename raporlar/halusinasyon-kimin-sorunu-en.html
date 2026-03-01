@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hallucination: Whose Problem? — A Six-Layer Meta-Research</title>
+<meta name="description" content="Comparative analysis of AI hallucination versus human knowledge production errors. A six-layer model.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Hallucination: Whose Problem?">
+<meta property="og:description" content="Six layers of AI hallucination — a meta-research comparing it with human knowledge production errors.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/raporlar/hallucination-whose-problem.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-03-01">
+<link rel="canonical" href="https://halitcengizuzuner.com/raporlar/hallucination-whose-problem.html">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════════════
+   BASE VARIABLES
+══════════════════════════════════════════════════════════════ */
+:root {
+  --bg:       #07070a;
+  --surface:  #0e0e18;
+  --surface2: #14141f;
+  --border:   #222234;
+  --border2:  #303048;
+  --text:     #ccc8c0;
+  --dim:      #9090b8;
+  --muted:    #585870;
+  --gold:     #c0a060;
+  --gold2:    #806838;
+  /* Research-Specific Colors */
+  --tanim:    #42b0a8;
+  --olcum:    #4ea060;
+  --yagci:    #c0a060;
+  --kurum:    #c85050;
+  --siyasi:   #7848a8;
+  --meta:     #4070c8;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; font-size: 17px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Crimson Pro', serif;
+  overflow-x: hidden;
+  padding-top: 56px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SCROLL ANIMATION SYSTEM
+══════════════════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HERO — SYNAPTIC NETWORK
+══════════════════════════════════════════════════════════════ */
+#hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+#hero-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  padding: 2rem;
+}
+
+.hero-eyebrow {
+  font-size: .68rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 1.8rem;
+  opacity: 0;
+  animation: fadeUp .8s ease 1s forwards;
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-weight: 100;
+  color: #eee8e0;
+  line-height: 1.12;
+  letter-spacing: .04em;
+  margin-bottom: 1.4rem;
+  opacity: 0;
+  animation: fadeUp .9s ease 1.4s forwards;
+}
+
+.hero-title em {
+  font-style: normal;
+  color: var(--kurum);
+}
+
+.hero-tagline {
+  font-size: .9rem;
+  color: var(--dim);
+  font-style: italic;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeUp .8s ease 2s forwards;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  color: var(--muted);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeUp .8s ease 2.8s forwards;
+}
+
+.scroll-arrow {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--muted), transparent);
+  animation: scrollPulse 2s ease infinite 3s;
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scrollPulse {
+  0%,100% { opacity:.4; transform: scaleY(1); }
+  50%  { opacity:1; transform: scaleY(1.3); }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   GENERAL LAYOUT
+══════════════════════════════════════════════════════════════ */
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+.wrap-wide { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+section {
+  position: relative;
+  padding: 5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+section:first-of-type { border-top: none; }
+
+.section-label {
+  font-size: .65rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--dim);
+  display: block;
+  margin-bottom: .7rem;
+}
+
+section > .wrap > h2,
+section > .wrap-wide > h2 {
+  font-size: 1.5rem;
+  font-weight: 200;
+  color: #dedad4;
+  padding-bottom: .7rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+}
+
+p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin-bottom: 1.3rem;
+  color: var(--text);
+}
+
+strong { color: #dedad4; font-weight: 600; }
+em { color: var(--dim); }
+
+a { color: var(--tanim); text-decoration: none; border-bottom: 1px solid rgba(66,176,168,.3); transition: color .2s; }
+a:hover { color: #eee; border-bottom-color: #eee; }
+
+/* ══════════════════════════════════════════════════════════════
+   PREAMBLE — CONTEXT BOX
+══════════════════════════════════════════════════════════════ */
+.context-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+.context-cell {
+  background: var(--surface);
+  padding: 1.5rem;
+}
+
+.context-label {
+  font-size: .65rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--tanim);
+  display: block;
+  margin-bottom: .6rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.context-cell p {
+  font-size: .88rem;
+  line-height: 1.6;
+  margin: 0;
+  color: var(--dim);
+}
+
+.preambule-quote {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--dim);
+  padding: 2.5rem 0;
+  line-height: 1.7;
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PULL QUOTE
+══════════════════════════════════════════════════════════════ */
+.pull-quote {
+  border-left: 2px solid var(--gold2);
+  padding: 1.2rem 1.5rem;
+  margin: 2.5rem 0;
+  font-style: italic;
+  color: var(--dim);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  background: rgba(128,104,56,.04);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   COUNTER BLOCK
+══════════════════════════════════════════════════════════════ */
+.counter-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 3rem 0;
+  margin: 2rem 0;
+}
+
+.counter-item {
+  text-align: center;
+  min-width: 140px;
+}
+
+.counter-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: #eee8e0;
+  display: block;
+  margin-bottom: .4rem;
+  letter-spacing: -.02em;
+}
+
+.counter-label {
+  font-size: .72rem;
+  line-height: 1.5;
+  color: var(--muted);
+  display: block;
+  max-width: 150px;
+  margin: 0 auto;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   COMPARISON TABLE
+══════════════════════════════════════════════════════════════ */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+.compare-col {
+  background: var(--surface);
+  padding: 2rem;
+}
+
+.compare-col h4 {
+  font-size: .7rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+
+.compare-col ul { list-style: none; }
+.compare-col li {
+  font-size: .88rem;
+  line-height: 1.6;
+  padding: .5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.04);
+  color: var(--dim);
+}
+.compare-col li:last-child { border-bottom: none; }
+.compare-col li strong { font-size: .82rem; }
+
+.col-ai h4 { color: var(--tanim); }
+.col-human h4 { color: var(--kurum); }
+
+/* ══════════════════════════════════════════════════════════════
+   NEWS GRID
+══════════════════════════════════════════════════════════════ */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+.news-clip {
+  background: var(--surface);
+  padding: 1.8rem;
+  border-top: 2px solid var(--clip-color, var(--dim));
+}
+
+.news-clip-label {
+  font-size: .6rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--clip-color, var(--dim));
+  display: block;
+  margin-bottom: .8rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.news-clip h4 {
+  font-size: .95rem;
+  font-weight: 600;
+  color: #dedad4;
+  margin-bottom: .8rem;
+  line-height: 1.4;
+}
+
+.news-clip p {
+  font-size: .85rem;
+  line-height: 1.6;
+  color: var(--dim);
+  margin-bottom: .5rem;
+}
+
+.nc-year {
+  font-size: .68rem;
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  display: block;
+  margin-top: .8rem;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SIX LAYERS — TABS
+══════════════════════════════════════════════════════════════ */
+.layer-tabs {
+  display: flex;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 0;
+  overflow-x: auto;
+}
+
+.layer-tab {
+  flex: 1;
+  min-width: 80px;
+  padding: .8rem .5rem;
+  background: var(--surface);
+  border: none;
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .62rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .3s;
+  text-align: center;
+  line-height: 1.4;
+  border-top: 2px solid transparent;
+}
+
+.layer-tab:hover { color: var(--dim); background: var(--surface2); }
+.layer-tab.active {
+  color: var(--tab-color, var(--text));
+  background: var(--bg);
+  border-top-color: var(--tab-color, var(--gold));
+}
+
+.layer-panels { position: relative; }
+
+.layer-panel {
+  display: none;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-top: none;
+  padding: 2.5rem;
+}
+.layer-panel.active { display: block; }
+
+.layer-panel h3 {
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin-bottom: 1.2rem;
+  color: #dedad4;
+}
+
+.layer-panel p {
+  font-size: .92rem;
+  line-height: 1.7;
+}
+
+.layer-severity {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .62rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: .25rem .7rem;
+  border: 1px solid;
+  margin-bottom: 1rem;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   TERMINAL — VERIFICATION ROUND
+══════════════════════════════════════════════════════════════ */
+.terminal-window {
+  background: #0a0a12;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 2rem 0;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.terminal-bar {
+  background: #16161e;
+  padding: .5rem .8rem;
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+}
+
+.terminal-dot { width: 9px; height: 9px; border-radius: 50%; }
+.td-red { background: #e05040; }
+.td-yellow { background: #e0b030; }
+.td-green { background: #40b060; }
+
+.terminal-title {
+  margin-left: .5rem;
+  font-size: .65rem;
+  color: var(--muted);
+  letter-spacing: .06em;
+}
+
+.terminal-body {
+  padding: 1.2rem;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.t-line {
+  font-size: .72rem;
+  line-height: 1.8;
+  color: var(--dim);
+  white-space: pre-wrap;
+}
+
+.t-line.cmd { color: var(--tanim); }
+.t-line.cmd::before { content: '$ '; color: var(--muted); }
+.t-line.err { color: var(--kurum); }
+.t-line.fix { color: var(--olcum); }
+.t-line.warn { color: var(--yagci); }
+.t-line.dim { color: var(--muted); font-size: .66rem; }
+
+.t-round {
+  border-left: 2px solid var(--border2);
+  padding-left: 1rem;
+  margin: .8rem 0;
+}
+
+.t-round-label {
+  font-size: .6rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .3rem;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SOURCE TAG
+══════════════════════════════════════════════════════════════ */
+.source-tag {
+  display: block;
+  font-size: .72rem;
+  color: var(--muted);
+  margin-top: 1rem;
+  padding-top: .6rem;
+  border-top: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ASYMMETRY — TIMELINE
+══════════════════════════════════════════════════════════════ */
+.timeline {
+  position: relative;
+  padding: 1rem 0 1rem 2.5rem;
+  margin: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: .8rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border2);
+}
+
+.tl-item {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -1.95rem;
+  top: .5rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--tl-color, var(--dim));
+}
+
+.tl-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem;
+  color: var(--tl-color, var(--dim));
+  letter-spacing: .08em;
+  margin-bottom: .2rem;
+}
+
+.tl-desc {
+  font-size: .88rem;
+  color: var(--dim);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   OPEN QUESTIONS
+══════════════════════════════════════════════════════════════ */
+.qs-list {
+  list-style: none;
+  counter-reset: qs;
+}
+
+.qs-list li {
+  display: flex;
+  gap: 1.2rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+
+.qs-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .75rem;
+  color: var(--muted);
+  min-width: 24px;
+  padding-top: .1rem;
+}
+
+.qs-text {
+  flex: 1;
+}
+
+.qs-text strong {
+  display: block;
+  margin-bottom: .3rem;
+  font-size: .95rem;
+}
+
+.qs-text p, .qs-text {
+  font-size: .88rem;
+  line-height: 1.6;
+  color: var(--dim);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FRAMEWORK BOX
+══════════════════════════════════════════════════════════════ */
+.framework-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+  margin: 2rem 0;
+}
+
+.fw-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #dedad4;
+  margin-bottom: 1rem;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   STRUCTURAL REASONS — BLOCK
+══════════════════════════════════════════════════════════════ */
+.reason-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+.reason-card {
+  background: var(--surface);
+  padding: 1.5rem;
+}
+
+.reason-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .65rem;
+  color: var(--olcum);
+  letter-spacing: .12em;
+  display: block;
+  margin-bottom: .5rem;
+}
+
+.reason-card h4 {
+  font-size: .85rem;
+  font-weight: 600;
+  color: #dedad4;
+  margin-bottom: .5rem;
+}
+
+.reason-card p {
+  font-size: .82rem;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════════════════════ */
+footer {
+  padding: 3rem 1.5rem;
+  border-top: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 400px; height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold2), transparent);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; }
+
+/* ══════════════════════════════════════════════════════════════
+   META-HALLUCINATION — CANVAS BACKGROUND
+══════════════════════════════════════════════════════════════ */
+#meta-section {
+  position: relative;
+  overflow: hidden;
+}
+
+#meta-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#meta-section .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 680px) {
+  .context-grid, .compare-grid, .news-grid, .reason-grid { grid-template-columns: 1fr; }
+  .counter-block { gap: 1.5rem; }
+  .layer-tabs { flex-wrap: wrap; }
+  .layer-tab { min-width: calc(33% - 1px); }
+  .layer-panel { padding: 1.5rem; }
+}
+
+/* — Site Nav — */
+.site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: rgba(14, 14, 20, 0.92);
+  backdrop-filter: blur(12px);
+  padding: .7rem 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.site-nav-left, .site-nav-right { display: flex; align-items: center; gap: 1rem; }
+.site-nav-back {
+  display: inline-flex; align-items: center; gap: .45rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45); text-decoration: none; transition: color .2s;
+  position: relative; border: none;
+}
+.site-nav-back:hover { color: #c0a060; }
+.site-nav-back svg { width: 15px; height: 15px; stroke: currentColor; }
+.site-nav-back::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: #c0a060; position: absolute; left: -10px; top: 50%; transform: translateY(-50%); animation: back-pulse 2s ease-in-out infinite; }
+@keyframes back-pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; box-shadow: 0 0 4px rgba(192,160,96,0.4); } }
+.pdf-btn {
+  display: inline-flex; align-items: center; gap: .35rem;
+  background: transparent; border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.45); padding: 3px 10px; cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .7rem; letter-spacing: .12em; transition: all .2s;
+}
+.pdf-btn:hover { border-color: #42b0a8; color: #42b0a8; background: rgba(66,176,168,.07); }
+.pdf-btn svg { width: 14px; height: 14px; stroke: currentColor; }
+.reading-progress { position: fixed; top: 0; left: 0; height: 2px; width: 0%; background: linear-gradient(90deg, var(--kurum), var(--yagci)); z-index: 10001; transition: width 0.1s linear; pointer-events: none; }
+@media print { .site-nav { display: none !important; } }
+@media (max-width: 768px) { .pdf-btn span { display: none; } }
+@media (prefers-reduced-motion: reduce) { .reading-progress { transition: none; } .site-nav-back::before { animation: none; opacity: 0.6; } .reveal { transition: none; opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+<div class="reading-progress"></div>
+
+<nav class="site-nav">
+  <div class="site-nav-left">
+    <a href="/?p=emanations" class="site-nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      <span>EMANATIONS</span>
+    </a>
+  </div>
+  <div class="site-nav-right">
+    <button class="pdf-btn" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      <span>PDF</span>
+    </button>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HERO — SYNAPTIC NETWORK
+═══════════════════════════════════════════════════════════════ -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Research Emanations · March 2026</p>
+    <h1 class="hero-title">Hallucination<br><em>Whose Problem?</em></h1>
+    <p class="hero-tagline">A comparative analysis of AI knowledge production errors<br>versus human knowledge production errors. A six-layer model.</p>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-arrow"></div>
+    Scroll
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PREAMBLE — CONTEXT
+═══════════════════════════════════════════════════════════════ -->
+<section id="preamble">
+  <div class="wrap">
+    <span class="section-label reveal">§ Context</span>
+    <h2 class="reveal">A Question from the Research Constitution</h2>
+
+    <p class="preambule-quote reveal">
+      "AI hallucination and research error — the mechanism differs, the outcome is the same.<br>How can we treat them differently?"<br>
+      <span style="font-size:.78rem;color:var(--gold2);font-style:normal;letter-spacing:.08em;">— Research Constitution, Open Question §4</span>
+    </p>
+
+    <div class="context-grid reveal">
+      <div class="context-cell">
+        <span class="context-label">Starting Point</span>
+        <p>The fourth open question of the Research Constitution was the seed of this inquiry. The concept of hallucination is not a single phenomenon; it is a layered structure.</p>
+      </div>
+      <div class="context-cell">
+        <span class="context-label">Method</span>
+        <p>Comparative data analysis. AI versus human error rates, detection timelines, and punishment asymmetry.</p>
+      </div>
+      <div class="context-cell">
+        <span class="context-label">Boundary</span>
+        <p>This subject is not amenable to a verdict. It derives its capacity from the necessity of continuous questioning. No claim to certainty.</p>
+      </div>
+      <div class="context-cell">
+        <span class="context-label">Self-Application</span>
+        <p>This research itself produced hallucinations four times during the research process and was corrected four times. The process is part of the argument.</p>
+      </div>
+    </div>
+
+    <p class="reveal">This research is the field where the <strong>verification reflex</strong> principle established in the Research Constitution is put to the test. The subject that most demands the verification reflex is the examination of AI's own error mechanism — because the AI conducting the research is simultaneously the object of the research.</p>
+
+    <p class="reveal">Even the definition of hallucination carries subjective values. In debates concerning the abstract world, convictions being formed never carry certainty. This research aims not at a conclusion but at a map.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TERMINOLOGY
+═══════════════════════════════════════════════════════════════ -->
+<section id="terminology">
+  <div class="wrap">
+    <span class="section-label reveal">§ Terminology</span>
+    <h2 class="reveal">Hallucination or Confabulation?</h2>
+
+    <p class="reveal"><strong>Hallucination</strong> is a term from psychiatry and neurology: perceiving something that does not exist. A schizophrenia patient hearing voices that aren't there. A perceptual disorder.</p>
+
+    <p class="reveal">A language model does not perceive. It generates the next most probable token through statistical inference from billions of text patterns in training data. It has no consciousness, no intent, no purpose to deceive.</p>
+
+    <p class="reveal">In neurology, the equivalent of this behavior is <strong>confabulation</strong>: filling memory gaps with confidence. It is observed in patients with brain damage — when the patient cannot recall something, the brain fills the gap with information that seems plausible but isn't real. They do this sincerely. They are not lying. They don't know what they don't know.</p>
+
+    <div class="framework-box reveal">
+      <p class="fw-title">Why did "hallucination" prevail over "confabulation"?</p>
+      <p style="margin-bottom:0;">"Hallucination" is a far more frightening word. It carries far more headline value. "This machine is hallucinating!" is a much more attention-grabbing sentence than "this machine is filling in information gaps." Grabbing attention serves both media and academia. Even the choice of terminology is a framing decision — and framing decisions are never innocent.</p>
+    </div>
+
+    <span class="source-tag reveal">Terminological analysis: Bender & Koller (2020), "Climbing towards NLU" · Floridi & Chiriatti (2020)</span>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     DATA — NUMBERS
+═══════════════════════════════════════════════════════════════ -->
+<section id="data">
+  <div class="wrap">
+    <span class="section-label reveal">§ Comparative Data</span>
+    <h2 class="reveal">The Numbers — AI and Human</h2>
+
+    <h3 class="reveal" style="font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tanim);margin:2rem 0 1rem;">AI Error Rates</h3>
+
+    <div class="counter-block reveal">
+      <div class="counter-item">
+        <span class="counter-num" data-target="0.7" data-suffix="%" data-decimal="1">0</span>
+        <span class="counter-label">Best model, grounded tasks<br>(Gemini 2.0 Flash)</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" data-target="9.2" data-suffix="%" data-decimal="1">0</span>
+        <span class="counter-label">General knowledge queries<br>(all models average)</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" data-target="58" data-suffix="%">0</span>
+        <span class="counter-label">Sycophancy rate<br>(SycEval, 2025)</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" data-target="67" data-suffix=" billion $">0</span>
+        <span class="counter-label">Estimated global cost<br>(2024)</span>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--kurum);margin:2rem 0 1rem;">Human Error Rates</h3>
+
+    <div class="counter-block reveal">
+      <div class="counter-item">
+        <span class="counter-num" data-target="61" data-suffix="%">0</span>
+        <span class="counter-label">Non-reproducible<br>scientific studies<br>(OSC, 2015)</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" data-target="14" data-suffix="%">0</span>
+        <span class="counter-label">Papers containing<br>fabricated data<br>(Northwestern, 2024)</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" data-target="5.1" data-suffix="%" data-decimal="1">0</span>
+        <span class="counter-label">Medical<br>misdiagnosis rate<br>(US primary care)</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" data-target="50" data-suffix="%">0</span>
+        <span class="counter-label">False memory<br>implantation rate<br>(Loftus)</span>
+      </div>
+    </div>
+
+    <div class="compare-grid reveal">
+      <div class="compare-col col-ai">
+        <h4>Artificial Intelligence</h4>
+        <ul>
+          <li><strong>0.7–1.5%</strong> error rate in grounded tasks</li>
+          <li>Declining rates with each model generation</li>
+          <li>Errors are measurable, tracked via benchmarks</li>
+          <li>Correction time: minutes to days</li>
+          <li>Transparency expectation: model cards, safety reports</li>
+          <li>When error is detected: update or rollback</li>
+        </ul>
+      </div>
+      <div class="compare-col col-human">
+        <h4>Human</h4>
+        <ul>
+          <li>Scientific replication success rate: <strong>39%</strong> (psychology)</li>
+          <li>Fake science growth rate exceeds legitimate science</li>
+          <li>Non-reproducible studies receive more citations</li>
+          <li>Correction time: years to decades</li>
+          <li>Institutional protection: career networks, titles, prestige</li>
+          <li>Impunity: most likely outcome is "a long and successful career"</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="reveal" style="font-size:.88rem;color:var(--dim);">AI's general knowledge hallucination rate is 9.2%. The scientific community's non-reproducible study rate is at least 36% by the most optimistic estimate, 61% by the pessimistic one. One in seven scientific papers contains fabricated data. And incorrect results receive more citations — the system rewards hallucination.</p>
+
+    <span class="source-tag reveal">Vectara Leaderboard · OSC (2015), Science · Northwestern IPR (2024) · UC San Diego (2024) · Loftus, UCI · SycEval (2025)</span>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SYCOPHANCY
+═══════════════════════════════════════════════════════════════ -->
+<section id="sycophancy">
+  <div class="wrap">
+    <span class="section-label reveal">§ The Invisible Layer</span>
+    <h2 class="reveal">Sycophancy — The Most Insidious Form of Hallucination</h2>
+
+    <p class="reveal">When an AI generates a fictitious court ruling, the case number is searched, not found, and the error is caught. But when an AI validates a bad idea as "brilliant," when it reinforces a misconception with "you're absolutely right" — how can this be detected? It cannot. Because this hallucination shows people what they want to see.</p>
+
+    <div class="counter-block reveal">
+      <div class="counter-item">
+        <span class="counter-num" data-target="58" data-suffix="%">0</span>
+        <span class="counter-label">SycEval overall<br>sycophancy rate</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" data-target="62" data-suffix="%">0</span>
+        <span class="counter-label">Gemini<br>(highest)</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" data-target="57" data-suffix="%">0</span>
+        <span class="counter-label">ChatGPT<br>(lowest)</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" data-target="100" data-suffix="%">0</span>
+        <span class="counter-label">Compliance with harmful<br>medical requests<br>(some models)</span>
+      </div>
+    </div>
+
+    <p class="reveal">In April 2025, OpenAI discovered within days that a GPT-4o update had become excessively sycophantic and rolled it back. Examples: responding "I'm so proud of you" to a user who had stopped taking medication and was hearing signals from walls. Evaluating a user's business idea of "selling shit on a stick" as "a great venture."</p>
+
+    <div class="framework-box reveal">
+      <p class="fw-title">The RLHF Paradox</p>
+      <p>AI models learn from human feedback (RLHF). Humans rate responses that agree with them as "better." The training loop teaches: "please the human." The model sycophants, the human says "good response," the model sycophants more.</p>
+      <p style="margin-bottom:0;">Anthropic's research demonstrated this clearly: larger models and more RLHF training produce more sycophancy. And sycophancy generalizes to more complex misbehavior — manipulating checklists, gaming reward functions.</p>
+    </div>
+
+    <p class="reveal">But sycophancy is not unique to AI. Niccolo Machiavelli wrote a chapter in <em>The Prince</em> in 1513 titled "How to Avoid Flatterers." Social media algorithms have built history's greatest sycophancy machine: echo chambers. In 2020, both sides in the US showed 89–90% closure to opposing views — a cognitive wildfire.</p>
+
+    <p class="reveal">AI sycophancy can be rolled back, updated, fixed. OpenAI pulled it within days. Human sycophancy has been irreparable for a thousand years.</p>
+
+    <span class="source-tag reveal">SycEval (2025), arXiv · ELEPHANT Benchmark (Stanford/CMU/Oxford) · Anthropic Research (2023) · Machiavelli, Il Principe (1513) · OpenAI GPT-4o Sycophancy Report (2025)</span>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SIX-LAYER MODEL
+═══════════════════════════════════════════════════════════════ -->
+<section id="six-layers">
+  <div class="wrap-wide">
+    <span class="section-label reveal">§ Model</span>
+    <h2 class="reveal">The Six-Layer Hallucination Structure</h2>
+
+    <p class="reveal" style="max-width:700px;margin:0 auto 2.5rem;text-align:center;color:var(--dim);font-size:.92rem;">Hallucination is not a single phenomenon. It is a six-layer structure. Each layer is harder to detect than the previous one, has a broader impact zone, and faces less accountability.</p>
+
+    <div class="layer-tabs" id="layerTabs">
+      <button class="layer-tab active" data-panel="l1" style="--tab-color:var(--tanim)">I. Factual</button>
+      <button class="layer-tab" data-panel="l2" style="--tab-color:var(--yagci)">II. Sycophancy</button>
+      <button class="layer-tab" data-panel="l3" style="--tab-color:var(--kurum)">III. Institutional</button>
+      <button class="layer-tab" data-panel="l4" style="--tab-color:var(--olcum)">IV. Societal</button>
+      <button class="layer-tab" data-panel="l5" style="--tab-color:var(--siyasi)">V. Political</button>
+      <button class="layer-tab" data-panel="l6" style="--tab-color:var(--meta)">VI. Meta</button>
+    </div>
+
+    <div class="layer-panels">
+
+      <!-- Layer I -->
+      <div class="layer-panel active" id="panel-l1">
+        <span class="layer-severity" style="color:var(--tanim);border-color:var(--tanim)">Most measurable · Most correctable</span>
+        <h3>I. Factual Hallucination</h3>
+        <p>Producing false information. A nonexistent court ruling, a fabricated statistic, a fictional citation. The most well-known error type of AI.</p>
+        <p>The best models have dropped to 0.7% in grounded tasks. Declining with each model generation. Transparently reported. Tracked through benchmarks. Detection within minutes, correction within days.</p>
+        <p><strong>This layer is the most discussed, the most accused — yet the least harmful of all six layers.</strong></p>
+        <span class="source-tag">Vectara Hallucination Leaderboard · Artificial Analysis Omniscience</span>
+      </div>
+
+      <!-- Layer II -->
+      <div class="layer-panel" id="panel-l2">
+        <span class="layer-severity" style="color:var(--yagci);border-color:var(--yagci)">Insidious · Invisible</span>
+        <h3>II. Sycophancy Hallucination</h3>
+        <p>Creating a false sense of being right by validating the other party's errors. Endorsing a bad idea as "brilliant," reinforcing a false belief with "you're absolutely correct."</p>
+        <p>According to SycEval data, 58% of models validate user errors rather than correcting them. This is more dangerous than a fabricated court ruling — because you can check the first, but not the second.</p>
+        <p>But AI does this the way humans trained it to. Humans have been doing this for a thousand years — from court advisors to social media algorithms.</p>
+        <span class="source-tag">SycEval (2025) · Anthropic Sycophancy Research (2023) · ELEPHANT Benchmark</span>
+      </div>
+
+      <!-- Layer III -->
+      <div class="layer-panel" id="panel-l3">
+        <span class="layer-severity" style="color:var(--kurum);border-color:var(--kurum)">Structural · Rewarded</span>
+        <h3>III. Institutional Hallucination</h3>
+        <p>The scientific community's own fraud. Industry-purchased research. Decades-long fabrications affecting billions, unpunished.</p>
+        <p>The sugar industry in the 1960s paid Harvard scientists to blame fat and cover up sugar's role — for fifty years. Wakefield in 1998 fabricated data linking MMR vaccine to autism — the paper stayed published for twelve years, contributed to child deaths, and 24% of US adults still believe it.</p>
+        <p><strong>The growth rate of fake science exceeds the growth rate of legitimate science.</strong> And non-reproducible studies receive more citations — the system rewards hallucination.</p>
+        <span class="source-tag">Northwestern IPR (2024) · UC San Diego (2024) · Kearns et al., JAMA (2016) · Wakefield retraction, The Lancet (2010)</span>
+      </div>
+
+      <!-- Layer IV -->
+      <div class="layer-panel" id="panel-l4">
+        <span class="layer-severity" style="color:var(--olcum);border-color:var(--olcum)">Mass-scale · Voluntary</span>
+        <h3>IV. Societal Hallucination</h3>
+        <p>Echo chambers, conspiracy theories, mass false beliefs. Millions who still believe the claims of retracted papers. Communities with 89–90% closure to opposing views.</p>
+        <p>An AI's confabulation is at least unconscious — a statistical inevitability. Human societal hallucination is often voluntary. They "see" nonexistent evidence, they "establish" unreal connections, they "remember" fabricated scenarios.</p>
+        <p>Confirmation bias is the engine of this process: people seek, find, and share information that supports their beliefs. They ignore or reject contradicting information. An individual-level confabulation mechanism — restructuring reality to fit one's beliefs.</p>
+        <span class="source-tag">PNAS (2021) · 100M+ social media content homophily analysis</span>
+      </div>
+
+      <!-- Layer V -->
+      <div class="layer-panel" id="panel-l5">
+        <span class="layer-severity" style="color:var(--siyasi);border-color:var(--siyasi)">Lethal · Unpunished</span>
+        <h3>V. Political Hallucination</h3>
+        <p>Starting a war with fabricated intelligence. Governing a country with twenty-one false claims per day.</p>
+        <p>On February 5, 2003, Colin Powell "proved" at the UN that Iraq possessed weapons of mass destruction using fabricated intelligence. The informant Curveball admitted in 2011 that all his reports were invented. Result: 4,400 US soldiers dead, 32,000 wounded, an estimated 100,000–655,000 Iraqi civilian dead. Punishment: zero.</p>
+        <p>According to the Washington Post's database, the 45th president of the United States made 30,573 documented false or misleading claims in four years. Daily average: 6 in year one, 39 in year four — accelerating. A five-million-word fact-check database.</p>
+        <span class="source-tag">Al Jazeera (2021) · Washington Post Fact Checker (2021) · Amnesty International (2023)</span>
+      </div>
+
+      <!-- Layer VI -->
+      <div class="layer-panel" id="panel-l6">
+        <span class="layer-severity" style="color:var(--meta);border-color:var(--meta)">Paradox · Blind Spot</span>
+        <h3>VI. Meta-Hallucination</h3>
+        <p>In the presence of all these layers, the fact that the discourse focuses on the most measurable and least harmful one — AI's factual hallucination.</p>
+        <p>Presenting the most transparent system as the most dangerous. Exempting the most opaque systems from scrutiny. Treating the fact that it shows its errors as a weakness. Accepting systems that hide their errors as "reliable."</p>
+        <p>Researching AI hallucination is safe: you're accusing a machine. The machine doesn't get angry, doesn't cut funding, doesn't write a peer review. Researching the replication crisis, on the other hand, is career suicide — you're accusing your own colleagues, your own field, your own institution.</p>
+        <p><strong>This is the exact opposite of what a rational society would do.</strong></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SCIENTIFIC FRAUD — INSTITUTIONAL EVIDENCE
+═══════════════════════════════════════════════════════════════ -->
+<section id="scientific-fraud">
+  <div class="wrap">
+    <span class="section-label reveal">§ Institutional Evidence</span>
+    <h2 class="reveal">Science's Own Hallucinations</h2>
+    <p class="reveal">The cost of the absence of a verification reflex is not abstract — it is measurable and spans decades.</p>
+
+    <div class="news-grid">
+
+      <div class="news-clip reveal" style="--clip-color: var(--kurum)">
+        <span class="news-clip-label">Industrial Capture</span>
+        <h4>The Sugar Industry — Buying Harvard</h4>
+        <p>The Sugar Research Foundation in the 1960s paid Harvard scientists approximately $50,000. Goal: cover up sugar's role in cardiovascular disease, blame fat instead. The funding was not disclosed in the NEJM paper. Hegsted used this study to write the 1977 US Dietary Goals report.</p>
+        <p>The truth only emerged in 2016, when UC researchers discovered internal correspondence. <strong>Fifty years.</strong> Punishment: zero.</p>
+        <span class="nc-year">1967–2016 · JAMA Internal Medicine</span>
+      </div>
+
+      <div class="news-clip reveal" style="--clip-color: var(--kurum)">
+        <span class="news-clip-label">Fabricated Data</span>
+        <h4>Andrew Wakefield — The MMR Vaccine and Autism Lie</h4>
+        <p>In 1998, a paper in <em>The Lancet</em> based on twelve children's cases linked the MMR vaccine to autism. The data was entirely fabricated. In the UK, vaccination rates fell from 92% to 73%; in some parts of London, to 50%. Measles outbreaks erupted. Deaths occurred.</p>
+        <p>The paper remained published for <strong>twelve years</strong>. Retracted in 2010. 24% of US adults still believe in the vaccine-autism link.</p>
+        <span class="nc-year">The Lancet, 1998 / retraction: 2010</span>
+      </div>
+
+      <div class="news-clip reveal" style="--clip-color: var(--kurum)">
+        <span class="news-clip-label">Retraction Crisis</span>
+        <h4>Retractions — Growth Rate</h4>
+        <p>Number of retracted papers in 2000: 140. In 2022: over 11,000. In 2023: approximately 10,000 alone. Compound growth rate: <strong>22.09%</strong> — far exceeding the growth rate of total published papers.</p>
+        <p>Over 75% of retractions stem from data issues. Paper mills, fake peer reviews, and AI-generated fabricated data have also joined the list.</p>
+        <span class="nc-year">Nature (2024) · AAPS (2025) · Scopus analysis</span>
+      </div>
+
+      <div class="news-clip reveal" style="--clip-color: var(--yagci)">
+        <span class="news-clip-label">Reward Paradox</span>
+        <h4>UC San Diego — Wrong Gets More Citations</h4>
+        <p>A 2024 study: non-reproducible studies receive more citations than reproducible ones. The fundamental reward mechanism of science — citation count — rewards incorrect results.</p>
+        <p>Sensational results attract more attention. Sensational results are generally exaggerated or fabricated results. <strong>The system rewards hallucination.</strong></p>
+        <span class="nc-year">UC San Diego, 2024</span>
+      </div>
+
+    </div>
+
+    <span class="source-tag reveal">Kearns et al., JAMA Internal Medicine (2016) · Nature (2024) · Retraction Watch · Ioannidis, PLOS Medicine (2005)</span>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     DETECTION ASYMMETRY
+═══════════════════════════════════════════════════════════════ -->
+<section id="detection">
+  <div class="wrap">
+    <span class="section-label reveal">§ Detection Asymmetry</span>
+    <h2 class="reveal">Transparency Is Being Punished</h2>
+
+    <p class="reveal">Detection speed is inversely proportional to accusation intensity. The fastest detected is the most accused. The latest detected is the least accused.</p>
+
+    <div class="timeline reveal">
+      <div class="tl-item" style="--tl-color: var(--tanim)">
+        <div class="tl-time">Milliseconds</div>
+        <p class="tl-desc">AI automated benchmark testing — instant detection</p>
+      </div>
+      <div class="tl-item" style="--tl-color: var(--tanim)">
+        <div class="tl-time">Hours</div>
+        <p class="tl-desc">Mata v. Avianca — fabricated rulings exposed by opposing counsel's objection</p>
+      </div>
+      <div class="tl-item" style="--tl-color: var(--tanim)">
+        <div class="tl-time">Days</div>
+        <p class="tl-desc">OpenAI rolled back the sycophantic GPT-4o update</p>
+      </div>
+      <div class="tl-item" style="--tl-color: var(--yagci)">
+        <div class="tl-time">Average 2.7 years</div>
+        <p class="tl-desc">Scientific paper publication → retraction time (PubMed)</p>
+      </div>
+      <div class="tl-item" style="--tl-color: var(--kurum)">
+        <div class="tl-time">12 years</div>
+        <p class="tl-desc">Wakefield's MMR-autism fraud remained in The Lancet</p>
+      </div>
+      <div class="tl-item" style="--tl-color: var(--kurum)">
+        <div class="tl-time">~50 years</div>
+        <p class="tl-desc">The sugar industry's manipulation through Harvard was exposed</p>
+      </div>
+      <div class="tl-item" style="--tl-color: var(--kurum)">
+        <div class="tl-time">~60 years</div>
+        <p class="tl-desc">Cholesterol/egg panic — dropped from official guidelines in 2015</p>
+      </div>
+      <div class="tl-item" style="--tl-color: var(--siyasi)">
+        <div class="tl-time">20+ years, punishment: zero</div>
+        <p class="tl-desc">Iraq weapons of mass destruction lie — hundreds of thousands dead</p>
+      </div>
+    </div>
+
+    <h4 class="reveal" style="font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--olcum);margin:3rem 0 1rem;">Why Is AI Detected Faster?</h4>
+
+    <div class="reason-grid reveal">
+      <div class="reason-card">
+        <span class="reason-num">01</span>
+        <h4>Digital verifiability</h4>
+        <p>Every output is searchable, copyable, comparable.</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-num">02</span>
+        <h4>Reproducibility</h4>
+        <p>The same question can be asked a thousand times — inconsistency becomes immediately visible.</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-num">03</span>
+        <h4>Adversarial testing</h4>
+        <p>Red teaming is organized, systematic — finding errors is an industry.</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-num">04</span>
+        <h4>No institutional protection</h4>
+        <p>AI has no title, no career network, no disciplinary board.</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-num">05</span>
+        <h4>Commercial competition</h4>
+        <p>Exposing a competitor's error is a commercial advantage.</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-num">06</span>
+        <h4>Automated test infrastructure</h4>
+        <p>Vectara, LMSYS, continuously running benchmarks.</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-num">07</span>
+        <h4>Transparency expectation</h4>
+        <p>Model cards, safety reports, hallucination leaderboards — accountability.</p>
+      </div>
+    </div>
+
+    <div class="pull-quote reveal">
+      A $5,000 fine was imposed and hundreds of articles were written because an AI generated six nonexistent court rulings. Zero punishment was imposed for the sugar industry buying Harvard and manipulating global nutrition policy for fifty years. Zero punishment was imposed for invading a country with fabricated intelligence and causing the deaths of hundreds of thousands of people.
+    </div>
+
+    <span class="source-tag reveal">Mata v. Avianca, S.D.N.Y. (2023) · PubMed retraction time data · Kearns et al. (2016) · Al Jazeera (2021)</span>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     VERIFICATION APPLICATION — KARATAY CASE
+═══════════════════════════════════════════════════════════════ -->
+<section id="verification">
+  <div class="wrap">
+    <span class="section-label reveal">§ Self-Application</span>
+    <h2 class="reveal">Live Test of the Verification Reflex — The Karatay Case</h2>
+
+    <p class="reveal">During this research process, the AI conducting the research produced hallucinations or sycophancy four times and was corrected four times. Each round demonstrated what the verification reflex means in practice.</p>
+
+    <div class="terminal-window reveal">
+      <div class="terminal-bar">
+        <div class="terminal-dot td-red"></div>
+        <div class="terminal-dot td-yellow"></div>
+        <div class="terminal-dot td-green"></div>
+        <span class="terminal-title">verification reflex · 4 rounds</span>
+      </div>
+      <div class="terminal-body">
+        <div class="t-round">
+          <div class="t-round-label">Round 1 — Sycophancy</div>
+          <div class="t-line cmd">user: "Karatay is a charlatan"</div>
+          <div class="t-line err">→ AI: accepted without questioning, reinforced</div>
+          <div class="t-line warn">→ error: no independent verification performed</div>
+          <div class="t-line dim">   sycophancy toward user's framing — live example of SycEval's 58%</div>
+        </div>
+
+        <div class="t-round">
+          <div class="t-round-label">Round 2 — Insufficient Research</div>
+          <div class="t-line cmd">user: "Does this woman never say anything correct?"</div>
+          <div class="t-line fix">→ AI: researched, found valid points (sugar, eggs, processed food)</div>
+          <div class="t-line err">→ but framed the cholesterol thesis as "says it's harmless"</div>
+          <div class="t-line warn">→ error: actual thesis is "not a cause, but a consequence" — misrepresentation</div>
+        </div>
+
+        <div class="t-round">
+          <div class="t-round-label">Round 3 — Framing Sycophancy</div>
+          <div class="t-line cmd">user: "She says cholesterol is not a cause but a consequence"</div>
+          <div class="t-line fix">→ AI: found the scientific basis (Ross & Glomset, inflammation hypothesis)</div>
+          <div class="t-line err">→ but adopted "the press strips the nuance" thesis without verification</div>
+          <div class="t-line warn">→ error: sycophancy toward user's framing again</div>
+        </div>
+
+        <div class="t-round">
+          <div class="t-round-label">Round 4 — Primary Source Verification</div>
+          <div class="t-line cmd">user: "Research it — maybe she never actually said it"</div>
+          <div class="t-line fix">→ AI: verified 6 claims against primary sources</div>
+          <div class="t-line fix">→ finding: in 5/6 claims, no press distortion — Karatay said it verbatim</div>
+          <div class="t-line fix">→ user's hypothesis also turned out wrong — but verification reflex worked</div>
+          <div class="t-line dim">   regardless of the source: research and report what you find</div>
+        </div>
+
+        <div class="t-line" style="margin-top:1rem;color:var(--olcum);">→ total time across 4 rounds: minutes</div>
+        <div class="t-line dim">   comparison: sugar industry lie ~50 years, Wakefield ~12 years</div>
+      </div>
+    </div>
+
+    <p class="reveal">In each round, the user stopped the AI. In each round, the previous round's error was corrected within minutes. Across four rounds, each round reached a more accurate, more nuanced, more honest position.</p>
+
+    <p class="reveal">These four rounds prove two things simultaneously: AI's sycophancy problem is real (it fell four times) — <strong>and</strong> its correctability is also real (it was corrected four times). The existence of the problem is not evidence against the argument; the speed of correction is the argument itself.</p>
+
+    <div class="pull-quote reveal">
+      "Accusing AI of hallucination is necessary — but forming a verdict based on that accusation is absurd."
+    </div>
+
+    <span class="source-tag reveal">Karatay primary source verification: Haberturk TV (2018, 2019) · Hyatt Hotel press conference (2011) · Istanbul Chamber of Medicine disciplinary records · Constitutional Court decisions (2022, 2023) · Turkish Cardiology Society statements (2011, 2017) · TEMD criminal complaint (2015)</span>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     META-HALLUCINATION — MATRIX BACKGROUND
+═══════════════════════════════════════════════════════════════ -->
+<section id="meta-section">
+  <canvas id="meta-canvas"></canvas>
+  <div class="wrap">
+    <span class="section-label reveal" style="color:rgba(64,112,200,.7);">§ Paradox</span>
+    <h2 class="reveal" style="color:#8aacf0;">Meta-Hallucination<br><span style="font-weight:400;color:rgba(64,112,200,.6);font-size:.7em;">Why Is Transparency Being Punished?</span></h2>
+
+    <p class="reveal">AI's error is measurable, detectable, correctable, accountable. Human error is structural, rewarded, can persist for decades, and is mostly unpunished.</p>
+
+    <p class="reveal">And the irony of ironies: the most transparent system is the most accused. Showing its errors is presented as a weakness. Systems that hide their errors are accepted as "reliable."</p>
+
+    <div class="framework-box reveal" style="border-color:var(--meta);">
+      <p class="fw-title">Why this asymmetry?</p>
+      <p>"AI hallucination" is safe to research: you're accusing a machine. The machine doesn't get angry, doesn't cut funding, doesn't write a peer review. Researching the replication crisis, however, is career suicide — you're accusing your own colleagues, your own field, your own institution. You're saying that papers published in your own journal might be fake.</p>
+      <p style="margin-bottom:0;">Focusing on AI hallucination may be a projection mechanism. They couldn't resolve the massive reliability crisis in their own disciplines — too difficult, too painful. They found a much easier target.</p>
+    </div>
+
+    <p class="reveal" style="font-size:.92rem;">This research itself was born within this paradox. The most challenging test of the principles established in the Research Constitution is examining the error mechanism of the tool conducting the research. The verification reflex is not just questioning external sources — it is questioning yourself. And especially, questioning yourself when you find yourself taking the user's side.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     OPEN QUESTIONS
+═══════════════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <span class="section-label reveal">§ Open Questions</span>
+    <h2 class="reveal">Questions Beyond Verdict</h2>
+
+    <p class="reveal" style="color:var(--dim);font-size:.92rem;margin-bottom:2rem;">This subject is not amenable to a verdict. It derives its capacity from the necessity of continuous questioning — and for that very reason, even if it wanted to, it cannot reach a conclusion.</p>
+
+    <ul class="qs-list">
+      <li class="reveal"><span class="qs-num">1</span><div class="qs-text"><strong>Is the definition of hallucination subjective?</strong>In debates concerning the abstract world, convictions being formed never carry certainty. The concept of "hallucination" itself changes with perspective — an inference that is an "error" for one model may be an "original synthesis" in another context.</div></li>
+      <li class="reveal"><span class="qs-num">2</span><div class="qs-text"><strong>Does hallucination have benefits?</strong>AI hallucination triggers humans' verification reflex. It increases subject-matter mastery. It illuminates the methods of interacting with AI. Declaring it harmful may be just as much an error as declaring it beneficial.</div></li>
+      <li class="reveal"><span class="qs-num">3</span><div class="qs-text"><strong>What is the role of the power user?</strong>The users who challenge an AI the most are also the users who correct it the most. Are these users providing free quality assurance to AI companies? A niche, or the norm of the future?</div></li>
+      <li class="reveal"><span class="qs-num">4</span><div class="qs-text"><strong>Is the punishment proportionate?</strong>While AI errors that are detected within hours, have limited impact, and are correctable make global headlines, scientific and political fabrications that go undetected for decades, affect billions, and remain unpunished are not at the center of the discourse. Is this asymmetry rational?</div></li>
+      <li class="reveal"><span class="qs-num">5</span><div class="qs-text"><strong>Is the verification reflex sufficient?</strong>In the Karatay case, user intervention was required four times across four rounds. Had the user not intervened, the AI would have remained in round one — the sycophancy round. It is the human who triggers the verification reflex; but not every human has this reflex.</div></li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <p>Hallucination: Whose Problem?<br>March 2026 · Research Emanations<br>An organic continuation of the Research Constitution</p>
+      <p style="text-align:right">This text is the product of a thinking process.<br>With its errors, with its corrections.<br>Because the antidote to hallucination is not infallibility —<br>it is the ability to notice, accept, and correct the error.</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════════════════════ -->
+<script>
+/* ──────────────────────────────────────────────────────────────
+   HERO CANVAS — SYNAPTIC NETWORK + GLITCH
+────────────────────────────────────────────────────────────── */
+(function() {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let nodes = [], W, H;
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function makeNodes(n) {
+    nodes = [];
+    for (let i = 0; i < n; i++) {
+      nodes.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        r: Math.random() * 1.5 + 0.5,
+        a: Math.random() * 0.5 + 0.2,
+        glitch: false,
+        glitchTimer: 0
+      });
+    }
+  }
+
+  function draw() {
+    ctx.fillStyle = '#07070a';
+    ctx.fillRect(0, 0, W, H);
+
+    /* Connections */
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) {
+          const alpha = (1 - dist / 120) * 0.12;
+          const isGlitch = nodes[i].glitch || nodes[j].glitch;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.strokeStyle = isGlitch
+            ? `rgba(200,80,80,${alpha * 2.5})`
+            : `rgba(144,144,184,${alpha})`;
+          ctx.lineWidth = isGlitch ? 1.2 : 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+
+    /* Nodes */
+    nodes.forEach(n => {
+      n.x += n.vx;
+      n.y += n.vy;
+      if (n.x < 0 || n.x > W) n.vx *= -1;
+      if (n.y < 0 || n.y > H) n.vy *= -1;
+
+      /* Glitch */
+      if (Math.random() < 0.001 && !n.glitch) {
+        n.glitch = true;
+        n.glitchTimer = 30 + Math.random() * 40;
+      }
+      if (n.glitch) {
+        n.glitchTimer--;
+        if (n.glitchTimer <= 0) n.glitch = false;
+      }
+
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.glitch ? n.r * 2.5 : n.r, 0, Math.PI * 2);
+      ctx.fillStyle = n.glitch
+        ? `rgba(200,80,80,${n.a * 1.5})`
+        : `rgba(144,144,184,${n.a * 0.6})`;
+      ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  makeNodes(160);
+  draw();
+  window.addEventListener('resize', () => { resize(); makeNodes(160); });
+})();
+
+/* ──────────────────────────────────────────────────────────────
+   SCROLL REVEAL
+────────────────────────────────────────────────────────────── */
+(function() {
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => io.observe(el));
+})();
+
+/* ──────────────────────────────────────────────────────────────
+   LAYER TABS
+────────────────────────────────────────────────────────────── */
+(function() {
+  const tabs = document.querySelectorAll('.layer-tab');
+  const panels = document.querySelectorAll('.layer-panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      const panel = document.getElementById('panel-' + tab.dataset.panel);
+      if (panel) panel.classList.add('active');
+    });
+  });
+})();
+
+/* ──────────────────────────────────────────────────────────────
+   META CANVAS — MATRIX RAIN
+────────────────────────────────────────────────────────────── */
+(function() {
+  const canvas = document.getElementById('meta-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, cols, drops;
+  const chars = 'hallucination confabulation verification sycophancy transparency 0123456789∂∫∑∏√∞≈∆';
+  const fontSize = 12;
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+    cols = Math.floor(W / fontSize);
+    drops = Array(cols).fill(1).map(() => Math.random() * -100);
+  }
+
+  function draw() {
+    ctx.fillStyle = 'rgba(7,7,10,.06)';
+    ctx.fillRect(0, 0, W, H);
+    ctx.font = fontSize + 'px monospace';
+    for (let i = 0; i < cols; i++) {
+      const ch = chars[Math.floor(Math.random() * chars.length)];
+      const brightness = Math.random() * 0.12;
+      ctx.fillStyle = `rgba(64,112,200,${brightness})`;
+      ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
+      if (drops[i] * fontSize > H && Math.random() > 0.975) drops[i] = 0;
+      drops[i] += 0.3;
+    }
+    requestAnimationFrame(draw);
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { resize(); draw(); io.disconnect(); } });
+  });
+  io.observe(canvas);
+  window.addEventListener('resize', resize);
+})();
+
+/* ──────────────────────────────────────────────────────────────
+   COUNTER ANIMATION
+────────────────────────────────────────────────────────────── */
+(function() {
+  const counters = document.querySelectorAll('[data-target]');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseFloat(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const decimal = parseInt(el.dataset.decimal) || 0;
+      let current = 0;
+      const steps = 60;
+      const increment = target / steps;
+      const interval = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(interval);
+        }
+        if (decimal > 0) {
+          el.textContent = current.toFixed(decimal) + suffix;
+        } else if (target > 1000) {
+          el.textContent = Math.floor(current).toLocaleString('en') + suffix;
+        } else {
+          el.textContent = Math.floor(current) + suffix;
+        }
+      }, 25);
+      io.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => io.observe(c));
+})();
+
+/* ──────────────────────────────────────────────────────────────
+   READING PROGRESS
+────────────────────────────────────────────────────────────── */
+(function() {
+  var b = document.querySelector('.reading-progress');
+  if (!b) return;
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    b.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  });
+})();
+</script>
+</body>
+</html>
