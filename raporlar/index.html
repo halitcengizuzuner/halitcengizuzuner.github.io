@@ -535,7 +535,7 @@
                         <h2 class="card-title">${note.title[currentLang]}</h2>
                         <p class="card-summary">${note.summary[currentLang]}</p>
                         <div class="card-footer">
-                            <a href="${note.id}.html" class="card-action card-action-read">
+                            <a href="${note.id}${currentLang === 'en' ? '-en' : ''}.html" class="card-action card-action-read">
                                 ${note.readMore[currentLang]}
                                 <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
