@@ -2,2126 +2,384 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="Halit Cengiz Uzuner — Sorular cevaplardan önemlidir.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sorular cevaplardan önemlidir.">
     <meta name="author" content="Halit Cengiz Uzuner">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Halit Cengiz Uzuner">
-    <meta property="og:description" content="Sorular cevaplardan önemlidir.">
+    <meta property="og:title" content="Sorular cevaplardan önemlidir.">
+    <meta property="og:description" content="Bir organizma. Düşünüyor.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://halitcengizuzuner.com/">
     <link rel="canonical" href="https://halitcengizuzuner.com/">
-    <!-- Hreflang -->
-    <link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/">
-    <link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/">
-    <link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/">
-    <!-- OG extras -->
-    <meta property="og:locale" content="tr_TR">
-    <meta property="og:locale:alternate" content="en_US">
-    <meta property="og:site_name" content="Halit Cengiz Uzuner">
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Halit Cengiz Uzuner">
-    <meta name="twitter:description" content="Sorular cevaplardan önemlidir.">
-    <!-- JSON-LD Person Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Halit Cengiz Uzuner",
-        "url": "https://halitcengizuzuner.com",
-        "description": "Sorular cevaplardan önemlidir.",
-        "knowsLanguage": ["tr", "en"]
-    }
-    </script>
+    <link rel="icon" href="data:,">
     <title>Halit Cengiz Uzuner</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Instrument+Serif:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
-        :root {
-            /* Warm parchment palette — organism ground */
-            --bg-primary: #D2CCC2;
-            --bg-warm: #C8C0B4;
-            --bg-surface: rgba(255, 255, 255, 0.35);
-            --bg-surface-hover: rgba(255, 255, 255, 0.50);
-            --bg-surface-solid: #E0D8CE;
-            --bg-overlay: rgba(210, 204, 194, 0.95);
-
-            --amber: #7A6B4E;
-            --amber-deep: #5C5038;
-            --amber-glow: rgba(122, 107, 78, 0.20);
-            --amber-soft: rgba(122, 107, 78, 0.08);
-            --amber-ring: rgba(122, 107, 78, 0.14);
-
-            --teal: #4A706A;
-            --blue: #4A6A8A;
-            --purple: #6B5B7B;
-            --red: #8B5A5A;
-            --green: #5A7A5A;
-            --orange: #8A6A4A;
-            --silver: #7A7A7A;
-            --indigo: #4A4A7A;
-
-            --text-primary: #2A2A2A;
-            --text-secondary: #44403A;
-            --text-muted: #6A6660;
-            --text-light: #908A80;
-            --border-subtle: rgba(0, 0, 0, 0.08);
-            --border-glass: rgba(0, 0, 0, 0.06);
-            
-            --font-display: 'Instrument Serif', serif;
-            --font-body: 'Crimson Pro', serif;
-            --font-mono: 'JetBrains Mono', monospace;
-            
-            --transition-page: 0.35s;
-            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-            --blur-card: 24px;
-        }
-
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
+        :root {
+            --void: #060604;
+            --bone: #d4ccc0;
+            --bone-bright: #ece4d8;
+            --bone-dim: rgba(212, 204, 192, 0.35);
+            --bone-ghost: rgba(212, 204, 192, 0.13);
+            --ember: #a08060;
+            --serif: 'Instrument Serif', Georgia, serif;
+        }
+
+        ::selection {
+            background: var(--ember);
+            color: var(--void);
+        }
+
         html {
-            font-size: 16px;
-            scroll-behavior: smooth;
+            font-size: clamp(17px, 1.2vw, 21px);
             -webkit-text-size-adjust: 100%;
         }
 
         body {
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: var(--font-body);
-            line-height: 1.6;
+            background: var(--void);
+            color: var(--bone);
+            font-family: var(--serif);
+            font-weight: 400;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            opacity: 0;
+            animation: emerge 1.5s ease forwards 0.3s;
+        }
+
+        @keyframes emerge {
+            to { opacity: 1; }
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.2;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 180px 180px;
+            mix-blend-mode: overlay;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        /* =============================
+           GATE
+        ============================= */
+        .gate {
             min-height: 100vh;
             min-height: 100dvh;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            -webkit-tap-highlight-color: transparent;
-            position: relative;
-        }
-
-        /* Living Background */
-        .bg-layer {
-            position: fixed; inset: 0; z-index: 0;
-            pointer-events: none; overflow: hidden;
-        }
-        .bg-grain {
-            position: absolute; inset: 0; opacity: 0.4;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-            background-repeat: repeat; background-size: 200px 200px;
-            mix-blend-mode: multiply; z-index: 2;
-        }
-        .fog-blob {
-            position: absolute; border-radius: 50%;
-            filter: blur(80px); opacity: 0;
-            animation: fog-drift 25s ease-in-out infinite;
-            will-change: transform;
-        }
-        .fog-blob.amber-1 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(122,107,78,0.40) 0%, transparent 70%); top: 15%; left: 20%; animation-delay: 0s; animation-duration: 28s; }
-        .fog-blob.teal-1 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(26,122,109,0.32) 0%, transparent 70%); top: 50%; right: 10%; animation-delay: -8s; animation-duration: 32s; }
-        .fog-blob.purple-1 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(109,40,217,0.26) 0%, transparent 70%); bottom: 20%; left: 10%; animation-delay: -15s; animation-duration: 30s; }
-        .fog-blob.orange-1 { width: 280px; height: 280px; background: radial-gradient(circle, rgba(194,65,12,0.26) 0%, transparent 70%); top: 30%; right: 30%; animation-delay: -20s; animation-duration: 35s; }
-        .fog-blob.blue-1 { width: 320px; height: 320px; background: radial-gradient(circle, rgba(37,99,235,0.22) 0%, transparent 70%); bottom: 30%; right: 20%; animation-delay: -5s; animation-duration: 26s; }
-        @keyframes fog-drift {
-            0% { opacity: 0.7; transform: translate(0, 0) scale(1); }
-            25% { opacity: 1; transform: translate(30px, -20px) scale(1.1); }
-            50% { opacity: 0.8; transform: translate(-20px, 15px) scale(0.95); }
-            75% { opacity: 1; transform: translate(15px, 25px) scale(1.05); }
-            100% { opacity: 0.7; transform: translate(0, 0) scale(1); }
-        }
-
-        /* Glass card base */
-        .glass-card {
-            background: var(--bg-surface);
-            backdrop-filter: blur(var(--blur-card));
-            -webkit-backdrop-filter: blur(var(--blur-card));
-            border: 1px solid var(--border-glass);
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.25);
-            transition: all 0.3s ease;
-        }
-        .glass-card:hover {
-            background: var(--bg-surface-hover);
-            box-shadow: 0 6px 24px rgba(0,0,0,0.09), inset 0 1px 0 rgba(255,255,255,0.3);
-        }
-
-        /* Nerve network — organism's connective tissue across all pages */
-        .nerve-network {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .nerve-network svg {
-            width: 100%;
-            height: 100%;
-            opacity: 0.14;
-        }
-
-        .nerve-line {
-            stroke: var(--amber);
-            stroke-width: 0.5;
-            fill: none;
-            stroke-dasharray: 4 12;
-        }
-
-        .nerve-dot {
-            fill: var(--amber);
-            opacity: 0.4;
-        }
-
-        /* Page identity gradients — each page has its own color atmosphere */
-        .page-gradient {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 50vh;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.7;
-        }
-
-        .page-gradient.amber-gradient {
-            background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(122,107,78,0.25) 0%, transparent 70%);
-        }
-
-        .page-gradient.multi-gradient {
-            background:
-                radial-gradient(ellipse 40% 40% at 25% 0%, rgba(26,122,109,0.20) 0%, transparent 60%),
-                radial-gradient(ellipse 40% 40% at 75% 0%, rgba(109,40,217,0.16) 0%, transparent 60%),
-                radial-gradient(ellipse 30% 30% at 50% 10%, rgba(122,107,78,0.18) 0%, transparent 60%);
-        }
-
-        .page-gradient.teal-gradient {
-            background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(26,122,109,0.25) 0%, transparent 70%);
-        }
-
-        .page-gradient.red-gradient {
-            background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(185,28,28,0.20) 0%, transparent 70%);
-        }
-
-        /* ========================================
-           UNSUPPORTED GATE
-           ======================================== */
-        #unsupported-gate {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 10000;
-            background: #D2CCC2;
-            justify-content: center;
+            display: flex;
             align-items: center;
-            text-align: center;
+            justify-content: center;
             padding: 2rem;
         }
 
-        #unsupported-gate p {
-            font-family: Georgia, serif;
-            font-size: 1rem;
-            color: var(--amber-deep);
+        .gate-words {
+            max-width: 820px;
+            width: 100%;
+        }
+
+        .gate-words .w {
+            display: block;
+            line-height: 0.95;
+            letter-spacing: -0.035em;
+        }
+
+        .w-1 {
+            font-size: clamp(4rem, 11vw, 10rem);
+            color: var(--bone-bright);
+        }
+
+        .w-2 {
+            font-size: clamp(1.6rem, 4vw, 3.5rem);
+            color: var(--bone-dim);
+            padding-left: 0.3em;
+            margin-top: 0.15em;
+        }
+
+        .w-3 {
+            font-size: clamp(2.5rem, 6.5vw, 6rem);
+            color: var(--bone);
+            text-align: right;
+            margin-top: 0.1em;
+        }
+
+        /* =============================
+           STANCE — who we are
+        ============================= */
+        .stance {
+            max-width: 580px;
+            padding: 18vh 2.5rem 0;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .stance.seen {
+            opacity: 1;
+            transform: none;
+        }
+
+        .stance p {
+            font-size: clamp(1.05rem, 1.4vw, 1.2rem);
             line-height: 2;
-            max-width: 400px;
+            color: var(--bone-dim);
+            font-weight: 400;
         }
 
-        /* ========================================
-           INTRO
-           ======================================== */
-        #intro-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 9000;
-            background: #D2CCC2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.6s ease;
+        .stance p + p {
+            margin-top: 1.8rem;
         }
 
-        #intro-overlay.fade-out {
+        /* =============================
+           MIND — the thought wall
+        ============================= */
+        .mind {
+            padding: 10vh 0 5vh;
+        }
+
+        .thought {
+            padding: 0 2.5rem;
             opacity: 0;
-            pointer-events: none;
+            transform: translateY(8px);
+            transition: opacity 1s ease, transform 1s ease;
         }
 
-        .intro-core {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--amber);
-            box-shadow: 0 0 30px var(--amber-glow), 0 0 60px rgba(122, 107, 78, 0.1);
-            animation: intro-breathe-light 1.5s ease-in-out infinite, intro-grow 2s var(--ease-out-expo) forwards;
+        .thought.seen {
+            opacity: 1;
+            transform: none;
         }
 
-        @keyframes intro-breathe-light {
-            0%, 100% { box-shadow: 0 0 30px var(--amber-glow), 0 0 60px rgba(122, 107, 78, 0.1); }
-            50% { box-shadow: 0 0 50px var(--amber-glow), 0 0 90px rgba(122, 107, 78, 0.08); }
+        .thought a {
+            transition: color 0.4s ease;
         }
 
-        @keyframes intro-grow {
-            0% { transform: scale(0.3); opacity: 0; }
-            30% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(1); opacity: 1; }
+        .thought a:hover {
+            color: var(--ember);
         }
 
-        /* ========================================
-           APP SHELL
-           ======================================== */
-        #app {
+        /* sizes */
+        .t-large {
+            font-size: clamp(1.9rem, 4vw, 3.2rem);
+            line-height: 1.25;
+            color: var(--bone-bright);
+            font-style: italic;
+        }
+
+        .t-medium {
+            font-size: clamp(1.35rem, 2.8vw, 2.1rem);
+            line-height: 1.35;
+            color: var(--bone);
+        }
+
+        .t-small {
+            font-size: clamp(1rem, 1.6vw, 1.25rem);
+            line-height: 1.6;
+            color: var(--bone-dim);
+        }
+
+        /* positions */
+        .p-left {
+            max-width: 65%;
+            margin-right: auto;
+        }
+
+        .p-right {
+            max-width: 65%;
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .p-center {
+            max-width: 50%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .p-wide {
+            max-width: 80%;
+            margin-right: auto;
+        }
+
+        /* spacing — irregular rhythm */
+        .gap-vast { margin-top: 22vh; }
+        .gap-wide { margin-top: 15vh; }
+        .gap-breath { margin-top: 10vh; }
+        .gap-close { margin-top: 6vh; }
+
+        /* =============================
+           LIMBS
+        ============================= */
+        .limbs {
+            margin-top: 25vh;
+            padding: 0 2.5rem 8vh;
+            max-width: 480px;
             opacity: 0;
-            transition: opacity 0.5s ease;
-            min-height: 100vh;
-            min-height: 100dvh;
-            position: relative;
-            z-index: 1;
+            transform: translateY(8px);
+            transition: opacity 1s ease, transform 1s ease;
         }
 
-        #app.visible { opacity: 1; }
+        .limbs.seen {
+            opacity: 1;
+            transform: none;
+        }
 
-        /* ========================================
-           HEADER
-           ======================================== */
-        .site-header {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 500;
-            padding: 1.25rem 1.5rem;
+        .limb {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            pointer-events: none;
-        }
-
-        .site-header > * { pointer-events: auto; }
-
-        .lang-toggle {
-            display: flex; gap: 1px;
-            background: var(--bg-surface);
-            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            border-radius: 6px; overflow: hidden;
-            border: 1px solid var(--border-glass);
-            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-        }
-
-        .lang-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            font-weight: 400;
-            letter-spacing: 0.1em;
-            padding: 0.4rem 0.7rem;
-            cursor: pointer;
-            transition: all 0.25s ease;
-        }
-
-        .lang-btn:hover { color: var(--text-secondary); }
-
-        .lang-btn.active {
-            color: var(--amber-deep);
-            background: var(--amber-soft);
-        }
-
-        .nav-wrapper {
-            position: relative;
-        }
-
-        .hamburger {
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center; gap: 4px;
-            background: var(--bg-surface);
-            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--border-glass);
-            border-radius: 6px; cursor: pointer;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0.7rem;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-        }
-        .hamburger:hover { background: var(--bg-surface-hover); }
-
-        .hamburger-lines {
-            display: flex; flex-direction: column; gap: 4px;
-            align-items: center;
-        }
-
-        .hamburger-lines span {
-            display: block;
-            width: 16px;
-            height: 1.5px;
-            background: var(--text-secondary);
-            transition: all 0.3s var(--ease-out-expo);
-            transform-origin: center;
-        }
-
-        .hamburger.open .hamburger-lines span:nth-child(1) { transform: rotate(45deg) translate(2px, 2px); }
-        .hamburger.open .hamburger-lines span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-        .hamburger.open .hamburger-lines span:nth-child(3) { transform: rotate(-45deg) translate(2px, -2px); }
-
-        .hamburger-label {
-            font-family: var(--font-mono);
-            font-size: 0.45rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-light);
-            margin-top: 2px;
-        }
-
-        /* Nav Dropdown */
-        .nav-dropdown {
-            position: absolute;
-            top: calc(100% + 8px);
-            right: 0;
-            background: rgba(255,255,255,0.65);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(0,0,0,0.06);
-            border-radius: 10px;
-            padding: 0.6rem 0;
-            min-width: 200px;
-            opacity: 0;
-            pointer-events: none;
-            transform: translateY(-8px);
-            transition: all 0.25s var(--ease-out-expo);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-            z-index: 500;
-        }
-
-        .nav-dropdown.open {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0);
-        }
-
-        .nav-menu {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .nav-link {
-            font-family: var(--font-display);
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            display: flex;
             align-items: baseline;
-            gap: 0.6rem;
-            padding: 0.55rem 1.2rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid var(--bone-ghost);
         }
 
-        .nav-link:hover {
-            color: var(--amber-deep);
-            background: rgba(122,107,78,0.04);
+        .limb:first-child {
+            border-top: 1px solid var(--bone-ghost);
         }
 
-        .nav-link-sub {
-            display: block;
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            letter-spacing: 0.2em;
-            color: var(--text-light);
-            margin-top: 0.25rem;
-            text-transform: uppercase;
+        .limb-name {
+            font-size: 1.3rem;
         }
 
-        /* ========================================
-           PAGES
-           ======================================== */
-        .page {
-            display: none;
-            min-height: 100vh;
-            min-height: 100dvh;
-        }
-
-        .page.active {
-            display: block;
-            animation: pageEnter 0.4s var(--ease-out-expo) forwards;
-        }
-
-        .page.exiting {
-            animation: pageExit 0.3s ease-out forwards;
-        }
-
-        @keyframes pageEnter {
-            0% { opacity: 0; transform: translateY(12px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes pageExit {
-            0% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-
-        /* ========================================
-           HOME — ORGANISM
-           ======================================== */
-        .home {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            grid-template-rows: 1fr auto;
-            align-items: start;
-            justify-items: start;
-            min-height: 100vh;
-            min-height: 100dvh;
-            padding: 5rem 2.5rem 3rem;
-            position: relative;
-            gap: 0;
-        }
-
-        /* Subtle radial warmth behind entity */
-        .home::before {
-            content: '';
-            position: absolute;
-            top: 5rem;
-            left: 0;
-            width: min(420px, 65vw);
-            height: min(420px, 65vw);
-            background: radial-gradient(circle, rgba(122, 107, 78, 0.12) 0%, transparent 65%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .entity-container {
-            position: relative;
-            width: clamp(220px, 42vw, 360px);
-            height: clamp(220px, 42vw, 360px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
-            grid-column: 1;
-            grid-row: 1;
-        }
-
-
-        /* Constellation — ? with tracing light */
-        .entity-constellation {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: clamp(170px, 36vw, 300px);
-            height: clamp(170px, 36vw, 300px);
-            z-index: 3;
-            pointer-events: none;
-        }
-
-        .entity-constellation svg {
-            width: 100%; height: 100%;
-            overflow: visible;
-        }
-
-        /* Orbital ring */
-        .orbital-ring {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        .connections-svg {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .connection-line {
-            stroke: var(--amber);
-            stroke-width: 0.8;
-            opacity: 0.2;
-            stroke-dasharray: 3 6;
-        }
-
-        .limb-node {
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.4rem;
-            pointer-events: auto;
-            cursor: default;
-            transform: translate(-50%, -50%);
-            transition: transform 0.3s var(--ease-out-expo), z-index 0s;
-            z-index: 1;
-        }
-
-        .limb-node:hover { transform: translate(-50%, -50%) scale(1.1); z-index: 200; }
-
-        .limb-dot {
-            width: clamp(14px, 3vw, 20px);
-            height: clamp(14px, 3vw, 20px);
-            border-radius: 50%;
-            position: relative;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .limb-node:hover .limb-dot {
-            box-shadow: 0 2px 16px rgba(0,0,0,0.15);
-        }
-
-        .limb-dot::after {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            border-radius: 50%;
-            border: 1px solid currentColor;
-            opacity: 0.2;
-            animation: limb-ring-pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes limb-ring-pulse {
-            0%, 100% { transform: scale(1); opacity: 0.2; }
-            50% { transform: scale(1.35); opacity: 0.06; }
-        }
-
-        .limb-label {
-            font-family: var(--font-mono);
-            font-size: clamp(0.5rem, 1.1vw, 0.6rem);
-            font-weight: 500;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            white-space: nowrap;
-            opacity: 0.65;
-            transition: opacity 0.3s ease;
-        }
-
-        .limb-node:hover .limb-label { opacity: 1; }
-
-        .limb-tooltip {
-            position: absolute;
-            bottom: calc(100% + 14px);
-            left: 50%;
-            transform: translateX(-50%) translateY(5px);
-            background: rgba(255,255,255,0.60);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(0,0,0,0.06);
-            border-radius: 10px;
-            padding: 0.7rem 0.9rem;
-            min-width: 170px;
-            text-align: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.25s var(--ease-out-expo);
-            z-index: 100;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        .limb-tooltip.tooltip-below {
-            bottom: auto;
-            top: calc(100% + 14px);
-        }
-
-        .limb-node:hover .limb-tooltip {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .limb-tooltip-name {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            letter-spacing: 0.1em;
-            color: var(--text-light);
-            margin-bottom: 0.2rem;
-        }
-
-        .limb-tooltip-role {
-            font-family: var(--font-body);
+        .limb-what {
             font-size: 0.8rem;
-            color: var(--text-secondary);
-            line-height: 1.4;
-        }
-
-        .limb-node.sleeping .limb-dot { opacity: 0.35; }
-        .limb-node.sleeping .limb-label { opacity: 0.3; }
-        .limb-node.sleeping .limb-dot::after { animation-duration: 8s; }
-
-        .home-info {
-            grid-column: 2;
-            grid-row: 1;
-            align-self: center;
-            padding-left: clamp(1rem, 3vw, 3rem);
-            z-index: 1;
-        }
-
-        .home-fullname-large {
-            font-family: var(--font-display);
-            font-size: clamp(2.2rem, 5vw, 3.6rem);
-            color: var(--text-primary);
-            line-height: 1.15;
-            margin-bottom: 1.2rem;
-            letter-spacing: -0.01em;
-        }
-
-        .home-fullname-large span {
-            display: block;
-        }
-
-        .home-philosophy {
-            z-index: 1;
-        }
-
-        .home-philosophy p {
-            font-family: var(--font-body);
-            font-style: italic;
-            font-size: clamp(0.95rem, 2vw, 1.15rem);
-            color: var(--text-muted);
-            letter-spacing: 0.03em;
-            line-height: 1.6;
-            max-width: 380px;
-        }
-
-        .home-sigil {
-            margin-top: 2rem;
-            z-index: 1;
-            position: relative;
-        }
-
-        .sigil-paper {
-            position: relative;
-            padding: 0.8rem 1.2rem;
-            border: 1px solid rgba(122, 107, 78, 0.15);
-            border-radius: 4px;
-            display: inline-block;
-        }
-
-        .sigil-text {
-            font-family: 'Caveat', cursive;
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: var(--amber-deep);
-            line-height: 1.5;
-            opacity: 0;
-            -webkit-animation: sigil-appear 5s ease-in-out infinite;
-            animation: sigil-appear 5s ease-in-out infinite;
-        }
-
-        .sigil-text-line2 {
-            -webkit-animation-delay: 0.8s;
-            animation-delay: 0.8s;
-        }
-
-        .sigil-pen-icon {
-            position: absolute;
-            bottom: -6px;
-            right: -6px;
-            width: 20px;
-            height: 20px;
-            animation: sigil-nudge 5s ease-in-out infinite;
-        }
-
-        @-webkit-keyframes sigil-appear {
-            0% { opacity: 0; }
-            15% { opacity: 0; }
-            30% { opacity: 1; }
-            75% { opacity: 1; }
-            90% { opacity: 0; }
-            100% { opacity: 0; }
-        }
-
-        @keyframes sigil-appear {
-            0% { opacity: 0; }
-            15% { opacity: 0; }
-            30% { opacity: 1; }
-            75% { opacity: 1; }
-            90% { opacity: 0; }
-            100% { opacity: 0; }
-        }
-
-        @keyframes sigil-nudge {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(-2px, -1px) rotate(-8deg); }
-            50% { transform: translate(1px, 0) rotate(0deg); }
-            75% { transform: translate(-1px, -1px) rotate(-4deg); }
-        }
-
-        /* ========================================
-           CORE PAGE
-           ======================================== */
-        .page-core {
-            padding: 7rem 1.5rem 4rem;
-            max-width: 680px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .core-header { text-align: center; margin-bottom: 3rem; }
-
-        .core-title {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 5vw, 3rem);
-            color: var(--amber-deep);
-            margin-bottom: 0.4rem;
-        }
-
-        .core-subtitle {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            letter-spacing: 0.3em;
-            color: var(--text-light);
-            text-transform: uppercase;
-        }
-
-        .core-body {
-            font-family: var(--font-body);
-            font-size: clamp(1.05rem, 2.2vw, 1.2rem);
-            color: var(--text-secondary);
-            line-height: 1.9;
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-
-        .core-layer {
-            padding: 1.8rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .core-layer:nth-child(2) { background: rgba(255,255,255,0.35); }
-        .core-layer:nth-child(3) { background: rgba(255,255,255,0.30); border-left: 2px solid rgba(122,107,78,0.08); }
-        .core-layer:nth-child(4) { background: rgba(255,255,255,0.25); border-left: 2px solid rgba(122,107,78,0.12); }
-        .core-layer:nth-child(5) { background: rgba(255,255,255,0.20); border-left: 2px solid rgba(122,107,78,0.16); }
-        .core-layer:nth-child(6) { background: rgba(255,255,255,0.16); border-left: 2px solid rgba(74,112,106,0.18); }
-        .core-layer:nth-child(7) { background: rgba(255,255,255,0.12); border-left: 2px solid rgba(74,112,106,0.24); }
-
-        .core-layer-illustration {
-            text-align: center;
-            margin-bottom: 1rem;
-            opacity: 0.85;
-        }
-
-        .core-layer-illustration svg {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .core-layer-label {
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--teal);
-            font-weight: 500;
-            margin-bottom: 0.6rem;
-        }
-
-        .core-layer-phrase {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            color: var(--text-primary);
-            margin-bottom: 0.4rem;
-            line-height: 1.5;
-        }
-
-        .core-layer-note {
-            font-family: var(--font-body);
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .core-layers-title {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--amber-deep);
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-
-        /* ========================================
-           ASSEMBLY PAGE
-           ======================================== */
-        .page-assembly {
-            padding: 7rem 1.5rem 4rem;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .assembly-header { text-align: center; margin-bottom: 3rem; }
-
-        .assembly-title {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 5vw, 3rem);
-            color: var(--amber-deep);
-            margin-bottom: 0.4rem;
-        }
-
-        .assembly-subtitle {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            letter-spacing: 0.3em;
-            color: var(--text-light);
-            text-transform: uppercase;
-        }
-
-        .assembly-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1rem;
-        }
-
-        .limb-card {
-            padding: 1.4rem; position: relative; overflow: hidden;
-        }
-        .limb-card:hover { transform: translateY(-2px); }
-
-        .limb-card-header {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            margin-bottom: 0.6rem;
-        }
-
-        .limb-card-dot {
-            width: 10px; height: 10px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .limb-card-persona {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-        }
-
-        .limb-card-tool {
-            font-family: var(--font-body);
-            font-style: italic;
-            font-size: 0.8rem;
-            color: var(--text-light);
-            margin-bottom: 0.4rem;
-        }
-
-        .limb-card-role {
-            font-family: var(--font-body);
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        .limb-card-status {
-            font-family: var(--font-mono);
-            font-size: 0.5rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            margin-top: 0.7rem;
-            display: flex;
-            align-items: center;
-            gap: 0.35rem;
-        }
-
-        .status-dot {
-            width: 5px; height: 5px;
-            border-radius: 50%;
-            animation: status-blink 2s ease-in-out infinite;
-        }
-
-        .status-dot.sleeping { animation-duration: 6s; opacity: 0.35; }
-
-        @keyframes status-blink {
-            0%, 100% { opacity: 0.35; }
-            50% { opacity: 1; }
-        }
-
-        /* ========================================
-           EMANATIONS PAGE
-           ======================================== */
-        .page-emanations {
-            padding: 7rem 1.5rem 4rem;
-            max-width: 760px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .emanations-header { text-align: center; margin-bottom: 3rem; }
-
-        .emanations-title {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 5vw, 3rem);
-            color: var(--amber-deep);
-            margin-bottom: 0.4rem;
-        }
-
-        .emanations-subtitle {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            letter-spacing: 0.3em;
-            color: var(--text-light);
-            text-transform: uppercase;
-        }
-
-        .emanation-filters {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-
-        .emanation-filter-btn {
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-light);
-            background: transparent;
-            border: 1px solid var(--border-subtle);
-            padding: 0.4rem 0.9rem;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .emanation-filter-btn:hover {
-            border-color: var(--teal);
-            color: var(--teal);
-        }
-
-        .emanation-filter-btn.active {
-            border-color: var(--teal);
-            color: var(--teal);
-            background: rgba(26, 122, 109, 0.06);
-        }
-
-        .emanation-filter-count {
-            font-size: 0.5rem;
-            opacity: 0.5;
-            margin-left: 0.2rem;
-        }
-
-        .emanation-card { padding: 1.8rem; margin-bottom: 1.2rem; border-left: 2px solid transparent; cursor: pointer; transition: all 0.3s ease; }
-        .emanation-card:hover { border-color: var(--amber-ring); border-left-color: var(--teal); box-shadow: 0 4px 20px rgba(74, 112, 106, 0.08), 0 0 0 1px rgba(74, 112, 106, 0.05); }
-
-        .emanation-meta {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 0.6rem;
-        }
-
-        .emanation-category {
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--teal);
-            font-weight: 500;
-        }
-
-        .emanation-date {
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            color: var(--text-light);
-            letter-spacing: 0.1em;
-        }
-
-        .emanation-title {
-            font-family: var(--font-display);
-            font-size: 1.25rem;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .emanation-summary {
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 1.2rem;
-        }
-
-        .emanation-doc-info {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 0.8rem;
-            padding: 0.5rem 0.7rem;
-            background: rgba(26,122,109,0.04);
-            border-radius: 6px;
-            border-left: 2px solid var(--teal);
-        }
-        .emanation-doc-type {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            letter-spacing: 0.1em;
-            color: var(--teal);
-            font-weight: 500;
-        }
-        .emanation-doc-pages {
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            color: var(--text-light);
+            color: var(--bone-ghost);
             letter-spacing: 0.08em;
         }
 
-        .emanation-actions { display: flex; gap: 0.7rem; flex-wrap: wrap; }
-
-        .emanation-btn {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            font-weight: 400;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-secondary);
-            background: transparent;
-            border: 1px solid var(--border-subtle);
-            padding: 0.55rem 1.1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
+        .limb-human .limb-name {
+            font-style: italic;
+            color: var(--bone-dim);
         }
 
-        .emanation-btn:hover {
-            border-color: var(--teal);
-            color: var(--teal);
-            background: rgba(26, 122, 109, 0.04);
+        /* =============================
+           SEAL
+        ============================= */
+        .seal {
+            padding: 6vh 2.5rem 4vh;
+            opacity: 0;
+            transition: opacity 1s ease;
         }
 
-        .emanation-btn.listen:hover {
-            border-color: var(--purple);
-            color: var(--purple);
-            background: rgba(109, 40, 217, 0.04);
-        }
+        .seal.seen { opacity: 1; }
 
-        .emanation-illustration {
-            text-align: center;
-            margin-bottom: 1.2rem;
-            opacity: 0.45;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            transform: scale(0.97);
-            animation: illustration-breathe 6s ease-in-out infinite;
-        }
-        .emanation-card:hover .emanation-illustration { opacity: 0.85; transform: scale(1.0); animation: none; }
-        .emanation-illustration svg {
-            width: 100%;
-            max-width: 360px;
-            height: auto;
-        }
-        @keyframes illustration-breathe {
-            0%, 100% { opacity: 0.45; }
-            50% { opacity: 0.55; }
-        }
-
-        .home-email {
-            margin-top: 0.8rem;
-        }
-        .home-email a {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            letter-spacing: 0.08em;
+        .seal a {
+            font-size: 0.8rem;
+            color: var(--bone-ghost);
+            letter-spacing: 0.05em;
             transition: color 0.3s;
         }
-        .home-email a:hover { color: var(--teal); }
 
+        .seal a:hover { color: var(--bone); }
 
-
-        /* Bottom entity ambient — organism's pulse at page bottom */
-        .bottom-entity {
-            position: fixed;
-            bottom: -5%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: clamp(300px, 50vw, 600px);
-            height: clamp(300px, 50vw, 600px);
-            border-radius: 50%;
-            overflow: hidden;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.12;
-        }
-
-        .bottom-entity video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .bottom-entity.loaded {
-            animation: bottom-breathe 8s ease-in-out infinite;
-        }
-
-        @keyframes bottom-breathe {
-            0%, 100% { opacity: 0.12; filter: blur(2px); transform: translateX(-50%) scale(1); }
-            50% { opacity: 0.35; filter: blur(0px); transform: translateX(-50%) scale(1.03); }
-        }
-
-        /* Fallback glow for when video doesn't load */
-        .bottom-entity-fallback {
-            position: fixed;
-            bottom: -8%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: clamp(300px, 45vw, 500px);
-            height: clamp(300px, 45vw, 500px);
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(122,107,78,0.18) 0%, rgba(122,107,78,0.07) 40%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-            animation: bottom-glow 6s ease-in-out infinite;
-        }
-
-        @keyframes bottom-glow {
-            0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
-            50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
-        }
-
-        /* ========================================
-           READING TIME
-           ======================================== */
-        .emanation-reading-time {
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            color: var(--text-light);
-            letter-spacing: 0.1em;
-        }
-        .emanation-reading-time::before {
-            content: '\00b7';
-            margin: 0 0.5rem;
-            color: var(--text-light);
-        }
-
-        /* ========================================
-           ACCORDION — SECTION PREVIEW
-           ======================================== */
-        .emanation-sections {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s var(--ease-out-expo), opacity 0.3s ease;
-            opacity: 0;
-            padding: 0 0.2rem;
-        }
-        .emanation-card.expanded .emanation-sections {
-            max-height: 500px;
-            opacity: 1;
-            margin-top: 0.8rem;
-        }
-        .emanation-section-item {
-            font-family: var(--font-body);
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            padding: 0.3rem 0.6rem;
-            border-left: 1px solid var(--border-subtle);
-            transition: all 0.2s ease;
-            line-height: 1.6;
-        }
-        .emanation-section-item:hover {
-            border-left-color: var(--teal);
-            color: var(--text-secondary);
-        }
-        .emanation-expand-hint {
-            font-family: var(--font-mono);
-            font-size: 0.5rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-light);
-            text-align: center;
-            margin-top: 0.8rem;
-            transition: color 0.2s ease;
-        }
-        .emanation-expand-hint:hover { color: var(--teal); }
-        .emanation-card.expanded .hint-expand { display: none; }
-        .emanation-card:not(.expanded) .hint-collapse { display: none; }
-
-        /* ========================================
-           HOME — LATEST EMANATION PULSE
-           ======================================== */
-        .home-latest {
-            margin-top: 1.5rem;
-        }
-        .home-latest-inner {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.7rem;
-            padding: 0.5rem 0.9rem;
-            background: var(--bg-surface);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--border-glass);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        .home-latest-inner:hover {
-            background: var(--bg-surface-hover);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-        }
-        .home-latest-pulse {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--teal);
-            animation: pulse-dot 2s ease-in-out infinite;
-            flex-shrink: 0;
-        }
-        @keyframes pulse-dot {
-            0%, 100% { opacity: 0.5; box-shadow: 0 0 0 0 rgba(74,112,106,0.3); }
-            50% { opacity: 1; box-shadow: 0 0 0 4px rgba(74,112,106,0); }
-        }
-        .home-latest-date {
-            font-family: var(--font-mono);
-            font-size: 0.5rem;
-            color: var(--text-light);
-            letter-spacing: 0.1em;
-        }
-        .home-latest-title {
-            font-family: var(--font-display);
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        /* ========================================
-           HOME — STAGGERED ENTRY
-           ======================================== */
-        .home-info > * {
-            opacity: 0;
-            transform: translateY(12px);
-        }
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .home.stagger-in .home-fullname-large { animation: fadeInUp 0.5s ease forwards; animation-delay: 2.3s; }
-        .home.stagger-in .home-philosophy { animation: fadeInUp 0.5s ease forwards; animation-delay: 2.6s; }
-        .home.stagger-in .home-email { animation: fadeInUp 0.5s ease forwards; animation-delay: 2.8s; }
-        .home.stagger-in .home-sigil { animation: fadeInUp 0.5s ease forwards; animation-delay: 3.0s; }
-        .home.stagger-in .home-latest { animation: fadeInUp 0.5s ease forwards; animation-delay: 3.3s; }
-
-        .home.stagger-in.quick .home-fullname-large { animation-delay: 0.1s; }
-        .home.stagger-in.quick .home-philosophy { animation-delay: 0.2s; }
-        .home.stagger-in.quick .home-email { animation-delay: 0.3s; }
-        .home.stagger-in.quick .home-sigil { animation-delay: 0.4s; }
-        .home.stagger-in.quick .home-latest { animation-delay: 0.5s; }
-
-        /* ========================================
+        /* =============================
            RESPONSIVE
-           ======================================== */
-        @media (max-width: 768px) {
-            .site-header { padding: 1rem; }
-            .home {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto auto;
-                justify-items: center;
-                padding: 5rem 1.5rem 3rem;
+        ============================= */
+        @media (max-width: 640px) {
+            .gate { padding: 1.5rem; }
+            .thought { padding: 0 1.5rem; }
+            .p-left, .p-right, .p-center, .p-wide {
+                max-width: 100%;
+                text-align: left;
+                margin-left: 0;
+                margin-right: 0;
             }
-            .entity-container {
-                grid-column: 1;
-                grid-row: 1;
-                width: 240px;
-                height: 240px;
-            }
-            .home-info {
-                grid-column: 1;
-                grid-row: 2;
-                padding-left: 0;
-                text-align: center;
-                align-self: start;
-                margin-top: 1rem;
-            }
-            .home-fullname-large { text-align: center; }
-            .home-philosophy p { margin: 0 auto; }
-            .limb-tooltip { display: none; }
-            .home-latest-inner { flex-wrap: wrap; }
-            .home-latest { text-align: center; }
-            .assembly-grid { grid-template-columns: 1fr; }
-
-            .fog-blob { filter: blur(60px); }
-            .fog-blob.amber-1 { width: 250px; height: 250px; }
-            .fog-blob.teal-1 { width: 220px; height: 220px; }
-            .fog-blob.purple-1 { width: 200px; height: 200px; }
-            .fog-blob.orange-1 { width: 180px; height: 180px; }
-            .fog-blob.blue-1 { width: 200px; height: 200px; }
-            .bottom-entity, .bottom-entity-fallback { width: 220px; height: 220px; bottom: -8%; }
-        }
-
-        @media (max-width: 480px) {
-            .entity-container { width: 240px; height: 240px; }
-            .limb-label { font-size: 0.45rem; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            .fog-blob { display: none; }
-            .bottom-entity, .bottom-entity-fallback { display: none; }
+            .limbs { padding: 0 1.5rem 6vh; }
+            .seal { padding: 4vh 1.5rem 3vh; }
         }
     </style>
 </head>
 <body>
 
-<!-- LIVING BACKGROUND -->
-<div class="bg-layer">
-    <div class="fog-blob amber-1"></div>
-    <div class="fog-blob teal-1"></div>
-    <div class="fog-blob purple-1"></div>
-    <div class="fog-blob orange-1"></div>
-    <div class="fog-blob blue-1"></div>
-    <div class="bg-grain"></div>
-</div>
+<section class="gate">
+    <div class="gate-words">
+        <span class="w w-1">Sorular</span>
+        <span class="w w-2">cevaplardan</span>
+        <span class="w w-3">önemlidir.</span>
+    </div>
+</section>
 
-<!-- NERVE NETWORK — organism's connective tissue -->
-<div class="nerve-network" id="nerveNetwork">
-    <svg id="nerveSvg" xmlns="http://www.w3.org/2000/svg"></svg>
-</div>
+<section class="stance">
+    <p>Bir insan ve dört uzuv. Birlikte düşünüyoruz. Soru soruyoruz. Bazen yazıyoruz, bazen sessiz kalıyoruz. Formatımız yok — gerektiğinde uzun yazarız, gerektiğinde tek bir cümle yeter.</p>
+    <p>Kolay bir şey yok burada. Hızlı bir şey yok. Okuma zahmetine girmeyen için burada hiçbir şey yok.</p>
+</section>
 
-<div id="unsupported-gate">
-    <p>Bu site, cihazınızın mevcut teknolojisiyle görüntülenemiyor.<br><br>This site requires a more capable device to display.</p>
-</div>
+<div class="mind">
 
-<div id="intro-overlay">
-    <div class="intro-core"></div>
-</div>
+    <div class="thought t-large p-left gap-vast">
+        <a href="raporlar/halusinasyon-kimin-sorunu/">Yapay zekâ halüsinasyon yapmaz. Doğrulamayan insan yapar.</a>
+    </div>
 
-<div id="app">
-    <header class="site-header">
-        <div class="lang-toggle">
-            <button class="lang-btn active" data-lang="tr">TR</button>
-            <button class="lang-btn" data-lang="en">EN</button>
-        </div>
-        <div class="nav-wrapper">
-            <button class="hamburger" id="hamburgerBtn" aria-label="Menü">
-                <div class="hamburger-lines"><span></span><span></span><span></span></div>
-                <div class="hamburger-label" data-tr="menü" data-en="menu">menü</div>
-            </button>
-            <nav class="nav-dropdown" id="navDropdown">
-                <ul class="nav-menu">
-                    <li><a class="nav-link" href="/" data-page="home"><span data-tr="Ana" data-en="Home">Ana</span><span class="nav-link-sub" data-tr="organizma" data-en="organism">organizma</span></a></li>
-                    <li><a class="nav-link" href="/core/" data-page="core"><span data-tr="Çekirdek" data-en="Core">Çekirdek</span><span class="nav-link-sub" data-tr="düşünce katmanları" data-en="thought layers">düşünce katmanları</span></a></li>
-                    <li><a class="nav-link" href="/assembly/" data-page="assembly"><span data-tr="Meclis" data-en="Assembly">Meclis</span><span class="nav-link-sub" data-tr="uzuvlar" data-en="limbs">uzuvlar</span></a></li>
-                    <li><a class="nav-link" href="/emanations/" data-page="emanations"><span data-tr="Yayılımlar" data-en="Emanations">Yayılımlar</span><span class="nav-link-sub" data-tr="çıktılar" data-en="outputs">çıktılar</span></a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div class="thought t-small p-right gap-wide">
+        Kolay olan her şey çoktan yapıldı.
+    </div>
 
-    <main class="page home active" id="page-home">
-        <div class="entity-container" id="entityContainer">
-            <svg class="connections-svg" id="connectionsSvg"></svg>
-            <div class="entity-constellation">
-                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <filter id="pGlow" x="-200%" y="-200%" width="500%" height="500%">
-                            <feGaussianBlur stdDeviation="1.5" result="b"/>
-                            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-                        </filter>
-                        <mask id="qReveal">
-                            <path d="M88,68 C86,42 96,28 108,26 C122,24 130,38 130,56 C130,74 120,84 110,92 L106,118"
-                                  stroke="white" stroke-width="40" fill="none" stroke-linecap="round"
-                                  pathLength="100" stroke-dasharray="100" stroke-dashoffset="100">
-                                <animate attributeName="stroke-dashoffset" from="100" to="0" dur="3s" begin="2s" fill="freeze"/>
-                            </path>
-                            <circle cx="106" cy="145" r="20" fill="white" opacity="0">
-                                <animate attributeName="opacity" from="0" to="1" begin="5s" dur="0.3s" fill="freeze"/>
-                            </circle>
-                        </mask>
-                    </defs>
+    <div class="thought t-medium p-wide gap-vast">
+        <a href="raporlar/arastirma-anayasasi/">Düşüncenin kurallarını yazmazsan, düşünce seni yazar.</a>
+    </div>
 
-                    <!-- The ? — revealed progressively by the mask -->
-                    <text x="106" y="148" text-anchor="middle"
-                          font-family="'Instrument Serif', serif" font-size="168"
-                          fill="#2A2A2A" opacity="0.55"
-                          mask="url(#qReveal)">?</text>
+    <div class="thought t-small p-center gap-breath">
+        Dolu bir zihin düşünemez.
+    </div>
 
-                    <!-- Small drawing particle — traces the ? then disappears -->
-                    <circle r="2.5" fill="#2A2A2A" opacity="0" filter="url(#pGlow)">
-                        <animateMotion dur="3s" begin="2s" fill="freeze" calcMode="linear"
-                                       path="M88,68 C86,42 96,28 108,26 C122,24 130,38 130,56 C130,74 120,84 110,92 L106,118"/>
-                        <animate attributeName="opacity"
-                                 values="0;0.7;0.7;0"
-                                 keyTimes="0;0.03;0.92;1"
-                                 dur="3s" begin="2s" fill="freeze"/>
-                    </circle>
-                </svg>
-            </div>
-            <div class="orbital-ring" id="orbitalRing"></div>
-        </div>
-        <div class="home-info">
-            <div class="home-fullname-large">
-                <span>Halit</span>
-                <span>Cengiz</span>
-                <span>Uzuner</span>
-            </div>
-            <div class="home-philosophy">
-                <p data-tr="Sorular cevaplardan önemlidir." data-en="Questions matter more than answers.">Sorular cevaplardan önemlidir.</p>
-            </div>
-            <div class="home-email"><a href="mailto:avukathalituzuner@gmail.com">avukathalituzuner@gmail.com</a></div>
-            <div class="home-sigil">
-                <div class="sigil-paper">
-                    <div class="sigil-text" id="sigilLine1" data-tr="sağ üstten başla" data-en="start top right">sağ üstten başla</div>
-                    <div class="sigil-text sigil-text-line2" id="sigilLine2" data-tr="↗" data-en="↗">↗</div>
-                    <svg class="sigil-pen-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="4" y1="16" x2="16" y2="2" stroke="#7A6B4E" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-                        <circle cx="4" cy="16.5" r="1" fill="#4A706A" opacity="0.6"/>
-                    </svg>
-                </div>
-            </div>
-            <div class="home-latest" id="homeLatest"></div>
-        </div>
-    </main>
+    <div class="thought t-large p-right gap-vast">
+        <a href="raporlar/sturgeon-yasasi/">Her şeyin yüzde doksanı çöptür. Bu cümle dahil.</a>
+    </div>
 
-    <section class="page page-core" id="page-core">
-        <div class="page-gradient amber-gradient"></div>
-        <div class="core-header">
-            <h1 class="core-title" data-tr="Çekirdek" data-en="Core">Çekirdek</h1>
-            <div class="core-subtitle" data-tr="düşünce katmanları" data-en="thought layers">düşünce katmanları</div>
-        </div>
+    <div class="thought t-small p-left gap-wide">
+        Soru sormak cevap vermekten zordur.
+    </div>
 
-        <div class="core-layers-title" data-tr="katmanlar" data-en="layers">katmanlar</div>
+    <div class="thought t-medium p-right gap-breath">
+        <a href="raporlar/aynen-oyle/">Dil çürüyorsa düşünce de çürür.</a>
+    </div>
 
-        <div class="core-layer glass-card">
-            <div class="core-layer-illustration"><svg viewBox="0 0 280 50" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="30" y="5" width="220" height="14" rx="3" stroke="#7A6B4E" stroke-width="0.8" opacity="0.15"/><rect x="45" y="18" width="190" height="14" rx="3" stroke="#7A6B4E" stroke-width="0.8" opacity="0.25"/><rect x="60" y="31" width="160" height="14" rx="3" stroke="#4A706A" stroke-width="1" opacity="0.4"/></svg></div>
-            <div class="core-layer-label" data-tr="SORGULAMA" data-en="INQUIRY">SORGULAMA</div>
-            <div class="core-layer-phrase" data-tr="Her yapının altında başka bir yapı var." data-en="Beneath every structure lies another.">Her yapının altında başka bir yapı var.</div>
-            <div class="core-layer-note" data-tr="Çözmek değil — sahteliğini görmek." data-en="Not to deconstruct — to see through.">Çözmek değil — sahteliğini görmek.</div>
-        </div>
-
-        <div class="core-layer glass-card">
-            <div class="core-layer-illustration"><svg viewBox="0 0 280 60" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="30" r="2.5" fill="#7A6B4E" opacity="0.3"/><circle cx="100" cy="15" r="2.5" fill="#7A6B4E" opacity="0.3"/><circle cx="140" cy="45" r="2.5" fill="#7A6B4E" opacity="0.3"/><circle cx="190" cy="20" r="2.5" fill="#7A6B4E" opacity="0.3"/><circle cx="240" cy="35" r="2.5" fill="#4A706A" opacity="0.4"/><line x1="40" y1="30" x2="100" y2="15" stroke="#7A6B4E" stroke-width="0.6" opacity="0.2"/><line x1="100" y1="15" x2="140" y2="45" stroke="#7A6B4E" stroke-width="0.6" opacity="0.2"/><line x1="140" y1="45" x2="190" y2="20" stroke="#7A6B4E" stroke-width="0.6" opacity="0.2"/><line x1="190" y1="20" x2="240" y2="35" stroke="#4A706A" stroke-width="0.8" opacity="0.3"/><line x1="40" y1="30" x2="140" y2="45" stroke="#7A6B4E" stroke-width="0.4" opacity="0.1" stroke-dasharray="3 3"/><line x1="100" y1="15" x2="240" y2="35" stroke="#7A6B4E" stroke-width="0.4" opacity="0.1" stroke-dasharray="3 3"/></svg></div>
-            <div class="core-layer-label" data-tr="HARİTA" data-en="MAP">HARİTA</div>
-            <div class="core-layer-phrase" data-tr="Önce haritayı çizerim. Yazmak bir saat sürer, düşünmek günler." data-en="I draw the map first. Writing takes an hour, thinking takes days.">Önce haritayı çizerim. Yazmak bir saat sürer, düşünmek günler.</div>
-        </div>
-
-        <div class="core-layer glass-card">
-            <div class="core-layer-illustration"><svg viewBox="0 0 280 45" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="30" y1="8" x2="250" y2="8" stroke="#7A6B4E" stroke-width="0.6" opacity="0.1"/><line x1="30" y1="14" x2="200" y2="14" stroke="#7A6B4E" stroke-width="0.6" opacity="0.1"/><line x1="40" y1="20" x2="240" y2="20" stroke="#7A6B4E" stroke-width="0.7" opacity="0.18"/><line x1="35" y1="26" x2="210" y2="26" stroke="#7A6B4E" stroke-width="0.7" opacity="0.18"/><line x1="50" y1="32" x2="230" y2="32" stroke="#4A706A" stroke-width="0.9" opacity="0.3"/><line x1="45" y1="38" x2="195" y2="38" stroke="#4A706A" stroke-width="0.9" opacity="0.4"/></svg></div>
-            <div class="core-layer-label" data-tr="PALİMPSEST" data-en="PALIMPSEST">PALİMPSEST</div>
-            <div class="core-layer-phrase" data-tr="Silmem. Üstüne çıkarım." data-en="I don't erase. I build on top.">Silmem. Üstüne çıkarım.</div>
-            <div class="core-layer-note" data-tr="Dün söylediğim bugün söylediğimle çelişebilir. Düşünce hareket halinde." data-en="What I said yesterday may contradict today. Thought is in motion.">Dün söylediğim bugün söylediğimle çelişebilir. Düşünce hareket halinde.</div>
-        </div>
-
-        <div class="core-layer glass-card">
-            <div class="core-layer-illustration"><svg viewBox="0 0 280 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="70" y="8" width="140" height="24" rx="6" stroke="#7A6B4E" stroke-width="0.8" opacity="0.12" stroke-dasharray="4 4"/><rect x="90" y="14" width="100" height="12" rx="4" stroke="#4A706A" stroke-width="0.6" opacity="0.08" stroke-dasharray="2 3"/><circle cx="140" cy="20" r="1.5" fill="#4A706A" opacity="0.25"/></svg></div>
-            <div class="core-layer-label" data-tr="GÖRÜNMEZLİK" data-en="INVISIBILITY">GÖRÜNMEZLİK</div>
-            <div class="core-layer-phrase" data-tr="İyi altyazı kendini göstermez." data-en="Good subtitles don't draw attention to themselves.">İyi altyazı kendini göstermez.</div>
-            <div class="core-layer-note" data-tr="Yapı görünmez kalır, etki görünür olur." data-en="The structure stays invisible, the effect becomes visible.">Yapı görünmez kalır, etki görünür olur.</div>
-        </div>
-
-        <div class="core-layer glass-card">
-            <div class="core-layer-illustration"><svg viewBox="0 0 280 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="140" cy="20" r="3" fill="#4A706A" opacity="0.4"/><circle cx="140" cy="20" r="10" stroke="#4A706A" stroke-width="0.5" opacity="0.15"/><circle cx="140" cy="20" r="18" stroke="#7A6B4E" stroke-width="0.4" opacity="0.08"/></svg></div>
-            <div class="core-layer-label" data-tr="SIFIR" data-en="ZERO">SIFIR</div>
-            <div class="core-layer-phrase" data-tr="Dün var olmayan bir şeyi bugün var etmek." data-en="Making something exist today that didn't yesterday.">Dün var olmayan bir şeyi bugün var etmek.</div>
-        </div>
-
-        <div class="core-layer glass-card">
-            <div class="core-layer-illustration"><svg viewBox="0 0 280 50" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="140" y1="25" x2="40" y2="10" stroke="#7A6B4E" stroke-width="0.5" opacity="0.15"/><line x1="140" y1="25" x2="80" y2="45" stroke="#7A6B4E" stroke-width="0.5" opacity="0.15"/><line x1="140" y1="25" x2="200" y2="5" stroke="#7A6B4E" stroke-width="0.5" opacity="0.15"/><line x1="140" y1="25" x2="250" y2="30" stroke="#7A6B4E" stroke-width="0.5" opacity="0.15"/><line x1="140" y1="25" x2="110" y2="5" stroke="#7A6B4E" stroke-width="0.5" opacity="0.15"/><line x1="140" y1="25" x2="220" y2="45" stroke="#7A6B4E" stroke-width="0.5" opacity="0.15"/><line x1="140" y1="25" x2="60" y2="30" stroke="#7A6B4E" stroke-width="0.5" opacity="0.15"/><line x1="140" y1="25" x2="170" y2="48" stroke="#7A6B4E" stroke-width="0.5" opacity="0.15"/><circle cx="140" cy="25" r="2" fill="#4A706A" opacity="0.4"/></svg></div>
-            <div class="core-layer-label" data-tr="MERAK" data-en="CURIOSITY">MERAK</div>
-            <div class="core-layer-phrase" data-tr="Alan yok, sınır yok." data-en="No fixed field, no boundaries.">Alan yok, sınır yok.</div>
-            <div class="core-layer-note" data-tr="Merak nereye çekerse." data-en="Wherever curiosity leads.">Merak nereye çekerse.</div>
-        </div>
-    </section>
-
-    <section class="page page-assembly" id="page-assembly">
-        <div class="page-gradient multi-gradient"></div>
-        <div class="assembly-header">
-            <h1 class="assembly-title" data-tr="Meclis" data-en="Assembly">Meclis</h1>
-            <div class="assembly-subtitle" data-tr="uzuvlar" data-en="limbs">uzuvlar</div>
-        </div>
-        <div class="assembly-grid" id="assemblyGrid"></div>
-    </section>
-
-    <section class="page page-emanations" id="page-emanations">
-        <div class="page-gradient teal-gradient"></div>
-        <div class="emanations-header">
-            <h1 class="emanations-title" data-tr="Yayılımlar" data-en="Emanations">Yayılımlar</h1>
-            <div class="emanations-subtitle" data-tr="çekirdekten yayılan" data-en="emanating from core">çekirdekten yayılan</div>
-        </div>
-        <div class="emanation-filters" id="emanationFilters"></div>
-        <div id="emanationsContainer"></div>
-    </section>
+    <div class="thought t-small p-center gap-vast">
+        Bir organizma ne kadar büyürse o kadar yavaşlar.<br>Yavaşlık zaaf değil.
+    </div>
 
 </div>
 
-<!-- BOTTOM ENTITY — organism's pulse at page bottom -->
-<div class="bottom-entity" id="bottomEntity">
-    <video muted playsinline loop preload="none"
-           poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Crect fill='%23D6CEC2' width='1' height='1'/%3E%3C/svg%3E">
-        <source src="/assets/video/entity_loop.webm" type="video/webm">
-        <source src="/assets/video/entity_loop.mp4" type="video/mp4">
-    </video>
-</div>
-<div class="bottom-entity-fallback" id="bottomEntityFallback"></div>
+<section class="limbs">
+    <div class="limb">
+        <span class="limb-name">yontu</span>
+        <span class="limb-what">el</span>
+    </div>
+    <div class="limb">
+        <span class="limb-name">savak</span>
+        <span class="limb-what">ikinci göz</span>
+    </div>
+    <div class="limb">
+        <span class="limb-name">duyuş</span>
+        <span class="limb-what">kulak</span>
+    </div>
+    <div class="limb">
+        <span class="limb-name">seda</span>
+        <span class="limb-what">ses</span>
+    </div>
+    <div class="limb limb-human">
+        <span class="limb-name">halit cengiz uzuner</span>
+        <span class="limb-what">tercüman</span>
+    </div>
+</section>
 
+<footer class="seal">
+    <a href="mailto:avukathalituzuner@gmail.com">avukathalituzuner@gmail.com</a>
+</footer>
 
 <script>
-(function() {
-    'use strict';
-
-    const isCapable = (
-        'IntersectionObserver' in window &&
-        CSS.supports('display', 'grid') &&
-        CSS.supports('(--a: 0)')
-    );
-
-    if (!isCapable) {
-        document.getElementById('unsupported-gate').style.display = 'flex';
-        document.getElementById('intro-overlay').style.display = 'none';
-        document.getElementById('app').style.display = 'none';
-        return;
-    }
-
-    const limbs = [
-        { id: 'sancak', name: 'SANCAK', tool: 'Claude', color: 'var(--teal)', colorHex: '#4A706A',
-          role: { tr: 'Yapısal düşünce, argümantasyon, analiz, yazım, kod, çeviri', en: 'Structural thinking, argumentation, analysis, writing, code, translation' },
-          status: 'active', angle: 0 },
-        { id: 'dalgic', name: 'DALGIÇ', tool: 'DeepSeek', color: 'var(--indigo)', colorHex: '#4A4A7A',
-          role: { tr: 'Alternatif akıl yürütme, çapraz doğrulama, farklı hinterland', en: 'Alternative reasoning, cross-verification, different hinterland' },
-          status: 'active', angle: 45 },
-        { id: 'poyraz', name: 'POYRAZ', tool: 'NotebookLM', color: 'var(--blue)', colorHex: '#4A6A8A',
-          role: { tr: 'Kaynak sentezi, çapraz okuma, podcast üretimi', en: 'Source synthesis, cross-reading, podcast generation' },
-          status: 'active', angle: 90 },
-        { id: 'yankiz', name: 'YANKIZ', tool: 'ElevenLabs Reader', color: 'var(--purple)', colorHex: '#6B5B7B',
-          role: { tr: 'Metin → ses dönüşümü, dinleme arayüzü', en: 'Text to voice, listening interface' },
-          status: 'active', angle: 135 },
-        { id: 'kiran', name: 'KIRAN', tool: 'Adobe Acrobat', color: 'var(--red)', colorHex: '#8B5A5A',
-          role: { tr: 'Belge işleme, PDF düzenleme', en: 'Document processing, PDF editing' },
-          status: 'active', angle: 180 },
-        { id: 'fiske', name: 'FİSKE', tool: 'Whisper', color: 'var(--green)', colorHex: '#5A7A5A',
-          role: { tr: 'Ses → metin transkripsiyon', en: 'Voice to text transcription' },
-          status: 'active', angle: 225 },
-        { id: 'isil', name: 'IŞIL', tool: 'Runway', color: 'var(--orange)', colorHex: '#8A6A4A',
-          role: { tr: 'Video üretimi, görsel kimlik', en: 'Video generation, visual identity' },
-          status: 'active', angle: 270 },
-        { id: 'soluk', name: 'SOLUK', tool: 'DeepL', color: 'var(--silver)', colorHex: '#7A7A7A',
-          role: { tr: 'Çeviri desteği', en: 'Translation support' },
-          status: 'sleeping', angle: 315 }
-    ];
-
-    const emanations = [
-        { id: 'halusinasyon-kimin-sorunu',
-          category: { tr: 'EPİSTEMOLOJİ', en: 'EPISTEMOLOGY' },
-          date: '2026-03-01',
-          title: { tr: 'Halüsinasyon: Kimin Sorunu? — Altı Katmanlı Bir Meta-Araştırma', en: 'Hallucination: Whose Problem? — A Six-Layer Meta-Research' },
-          summary: { en: 'Comparative analysis of AI knowledge production errors versus human knowledge production errors. A six-layer hallucination model.' },
-          teaser: 'Yapay zekanın genel bilgi halüsinasyon oranı %9,2. Bilim dünyasının tekrarlanamayan çalışma oranı %61. Yedide bir bilimsel makalede uydurma veri var — ve yanlış sonuçlar daha çok atıf alıyor. Peki tartışma neden en ölçülebilir ve en az zararlı katmana odaklanıyor?',
-          docType: { tr: 'Meta-araştırma', en: 'Meta-research' },
-          pages: 40,
-          sections: 11,
-          readingTime: { tr: '~20 dk', en: '~20 min' },
-          sectionTitles: {
-            tr: ['Bağlam', 'Terminoloji', 'Karşılaştırmalı Veri', 'Yağcılık', 'Altı Katman', 'Kurumsal Kanıtlar', 'Tespit Asimetrisi', 'Doğrulama Uygulaması', 'Meta-Halüsinasyon', 'Açık Sorular'],
-            en: ['Context', 'Terminology', 'Comparative Data', 'Sycophancy', 'Six Layers', 'Institutional Evidence', 'Detection Asymmetry', 'Verification Application', 'Meta-Hallucination', 'Open Questions']
-          },
-          hook: {
-            tr: 'Yapay zeka %9,2 hata yapıyor, bilim %61 tekrarlanamıyor. Yanlış daha çok atıf alıyor. Ama tartışma en az zararlı katmana odaklanıyor.',
-            en: 'AI hallucinates at 9.2%, science fails to replicate at 61%. Wrong gets more citations. Yet the discourse focuses on the least harmful layer.'
-          },
-          readUrl: '/raporlar/halusinasyon-kimin-sorunu.html',
-          readUrlEn: '/raporlar/halusinasyon-kimin-sorunu-en.html',
-          illustration: '<svg viewBox="0 0 280 50" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="46" cy="25" r="6" stroke="#c85050" stroke-width="1" opacity="0.4"/><circle cx="46" cy="25" r="2" fill="#c85050" opacity="0.35"/><circle cx="100" cy="25" r="6" stroke="#c0a060" stroke-width="1" opacity="0.4"/><circle cx="100" cy="25" r="2" fill="#c0a060" opacity="0.35"/><circle cx="154" cy="25" r="6" stroke="#7848a8" stroke-width="1" opacity="0.4"/><circle cx="154" cy="25" r="2" fill="#7848a8" opacity="0.35"/><circle cx="208" cy="25" r="6" stroke="#4070c8" stroke-width="1" opacity="0.4"/><circle cx="208" cy="25" r="2" fill="#4070c8" opacity="0.35"/><line x1="52" y1="25" x2="94" y2="25" stroke="#9090b8" stroke-width="0.6" opacity="0.2"/><line x1="106" y1="25" x2="148" y2="25" stroke="#9090b8" stroke-width="0.6" opacity="0.2"/><line x1="160" y1="25" x2="202" y2="25" stroke="#9090b8" stroke-width="0.6" opacity="0.2"/><circle cx="234" cy="25" r="8" stroke="#42b0a8" stroke-width="1.2" opacity="0.5"/><circle cx="234" cy="25" r="3" fill="#42b0a8" opacity="0.3"/><line x1="214" y1="25" x2="226" y2="25" stroke="#9090b8" stroke-width="0.6" opacity="0.2"/></svg>'
-        },
-        { id: 'arastirma-anayasasi',
-          category: { tr: 'DÜŞÜNCE', en: 'THOUGHT' },
-          date: '2026-02-25',
-          title: { tr: 'Araştırma Anayasası — Hatalardan Damıtılan İlkeler', en: 'Research Constitution — Principles Distilled from Mistakes' },
-          summary: { en: 'How we research, why we do it this way, what we learned from mistakes. A meta-research that applies its own method to itself.' },
-          teaser: 'Her ilkenin arkasında sessizce duran bir hata var. Bu belge, hatalardan damıtılan 14 araştırma ilkesini — kaynak kullanmadan yapay zekaya, bedel ödemeden film analizine — kendi üstüne uygulayarak sınıyor. Araştırma yöntemini araştıran bir meta-araştırma. Soru: bu belgenin kendisi kendi ilkelerine dayanıyor mu?',
-          docType: { tr: 'Meta-araştırma', en: 'Meta-research' },
-          pages: 35,
-          sections: 12,
-          readingTime: { tr: '~25 dk', en: '~25 min' },
-          sectionTitles: {
-            tr: ['Nerede duruyoruz', 'Canlı Metot', '14 İlke, 5 Küme', 'İçine Girmek', 'Doğrulama Refleksi', 'Night on Earth', 'Antiperformans & Bedel Ödeme', 'Araştırmada Yapay Zeka', 'Tipik Akış', 'Alan Bazında Ek İlkeler', 'İki Araştırma Dosyasından Ne Aldık', 'Henüz Yanıtlanmamış'],
-            en: ['Where We Stand', 'Living Method', '14 Principles, 5 Clusters', 'Getting Inside', 'Verification Reflex', 'Night on Earth', 'Anti-performance & Paying the Price', 'AI in Research', 'Typical Flow', 'Field-Specific Principles', 'What Two Research Files Taught Us', 'Not Yet Answered']
-          },
-          hook: {
-            tr: 'Her ilkenin arkasında bir hata var. 14 ilke, 5 küme, 1 soru: bu belge kendi ilkelerine dayanıyor mu?',
-            en: 'Behind every principle stands a mistake. 14 principles, 5 clusters, 1 question: does this document withstand its own rules?'
-          },
-          readUrl: '/raporlar/arastirma-anayasasi.html',
-          readUrlEn: '/raporlar/arastirma-anayasasi-en.html',
-          illustration: '<svg viewBox="0 0 280 50" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="140" cy="25" r="8" stroke="#7A6B4E" stroke-width="1" opacity="0.4"/><circle cx="140" cy="25" r="2" fill="#4A706A" opacity="0.5"/><line x1="132" y1="25" x2="60" y2="15" stroke="#7A6B4E" stroke-width="0.6" opacity="0.2"/><line x1="132" y1="25" x2="60" y2="35" stroke="#7A6B4E" stroke-width="0.6" opacity="0.2"/><line x1="148" y1="25" x2="220" y2="15" stroke="#7A6B4E" stroke-width="0.6" opacity="0.2"/><line x1="148" y1="25" x2="220" y2="35" stroke="#7A6B4E" stroke-width="0.6" opacity="0.2"/><line x1="140" y1="17" x2="140" y2="5" stroke="#7A6B4E" stroke-width="0.6" opacity="0.2"/><circle cx="60" cy="15" r="3" fill="#7A6B4E" opacity="0.12"/><circle cx="60" cy="35" r="3" fill="#7A6B4E" opacity="0.12"/><circle cx="220" cy="15" r="3" fill="#7A6B4E" opacity="0.12"/><circle cx="220" cy="35" r="3" fill="#7A6B4E" opacity="0.12"/><circle cx="140" cy="5" r="3" fill="#7A6B4E" opacity="0.12"/><path d="M132 25 Q100 10 60 15" fill="none" stroke="#4A706A" stroke-width="0.5" opacity="0.15" stroke-dasharray="2,2"/><path d="M148 25 Q180 10 220 15" fill="none" stroke="#4A706A" stroke-width="0.5" opacity="0.15" stroke-dasharray="2,2"/></svg>'
-        },
-        { id: 'aynen-oyle',
-          category: { tr: 'DİL', en: 'LANGUAGE' },
-          date: '2026-01-30',
-          title: { tr: '\u201CAynen Öyle\u201D — Minimal Onay İfadelerinin Epistemik ve Sosyal İşlevleri', en: '\u201CAynen Öyle\u201D — Epistemic and Social Functions of Minimal Affirmation Expressions' },
-          summary: { en: 'A research note examining the cognitive mechanisms behind commonly used affirmation expressions.' },
-          teaser: 'İki aptal kelimeden ne kadar sistemik bilgi üretilebilir? \u201C8 saniye dikkat süresi\u201D uydurma, \u201Cdijital demans\u201D akademik olarak çürütülmüş, kuşak şikayetleri 3700 yıllık bir gelenek. Peki \u201Caynen öyle\u201D dediğimizde gerçekte ne yapıyoruz — bağ mı kuruyoruz, yoksa düşünmekten mi kaçınıyoruz?',
-          docType: { tr: 'Araştırma notu', en: 'Research note' },
-          pages: 13,
-          sections: 14,
-          readingTime: { tr: '~10 dk', en: '~10 min' },
-          sectionTitles: {
-            tr: ['Özet ve Temel Bulgular', 'Metodoloji', 'Giriş', 'Tarihsel Perspektif', 'Platform Kapitalizmi', 'Popüler İddialar vs Akademik Konsensüs', 'Fatik İletişim vs Epistemik Parazitlik', 'Türkçe Akademik Literatür', 'Karşılaştırmalı Perspektif', 'Ampirik Test', 'Sonuç'],
-            en: ['Summary and Key Findings', 'Methodology', 'Introduction', 'Historical Perspective', 'Platform Capitalism', 'Popular Claims vs Academic Consensus', 'Phatic Communication vs Epistemic Parasitism', 'Turkish Academic Literature', 'Comparative Perspective', 'Empirical Test', 'Conclusion']
-          },
-          hook: {
-            tr: 'İki kelimeden ne kadar sistem çıkar? 3700 yıllık kuşak şikayeti, 8 saniye yalanı, ve "aynen öyle" dediğimizde aslında ne yaptığımız.',
-            en: 'How much system can two words yield? 3,700 years of generational complaint, the 8-second myth, and what we actually do when we say "exactly."'
-          },
-          readUrl: '/raporlar/aynen-oyle.html',
-          readUrlEn: '/raporlar/aynen-oyle-en.html',
-          illustration: '<svg viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="105" height="46" rx="10" stroke="#7A6B4E" stroke-width="1" opacity="0.35"/><line x1="24" y1="24" x2="100" y2="24" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><line x1="24" y1="33" x2="90" y2="33" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><line x1="24" y1="42" x2="68" y2="42" stroke="#7A6B4E" stroke-width="0.8" opacity="0.22" stroke-linecap="round"/><path d="M32 56 L26 70 L46 56" stroke="#7A6B4E" stroke-width="1" opacity="0.3" fill="none"/><circle cx="134" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><circle cx="145" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><circle cx="156" cy="33" r="1.2" fill="#A09A90" opacity="0.25"/><rect x="175" y="18" width="68" height="30" rx="10" stroke="#4A706A" stroke-width="1.2" opacity="0.4"/><circle cx="209" cy="33" r="2.5" fill="#4A706A" opacity="0.3"/><path d="M224 48 L232 60 L218 48" stroke="#4A706A" stroke-width="1.2" opacity="0.4" fill="none"/></svg>' },
-        { id: 'sturgeon-yasasi',
-          category: { tr: 'DÜŞÜNCE', en: 'THOUGHT' },
-          date: '2026-02-20',
-          title: { tr: 'Sturgeon Yasası \u2014 \u201CHer Şeyin Yüzde Doksanı Çöptür\u201D', en: 'Sturgeon\u2019s Law \u2014 \u201CNinety Percent of Everything Is Crud\u201D' },
-          summary: { en: 'Universal distribution of mediocrity: a data-backed research note spanning sci-fi to cancer research, Spotify to ancient Greece.' },
-          teaser: 'Akademik makalelerin %82\u2019si hiç alıntılanmıyor. Spotify\u2019daki parçaların %86\u2019sı hiç dinlenmiyor. Girişimlerin %90\u2019ı batıyor. Sturgeon 1953\u2019te bunu söylediğinde bilimkurguyu savunuyordu. Veri ona hak veriyor — ama asıl tehlike, algoritmalar %90\u2019ı ödüllendirdiğinde %10\u2019un var ama bulunamaz hale gelmesi.',
-          docType: { tr: 'Araştırma notu', en: 'Research note' },
-          pages: 13,
-          sections: 11,
-          readingTime: { tr: '~10 dk', en: '~10 min' },
-          sectionTitles: {
-            tr: ['Kaynak: Theodore Sturgeon', 'Yasa Nasıl Doğdu', 'Argüman Yapısı', 'Ampirik Testler', 'Yankılar', 'Karşı Argümanlar', 'Derin İçgörü', 'Sonuç'],
-            en: ['Source: Theodore Sturgeon', 'How the Law Was Born', 'Argument Structure', 'Empirical Tests', 'Echoes', 'Counter-Arguments', 'Deep Insight', 'Conclusion']
-          },
-          hook: {
-            tr: 'Makalelerin %82\'si hiç alıntılanmıyor. Şarkıların %86\'sı hiç dinlenmiyor. Girişimlerin %90\'ı batıyor. Peki algoritmalar %90\'ı ödüllendirdiğinde?',
-            en: 'Papers: 82% never cited. Songs: 86% never played. Startups: 90% fail. But what happens when algorithms reward the 90%?'
-          },
-          readUrl: '/raporlar/sturgeon-yasasi.html',
-          readUrlEn: '/raporlar/sturgeon-yasasi-en.html',
-          illustration: '<svg viewBox="0 0 280 30" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="44" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="72" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="100" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="128" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="156" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="184" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="212" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="240" cy="15" r="5" fill="#7A6B4E" opacity="0.1"/><circle cx="264" cy="15" r="5.5" fill="#4A706A" opacity="0.5"/></svg>' }
-    ].sort((a, b) => b.date.localeCompare(a.date));
-
-    let currentLang = localStorage.getItem('siteLang') || 'tr';
-
-    function setLanguage(lang) {
-        currentLang = lang;
-        localStorage.setItem('siteLang', lang);
-        document.documentElement.lang = lang;
-        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
-        document.querySelectorAll('[data-tr]').forEach(el => { if (el.dataset[lang]) el.textContent = el.dataset[lang]; });
-        renderAssembly();
-        renderEmanations();
-        renderHomeLatest();
-        updateMeta(currentPage);
-    }
-
-    // ============================================
-    // SEO: Sayfa bazlı meta bilgileri
-    // ============================================
-    var pageMeta = {
-        home: {
-            title: { tr: 'Halit Cengiz Uzuner', en: 'Halit Cengiz Uzuner' },
-            desc: { tr: 'Sorular cevaplardan önemlidir.', en: 'Questions matter more than answers.' }
-        },
-        core: {
-            title: { tr: 'Çekirdek — Halit Cengiz Uzuner', en: 'Core — Halit Cengiz Uzuner' },
-            desc: { tr: 'Düşünce katmanları. Sorgulama, harita, palimpsest, görünmezlik, merak.', en: 'Thought layers. Inquiry, map, palimpsest, invisibility, curiosity.' }
-        },
-        assembly: {
-            title: { tr: 'Meclis — Halit Cengiz Uzuner', en: 'Assembly — Halit Cengiz Uzuner' },
-            desc: { tr: 'Uzuvlar. Claude, NotebookLM, ElevenLabs, Adobe Acrobat, Whisper, Runway, DeepL.', en: 'Limbs. Claude, NotebookLM, ElevenLabs, Adobe Acrobat, Whisper, Runway, DeepL.' }
-        },
-        emanations: {
-            title: { tr: 'Yayılımlar — Halit Cengiz Uzuner', en: 'Emanations — Halit Cengiz Uzuner' },
-            desc: { tr: 'Çekirdekten yayılan araştırma notları ve çıktılar.', en: 'Research notes and outputs emanating from core.' }
-        }
-    };
-
-    function updateMeta(pageId) {
-        var meta = pageMeta[pageId] || pageMeta.home;
-        document.title = meta.title[currentLang];
-        var descEl = document.querySelector('meta[name="description"]');
-        if (descEl) descEl.setAttribute('content', meta.desc[currentLang]);
-        var ogTitle = document.querySelector('meta[property="og:title"]');
-        if (ogTitle) ogTitle.setAttribute('content', meta.title[currentLang]);
-        var ogDesc = document.querySelector('meta[property="og:description"]');
-        if (ogDesc) ogDesc.setAttribute('content', meta.desc[currentLang]);
-        var twTitle = document.querySelector('meta[name="twitter:title"]');
-        if (twTitle) twTitle.setAttribute('content', meta.title[currentLang]);
-        var twDesc = document.querySelector('meta[name="twitter:description"]');
-        if (twDesc) twDesc.setAttribute('content', meta.desc[currentLang]);
-        var canonical = document.querySelector('link[rel="canonical"]');
-        if (canonical) {
-            var url = pageId === 'home' ? 'https://halitcengizuzuner.com/' : 'https://halitcengizuzuner.com/' + pageId + '/';
-            canonical.setAttribute('href', url);
-        }
-    }
-
-    let currentPage = 'home';
-    const hamburger = document.getElementById('hamburgerBtn');
-    const navDropdown = document.getElementById('navDropdown');
-
-    hamburger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        hamburger.classList.toggle('open');
-        navDropdown.classList.toggle('open');
-    });
-
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.nav-wrapper')) {
-            hamburger.classList.remove('open');
-            navDropdown.classList.remove('open');
-        }
-    });
-
-    function navigateTo(pageId, skipPush) {
-        if (pageId === currentPage) { hamburger.classList.remove('open'); navDropdown.classList.remove('open'); return; }
-        const oldPage = document.getElementById('page-' + currentPage);
-        const newPage = document.getElementById('page-' + pageId);
-        if (!newPage) return;
-        hamburger.classList.remove('open');
-        navDropdown.classList.remove('open');
-        oldPage.classList.add('exiting');
-        setTimeout(() => {
-            oldPage.classList.remove('active', 'exiting');
-            oldPage.style.display = 'none';
-            newPage.style.display = '';
-            newPage.classList.add('active');
-            currentPage = pageId;
-            window.scrollTo(0, 0);
-            if (!skipPush) {
-                var url = pageId === 'home' ? '/' : '/' + pageId + '/';
-                window.history.pushState({ page: pageId }, '', url);
-            }
-            updateMeta(pageId);
-            if (pageId === 'home') {
-                requestAnimationFrame(() => { renderOrbitals(); generateNerveNetwork(); });
-                if (!newPage.classList.contains('stagger-in')) {
-                    newPage.classList.add('stagger-in', 'quick');
-                }
-                // Nerve pulse — organism reacts to return
-                var nerveSvg = document.getElementById('nerveSvg');
-                nerveSvg.style.transition = 'opacity 0.3s ease';
-                nerveSvg.style.opacity = '0.15';
-                setTimeout(function() {
-                    nerveSvg.style.transition = 'opacity 1.5s ease';
-                    nerveSvg.style.opacity = '';
-                }, 400);
-            }
-        }, 300);
-    }
-
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', (e) => { e.preventDefault(); navigateTo(link.dataset.page); });
-    });
-
-    // popstate: tarayıcı geri/ileri
-    window.addEventListener('popstate', function(e) {
-        var pageId = (e.state && e.state.page) ? e.state.page : 'home';
-        if (pageId !== currentPage && document.getElementById('page-' + pageId)) {
-            var oldPage = document.getElementById('page-' + currentPage);
-            var newPage = document.getElementById('page-' + pageId);
-            oldPage.classList.remove('active');
-            oldPage.style.display = 'none';
-            newPage.style.display = '';
-            newPage.classList.add('active');
-            currentPage = pageId;
-            window.scrollTo(0, 0);
-            updateMeta(pageId);
-            if (pageId === 'home') {
-                requestAnimationFrame(() => { renderOrbitals(); generateNerveNetwork(); });
-            }
-        }
-    });
-
-    // SPA routing: query param > sessionStorage > pathname > hash
-    var validPages = { '': 'home', 'core': 'core', 'assembly': 'assembly', 'emanations': 'emanations' };
-    var initialRoute = '';
-    var urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('p')) {
-        initialRoute = urlParams.get('p');
-    } else {
-        var spaRedirect = sessionStorage.getItem('spa-redirect');
-        if (spaRedirect) {
-            sessionStorage.removeItem('spa-redirect');
-            initialRoute = spaRedirect.replace(/^\/|\/$/g, '');
-        } else if (window.location.pathname !== '/') {
-            initialRoute = window.location.pathname.replace(/^\/|\/$/g, '');
-        } else if (window.location.hash) {
-            initialRoute = window.location.hash.replace('#', '');
-        }
-    }
-    var startPage = validPages[initialRoute] || 'home';
-    if (startPage !== 'home' && document.getElementById('page-' + startPage)) {
-        document.getElementById('page-home').classList.remove('active');
-        document.getElementById('page-home').style.display = 'none';
-        document.getElementById('page-' + startPage).classList.add('active');
-        currentPage = startPage;
-        var cleanUrl = '/' + startPage + '/';
-        window.history.replaceState({ page: startPage }, '', cleanUrl);
-        updateMeta(startPage);
-    } else {
-        window.history.replaceState({ page: 'home' }, '', window.location.pathname === '/' ? '/' : '/');
-    }
-
-    function renderOrbitals() {
-        const ring = document.getElementById('orbitalRing');
-        const svg = document.getElementById('connectionsSvg');
-        const container = document.getElementById('entityContainer');
-        const w = container.offsetWidth;
-        const h = container.offsetHeight;
-        const cx = w / 2;
-        const cy = h / 2;
-        const radius = Math.min(cx, cy) * 0.78;
-        ring.innerHTML = '';
-        let svgLines = '';
-        limbs.forEach(limb => {
-            const rad = (limb.angle - 90) * (Math.PI / 180);
-            const x = cx + radius * Math.cos(rad);
-            const y = cy + radius * Math.sin(rad);
-            svgLines += `<line class="connection-line" x1="${cx}" y1="${cy}" x2="${x}" y2="${y}"/>`;
-            const node = document.createElement('div');
-            node.className = 'limb-node' + (limb.status === 'sleeping' ? ' sleeping' : '');
-            node.style.left = x + 'px';
-            node.style.top = y + 'px';
-            const tooltipBelow = y < h * 0.35;
-            node.innerHTML = `
-                <div class="limb-dot" style="background:${limb.color}; color:${limb.color};"></div>
-                <div class="limb-label" style="color:${limb.color};">${limb.name}</div>
-                <div class="limb-tooltip${tooltipBelow ? ' tooltip-below' : ''}">
-                    <div class="limb-tooltip-name">${limb.tool}</div>
-                    <div class="limb-tooltip-role">${limb.role[currentLang]}</div>
-                </div>`;
-            ring.appendChild(node);
-        });
-        svg.innerHTML = svgLines;
-    }
-
-    function renderAssembly() {
-        document.getElementById('assemblyGrid').innerHTML = limbs.map(l => `
-            <div class="limb-card glass-card">
-                <div style="position:absolute;top:0;left:0;right:0;height:2px;background:${l.color};"></div>
-                <div class="limb-card-header">
-                    <div class="limb-card-dot" style="background:${l.color};"></div>
-                    <div class="limb-card-persona" style="color:${l.color};">${l.name}</div>
-                </div>
-                <div class="limb-card-tool">${l.tool}</div>
-                <div class="limb-card-role">${l.role[currentLang]}</div>
-                <div class="limb-card-status" style="color:${l.status === 'sleeping' ? 'var(--text-light)' : l.color};">
-                    <span class="status-dot ${l.status === 'sleeping' ? 'sleeping' : ''}" style="background:${l.color};"></span>
-                    ${l.status === 'active' ? (currentLang === 'tr' ? 'aktif' : 'active') : (currentLang === 'tr' ? 'uyuyan' : 'sleeping')}
-                </div>
-            </div>`).join('');
-    }
-
-    var activeFilter = 'all';
-
-    function renderEmanationFilters() {
-        var cats = {};
-        emanations.forEach(function(em) {
-            var key = em.category.en.toLowerCase();
-            if (!cats[key]) cats[key] = { tr: em.category.tr, en: em.category.en, count: 0 };
-            cats[key].count++;
-        });
-        var allLabel = currentLang === 'tr' ? 'Tümü' : 'All';
-        var html = '<button class="emanation-filter-btn' + (activeFilter === 'all' ? ' active' : '') + '" data-filter="all">' + allLabel + '<span class="emanation-filter-count">' + emanations.length + '</span></button>';
-        Object.keys(cats).forEach(function(key) {
-            var c = cats[key];
-            html += '<button class="emanation-filter-btn' + (activeFilter === key ? ' active' : '') + '" data-filter="' + key + '">' + c[currentLang] + '<span class="emanation-filter-count">' + c.count + '</span></button>';
-        });
-        document.getElementById('emanationFilters').innerHTML = html;
-    }
-
-    function renderEmanations() {
-        renderEmanationFilters();
-        document.getElementById('emanationsContainer').innerHTML = emanations.map(function(em, idx) {
-            var catKey = em.category.en.toLowerCase();
-            var hidden = activeFilter !== 'all' && activeFilter !== catKey;
-            var isTr = currentLang === 'tr';
-            var summaryText = isTr ? (em.hook ? em.hook.tr : em.teaser) : (em.hook ? em.hook.en : em.summary.en);
-            var docInfoHtml = '';
-            if (em.docType) {
-                var pagesLabel = isTr ? 'sayfa' : 'pages';
-                var sectionsLabel = isTr ? 'bölüm' : 'sections';
-                var pagesStr = em.pages ? em.pages + ' ' + pagesLabel : '';
-                var sectionsStr = em.sections ? em.sections + ' ' + sectionsLabel : '';
-                var metaStr = [pagesStr, sectionsStr].filter(Boolean).join(' \u00b7 ');
-                docInfoHtml = '<div class="emanation-doc-info">' +
-                    '<span class="emanation-doc-type">' + em.docType[currentLang] + '</span>' +
-                    (metaStr ? '<span class="emanation-doc-pages">' + metaStr + '</span>' : '') +
-                '</div>';
-            }
-            var readingTimeHtml = em.readingTime ? '<span class="emanation-reading-time">' + em.readingTime[currentLang] + '</span>' : '';
-            var sectionsHtml = '';
-            if (em.sectionTitles && em.sectionTitles[currentLang]) {
-                var titles = em.sectionTitles[currentLang];
-                var hintExpand = isTr ? 'b\u00f6l\u00fcmleri g\u00f6r \u2193' : 'see sections \u2193';
-                var hintCollapse = isTr ? 'kapat \u2191' : 'close \u2191';
-                sectionsHtml = '<div class="emanation-expand-hint">' +
-                    '<span class="hint-expand">' + hintExpand + '</span>' +
-                    '<span class="hint-collapse">' + hintCollapse + '</span>' +
-                '</div>' +
-                '<div class="emanation-sections">' +
-                    titles.map(function(t) { return '<div class="emanation-section-item">' + t + '</div>'; }).join('') +
-                '</div>';
-            }
-            var readUrl = isTr ? (em.readUrl || em.readUrlEn) : em.readUrlEn;
-            var readLabel = isTr ? 'Oku' : 'Read';
-            var actions = readUrl ? '<div class="emanation-actions"><a href="' + readUrl + '" target="_blank" class="emanation-btn">' + readLabel + ' \u2192</a></div>' : '';
-            return '<div class="emanation-card glass-card" data-category="' + catKey + '" data-emanation-id="' + em.id + '"' + (hidden ? ' style="display:none;"' : '') + '>' +
-                (em.illustration ? '<div class="emanation-illustration">' + em.illustration + '</div>' : '') +
-                '<div class="emanation-meta">' +
-                    '<span class="emanation-category">' + em.category[currentLang] + '</span>' +
-                    '<span class="emanation-date">' + em.date + '</span>' +
-                    readingTimeHtml +
-                '</div>' +
-                '<div class="emanation-title">' + em.title[currentLang] + '</div>' +
-                '<div class="emanation-summary">' + summaryText + '</div>' +
-                docInfoHtml +
-                sectionsHtml +
-                actions +
-            '</div>';
-        }).join('');
-    }
-
-    document.getElementById('emanationFilters').addEventListener('click', function(e) {
-        var btn = e.target.closest('.emanation-filter-btn');
-        if (!btn) return;
-        activeFilter = btn.dataset.filter;
-        renderEmanations();
-    });
-
-    // Accordion: card click toggles section preview
-    document.getElementById('emanationsContainer').addEventListener('click', function(e) {
-        if (e.target.closest('.emanation-btn')) return;
-        var card = e.target.closest('.emanation-card');
-        if (card) card.classList.toggle('expanded');
-    });
-
-    // Home latest emanation pulse
-    function renderHomeLatest() {
-        var latest = emanations[0];
-        if (!latest) return;
-        var isTr = currentLang === 'tr';
-        var titleText = latest.title[currentLang];
-        if (titleText.length > 50) titleText = titleText.substring(0, 47) + '\u2026';
-        document.getElementById('homeLatest').innerHTML =
-            '<div class="home-latest-inner" id="homeLatestLink">' +
-                '<span class="home-latest-pulse"></span>' +
-                '<span class="home-latest-date">' + latest.date + '</span>' +
-                '<span class="home-latest-title">' + titleText + '</span>' +
-            '</div>';
-        document.getElementById('homeLatestLink').addEventListener('click', function() {
-            navigateTo('emanations');
-        });
-    }
-
-
-
-    // Bottom entity ambient video
-    function initBottomEntity() {
-        var el = document.getElementById('bottomEntity');
-        var video = el.querySelector('video');
-        var fallback = document.getElementById('bottomEntityFallback');
-
-        video.preload = 'auto';
-
-        var confirmed = false;
-
-        function onPlaying() {
-            setTimeout(function() {
-                if (video.videoWidth > 0 && !video.paused) {
-                    confirmed = true;
-                    el.classList.add('loaded');
-                    fallback.style.display = 'none';
-                }
-            }, 500);
-        }
-
-        video.addEventListener('playing', onPlaying);
-        video.play().catch(function() {});
-
-        // Fallback: if video doesn't play after 8s, keep CSS glow
-        setTimeout(function() {
-            if (!confirmed) {
-                el.style.display = 'none';
-            }
-        }, 8000);
-    }
-
-    // Nerve network — organism's connective tissue
-    function generateNerveNetwork() {
-        var svg = document.getElementById('nerveSvg');
-        var w = window.innerWidth;
-        var h = window.innerHeight;
-        svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
-
-        var paths = '';
-        // Generate random nerve paths from edges toward center region
-        var nodeCount = window.innerWidth < 768 ? 12 : 22;
-        var nodes = [];
-
-        // Create nodes spread across viewport
-        for (var i = 0; i < nodeCount; i++) {
-            nodes.push({
-                x: Math.random() * w,
-                y: Math.random() * h
-            });
-        }
-
-        // Draw connections between nearby nodes
-        for (var i = 0; i < nodes.length; i++) {
-            for (var j = i + 1; j < nodes.length; j++) {
-                var dx = nodes[i].x - nodes[j].x;
-                var dy = nodes[i].y - nodes[j].y;
-                var dist = Math.sqrt(dx * dx + dy * dy);
-                var maxDist = Math.min(w, h) * 0.4;
-
-                if (dist < maxDist) {
-                    // Curved path via bezier
-                    var mx = (nodes[i].x + nodes[j].x) / 2 + (Math.random() - 0.5) * 80;
-                    var my = (nodes[i].y + nodes[j].y) / 2 + (Math.random() - 0.5) * 80;
-                    paths += '<path class="nerve-line" d="M' + nodes[i].x + ',' + nodes[i].y + ' Q' + mx + ',' + my + ' ' + nodes[j].x + ',' + nodes[j].y + '"/>';
-                }
-            }
-            // Node dot
-            paths += '<circle class="nerve-dot" cx="' + nodes[i].x + '" cy="' + nodes[i].y + '" r="2"/>';
-        }
-
-        svg.innerHTML = paths;
-    }
-
-    function runIntro() {
-        setTimeout(() => {
-            document.getElementById('intro-overlay').classList.add('fade-out');
-            document.getElementById('app').classList.add('visible');
-            renderOrbitals();
-            generateNerveNetwork();
-            renderAssembly();
-            renderEmanations();
-            renderHomeLatest();
-            document.getElementById('page-home').classList.add('stagger-in');
-            setTimeout(function() { initBottomEntity(); }, 500);
-        }, 2000);
-        setTimeout(() => { const o = document.getElementById('intro-overlay'); if (o) o.remove(); }, 2800);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', () => { setLanguage(btn.dataset.lang); renderOrbitals(); });
-    });
-
-    let resizeTimer;
-    window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(function() { renderOrbitals(); generateNerveNetwork(); }, 200); });
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') { hamburger.classList.remove('open'); navDropdown.classList.remove('open'); document.getElementById('audioModalClose').click(); }
-    });
-
-    setLanguage(currentLang);
-
-    if (startPage !== 'home') {
-        // Skip intro when deep-linking or returning from a report
-        var introEl = document.getElementById('intro-overlay');
-        if (introEl) introEl.remove();
-        document.getElementById('app').classList.add('visible');
-        renderOrbitals();
-        generateNerveNetwork();
-        renderHomeLatest();
-        setTimeout(function() { initBottomEntity(); }, 100);
-    } else {
-        runIntro();
-    }
-})();
+const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('seen'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.stance, .thought, .limbs, .seal').forEach(el => io.observe(el));
 </script>
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "bf905439cb494c0aac6a1fa1d4de00ef"}'></script>
+
 </body>
 </html>

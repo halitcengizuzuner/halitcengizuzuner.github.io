@@ -1,22 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,">
     <title>Halit Cengiz Uzuner</title>
-    <script>
-        // GitHub Pages SPA fallback
-        // Gerçek dosya yoksa (örn. /core/) bu sayfa devreye girer,
-        // yolu sessionStorage'a kaydedip ana sayfaya yönlendirir.
-        var path = window.location.pathname;
-        var validPages = ['core', 'assembly', 'emanations'];
-        var route = path.replace(/^\/|\/$/g, '');
-        if (validPages.indexOf(route) !== -1) {
-            sessionStorage.setItem('spa-redirect', path);
-            window.location.replace('/');
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #060604;
+            color: rgba(212, 204, 192, 0.35);
+            font-family: 'Instrument Serif', Georgia, serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
         }
-    </script>
+        a {
+            color: rgba(212, 204, 192, 0.55);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover { color: #d4ccc0; }
+    </style>
 </head>
 <body>
-    <p>Sayfa bulunamadı. <a href="/">Ana sayfaya dön.</a></p>
+    <p>Burada bir şey yok. <a href="/">Geri dön.</a></p>
 </body>
 </html>
