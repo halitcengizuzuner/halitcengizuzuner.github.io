@@ -280,7 +280,7 @@
         .seal a:hover { color: var(--bone); }
 
         /* =============================
-           RESPONSIVE
+           RESPONSIVE — MOBILE
         ============================= */
         @media (max-width: 640px) {
             .gate { padding: 1.5rem; }
@@ -293,6 +293,26 @@
             }
             .limbs { padding: 0 1.5rem 6vh; }
             .seal { padding: 4vh 1.5rem 3vh; }
+        }
+
+        /* =============================
+           RESPONSIVE — DESKTOP
+        ============================= */
+        @media (min-width: 1200px) {
+            .stance {
+                margin-left: 6vw;
+            }
+            .mind {
+                max-width: 1400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .limbs {
+                margin-left: 6vw;
+            }
+            .seal {
+                padding-left: 6vw;
+            }
         }
     </style>
 </head>
