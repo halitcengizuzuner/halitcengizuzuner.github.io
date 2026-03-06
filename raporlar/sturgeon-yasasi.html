@@ -69,56 +69,13 @@ body::before {
 
 a { color: inherit; text-decoration: none; }
 
-/* ========== NAV ========== */
-.site-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: rgba(6, 6, 4, 0.9);
-    backdrop-filter: blur(8px);
-    padding: 0.7rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--bone-ghost);
-}
-
-.site-nav-right {
-    display: flex;
-    align-items: center;
-}
-
-.pdf-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    background: transparent;
-    border: 1px solid var(--bone-ghost);
-    color: var(--bone-dim);
-    padding: 4px 12px;
-    cursor: pointer;
-    font-family: var(--serif);
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    transition: all 0.3s;
-}
-
-.pdf-btn:hover {
-    border-color: var(--ember);
-    color: var(--ember);
-}
-
-.pdf-btn svg { width: 14px; height: 14px; stroke: currentColor; }
-
 /* ========== HEADER ========== */
 .report-header {
     min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 8rem 2.5rem 6rem;
+    padding: 4rem 2.5rem 6rem;
     max-width: 780px;
 }
 
@@ -418,11 +375,9 @@ footer a:hover { color: var(--bone); }
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 640px) {
-    .report-header { padding: 6rem 1.5rem 4rem; }
+    .report-header { padding: 3rem 1.5rem 4rem; }
     .content { padding: 0 1.5rem 4rem; }
     footer { padding: 3rem 1.5rem; }
-    .site-nav { padding: 0.6rem 1rem; }
-    .pdf-btn span { display: none; }
     .stat-grid, .step-grid { grid-template-columns: 1fr 1fr; }
     table { font-size: 0.82rem; }
     th, td { padding: 0.5rem; }
@@ -430,7 +385,6 @@ footer a:hover { color: var(--bone); }
 
 /* ========== PRINT ========== */
 @media print {
-    .site-nav { display: none !important; }
     body { background: white; color: #1a1a1a; }
     body::before { display: none; }
     .report-header { min-height: auto; padding: 3cm 2cm; page-break-after: always; }
@@ -446,19 +400,6 @@ footer a:hover { color: var(--bone); }
 </style>
 </head>
 <body>
-
-<nav class="site-nav">
-    <div class="site-nav-right" style="margin-left:auto">
-        <button class="pdf-btn" onclick="window.print()">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            <span>PDF</span>
-        </button>
-    </div>
-</nav>
 
 <header class="report-header">
     <h1>Sturgeon Yasası</h1>
