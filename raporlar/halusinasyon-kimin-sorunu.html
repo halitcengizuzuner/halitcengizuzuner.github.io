@@ -776,16 +776,6 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
 .site-nav-back svg { width: 15px; height: 15px; stroke: currentColor; }
 .site-nav-back::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: #c0a060; position: absolute; left: -10px; top: 50%; transform: translateY(-50%); animation: back-pulse 2s ease-in-out infinite; }
 @keyframes back-pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; box-shadow: 0 0 4px rgba(192,160,96,0.4); } }
-.site-nav-lang { display: flex; gap: 5px; }
-.site-nav-lang-btn {
-  background: transparent; border: 1px solid rgba(255,255,255,0.14);
-  color: rgba(255,255,255,0.4); padding: 3px 10px; cursor: pointer;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .7rem; letter-spacing: .12em; transition: all .2s;
-  text-decoration: none; display: inline-block;
-}
-.site-nav-lang-btn:hover { border-color: #c0a060; color: rgba(255,255,255,0.75); }
-.site-nav-lang-btn.active { border-color: #c0a060; color: #c0a060; background: rgba(192,160,96,.07); }
 .pdf-btn {
   display: inline-flex; align-items: center; gap: .35rem;
   background: transparent; border: 1px solid rgba(255,255,255,0.14);
@@ -806,12 +796,12 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
 
 <nav class="site-nav">
   <div class="site-nav-left">
-    <a href="/?p=emanations" class="site-nav-back">
+    <a href="/" class="site-nav-back">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <line x1="19" y1="12" x2="5" y2="12"></line>
         <polyline points="12 19 5 12 12 5"></polyline>
       </svg>
-      <span>YAYILIMLAR</span>
+      <span>GERİ</span>
     </a>
   </div>
   <div class="site-nav-right">
@@ -823,10 +813,6 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
       </svg>
       <span>PDF</span>
     </button>
-    <div class="site-nav-lang">
-      <button class="site-nav-lang-btn active">TR</button>
-      <a href="halusinasyon-kimin-sorunu-en.html" class="site-nav-lang-btn">EN</a>
-    </div>
   </div>
 </nav>
 
@@ -837,7 +823,7 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
   <div class="hero-content">
-    <p class="hero-eyebrow">Araştırma Yayılımları · v1.0 · Mart 2026</p>
+    <p class="hero-eyebrow">Mart 2026</p>
     <h1 class="hero-title">Halüsinasyon<br><em>Kimin Sorunu?</em></h1>
     <p class="hero-tagline">Yapay zekanın bilgi üretim hatalarıyla insanın bilgi üretim hatalarının<br>karşılaştırmalı analizi. Altı katmanlı bir model.</p>
   </div>
@@ -1389,7 +1375,7 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
 <footer>
   <div class="wrap">
     <div class="footer-inner">
-      <p>Halüsinasyon: Kimin Sorunu?<br>Mart 2026 · Araştırma Yayılımları<br>Araştırma Anayasası'nın organik devamı</p>
+      <p>Halüsinasyon: Kimin Sorunu?<br>Mart 2026<br>Araştırma Anayasası'nın organik devamı</p>
       <p style="text-align:right">Bu metin bir düşünme sürecinin sonucu.<br>Hatalarıyla, düzeltmeleriyle birlikte.<br>Çünkü halüsinasyonun panzehiri hatasızlık değil —<br>hatayı fark edebilmek, kabul edebilmek ve düzeltebilmek.</p>
     </div>
   </div>
