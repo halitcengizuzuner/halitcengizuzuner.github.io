@@ -166,25 +166,7 @@
             color: var(--ember);
         }
 
-        /* sizes */
-        .t-large {
-            font-size: clamp(1.9rem, 4vw, 3.2rem);
-            line-height: 1.25;
-            color: var(--bone-bright);
-            font-style: italic;
-        }
-
-        .t-medium {
-            font-size: clamp(1.35rem, 2.8vw, 2.1rem);
-            line-height: 1.35;
-            color: var(--bone);
-        }
-
-        .t-small {
-            font-size: clamp(1rem, 1.6vw, 1.25rem);
-            line-height: 1.6;
-            color: var(--bone-dim);
-        }
+        /* base thought typography — each entry overrides */
 
         /* positions */
         .p-left {
@@ -333,39 +315,43 @@
 
 <div class="mind">
 
-    <div class="thought t-medium p-left gap-vast">
-        <a href="raporlar/mutlulugun-resmi.html">Mutluluğun resmi?</a>
+    <div class="thought p-left gap-vast" style="font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.15; color: var(--bone-bright); font-style: italic;">
+        <a href="raporlar/iyi-yasamak.html">O kadar sevseler yaşarlardı.</a>
     </div>
 
-    <div class="thought t-large p-right gap-wide">
-        <a href="raporlar/halusinasyon-kimin-sorunu.html">Yapay zekâ halüsinasyon yapmaz. Doğrulamayan insan yapar.</a>
-    </div>
-
-    <div class="thought t-small p-center gap-breath">
+    <div class="thought p-right gap-wide" style="font-size: clamp(0.95rem, 1.4vw, 1.15rem); line-height: 1.7; color: var(--bone-dim); letter-spacing: 0.02em;">
         Kolay olan her şey çoktan yapıldı.
     </div>
 
-    <div class="thought t-medium p-wide gap-vast">
-        <a href="raporlar/arastirma-anayasasi.html">Düşüncenin kurallarını yazmazsan, düşünce seni yazar.</a>
+    <div class="thought p-right gap-vast" style="font-size: clamp(1.7rem, 3.5vw, 2.6rem); line-height: 1.25; color: var(--bone); font-style: italic;">
+        <a href="raporlar/mutlulugun-resmi.html">Mutluluğun resmi?</a>
     </div>
 
-    <div class="thought t-small p-left gap-breath">
+    <div class="thought p-left gap-breath" style="font-size: clamp(1.1rem, 1.8vw, 1.35rem); line-height: 1.5; color: var(--bone-dim);">
         Dolu bir zihin düşünemez.
     </div>
 
-    <div class="thought t-large p-right gap-vast">
-        <a href="raporlar/sturgeon-yasasi.html">Her şeyin yüzde doksanı çöptür. Bu cümle dahil.</a>
+    <div class="thought p-right gap-vast" style="font-size: clamp(1.4rem, 2.8vw, 2rem); line-height: 1.35; color: var(--bone);">
+        <a href="raporlar/halusinasyon-kimin-sorunu.html">Yapay zekâ halüsinasyon yapmaz. Doğrulamayan insan yapar.</a>
     </div>
 
-    <div class="thought t-small p-right gap-wide">
+    <div class="thought p-wide gap-vast" style="font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.3; color: var(--bone-bright); font-style: italic;">
+        <a href="raporlar/arastirma-anayasasi.html">Düşüncenin kurallarını yazmazsan, düşünce seni yazar.</a>
+    </div>
+
+    <div class="thought p-center gap-wide" style="font-size: clamp(0.85rem, 1.2vw, 1rem); line-height: 1.8; color: var(--bone-ghost); letter-spacing: 0.06em;">
         Soru sormak cevap vermekten zordur.
     </div>
 
-    <div class="thought t-medium p-left gap-vast">
+    <div class="thought p-right gap-vast" style="font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1.15; color: var(--bone-bright);">
+        <a href="raporlar/sturgeon-yasasi.html">Her şeyin yüzde doksanı çöptür. Bu cümle dahil.</a>
+    </div>
+
+    <div class="thought p-left gap-vast" style="font-size: clamp(1.3rem, 2.2vw, 1.7rem); line-height: 1.4; color: var(--bone);">
         <a href="raporlar/aynen-oyle.html">Dil çürüyorsa düşünce de çürür.</a>
     </div>
 
-    <div class="thought t-small p-center gap-vast">
+    <div class="thought p-center gap-vast" style="font-size: clamp(1rem, 1.5vw, 1.2rem); line-height: 1.7; color: var(--bone-dim);">
         Bir organizma ne kadar büyürse o kadar yavaşlar.<br>Yavaşlık zaaf değil.
     </div>
 

@@ -29,13 +29,13 @@
     --bone-bright: #ece4d8;
     --bone-dim: rgba(212, 204, 192, 0.58);
     --bone-ghost: rgba(212, 204, 192, 0.28);
-    --ember: #a08060;
-    --ember-dim: rgba(160, 128, 96, 0.12);
+    --sage: #78a890;
+    --sage-dim: rgba(120, 168, 144, 0.12);
     --serif: 'Instrument Serif', Georgia, serif;
 }
 
 ::selection {
-    background: var(--ember);
+    background: var(--sage);
     color: var(--void);
 }
 
@@ -49,7 +49,7 @@ body {
     color: var(--bone);
     font-family: var(--serif);
     font-weight: 400;
-    line-height: 1.75;
+    line-height: 1.82;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
@@ -60,7 +60,7 @@ body::before {
     inset: 0;
     z-index: 9999;
     pointer-events: none;
-    opacity: 0.2;
+    opacity: 0.18;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
     background-repeat: repeat;
     background-size: 180px 180px;
@@ -75,10 +75,14 @@ a { color: inherit; text-decoration: none; }
 
 /* ========== HEADER ========== */
 .report-header {
-    padding: 4rem 2rem 4rem;
+    min-height: 75vh;
+    padding: 4rem 2rem 5rem;
     text-align: center;
-    max-width: 800px;
+    max-width: 780px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .report-header h1 {
@@ -101,7 +105,7 @@ a { color: inherit; text-decoration: none; }
 
 .meta {
     font-size: 0.75rem;
-    color: var(--ember);
+    color: var(--sage);
     letter-spacing: 0.15em;
 }
 
@@ -147,7 +151,7 @@ a { color: inherit; text-decoration: none; }
 .section-divider {
     width: 40px;
     height: 1px;
-    background: var(--ember);
+    background: var(--sage);
     margin: 3.5rem auto;
     opacity: 0.5;
 }
@@ -166,7 +170,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ========== PULL QUOTE ========== */
 .pull-quote {
-    border-left: 1px solid var(--ember);
+    border-left: 1px solid var(--sage);
     padding: 1rem 0 1rem 1.5rem;
     margin: 2rem 0;
     font-style: italic;
@@ -202,7 +206,7 @@ a { color: inherit; text-decoration: none; }
 .context-label {
     font-size: 0.7rem;
     letter-spacing: 0.15em;
-    color: var(--ember);
+    color: var(--sage);
     display: block;
     margin-bottom: 0.5rem;
 }
@@ -241,7 +245,7 @@ a { color: inherit; text-decoration: none; }
     letter-spacing: 0.2em;
     text-transform: uppercase;
     font-weight: 400;
-    color: var(--ember);
+    color: var(--sage);
 }
 
 .principle {
@@ -287,7 +291,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .example-box {
-    border-left: 1px solid var(--ember);
+    border-left: 1px solid var(--sage);
     padding: 1.2rem 1.5rem;
     margin: 1.5rem 0;
     font-size: 0.9rem;
@@ -314,7 +318,7 @@ figure.float-right { float: right; margin: 0 0 1.5rem 2rem; max-width: 260px; }
 figure.float-left { float: left; margin: 0 2rem 1.5rem 0; max-width: 260px; }
 figure.full-width { margin: 2.2rem 0; width: 100%; }
 figcaption { font-size: 0.7rem; color: var(--bone-dim); margin-top: 0.55rem; line-height: 1.45; letter-spacing: 0.02em; }
-.fig-num { color: var(--ember); }
+.fig-num { color: var(--sage); }
 .clearfix::after { content:''; display:table; clear:both; }
 
 /* ========== CHARACTER CARDS ========== */
@@ -329,7 +333,7 @@ figcaption { font-size: 0.7rem; color: var(--bone-dim); margin-top: 0.55rem; lin
 .character-card {
     background: rgba(212, 204, 192, 0.02);
     padding: 2.5rem;
-    border-top: 1px solid var(--ember);
+    border-top: 1px solid var(--sage);
 }
 
 .character-card:first-child { border-top: none; }
@@ -344,8 +348,8 @@ figcaption { font-size: 0.7rem; color: var(--bone-dim); margin-top: 0.55rem; lin
 .char-badge {
     font-size: 0.65rem;
     letter-spacing: 0.1em;
-    color: var(--ember);
-    border: 1px solid var(--ember);
+    color: var(--sage);
+    border: 1px solid var(--sage);
     padding: 0.2rem 0.6rem;
     flex-shrink: 0;
 }
@@ -395,9 +399,9 @@ figcaption { font-size: 0.7rem; color: var(--bone-dim); margin-top: 0.55rem; lin
 .city-tab:hover { color: var(--bone); background: rgba(212, 204, 192, 0.04); }
 
 .city-tab.active {
-    color: var(--ember);
+    color: var(--sage);
     background: var(--void);
-    border-top-color: var(--ember);
+    border-top-color: var(--sage);
 }
 
 .city-panels { position: relative; }
@@ -442,7 +446,7 @@ figcaption { font-size: 0.7rem; color: var(--bone-dim); margin-top: 0.55rem; lin
 }
 
 .dialogue-box {
-    border-left: 1px solid var(--ember);
+    border-left: 1px solid var(--sage);
     padding: 1.2rem 1.5rem;
     margin: 1.5rem 0;
     font-style: italic;
@@ -468,13 +472,13 @@ figcaption { font-size: 0.7rem; color: var(--bone-dim); margin-top: 0.55rem; lin
 .news-clip {
     padding: 1.8rem;
     background: rgba(212, 204, 192, 0.02);
-    border-top: 1px solid var(--ember);
+    border-top: 1px solid var(--sage);
 }
 
 .news-clip-label {
     font-size: 0.65rem;
     letter-spacing: 0.15em;
-    color: var(--ember);
+    color: var(--sage);
     display: block;
     margin-bottom: 0.8rem;
 }
@@ -570,7 +574,7 @@ figcaption { font-size: 0.7rem; color: var(--bone-dim); margin-top: 0.55rem; lin
 .t-line { color: var(--bone-dim); margin-bottom: 0.2rem; }
 .t-line.active { color: var(--bone-bright); }
 .t-line.output { color: var(--bone-dim); padding-left: 1rem; opacity: 0.7; }
-.t-cursor { display: inline-block; width: 7px; height: 13px; background: var(--ember); animation: blink 0.8s step-end infinite; vertical-align: text-bottom; margin-left: 1px; }
+.t-cursor { display: inline-block; width: 7px; height: 13px; background: var(--sage); animation: blink 0.8s step-end infinite; vertical-align: text-bottom; margin-left: 1px; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
 /* ========== AI CAPABILITIES ========== */
@@ -590,7 +594,7 @@ figcaption { font-size: 0.7rem; color: var(--bone-dim); margin-top: 0.55rem; lin
 .ai-cap-label {
     font-size: 0.68rem;
     letter-spacing: 0.14em;
-    color: var(--ember);
+    color: var(--sage);
     display: block;
     margin-bottom: 0.7rem;
 }
@@ -609,7 +613,7 @@ figcaption { font-size: 0.7rem; color: var(--bone-dim); margin-top: 0.55rem; lin
 .obs-label {
     font-size: 0.68rem;
     letter-spacing: 0.16em;
-    color: var(--ember);
+    color: var(--sage);
     display: block;
     margin-bottom: 1.2rem;
     padding-bottom: 0.7rem;
@@ -665,7 +669,7 @@ figcaption { font-size: 0.7rem; color: var(--bone-dim); margin-top: 0.55rem; lin
 .door-name {
     font-size: 0.72rem;
     letter-spacing: 0.1em;
-    color: var(--ember);
+    color: var(--sage);
     display: block;
     margin-bottom: 0.5rem;
 }
@@ -697,7 +701,7 @@ figcaption { font-size: 0.7rem; color: var(--bone-dim); margin-top: 0.55rem; lin
     flex-shrink: 0;
 }
 
-.fs-num { font-size: 0.6rem; color: var(--ember); letter-spacing: 0.1em; margin-bottom: 0.2rem; }
+.fs-num { font-size: 0.6rem; color: var(--sage); letter-spacing: 0.1em; margin-bottom: 0.2rem; }
 .fs-title { font-size: 0.82rem; font-style: italic; color: var(--bone-bright); margin-bottom: 0.25rem; }
 .fs-desc { font-size: 0.74rem; color: var(--bone-dim); line-height: 1.4; }
 .flow-arr { color: var(--bone-dim); font-size: 0.9rem; padding: 0 0.3rem; flex-shrink: 0; }
@@ -728,7 +732,7 @@ figcaption { font-size: 0.7rem; color: var(--bone-dim); margin-top: 0.55rem; lin
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--bone-ghost);
-    color: var(--ember);
+    color: var(--sage);
 }
 
 .cg-col ul { list-style: none; }
@@ -1530,7 +1534,7 @@ figcaption { font-size: 0.7rem; color: var(--bone-dim); margin-top: 0.55rem; lin
 
 <!-- BEDEL ÖDEME -->
 <div class="content">
-    <div class="pull-quote reveal" style="border-left-color:var(--ember);">
+    <div class="pull-quote reveal" style="border-left-color:var(--sage);">
         "Bedel ödemekten muaf olmanın istenmeyen sonuçları vardır, çünkü kararlarının etkisinden yalıtılmış insanlar öğrenmez."
         <span class="attr">— Nassim Nicholas Taleb · Skin in the Game</span>
     </div>

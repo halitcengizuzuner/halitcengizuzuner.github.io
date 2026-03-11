@@ -29,12 +29,12 @@
     --bone-bright: #ece4d8;
     --bone-dim: rgba(212, 204, 192, 0.58);
     --bone-ghost: rgba(212, 204, 192, 0.28);
-    --ember: #a08060;
-    --ember-dim: rgba(160, 128, 96, 0.12);
+    --ash: #a098b0;
+    --ash-dim: rgba(160, 152, 176, 0.12);
     --serif: 'Instrument Serif', Georgia, serif;
 }
 
-::selection { background: var(--ember); color: var(--void); }
+::selection { background: var(--ash); color: var(--void); }
 html { font-size: clamp(17px, 1.2vw, 20px); scroll-behavior: smooth; }
 
 body {
@@ -42,7 +42,7 @@ body {
     color: var(--bone);
     font-family: var(--serif);
     font-weight: 400;
-    line-height: 1.75;
+    line-height: 1.9;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
@@ -53,7 +53,7 @@ body::before {
     inset: 0;
     z-index: 9999;
     pointer-events: none;
-    opacity: 0.2;
+    opacity: 0.18;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
     background-repeat: repeat;
     background-size: 180px 180px;
@@ -62,12 +62,12 @@ body::before {
 
 a { color: inherit; text-decoration: none; }
 
-.report-header { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; padding: 4rem 2.5rem 6rem; max-width: 780px; }
-.report-header h1 { font-size: clamp(2.8rem, 6vw, 4.5rem); color: var(--bone-bright); line-height: 1; letter-spacing: -0.03em; font-weight: 400; font-style: italic; }
+.report-header { min-height: 85vh; display: flex; flex-direction: column; justify-content: center; padding: 4rem 2.5rem 7rem; max-width: 720px; }
+.report-header h1 { font-size: clamp(2.5rem, 5.5vw, 3.8rem); color: var(--bone-bright); line-height: 1.05; letter-spacing: -0.02em; font-weight: 400; font-style: italic; }
 .report-header .subtitle { font-size: clamp(1.2rem, 2.5vw, 1.6rem); color: var(--bone-dim); margin-top: 1.2rem; line-height: 1.4; }
 .report-header .meta { margin-top: 3rem; font-size: 0.8rem; color: var(--bone-ghost); letter-spacing: 0.06em; }
 
-.content { max-width: 720px; margin: 0 auto; padding: 0 2.5rem 6rem; }
+.content { max-width: 680px; margin: 0 auto; padding: 0 2.5rem 6rem; }
 
 .toc { border-top: 1px solid var(--bone-ghost); border-bottom: 1px solid var(--bone-ghost); padding: 2rem 0; margin-bottom: 5rem; }
 .toc h2 { font-size: 1rem; color: var(--bone-dim); letter-spacing: 0.1em; margin-bottom: 1.2rem; font-style: italic; }
@@ -79,17 +79,17 @@ a { color: inherit; text-decoration: none; }
 
 section { margin-bottom: 4rem; }
 h2 { font-size: clamp(1.5rem, 3vw, 2rem); color: var(--bone-bright); margin-bottom: 1.5rem; font-weight: 400; line-height: 1.2; }
-h3 { font-size: 1.15rem; color: var(--ember); margin: 2.5rem 0 1rem; font-weight: 400; font-style: italic; }
+h3 { font-size: 1.15rem; color: var(--ash); margin: 2.5rem 0 1rem; font-weight: 400; font-style: italic; }
 h4 { font-size: 0.85rem; color: var(--bone-dim); letter-spacing: 0.08em; margin: 2rem 0 0.8rem; }
-p { margin-bottom: 1rem; color: var(--bone); }
+p { margin-bottom: 1.3rem; color: var(--bone); }
 strong { color: var(--bone-bright); }
 
 table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
 th { text-align: left; padding: 0.8rem 1rem; border-bottom: 1px solid var(--bone-dim); color: var(--bone-dim); font-weight: 400; font-style: italic; font-size: 0.85rem; }
 td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--bone-ghost); color: var(--bone); }
-td strong { color: var(--ember); }
+td strong { color: var(--ash); }
 
-blockquote { border-left: 2px solid var(--ember); padding: 1rem 0 1rem 1.5rem; margin: 2rem 0; font-style: italic; color: var(--bone-dim); font-size: 1.05rem; line-height: 1.6; }
+blockquote { border-left: 2px solid var(--ash); padding: 1rem 0 1rem 1.5rem; margin: 2rem 0; font-style: italic; color: var(--bone-dim); font-size: 1.05rem; line-height: 1.6; }
 blockquote cite { display: block; margin-top: 0.8rem; font-style: normal; font-size: 0.85rem; color: var(--bone-ghost); }
 
 .box { border: 1px solid var(--bone-ghost); padding: 1.5rem; margin: 2rem 0; }
@@ -99,17 +99,17 @@ blockquote cite { display: block; margin-top: 0.8rem; font-style: normal; font-s
 .model-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1px; margin: 2rem 0; border: 1px solid var(--bone-ghost); }
 .model-card { padding: 1.5rem; background: rgba(212,204,192,0.02); }
 .model-card h4 { color: var(--bone-bright); margin: 0 0 0.3rem; font-size: 1rem; letter-spacing: normal; font-style: italic; }
-.model-card .percentage { font-size: 1.8rem; color: var(--ember); line-height: 1; margin: 0.3rem 0; }
+.model-card .percentage { font-size: 1.8rem; color: var(--ash); line-height: 1; margin: 0.3rem 0; }
 .model-card p { font-size: 0.85rem; color: var(--bone-dim); margin: 0; }
 
 .hypothesis { border: 1px solid var(--bone-ghost); padding: 1.5rem; margin: 1.5rem 0; }
 .hypothesis h4 { color: var(--bone-bright); margin: 0 0 0.5rem; font-size: 1rem; letter-spacing: normal; font-style: italic; }
-.hypothesis-number { font-size: 0.8rem; color: var(--ember); letter-spacing: 0.1em; }
+.hypothesis-number { font-size: 0.8rem; color: var(--ash); letter-spacing: 0.1em; }
 
 .timeline { padding-left: 1.5rem; margin: 2rem 0; border-left: 1px solid var(--bone-ghost); }
 .timeline-item { position: relative; padding-bottom: 1.5rem; padding-left: 1rem; }
-.timeline-item::before { content: ''; position: absolute; left: -1.5rem; top: 0.4rem; width: 6px; height: 6px; background: var(--ember); border-radius: 50%; transform: translateX(-50%); }
-.timeline-date { font-style: italic; color: var(--ember); font-size: 0.9rem; }
+.timeline-item::before { content: ''; position: absolute; left: -1.5rem; top: 0.4rem; width: 6px; height: 6px; background: var(--ash); border-radius: 50%; transform: translateX(-50%); }
+.timeline-date { font-style: italic; color: var(--ash); font-size: 0.9rem; }
 
 .risk-low { color: rgba(160,200,140,0.7); }
 .risk-high { color: rgba(200,140,120,0.7); }
@@ -119,7 +119,7 @@ ul, ol { margin: 1rem 0 1rem 1.2rem; }
 li { margin-bottom: 0.4rem; color: var(--bone); }
 li::marker { color: var(--bone-ghost); }
 
-footer { max-width: 720px; margin: 0 auto; padding: 4rem 2.5rem; border-top: 1px solid var(--bone-ghost); }
+footer { max-width: 680px; margin: 0 auto; padding: 4rem 2.5rem; border-top: 1px solid var(--bone-ghost); }
 footer p { font-size: 0.8rem; color: var(--bone-ghost); line-height: 1.8; }
 footer a { color: var(--bone-dim); transition: color 0.3s; }
 footer a:hover { color: var(--bone); }

@@ -29,13 +29,13 @@
     --bone-bright: #ece4d8;
     --bone-dim: rgba(212, 204, 192, 0.58);
     --bone-ghost: rgba(212, 204, 192, 0.28);
-    --ember: #a08060;
-    --ember-dim: rgba(160, 128, 96, 0.12);
+    --steel: #7890a0;
+    --steel-dim: rgba(120, 144, 160, 0.12);
     --serif: 'Instrument Serif', Georgia, serif;
 }
 
 ::selection {
-    background: var(--ember);
+    background: var(--steel);
     color: var(--void);
 }
 
@@ -49,7 +49,7 @@ body {
     color: var(--bone);
     font-family: var(--serif);
     font-weight: 400;
-    line-height: 1.75;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
@@ -60,7 +60,7 @@ body::before {
     inset: 0;
     z-index: 9999;
     pointer-events: none;
-    opacity: 0.2;
+    opacity: 0.15;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
     background-repeat: repeat;
     background-size: 180px 180px;
@@ -75,19 +75,22 @@ a { color: inherit; text-decoration: none; }
 
 /* ========== HEADER ========== */
 .report-header {
+    min-height: 60vh;
     padding: 4rem 2rem 4rem;
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .report-header h1 {
-    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-size: clamp(2rem, 5vw, 3.2rem);
     font-weight: 400;
-    font-style: italic;
     color: var(--bone-bright);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
     margin-bottom: 1.2rem;
 }
 
@@ -101,13 +104,13 @@ a { color: inherit; text-decoration: none; }
 
 .meta {
     font-size: 0.75rem;
-    color: var(--ember);
+    color: var(--steel);
     letter-spacing: 0.15em;
 }
 
 /* ========== İÇERİK ========== */
 .content {
-    max-width: 720px;
+    max-width: 760px;
     margin: 0 auto;
     padding: 0 2rem 6rem;
 }
@@ -115,9 +118,8 @@ a { color: inherit; text-decoration: none; }
 .content h2 {
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     font-weight: 400;
-    font-style: italic;
     color: var(--bone-bright);
-    margin: 4rem 0 1.5rem;
+    margin: 3.5rem 0 1.5rem;
     line-height: 1.2;
 }
 
@@ -132,7 +134,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .content p {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
     color: var(--bone);
 }
 
@@ -141,14 +143,14 @@ a { color: inherit; text-decoration: none; }
 .section-divider {
     width: 40px;
     height: 1px;
-    background: var(--ember);
+    background: var(--steel);
     margin: 3.5rem auto;
     opacity: 0.5;
 }
 
 /* ========== PULL QUOTE ========== */
 .pull-quote {
-    border-left: 1px solid var(--ember);
+    border-left: 1px solid var(--steel);
     padding: 1rem 0 1rem 1.5rem;
     margin: 2rem 0;
     font-style: italic;
@@ -174,7 +176,7 @@ a { color: inherit; text-decoration: none; }
 .context-label {
     font-size: 0.7rem;
     letter-spacing: 0.15em;
-    color: var(--ember);
+    color: var(--steel);
     display: block;
     margin-bottom: 0.5rem;
 }
@@ -234,7 +236,7 @@ a { color: inherit; text-decoration: none; }
     font-size: 0.75rem;
     letter-spacing: 0.15em;
     margin-bottom: 1rem;
-    color: var(--ember);
+    color: var(--steel);
     font-weight: 400;
 }
 
@@ -263,13 +265,13 @@ a { color: inherit; text-decoration: none; }
 .news-clip {
     padding: 1.8rem;
     background: rgba(212, 204, 192, 0.02);
-    border-top: 1px solid var(--ember);
+    border-top: 1px solid var(--steel);
 }
 
 .news-clip-label {
     font-size: 0.65rem;
     letter-spacing: 0.15em;
-    color: var(--ember);
+    color: var(--steel);
     display: block;
     margin-bottom: 0.8rem;
 }
@@ -329,7 +331,7 @@ a { color: inherit; text-decoration: none; }
 .layer-tab.active {
     color: var(--bone-bright);
     background: var(--void);
-    border-top-color: var(--ember);
+    border-top-color: var(--steel);
 }
 
 .layer-panel {
@@ -359,8 +361,8 @@ a { color: inherit; text-decoration: none; }
     font-size: 0.65rem;
     letter-spacing: 0.1em;
     padding: 0.2rem 0.6rem;
-    border: 1px solid var(--ember);
-    color: var(--ember);
+    border: 1px solid var(--steel);
+    color: var(--steel);
     margin-bottom: 1rem;
 }
 
@@ -409,7 +411,7 @@ a { color: inherit; text-decoration: none; }
 .t-line.cmd::before { content: '$ '; color: var(--bone-dim); }
 .t-line.err { color: rgba(200, 140, 120, 0.8); }
 .t-line.fix { color: rgba(160, 200, 140, 0.8); }
-.t-line.warn { color: var(--ember); }
+.t-line.warn { color: var(--steel); }
 .t-line.dim { color: var(--bone-dim); font-size: 0.7rem; opacity: 0.6; }
 
 .t-round {
@@ -454,12 +456,12 @@ a { color: inherit; text-decoration: none; }
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--ember);
+    background: var(--steel);
 }
 
 .tl-time {
     font-size: 0.72rem;
-    color: var(--ember);
+    color: var(--steel);
     letter-spacing: 0.08em;
     margin-bottom: 0.2rem;
 }
@@ -487,7 +489,7 @@ a { color: inherit; text-decoration: none; }
 
 .reason-num {
     font-size: 0.7rem;
-    color: var(--ember);
+    color: var(--steel);
     letter-spacing: 0.1em;
     display: block;
     margin-bottom: 0.5rem;
@@ -571,7 +573,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ========== FOOTER ========== */
 .report-footer {
-    max-width: 720px;
+    max-width: 760px;
     margin: 0 auto;
     padding: 3rem 2rem;
     border-top: 1px solid var(--bone-ghost);
@@ -593,7 +595,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ========== KADRO ========== */
 .kadro {
-    max-width: 720px;
+    max-width: 760px;
     margin: 0 auto;
     padding: 0 2rem 2rem;
     font-size: 0.7rem;
@@ -650,7 +652,7 @@ a { color: inherit; text-decoration: none; }
 
     <div class="pull-quote reveal">
         "Yapay zeka halüsinasyonu ile araştırma hatası — mekanizma farklı, sonuç aynı. İkisine nasıl farklı davranılır?"
-        <br><span style="font-size:.78rem;color:var(--ember);font-style:normal;">— Araştırma Anayasası, Açık Soru §4</span>
+        <br><span style="font-size:.78rem;color:var(--steel);font-style:normal;">— Araştırma Anayasası, Açık Soru §4</span>
     </div>
 
     <div class="context-grid reveal">
