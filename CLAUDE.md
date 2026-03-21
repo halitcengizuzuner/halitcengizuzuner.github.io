@@ -1,9 +1,9 @@
 # halitcengizuzuner.com — Site İlkeleri
 
-## Bireysel Karakter İlkesi — KESİN
-- **Ana sayfa:** Her düşünce girişi kendi punto boyutunu, satır yüksekliğini, rengini, konumunu taşır. Paylaşılan boyut sınıfları (t-small, t-medium, t-large) kullanılmaz. Her cümle kendi bedenini giyer.
-- **Raporlar:** Her rapor sayfası kendi görsel karakterini taşır. Ortak şablon kopyalanmaz — her metin kendi tipografisini, ritmini, boşluklarını belirler. Renk paleti (void/bone) ortaktır ama kullanım biçimi farklılaşabilir.
-- **İlke:** Tekrar eden kalıp = üniforma. Bu site üniforma giymez.
+## İçi Hayal, Dışı Gerçek
+- **Duvar (dış):** Gerçek. Ziyaretçi neyin kapı olduğunu sezgisel anlar. Bağlantılı girişler bone/bone-bright — tıklanabilir görünür, hover'da ince alt çizgi belirir. Bağlantısız aforizmalar bone-ghost — nefes verir ama dikkat çekmez, "süs" olduğu belli.
+- **Yazılar (iç):** Hayal. Her rapor sayfası kendi görsel karakterini taşır. Ortak şablon kopyalanmaz — her metin kendi tipografisini, ritmini, boşluklarını belirler. Renk paleti (void/bone) ortaktır ama kullanım biçimi farklılaşabilir.
+- **İlke:** Duvar okunabilir, yazılar keşfedilir. Kaos dışarıda değil içeride yaşar.
 
 ## Kronolojik Sıralama
 - Ana sayfada en yeni düşünce en üstte, en eski en altta.
@@ -27,6 +27,7 @@
   - Araştırma Anayasası: --sage (#78a890) — adaçayı yeşili
   - Sturgeon Yasası: --rust (#b87050) — pas turuncusu
   - Aynen Öyle: --ash (#a098b0) — kül lavantası
+  - Çay Masası: --cay (#b89060) — çay amberi
 - Grain overlay: fractalNoise SVG, mix-blend-mode overlay (opaklık rapor bazında farklı)
 - Responsive: clamp() ile akışkan tipografi
 - Raporlar: /raporlar/ dizininde
