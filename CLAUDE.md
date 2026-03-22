@@ -28,6 +28,7 @@
   - Sturgeon Yasası: --rust (#b87050) — pas turuncusu
   - Aynen Öyle: --ash (#a098b0) — kül lavantası
   - Çay Masası: --cay (#b89060) — çay amberi
+  - Nefret Üzerine: --accent (#c4785a) — yanık toprak (kendi font/CSS sistemi: Cormorant Garamond + Inter)
 - Grain overlay: fractalNoise SVG, mix-blend-mode overlay (opaklık rapor bazında farklı)
 - Responsive: clamp() ile akışkan tipografi
 - Raporlar: /raporlar/ dizininde
