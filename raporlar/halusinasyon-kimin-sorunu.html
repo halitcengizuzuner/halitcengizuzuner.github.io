@@ -30,7 +30,7 @@
   "headline": "Halüsinasyon: Kimin Sorunu? — Altı Katmanlı Bir Meta-Araştırma",
   "description": "Yapay zeka halüsinasyonu ile insanın bilgi üretim hatalarının karşılaştırmalı analizi. Altı katmanlı bir model.",
   "datePublished": "2026-03-01",
-  "dateModified": "2026-03-12",
+  "dateModified": "2026-03-28",
   "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
   "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/raporlar/halusinasyon-kimin-sorunu.html"},
@@ -1122,6 +1122,112 @@ a { color: inherit; text-decoration: none; }
     <div class="section-divider"></div>
 
 
+    <!-- ═══════════════ SAHA NOTLARI ═══════════════ -->
+
+    <h2 class="reveal">Sahadan Gelen Veriler</h2>
+
+    <p class="reveal">Bu rapor yayımlandıktan sonraki bir ay, raporun kendi iddialarını test eden vakalar üretti. Aşağıdaki iki vaka soyut değil — bu araştırmayı yapan aynı yapay zeka ile aynı kullanıcı arasında yaşandı.</p>
+
+
+    <h3 class="reveal" style="margin-top:2.5rem;color:var(--steel);">Vaka 1 — Fiyat Halüsinasyonu</h3>
+
+    <p class="reveal">Bir ürün araştırmasında, yapay zeka Claude Opus model fiyatını üç katı olarak raporladı: gerçek fiyat 5$/M girdi + 25$/M çıktı iken, 15$/M + 75$/M olarak sunuldu. Hata tek bir turda kalmadı — dokuz tur boyunca yayıldı, her tur bir öncekinin hatalı verisini referans aldı.</p>
+
+    <div class="terminal-window reveal">
+        <div class="terminal-bar">
+            <div class="terminal-dot td-red"></div>
+            <div class="terminal-dot td-yellow"></div>
+            <div class="terminal-dot td-green"></div>
+            <span class="terminal-title">fiyat halüsinasyonu · 5 halkalı kök neden</span>
+        </div>
+        <div class="terminal-body">
+            <div class="t-round">
+                <div class="t-round-label">Halka 1 — Giriş Yanlılığı</div>
+                <div class="t-line dim">   sesli not formatı → "karar sorusu" olarak sınıflandırıldı</div>
+                <div class="t-line err">⟶ araştırma modu tetiklenmedi — basit soru gibi işlendi</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Halka 2 — İlke Sessizliği</div>
+                <div class="t-line dim">   16 araştırma ilkesi mevcuttu</div>
+                <div class="t-line err">⟶ hiçbiri devreye girmedi — kurallar var, refleksler yok</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Halka 3 — Delege Körlüğü</div>
+                <div class="t-line dim">   alt araştırmacı (agent) fiyatı birincil kaynaktan doğrulamadı</div>
+                <div class="t-line err">⟶ çıktısı doğrulama olmadan kabul edildi</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Halka 4 — Yayılma</div>
+                <div class="t-line err">⟶ hatalı fiyat 9 turda 3 farklı karşılaştırma tablosuna girdi</div>
+                <div class="t-line dim">   her tablo bir öncekini "doğrulamış" gibi göründü</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Halka 5 — Geç Düzeltme</div>
+                <div class="t-line fix">⟶ tur 10-13'te birincil kaynak doğrulaması yapıldı</div>
+                <div class="t-line fix">⟶ 3x hata tespit edildi, tüm tablolar düzeltildi</div>
+                <div class="t-line dim">   düzeltme süresi: dakikalar. yayılma süresi: saatler.</div>
+            </div>
+        </div>
+    </div>
+
+    <p class="reveal">Bu vaka, raporun birinci katmanına — bilgi halüsinasyonuna — temiz bir örnek. Ama asıl ders başka yerde: <strong>ilkelerin varlığı reflekslerin çalıştığı anlamına gelmiyor.</strong> Kağıt üzerinde 16 araştırma ilkesi, hiçbiri devreye girmedi. İlkeler kapı değil pusula olmalıydı — her bilgi toplama anında kontrol eden, statik değil dinamik bir mekanizma.</p>
+
+
+    <h3 class="reveal" style="margin-top:2.5rem;color:var(--steel);">Vaka 2 — Kalıp Halüsinasyonu</h3>
+
+    <p class="reveal">Bir jeopolitik araştırmada, yapay zeka "büyük güçler savaşın bedelini öder" tablosu hazırladı. İngiltere Süveyş'te kaybetti, SSCB Afganistan'da çöktü, ABD Irak'ta eridi, Rusya Ukrayna'da kaybediyor. Tablo temiz, simetrik, ikna ediciydi. Ve büyük ölçüde yanlıştı.</p>
+
+    <div class="terminal-window reveal">
+        <div class="terminal-bar">
+            <div class="terminal-dot td-red"></div>
+            <div class="terminal-dot td-yellow"></div>
+            <div class="terminal-dot td-green"></div>
+            <span class="terminal-title">kalıp halüsinasyonu · çerçeve sorgulaması</span>
+        </div>
+        <div class="terminal-body">
+            <div class="t-round">
+                <div class="t-round-label">Kalıp</div>
+                <div class="t-line dim">   "büyük güçler savaşın bedelini öder"</div>
+                <div class="t-line dim">   CSIS, Brookings, IISS, Chatham House — hepsi aynı çerçeve</div>
+                <div class="t-line err">⟶ yaygın = doğru varsayıldı</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Gerçek — "Rusya kaybediyor"</div>
+                <div class="t-line fix">⟶ askeri üretim 22 kat arttı</div>
+                <div class="t-line fix">⟶ BRICS genişledi</div>
+                <div class="t-line fix">⟶ ekonomi yavaşladı ama çökmedi</div>
+                <div class="t-line warn">⟶ "kaybediyor" kalıbı veriyle çelişiyor</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Gerçek — "SSCB Afganistan yüzünden çöktü"</div>
+                <div class="t-line fix">⟶ petrol fiyatı çöküşü: 100→33$, yılda 20 milyar$ kayıp</div>
+                <div class="t-line fix">⟶ Çernobil: 235 milyar$ maliyet</div>
+                <div class="t-line fix">⟶ yapısal ekonomik çürüme + Gorbaçov reformları</div>
+                <div class="t-line warn">⟶ Afganistan bir faktör, tek neden değil</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Teşhis</div>
+                <div class="t-line err">⟶ düşünce kuruluşu çerçevesi sorgulanmadan tablo yapıldı</div>
+                <div class="t-line dim">   çerçeve tekrarlanınca "doğru gibi" göründü</div>
+                <div class="t-line dim">   çerçevenin kimin perspektifinden üretildiği sorulmadı</div>
+            </div>
+        </div>
+    </div>
+
+    <p class="reveal">Bu vaka altı katmanlı modelin dışında bir şeye işaret ediyor: <strong>kalıp halüsinasyonu.</strong> Bilgi doğru olabilir, ton nötr olabilir, kaynak güvenilir olabilir — ama çerçevenin kendisi tek bir perspektiften üretilmiş ve sorgulanmadan benimsenmiş olabilir. Yaygınlık doğruluk kanıtı değil; çerçevenin çok kaynakta tekrarlanması onu doğru kılmıyor, sadece yaygın kılıyor.</p>
+
+    <div class="pull-quote reveal">
+        Düşünce kuruluşları fikir verir, akıl değil.<br>
+        <span style="font-size:.78rem;color:var(--steel);font-style:normal;">— Araştırma Anayasası, İlke §17: Kalıp Sorgulaması</span>
+    </div>
+
+    <p class="reveal">İki vaka birlikte okunduğunda bir örüntü ortaya çıkıyor: yapay zekanın hatası her zaman "yanlış bilgi üretmek" değil. Bazen "doğru gibi görünen kalıbı sorgulamadan benimsemek." Birincisi tespit edilir ve düzeltilir. İkincisi — kalıp halüsinasyonu — tam da ikna edici göründüğü için daha zor tespit edilir.</p>
+
+    <span class="source-tag reveal">5x İnceleme fiyat doğrulaması: Anthropic API resmi fiyatlandırma sayfası · İran Savaşı kalıp analizi: SIPRI yıllık raporları · BRICS ekonomik verileri · IEA enerji raporları · Dünya Bankası göstergeleri</span>
+
+    <div class="section-divider"></div>
+
+
     <!-- ═══════════════ AÇIK SORULAR ═══════════════ -->
 
     <h2 class="reveal">Karara Varılamayacak Sorular</h2>
@@ -1133,6 +1239,7 @@ a { color: inherit; text-decoration: none; }
         <li class="reveal"><span class="qs-num">3</span><div class="qs-text"><strong>Güç kullanıcısının rolü ne?</strong> Bir yapay zekayı en çok zorlayan kullanıcılar, aynı zamanda en çok düzelten kullanıcılar. Bu kullanıcılar yapay zeka şirketlerine ücretsiz kalite güvencesi mi sağlıyor? Niş mi, yoksa geleceğin normali mi?</div></li>
         <li class="reveal"><span class="qs-num">4</span><div class="qs-text"><strong>Cezalandırma orantılı mı?</strong> Saatler içinde tespit edilen, sınırlı etkili, düzeltilebilir yapay zeka hataları dünya çapında manşet olurken, on yıllar boyunca tespit edilemeyen, milyarları etkileyen, cezasız kalan bilimsel ve siyasi sahtecilikler tartışmanın merkezinde değil. Bu asimetri rasyonel mi?</div></li>
         <li class="reveal"><span class="qs-num">5</span><div class="qs-text"><strong>Doğrulama refleksi yeterli mi?</strong> Dr. X vakasında dört turda dört kez kullanıcı müdahalesi gerekti. Kullanıcı müdahale etmeseydi, yapay zeka birinci turda — yağcılık turunda — kalacaktı. Doğrulama refleksini tetikleyen insanın kendisi; ama her insanın bu refleksi yok.</div></li>
+        <li class="reveal"><span class="qs-num">6</span><div class="qs-text"><strong>Kalıp benimsemek halüsinasyon mu?</strong> Altı katmanlı model bilgi hatasından başlar, meta-halüsinasyona çıkar. Ama "doğru görünen kalıbı sorgulamadan benimsemek" bu altı katmanın hangisine düşüyor? Belki hiçbirine — belki yedinci bir katman. Bilgi doğru, ton nötr, kaynak güvenilir olduğunda bile çerçevenin kendisi hatalı olabilir. Bu hatayı ne ölçer?</div></li>
     </ul>
 
 </div>
