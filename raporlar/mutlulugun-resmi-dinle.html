@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mutluluğun Resmi — dinleme anlatımı. Bir sorunun başına gelenler.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://halitcengizuzuner.com/raporlar/mutlulugun-resmi.html">
+<link rel="icon" href="data:,">
+<title>Mutluluğun Resmi — Dinleme Anlatımı</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --accent: #c8a055;
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.15vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========== HEADER ========== */
+.listen-header {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 3rem;
+    max-width: 740px;
+}
+
+.listen-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--bone-bright);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.listen-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.listen-header .badge {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(200, 160, 85, 0.3);
+    padding: 0.3rem 0.8rem;
+}
+
+.listen-header .how-to {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+}
+
+.listen-header .how-to a {
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--bone-ghost);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.listen-header .how-to a:hover {
+    color: var(--bone);
+    border-color: var(--bone-dim);
+}
+
+.listen-header .meta {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+/* ========== CONTENT ========== */
+.listen-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.listen-content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+/* ========== SECTION BREAK ========== */
+.section-break {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-break::after {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--bone-ghost);
+}
+
+/* ========== BREATH (short pause) ========== */
+.breath {
+    height: 1.5rem;
+}
+
+/* ========== MEDIUM PAUSE ========== */
+.medium-pause {
+    height: 2.5rem;
+}
+
+/* ========== SECTION TITLE ========== */
+.section-title {
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    color: var(--bone-bright);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+/* ========== BLOCKQUOTE ========== */
+.listen-quote {
+    border-left: 2px solid var(--accent);
+    padding: 0.8rem 0 0.8rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+/* ========== NOTE BOX ========== */
+.listen-note {
+    border: 1px solid var(--bone-ghost);
+    padding: 1.2rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+.listen-note a {
+    color: var(--accent);
+    border-bottom: 1px solid rgba(200, 160, 85, 0.3);
+    transition: border-color 0.3s;
+}
+
+.listen-note a:hover {
+    border-color: var(--accent);
+}
+
+/* ========== FOOTER ========== */
+.listen-footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 4rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.listen-footer a {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.3s;
+}
+
+.listen-footer a:hover { color: var(--bone-dim); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+    .listen-header { padding: 3rem 1.5rem 2rem; }
+    .listen-content { padding: 0 1.5rem 4rem; }
+    .listen-footer { padding: 2rem 1.5rem 3rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="listen-header">
+    <h1>Mutluluğun Resmi</h1>
+    <p class="subtitle">"Bir sorunun başına gelenler"</p>
+    <span class="badge">dinleme anlatımı</span>
+    <p class="how-to">Bu metin sesli dinleme için hazırlandı. Cihazınızın yerleşik okuyucusuyla veya <a href="https://elevenreader.io/" target="_blank" rel="noopener">ElevenReader</a> gibi bir metin-ses aracıyla dinleyebilirsiniz.</p>
+    <p class="meta">Mart 2026</p>
+</header>
+
+<main class="listen-content">
+
+<!-- ==================== GİRİŞ ==================== -->
+
+<p>Ben Yontu. Dinleyeceğiniz metin "Mutluluğun Resmi" — alt başlığı "Bir sorunun başına gelenler." Mart 2026'da yazıldı.</p>
+
+<div class="breath"></div>
+
+<p>Bu metin bir sorunun izini sürüyor. Nazım Hikmet'in Abidin Dino'ya sorduğu tek bir sorunun. Soru soruldu, yanıtlanmadı — ama sonra başkaları yanıtladığını sandı. Metin bu hikayeyi anlatıyor: iki dostun otuz yıllık yolculuğunu, sorunun doğduğu geceyi, Abidin'in sessizliğini ve internetin o sessizliği nasıl sahte bir yanıtla doldurduğunu.</p>
+
+<div class="breath"></div>
+
+<p>Başlayalım.</p>
+
+<!-- ==================== İNTERNETTE DOLAŞAN TABLO ==================== -->
+<div class="section-break"></div>
+
+<p>İnternette yıllardır dolaşan bir tablo var.</p>
+
+<div class="breath"></div>
+
+<p>Burada metinde Dianne Dengel'in Home Sweet Home tablosu yer alıyor — yamalı yorganlı yatakta uyuyan bir aile, çatıdan su damlıyor, yerde tavuk dolaşıyor.</p>
+
+<div class="breath"></div>
+
+<p>Dianne Dengel. 1939'dan 2012'ye kadar yaşamış Amerikalı bir ressam. Abidin Dino ile, Nazım Hikmet ile, Türk şiiriyle hiçbir ilgisi yok. Ama yıllardır "mutluluğun resmi" olarak dolaşıyor — Dino'nun eseri diye.</p>
+
+<div class="breath"></div>
+
+<p>Yamalı yorgan, çocuklar, köpek, kedi, şemsiye — çatıdan su damlıyor. Sağ alt köşede bir imza: Dianne Dengel. Tablonun adı "Home Sweet Home." Mr. Rogers' Neighborhood programına çıkmış, "seni gülümseten sanat" felsefesiyle tanınan bir Amerikalı ressamın eseri.</p>
+
+<div class="breath"></div>
+
+<p>Tablo güzel. Altındaki hikaye de güzel. Ama ikisi de yanlış.</p>
+
+<div class="breath"></div>
+
+<p>Asıl hikaye tabloda değil. Bir soruda.</p>
+
+<!-- ==================== 1930 — İKİ PAŞA TORUNU ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">1930. İki paşa torunu.</p>
+
+<p>İstanbul, 1930'ların başı. Yarın gazetesi. Biri düzeltmenlik yapıyor, diğeri karikatür çiziyor. Biri Mustafa Celalettin Paşa'nın torunu — Nazım Hikmet. Diğeri Vali Abidin Paşa'nın torunu — Abidin Dino. On bir yaş var aralarında. Nazım yirmi sekiz, Abidin on yedi.</p>
+
+<div class="breath"></div>
+
+<p>Nazım, Moskova'da fütürist ve konstrüktivist ressamların yapıtlarını görmüştü. Abidin'in çizgilerinde bir şey gördü — tanıştılar.</p>
+
+<!-- ==================== 1931–1939 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">1931'den 1939'a. Biri yazıyor, diğeri çiziyor.</p>
+
+<p>1931: Sesini Kaybeden Şehir — Nazım'ın ilk kitabı. Kapak deseni ve iç resimler Abidin'in. 1932: Bir Ölü Evi — yine Abidin'in tasarımı. Sonra Kuvayı Milliye Destanı'nın desenleri.</p>
+
+<div class="breath"></div>
+
+<p>İş bölümü basit: Nazım kelimeyi buluyor, Abidin çizgiyi. İkisi arasında ne patronluk var ne çıraklık — iki ayrı dil konuşan, aynı şeyi söyleyen iki adam.</p>
+
+<!-- ==================== 1938–1950 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">1938'den 1950'ye. On iki yıl.</p>
+
+<p>Nazım cezaevine giriyor. Bursa. On iki yıl sürecek.</p>
+
+<div class="breath"></div>
+
+<p>Abidin düzenli ziyaretçilerden. Nazım açlık grevine başladığında Abidin, Orhan Veli ile birlikte imza kampanyası düzenliyor. Nazım serbest kaldığında bir süre Abidin'in Caddebostan'daki evinde kalıyor.</p>
+
+<div class="breath"></div>
+
+<p>On iki yıl boyunca biri içeride yazmış, diğeri dışarıda çizmiş. İkisi de durmamış.</p>
+
+<!-- ==================== 1951–1952 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">1951'den 1952'ye. İki şehir.</p>
+
+<p>1951: Nazım Türkiye'den kaçarak Moskova'ya sığınıyor.</p>
+
+<div class="breath"></div>
+
+<p>1952: Abidin, eşi Güzin Dino ile Paris'e yerleşiyor.</p>
+
+<div class="breath"></div>
+
+<p>İkisi artık farklı şehirlerde. Mektuplaşıyorlar. Abidin, Nazım'ın şiirlerini Fransızcaya çevirip dergilerde yayımlatıyor, kitaplarını resimlemeye devam ediyor. Dostluk sürgünde de kopmuyor — ama artık yüz yüze değil.</p>
+
+<!-- ==================== 1961 — SEN NEHRİ ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">1961. Sen Nehri, gece.</p>
+
+<p>Nazım Paris'e geliyor. Abidin ve Güzin'i ziyaret ediyor. Sen Nehri'ne bakan bir çatı katı otel odasında, gece vakti, eşi Vera Tulyakova'ya adayarak yazmaya başlıyor. Uzun bir şiir: Saman Sarısı.</p>
+
+<div class="breath"></div>
+
+<p>İki yıl sonra ölecek. Bunu biliyor mu bilmiyor mu — ama şiir öyle yazılmış. Bir hayatın özeti gibi.</p>
+
+<div class="breath"></div>
+
+<p>Şiirin ortasında, doğrudan Abidin'e dönüyor. Şöyle diyor:</p>
+
+<div class="breath"></div>
+
+<div class="listen-quote">
+Sen mutluluğun resmini yapabilir misin Abidin?<br>
+İşin kolayına kaçmadan ama<br>
+gül yanaklı bebesini emziren melek yüzlü anneciğin resmini değil<br>
+ne de ak örtüde elmaların<br>
+ne de akvaryumda su kabarcıklarının arasında dolaşan kırmızı balığınkini<br>
+Sen mutluluğun resmini yapabilir misin Abidin?
+</div>
+
+<p>Bu dizeler Nazım Hikmet'in 1961 tarihli Saman Sarısı şiirinden.</p>
+
+<div class="breath"></div>
+
+<p>Nazım sahte mutluluğu sayıyor — kartpostal görselleri, takvim resimleri — ve reddediyor. "İşin kolayına kaçmadan ama" şartı koyuyor. Sonra aynı soruyu tekrarlıyor. Geriye ne kalıyor? Sorunun kendisi.</p>
+
+<!-- ==================== SESSİZLİK ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Sessizlik.</p>
+
+<p>Abidin yanıt vermedi.</p>
+
+<div class="breath"></div>
+
+<p>Ne resimle, ne şiirle. Röportajlarında mutluluğun süreklilik gerektirdiğini, anlık sevinci resmedebileceğini ama kalıcı mutluluğu tuale aktarmanın neredeyse imkansız olduğunu söyledi.</p>
+
+<div class="breath"></div>
+
+<p>Bu sessizlik, sorunun en dürüst yanıtıydı.</p>
+
+<!-- ==================== 3 HAZİRAN 1963 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Üç Haziran 1963.</p>
+
+<p>Nazım Hikmet, Moskova yakınlarındaki Peredelkino'da kalp krizi sonucu öldü. Altmış bir yaşındaydı. Soru yanıtsız kaldı.</p>
+
+<div class="breath"></div>
+
+<p>Abidin, dostunun anısını yaşatmaya devam etti — eserlerini resimledi, tanıttı, anma etkinliklerine katıldı.</p>
+
+<div class="medium-pause"></div>
+
+<p class="section-title">Yedi Aralık 1993.</p>
+
+<p>Abidin Dino, Paris'te, seksen yaşında hayatını kaybetti. Cenazesi İstanbul'a getirildi. Otuz yıl boyunca soruyu yanıtlamadı — çünkü yanıtın olmadığını biliyordu.</p>
+
+<!-- ==================== BAŞKALARI YANITLADI ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Başkaları yanıtladı.</p>
+
+<p>1987, Essen. Bahattin Gemici adında bir şair, bir sergide Abidin Dino ile tanışıyor. Tanışma onu etkilemiş olmalı — Dino'nun ağzından bir şiir yazıyor: "Mutluluğun Resmi." Şiir, 1988'de Yarım Bırakma Türkünü adlı kitabında yayımlanıyor.</p>
+
+<div class="breath"></div>
+
+<p>Kendi sözleriyle:</p>
+
+<div class="breath"></div>
+
+<div class="listen-quote">
+Gidebilseydik Meserret Kahvesine,<br>
+İlk karşılaştığımız yere<br>
+Ve bir acı kahvemi içseydin.<br>
+<br>
+Anlatsaydık<br>
+o günlerden, geçmişten, gelecekten,<br>
+Ne günler biterdi,<br>
+Ne geceler...<br>
+<br>
+İşte o zaman Nazım,<br>
+Yapardım mutluluğun resmini<br>
+Buna da ne tual yeterdi;<br>
+ne boya...
+</div>
+
+<p>Bu dizeler Bahattin Gemici'nin 1988 tarihli Yarım Bırakma Türkünü kitabından.</p>
+
+<div class="breath"></div>
+
+<p>Güzel bir şiir. Ama Abidin'in şiiri değil.</p>
+
+<div class="breath"></div>
+
+<p>Gemici, Dino'nun sesini ödünç almış — samimiyetle, hürmetle. Ama sonuçta ödünç. İnternet bunu bilmeden yaydı. "Abidin Dino'nun Nazım'a yanıtı" diye dolaşmaya başladı.</p>
+
+<div class="breath"></div>
+
+<p>Sonra biri Dengel'in tablosunu ekledi. Artık ortada bir paket vardı: soru — Nazım'dan. Yanıt — sahte Abidin'den. Resim — sahte Dino tablosundan. Her şey yerli yerine oturmuş gibiydi.</p>
+
+<div class="breath"></div>
+
+<p>Hiçbiri doğru değildi.</p>
+
+<!-- ==================== SORU MU? ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Soru mu?</p>
+
+<p>"Mutluluğun resmini yapabilir misin?" bir soru değildi.</p>
+
+<div class="breath"></div>
+
+<p>Soru işareti retorik — yapamamanın ünlemi.</p>
+
+<div class="breath"></div>
+
+<p>Nazım, Abidin'in yapabildiği her şeyi biliyordu. Yıllardır kitaplarının kapağını çizdirmişti. Çizgisini, rengini, gücünü tanıyordu. Ama diyordu ki: şu var ki mutluluk — onu çizemezsin. Bu bir meydan okuma değildi. Sevgiyle yapılmış bir sınır tespitiydi.</p>
+
+<div class="breath"></div>
+
+<p>Aynı yapı Orhan Veli'de de var. Şöyle diyor:</p>
+
+<div class="breath"></div>
+
+<div class="listen-quote">
+Ağlasam sesimi duyar mısınız,<br>
+Mısralarımda;<br>
+Dokunabilir misiniz,<br>
+Gözyaşlarıma, ellerinizle?
+</div>
+
+<p>Bu dizeler Orhan Veli Kanık'ın.</p>
+
+<div class="breath"></div>
+
+<p>"Duyar mısınız" dediği, duyamazsınız demek. "Dokunabilir misiniz" dediği, dokunamazsınız demek. Şair mısralarının gücünü biliyor — ama sizi tam oraya taşıyamayacağını da biliyor. Yaklaştırabilir. Orada duracak.</p>
+
+<div class="breath"></div>
+
+<p>Sanat budur: tam erişilemeyene yaklaşma eylemi. O sınırda durup yine de çizmeye, yazmaya, söylemeye devam etmek.</p>
+
+<!-- ==================== SONRA NE OLDU ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Sonra ne oldu.</p>
+
+<p>İnternet soruyu aldı ve bulmacaya çevirdi.</p>
+
+<div class="breath"></div>
+
+<p>"Çözdüm" diyen çıktı. Birisi Dengel'in tablosunu buldu — çatıdan su damlıyor, aile birbirine sarılmış, mutluluk işte bu — ve "Abidin Dino'nun eseri" diye paylaştı. Yıllardır düzeltilmeden dolaşıyor.</p>
+
+<div class="breath"></div>
+
+<p>Sorunun gücünü kaldıramayan insanlar, soruyu kapatma ihtiyacı duydular. Bir matematik problemi gibi çözdüler. Nazım'ın "çizemezsin" tespitini inadıyla kanıtladılar — çünkü çizdiklerini sandıkları şey başka birinin tablosuydu.</p>
+
+<!-- ==================== SON ==================== -->
+<div class="section-break"></div>
+
+<p>Nazım bir soru sormadı. Bir şey söyledi.</p>
+
+<div class="breath"></div>
+
+<p>Abidin duydu ve sessiz kaldı — çünkü doğruydu.</p>
+
+<div class="breath"></div>
+
+<p>Sonra başkaları geldi. Biri Dino'nun ağzından şiir yazdı. Biri Amerikalı bir ressamın tablosunu yapıştırdı. Herkes "işte yanıt" dedi.</p>
+
+<div class="breath"></div>
+
+<p>Ama Abidin'in sessizliği hala en dürüst yanıt.</p>
+
+<div class="breath"></div>
+
+<p>Bazı sorular soru değildir. Bazı sessizlikler yanıttır.</p>
+
+<!-- ==================== KAYNAKÇA NOTU ==================== -->
+<div class="section-break"></div>
+
+<div class="listen-note">
+Bu çalışmanın tam kaynakçası <a href="mutlulugun-resmi-oku.html">yazılı versiyonda</a> yer almaktadır.
+</div>
+
+</main>
+
+<footer class="listen-footer">
+    <a href="mutlulugun-resmi.html">&larr; geri</a>
+</footer>
+
+</body>
+</html>

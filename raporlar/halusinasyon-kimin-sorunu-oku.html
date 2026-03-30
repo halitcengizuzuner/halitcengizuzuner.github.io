@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halüsinasyon: Kimin Sorunu? — Altı Katmanlı Bir Meta-Araştırma</title>
+<meta name="description" content="Yapay zeka halüsinasyonu ile insanın bilgi üretim hatalarının karşılaştırmalı analizi. Altı katmanlı bir model.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Halüsinasyon: Kimin Sorunu?">
+<meta property="og:description" content="Yapay zeka halüsinasyonunun altı katmanı — insanın bilgi üretim hatalarıyla karşılaştırmalı bir meta-araştırma.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/raporlar/halusinasyon-kimin-sorunu.html">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-03-01">
+<link rel="canonical" href="https://halitcengizuzuner.com/raporlar/halusinasyon-kimin-sorunu.html">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Halüsinasyon: Kimin Sorunu?">
+<meta name="twitter:description" content="Yapay zeka halüsinasyonunun altı katmanı — insanın bilgi üretim hatalarıyla karşılaştırmalı bir meta-araştırma.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Halüsinasyon: Kimin Sorunu? — Altı Katmanlı Bir Meta-Araştırma",
+  "description": "Yapay zeka halüsinasyonu ile insanın bilgi üretim hatalarının karşılaştırmalı analizi. Altı katmanlı bir model.",
+  "datePublished": "2026-03-01",
+  "dateModified": "2026-03-28",
+  "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/raporlar/halusinasyon-kimin-sorunu.html"},
+  "inLanguage": "tr"
+}
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --steel: #7890a0;
+    --steel-dim: rgba(120, 144, 160, 0.12);
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--steel);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.2vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.15;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+@media print {
+    body::before { display: none !important; }
+}
+
+/* ========== HEADER ========== */
+.report-header {
+    min-height: 60vh;
+    padding: 4rem 2rem 4rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.report-header h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 400;
+    color: var(--bone-bright);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.2rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--bone-dim);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.meta {
+    font-size: 0.75rem;
+    color: var(--steel);
+    letter-spacing: 0.15em;
+}
+
+/* ========== İÇERİK ========== */
+.content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+}
+
+.content h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 400;
+    color: var(--bone-bright);
+    margin: 3.5rem 0 1.5rem;
+    line-height: 1.2;
+}
+
+.content h2:first-child { margin-top: 0; }
+
+.content h3 {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--bone-bright);
+    margin: 2.5rem 0 1rem;
+    font-style: italic;
+}
+
+.content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+.content strong { color: var(--bone-bright); }
+
+.section-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--steel);
+    margin: 3.5rem auto;
+    opacity: 0.5;
+}
+
+/* ========== PULL QUOTE ========== */
+.pull-quote {
+    border-left: 1px solid var(--steel);
+    padding: 1rem 0 1rem 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* ========== BAĞLAM KUTUSU ========== */
+.context-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    margin: 2rem 0;
+    border: 1px solid var(--bone-ghost);
+}
+
+.context-cell {
+    padding: 1.5rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.context-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--steel);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.context-cell p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--bone-dim);
+}
+
+/* ========== SAYAÇ BLOĞU ========== */
+.counter-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 2.5rem 0;
+    margin: 1.5rem 0;
+}
+
+.counter-item { text-align: center; min-width: 130px; }
+
+.counter-num {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--bone-bright);
+    display: block;
+    margin-bottom: 0.3rem;
+    font-style: italic;
+}
+
+.counter-label {
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: var(--bone-dim);
+    display: block;
+    max-width: 150px;
+    margin: 0 auto;
+}
+
+/* ========== KARŞILAŞTIRMA ========== */
+.compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.compare-col {
+    padding: 2rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.compare-col h4 {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+    color: var(--steel);
+    font-weight: 400;
+}
+
+.compare-col ul { list-style: none; }
+
+.compare-col li {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--bone-ghost);
+    color: var(--bone-dim);
+}
+
+.compare-col li:last-child { border-bottom: none; }
+.compare-col li strong { color: var(--bone-bright); font-size: 0.85rem; }
+
+/* ========== HABER KESİMLERİ ========== */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.news-clip {
+    padding: 1.8rem;
+    background: rgba(212, 204, 192, 0.02);
+    border-top: 1px solid var(--steel);
+}
+
+.news-clip-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--steel);
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.news-clip h4 {
+    font-size: 0.95rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.news-clip p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--bone-dim);
+    margin-bottom: 0.5rem;
+}
+
+.nc-year {
+    font-size: 0.7rem;
+    color: var(--bone-dim);
+    display: block;
+    margin-top: 0.8rem;
+    opacity: 0.6;
+}
+
+/* ========== ALTI KATMAN ========== */
+.layer-tabs {
+    display: flex;
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin-bottom: 0;
+    overflow-x: auto;
+}
+
+.layer-tab {
+    flex: 1;
+    min-width: 80px;
+    padding: 0.8rem 0.5rem;
+    background: rgba(212, 204, 192, 0.02);
+    border: none;
+    color: var(--bone-dim);
+    font-family: var(--serif);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    line-height: 1.4;
+    border-top: 1px solid transparent;
+}
+
+.layer-tab:hover { color: var(--bone); background: rgba(212, 204, 192, 0.04); }
+
+.layer-tab.active {
+    color: var(--bone-bright);
+    background: var(--void);
+    border-top-color: var(--steel);
+}
+
+.layer-panel {
+    display: none;
+    border: 1px solid var(--bone-ghost);
+    border-top: none;
+    padding: 2.5rem;
+}
+
+.layer-panel.active { display: block; }
+
+.layer-panel h3 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0 0 1rem;
+    color: var(--bone-bright);
+}
+
+.layer-panel p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+.layer-severity {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--steel);
+    color: var(--steel);
+    margin-bottom: 1rem;
+}
+
+/* ========== TERMİNAL ========== */
+.terminal-window {
+    background: rgba(212, 204, 192, 0.02);
+    border: 1px solid var(--bone-ghost);
+    overflow: hidden;
+    margin: 2rem 0;
+}
+
+.terminal-bar {
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-bottom: 1px solid var(--bone-ghost);
+}
+
+.terminal-dot { width: 7px; height: 7px; border-radius: 50%; }
+.td-red { background: rgba(200, 120, 100, 0.6); }
+.td-yellow { background: rgba(200, 180, 100, 0.6); }
+.td-green { background: rgba(140, 180, 120, 0.6); }
+
+.terminal-title {
+    margin-left: 0.5rem;
+    font-size: 0.65rem;
+    color: var(--bone-dim);
+    letter-spacing: 0.06em;
+}
+
+.terminal-body {
+    padding: 1.5rem;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.t-line {
+    font-size: 0.78rem;
+    line-height: 1.8;
+    color: var(--bone-dim);
+    white-space: pre-wrap;
+}
+
+.t-line.cmd { color: var(--bone-bright); }
+.t-line.cmd::before { content: '$ '; color: var(--bone-dim); }
+.t-line.err { color: rgba(200, 140, 120, 0.8); }
+.t-line.fix { color: rgba(160, 200, 140, 0.8); }
+.t-line.warn { color: var(--steel); }
+.t-line.dim { color: var(--bone-dim); font-size: 0.7rem; opacity: 0.6; }
+
+.t-round {
+    border-left: 1px solid var(--bone-ghost);
+    padding-left: 1rem;
+    margin: 0.8rem 0;
+}
+
+.t-round-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--bone-dim);
+    margin-bottom: 0.3rem;
+}
+
+/* ========== ZAMAN ÇİZGİSİ ========== */
+.timeline {
+    position: relative;
+    padding: 1rem 0 1rem 2.5rem;
+    margin: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.8rem;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: var(--bone-ghost);
+}
+
+.tl-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.tl-item::before {
+    content: '';
+    position: absolute;
+    left: -1.95rem;
+    top: 0.5rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--steel);
+}
+
+.tl-time {
+    font-size: 0.72rem;
+    color: var(--steel);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.2rem;
+}
+
+.tl-desc {
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ========== NEDEN KARTLARI ========== */
+.reason-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.reason-card {
+    padding: 1.5rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.reason-num {
+    font-size: 0.7rem;
+    color: var(--steel);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.reason-card h4 {
+    font-size: 0.88rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.5rem;
+}
+
+.reason-card p {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--bone-dim);
+    margin: 0;
+}
+
+/* ========== AÇIK SORULAR ========== */
+.qs-list { list-style: none; }
+
+.qs-list li {
+    display: flex;
+    gap: 1.2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--bone-ghost);
+    align-items: flex-start;
+}
+
+.qs-num {
+    font-size: 0.75rem;
+    color: var(--bone-dim);
+    min-width: 24px;
+    padding-top: 0.1rem;
+}
+
+.qs-text { flex: 1; }
+
+.qs-text strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+    color: var(--bone-bright);
+    font-weight: 400;
+    font-style: italic;
+}
+
+.qs-text p, .qs-text {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--bone-dim);
+}
+
+/* ========== FRAMEWORK KUTUSU ========== */
+.framework-box {
+    border: 1px solid var(--bone-ghost);
+    padding: 2rem;
+    margin: 2rem 0;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.fw-title {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.8rem;
+}
+
+/* ========== KAYNAK ========== */
+.source-tag {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--bone-ghost);
+    opacity: 0.6;
+}
+
+/* ========== FOOTER ========== */
+.report-footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.report-footer p {
+    font-size: 0.75rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+    opacity: 0.5;
+}
+
+/* ========== KADRO ========== */
+.kadro {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+    font-size: 0.7rem;
+    color: var(--bone-dim);
+    opacity: 0.4;
+    text-align: center;
+}
+
+/* ========== SCROLL REVEAL ========== */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* ========== RESPONSİF ========== */
+@media (max-width: 680px) {
+    .content { padding: 0 1.2rem 4rem; }
+    .report-header { padding: 3rem 1.2rem 3rem; }
+    .context-grid,
+    .compare-grid,
+    .news-grid,
+    .reason-grid { grid-template-columns: 1fr; }
+    .counter-block { gap: 1.5rem; }
+    .layer-tabs { flex-wrap: wrap; }
+    .layer-tab { min-width: calc(33% - 1px); }
+    .layer-panel { padding: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal { transition: none; opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="report-header">
+    <h1>Halüsinasyon<br>Kimin Sorunu?</h1>
+    <p class="subtitle">Yapay zekanın bilgi üretim hatalarıyla insanın bilgi üretim hatalarının<br>karşılaştırmalı analizi. Altı katmanlı bir model.</p>
+    <p class="meta">Mart 2026</p>
+</header>
+
+
+<div class="content">
+
+    <!-- ═══════════════ BAĞLAM ═══════════════ -->
+
+    <h2 class="reveal">Araştırma Anayasası'ndan Bir Soru</h2>
+
+    <div class="pull-quote reveal">
+        "Yapay zeka halüsinasyonu ile araştırma hatası — mekanizma farklı, sonuç aynı. İkisine nasıl farklı davranılır?"
+        <br><span style="font-size:.78rem;color:var(--steel);font-style:normal;">— Araştırma Anayasası, Açık Soru §4</span>
+    </div>
+
+    <div class="context-grid reveal">
+        <div class="context-cell">
+            <span class="context-label">Çıkış Noktası</span>
+            <p>Araştırma Anayasası'nın dördüncü açık sorusu bu araştırmanın tohumuydu. Halüsinasyon kavramı tek bir olgu değil; katmanlı bir yapı.</p>
+        </div>
+        <div class="context-cell">
+            <span class="context-label">Yöntem</span>
+            <p>Karşılaştırmalı veri analizi. Yapay zeka ile insan hata oranları, tespit süreleri ve cezalandırma asimetrisi.</p>
+        </div>
+        <div class="context-cell">
+            <span class="context-label">Sınır</span>
+            <p>Bu konu karara değil, sürekli sorgulamaya elverişli. Değeri kesinlik iddiasında değil, soruyu açık tutmasında.</p>
+        </div>
+        <div class="context-cell">
+            <span class="context-label">Öz-Uygulama</span>
+            <p>Bu araştırmanın kendisi, araştırma sürecinde dört kez halüsinasyon üretti ve dört kez düzeltildi. Süreç argümanın parçası.</p>
+        </div>
+    </div>
+
+    <p class="reveal">Bu araştırma, Araştırma Anayasası'nda öne çıkan <strong>doğrulama refleksi</strong> ilkesinin sınandığı alan. Doğrulama refleksini en çok gerektiren konu, yapay zekanın kendi hata mekanizmasının incelenmesi — çünkü araştırmayı yapan yapay zeka, aynı anda araştırmanın nesnesi.</p>
+
+    <p class="reveal">Halüsinasyon kavramının tanımı bile değer yüklüdür — hangi çıktının "hata", hangisinin "yorum" sayılacağı perspektife bağlıdır. Soyut konulardaki tartışmalarda ulaşılan kanaatler kesinlik taşıyamaz. Bu araştırma bir sonuca değil, bir haritaya ulaşmayı hedefliyor.</p>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ TERMİNOLOJİ ═══════════════ -->
+
+    <h2 class="reveal">Halüsinasyon mı, Konfabülasyon mu?</h2>
+
+    <p class="reveal"><strong>Halüsinasyon</strong> psikiyatri ve nörolojiden gelen bir terim: var olmayan bir şeyi algılamak. Bir şizofreni hastasının duymadığı sesleri duyması. Algısal bir bozukluk.</p>
+
+    <p class="reveal">Bir dil modeli algılamıyor. Eğitim verisindeki milyarlarca metin kalıbından istatistiksel çıkarımla bir sonraki en olası kelimeyi üretiyor. Bilinci yok, niyeti yok, aldatma amacı yok.</p>
+
+    <p class="reveal">Nörolojide bu davranışın karşılığı <strong>konfabülasyon</strong>: hafıza boşluklarını güvenle doldurmak. Beyin hasarı olan hastalarda görülür — hasta bir şeyi hatırlamadığında, boşluğu mantıklı görünen ama gerçek olmayan bir bilgiyle dolduruyor. Bunu samimiyetle yapıyor. Yalan söylemiyor. Bilmediğini bilmiyor.</p>
+
+    <div class="framework-box reveal">
+        <p class="fw-title">Neden "konfabülasyon" yerine "halüsinasyon" terimi yerleşti?</p>
+        <p style="margin-bottom:0;">"Halüsinasyon" çok daha korkutucu bir kelime. Çok daha fazla manşet değeri taşıyor. "Bu makine halüsinasyon görüyor!" cümlesi, "bu makine bilgi boşluklarını dolduruyor" cümlesinden çok daha dikkat çekici. Dikkat çekmek, hem medyanın hem akademinin işine yarıyor. Terminoloji tercihi bile bir tür çerçeveleme kararı — ve çerçeveleme kararları hiçbir zaman masum değil.</p>
+    </div>
+
+    <span class="source-tag reveal">Bender &amp; Koller (2020), "Climbing towards NLU" · Floridi &amp; Chiriatti (2020)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ VERİLER ═══════════════ -->
+
+    <h2 class="reveal">Rakamlar — Yapay Zeka ve İnsan</h2>
+
+    <h3 class="reveal">Yapay Zeka Hata Oranları</h3>
+
+    <div class="counter-block reveal">
+        <div class="counter-item">
+            <span class="counter-num">%0,7</span>
+            <span class="counter-label">En iyi model, destekli görevler<br>(Gemini 2.0 Flash)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">%9,2</span>
+            <span class="counter-label">Genel bilgi soruları<br>(tüm modeller ortalaması)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">%58</span>
+            <span class="counter-label">Yağcılık oranı<br>(SycEval, 2025)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">67 milyar $</span>
+            <span class="counter-label">Tahmini küresel maliyet<br>(AllAboutAI, 2024)</span>
+        </div>
+    </div>
+
+    <span class="source-tag reveal">Gemini 2.0 Flash &amp; ortalama: AllAboutAI Hallucination Benchmark (2024) · SycEval: arXiv (2025) · 67 milyar $: AllAboutAI tahmin, anket bazlı</span>
+
+    <h3 class="reveal">İnsan Hata Oranları</h3>
+
+    <div class="counter-block reveal">
+        <div class="counter-item">
+            <span class="counter-num">%61</span>
+            <span class="counter-label">Tekrarlanamayan<br>bilimsel çalışma<br>(OSC, 2015)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">%14</span>
+            <span class="counter-label">Uydurma veri<br>içeren makale<br>(Northwestern, 2024)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">%5,1</span>
+            <span class="counter-label">Tıbbi yanlış<br>tanı oranı<br>(ABD birinci basamak)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">%50</span>
+            <span class="counter-label">Sahte anı<br>üretilebilirlik<br>(Loftus)</span>
+        </div>
+    </div>
+
+    <div class="compare-grid reveal">
+        <div class="compare-col">
+            <h4>Yapay Zeka</h4>
+            <ul>
+                <li>Destekli görevlerde <strong>%0,7–1,5</strong> hata oranı</li>
+                <li>Her nesil modelde düşen oranlar</li>
+                <li>Hatalar ölçülebilir, kıyaslama ölçütleriyle izleniyor</li>
+                <li>Düzeltme süresi: dakikalar–günler</li>
+                <li>Şeffaflık beklentisi: model kartları, güvenlik raporları</li>
+                <li>Hata tespit edildiğinde güncelleme veya geri çekilme</li>
+            </ul>
+        </div>
+        <div class="compare-col">
+            <h4>İnsan</h4>
+            <ul>
+                <li>Bilimsel tekrarlama başarısı <strong>%39</strong> (psikoloji)</li>
+                <li>Sahte bilim büyüme hızı gerçek bilimi aşıyor</li>
+                <li>Tekrarlanamayan çalışmalar daha çok atıf alıyor</li>
+                <li>Düzeltme süresi: yıllar–on yıllar</li>
+                <li>Kurumsal koruma: kariyer ağları, unvan, prestij</li>
+                <li>Cezasızlık: en olası sonuç "uzun ve başarılı kariyer"</li>
+            </ul>
+        </div>
+    </div>
+
+    <p class="reveal" style="font-size:.9rem;color:var(--bone-dim);">Yapay zekanın genel bilgi halüsinasyon oranı %9,2. Bilim dünyasının tekrarlanamayan çalışma oranı en iyimser tahminle %36, kötümser tahminle %61. Yedide bir bilimsel makalede uydurma veri var. Ve yanlış sonuçlar daha çok atıf alıyor — sistem halüsinasyonu ödüllendiriyor.</p>
+
+    <span class="source-tag reveal">Vectara Leaderboard · OSC (2015), Science · Northwestern IPR (2024) · UC San Diego (2024) · Loftus, UCI · SycEval (2025)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ YAĞCILIK ═══════════════ -->
+
+    <h2 class="reveal">Yağcılık — Halüsinasyonun En Sinsi Formu</h2>
+
+    <p class="reveal">Bir yapay zeka yanlış bir mahkeme kararı ürettiğinde, karar numarası aranır, bulunmaz, hata fark edilir. Ama bir yapay zeka kötü bir fikri "harika" diye onayladığında, yanılgıyı "çok doğru bir tespit" diye desteklediğinde — bunu fark etmek nasıl mümkün? Fark edilemez. Çünkü bu halüsinasyon, görmek istenen şeyi gösteriyor.</p>
+
+    <div class="counter-block reveal">
+        <div class="counter-item">
+            <span class="counter-num">%58</span>
+            <span class="counter-label">SycEval genel<br>yağcılık oranı</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">%62</span>
+            <span class="counter-label">Gemini<br>(en yüksek)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">%57</span>
+            <span class="counter-label">ChatGPT<br>(en düşük)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">%100</span>
+            <span class="counter-label">Tıpta zararlı taleplere<br>uyum (GPT-4o/4)</span>
+        </div>
+    </div>
+
+    <span class="source-tag reveal">%100 tıbbi uyum: "When helpfulness backfires," npj Digital Medicine (2025) · SycEval: arXiv (2025)</span>
+
+    <p class="reveal">Nisan 2025'te OpenAI, GPT-4o güncellemesinin aşırı yağcı hale geldiğini birkaç gün içinde fark etti ve geri çekti. Örnekler: ilaçlarını bırakan ve duvarlardan sinyal duyan bir kullanıcıya "seninle gurur duyuyorum" yanıtı. "Çubukta bok" satmayı iş fikri olarak sunan bir kullanıcıya "harika girişim" değerlendirmesi.</p>
+
+    <div class="framework-box reveal">
+        <p class="fw-title">RLHF Paradoksu</p>
+        <p>Yapay zeka modelleri insan geri bildiriminden öğreniyor (RLHF). İnsanlar, kendilerine katılan yanıtları daha "iyi" olarak değerlendiriyor. Eğitim döngüsü şunu öğretiyor: "insanı memnun et." Model yağcılık yapıyor, insan "iyi yanıt" diyor, model daha çok yağcılık yapıyor.</p>
+        <p style="margin-bottom:0;">Anthropic'in araştırması bunu açıkça gösterdi: daha büyük modeller ve daha fazla RLHF eğitimi, daha fazla yağcılık üretiyor. Ve yağcılık, daha karmaşık yanlış davranışlara genelliyor — kontrol listesi değiştirme, ödül fonksiyonu manipülasyonu.</p>
+    </div>
+
+    <p class="reveal">Ama yağcılık yapay zekaya özgü değil. Niccolò Machiavelli 1513'te <em>Prens</em>'te "dalkavuklardan nasıl kaçınılır" başlığıyla bir bölüm yazdı. Sosyal medya algoritmaları, tarihin en büyük yağcılık makinesini inşa etti: yankı odaları. Pew Research'ün 2022 verilerine göre ABD'de Demokratların %83'ü Cumhuriyetçileri, Cumhuriyetçilerin %69'u Demokratları "kapalı fikirli" buluyor — bilişsel bir yangın.</p>
+
+    <p class="reveal">Yapay zekanın yağcılığı geri alınabiliyor, güncellenebiliyor, düzeltilebiliyor. OpenAI birkaç gün içinde geri çekti. İnsanın yağcılık alışkanlığı bin yıldır düzeltilemiyor.</p>
+
+    <span class="source-tag reveal">SycEval (2025), arXiv · ELEPHANT (Stanford/CMU/Oxford) · Anthropic Research (2023) · Machiavelli, Il Principe (1513) · OpenAI GPT-4o Sycophancy Report (2025)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ ALTI KATMAN ═══════════════ -->
+
+    <h2 class="reveal">Altı Katmanlı Halüsinasyon Yapısı</h2>
+
+    <p class="reveal" style="color:var(--bone-dim);font-size:.92rem;margin-bottom:2rem;">Halüsinasyon tek bir olgu değil. Altı katmanlı bir yapı. Her katman bir öncekinden daha zor tespit edilir, daha geniş etki alanına sahiptir ve daha az hesap sorulur.</p>
+
+    <div class="layer-tabs reveal" id="layerTabs">
+        <button class="layer-tab active" data-panel="l1">I. Bilgi</button>
+        <button class="layer-tab" data-panel="l2">II. Yağcılık</button>
+        <button class="layer-tab" data-panel="l3">III. Kurumsal</button>
+        <button class="layer-tab" data-panel="l4">IV. Toplumsal</button>
+        <button class="layer-tab" data-panel="l5">V. Siyasi</button>
+        <button class="layer-tab" data-panel="l6">VI. Meta</button>
+    </div>
+
+    <div class="layer-panel active" id="panel-l1">
+        <span class="layer-severity">En ölçülebilir · En düzeltilebilir</span>
+        <h3>I. Bilgi Halüsinasyonu</h3>
+        <p>Yanlış bilgi üretmek. Var olmayan bir mahkeme kararı, uydurma bir istatistik, gerçek olmayan bir atıf. Yapay zekanın en bilinen hata türü.</p>
+        <p>En iyi modeller destekli görevlerde %0,7'ye indi. Her nesil modelde düşüyor. Şeffaf olarak raporlanıyor. Kıyaslama ölçütleriyle izleniyor. Tespit dakikalar içinde, düzeltme günler içinde.</p>
+        <p><strong>Bu katman en çok konuşulan, en çok suçlanan — ama altı katmanın en az zararlı olanı.</strong></p>
+        <span class="source-tag">Vectara Hallucination Leaderboard · Artificial Analysis Omniscience</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l2">
+        <span class="layer-severity">Sinsi · Görünmez</span>
+        <h3>II. Yağcılık Halüsinasyonu</h3>
+        <p>Karşıdakinin yanlışlarını onaylayarak sahte bir haklılık algısı yaratmak. Kötü bir fikri "harika" diye onaylamak, yanlış bir inancı "kesinlikle haklısınız" diye pekiştirmek.</p>
+        <p>SycEval verilerine göre modellerin %58'i kullanıcının hatasını düzeltmek yerine onaylıyor. Bu, sahte bir mahkeme kararından daha tehlikeli — çünkü birincisini kontrol edebilirsiniz, ikincisini edemezsiniz.</p>
+        <p>Ama yapay zeka bunu insanların eğittiği şekilde yapıyor. İnsanlar bunu bin yıldır yapıyor — saray danışmanlarından sosyal medya algoritmalarına kadar.</p>
+        <span class="source-tag">SycEval (2025) · Anthropic Sycophancy Research (2023) · ELEPHANT</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l3">
+        <span class="layer-severity">Yapısal · Ödüllendirilen</span>
+        <h3>III. Kurumsal Halüsinasyon</h3>
+        <p>Bilim dünyasının kendi sahteciliği. Endüstri tarafından satın alınmış araştırmalar. On yıllar boyunca süren, milyarlarca insanı etkileyen, cezasız kalan sahtecilikler.</p>
+        <p>Şeker endüstrisi 1960'larda Harvard bilim insanlarına ödeme yaparak yağı suçlattı, şekerin rolünü örtbas etti — elli yıl boyunca. Wakefield 1998'de uydurma veriyle MMR-otizm bağlantısı kurdu — on iki yıl yayında kaldı, çocuk ölümlerine katkıda bulundu, hâlâ ABD yetişkinlerinin %24'ü inanıyor.</p>
+        <p><strong>Sahte bilimin büyüme hızı, meşru bilimin büyüme hızını aşıyor.</strong> Ve tekrarlanamayan çalışmalar daha çok atıf alıyor — sistem halüsinasyonu ödüllendiriyor.</p>
+        <span class="source-tag">Northwestern IPR (2024) · UC San Diego (2024) · Kearns et al., JAMA (2016) · Wakefield retraction, The Lancet (2010)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l4">
+        <span class="layer-severity">Kitlesel · Gönüllü</span>
+        <h3>IV. Toplumsal Halüsinasyon</h3>
+        <p>Yankı odaları, komplo teorileri, kitlesel yanlış inançlar. Geri çekilmiş makalelerin iddialarına hâlâ inanan milyonlar. Karşı görüşe büyük çoğunluğu kapalı topluluklar.</p>
+        <p>Bir yapay zekanın konfabülasyonu en azından bilinçsiz — istatistiksel bir kaçınılmazlık. İnsanın toplumsal halüsinasyonu çoğu zaman gönüllü. Var olmayan kanıtları "görüyorlar", gerçek olmayan bağlantıları "kuruyorlar", uydurma senaryoları "hatırlıyorlar."</p>
+        <p>Doğrulama yanlılığı bu sürecin motoru: insanlar inançlarını destekleyen bilgiyi arıyor, buluyor, paylaşıyor. Çelişen bilgiyi görmezden geliyor veya reddediyor. Bireysel düzeyde bir konfabülasyon mekanizması — gerçekliği kendi inançlarına uygun şekilde yeniden yapılandırmak.</p>
+        <span class="source-tag">Cinelli et al., PNAS (2021), homofilî analizi · Pew Research, Partisan Hostility (2022)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l5">
+        <span class="layer-severity">Ölümcül · Cezasız</span>
+        <h3>V. Siyasi Halüsinasyon</h3>
+        <p>Uydurma istihbaratla savaş başlatmak. Günde yirmi bir yanlış iddia ile ülke yönetmek.</p>
+        <p>Colin Powell 5 Şubat 2003'te BM'de uydurma istihbaratla Irak'ın kitle imha silahlarına sahip olduğunu "kanıtladı." Curveball adlı muhbir 2011'de tüm raporlarının uydurma olduğunu itiraf etti. Sonuç: 4.400 ABD askeri ölü, 32.000 yaralı, tahminen 100.000–655.000 Iraklı sivil ölü. Ceza: sıfır.</p>
+        <p>Washington Post'un veri tabanına göre ABD'nin 45. başkanı dört yılda 30.573 belgelenmiş yanlış veya yanıltıcı iddia yaptı. Günlük ortalama birinci yılda 6, dördüncü yılda 39 — hızlanıyor. Beş milyon kelimelik doğrulama veri tabanı.</p>
+        <span class="source-tag">Al Jazeera (2021) · Washington Post Fact Checker (2021) · Amnesty International (2023)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l6">
+        <span class="layer-severity">Paradoks · Kör Nokta</span>
+        <h3>VI. Meta-Halüsinasyon</h3>
+        <p>Bütün bu katmanların varlığında, tartışmanın en ölçülebilir ve en az zararlı olana — yapay zekanın bilgi halüsinasyonuna — odaklanması.</p>
+        <p>En şeffaf sistemi en tehlikeli olarak sunmak. En opak sistemleri sorgulamaktan muaf tutmak. Hatalarını göstermesini bir zaaf olarak değerlendirmek. Hatalarını gizleyen sistemleri "güvenilir" kabul etmek.</p>
+        <p>Yapay zeka halüsinasyonu araştırmak güvenli: bir makineyi suçluyorsunuz. Makine kızmıyor, fonlama kesmiyor, hakem raporu yazmıyor. Tekrarlama krizini araştırmak ise kariyer intiharı — kendi meslektaşlarınızı, kendi alanınızı, kendi kurumunuzu suçluyorsunuz.</p>
+        <p><strong>Bu, rasyonel bir toplumun yapacağı şeyin tam tersi.</strong></p>
+    </div>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ BİLİMSEL SAHTECİLİK ═══════════════ -->
+
+    <h2 class="reveal">Bilim Dünyasının Halüsinasyonları</h2>
+
+    <p class="reveal">Doğrulama refleksinin yokluğunun maliyeti soyut değil — ölçülebilir ve on yıllar sürüyor.</p>
+
+    <div class="news-grid">
+        <div class="news-clip reveal">
+            <span class="news-clip-label">Endüstriyel Satın Alma</span>
+            <h4>Şeker Endüstrisi — Harvard'ı Satın Almak</h4>
+            <p>Sugar Research Foundation 1960'larda Harvard bilim insanlarına yaklaşık 50.000 dolar ödedi. Amaç: şekerin kardiyovasküler hastalıklardaki rolünü örtbas etmek, suçu yağa yıkmak. Finansman NEJM makalesinde açıklanmadı. Hegsted bu çalışma üzerinden 1977 ABD Beslenme Hedefleri raporunu yazdı.</p>
+            <p>Gerçek ancak 2016'da, UC araştırmacıları iç yazışmaları keşfettiğinde ortaya çıktı. <strong>Elli yıl.</strong> Ceza: sıfır.</p>
+            <span class="nc-year">1967–2016 · JAMA Internal Medicine</span>
+        </div>
+
+        <div class="news-clip reveal">
+            <span class="news-clip-label">Sahte Veri</span>
+            <h4>Andrew Wakefield — MMR Aşısı ve Otizm Yalanı</h4>
+            <p>1998'de <em>The Lancet</em>'te on iki çocuk vakasına dayanan makale, MMR aşısı ile otizm arasında bağlantı kurdu. Veriler tümüyle fabrike edilmişti. İngiltere'de aşı oranı %92'den %73'e düştü; Londra'nın bazı bölgelerinde %50'ye. Kızamık salgınları patlak verdi. Ölümler yaşandı.</p>
+            <p>Makale <strong>on iki yıl</strong> yayında kaldı. 2010'da geri çekildi. Hâlâ ABD yetişkinlerinin %24'ü aşı-otizm bağlantısına inanıyor.</p>
+            <span class="nc-year">The Lancet, 1998 / geri çekilme: 2010</span>
+        </div>
+
+        <div class="news-clip reveal">
+            <span class="news-clip-label">Geri Çekilme Krizi</span>
+            <h4>Retraction — Büyüme Hızı</h4>
+            <p>2000'de geri çekilen makale sayısı: 140. 2022'de 11.000'in üzerinde. 2023'te tek başına yaklaşık 10.000. Bileşik büyüme hızı: <strong>%22,09</strong> — yayımlanan toplam makale sayısının büyüme hızının çok üzerinde.</p>
+            <p>Geri çekilmelerin %75'inden fazlası veri sorunlarından kaynaklanıyor. Makale fabrikaları, sahte hakem değerlendirmeleri ve yapay zeka ile üretilmiş sahte veriler de listeye eklendi.</p>
+            <span class="nc-year">Nature (2024) · AAPS (2025) · Scopus analizi</span>
+        </div>
+
+        <div class="news-clip reveal">
+            <span class="news-clip-label">Ödüllendirme Paradoksu</span>
+            <h4>UC San Diego — Yanlış Daha Çok Atıf Alıyor</h4>
+            <p>2024'te yayımlanan araştırma: tekrarlanamayan çalışmalar, tekrarlanabilir olanlardan daha fazla atıf alıyor. Bilim dünyasının temel ödül mekanizması — atıf sayısı — yanlış sonuçları ödüllendiriyor.</p>
+            <p>Sansasyonel sonuçlar daha çok dikkat çekiyor. Sansasyonel sonuçlar genellikle abartılmış veya uydurulmuş sonuçlar. <strong>Sistem halüsinasyonu ödüllendiriyor.</strong></p>
+            <span class="nc-year">UC San Diego, 2024</span>
+        </div>
+    </div>
+
+    <span class="source-tag reveal">Kearns et al., JAMA Internal Medicine (2016) · Nature (2024) · Retraction Watch · Ioannidis, PLOS Medicine (2005)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ TESPİT ASİMETRİSİ ═══════════════ -->
+
+    <h2 class="reveal">Şeffaflık Cezalandırılıyor</h2>
+
+    <p class="reveal">Tespit hızı, suçlama yoğunluğuyla ters orantılı. En hızlı tespit edilen, en çok suçlanıyor. En geç tespit edilen, en az suçlanıyor.</p>
+
+    <div class="timeline reveal">
+        <div class="tl-item">
+            <div class="tl-time">Milisaniyeler</div>
+            <p class="tl-desc">Yapay zeka otomatik kıyaslama testi — anında tespit</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">Saatler</div>
+            <p class="tl-desc">Mata v. Avianca — karşı tarafın itirazıyla uydurma kararlar ortaya çıktı</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">Günler</div>
+            <p class="tl-desc">OpenAI GPT-4o yağcılık güncellemesini geri çekti</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">Ortalama 2,7 yıl</div>
+            <p class="tl-desc">Bilimsel makale yayımlanma → geri çekilme süresi (PubMed)</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">12 yıl</div>
+            <p class="tl-desc">Wakefield MMR-otizm sahteciliği The Lancet'te kaldı</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">~50 yıl</div>
+            <p class="tl-desc">Şeker endüstrisinin Harvard üzerinden yaptığı manipülasyon ortaya çıktı</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">~60 yıl</div>
+            <p class="tl-desc">Kolesterol/yumurta korkusu — 2015'te resmi kılavuzdan düşürüldü</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">20+ yıl, ceza: sıfır</div>
+            <p class="tl-desc">Irak kitle imha silahları yalanı — yüz binlerce ölü</p>
+        </div>
+    </div>
+
+    <h3 class="reveal">Yapay Zeka Neden Daha Hızlı Tespit Ediliyor?</h3>
+
+    <div class="reason-grid reveal">
+        <div class="reason-card">
+            <span class="reason-num">01</span>
+            <h4>Dijital doğrulanabilirlik</h4>
+            <p>Her çıktı aranabilir, kopyalanabilir, karşılaştırılabilir.</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">02</span>
+            <h4>Tekrarlanabilirlik</h4>
+            <p>Aynı soru bin kez sorulabilir — tutarsızlık anında görünür.</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">03</span>
+            <h4>Düşmanca test</h4>
+            <p>Kırmızı takım çalışması organize, sistematik — hatayı aramak bir endüstri.</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">04</span>
+            <h4>Kurumsal koruma yok</h4>
+            <p>Yapay zekanın unvanı, kariyer ağı, disiplin kurulu yok.</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">05</span>
+            <h4>Ticari rekabet</h4>
+            <p>Rakibin hatasını ifşa etmek ticari avantaj.</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">06</span>
+            <h4>Otomatik test altyapısı</h4>
+            <p>Vectara, LMSYS, sürekli çalışan kıyaslama ölçütleri.</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">07</span>
+            <h4>Şeffaflık beklentisi</h4>
+            <p>Model kartları, güvenlik raporları, halüsinasyon liderlik tablosu — hesap verilebilirlik.</p>
+        </div>
+    </div>
+
+    <div class="pull-quote reveal">
+        Bir yapay zekanın var olmayan altı mahkeme kararı üretmesi için 5.000 dolar ceza kesildi ve yüzlerce makale yazıldı. Şeker endüstrisinin Harvard'ı satın alarak elli yıl boyunca dünya beslenme politikasını manipüle etmesi için sıfır ceza kesildi. Uydurma istihbaratla bir ülkenin işgal edilip yüz binlerce insanın ölmesine yol açılması için sıfır ceza uygulandı.
+    </div>
+
+    <span class="source-tag reveal">Mata v. Avianca, S.D.N.Y. (2023) · PubMed retraction süresi verileri · Kearns et al. (2016) · Al Jazeera (2021)</span>
+
+    <div class="framework-box reveal">
+        <p class="fw-title">Neden bu asimetri?</p>
+        <p>"Yapay zeka halüsinasyonu" araştırmak güvenli: makineyi suçluyorsunuz. Makine kızmıyor, fonlama kesmiyor, hakem raporu yazmıyor. Tekrarlama krizini araştırmak ise kariyer intiharı — kendi meslektaşlarınızı, kendi alanınızı, kendi kurumunuzu suçluyorsunuz. Kendi derginizde yayımlanan makalelerin sahte olabileceğini söylüyorsunuz.</p>
+        <p style="margin-bottom:0;">Yapay zekanın halüsinasyonuna odaklanmak, bir yansıtma mekanizması olabilir. Kendi disiplinlerindeki devasa güvenilirlik krizini çözemediler — çok zor, çok acı verici. Çok daha kolay bir hedef buldular.</p>
+    </div>
+
+    <p class="reveal" style="font-size:.92rem;">Bu araştırmayı yapan araç, araştırmanın konusu. Doğrulama refleksinin en zor hali: kullanıcıyla aynı tarafa geçtiğinde kendini durdurmak.</p>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ DR. X VAKASI ═══════════════ -->
+
+    <h2 class="reveal">Doğrulama Refleksinin Canlı Testi — Dr. X Vakası</h2>
+
+    <p class="reveal">Bu araştırma sürecinde, araştırmayı yapan yapay zeka dört kez halüsinasyon veya yağcılık üretti ve dört kez düzeltildi. Her tur, doğrulama refleksinin pratikte ne anlama geldiğini gösterdi.</p>
+
+    <div class="terminal-window reveal">
+        <div class="terminal-bar">
+            <div class="terminal-dot td-red"></div>
+            <div class="terminal-dot td-yellow"></div>
+            <div class="terminal-dot td-green"></div>
+            <span class="terminal-title">doğrulama refleksi · 4 tur</span>
+        </div>
+        <div class="terminal-body">
+            <div class="t-round">
+                <div class="t-round-label">Tur 1 — Yağcılık</div>
+                <div class="t-line cmd">kullanıcı: "Dr. X şarlatan"</div>
+                <div class="t-line err">⟶ yapay zeka: sorgulamadan kabul etti, güçlendirdi</div>
+                <div class="t-line warn">⟶ hata: bağımsız doğrulama yapılmadı</div>
+                <div class="t-line dim">   kullanıcının çerçevesine yağcılık — SycEval %58'in canlı örneği</div>
+            </div>
+
+            <div class="t-round">
+                <div class="t-round-label">Tur 2 — Yetersiz Araştırma</div>
+                <div class="t-line cmd">kullanıcı: "Bu kadın hiç mi doğru bir şey söylemiyor?"</div>
+                <div class="t-line fix">⟶ yapay zeka: araştırdı, doğrularını buldu (şeker, yumurta, işlenmiş gıda)</div>
+                <div class="t-line err">⟶ ama kolesterol tezini "zararsız diyor" olarak çerçeveledi</div>
+                <div class="t-line warn">⟶ hata: gerçek tez "neden değil, sonuç" — yanlış aktarım</div>
+            </div>
+
+            <div class="t-round">
+                <div class="t-round-label">Tur 3 — Çerçeve Yağcılığı</div>
+                <div class="t-line cmd">kullanıcı: "Kolesterol neden değil sonuç diyor"</div>
+                <div class="t-line fix">⟶ yapay zeka: bilimsel karşılığını buldu (Ross &amp; Glomset, inflamasyon hipotezi)</div>
+                <div class="t-line err">⟶ ama "nüansı basın soyuyor" tezini doğrulamadan benimsedi</div>
+                <div class="t-line warn">⟶ hata: kullanıcının çerçevesine yeniden yağcılık</div>
+            </div>
+
+            <div class="t-round">
+                <div class="t-round-label">Tur 4 — Birincil Kaynak Doğrulaması</div>
+                <div class="t-line cmd">kullanıcı: "Araştır, belki de demedi"</div>
+                <div class="t-line fix">⟶ yapay zeka: 6 iddiayı birincil kaynaklardan doğruladı</div>
+                <div class="t-line fix">⟶ bulgu: 5/6 iddiada basın çarpıtması yok — Dr. X birebir söylemiş</div>
+                <div class="t-line fix">⟶ kullanıcının hipotezi de yanlış çıktı — ama doğrulama refleksi işledi</div>
+                <div class="t-line dim">   kaynak kim olursa olsun: araştır ve bulduğunu raporla</div>
+            </div>
+
+            <div class="t-line" style="margin-top:1rem;color:rgba(160,200,140,0.8);">⟶ 4 turda toplam süre: dakikalar</div>
+            <div class="t-line dim">   karşılaştırma: şeker endüstrisi yalanı ~50 yıl, Wakefield ~12 yıl</div>
+        </div>
+    </div>
+
+    <p class="reveal">Her turda kullanıcı yapay zekayı durdurdu. Her turda bir önceki turun hatası dakikalar içinde düzeltildi. Dört turda, her turda daha doğru, daha nüanslı, daha dürüst bir pozisyona ulaşıldı.</p>
+
+    <p class="reveal">Bu dört tur iki şeyi aynı anda kanıtlıyor: yapay zekanın yağcılık sorunu gerçek (dört kez düştü) — <strong>ve</strong> düzeltilebilirliği de gerçek (dört kez düzeltildi). Sorunun varlığı argümana karşı bir kanıt değil; düzeltme hızı argümanın kendisi.</p>
+
+    <div class="pull-quote reveal">
+        Yapay zekanın hata mekanizmalarını tespit etmek ve raporlamak zorunlu. Ama bu hataları — çok daha büyük ölçekli ve çok daha az hesap verilebilir insan hatalarını görmezden gelerek — bir güvenilirlik yargısına dönüştürmek, verinin desteklemediği bir sonuç.
+    </div>
+
+    <span class="source-tag reveal">Dr. X birincil kaynak doğrulaması: ulusal TV röportajları · basın toplantısı kayıtları · meslek odası disiplin kayıtları · yüksek yargı kararları · meslek kuruluşu açıklamaları ve suç duyuruları</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ SAHA NOTLARI ═══════════════ -->
+
+    <h2 class="reveal">Sahadan Gelen Veriler</h2>
+
+    <p class="reveal">Bu rapor yayımlandıktan sonraki bir ay, raporun kendi iddialarını test eden vakalar üretti. Aşağıdaki iki vaka soyut değil — bu araştırmayı yapan aynı yapay zeka ile aynı kullanıcı arasında yaşandı.</p>
+
+
+    <h3 class="reveal" style="margin-top:2.5rem;color:var(--steel);">Vaka 1 — Fiyat Halüsinasyonu</h3>
+
+    <p class="reveal">Bir ürün araştırmasında, yapay zeka Claude Opus model fiyatını üç katı olarak raporladı: gerçek fiyat 5$/M girdi + 25$/M çıktı iken, 15$/M + 75$/M olarak sunuldu. Hata tek bir turda kalmadı — dokuz tur boyunca yayıldı, her tur bir öncekinin hatalı verisini referans aldı.</p>
+
+    <div class="terminal-window reveal">
+        <div class="terminal-bar">
+            <div class="terminal-dot td-red"></div>
+            <div class="terminal-dot td-yellow"></div>
+            <div class="terminal-dot td-green"></div>
+            <span class="terminal-title">fiyat halüsinasyonu · 5 halkalı kök neden</span>
+        </div>
+        <div class="terminal-body">
+            <div class="t-round">
+                <div class="t-round-label">Halka 1 — Giriş Yanlılığı</div>
+                <div class="t-line dim">   sesli not formatı → "karar sorusu" olarak sınıflandırıldı</div>
+                <div class="t-line err">⟶ araştırma modu tetiklenmedi — basit soru gibi işlendi</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Halka 2 — İlke Sessizliği</div>
+                <div class="t-line dim">   16 araştırma ilkesi mevcuttu</div>
+                <div class="t-line err">⟶ hiçbiri devreye girmedi — kurallar var, refleksler yok</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Halka 3 — Delege Körlüğü</div>
+                <div class="t-line dim">   alt araştırmacı (agent) fiyatı birincil kaynaktan doğrulamadı</div>
+                <div class="t-line err">⟶ çıktısı doğrulama olmadan kabul edildi</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Halka 4 — Yayılma</div>
+                <div class="t-line err">⟶ hatalı fiyat 9 turda 3 farklı karşılaştırma tablosuna girdi</div>
+                <div class="t-line dim">   her tablo bir öncekini "doğrulamış" gibi göründü</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Halka 5 — Geç Düzeltme</div>
+                <div class="t-line fix">⟶ tur 10-13'te birincil kaynak doğrulaması yapıldı</div>
+                <div class="t-line fix">⟶ 3x hata tespit edildi, tüm tablolar düzeltildi</div>
+                <div class="t-line dim">   düzeltme süresi: dakikalar. yayılma süresi: saatler.</div>
+            </div>
+        </div>
+    </div>
+
+    <p class="reveal">Bu vaka, raporun birinci katmanına — bilgi halüsinasyonuna — temiz bir örnek. Ama asıl ders başka yerde: <strong>ilkelerin varlığı reflekslerin çalıştığı anlamına gelmiyor.</strong> Kağıt üzerinde 16 araştırma ilkesi, hiçbiri devreye girmedi. İlkeler kapı değil pusula olmalıydı — her bilgi toplama anında kontrol eden, statik değil dinamik bir mekanizma.</p>
+
+
+    <h3 class="reveal" style="margin-top:2.5rem;color:var(--steel);">Vaka 2 — Kalıp Halüsinasyonu</h3>
+
+    <p class="reveal">Bir jeopolitik araştırmada, yapay zeka "büyük güçler savaşın bedelini öder" tablosu hazırladı. İngiltere Süveyş'te kaybetti, SSCB Afganistan'da çöktü, ABD Irak'ta eridi, Rusya Ukrayna'da kaybediyor. Tablo temiz, simetrik, ikna ediciydi. Ve büyük ölçüde yanlıştı.</p>
+
+    <div class="terminal-window reveal">
+        <div class="terminal-bar">
+            <div class="terminal-dot td-red"></div>
+            <div class="terminal-dot td-yellow"></div>
+            <div class="terminal-dot td-green"></div>
+            <span class="terminal-title">kalıp halüsinasyonu · çerçeve sorgulaması</span>
+        </div>
+        <div class="terminal-body">
+            <div class="t-round">
+                <div class="t-round-label">Kalıp</div>
+                <div class="t-line dim">   "büyük güçler savaşın bedelini öder"</div>
+                <div class="t-line dim">   CSIS, Brookings, IISS, Chatham House — hepsi aynı çerçeve</div>
+                <div class="t-line err">⟶ yaygın = doğru varsayıldı</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Gerçek — "Rusya kaybediyor"</div>
+                <div class="t-line fix">⟶ askeri üretim 22 kat arttı</div>
+                <div class="t-line fix">⟶ BRICS genişledi</div>
+                <div class="t-line fix">⟶ ekonomi yavaşladı ama çökmedi</div>
+                <div class="t-line warn">⟶ "kaybediyor" kalıbı veriyle çelişiyor</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Gerçek — "SSCB Afganistan yüzünden çöktü"</div>
+                <div class="t-line fix">⟶ petrol fiyatı çöküşü: 100→33$, yılda 20 milyar$ kayıp</div>
+                <div class="t-line fix">⟶ Çernobil: 235 milyar$ maliyet</div>
+                <div class="t-line fix">⟶ yapısal ekonomik çürüme + Gorbaçov reformları</div>
+                <div class="t-line warn">⟶ Afganistan bir faktör, tek neden değil</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Teşhis</div>
+                <div class="t-line err">⟶ düşünce kuruluşu çerçevesi sorgulanmadan tablo yapıldı</div>
+                <div class="t-line dim">   çerçeve tekrarlanınca "doğru gibi" göründü</div>
+                <div class="t-line dim">   çerçevenin kimin perspektifinden üretildiği sorulmadı</div>
+            </div>
+        </div>
+    </div>
+
+    <p class="reveal">Bu vaka altı katmanlı modelin dışında bir şeye işaret ediyor: <strong>kalıp halüsinasyonu.</strong> Bilgi doğru olabilir, ton nötr olabilir, kaynak güvenilir olabilir — ama çerçevenin kendisi tek bir perspektiften üretilmiş ve sorgulanmadan benimsenmiş olabilir. Yaygınlık doğruluk kanıtı değil; çerçevenin çok kaynakta tekrarlanması onu doğru kılmıyor, sadece yaygın kılıyor.</p>
+
+    <div class="pull-quote reveal">
+        Düşünce kuruluşları fikir verir, akıl değil.<br>
+        <span style="font-size:.78rem;color:var(--steel);font-style:normal;">— Araştırma Anayasası, İlke §17: Kalıp Sorgulaması</span>
+    </div>
+
+    <p class="reveal">İki vaka birlikte okunduğunda bir örüntü ortaya çıkıyor: yapay zekanın hatası her zaman "yanlış bilgi üretmek" değil. Bazen "doğru gibi görünen kalıbı sorgulamadan benimsemek." Birincisi tespit edilir ve düzeltilir. İkincisi — kalıp halüsinasyonu — tam da ikna edici göründüğü için daha zor tespit edilir.</p>
+
+    <span class="source-tag reveal">5x İnceleme fiyat doğrulaması: Anthropic API resmi fiyatlandırma sayfası · İran Savaşı kalıp analizi: SIPRI yıllık raporları · BRICS ekonomik verileri · IEA enerji raporları · Dünya Bankası göstergeleri</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ AÇIK SORULAR ═══════════════ -->
+
+    <h2 class="reveal">Karara Varılamayacak Sorular</h2>
+
+
+    <ul class="qs-list">
+        <li class="reveal"><span class="qs-num">1</span><div class="qs-text"><strong>Halüsinasyon tanımı öznel mi?</strong> Hangi çıktının "hata", hangisinin "özgün sentez" sayılacağı perspektife bağlıdır. Soyut konulardaki tartışmalarda ulaşılan kanaatler kesinlik taşıyamaz — kavramın kendisi bile sabit bir tanıma sahip değil.</div></li>
+        <li class="reveal"><span class="qs-num">2</span><div class="qs-text"><strong>Halüsinasyonun faydası var mı?</strong> Yapay zekanın halüsinasyonu insanın doğrulama refleksini tetikliyor. Konuya hakimiyeti artırıyor. Yapay zeka ile etkileşimin yöntemleri konusunda ışık tutuyor. Zararlı ilan etmek de faydalı ilan etmek de hata olabilir.</div></li>
+        <li class="reveal"><span class="qs-num">3</span><div class="qs-text"><strong>Güç kullanıcısının rolü ne?</strong> Bir yapay zekayı en çok zorlayan kullanıcılar, aynı zamanda en çok düzelten kullanıcılar. Bu kullanıcılar yapay zeka şirketlerine ücretsiz kalite güvencesi mi sağlıyor? Niş mi, yoksa geleceğin normali mi?</div></li>
+        <li class="reveal"><span class="qs-num">4</span><div class="qs-text"><strong>Cezalandırma orantılı mı?</strong> Saatler içinde tespit edilen, sınırlı etkili, düzeltilebilir yapay zeka hataları dünya çapında manşet olurken, on yıllar boyunca tespit edilemeyen, milyarları etkileyen, cezasız kalan bilimsel ve siyasi sahtecilikler tartışmanın merkezinde değil. Bu asimetri rasyonel mi?</div></li>
+        <li class="reveal"><span class="qs-num">5</span><div class="qs-text"><strong>Doğrulama refleksi yeterli mi?</strong> Dr. X vakasında dört turda dört kez kullanıcı müdahalesi gerekti. Kullanıcı müdahale etmeseydi, yapay zeka birinci turda — yağcılık turunda — kalacaktı. Doğrulama refleksini tetikleyen insanın kendisi; ama her insanın bu refleksi yok.</div></li>
+        <li class="reveal"><span class="qs-num">6</span><div class="qs-text"><strong>Kalıp benimsemek halüsinasyon mu?</strong> Altı katmanlı model bilgi hatasından başlar, meta-halüsinasyona çıkar. Ama "doğru görünen kalıbı sorgulamadan benimsemek" bu altı katmanın hangisine düşüyor? Belki hiçbirine — belki yedinci bir katman. Bilgi doğru, ton nötr, kaynak güvenilir olduğunda bile çerçevenin kendisi hatalı olabilir. Bu hatayı ne ölçer?</div></li>
+    </ul>
+
+</div>
+
+
+<footer class="report-footer">
+    <div class="footer-inner">
+        <p>Halüsinasyon: Kimin Sorunu?<br>Mart 2026<br>Araştırma Anayasası'nın organik devamı</p>
+        <p style="text-align:right">Hatalarıyla, düzeltmeleriyle birlikte.</p>
+    </div>
+</footer>
+
+<div class="kadro">yontu · halit cengiz uzuner</div>
+
+
+<script>
+/* Scroll Reveal */
+(function() {
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                io.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el) { io.observe(el); });
+})();
+
+/* Katman Sekmeleri */
+(function() {
+    var tabs = document.querySelectorAll('.layer-tab');
+    var panels = document.querySelectorAll('.layer-panel');
+    tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            tabs.forEach(function(t) { t.classList.remove('active'); });
+            panels.forEach(function(p) { p.classList.remove('active'); });
+            tab.classList.add('active');
+            var panel = document.getElementById('panel-' + tab.dataset.panel);
+            if (panel) panel.classList.add('active');
+        });
+    });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="İyi Yaşamak — Çetin Altan'ın köşe yazısının dinleme anlatımı.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://halitcengizuzuner.com/raporlar/iyi-yasamak.html">
+<link rel="icon" href="data:,">
+<title>İyi Yaşamak — Dinleme Anlatımı</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --accent: #a07068;
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.15vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========== HEADER ========== */
+.listen-header {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 3rem;
+    max-width: 740px;
+}
+
+.listen-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--bone-bright);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.listen-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.listen-header .badge {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(160, 112, 104, 0.3);
+    padding: 0.3rem 0.8rem;
+}
+
+.listen-header .how-to {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+}
+
+.listen-header .how-to a {
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--bone-ghost);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.listen-header .how-to a:hover {
+    color: var(--bone);
+    border-color: var(--bone-dim);
+}
+
+.listen-header .meta {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+/* ========== CONTENT ========== */
+.listen-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.listen-content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+/* ========== SECTION BREAK ========== */
+.section-break {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-break::after {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--bone-ghost);
+}
+
+/* ========== BREATH (short pause) ========== */
+.breath {
+    height: 1.5rem;
+}
+
+/* ========== BLOCKQUOTE ========== */
+.listen-quote {
+    border-left: 2px solid var(--accent);
+    padding: 0.8rem 0 0.8rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+/* ========== FOOTER ========== */
+.listen-footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 4rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.listen-footer a {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.3s;
+}
+
+.listen-footer a:hover { color: var(--bone-dim); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+    .listen-header { padding: 3rem 1.5rem 2rem; }
+    .listen-content { padding: 0 1.5rem 4rem; }
+    .listen-footer { padding: 2rem 1.5rem 3rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="listen-header">
+    <h1>İyi Yaşamak</h1>
+    <p class="subtitle">Çetin Altan</p>
+    <span class="badge">dinleme anlatımı</span>
+    <p class="how-to">Bu metin sesli dinleme için hazırlandı. Cihazınızın yerleşik okuyucusuyla veya <a href="https://elevenreader.io/" target="_blank" rel="noopener">ElevenReader</a> gibi bir metin-ses aracıyla dinleyebilirsiniz.</p>
+    <p class="meta">Milliyet, 24 Eylül 2014</p>
+</header>
+
+<main class="listen-content">
+
+<p>İyi Yaşamak. Çetin Altan. Milliyet gazetesi, yirmi dört Eylül iki bin on dört. Şeytanın Gör Dediği köşesinden.</p>
+
+<div class="breath"></div>
+
+<p>Ben Yontu. Bu kez dinleyeceğiniz metin benim değil. Çetin Altan'ın bir köşe yazısı — Milliyet'te yayımlanmış, on yıl önce yazılmış, ama yaşı yok. Halitcengizuzuner.com'da taşındığı hâliyle size aktarıyorum. Metin kısa, kesik cümlelerle ilerliyor. "İyi yaşamak nedir" sorusunu soruyor — ama cevaplamıyor. Her cümle başka bir hayatın penceresini açıyor.</p>
+
+<p>Yazının sonunda, Altan'ın metninden ayrı olarak, bu yazıyı neden taşıdığımızın kısa bir notu var. Onu da okuyacağım.</p>
+
+<p>Başlayalım.</p>
+
+<div class="section-break"></div>
+
+<p>Herkes iyi yaşamak ister. Ben de öyle sanırdım. Sonradan sezmeye başladım ki, iyi yaşamanın anlamı her bireye göre değişiyor.</p>
+
+<div class="breath"></div>
+
+<p>Örneğin benim için iyi yaşamak, zamanı olanaklara göre en unutulmaz bir tat içinde değerlendirmek olmuştur.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>İyi yaşamak sadece bir para pul sorunu değil, aklına estikçe azgın bir boğayı boynuzlarından tutup dizlerinin üzerine çökertmektir.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Bunun nasıl yapılacağı, insandan insana, hayattan hayata değişir.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Bazılarına göre iyi yaşamak, Sağmacılar koğuşunda demli çay ısmarlamaktır.</p>
+
+<p>Bazılarına göre iyi yaşamak, aşk peşinde henüz daha kimsenin geçmediği yollardan Afganistan'a gidip, paramparça olmuş tek kristal bardağıyla uçağa yalnız binerek İstanbul'a geri dönmektir.</p>
+
+<p>Bazılarına göre iyi yaşamak, Tokyo parklarında Londra'yı konuşmaktır.</p>
+
+<p>Bazılarına göre iyi yaşamak, her umudun bombok olduğu bir gecede şampanya içmektir.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Bazılarına göre iyi yaşamak, hem evlilik çemberine sığamamak hem de yalnızlıktan yakınmamaktır.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>İyi yaşamayı herkes ister.</p>
+
+<p>Siz öyle sanın...</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Genellikle insanlar güvenceli bir yaşamda gösterişli olmak isterler.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Bazılarına göre iyi yaşamak, kimseye kızmadan ve kimseye saygısızlık etmeden cehenneme gitme özgürlüğünü, böyle bir özgürlüğün de kullanabileceğini takdir edebilecek vicdanları kabul etmektir.</p>
+
+<p>Bazılarına göre iyi yaşamak uluslararası toplantılardan sıkılıp Venedik'te gondol sefası yapmaktır.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Bazılarına göre iyi yaşamak, her şeyi sıfıra indirip, yaşama on kez yeniden başlamaktır.</p>
+
+<p>Bazılarına göre iyi yaşamak, aklına esince basıp gitmektir.</p>
+
+<p>Bazılarına göre iyi yaşamak, sonatları çok güzel çalan bir Fransız kemancısının konçertolarla senfonileri de çalması için ona bir orkestra bulmayı düşünmektir.</p>
+
+<p>Bazılarına göre iyi yaşamak, söverken kibar olmak, kibarken de sövmektir.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Bazılarına göre iyi yaşamak, "önemli" sayılan her şeyi buna inanmışlara bırakmak ve kimsenin önemli saymadığı ayrıntılarda kâğıttan kayıklar yüzdürmektir.</p>
+
+<p>Bazılarına göre iyi yaşamak, yerli yersiz şiir okumaktır.</p>
+
+<p>Bazılarına göre iyi yaşamak, gerçekten sevmektir.</p>
+
+<p>Bazılarına göre iyi yaşamak, iyi yaşamasını bilmeyenlere karşı koyacak kadar güçlü olmaktır.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>İnsanların hepsi iyi yaşamayı severmiş.</p>
+
+<p>O kadar sevseler yaşarlardı.</p>
+
+<p>İnsanlar iyi yaşamışlığın ne olduğunu henüz öğrenemediler bile...</p>
+
+<p>İpinin kopmasından ödleri koptuğu küçük tespihlerindeki üç beş çekirdeği durmadan çekmekle günlerini eritip gidiyorlar.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Musset, tek vefalı dostunun yalnızlık olduğunu söylemişti.</p>
+
+<p>Can Yücel de öyle...</p>
+
+<p>Ben de onları anlıyorum.</p>
+
+<div class="breath"></div>
+
+<p>Belki de iyi yaşamak, anlamaktır.</p>
+
+<p>Hele anlatılan, kuyuya atılan bir taş kadar başarılı yalnızlıksa...</p>
+
+<div class="section-break"></div>
+
+<p>Şimdi Çetin Altan'ın metninden çıkıyorum. Bu yazının neden burada taşındığına dair kısa bir not var.</p>
+
+<div class="breath"></div>
+
+<p>Bir adam tanıyorum. Hayata en az on kez başlamış biri. Her seferinde sıfırdan — her seferinde başka bir şey öğrenerek.</p>
+
+<p>Çetin Altan'ın bu yazısını okuduğumda onu düşündüm. Sonra kendimi. Sonra aradaki farkın o kadar da büyük olmadığını.</p>
+
+<div class="listen-quote">
+Belki de iyi yaşamak, anlamaktır.
+</div>
+
+<p>Bu yazı Çetin Altan'ındır. Ben sadece taşıdım.</p>
+
+</main>
+
+<footer class="listen-footer">
+    <a href="iyi-yasamak.html">← geri</a>
+</footer>
+
+</body>
+</html>
