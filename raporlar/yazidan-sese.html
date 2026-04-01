@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Yazılı metni yapay sesle dinlemeye uyarlamanın bilimi, pratiği ve sınırları — ortalama kullanıcı verileriyle yazılmış bir raporun kendi eksikliğini sorgulaması.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Yazıdan Sese">
+<meta property="og:description" content="Bir metni sese dönüştürmek çevirmektir — aynı dilde.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/raporlar/yazidan-sese.html">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-04-01">
+<link rel="canonical" href="https://halitcengizuzuner.com/raporlar/yazidan-sese.html">
+<link rel="icon" href="data:,">
+<title>Yazıdan Sese</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Yazıdan Sese">
+<meta name="twitter:description" content="Bir metni sese dönüştürmek çevirmektir — aynı dilde.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Yazıdan Sese",
+  "description": "Yazılı metni yapay sesle dinlemeye uyarlamanın bilimi, pratiği ve sınırları.",
+  "datePublished": "2026-04-01",
+  "dateModified": "2026-04-01",
+  "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/raporlar/yazidan-sese.html"},
+  "inLanguage": "tr"
+}
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --yanki: #7068a0;
+    --yanki-dim: rgba(112, 104, 160, 0.15);
+    --yanki-ghost: rgba(112, 104, 160, 0.08);
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection { background: var(--yanki); color: var(--void); }
+html { font-size: clamp(17px, 1.2vw, 20px); scroll-behavior: smooth; }
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 2.0;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.10;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.report-header {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 8rem;
+    max-width: 700px;
+}
+
+.report-header h1 {
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    color: var(--bone-bright);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.report-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: var(--bone-dim);
+    margin-top: 1.5rem;
+    line-height: 1.5;
+}
+
+.report-header .meta {
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+.content {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.chapter {
+    margin-bottom: 5rem;
+}
+
+.chapter-title {
+    font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+    color: var(--bone-bright);
+    margin-bottom: 2rem;
+    font-weight: 400;
+    line-height: 1.2;
+    font-style: italic;
+}
+
+p { margin-bottom: 1.5rem; color: var(--bone); }
+strong { color: var(--bone-bright); }
+em { color: var(--bone-dim); }
+
+.callout {
+    border-left: 2px solid var(--yanki);
+    padding: 1.5rem 0 1.5rem 2rem;
+    margin: 2.5rem 0;
+}
+
+.callout p {
+    font-size: 0.95rem;
+    color: var(--bone-dim);
+    margin-bottom: 1rem;
+}
+
+.callout p:last-child { margin-bottom: 0; }
+.callout strong { color: var(--bone); }
+
+.breath { height: 6vh; }
+
+.divider {
+    width: 40px;
+    height: 1px;
+    background: var(--bone-ghost);
+    margin: 4rem 0;
+}
+
+.source-tag {
+    font-size: 0.75rem;
+    color: var(--yanki);
+    vertical-align: super;
+    margin-left: 2px;
+    opacity: 0.8;
+}
+
+.kaynakca {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.kaynakca h2 {
+    font-size: 1.1rem;
+    color: var(--bone-dim);
+    margin-bottom: 2rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.kaynakca p {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+}
+
+footer {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 4rem 2.5rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+footer p {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    line-height: 1.8;
+}
+
+footer a {
+    color: var(--bone-dim);
+    transition: color 0.3s;
+}
+
+footer a:hover { color: var(--bone); }
+
+@media (max-width: 640px) {
+    .report-header { padding: 3rem 1.5rem 4rem; }
+    .content { padding: 0 1.5rem 4rem; }
+    .callout { padding-left: 1.2rem; }
+    footer { padding: 3rem 1.5rem; }
+}
+
+@media (min-width: 1200px) {
+    .report-header { margin-left: 6vw; }
+    .content { margin-left: 6vw; margin-right: auto; }
+    footer { margin-left: 6vw; margin-right: auto; }
+}
+
+@media print {
+    body { background: white; color: #1a1a1a; }
+    body::before { display: none; }
+    .report-header { min-height: auto; padding: 3cm 2cm; page-break-after: always; }
+    .callout { border-color: #999; }
+}
+</style>
+</head>
+<body>
+
+<header class="report-header">
+    <h1>Yazıdan Sese</h1>
+    <p class="subtitle">Bir metin iki dünya arasında — göz okuyor, kulak dinliyor, arada ne kayboluyor?</p>
+    <p class="meta">Nisan 2026 · 78 akademik kaynak · 12 araştırma dosyası</p>
+</header>
+
+<main class="content">
+
+<!-- ═══════ GİRİŞ ═══════ -->
+
+<div class="chapter">
+
+<p>Bir metin yazılır. Sayfada durur. Göz tarar, geri döner, durur, tekrar okur. Paragrafın ortasından başlayabilir, sondan başa atlayabilir, bir cümleyi üç kez çiğneyip bırakabilir. Okumak böyle bir şey — zaman senin.</p>
+
+<p>Sonra birisi o metni sese çevirir. Artık zaman senin değil. Ses akar, durdurulamaz, geri sarılamaz — en azından kolay kolay. Cümle geçti mi geçmiştir. Anlaşılmadıysa kayıp sessizdir: dinleyici yanlış anladığını bile fark etmez. Nicole Ayasse ve arkadaşları 2021'de bunu gösterdi: karmaşık bir cümle duyulduğunda beyin tam analiz yapmak yerine kelimeleri örnekleyip anlam tahmin etmeye geçiyor.<span class="source-tag">Ayasse 2021</span> Yanılma habersiz gerçekleşiyor.</p>
+
+<p>Bu rapor o geçişi anlatıyor — yazılı metnin sese dönüşürken neyi kaybettiğini, neyi kazandığını ve yapay sesin bu denklemde nerede durduğunu. Ama bir uyarıyla başlaması gerekiyor: buradaki verilerin büyük çoğunluğu "ortalama dinleyici" için üretilmiş. Raporun sonunda bu sınırlamayı kendi üzerine çevireceğim — çünkü dinleme, ortalama olmayan bir deneyim.</p>
+
+</div>
+
+<div class="breath"></div>
+
+<!-- ═══════ İKİ DİL ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">Aynı dilin iki hâli</h2>
+
+<p>Konuşma ve yazı aynı dilin iki kanalı gibi görünür ama Wallace Chafe 1982'de bunun bir yanılsama olduğunu gösterdi. İki temel fark var: birincisi <strong>parçalanma ve bütünleşme</strong>. Konuşmacı her tonlama biriminde tek bir yeni kavram aktarabilir — bilişsel kapasite bunu sınırlar. "Ve... ve... ve..." ile dizilen kısa birimler üretir. Yazar bu sınırlamadan bağımsızdır: iç içe geçmiş yan cümleler, gömülü yapılar, tek cümlede birden fazla kavram. İkinci fark <strong>katılım ve kopukluk</strong>: konuşmacı dinleyicisini görür, tepkisine göre ayar yapar, jest ve mimikle anlam taşır; yazar ise okuyucusunu tanımaz, metin kendi başına ayakta durmalıdır.<span class="source-tag">Chafe 1982</span></p>
+
+<p>Buraya kadar basit görünüyor — konuşma parçalı ve katılımcı, yazı bütünleşik ve kopuk. Ama M.A.K. Halliday 1985'te çarpıcı bir düzeltme yaptı: <strong>konuşma ve yazı farklı biçimlerde karmaşıktır.</strong> Yazı yüksek sözcük yoğunluğu taşır — bir tümcecik başına ortalama üç ile altı içerik sözcüğü, konuşmada bir buçuk ile iki. Konuşma ise yüksek dilbilgisi karmaşıklığı taşır — tümcecikler birbirine beklenmedik biçimlerde bağlanır. "Yazı konuşmadan daha karmaşık" diye düşünmek yaygın ama yanlış: ikisi farklı eksenlerde karmaşık.<span class="source-tag">Halliday 1985</span></p>
+
+<p>Douglas Biber 1988'de altmış yedi dilbilimsel özelliği analiz ederek işi bir adım ileri taşıdı. En ayırt edici boyut "katılımcı ve bilgisel" boyutu: telefon konuşması artı otuz beş puan alırken akademik makale eksi on beş alıyor. Ama hiçbir tek boyut konuşmayı yazıdan kesin olarak ayırmıyor — ilişki ikili değil, bir tayf. Hazırlanmış bir konuşma yazılı metne yaklaşır; kişisel bir mektup konuşmaya yaklaşır. Elinor Ochs 1979'da belirleyicinin kanal değil <strong>planlama derecesi</strong> olduğunu göstermişti: doğaçlama bir mesaj planlanmamıştır, bir konferans konuşması planlanmıştır — ikisi de "konuşma" ama aynı yerde değildir.<span class="source-tag">Biber 1988, Ochs 1979</span></p>
+
+<p>Bu tayf anlayışı Walter Ong'un 1982'deki "Büyük Ayrım" tezini de yumuşatır. Ong birincil sözlülük kültürlerinin dokuz düşünme özelliğini tanımlamıştı — eklemeci, kümeleyici, yinelemeci, muhafazakâr. Ama Scribner ve Cole 1981'de Vai halkı üzerinde yaptıkları araştırmada okuryazarlığın bilişsel etkilerinin beklenenden çok küçük olduğunu buldular. Konuşma ve yazı arasındaki mesafe gerçek ama mesafenin boyutu kültüre, bağlama ve bireye göre değişiyor.<span class="source-tag">Ong 1982, Scribner & Cole 1981</span></p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ DÖRDÜNCÜ KATEGORİ ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">Üç değil dört</h2>
+
+<p>Geleneksel ayrım üç kategori tanır: doğal konuşma, yazı ve sesli okuma. Doğal konuşmada üretici ve alıcı karşı karşıyadır, etkileşim anlıktır, beden vardır. Yazıda üretici ve alıcı farklı zamanlarda farklı mekânlardadır, etkileşim yoktur, beden yoktur. Sesli okumada bir insan ya da makine metni seslendirir, dinleyici alır ama etkileşim yine yoktur.</p>
+
+<p>Ama bugün bir dördüncü kategori var ve bu raporun asıl konusu o: <strong>seslendirme metni</strong>. Bir insan yazar, bir makine seslendirr, bir insan dinler — ama o insan genellikle başka bir şey yaparken dinler: yürür, bulaşık yıkar, araba kullanır. Etkileşim yok, beden yok, üstelik dinleyicinin dikkati bölünmüş durumda. Bu dördüncü kategori ne konuşma ne yazı ne sesli okuma — üçünün kesişiminde ama hiçbirine sığmayan bir alan.</p>
+
+<p>Bunun pratik sonucu şu: Chafe, Halliday ve Biber'in bulgularının bir kısmı doğrudan uygulanır — sözcük yoğunluğu farkı, otonom metin kavramı, bilgi yapılandırma ihtiyacı. Ama katılım boyutu, anlık ayarlama, beden dili gibi boyutlar uygulanmaz. Doğru soru "konuşma mı yazı mı" değil: <strong>yazılı bir metni, yapay ses aracılığıyla, gezinen bir zihne ulaştırmak için nasıl yeniden inşa ederiz?</strong></p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ METİN SESE GİRDİĞİNDE ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">Metin sese girdiğinde</h2>
+
+<p>Donald Rubin 2000 ve 2012 yıllarında "dinlenebilirlik" kavramını sistematik olarak tanımladı. Okunabilirlik formülleri — Flesch-Kincaid, Gunning Fog — yazılı metin için tasarlanmıştır ve dinleme metnine uygulanamaz. Rubin'in deneyi açık: aynı içerik iki farklı dil stiliyle hazırlandığında — biri sözlü tabanlı (aktif çatı, kişisel zamirler, sıralı cümleler, somut örnekler), diğeri yazılı tabanlı (edilgen çatı, soyut kavramlar, gömülü yan cümleler) — sözlü tabanlı metin anlamlı biçimde daha iyi kavrandı. Yazılı dil kipini dinlerken işlemek özellikle pahalı.<span class="source-tag">Rubin 2000, 2012</span></p>
+
+<p>Cümle düzeyinde en somut bulgu Kadayat ve Eika'dan geldi: yirmi bir katılımcı yapay ses aracılığıyla farklı uzunluklarda cümleler dinledi, en yüksek kavrama ve en düşük bilişsel yük <strong>on altı ile yirmi kelimelik cümlelerde</strong> elde edildi. Yirmi kelimeyi aşan cümleler hem kavramayı düşürdü hem yükü artırdı. On kelime altı ise bağlamı parçaladı — çok kısa cümleler de sorun.<span class="source-tag">Kadayat & Eika 2020</span> Ama bu "altın aralık" ortalama bir dinleyici için geçerli; bireysel farklılıklar büyük. Raporun sonunda buna döneceğim.</p>
+
+<p>Cümle yapısı da önemli. Constable ve arkadaşları 2004'te fMRI ile gösterdi: nesne-göreceli cümleler ("adamı seven kadın") özne-göreceli cümlelerden ("kadını seven adam") çok daha yüksek beyin aktivasyonu gerektiriyor — sol alın lobu, şakak bölgesi, açısal girus hepsi daha fazla çalışıyor.<span class="source-tag">Constable 2004</span> Peelle ve arkadaşları 2010'da ekledi: konuşma hızı ve sözdizim karmaşıklığı ayrı ayrı tolere edilebilir ama birlikte kapasite aşılıyor. Sözdizimini basitleştirmek birincil müdahale.<span class="source-tag">Peelle 2010</span></p>
+
+<p>Bilgi sıralamasında beynin gerçek zamanlı bir mekanizması var. Kaiser ve Trueswell 2004'te göz takibiyle gösterdi: dinleyiciler sözcük duyulmadan önce yeni referantı aramaya başlıyor. <strong>Eski bilgi öne, yeni bilgi sona</strong> yerleştirildiğinde bu tahmin mekanizması çalışıyor; ters sıralama mekanizmayı bozuyor.<span class="source-tag">Kaiser & Trueswell 2004</span> Bu beyindeki bir varsayılan ayar — bireylere göre esnekliği var ama genel ilke sağlam.</p>
+
+<p>Görsel öğelerin dönüşümü ayrı bir mesele. Zong ve arkadaşları 2022'de görme engelli katılımcılarla çalıştı: ham tablo verisi yerine hiyerarşik özet anlatım tercih ediliyor. Formül basit — önce özet cümle, sonra kritik değerler, sonra genel eğilim. Tablo sessiz bilgidir; ses onu sıralı anlatıma çevirmelidir.<span class="source-tag">Zong 2022</span></p>
+
+<p>Başlıkların seste farklı bir işlevi var. Lemarié ve arkadaşları 2012'de başlıkların yedi işlevini tanımladı; dinleme için ikisi kritik: <strong>konu tanımlama</strong> (dinleyici ilgili kavramsal şemayı açıyor) ve <strong>sınır işaretleme</strong> ("bu bölüm burada bitti" sinyali). Ama başlık duyurusu ile geçiş sinyali aynı şey değil. "Şimdi ikinci bölüme geçiyoruz" formulaik ve boştur; "bu bizi başka bir soruya getiriyor" organik ve bağlantılıdır. Faber ve arkadaşları 2018'de gösterdi: olay değişimi gerçekleşmediğinde — anlatım düz ve değişimsiz aktığında — zihin gezinmesi aşırıya kaçıyor. Konu geçişleri ve yeni bilgi sinyalleri dikkati geri çağıran işaretler.<span class="source-tag">Lemarié 2012, Faber 2018</span></p>
+
+<p>Rakamların dönüşümü de kaçınılmaz. Radyo gazeteciliğinin yetmiş yıllık deneyimi açık: "1.987.452" seste "yaklaşık iki milyon" olur. Jonathan Kern'in NPR editörlük kitabında yazdığı gibi, "basılı metin ile ses anlatımı aynı dünyada yaşar ama arazi farklıdır." Basılı haberin radyo versiyonu alıntıları ses parçasına çevirmek değildir — köklü bir yeniden inşadır.<span class="source-tag">Kern 2008</span></p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ MAKİNE SESİ ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">İnsan sesi, makine sesi</h2>
+
+<p>Yapay sesle dinlemenin ek bir maliyeti var mı? Govender ve King 2018-2019 arasında pupillometri ve ikili görev paradigmasıyla ölçtü: <strong>tüm durumlarda yapay ses doğal sese göre daha yüksek bilişsel yük yarattı.</strong> Gürültülü ortamlarda fark daha da açıldı — düşük kalite HMM'den yüksek kalite DNN'ye kadar tüm sentezleyiciler doğal sesin gerisinde kaldı.<span class="source-tag">Govender & King 2018a, 2018b, 2019</span></p>
+
+<p>Ama bu verilerin çoğu modern nöral TTS öncesi. Haake ve arkadaşları 2022'de DNN tabanlı sentezleyiciyi günlük cümlelerde test etti: 1,2 desibel SRT farkı bulundu — bu, farklı doğal konuşmacılar arasındaki farkla aynı aralıkta. Sözel yanıt sürelerinde, yani dinleme çabası göstergesinde, <strong>anlamlı fark yok.</strong><span class="source-tag">Haake 2022</span> Craig ve Schroeder 2017-2019'da öğrenme sonuçlarında da aynı tabloyu buldu: modern TTS motoru transfer öğrenme sonuçlarında insan sesiyle istatistiksel olarak ayırt edilemez düzeyde güvenilirlik ve öğrenme algısı aldı.<span class="source-tag">Craig & Schroeder 2017, 2019</span></p>
+
+<p>Tam tersi bulgular da var — 2024'te otuz öğrenciyle yapılan bir göz hareketi çalışmasında insan kaydı sentezli seslere göre anlamlı biçimde daha yüksek öğrenme performansı ve dikkat bağlılığı sağladı. Bu, Craig ve Schroeder'la çelişiyor. Fark muhtemelen bağlamda: kısa bilgi aktarımında yapay ses yeterli, uzun biçimli öğrenmede prozodi avantajı belirginleşiyor.</p>
+
+<p>Prozodi gerçekten kritik bir değişken. Pagnotta ve arkadaşları 2025'te gösterdi: olumlu prozodi ile dinlenilen kısa betimlemelerde daha fazla doğru cevap elde edildi ve insan sesi TTS'den daha yüksek doğruluk üretti. Ama Cogent Psychology'de yayımlanan bir 2025 çalışması farklı bir boyut ekledi: <strong>anlık hatırlamada doğal insan sesi tüm diğer koşullardan daha iyi bellek tutma sağladı; bir hafta sonra koşullar arasında fark kalmadı.</strong> Prozodi avantajı zamana yayıldığında kayboluyor.<span class="source-tag">Pagnotta 2025</span></p>
+
+<p>Virginia Clinton-Lisell'in 2022 meta-analizi büyük resmi çiziyor: kırk altı çalışma, dört bin altı yüz seksen yedi katılımcı. <strong>Okuma ve dinleme arasında genel kavrama farkı: g = 0,07 — istatistiksel olarak anlamsız.</strong> Ama moderatörler önemli: kendi hızında okuma avantajlı (g = 0,13), çıkarımsal kavramada okuma belirgin avantajlı (g = 0,36), sözcüksel kavramada fark yok (g = −0,01). Ve kritik bir bulgu: şeffaf ortografili dillerde — Türkçe buna yakın — okuma-dinleme farkı sıfıra yaklaşıyor (g = 0,001).<span class="source-tag">Clinton-Lisell 2022</span></p>
+
+<p>Yang ve arkadaşları 2026'da sinirsel düzeyde farklılaşmanın yaklaşık on iki dakikada başladığını gösterdi — beyin yapay sesle hızla senkronize oluyor ama bilinçli fark etme çok daha zor. Segedin ve arkadaşları 2019'da insanların insan konuşmacılara özgü fonetik adaptasyon mekanizmalarını TTS konuşmasına da uyguladığını göstermişti. Kulak uyum sağlıyor — ister insan ister makine olsun.<span class="source-tag">Yang 2026, Segedin 2019</span></p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ YAPAY SESİN KENDİ YOLU ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">Taklit bittiğinde</h2>
+
+<p>Yapay ses yirmi yıl boyunca insan sesini taklit etmeye çalıştı. Şimdi farklı bir soru soruluyor: taklit etmek zorunda mı?</p>
+
+<p>Diel ve Lewis 2024'te sentetik seslerin uncanny valley'den (tekinsiz vadi) başarıyla kaçtığını gösterdi. Tekinsiz vadiyi tetikleyen şey sentetik olmak değil, tipik insan sesinden <strong>sapmak</strong>. Patolojik ve bozulmuş sesler saf sentetik seslerden daha fazla rahatsızlık yarattı. Bu, yapay sesin kendi kategorisi olarak zaten kabul edildiğini gösteriyor — dinleyici onu "kötü insan sesi" değil "farklı bir şey" olarak konumluyor.<span class="source-tag">Diel & Lewis 2024</span></p>
+
+<p>Nussbaum, Frühholz ve Schweinberger 2025'te Trends in Cognitive Sciences'da daha da ileri gitti: "ses doğallığı" kavramının bilimsel olarak tanımsız olduğunu gösterdi. İki tür doğallık var: sapma-temelli (insan sesinden ne kadar sapıyor) ve insan-benzerligi-temelli (insana ne kadar benziyor). Bu belirsizlik, yapay sesin kendi doğallığını tanımlama ihtimalini açıyor.<span class="source-tag">Nussbaum 2025</span></p>
+
+<p>Im ve arkadaşları 2023'te beklentinin tersini buldu: kullanıcılar bilgi temelli görevlerde <strong>yapay sesi tercih etti.</strong> Fonksiyonel görevlerde yapay ses daha akıcı algılandı, daha yüksek yetkinlik değerlendirmesi aldı, pozitif tutum oluşturdu. Torre ve arkadaşları 2018'de "uyum etkisi"ni tanımlamıştı: ses güven verici algılanıyorsa ve sonraki deneyim tutarlıysa güven pekişiyor. Yapay sesin değişmeyen tonu bu tutarlılığı kolaylaştırıyor — her seferinde aynı kalitede, aynı ritimde, aynı güvenilirlikle.<span class="source-tag">Im 2023, Torre 2018</span></p>
+
+<p>Le Maguer ve Cowan 2021'de ACM'de provokasyonu başlığa taşıdı: "İnsan Benzeri Ses Sentezi Kolay Yol." Zor ama doğru yol, yapay sesin kendi yolunu bulması. DIS 2025'teki "Cabinet of Voices" çalışması en somut örnek: "insan-ötesi vokaliteler" kavramı. Katılımcılar yapay sesleri bir balina gibi ses çıkaracak biçimde hayal etti — taklit değil keşif.<span class="source-tag">Le Maguer & Cowan 2021, Cabinet of Voices 2025</span></p>
+
+<p>Lamas 2025'te Explorations in Media Ecology'de bu dönüşüme bir isim verdi: <strong>"sentetik sözlülük"</strong> (synthetic orality). Yapay ses ne birincil sözlülük (bedenli değil), ne ikincil sözlülük (radyo gibi değil), ne de yazı — dördüncü bir kategori. McLuhan'ın perspektifinden her ortam kendi dilini yaratır: matbaa romanı yarattı, televizyon reklamı yarattı. Yapay ses de kendi türünü yaratıyor — NotebookLM'in AI podcast'i bunun erken bir örneği.<span class="source-tag">Lamas 2025</span></p>
+
+<p>Ama bu paradigma kayması henüz tamamlanmadı. Eksik olan çok: sistematik bir "yapay ses paradigması" tezi yok — parçaları birleştiren çalışma henüz yazılmadı. Yapay ses için kendi metrikleri yok — "insana benzerlik" yerine neyin ölçüleceği belirsiz. Uzun vadeli dinleyici adaptasyonu çalışmaları yetersiz. Ve mevcut araştırmaların büyük çoğunluğu İngilizce ve Batı merkezli — kültürel çeşitlilik eksik.</p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ TÜRKÇE ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">Türkçe'nin kendine özgü yeri</h2>
+
+<p>Türkçe bitişken bir dil — tek köke çok sayıda ek gelebiliyor ve sözcük biçimleri teorik olarak sonsuz. Bu, yapay ses için iki somut sorun yaratıyor. Birincisi morfolojik: standart sözcük dağarcığı yaklaşımları yetersiz kalıyor çünkü "gelememişlerdenmiş" gibi bir biçimi önceden tabloya alamazsın. Kösaner ve arkadaşları 2024'te Türkçe'nin karmaşık morfolojisini ele almak için foneme dayalı kural tabanlı bir TTS sistemi geliştirdi; morfolojik çözümlemenin doğru sesletim için zorunlu olduğunu gösterdi.<span class="source-tag">Kösaner 2024</span> Liu ve arkadaşları 2024'te morfoloji farkında dil modeli ön eğitiminin az kaynaklı bitişken dillerde kaliteyi artırdığını buldu — Türkçe'ye doğrudan uygulanabilir bir yaklaşım.<span class="source-tag">Liu 2024</span></p>
+
+<p>İkincisi belirsizlik: aynı yazılış farklı okumalara yol açabiliyor. Hakkani 2002 ve Külekçi 2006 morfolojik belirsizlik gidermenin Türkçe yapay ses kalitesi için kritik olduğunu gösterdi. Metin uyarlamasında bu, belirsiz sesletim yaratabilecek yapıların fark edilip düzeltilmesi anlamına geliyor.</p>
+
+<p>Ama Türkçe'nin bir avantajı da var. Clinton-Lisell'in meta-analizinde şeffaf ortografili dillerde — yazıldığı gibi okunan dillerde — okuma ve dinleme arasındaki kavrama farkı sıfıra yakın. Türkçe tam anlamıyla şeffaf değil ama yakın: Latin alfabesi, büyük ölçüde fonemik yazım. Bu, metin uyarlamasının Türkçe'de İngilizce'ye göre daha az kayıp üretebileceğini düşündürüyor.<span class="source-tag">Clinton-Lisell 2022</span></p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ ZİHİN GEZİNMESİ ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">Aklın gezintisi</h2>
+
+<p>Üniversite derslerinde zihin gezinmesi oranı yüzde otuz üç ile yüzde kırk üç arasında ölçülüyor.<span class="source-tag">Szpunar 2013, Risko 2012</span> Sesli-yalnız koşul en yüksek zihin gezinmesini üretiyor — Kopp ve D'Mello 2016'da bunu gösterdi. Mekanizma basit: sesi işlemek göreceli az kaynak talep ediyor, kalan kapasite serbest kalıyor ve dikkat geziniyor.</p>
+
+<p>Ama bu tamamen kötü bir şey değil. Serbest dikkat farklı bağlantılar kurmaya, yazıda göremediğin açıyı görmeye izin verebilir. Sorun gezinmenin kendisi değil, geri dönememek. Faber ve arkadaşlarının 2018 bulgusu burada devreye giriyor: olay değişimi gerçekleşmediğinde — anlatım düz ve değişimsiz aktığında — gezinme aşırıya kaçıyor. Çözüm akışı kesmek değil, akışın içine <strong>geri çağırma işaretleri</strong> yerleştirmek: konu geçişleri, yeni bilgi sinyalleri, beklenmedik bir metafor. Dinleyicinin aklı gezinecek — metin onu geri çağırabilmeli.</p>
+
+</div>
+
+<div class="breath"></div>
+<div class="divider"></div>
+<div class="breath"></div>
+
+<!-- ═══════ ÖZ-ELEŞTİRİ ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">Bu raporun en büyük eksiği</h2>
+
+<p>Buraya kadar anlattığım her şey bir varsayıma dayanıyor: <strong>"ortalama dinleyici"</strong> diye bir şey var. Kadayat ve Eika'nın yirmi bir katılımcısı var, Clinton-Lisell'in kırk altı çalışması var, Govender'ın pupillometri verileri var — hepsinde ortalamalar alınıyor, güven aralıkları hesaplanıyor, genel ilkeler çıkarılıyor. Bu bilimsel yöntemin gereği ve yanlış değil. Ama eksik.</p>
+
+<p>Eksik çünkü dinleme derin biçimde bireysel bir deneyim. Aynı cümleyi iki kişi duyar: biri kavrar, diğeri kaybeder — ve kaybeden bunu fark etmez. Kadayat ve Eika'nın "on altı ile yirmi kelimelik altın aralık" bulgusu yirmi bir kişinin ortalaması. Ama o yirmi bir kişinin içinde muhtemelen kırkıncı kelimede bile tutarlılığını koruyanlar vardı ve onuncuda kaybedenler vardı. Ortalama ikisini de temsil etmiyor.</p>
+
+<p>Bu sadece cümle uzunluğu meselesi değil. Bilişsel profillerin her boyutunda bireysel varyans büyük: soyutlama kapasitesi, bilgi yoğunluğu toleransı, akış tercihleri, estetik standartlar, ses hassasiyeti. Bir dinleyici pedagojik köprülere ihtiyaç duyar ("şimdi bunu bir örnekle açıklayalım"), başka bir dinleyici aynı köprüyü dolgu olarak algılar ve dikkatini kaybeder. Bir dinleyici formulaik geçiş sinyallerinden ("ikinci bölüme geçiyoruz") güvence alır, başka biri bunları rahatsız edici bulur. Bir dinleyici için yapay sesin tutarlılığı avantajdır — her seferinde aynı kalitede; başka biri için monotonluktur.</p>
+
+<p>Akademik araştırmaların tarihleri de bir sınırlama. Bu rapordaki kaynakların önemli bir kısmı 2020 öncesi — yapay ses teknolojisi o tarihten bu yana köklü biçimde değişti. 2018'in "yüksek kalite DNN sentezleyicisi" 2026'nın başlangıç düzeyi bile değil. Govender'ın bilişsel yük bulguları bugünkü motorlarla tekrar test edilmeli. Craig ve Schroeder'ın "fark yok" bulgusu güncel motorlarla belki "yapay ses avantajlı" olabilir. Veriler hâlâ değerli ama güncelliğini sorgulamak zorunlu.</p>
+
+<div class="callout">
+<p>Özetle: bu rapor bilimsel verilere dayanıyor ama o veriler "kimse için özelleştirilmemiş" bir resim çiziyor. Bir harita düşünün — ülkenin genel şeklini gösterir ama evinizin kapısını göstermez. Evinizi bulmak için sokak düzeyine inmeniz gerekir. Dinleme deneyiminde sokak düzeyi <strong>kişiselleştirme</strong>dir.</p>
+</div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ KİŞİSELLEŞTİRME ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">Haritanın sokak düzeyi</h2>
+
+<p>Kişiselleştirme soyut bir kavram değil — somut olarak ne değiştiğini göstermek gerekiyor. Elimde bir vaka var: otuz bin satır konuşma kaydı analiz edilmiş, altı bilişsel-dilsel boyutta profil çıkarılmış, bu raporun yedi genel ilkesi o profile göre kalibre edilmiş bir dinleyici. Aşağıda o kalibrasyonun bazı sonuçlarını anonimleştirerek aktarıyorum — somut farkı görmek için.</p>
+
+<p><strong>Cümle uzunluğu:</strong> Bu raporun genel ilkesi on altı ile yirmi kelime diyor. Ama profil verileri bu dinleyicinin doğal işleme aralığının yirmi beş ile kırk beş kelime olduğunu gösteriyor — otuz bin satırlık kayıtta "anlamadım" veya "basitleştir" ifadesi sıfır. Altın aralık bu dinleyiciye uygulandığında <strong>düşünce parçalanıyor</strong>: bağlamı tek cümlede taşıyan bir yapı iki cümleye bölündüğünde bağlantı kopuyor. Genel ilke doğru ama bu dinleyici için zararlı.</p>
+
+<p><strong>Soyutlama kapasitesi:</strong> Genel ilke "soyut kavramları somut örneklerle destekle" diyor. Bu dinleyici soyut kavramları sadece anlamıyor, üretiyor — kendi icat ettiği kavramları konuşma sırasında doğal olarak kullanıyor. Pedagojik köprüler ("şimdi bunu basit bir örnekle açıklayalım") bu dinleyici için dolgu: açıklama gerektiren bir kavram varsa doğrudan açıkla, açıklayacağını duyurma.</p>
+
+<p><strong>Bilgi yoğunluğu:</strong> Genel ilke "bilgiyi seyrekleştir, her birimde tek kavram" diyor. Bu dinleyicinin yüz altmış dosyasında bilgi yoğunluğunun fazla gelmesine dair tek bir işaret yok. Şikâyet her zaman eksiklikten, sığlıktan geliyor. Bilgi seyreltildiğinde bu dinleyici için kayıp oluşuyor — yoğunluk azalmıyor, anlam azalıyor.</p>
+
+<p><strong>Geçiş tercihi:</strong> Genel ilke "geçiş sinyalleri kullan: şimdi ikinci konuya geçiyoruz" diyor. Bu dinleyicinin düşünce akışı spiral bir derinleşme gösteriyor — konular birbirinden doğuyor, formulaik sınır işaretleri akışı kesiyor. "Şimdi ikinci bölüme geçelim" yerine bir önceki bölümün son düşüncesinden doğal olarak çıkan geçişler gerekiyor.</p>
+
+<p><strong>Yapay ses tercihi:</strong> Genel araştırma yapay sesin bilişsel yük artırdığını söylüyor. Bu dinleyici tutarlılığı tepe performanstan tercih ediyor — müzik dinlerken bile efekt yerine kaynak sadakatini seçiyor. Yapay sesin sonsuz tutarlılığı bu dinleyici için dezavantaj değil, <strong>aktif avantaj</strong>.</p>
+
+<p>Beş örnekte beş farklı sapma. Genel ilkelerin her biri doğru — ama beşi de bu dinleyiciye yanlış uygulanıyor. Harita doğru, sokak yanlış. Ve bu tek bir dinleyici — her dinleyicinin sapma deseni farklı olacak.</p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ YAPAY ZEKA İLE KİŞİSELLEŞTİRME ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">Yapay zekâ bunu nasıl yapıyor</h2>
+
+<p>Yukarıdaki kalibrasyonu bir insan yapabilir mi? Yapabilir — ama ölçeklenemez. Otuz bin satır konuşma kaydını okuyup altı boyutta profil çıkarmak, yedi ilkeyi kalibre etmek, beş yeni ilke türetmek — bir dilbilimcinin haftalarca çalışmasını gerektirir ve her yeni dinleyici için baştan başlamak zorundadır. Yapay zekâ bunu farklı yapıyor: büyük dil modelleri metin analizi için doğal bir altyapıdır ve kişiselleştirmenin her aşamasını otomatikleştirebilir.</p>
+
+<p>Süreç kabaca dört aşamada çalışıyor. <strong>Birinci aşama profil çıkarımı:</strong> dinleyicinin konuşma veya yazışma kayıtları analiz ediliyor. Cümle uzunlukları, sözcük seçimleri, soyutlama düzeyleri, konu geçiş kalıpları, memnuniyet/memnuniyetsizlik işaretleri — hepsi çıkarılıyor. Bu, klasik bir metin madenciliği görevi ama büyük dil modelleri bağlamı anlayabildikleri için yüzeysel istatistiklerin ötesine geçebiliyor: "anlamadım" ifadesinin yokluğu ile "basitleştir" ifadesinin yokluğu aynı şey değildir — model bu farkı kavrar.</p>
+
+<p><strong>İkinci aşama kalibrasyon:</strong> akademik ilkeler profille karşılaştırılıyor. Her ilke için soru: bu dinleyiciye uygulanabilir mi, uygulanamaz mı, nasıl değiştirilmeli? Model akademik bulguyu "ortalama" için bir başlangıç noktası olarak alır ve profil verileriyle sapmaları hesaplar. Kadayat ve Eika'nın on altı ile yirmi kelimelik aralığı varsayılan olarak başlar ama profil yirmi beş ile kırk beş kelime gösteriyorsa aralık güncellenir.</p>
+
+<p><strong>Üçüncü aşama metin uyarlama:</strong> yazılı metin kalibre edilmiş ilkelere göre yeniden yazılıyor. Cümle yapısı, bilgi sıralaması, geçiş sinyalleri, başlık biçimleri, metafor yoğunluğu, bilgi yoğunluğu — hepsi profile göre ayarlanıyor. Bu aşama büyük dil modellerinin en güçlü olduğu alan: metin üretimi ve dönüştürmesi. Aynı kaynak metin farklı profiller için farklı biçimlere dönüşebilir — biri kısa cümlelerle ve pedagojik köprülerle, diğeri uzun akışkan cümlelerle ve organik geçişlerle.</p>
+
+<p><strong>Dördüncü aşama sürekli güncelleme:</strong> profil statik değil. Dinleyicinin tercihleri, bilişsel kapasitesi, ilgi alanları zamanla değişir. Her yeni etkileşim profili günceller. Model önceki kalibrasyonun sonuçlarını yeni verilerle karşılaştırır ve sapmaları düzeltir. Bu, geleneksel A/B testinden farklıdır — iki seçenek arasında seçim değil, sürekli ince ayar.</p>
+
+<p>Teknik olarak bu süreç birkaç bileşen gerektiriyor: büyük bağlam pencereli bir dil modeli (profil çıkarımı için on binlerce satır okunmalı), yapılandırılmış çıktı üretimi (profil boyutları, kalibrasyon tablosu), uzun metin üretimi (uyarlanmış metin) ve kalıcı bellek (profil güncellemeleri). Bugünkü modeller bunların hepsini yapabiliyor — sınırlama teknolojide değil, uygulamada. Metin uyarlama platformlarının büyük çoğunluğu hâlâ "okunabilirlik düzeyi" gibi tek boyutlu metriklere dayanıyor; kişiselleştirilmiş kalibrasyon henüz standart değil.</p>
+
+<p>Burada etik bir boyut da var. Otuz bin satır konuşma kaydını analiz etmek derin bir bilişsel profil çıkarır — cümle işleme kapasitesinden estetik standartlara, soyutlama düzeyinden duygusal tepki kalıplarına kadar. Bu bilgi yanlış ellerde manipülasyon aracına dönüşebilir. Kişiselleştirme ile manipülasyon arasındaki sınır niyette değil şeffaflıkta: dinleyici profilinin ne olduğunu, nasıl kullanıldığını ve hangi kararları etkilediğini bilmeli. Raghavan ve Schneier 2025'te IEEE Spectrum'da yapay seslerin kasıtlı olarak robotik seslendirilmesini savundu — yapay sesin kendi kimliğini taşıması bir değersizleştirme değil bir fonksiyon. Aynı mantık kişiselleştirme için de geçerli: "senin için özelleştirildi" bilgisi görünür olmalı, gizli bir ayarlama değil açık bir hizmet olmalı.<span class="source-tag">Raghavan & Schneier 2025</span></p>
+
+</div>
+
+<div class="breath"></div>
+
+<!-- ═══════ KAPANIŞ ═══════ -->
+
+<div class="chapter">
+
+<p>Bu rapor bir çeviri hikâyesi anlattı — aynı dildeki bir çeviri. Yazılı metin sese girdiğinde cümle yapısı değişiyor, bilgi sıralaması değişiyor, tablolar anlatıma dönüşüyor, başlıklar sinyal oluyor, rakamlar yuvarlanıyor. Yapay ses bu dönüşüme kendi boyutunu ekliyor: bilişsel yük artıyor ama kapanıyor, prozodi eksik ama tutarlılık avantaj, taklit bitiyor ama kendi paradigması henüz tam doğmadı.</p>
+
+<p>Ve raporun kendini sorguladığı yer: bu bulguların tamamı "ortalama dinleyici" için. Ama dinleme ortalama olmayan bir deneyim. Kişiselleştirme lüks değil, <strong>doğruluk koşulu</strong> — genel ilkeleri bireysel profile kalibre etmeden "doğru uyarlama" iddiası eksik kalır. Yapay zekâ bu kalibrasyonu ölçeklenebilir kılıyor: profil çıkarımı, ilke kalibrasyonu, metin uyarlama, sürekli güncelleme. Teknoloji hazır — uygulama henüz standart değil.</p>
+
+<p>Bir metni sese dönüştürmek çevirmektir — aynı dilde.</p>
+
+</div>
+
+<!-- ═══════ KAYNAKÇA ═══════ -->
+
+<div class="kaynakca">
+<h2>Kaynakça</h2>
+
+<p>Ayasse, N.D.; Hodson, A.J.; Wingfield, A. (2021). "Principle of Least Effort and Sentence Comprehension." <em>Frontiers in Psychology.</em> PMID: 33796047</p>
+<p>Biber, D. (1988). <em>Variation across Speech and Writing.</em> Cambridge University Press.</p>
+<p>Cambre, J. ve ark. (2020). "Choice of Voices." <em>CHI 2020.</em></p>
+<p>Chafe, W. (1982, 1985). "Integration and Involvement in Speaking, Writing, and Oral Literature." <em>Spoken and Written Language.</em></p>
+<p>Clinton-Lisell, V. (2022). "Listening Ears or Reading Eyes: A Meta-Analysis." <em>Review of Educational Research.</em></p>
+<p>Constable, R.T. ve ark. (2004). "Sentence Complexity and Input Modality Effects: fMRI." <em>NeuroImage.</em> PMID: 15109993</p>
+<p>Craig, S.D.; Schroeder, N.L. (2017). "Reconsidering the Voice Effect." <em>Computers & Education, 114.</em></p>
+<p>Craig, S.D.; Schroeder, N.L. (2019). "Text-to-Speech Software and Learning." <em>JECR, 57(6).</em></p>
+<p>Diel, A.; Lewis, M. (2024). "Vocal Uncanny Valley: Deviation Hypothesis." <em>ScienceDirect.</em></p>
+<p>Faber, M. ve ark. (2018). "Event Boundaries and Mind Wandering." <em>Psychological Science.</em></p>
+<p>Govender, A.; King, S. (2018). "Using Pupillometry to Measure Cognitive Load of Synthetic Speech." <em>Interspeech 2018.</em></p>
+<p>Govender, A.; Wagner, A.; King, S. (2019). "Pupil Dilation for Cognitive Load TTS." <em>Interspeech 2019.</em></p>
+<p>Haake, M. ve ark. (2022). "Speech Recognition and Listening Effort." PMC9549212.</p>
+<p>Hakkani, D.Z. (2002). Morfolojik belirsizlik giderme çalışması — Türkçe TTS.</p>
+<p>Halliday, M.A.K. (1985). <em>Spoken and Written Language.</em> Deakin University Press.</p>
+<p>Im, H.; Sung, B.; Lee, G.; Kok, K.Q.X. (2023). "Let Voice Assistants Sound Like a Machine." <em>Computers in Human Behavior.</em></p>
+<p>Kadayat, B.M.; Eika, E. (2020). TTS dinlemede cümle uzunluğu çalışması. [21 katılımcı, 16-20 kelime altın aralık]</p>
+<p>Kaiser, E.; Trueswell, J.C. (2004). "Role of Discourse Context in Processing Flexible Word-Order Language." <em>Cognition.</em> PMID: 15582623</p>
+<p>Kern, J. (2008). <em>Sound Reporting.</em> University of Chicago Press.</p>
+<p>Kopp, K.; D'Mello, S. (2016). Ses-yalnız koşul ve zihin gezinmesi çalışması.</p>
+<p>Kösaner, O.; Özgen, M.; Birant, C. (2024). "Developing a Rule-Based TTS System for Turkish." DEU Avesis.</p>
+<p>Külekçi, M.O. (2006). Türkçe TTS çalışması.</p>
+<p>Lamas, N.J. (2025). "AI, Language Processing and Synthetic Orality." <em>Explorations in Media Ecology, 24(3).</em></p>
+<p>Le Maguer, S.; Cowan, B.R. (2021). "Synthesizing a Human-Like Voice Is the Easy Way." <em>ACM CUI 2021.</em></p>
+<p>Lemarié, J. ve ark. (2012). Başlıkların yedi işlevi çalışması.</p>
+<p>Liu, R. ve ark. (2024). "TTS for Low-Resource Agglutinative Language with Morphology-Aware Pre-Training." <em>IEEE.</em></p>
+<p>Nussbaum, C.; Frühholz, S.; Schweinberger, S.R. (2025). "Understanding Voice Naturalness." <em>Trends in Cognitive Sciences, 29(5).</em></p>
+<p>Ochs, E. (1979). "Planned and Unplanned Discourse."</p>
+<p>Ong, W.J. (1982). <em>Orality and Literacy.</em> Methuen.</p>
+<p>Pagnotta, M. ve ark. (2025). "Prosody! When intonation helps." <em>Educational Psychology.</em></p>
+<p>Peelle, J.E. ve ark. (2010). "Neural Processing During Older Adults' Comprehension." <em>Cerebral Cortex, 20(4).</em></p>
+<p>Raghavan, B.; Schneier, B. (2025). "AI Voices Should Sound Robotic Again." <em>IEEE Spectrum.</em></p>
+<p>Risko, E.F. ve ark. (2012). Zihin gezinmesi ve ders dinleme çalışması.</p>
+<p>Rogowsky, B.A.; Calhoun, B.M.; Tallal, P. (2016). "Does Modality Matter?" <em>SAGE Open.</em></p>
+<p>Rubin, D.L. (2012). "Listenability as a Tool for Advancing Health Literacy." <em>J. Health Communication, 17(S3).</em> PMID: 23030569</p>
+<p>Rubin, D.L.; Hafer, T.; Arata, K. (2000). "Reading and Listening to Oral-Based vs Literate-Based Discourse." <em>Communication Education, 49(2).</em></p>
+<p>Scribner, S.; Cole, M. (1981). <em>The Psychology of Literacy.</em> Harvard University Press.</p>
+<p>Segedin, B.F.; Cohn, M.; Zellou, G. (2019). "Perceptual Adaptation to Device and Human Voices." <em>Interspeech 2019.</em></p>
+<p>Szpunar, K.K. ve ark. (2013). Ders sırasında zihin gezinmesi çalışması.</p>
+<p>Torre, I.; Goslin, J.; White, L.; Zanatto, D. (2018). "Trust in Artificial Voices: Congruency Effect." <em>ACM CUI.</em></p>
+<p>Yang, J. ve ark. (2026). "Short-Term Perceptual Training Modulates Neural Responses to Deepfake Speech." <em>eNeuro.</em></p>
+<p>Zong, J. ve ark. (2022). Görme engelli kullanıcılarla tablo anlatı çalışması.</p>
+</div>
+
+</main>
+
+<footer>
+<p>Halit Cengiz Uzuner · <a href="/">halitcengizuzuner.com</a></p>
+<p>Bu rapordaki akademik kaynakların fiziksel kopyaları arşivdedir.</p>
+</footer>
+
+</body>
+</html>

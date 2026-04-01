@@ -29,6 +29,7 @@
   - Aynen Öyle: --ash (#a098b0) — kül lavantası
   - Çay Masası: --cay (#b89060) — çay amberi
   - Nefret Üzerine: --accent (#c4785a) — yanık toprak (kendi font/CSS sistemi: Cormorant Garamond + Inter)
+  - Yazıdan Sese: --yanki (#7068a0) — yankı indigo
 - Grain overlay: fractalNoise SVG, mix-blend-mode overlay (opaklık rapor bazında farklı)
 - Responsive: clamp() ile akışkan tipografi
 - Raporlar: /raporlar/ dizininde
