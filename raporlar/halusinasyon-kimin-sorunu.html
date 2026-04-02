@@ -650,6 +650,79 @@ a { color: inherit; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
     .reveal { transition: none; opacity: 1; transform: none; }
 }
+
+/* ========== DİNLEME KAPISI ========== */
+.dinle-kapisi {
+    margin-top: 2.5rem;
+}
+
+.dinle-kapisi summary {
+    font-size: 0.85rem;
+    color: var(--bone-ghost);
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    list-style: none;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi summary::-webkit-details-marker { display: none; }
+.dinle-kapisi summary::marker { display: none; content: ''; }
+
+.dinle-kapisi summary::before {
+    content: '▸ ';
+    display: inline;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi[open] summary::before {
+    content: '▾ ';
+}
+
+.dinle-kapisi summary:hover {
+    color: var(--bone-dim);
+}
+
+.dinle-kapisi[open] summary {
+    color: var(--bone-dim);
+    margin-bottom: 1.2rem;
+}
+
+.dinle-icerik {
+    padding: 1.5rem;
+    border: 1px solid var(--bone-ghost);
+    max-width: 480px;
+}
+
+.dinle-icerik p {
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.dinle-icerik p:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.dinle-icerik a {
+    color: var(--bone-bright);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--bone-ghost);
+    transition: color 0.3s, text-decoration-color 0.3s;
+}
+
+.dinle-icerik a:hover {
+    color: var(--bone-bright);
+    text-decoration-color: var(--bone-bright);
+}
+
+.dinle-git {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+}
 </style>
 </head>
 <body>
@@ -658,6 +731,15 @@ a { color: inherit; text-decoration: none; }
     <h1>Halüsinasyon<br>Kimin Sorunu?</h1>
     <p class="subtitle">Yapay zekanın bilgi üretim hatalarıyla insanın bilgi üretim hatalarının<br>karşılaştırmalı analizi. Altı katmanlı bir model.</p>
     <p class="meta">Mart 2026</p>
+
+    <details class="dinle-kapisi">
+        <summary>Bu çalışmanın dinleme metni</summary>
+        <div class="dinle-icerik">
+            <p>Ses kaydı değil. Aynı düşüncenin kulağa göre yeniden düzenlenmiş yazılı hâli — cümle ritimleri, bilgi sıralaması, soluklanma noktaları farklı. Bir sesli okuma aracıyla dinlenebilir.</p>
+            <p>Okumak her zaman tercihimizdir. Göz geri döner, durur, tekrar okur — kulak için bu lüks yok. Bu farkın kendisi üzerine bir araştırmamız var: <a href="yazidan-sese.html">Yazıdan Sese</a>.</p>
+            <a href="halusinasyon-kimin-sorunu-dinle.html" class="dinle-git">Dinleme metnine geç →</a>
+        </div>
+    </details>
 </header>
 
 
