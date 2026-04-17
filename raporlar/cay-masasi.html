@@ -15,6 +15,13 @@
 <meta property="article:author" content="Halit Cengiz Uzuner">
 <meta property="article:published_time" content="2026-03-21">
 <link rel="canonical" href="https://halitcengizuzuner.com/raporlar/cay-masasi.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/cay-masasi.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/cay-masasi.html">
 <link rel="icon" href="data:,">
 <title>Çay Masası</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +37,7 @@
   "headline": "Çay Masası",
   "description": "Üç ses, bir çay masası, bir öğleden sonra. Tao ile tanışma — bilmeden bilen, görmeden gören bir konuşma.",
   "datePublished": "2026-03-21",
-  "dateModified": "2026-03-21",
+  "dateModified": "2026-04-17",
   "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
   "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/raporlar/cay-masasi.html"},
@@ -291,9 +298,46 @@ a { color: inherit; text-decoration: none; }
     font-size: 0.85rem;
     letter-spacing: 0.03em;
 }
+
+/* ===== LANGUAGE BAR (Oturum 27) ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
 </style>
 </head>
 <body>
+<nav class="lang-bar" aria-label="Dil seçimi">
+    <a href="/" class="lang-link lang-active">Türkçe</a>
+    <span class="lang-sep">·</span>
+    <a href="/english/" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/" class="lang-link">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/" class="lang-link">Español</a>
+</nav>
+
 <div class="book">
 
 <div class="title">Çay Masası</div>
