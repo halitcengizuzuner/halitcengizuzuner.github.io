@@ -143,6 +143,62 @@
             .limbs { margin-left: 6vw; }
             .seal { padding-left: 6vw; }
         }
+
+        /* FIRST WALL (Oturum 27, aforizma 01) */
+        .first-wall {
+            max-width: 720px;
+            padding: 6vh 2.5rem 0;
+        }
+        .aphorism {
+            font-size: clamp(1.4rem, 2.8vw, 2rem);
+            line-height: 1.35;
+            color: var(--bone);
+            font-style: italic;
+            margin-bottom: 2.4rem;
+        }
+        .aphorism-link {
+            color: var(--bone);
+            border-bottom: 1px solid var(--bone-ghost);
+            transition: color 0.35s ease, border-color 0.35s ease;
+        }
+        .aphorism-link:hover {
+            color: var(--bone-bright);
+            border-color: var(--ember);
+        }
+        .note {
+            font-size: 0.82rem;
+            color: var(--bone-dim);
+        }
+        .note summary {
+            cursor: pointer;
+            color: var(--bone-ghost);
+            letter-spacing: 0.06em;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            list-style: none;
+            padding: 0.4rem 0;
+            transition: color 0.3s ease;
+        }
+        .note summary:hover { color: var(--bone-dim); }
+        .note summary::-webkit-details-marker { display: none; }
+        .note summary::before { content: "▸  "; }
+        .note[open] summary::before { content: "▾  "; }
+        .note-body {
+            margin-top: 1.5rem;
+            line-height: 1.75;
+        }
+        .note-body .target {
+            color: var(--bone);
+            margin-bottom: 1.5rem;
+        }
+        .note-body .tr {
+            color: var(--bone-dim);
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--bone-ghost);
+            font-style: italic;
+        }
+        .note-body em { font-style: italic; color: var(--bone-bright); }
+        .note-body strong { font-weight: 500; color: var(--bone-bright); }
     </style>
 </head>
 <body>
@@ -171,8 +227,23 @@
 
 <section class="welcome">
     <p>Las traducciones se están preparando una a una. Irán apareciendo aquí a medida que estén listas. Este trabajo de traducción acaba de incorporarse al proyecto.</p>
-    <p>Mientras tanto, puede <a href="/">leer los originales en turco</a>.</p>
+    <p style="margin-top: 1.6rem; color: var(--bone);">El primer aforismo del muro en turco ha sido traído aquí — puede leerlo abajo. Los demás seguirán, uno por uno.</p>
+    <p>Mientras tanto, puede <a href="/">leer los demás en turco</a>.</p>
     <p style="margin-top: 3rem; font-size: 0.95rem; color: var(--bone-ghost);">Si ve una traducción que podría ser más fiel a su fuente, o una expresión más acertada en su lengua, escriba a <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a>. Su lectura enriquecerá la traducción.</p>
+</section>
+
+
+<section class="first-wall">
+    <div class="aphorism">
+        <a href="/raporlar/yazidan-sese.html" class="aphorism-link">Verter un texto a la voz es traducirlo — dentro de una misma lengua.</a>
+    </div>
+    <details class="note">
+        <summary>Nota de traducción · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="es">El verbo turco <em>çevirmek</em> lleva a la vez dos sentidos: "girar/transformar" y "traducir". En español, <strong>verter</strong> ofrece un puente etimológico — del latín <em>vertere</em> — y literario: <em>verter al español</em> significa "traducir al español." El agua y la palabra comparten el mismo gesto: trasvase. Lo que parece un mero cambio de formato (página a voz) es, en sentido de Jakobson, una traducción <em>intralingüística</em>.</div>
+            <div class="tr" lang="tr">Türkçe <em>çevirmek</em> fiili aynı anda iki anlam taşır: "döndürmek/dönüştürmek" ve "tercüme etmek." İspanyolca'da <strong>verter</strong> fiili etimolojik bir köprü sunar — Latince <em>vertere</em>'den — ve edebi bir yerleşik kullanıma sahiptir: <em>verter al español</em> "İspanyolcaya çevirmek" demektir. Su ve söz aynı jesti paylaşır: aktarım. Format değişimi sandığımız şey (sayfa → ses), Jakobson'un terimiyle bir <em>dil-içi</em> tercümedir.</div>
+        </div>
+    </details>
 </section>
 
 <section class="limbs">

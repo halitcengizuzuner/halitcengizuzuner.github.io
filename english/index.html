@@ -97,9 +97,7 @@
         .welcome {
             max-width: 620px;
             padding: 8vh 2.5rem 0;
-            opacity: 0;
-            transform: translateY(8px);
-            transition: opacity 1s ease, transform 1s ease;
+/* animasyon kaldırıldı */
         }
         .welcome.seen { opacity: 1; transform: none; }
         .welcome p {
@@ -159,6 +157,62 @@
             .limbs { margin-left: 6vw; }
             .seal { padding-left: 6vw; }
         }
+
+        /* FIRST WALL (Oturum 27, aforizma 01) */
+        .first-wall {
+            max-width: 720px;
+            padding: 6vh 2.5rem 0;
+        }
+        .aphorism {
+            font-size: clamp(1.4rem, 2.8vw, 2rem);
+            line-height: 1.35;
+            color: var(--bone);
+            font-style: italic;
+            margin-bottom: 2.4rem;
+        }
+        .aphorism-link {
+            color: var(--bone);
+            border-bottom: 1px solid var(--bone-ghost);
+            transition: color 0.35s ease, border-color 0.35s ease;
+        }
+        .aphorism-link:hover {
+            color: var(--bone-bright);
+            border-color: var(--ember);
+        }
+        .note {
+            font-size: 0.82rem;
+            color: var(--bone-dim);
+        }
+        .note summary {
+            cursor: pointer;
+            color: var(--bone-ghost);
+            letter-spacing: 0.06em;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            list-style: none;
+            padding: 0.4rem 0;
+            transition: color 0.3s ease;
+        }
+        .note summary:hover { color: var(--bone-dim); }
+        .note summary::-webkit-details-marker { display: none; }
+        .note summary::before { content: "▸  "; }
+        .note[open] summary::before { content: "▾  "; }
+        .note-body {
+            margin-top: 1.5rem;
+            line-height: 1.75;
+        }
+        .note-body .target {
+            color: var(--bone);
+            margin-bottom: 1.5rem;
+        }
+        .note-body .tr {
+            color: var(--bone-dim);
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--bone-ghost);
+            font-style: italic;
+        }
+        .note-body em { font-style: italic; color: var(--bone-bright); }
+        .note-body strong { font-weight: 500; color: var(--bone-bright); }
     </style>
 </head>
 <body>
@@ -187,8 +241,23 @@
 
 <section class="welcome">
     <p>The translations are being prepared, one by one. They will appear here as they are ready. This translation effort has just been added to the project.</p>
-    <p>Until then, you can <a href="/">read the originals in Turkish</a>.</p>
+    <p style="margin-top: 1.6rem; color: var(--bone);">The first aphorism from the Turkish wall has been brought over — you can read it below. The others will follow, one at a time.</p>
+    <p>Until then, you can <a href="/">read the others in Turkish</a>.</p>
     <p style="margin-top: 3rem; font-size: 0.95rem; color: var(--bone-ghost);">If you notice a translation that could be truer to its source, or a more fitting phrase in your own tongue, please write to <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a>. Your reading will make the translation richer.</p>
+</section>
+
+
+<section class="first-wall">
+    <div class="aphorism">
+        <a href="/raporlar/yazidan-sese.html" class="aphorism-link">Turning writing into voice is translation — inside a single tongue.</a>
+    </div>
+    <details class="note">
+        <summary>Translation note · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="en">The Turkish verb <em>çevirmek</em> carries two meanings at once: "to turn/transform" and "to translate." English has no single verb that holds both, so the wordplay shifts here to <em>tongue</em> — at once a language and the bodily organ of speech. What looks like a mere change of format (page to voice) is, in Jakobson's sense, an <em>intralingual</em> translation.</div>
+            <div class="tr" lang="tr">Türkçe <em>çevirmek</em> fiili tek başına iki anlamı taşır: "döndürmek/dönüştürmek" ve "tercüme etmek." İngilizcede ikisini birden taşıyan tek fiil yok — bu yüzden kelime oyunu burada <em>tongue</em>'a (hem dil hem ağız organı) kayar. Format değişimi sandığımız şey (sayfa → ses), Jakobson'un terimiyle bir <em>dil-içi</em> tercümedir.</div>
+        </div>
+    </details>
 </section>
 
 <section class="limbs">

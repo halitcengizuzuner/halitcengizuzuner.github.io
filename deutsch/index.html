@@ -143,6 +143,62 @@
             .limbs { margin-left: 6vw; }
             .seal { padding-left: 6vw; }
         }
+
+        /* FIRST WALL (Oturum 27, aforizma 01) */
+        .first-wall {
+            max-width: 720px;
+            padding: 6vh 2.5rem 0;
+        }
+        .aphorism {
+            font-size: clamp(1.4rem, 2.8vw, 2rem);
+            line-height: 1.35;
+            color: var(--bone);
+            font-style: italic;
+            margin-bottom: 2.4rem;
+        }
+        .aphorism-link {
+            color: var(--bone);
+            border-bottom: 1px solid var(--bone-ghost);
+            transition: color 0.35s ease, border-color 0.35s ease;
+        }
+        .aphorism-link:hover {
+            color: var(--bone-bright);
+            border-color: var(--ember);
+        }
+        .note {
+            font-size: 0.82rem;
+            color: var(--bone-dim);
+        }
+        .note summary {
+            cursor: pointer;
+            color: var(--bone-ghost);
+            letter-spacing: 0.06em;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            list-style: none;
+            padding: 0.4rem 0;
+            transition: color 0.3s ease;
+        }
+        .note summary:hover { color: var(--bone-dim); }
+        .note summary::-webkit-details-marker { display: none; }
+        .note summary::before { content: "▸  "; }
+        .note[open] summary::before { content: "▾  "; }
+        .note-body {
+            margin-top: 1.5rem;
+            line-height: 1.75;
+        }
+        .note-body .target {
+            color: var(--bone);
+            margin-bottom: 1.5rem;
+        }
+        .note-body .tr {
+            color: var(--bone-dim);
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--bone-ghost);
+            font-style: italic;
+        }
+        .note-body em { font-style: italic; color: var(--bone-bright); }
+        .note-body strong { font-weight: 500; color: var(--bone-bright); }
     </style>
 </head>
 <body>
@@ -171,8 +227,23 @@
 
 <section class="welcome">
     <p>Die Übersetzungen entstehen Stück für Stück. Sobald eine fertig ist, erscheint sie hier. Diese Übersetzungsarbeit hat gerade erst begonnen.</p>
-    <p>Bis dahin können Sie <a href="/">die türkischen Originale lesen</a>.</p>
+    <p style="margin-top: 1.6rem; color: var(--bone);">Der erste Aphorismus von der türkischen Wand wurde herübergetragen — er steht unten. Die übrigen folgen, einer nach dem anderen.</p>
+    <p>Bis dahin können Sie <a href="/">die übrigen auf Türkisch lesen</a>.</p>
     <p style="margin-top: 3rem; font-size: 0.95rem; color: var(--bone-ghost);">Falls Sie eine Übersetzung entdecken, die dem Original näher kommen könnte, oder eine treffendere Wendung in Ihrer Sprache kennen, schreiben Sie an <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a>. Ihre Lektüre bereichert die Übersetzung.</p>
+</section>
+
+
+<section class="first-wall">
+    <div class="aphorism">
+        <a href="/raporlar/yazidan-sese.html" class="aphorism-link">Einen Text in Klang zu übersetzen, ist Übersetzung — innerhalb einer Sprache.</a>
+    </div>
+    <details class="note">
+        <summary>Übersetzungsnotiz · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="de">Das türkische Verb <em>çevirmek</em> trägt zwei Bedeutungen zugleich: „drehen/umwandeln" und „übersetzen". Das Deutsche besitzt hier einen seltenen Vorteil: <strong>übersetzen</strong> bedeutet sowohl „über etwas hinwegsetzen" als auch „in eine andere Sprache überführen". Was wie ein bloßer Formatwechsel aussieht (Seite zu Stimme), ist in Jakobsons Sinne eine <em>innersprachliche</em> Übersetzung.</div>
+            <div class="tr" lang="tr">Türkçe <em>çevirmek</em> fiili aynı anda iki anlam taşır: "döndürmek/dönüştürmek" ve "tercüme etmek." Almanca'da nadir bir avantaj: <strong>übersetzen</strong> hem "bir şeyin üstünden geçirmek" hem "bir dilden diğerine aktarmak" demektir. Format değişimi sandığımız şey (sayfa → ses), Jakobson'un terimiyle bir <em>dil-içi</em> tercümedir.</div>
+        </div>
+    </details>
 </section>
 
 <section class="limbs">

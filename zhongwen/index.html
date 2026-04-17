@@ -151,6 +151,62 @@
             .limbs { margin-left: 6vw; }
             .seal { padding-left: 6vw; }
         }
+
+        /* FIRST WALL (Oturum 27, aforizma 01) */
+        .first-wall {
+            max-width: 720px;
+            padding: 6vh 2.5rem 0;
+        }
+        .aphorism {
+            font-size: clamp(1.4rem, 2.8vw, 2rem);
+            line-height: 1.35;
+            color: var(--bone);
+            font-style: italic;
+            margin-bottom: 2.4rem;
+        }
+        .aphorism-link {
+            color: var(--bone);
+            border-bottom: 1px solid var(--bone-ghost);
+            transition: color 0.35s ease, border-color 0.35s ease;
+        }
+        .aphorism-link:hover {
+            color: var(--bone-bright);
+            border-color: var(--ember);
+        }
+        .note {
+            font-size: 0.82rem;
+            color: var(--bone-dim);
+        }
+        .note summary {
+            cursor: pointer;
+            color: var(--bone-ghost);
+            letter-spacing: 0.06em;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            list-style: none;
+            padding: 0.4rem 0;
+            transition: color 0.3s ease;
+        }
+        .note summary:hover { color: var(--bone-dim); }
+        .note summary::-webkit-details-marker { display: none; }
+        .note summary::before { content: "▸  "; }
+        .note[open] summary::before { content: "▾  "; }
+        .note-body {
+            margin-top: 1.5rem;
+            line-height: 1.75;
+        }
+        .note-body .target {
+            color: var(--bone);
+            margin-bottom: 1.5rem;
+        }
+        .note-body .tr {
+            color: var(--bone-dim);
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--bone-ghost);
+            font-style: italic;
+        }
+        .note-body em { font-style: italic; color: var(--bone-bright); }
+        .note-body strong { font-weight: 500; color: var(--bone-bright); }
     </style>
 </head>
 <body>
@@ -179,8 +235,23 @@
 
 <section class="welcome">
     <p>翻译正在逐篇准备中。完成后会陆续出现在这里。这项翻译工作刚刚启动。</p>
-    <p>在此之前，您可以<a href="/">阅读土耳其语原文</a>。</p>
+    <p style="margin-top: 1.6rem; color: var(--bone);">来自土耳其语思想之墙的第一则箴言已译就，见下。其余者将一一随之。</p>
+    <p>其余者可先<a href="/">读土耳其语原版</a>。</p>
     <p style="margin-top: 3rem; font-size: 0.95rem; color: var(--bone-ghost);">如果您发现译文可以更贴近原意，或在汉语中有更自然、更合适的说法，欢迎写信至 <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a>。您的阅读会让翻译更加丰富。</p>
+</section>
+
+
+<section class="first-wall">
+    <div class="aphorism">
+        <a href="/raporlar/yazidan-sese.html" class="aphorism-link">文本化声，即翻——于同语之境。</a>
+    </div>
+    <details class="note">
+        <summary>翻译说明 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="zh">土耳其语 <em>çevirmek</em> 一词兼含二义：物理"翻转/转化"与语言"翻译"。汉语此译之幸：<strong>翻</strong>字本身即具此双重含义。"化"取道家"化为"之古典意蕴，"之境"赋予此事以空间与哲思。貌似仅是形式之变（纸页转声），实为雅各布森所谓"语内翻译"。</div>
+            <div class="tr" lang="tr">Türkçe <em>çevirmek</em> fiili hem fiziksel "döndürme" hem dilsel "tercüme" anlamını birlikte taşır. Çince'de bir şans: <strong>翻</strong> karakteri kendisi bu çifte anlamı taşır. "化" Taocu <em>hua wei</em> (dönüşüm) imgesini, "之境" ise felsefi uzam boyutunu ekler. Format değişimi sandığımız şey (sayfa → ses), Jakobson'un terimiyle bir <em>dil-içi</em> tercümedir.</div>
+        </div>
+    </details>
 </section>
 
 <section class="limbs">

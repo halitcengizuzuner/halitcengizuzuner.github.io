@@ -143,6 +143,62 @@
             .limbs { margin-left: 6vw; }
             .seal { padding-left: 6vw; }
         }
+
+        /* FIRST WALL (Oturum 27, aforizma 01) */
+        .first-wall {
+            max-width: 720px;
+            padding: 6vh 2.5rem 0;
+        }
+        .aphorism {
+            font-size: clamp(1.4rem, 2.8vw, 2rem);
+            line-height: 1.35;
+            color: var(--bone);
+            font-style: italic;
+            margin-bottom: 2.4rem;
+        }
+        .aphorism-link {
+            color: var(--bone);
+            border-bottom: 1px solid var(--bone-ghost);
+            transition: color 0.35s ease, border-color 0.35s ease;
+        }
+        .aphorism-link:hover {
+            color: var(--bone-bright);
+            border-color: var(--ember);
+        }
+        .note {
+            font-size: 0.82rem;
+            color: var(--bone-dim);
+        }
+        .note summary {
+            cursor: pointer;
+            color: var(--bone-ghost);
+            letter-spacing: 0.06em;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            list-style: none;
+            padding: 0.4rem 0;
+            transition: color 0.3s ease;
+        }
+        .note summary:hover { color: var(--bone-dim); }
+        .note summary::-webkit-details-marker { display: none; }
+        .note summary::before { content: "▸  "; }
+        .note[open] summary::before { content: "▾  "; }
+        .note-body {
+            margin-top: 1.5rem;
+            line-height: 1.75;
+        }
+        .note-body .target {
+            color: var(--bone);
+            margin-bottom: 1.5rem;
+        }
+        .note-body .tr {
+            color: var(--bone-dim);
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--bone-ghost);
+            font-style: italic;
+        }
+        .note-body em { font-style: italic; color: var(--bone-bright); }
+        .note-body strong { font-weight: 500; color: var(--bone-bright); }
     </style>
 </head>
 <body>
@@ -171,8 +227,23 @@
 
 <section class="welcome">
     <p>Les traductions se préparent une à une. Elles paraîtront ici à mesure qu'elles seront prêtes. Ce travail de traduction vient à peine d'être entrepris.</p>
-    <p>En attendant, vous pouvez <a href="/">lire les originaux en turc</a>.</p>
+    <p style="margin-top: 1.6rem; color: var(--bone);">Le premier aphorisme du mur turc a été porté ici — vous pouvez le lire ci-dessous. Les autres suivront, un par un.</p>
+    <p>En attendant, vous pouvez <a href="/">lire les autres en turc</a>.</p>
     <p style="margin-top: 3rem; font-size: 0.95rem; color: var(--bone-ghost);">Si vous repérez une traduction qui pourrait être plus fidèle à sa source, ou une tournure plus juste dans votre langue, écrivez à <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a>. Votre lecture enrichira la traduction.</p>
+</section>
+
+
+<section class="first-wall">
+    <div class="aphorism">
+        <a href="/raporlar/yazidan-sese.html" class="aphorism-link">Mettre un texte en voix, c'est le traduire — dans la même langue.</a>
+    </div>
+    <details class="note">
+        <summary>Note de traduction · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="fr">Le verbe turc <em>çevirmek</em> signifie à la fois « tourner/transformer » et « traduire ». Aucun verbe français ne porte les deux sens à lui seul. La version retenue s'appuie sur <em>mettre en voix</em> — expression enracinée dans la tradition littéraire et théâtrale française. Ce qui ressemble à un simple changement de forme (page à voix) est, au sens de Jakobson, une traduction <em>intralinguale</em>.</div>
+            <div class="tr" lang="tr">Türkçe <em>çevirmek</em> fiili hem "döndürmek/dönüştürmek" hem "tercüme etmek" demektir. Fransızca'da tek kelimede ikisini birden taşıyan fiil yoktur. Seçilen versiyon <em>mettre en voix</em> — Fransız edebi ve tiyatro geleneğinde yerleşik bir ifade — üzerinden kurulur. Format değişimi sandığımız şey (sayfa → ses), Jakobson'un terimiyle bir <em>dil-içi</em> tercümedir.</div>
+        </div>
+    </details>
 </section>
 
 <section class="limbs">
