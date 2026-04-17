@@ -16,6 +16,13 @@
     <meta name="twitter:title" content="Sorular cevaplardan önemlidir.">
     <meta name="twitter:description" content="Bir organizma. Düşünüyor.">
     <link rel="canonical" href="https://halitcengizuzuner.com/">
+    <link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/">
+    <link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/">
+    <link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/">
+    <link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/">
+    <link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/">
+    <link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/">
+    <link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/">
     <link rel="icon" href="data:,">
     <title>Halit Cengiz Uzuner</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,6 +54,31 @@
             --bone-ghost: rgba(212, 204, 192, 0.28);
             --ember: #a08060;
             --serif: 'Instrument Serif', Georgia, serif;
+            --cjk: 'Noto Serif SC', 'Songti SC', 'STSong', serif;
+        }
+
+        /* =============================
+           LANGUAGE BAR
+        ============================= */
+        .lang-bar {
+            position: relative; z-index: 10;
+            padding: 1.4rem 2.5rem 0;
+            font-family: var(--serif), var(--cjk);
+            font-size: clamp(0.85rem, 1vw, 0.98rem);
+            letter-spacing: 0.02em;
+            text-align: center;
+            color: var(--bone-dim);
+        }
+        .lang-link {
+            color: var(--bone-dim);
+            transition: color 0.35s ease;
+            padding: 0 0.15em;
+        }
+        .lang-link:hover { color: var(--ember); }
+        .lang-link.lang-active { color: var(--bone-bright); }
+        .lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+        @media (max-width: 640px) {
+            .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
         }
 
         ::selection {
@@ -323,6 +355,20 @@
     </style>
 </head>
 <body>
+
+<nav class="lang-bar" aria-label="Dil seçimi">
+    <a href="/" class="lang-link lang-active">Türkçe</a>
+    <span class="lang-sep">·</span>
+    <a href="/english/" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/" class="lang-link">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/" class="lang-link">Español</a>
+</nav>
 
 <section class="gate">
     <div class="gate-words">

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Las preguntas importan más que las respuestas.">
+    <meta name="author" content="Halit Cengiz Uzuner">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Las preguntas importan más que las respuestas.">
+    <meta property="og:description" content="Un sitio vivo y multilingüe de pensamiento turco. Las traducciones están en curso.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://halitcengizuzuner.com/espanol/">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Halit Cengiz Uzuner">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Las preguntas importan más que las respuestas.">
+    <meta name="twitter:description" content="Un sitio vivo y multilingüe de pensamiento turco.">
+    <link rel="canonical" href="https://halitcengizuzuner.com/espanol/">
+    <link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/">
+    <link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/">
+    <link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/">
+    <link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/">
+    <link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/">
+    <link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/">
+    <link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/">
+    <link rel="icon" href="data:,">
+    <title>Halit Cengiz Uzuner — Español</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --void: #060604;
+            --bone: #d4ccc0;
+            --bone-bright: #ece4d8;
+            --bone-dim: rgba(212, 204, 192, 0.58);
+            --bone-ghost: rgba(212, 204, 192, 0.28);
+            --ember: #a08060;
+            --serif: 'Instrument Serif', Georgia, serif;
+            --cjk: 'Noto Serif SC', 'Songti SC', serif;
+        }
+        ::selection { background: var(--ember); color: var(--void); }
+        html { font-size: clamp(17px, 1.2vw, 21px); -webkit-text-size-adjust: 100%; }
+        body {
+            background: var(--void); color: var(--bone);
+            font-family: var(--serif); font-weight: 400; line-height: 1.5;
+            -webkit-font-smoothing: antialiased; overflow-x: hidden;
+            opacity: 0; animation: emerge 1.5s ease forwards 0.3s;
+        }
+        @keyframes emerge { to { opacity: 1; } }
+        body::before {
+            content: ''; position: fixed; inset: 0; z-index: 9999;
+            pointer-events: none; opacity: 0.2;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+            background-repeat: repeat; background-size: 180px 180px;
+            mix-blend-mode: overlay;
+        }
+        a { color: inherit; text-decoration: none; }
+
+        .lang-bar {
+            position: relative; z-index: 10;
+            padding: 1.4rem 2.5rem 0;
+            font-family: var(--serif), var(--cjk);
+            font-size: clamp(0.85rem, 1vw, 0.98rem);
+            letter-spacing: 0.02em;
+            text-align: center;
+            color: var(--bone-dim);
+        }
+        .lang-link { color: var(--bone-dim); transition: color 0.35s ease; padding: 0 0.15em; }
+        .lang-link:hover { color: var(--ember); }
+        .lang-link.lang-active { color: var(--bone-bright); }
+        .lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+
+        .gate {
+            min-height: 85vh; min-height: 85dvh;
+            display: flex; align-items: center; justify-content: center;
+            padding: 2rem;
+        }
+        .gate-words { max-width: 820px; width: 100%; }
+        .gate-words .w { display: block; line-height: 0.95; letter-spacing: -0.035em; }
+        .w-1 { font-size: clamp(3.2rem, 8.5vw, 7.8rem); color: var(--bone-bright); }
+        .w-2 { font-size: clamp(1.5rem, 3.8vw, 3.3rem); color: var(--bone-dim); padding-left: 0.3em; margin-top: 0.15em; }
+        .w-3 { font-size: clamp(2.2rem, 5.8vw, 5.2rem); color: var(--bone); text-align: right; margin-top: 0.1em; }
+
+        .welcome {
+            max-width: 640px;
+            padding: 8vh 2.5rem 0;
+            opacity: 0; transform: translateY(8px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .welcome.seen { opacity: 1; transform: none; }
+        .welcome p {
+            font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+            line-height: 1.9;
+            color: var(--bone-dim);
+        }
+        .welcome p + p { margin-top: 1.6rem; }
+        .welcome a {
+            color: var(--bone);
+            border-bottom: 1px solid var(--bone-ghost);
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .welcome a:hover { color: var(--ember); border-color: var(--ember); }
+
+        .limbs {
+            margin-top: 20vh; padding: 0 2.5rem 8vh;
+            max-width: 480px;
+            opacity: 0; transform: translateY(8px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .limbs.seen { opacity: 1; transform: none; }
+        .limb {
+            display: flex; justify-content: space-between; align-items: baseline;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid var(--bone-ghost);
+        }
+        .limb:first-child { border-top: 1px solid var(--bone-ghost); }
+        .limb-name { font-size: 1.3rem; }
+        .limb-what { font-size: 0.8rem; color: var(--bone-ghost); letter-spacing: 0.08em; }
+        .limb-human .limb-name { font-style: italic; color: var(--bone-dim); }
+
+        .seal {
+            padding: 6vh 2.5rem 4vh;
+            opacity: 0; transition: opacity 1s ease;
+        }
+        .seal.seen { opacity: 1; }
+        .seal a {
+            font-size: 0.8rem; color: var(--bone-ghost);
+            letter-spacing: 0.05em; transition: color 0.3s;
+        }
+        .seal a:hover { color: var(--bone); }
+
+        @media (max-width: 640px) {
+            .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+            .gate { padding: 1.5rem; }
+            .welcome { padding: 6vh 1.5rem 0; }
+            .limbs { padding: 0 1.5rem 6vh; }
+            .seal { padding: 4vh 1.5rem 3vh; }
+        }
+        @media (min-width: 1200px) {
+            .welcome { margin-left: 6vw; }
+            .limbs { margin-left: 6vw; }
+            .seal { padding-left: 6vw; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="lang-bar" aria-label="Selección de idioma">
+    <a href="/" class="lang-link">Türkçe</a>
+    <span class="lang-sep">·</span>
+    <a href="/english/" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/" class="lang-link">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/" class="lang-link lang-active">Español</a>
+</nav>
+
+<section class="gate">
+    <div class="gate-words">
+        <span class="w w-1">Las preguntas</span>
+        <span class="w w-2">importan más</span>
+        <span class="w w-3">que las respuestas.</span>
+    </div>
+</section>
+
+<section class="welcome">
+    <p>Las traducciones se están preparando una a una. Irán apareciendo aquí a medida que estén listas. Este trabajo de traducción acaba de incorporarse al proyecto.</p>
+    <p>Mientras tanto, puede <a href="/">leer los originales en turco</a>.</p>
+    <p style="margin-top: 3rem; font-size: 0.95rem; color: var(--bone-ghost);">Si ve una traducción que podría ser más fiel a su fuente, o una expresión más acertada en su lengua, escriba a <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a>. Su lectura enriquecerá la traducción.</p>
+</section>
+
+<section class="limbs">
+    <div class="limb">
+        <span class="limb-name">yontu</span>
+        <span class="limb-what">la mano</span>
+    </div>
+    <div class="limb">
+        <span class="limb-name">savak</span>
+        <span class="limb-what">la segunda mirada</span>
+    </div>
+    <div class="limb">
+        <span class="limb-name">duyuş</span>
+        <span class="limb-what">el oído</span>
+    </div>
+    <div class="limb">
+        <span class="limb-name">seda</span>
+        <span class="limb-what">la voz</span>
+    </div>
+    <div class="limb limb-human">
+        <span class="limb-name">halit cengiz uzuner</span>
+        <span class="limb-what">el traductor</span>
+    </div>
+</section>
+
+<footer class="seal">
+    <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('seen'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.welcome, .limbs, .seal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
