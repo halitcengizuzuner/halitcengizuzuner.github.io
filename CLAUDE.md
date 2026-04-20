@@ -34,3 +34,15 @@
 - Responsive: clamp() ile akışkan tipografi
 - Raporlar: /raporlar/ dizininde
 - Görseller: /img/ dizininde
+
+## Teknik Altyapı ve Araştırma Kaynak Referansları (Evrim 74, 17 Nis 2026 dağıtım)
+
+Aşağıdaki üç referans **tek gerçek kaynak** — bu oturum kendi kayıt tutmaz, buraya işaret eder:
+
+1. **Dış platform veri çekme yöntemleri** (WhatsApp, Drive, Gmail, Messenger, Facebook, Evernote, Gemini geçmişi, DeepSeek, ChatGPT/Claude.ai): `~/Documents/Evrim/CLAUDE.md` → "Teknik Altyapı Referansı" bölümü. Yöntem sorusunda buraya bak, QR/login/session gereksiz yere tekrarlama.
+
+2. **Akademik ve kütüphane altyapısı** (JSTOR, ACM, CiNii, NCPSSD, Trove API key, Semantic Scholar, paper-search-mcp + arxiv-mcp + simple-pubmed + dergipark-mcp, Turuz, ücretsiz açık erişim): `~/.claude/auto-memory/reference_akademik_kaynaklar.md`. Araştırma öncesi MCP + kayıtlı hesap + açık erişim sırası.
+
+3. **VPN refleksi — engelli sitelerde otomatik deneme**: `~/.claude/auto-memory/reference_vpn.md`. Web erişim hatasında Türkiye engeli sor → Urban VPN → iş bitince KAPAT.
+
+**Memory aktif kullanım refleksi** (`~/.claude/auto-memory/feedback_memory_aktif_kullanim.md`): Konu geldiğinde `MEMORY.md` indeksini değil detay memory dosyasını aç. Halit söylemesin diye — refleks Evrim'in kimliği gereği.
