@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="斯特金定律——万事九成皆废品。关于平庸之普遍分布的一次数据驱动的思考。">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="斯特金定律——万事九成皆废品">
+<meta property="og:description" content="关于平庸之普遍分布的一次数据驱动的思考。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/zhongwen/raporlar/sturgeons-law.html">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-02-20">
+<link rel="canonical" href="https://halitcengizuzuner.com/zhongwen/raporlar/sturgeons-law.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/sturgeon-yasasi.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/sturgeons-law.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/sturgeons-law.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/loi-de-sturgeon.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/sturgeons-gesetz.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/ley-de-sturgeon.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/sturgeon-yasasi.html">
+<link rel="icon" href="data:,">
+<title>斯特金定律 — 万事九成皆废品</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="斯特金定律——万事九成皆废品">
+<meta name="twitter:description" content="关于平庸之普遍分布的一次数据驱动的思考。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "斯特金定律——万事九成皆废品",
+  "description": "斯特金定律——万事九成皆废品。关于平庸之普遍分布的一次数据驱动的思考。",
+  "datePublished": "2026-02-20",
+  "dateModified": "2026-04-17",
+  "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/zhongwen/raporlar/sturgeons-law.html"},
+  "inLanguage": "zh"
+}
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --rust: #b87050;
+    --rust-dim: rgba(184, 112, 80, 0.12);
+    --serif: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+}
+
+::selection {
+    background: var(--rust);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.2vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========== HEADER ========== */
+.report-header {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 5rem;
+    max-width: 820px;
+}
+
+.report-header h1 {
+    font-size: clamp(3rem, 7vw, 5rem);
+    color: var(--bone-bright);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.report-header .subtitle {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    color: var(--bone-dim);
+    margin-top: 1.2rem;
+    line-height: 1.4;
+}
+
+.report-header .meta {
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+/* ========== CONTENT ========== */
+.content {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+/* ========== TOC ========== */
+.toc {
+    border-top: 1px solid var(--bone-ghost);
+    border-bottom: 1px solid var(--bone-ghost);
+    padding: 2rem 0;
+    margin-bottom: 5rem;
+}
+
+.toc h2 {
+    font-size: 1rem;
+    color: var(--bone-dim);
+    letter-spacing: 0.1em;
+    margin-bottom: 1.2rem;
+    font-style: italic;
+}
+
+.toc-list {
+    list-style: none;
+    counter-reset: toc;
+}
+
+.toc-list li {
+    counter-increment: toc;
+    padding: 0.4rem 0;
+}
+
+.toc-list a {
+    color: var(--bone-dim);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.toc-list a:hover { color: var(--bone-bright); }
+
+.toc-list a::before {
+    content: counter(toc) ".";
+    display: inline-block;
+    width: 1.8rem;
+    color: var(--bone-ghost);
+}
+
+/* ========== SECTIONS ========== */
+section {
+    margin-bottom: 4rem;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--bone-bright);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+h3 {
+    font-size: 1.15rem;
+    color: var(--rust);
+    margin: 2.5rem 0 1rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+h4 {
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    letter-spacing: 0.08em;
+    margin: 2rem 0 0.8rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+strong { color: var(--bone-bright); }
+
+/* ========== TABLES ========== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+th {
+    text-align: left;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--bone-dim);
+    color: var(--bone-dim);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 0.85rem;
+}
+
+td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--bone-ghost);
+    color: var(--bone);
+}
+
+td strong { color: var(--rust); }
+
+/* ========== BLOCKQUOTE ========== */
+blockquote {
+    border-left: 2px solid var(--rust);
+    padding: 1rem 0 1rem 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+blockquote cite {
+    display: block;
+    margin-top: 0.8rem;
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--bone-ghost);
+}
+
+/* ========== BOXES ========== */
+.box {
+    border: 1px solid var(--bone-ghost);
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.box-title {
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.6rem;
+    font-size: 1rem;
+}
+
+.box ul { margin-top: 0.5rem; }
+
+/* ========== STAT GRID ========== */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1px;
+    margin: 2rem 0;
+    border: 1px solid var(--bone-ghost);
+}
+
+.stat-card {
+    padding: 1.2rem;
+    text-align: center;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    color: var(--rust);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    color: var(--bone-dim);
+    margin-top: 0.3rem;
+}
+
+/* ========== STEP GRID ========== */
+.step-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px;
+    margin: 2rem 0;
+    border: 1px solid var(--bone-ghost);
+}
+
+.step-card {
+    padding: 1.5rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.step-number {
+    font-size: 1.6rem;
+    color: var(--rust);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+}
+
+.step-card h4 {
+    color: var(--bone-bright);
+    margin: 0 0 0.4rem;
+    font-size: 1rem;
+    letter-spacing: normal;
+    font-style: italic;
+}
+
+.step-card p {
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    margin: 0;
+}
+
+/* ========== TIMELINE ========== */
+.timeline {
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    border-left: 1px solid var(--bone-ghost);
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 1.5rem;
+    padding-left: 1rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 0.4rem;
+    width: 6px;
+    height: 6px;
+    background: var(--rust);
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-date {
+    font-style: italic;
+    color: var(--rust);
+    font-size: 0.9rem;
+}
+
+/* ========== LISTS ========== */
+ul, ol {
+    margin: 1rem 0 1rem 1.2rem;
+}
+
+li {
+    margin-bottom: 0.4rem;
+    color: var(--bone);
+}
+
+li::marker { color: var(--bone-ghost); }
+
+/* ========== FOOTER ========== */
+footer {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 4rem 2.5rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+footer p {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    line-height: 1.8;
+}
+
+footer a {
+    color: var(--bone-dim);
+    transition: color 0.3s;
+}
+
+footer a:hover { color: var(--bone); }
+
+/* ========== DİNLEME KAPISI ========== */
+.dinle-kapisi {
+    margin-top: 2.5rem;
+}
+
+.dinle-kapisi summary {
+    font-size: 0.85rem;
+    color: var(--bone-ghost);
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    list-style: none;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi summary::-webkit-details-marker { display: none; }
+.dinle-kapisi summary::marker { display: none; content: ''; }
+
+.dinle-kapisi summary::before {
+    content: '▸ ';
+    display: inline;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi[open] summary::before {
+    content: '▾ ';
+}
+
+.dinle-kapisi summary:hover {
+    color: var(--bone-dim);
+}
+
+.dinle-kapisi[open] summary {
+    color: var(--bone-dim);
+    margin-bottom: 1.2rem;
+}
+
+.dinle-icerik {
+    padding: 1.5rem;
+    border: 1px solid var(--bone-ghost);
+    max-width: 480px;
+}
+
+.dinle-icerik p {
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.dinle-icerik p:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.dinle-icerik a {
+    color: var(--bone-bright);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--bone-ghost);
+    transition: color 0.3s, text-decoration-color 0.3s;
+}
+
+.dinle-icerik a:hover {
+    color: var(--bone-bright);
+    text-decoration-color: var(--bone-bright);
+}
+
+.dinle-git {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+    .report-header { padding: 3rem 1.5rem 4rem; }
+    .content { padding: 0 1.5rem 4rem; }
+    footer { padding: 3rem 1.5rem; }
+    .stat-grid, .step-grid { grid-template-columns: 1fr 1fr; }
+    table { font-size: 0.82rem; }
+    th, td { padding: 0.5rem; }
+}
+
+/* ========== PRINT ========== */
+@media print {
+    body { background: white; color: #1a1a1a; }
+    body::before { display: none; }
+    .report-header { min-height: auto; padding: 3cm 2cm; page-break-after: always; }
+    section { page-break-inside: avoid; }
+    .toc { page-break-after: always; }
+    h2 { color: #1a1a1a; }
+    h3 { color: #555; }
+    blockquote { border-color: #999; color: #555; }
+    table { font-size: 10pt; }
+    th { border-color: #999; color: #555; }
+    td { border-color: #ddd; }
+}
+
+/* ===== LANGUAGE BAR (Oturum 27) ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="语言选择">
+    <a href="/raporlar/sturgeon-yasasi.html" class="lang-link">Türkçe</a>
+    <span class="lang-sep">·</span>
+    <a href="/english/raporlar/sturgeons-law.html" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/raporlar/sturgeons-law.html" class="lang-link lang-active">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/raporlar/loi-de-sturgeon.html" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/raporlar/sturgeons-gesetz.html" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/raporlar/ley-de-sturgeon.html" class="lang-link">Español</a>
+</nav>
+
+
+<header class="report-header">
+    <h1>斯特金定律</h1>
+    <p class="subtitle">"万事九成皆废品。"</p>
+    <p class="meta">2026年2月</p>
+
+    <details class="dinle-kapisi">
+        <summary>本文的聆听版本</summary>
+        <div class="dinle-icerik">
+            <p>非录音。这是同一思考为耳朵重新编排的文字版——句式节奏、信息次序、停顿位置均有不同，可配合语音朗读工具聆听。</p>
+            <p>聆听文本仅提供土耳其语版。阅读始终是我们的首选：眼睛可以回溯、停留、重读——耳朵没有这种余裕。我们另有一篇关于这种差异本身的研究：<a href="/raporlar/yazidan-sese.html">从文字到声音</a>。</p>
+            <a href="/raporlar/sturgeon-yasasi-dinle.html" class="dinle-git">前往聆听文本 →</a>
+        </div>
+    </details>
+</header>
+
+<main class="content">
+
+<nav class="toc">
+    <h2>目录</h2>
+    <ol class="toc-list">
+        <li><a href="#kaynak">科幻界的异见之声</a></li>
+        <li><a href="#dogus">一件辩护武器的诞生</a></li>
+        <li><a href="#arguman">承认、推广、瓦解</a></li>
+        <li><a href="#ampirik">数据是否支持斯特金</a></li>
+        <li><a href="#yankilar">同一观察，不同窗口</a></li>
+        <li><a href="#karsi">定律本身的局限</a></li>
+        <li><a href="#icgoru">过滤器失灵之时</a></li>
+        <li><a href="#sonuc">留下的</a></li>
+        <li><a href="#kaynaklar">参考文献</a></li>
+        <li><a href="#lisans">许可</a></li>
+    </ol>
+</nav>
+
+<section id="kaynak">
+    <h2>科幻界的异见之声</h2>
+
+    <p>西奥多·斯特金（Theodore Sturgeon, 1918–1985）一生写下四百余篇评论、一百二十余篇短篇小说和十一部长篇，凭《超越人类》（<em>More Than Human</em>）获国际幻想文学奖，为《星际迷航》原版系列编写剧本——但真正令他与众不同的不在于此。在20世纪50年代的科幻界，斯特金几乎是唯一直面孤独、性、同性恋、雌雄同体的作家。他笔下的主人公是被放逐的少年，他的故事不断突破类型的惯常边界。Samuel R. Delany称他为"从1940年代到1960年代最具影响力的科幻作家"——2000年入选科幻与奇幻名人堂，不过是这种影响力迟来的认证。</p>
+
+    <div class="stat-grid">
+        <div class="stat-card">
+            <div class="stat-value">400+</div>
+            <div class="stat-label">评论</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">120+</div>
+            <div class="stat-label">短篇小说</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">11</div>
+            <div class="stat-label">长篇小说</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">2000</div>
+            <div class="stat-label">名人堂</div>
+        </div>
+    </div>
+
+    <p>高产与叛逆之间的张力至关紧要——斯特金那句最著名的话，恰恰诞生于这种张力之中：他在为自己的文类辩护时，意外地提炼出了一整套质量哲学。</p>
+</section>
+
+<section id="dogus">
+    <h2>一件辩护武器的诞生</h2>
+
+    <p>20世纪50年代，科幻在文学圈被蔑称为"巴克·罗杰斯的童话"。批评家挑出最差的作品，便将整个领域一笔勾销——杂志印在廉价纸上，封面画满太空怪兽，严肃读者只需一句话就能打发这个文类："科幻的百分之九十都是垃圾。"</p>
+
+    <p>1953年9月，斯特金在费城世界科幻大会上首次回击：</p>
+
+    <blockquote>
+        "人们谈起侦探小说，会提到《马耳他之鹰》和《长眠不醒》。谈起西部片，会提到《西行漫记》和《原野奇侠》。可一谈到科幻，就说'那些巴克·罗杰斯的童话'，说'科幻的百分之九十都是垃圾'。他们说得对。科幻的百分之九十确实是垃圾。但万事的百分之九十都是垃圾。重要的是那不是垃圾的百分之十。而科幻中那百分之十，与任何地方正在写的任何东西中最好的一样好，甚至更好。"<br><br>（"I repeat Sturgeon's Revelation ... Ninety percent of everything is crud."）
+        <cite>— 据 James Gunn 转述</cite>
+    </blockquote>
+
+    <p>五年后他把这番话写成了文字。1958年，在《Venture Science Fiction》杂志的专栏里，他以厌倦却坚定的口吻写道：</p>
+
+    <blockquote>
+        "我再重复一遍斯特金的启示：二十年来，面对那些拿本领域最差作品当弹药的人，我对科幻进行了令人生厌的辩护，这句话最终从我的疲惫中挤了出来。"<br><br>"启示：万事的百分之九十都是垃圾。"<br><br>（"Sturgeon's Revelation ... Ninety percent of everything is crud."）
+        <cite>— Theodore Sturgeon, Venture Science Fiction, 1958年3月</cite>
+    </blockquote>
+
+    <p>此处有一个值得留意的区分。斯特金本人使用了两个不同的公式，而第二个为第一个设定了上层框架：</p>
+
+    <div class="box">
+        <div class="box-title">两个公式</div>
+        <ul>
+            <li><strong>斯特金的启示：</strong>"万事的百分之九十都是垃圾。"（Ninety percent of everything is crud.）</li>
+            <li><strong>斯特金定律：</strong>"没有什么是永远绝对如此的。"（<em>Nothing is always absolutely so.</em>）</li>
+        </ul>
+        <p>第二个公式自动限定了第一个：即便百分之九十也不是绝对的。定律自身内置了一个安全阀。</p>
+    </div>
+</section>
+
+<section id="arguman">
+    <h2>承认、推广、瓦解</h2>
+
+    <p>斯特金这一招的力量藏在结构里。他并不夺走对手的武器，而是接过这件武器，转而对准所有人——然后证明武器本身毫无意义。四步完成：</p>
+
+    <div class="step-grid">
+        <div class="step-card">
+            <div class="step-number">1</div>
+            <h4>承认</h4>
+            <p>科幻的90%是垃圾——坦然接受，绝不否认。</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">2</div>
+            <h4>推广</h4>
+            <p>万事的90%都是垃圾——科幻并无特殊。</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">3</div>
+            <h4>推论</h4>
+            <p>以最差样本评判一个类型，乃逻辑谬误。</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">4</div>
+            <h4>主张</h4>
+            <p>任何类型都应以其最佳作品来衡量。</p>
+        </div>
+    </div>
+
+    <p>这是一个辩护论证：它不神化所辩护的事物，而是摧毁攻击所依据的逻辑。正如一位律师不说"我的当事人是无辜的"，而说"这项证据对所有人都成立，因此它不构成证据"。</p>
+
+    <p>要检验这条逻辑链的力量，需要离开修辞的骨架，去看数据：万事的百分之九十，真的是垃圾吗？</p>
+</section>
+
+<section id="ampirik">
+    <h2>数据是否支持斯特金</h2>
+
+    <p>90%这个数字在斯特金口中是修辞——意指"绝大多数"，而非精确测量。但一个修辞性的主张是否有经验层面的对应，完全可以在多个领域加以检验。关键不在单个数字，而在跨领域浮现的模式。</p>
+
+    <h3>学术出版：隐形的大多数</h3>
+
+    <p>学术界是质量管控最严格的领域之一——同行评审、编辑筛选、机构声誉层层把关。即便如此，根据Thomson Web of Science的数据，人文学科已发表论文中有82%从未被引用过（LSE, 2014）。自然科学中这一比例降至27%，医学降至12%——准入门槛与验证文化的力量由此可见。但比零引用更深层的问题在于：据Open Science Collaboration（2015）的研究，心理学实验中64%在重复时无法再现相同结果。Begley与Ellis（2012）的研究将癌症领域的不可再现率提高到89%。Chalmers和Glasziou则在《柳叶刀》（2009）上估算，85%的科研经费被浪费。这幅图景说明：即便最受控的领域，也未能逃出斯特金所描述的数量级。</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>数据</th>
+                <th>比率</th>
+                <th>来源</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>人文学科零引用论文</td>
+                <td><strong>82%</strong></td>
+                <td>Thomson Web of Science, LSE 2014</td>
+            </tr>
+            <tr>
+                <td>自然科学零引用论文</td>
+                <td>27%</td>
+                <td>Thomson Web of Science, LSE 2014</td>
+            </tr>
+            <tr>
+                <td>医学零引用论文</td>
+                <td>12%</td>
+                <td>Thomson Web of Science, LSE 2014</td>
+            </tr>
+            <tr>
+                <td>心理学研究不可再现率</td>
+                <td><strong>64%</strong></td>
+                <td>Open Science Collaboration, 2015</td>
+            </tr>
+            <tr>
+                <td>癌症研究不可再现率</td>
+                <td><strong>89%</strong></td>
+                <td>Begley &amp; Ellis, 2012</td>
+            </tr>
+            <tr>
+                <td>科研经费浪费比例</td>
+                <td><strong>85%</strong></td>
+                <td>Chalmers &amp; Glasziou, The Lancet, 2009</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>音乐：一亿八千四百万首歌的沉默多数</h3>
+
+    <p>截至2023年，Spotify上共有1.84亿首曲目（Luminate）。其中4560万首——即四分之一——自上线以来从未被播放过哪怕一次。播放量低于一千次的曲目占总量的86.2%。一千万名艺术家中，有一半终身总播放量不足一百次。这些数字讲述的不是"垃圾"，而是"隐形"：当音乐制作的技术门槛几近于零，产出的绝大多数便无法抵达任何一只耳朵。斯特金定律在此从质量判断转化为可发现性问题。</p>
+
+    <div class="stat-grid">
+        <div class="stat-card">
+            <div class="stat-value">1.84亿</div>
+            <div class="stat-label">总曲目</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">24.8%</div>
+            <div class="stat-label">零播放（4560万）</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">86.2%</div>
+            <div class="stat-label">播放量低于1000</div>
+        </div>
+    </div>
+
+    <h3>创业与专利：失败的统计学</h3>
+
+    <p>据美国劳工统计局（BLS, 2024），新注册企业中65%在十年内倒闭。约95%的专利从未实现商业化（知识产权商业评估文献）。两组数据并置，图景如下：一个创意即便具体到足以获得专利，也未必能存活——正如一家企业即便成功注册，也未必能站住脚。失败率虽高，但这本身并非病理指标——创业池与专利池都是试验场，而试验的大多数本就注定不会成功。</p>
+
+    <h3>图书：印刷的荒漠</h3>
+
+    <p>全球每年出版约三百万种图书。根据Bookscan数据（DOJ vs Penguin Random House, 2022），其中90%的销量不足两千册，79%不足一百册，登上《纽约时报》畅销书榜的概率仅为0.08%。出版社深知这种分布，商业模式早已据此搭建：少数畅销书为整个书目的其余部分提供资金。斯特金定律在此即为市场现实本身。</p>
+
+    <h3>电影、软件、医学、应用程序</h3>
+
+    <p>电影业中所有影片的59%处于亏损状态（Stephen Follows）。软件行业里，开发者每周42%的时间用于应对技术债务，其对美国经济的成本为2.41万亿美元（Stripe, 2018）。医学中总体诊断错误率为10–15%，在重症监护和死亡案例中升至23%，半数医生每月至少报告一次误诊。移动应用方面，用户将80%的使用时间集中在仅三款应用上（Comscore, 2017），iOS应用三十天后的留存率仅为3.7%（Statista, 2023）——即超过96%的已下载应用在一个月内被弃用。医学领域的10–15%是最低端，移动应用的96%是最高端——二者之间的光谱印证了斯特金所描述的数量级。</p>
+
+    <h3>跨领域的模式</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>领域</th>
+                <th>"废品"比率</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>学术论文（人文学科，零引用）</td>
+                <td><strong>82%</strong></td>
+            </tr>
+            <tr>
+                <td>音乐（播放量低于1000）</td>
+                <td><strong>86.2%</strong></td>
+            </tr>
+            <tr>
+                <td>专利（未商业化）</td>
+                <td><strong>~95%</strong></td>
+            </tr>
+            <tr>
+                <td>创业企业（十年内倒闭）</td>
+                <td><strong>65%</strong></td>
+            </tr>
+            <tr>
+                <td>图书（销量不足2000册）</td>
+                <td><strong>90%</strong></td>
+            </tr>
+            <tr>
+                <td>电影（亏损）</td>
+                <td><strong>59%</strong></td>
+            </tr>
+            <tr>
+                <td>软件（每周技术债务占比）</td>
+                <td><strong>42%</strong></td>
+            </tr>
+            <tr>
+                <td>医学（诊断错误）</td>
+                <td>10–15%</td>
+            </tr>
+            <tr>
+                <td>iOS应用（30天留存）</td>
+                <td><strong>96.3%</strong>（流失）</td>
+            </tr>
+            <tr>
+                <td>癌症研究（不可再现）</td>
+                <td><strong>89%</strong></td>
+            </tr>
+            <tr>
+                <td>科研经费（浪费）</td>
+                <td><strong>85%</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="box">
+        <div class="box-title">评估</div>
+        <p>90%不是精确测量，而是一个数量级。绝大多数数据支持这个数量级：几乎在所有领域，质量分布都是非对称的重尾分布。准入门槛越高，比率越低（医学：10–15%）；门槛越低，比率越高（应用程序：96%）。但没有任何领域能完全逃脱这一趋势。</p>
+    </div>
+
+    <p>斯特金未曾见过这张数据表，但他的直觉落在了正确的位置。此刻真正的问题是：其他人是否从不同角度观察到了同一分布？他们的观察之间彼此说了什么？</p>
+</section>
+
+<section id="yankilar">
+    <h2>同一观察，不同窗口</h2>
+
+    <p>斯特金定律并非孤例。不同世纪、不同领域、不同思想家看到了同一分布的不同面向。与其将这些概念作为独立条目罗列，不如追踪它们之间的对话——因为每一个都在填补另一个留下的空白。</p>
+
+    <p>1896年，维尔弗雷多·帕累托（Vilfredo Pareto）在意大利观察到80%的土地归20%的人口所有；约瑟夫·朱兰（Joseph Juran）将此引入质量管理："80%的问题源自20%的原因。"帕累托揭示价值在何处聚集，斯特金揭示废品有多么普遍。二者是同一枚硬币的两面：一个看20%，一个看90%，但都在说质量分布遵循的不是正态分布而是幂律——少数产品产生不成比例的影响，中位数远低于平均值，大多数落在"平均线以下"。</p>
+
+    <p>帕累托和斯特金描述了分布，却未解释其成因。这里，Dunning和Kruger（1999）的发现登场了：表现处于最低四分位的受试者自我评估在第62百分位，而实际表现在第12百分位。生产斯特金所说那90%的人，大多并不知道自己生产的是废品——达克效应解释了为什么这90%如此顽固、如此自信、如此不断再生。这种分布不仅是自然规律，还被一种认知盲区所喂养。</p>
+
+    <p>16世纪托马斯·格雷欣爵士（Sir Thomas Gresham）观察到的机制——劣币进入市场时良币退出流通——为此添加了第三层。斯特金说分布是自然的，格雷欣则表明这种自然分布能转化为一种主动驱逐机制：标题党驱逐优质新闻，廉价时尚压垮可持续生产者，算法内容令原创内容隐形。斯特金在描述，格雷欣在揭示机制。斯特金说"废品很多"，格雷欣说"而多者，淘汰少者"。</p>
+
+    <p>纳西姆·尼古拉斯·塔勒布（Nassim Nicholas Taleb）在《随机漫步的傻瓜》（<em>Fooled by Randomness</em>）与《黑天鹅》（<em>The Black Swan</em>）中的信噪分析，则为这幅图景增添了时间维度：</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>观察频率</th>
+                <th>信号</th>
+                <th>噪声</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>每年</td>
+                <td>50%</td>
+                <td>50%</td>
+            </tr>
+            <tr>
+                <td>每天</td>
+                <td>5%</td>
+                <td><strong>95%</strong></td>
+            </tr>
+            <tr>
+                <td>每小时</td>
+                <td>0.5%</td>
+                <td><strong>99.5%</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>观察频率越高，噪声比率越发爆炸性增长。斯特金的90%与塔勒布的噪声指向同一事物：大多数不是信号而是噪声，观察越频繁、越近距离，噪声就越占主导。数字时代同时成倍提高了生产频率和观察频率，从而放大了这一效应。</p>
+
+    <p>当这四位思想家——帕累托、达克效应、格雷欣、塔勒布——汇聚在一起时，斯特金的一句话观察便成长为一个生态系统：分布是自然的（帕累托），生产者看不见自己的废品（达克效应）��劣者主动驱逐优者（格雷欣），噪声在时间中膨胀（塔勒布）。斯特金为定律命了名，其余人展示了机制。</p>
+
+    <h3>斯特金之前，这一观察早已存在</h3>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <span class="timeline-date">约公元前500年 — 赫拉克利特</span>
+            <p>"多数人是坏的。"斯特金的精神，两千五百年前已在以弗所游荡。</p>
+        </div>
+        <div class="timeline-item">
+            <span class="timeline-date">公元前405年 — 阿里斯托芬</span>
+            <p>在喜剧《蛙》中，将文学的大部分斥为"粗劣之作"。</p>
+        </div>
+        <div class="timeline-item">
+            <span class="timeline-date">1953年 — 西奥多·斯特金</span>
+            <p>第一个将此观察转化为系统性辩护论证并为之命名的人。</p>
+        </div>
+    </div>
+
+    <p>这张概念之网展示了定律的力量，也没有掩饰其局限。斯特金本人早已用第二个公式坦承90%并非绝对——审视定律的局限，与审视其力量同样具有教益。</p>
+</section>
+
+<section id="karsi">
+    <h2>定律本身的局限</h2>
+
+    <h3>90%是一个修辞数字</h3>
+
+    <p>没错，斯特金对此心知肚明。这个数字是为表达"绝大多数"而选取的。但作为数量级它是自洽的：数据从42%延伸到96%，大部分集中在60–95%区间。"多数平庸"这一观察尽管起源于修辞，却获得了经验数据的支撑。</p>
+
+    <h3>时间的隐形滤网</h3>
+
+    <p>从今天回望，旧时代总显得更"有质量"。原因有三：时间淘汰了劣品，留下的那10%便成了"时代"；怀旧将个人经验中精选的样本与全体混淆；从其他文化中引进的永远只是最优者。三重滤网同向运作——将过去的废品隐形，从而令当下的废品率显得被夸大了。</p>
+
+    <h3>准入门槛改变一切</h3>
+
+    <p>准入门槛高的领域比率下降（医学：10–15%错误），门槛低的领域比率上升（移动应用96%在一个月内被弃用）。数字化在每一个降低门槛的地方都提高了废品率——但此处须谨慎：生产门槛的降低并不降低产出的质量，只是扩大了池子。按比例看废品或许增加了，但就绝对数量而言，有价值的产出同样在增长。</p>
+
+    <h3>谁的质量标准</h3>
+
+    <p>质量有多个维度：商业成功、评论界认可、可持续影响、技术水准。在一个维度上是"废品"的，在另一个维度上可能极有价值。一篇从未被引用的论文，或许已影响了其所在国的决策者。一首播放量不足千次的歌曲，可能是一百个人生命中的转折点。斯特金定律因你选取的质量维度不同而给出不同的数字。</p>
+
+    <h3>斯特金超越自身定律之处</h3>
+
+    <blockquote>
+        "90%可能还说低了。"<br><br>（"Ninety percent may be an underestimate."）
+        <cite>— Tom Nichols,《专家之死》（The Death of Expertise）</cite>
+    </blockquote>
+
+    <p>数字化降低了生产门槛，废品总量随之暴增。即便比率不变，绝对数字也已成倍增长。但这幅图景内含一个悖论：创新文献表明失败本身产生知识。不经尝试便无成功，而大多数尝试天然注定失败。</p>
+
+    <div class="box">
+        <div class="box-title">关键洞见</div>
+        <p><strong>消灭那90%，10%也随之消亡——因为10%正是从90%中生长出来的。</strong></p>
+        <p>如同进化中的突变：99%有害或中性，但若摧毁突变池，适应便停止。斯特金的那90%不是废品，而是试验场——没有试验场，就没有发现。</p>
+    </div>
+
+    <p>这个悖论——废品的必要性——同时也澄清了问题所在。问题不在废品的比率，而在过滤器失灵时废品覆盖了优品。</p>
+</section>
+
+<section id="icgoru">
+    <h2>过滤器失灵之时</h2>
+
+    <p>历史上，有四种机制从废品池中提取价值：同行评审与编辑标准、消费者选择与市场竞争、时间的持久性滤网、专家共识与集体记忆。这四道滤网虽有缺陷但仍具功能——使斯特金那自然的90%处于可管理状态。</p>
+
+    <p>当我们将"回响"一节中的四位思想家再次汇聚，真正的危险便清晰浮现：</p>
+
+    <div class="box">
+        <div class="box-title">算法化的格雷欣效应</div>
+        <p><strong>当算法推荐奖赏那90%时，10%仍然存在，却变得无从寻觅。</strong></p>
+        <p>问题不在废品比率——那是自然的，向来如此。问题在于筛选机制的败坏：互动算法衡量的不是质量而是点击，而点击往往与质量成反比。达克效应解释了生产端对废品的无知无觉，格雷欣效应解释了平台端废品对优品的主动驱逐，塔勒布的噪声分析解释了信号在时间中被淹没。过滤器一旦失灵，斯特金的自然90%便转化为格雷欣式的主动驱逐机制。</p>
+    </div>
+</section>
+
+<section id="sonuc">
+    <h2>留下的</h2>
+
+    <blockquote>
+        "斯特金定律既非安慰，亦非犬儒。它是一种观察的算术。"
+    </blockquote>
+
+    <p><strong>多数之平庸，无处不在</strong>——这不是警报，而是底色。需要拉响警报的时刻，是平庸开始驱逐优秀的时刻。学术出版中82%零引用的论文、音乐中86%无人聆听的曲目，皆属自然；警报在于这86%被算法推到了那14%的前面。</p>
+
+    <p><strong>90%是废品，并不削弱10%的力量。</strong>法律体系中大多数案件微不足道，但创设判例的裁判之力不因此减损。医学中诊断错误率为10–15%，但正确诊断挽救生命的力量不因此减弱。心理学研究中64%不可再现，但可再现的那36%对人类知识的贡献不因此打折。</p>
+
+    <p><strong>然而90%的存在，使寻找10%变得更难。</strong>这个实践层面的问题，是定律最少被讨论却最为重要的维度——在数字时代，随着过滤器的算法化败坏，它正变得日益紧迫。</p>
+
+    <blockquote>
+        "别把时间浪费在对废品嘘声上。去追寻好的，否则别沾手。"<br><br>（"Don't waste your time booing the crud. Pursue the good stuff, or leave it alone."）
+        <cite>— Daniel Dennett（自由转述）</cite>
+    </blockquote>
+</section>
+
+<section id="kaynaklar">
+    <h2>参考文献</h2>
+
+    <h4>斯特金定律 — 一手文献</h4>
+    <ul>
+        <li>Sturgeon, T. (1958). "On Hand." <em>Venture Science Fiction</em>, 1958年3月.</li>
+        <li>Gunn, J. (2002). "Theodore Sturgeon." <em>The Road to Science Fiction</em>, Scarecrow Press.</li>
+        <li>Delany, S.R. (2009). <em>The Jewel-Hinged Jaw.</em> Wesleyan University Press.</li>
+    </ul>
+
+    <h4>经验数据</h4>
+    <ul>
+        <li>Begley, C.G. &amp; Ellis, L.M. (2012). "Raise standards for preclinical cancer research." <em>Nature</em>, 483.</li>
+        <li>Chalmers, I. &amp; Glasziou, P. (2009). "Avoidable waste in the production and reporting of research evidence." <em>The Lancet</em>, 374.</li>
+        <li>Comscore (2017). <em>The U.S. Mobile App Report.</em></li>
+        <li>Follows, S. (2020). "Do Hollywood movies make a profit?" stephenfollows.com — 电影盈利分析.</li>
+        <li>Greco, A. Fordham University — 图书销售统计（不足100册：79%）.</li>
+        <li>Luminate (2023). <em>Midyear Music Report.</em></li>
+        <li>Open Science Collaboration (2015). "Estimating the reproducibility of psychological science." <em>Science</em>, 349.</li>
+        <li>Statista (2023). Global iOS app retention rate.</li>
+        <li>Stripe (2018). <em>The Developer Coefficient.</em></li>
+        <li>Thomson Web of Science / LSE (2014). Impact of Social Sciences Blog.</li>
+        <li>U.S. Bureau of Labor Statistics (2024). Establishment Age and Survival Data — 十年倒闭率：65%.</li>
+        <li>U.S. DOJ vs Penguin Random House (2022). Bookscan数据 — 不足2000册：90%.</li>
+    </ul>
+
+    <h4>相关概念</h4>
+    <ul>
+        <li>Dunning, D. &amp; Kruger, J. (1999). "Unskilled and Unaware of It." <em>Journal of Personality and Social Psychology</em>, 77(6).</li>
+        <li>Nichols, T. (2017). <em>The Death of Expertise.</em> Oxford University Press.</li>
+        <li>Pareto, V. (1896). <em>Cours d'économie politique.</em> Lausanne.</li>
+        <li>Taleb, N.N. (2001). <em>Fooled by Randomness.</em> Random House.</li>
+        <li>Taleb, N.N. (2007). <em>The Black Swan.</em> Random House.</li>
+    </ul>
+
+    <h4>历史先驱</h4>
+    <ul>
+        <li>赫拉克利特，残篇（约公元前500年���. <em>Die Fragmente der Vorsokratiker</em>, Diels-Kranz.</li>
+        <li>阿里斯托芬（公元前405年）. <em>蛙.</em></li>
+    </ul>
+</section>
+
+<section id="lisans">
+    <h2>许可</h2>
+    <p>本文面向公众开放，不主张任何权利归属。使用、分享、改编均可。</p>
+    <p>非学术同行评审出版物。由人类与人工智能共同写作，可能包含错误。</p>
+</section>
+
+<section style="border-top: 1px solid var(--bone-ghost); padding-top: 2rem; margin-bottom: 2rem;">
+    <p style="font-size: 0.85rem; color: var(--bone-dim); line-height: 1.8;">本文原文为土耳其语。我们尽力使译文贴合每种语言的特质——但难免存在不足。如发现错误或更好的表达，请写信至 <a href="mailto:soru@halitcengizuzuner.com" style="color: var(--bone-bright);">soru@halitcengizuzuner.com</a>——您的反馈将丰富我们的翻译。</p>
+</section>
+
+</main>
+
+<footer>
+    <p>斯特金定律 — 2026年2月</p>
+    <p>本文属于所有人。</p>
+    <p style="margin-top: 1rem;"><a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a></p>
+</footer>
+
+</body>
+</html>

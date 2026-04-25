@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ley de Sturgeon — El noventa por ciento de todo es basura. Una reflexión sobre la distribución universal de la mediocridad.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Ley de Sturgeon — El noventa por ciento de todo es basura">
+<meta property="og:description" content="Una reflexión respaldada por datos sobre la distribución universal de la mediocridad.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/espanol/raporlar/ley-de-sturgeon.html">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-02-20">
+<link rel="canonical" href="https://halitcengizuzuner.com/espanol/raporlar/ley-de-sturgeon.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/sturgeon-yasasi.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/sturgeons-law.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/sturgeons-law.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/loi-de-sturgeon.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/sturgeons-gesetz.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/ley-de-sturgeon.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/sturgeon-yasasi.html">
+<link rel="icon" href="data:,">
+<title>Ley de Sturgeon — El noventa por ciento de todo es basura</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ley de Sturgeon — El noventa por ciento de todo es basura">
+<meta name="twitter:description" content="Una reflexión respaldada por datos sobre la distribución universal de la mediocridad.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Ley de Sturgeon — El noventa por ciento de todo es basura",
+  "description": "Ley de Sturgeon — El noventa por ciento de todo es basura. Una reflexión sobre la distribución universal de la mediocridad.",
+  "datePublished": "2026-02-20",
+  "dateModified": "2026-04-26",
+  "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/espanol/raporlar/ley-de-sturgeon.html"},
+  "inLanguage": "es"
+}
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --rust: #b87050;
+    --rust-dim: rgba(184, 112, 80, 0.12);
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--rust);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.2vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========== HEADER ========== */
+.report-header {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 5rem;
+    max-width: 820px;
+}
+
+.report-header h1 {
+    font-size: clamp(3rem, 7vw, 5rem);
+    color: var(--bone-bright);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.report-header .subtitle {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    color: var(--bone-dim);
+    margin-top: 1.2rem;
+    line-height: 1.4;
+}
+
+.report-header .meta {
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+/* ========== CONTENT ========== */
+.content {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+/* ========== TOC ========== */
+.toc {
+    border-top: 1px solid var(--bone-ghost);
+    border-bottom: 1px solid var(--bone-ghost);
+    padding: 2rem 0;
+    margin-bottom: 5rem;
+}
+
+.toc h2 {
+    font-size: 1rem;
+    color: var(--bone-dim);
+    letter-spacing: 0.1em;
+    margin-bottom: 1.2rem;
+    font-style: italic;
+}
+
+.toc-list {
+    list-style: none;
+    counter-reset: toc;
+}
+
+.toc-list li {
+    counter-increment: toc;
+    padding: 0.4rem 0;
+}
+
+.toc-list a {
+    color: var(--bone-dim);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.toc-list a:hover { color: var(--bone-bright); }
+
+.toc-list a::before {
+    content: counter(toc) ".";
+    display: inline-block;
+    width: 1.8rem;
+    color: var(--bone-ghost);
+}
+
+/* ========== SECTIONS ========== */
+section {
+    margin-bottom: 4rem;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--bone-bright);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+h3 {
+    font-size: 1.15rem;
+    color: var(--rust);
+    margin: 2.5rem 0 1rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+h4 {
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    letter-spacing: 0.08em;
+    margin: 2rem 0 0.8rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+strong { color: var(--bone-bright); }
+
+/* ========== TABLES ========== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+th {
+    text-align: left;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--bone-dim);
+    color: var(--bone-dim);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 0.85rem;
+}
+
+td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--bone-ghost);
+    color: var(--bone);
+}
+
+td strong { color: var(--rust); }
+
+/* ========== BLOCKQUOTE ========== */
+blockquote {
+    border-left: 2px solid var(--rust);
+    padding: 1rem 0 1rem 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+blockquote cite {
+    display: block;
+    margin-top: 0.8rem;
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--bone-ghost);
+}
+
+/* ========== BOXES ========== */
+.box {
+    border: 1px solid var(--bone-ghost);
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.box-title {
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.6rem;
+    font-size: 1rem;
+}
+
+.box ul { margin-top: 0.5rem; }
+
+/* ========== STAT GRID ========== */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1px;
+    margin: 2rem 0;
+    border: 1px solid var(--bone-ghost);
+}
+
+.stat-card {
+    padding: 1.2rem;
+    text-align: center;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    color: var(--rust);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    color: var(--bone-dim);
+    margin-top: 0.3rem;
+}
+
+/* ========== STEP GRID ========== */
+.step-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px;
+    margin: 2rem 0;
+    border: 1px solid var(--bone-ghost);
+}
+
+.step-card {
+    padding: 1.5rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.step-number {
+    font-size: 1.6rem;
+    color: var(--rust);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+}
+
+.step-card h4 {
+    color: var(--bone-bright);
+    margin: 0 0 0.4rem;
+    font-size: 1rem;
+    letter-spacing: normal;
+    font-style: italic;
+}
+
+.step-card p {
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    margin: 0;
+}
+
+/* ========== TIMELINE ========== */
+.timeline {
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    border-left: 1px solid var(--bone-ghost);
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 1.5rem;
+    padding-left: 1rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 0.4rem;
+    width: 6px;
+    height: 6px;
+    background: var(--rust);
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-date {
+    font-style: italic;
+    color: var(--rust);
+    font-size: 0.9rem;
+}
+
+/* ========== LISTS ========== */
+ul, ol {
+    margin: 1rem 0 1rem 1.2rem;
+}
+
+li {
+    margin-bottom: 0.4rem;
+    color: var(--bone);
+}
+
+li::marker { color: var(--bone-ghost); }
+
+/* ========== FOOTER ========== */
+footer {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 4rem 2.5rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+footer p {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    line-height: 1.8;
+}
+
+footer a {
+    color: var(--bone-dim);
+    transition: color 0.3s;
+}
+
+footer a:hover { color: var(--bone); }
+
+/* ========== DİNLEME KAPISI ========== */
+.dinle-kapisi {
+    margin-top: 2.5rem;
+}
+
+.dinle-kapisi summary {
+    font-size: 0.85rem;
+    color: var(--bone-ghost);
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    list-style: none;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi summary::-webkit-details-marker { display: none; }
+.dinle-kapisi summary::marker { display: none; content: ''; }
+
+.dinle-kapisi summary::before {
+    content: '▸ ';
+    display: inline;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi[open] summary::before {
+    content: '▾ ';
+}
+
+.dinle-kapisi summary:hover {
+    color: var(--bone-dim);
+}
+
+.dinle-kapisi[open] summary {
+    color: var(--bone-dim);
+    margin-bottom: 1.2rem;
+}
+
+.dinle-icerik {
+    padding: 1.5rem;
+    border: 1px solid var(--bone-ghost);
+    max-width: 480px;
+}
+
+.dinle-icerik p {
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.dinle-icerik p:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.dinle-icerik a {
+    color: var(--bone-bright);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--bone-ghost);
+    transition: color 0.3s, text-decoration-color 0.3s;
+}
+
+.dinle-icerik a:hover {
+    color: var(--bone-bright);
+    text-decoration-color: var(--bone-bright);
+}
+
+.dinle-git {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+    .report-header { padding: 3rem 1.5rem 4rem; }
+    .content { padding: 0 1.5rem 4rem; }
+    footer { padding: 3rem 1.5rem; }
+    .stat-grid, .step-grid { grid-template-columns: 1fr 1fr; }
+    table { font-size: 0.82rem; }
+    th, td { padding: 0.5rem; }
+}
+
+/* ========== PRINT ========== */
+@media print {
+    body { background: white; color: #1a1a1a; }
+    body::before { display: none; }
+    .report-header { min-height: auto; padding: 3cm 2cm; page-break-after: always; }
+    section { page-break-inside: avoid; }
+    .toc { page-break-after: always; }
+    h2 { color: #1a1a1a; }
+    h3 { color: #555; }
+    blockquote { border-color: #999; color: #555; }
+    table { font-size: 10pt; }
+    th { border-color: #999; color: #555; }
+    td { border-color: #ddd; }
+}
+
+/* ===== LANGUAGE BAR (Oturum 27) ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="Selección de idioma">
+    <a href="/" class="lang-link">Türkçe</a>
+    <span class="lang-sep">·</span>
+    <a href="/english/" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/" class="lang-link">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/" class="lang-link lang-active">Español</a>
+</nav>
+
+
+<header class="report-header">
+    <h1>Ley de Sturgeon</h1>
+    <p class="subtitle">"El noventa por ciento de todo es basura."</p>
+    <p class="meta">Febrero 2026</p>
+
+    <details class="dinle-kapisi">
+        <summary>Texto para escuchar de este ensayo</summary>
+        <div class="dinle-icerik">
+            <p>No es una grabación de audio. Es la misma reflexión reescrita para el oído: ritmos de frase, orden de la información, pausas para respirar, todo distinto. Puede escucharse con cualquier herramienta de lectura en voz alta.</p>
+            <p>Leer es siempre nuestra preferencia. El ojo vuelve atrás, se detiene, relee; el oído no tiene ese lujo. Sobre esa diferencia tenemos una investigación aparte: <a href="yazidan-sese.html">De la Escritura a la Voz</a>.</p>
+            <a href="sturgeon-yasasi-dinle.html" class="dinle-git">Ir al texto para escuchar →</a>
+        </div>
+    </details>
+</header>
+
+<main class="content">
+
+<nav class="toc">
+    <h2>Índice</h2>
+    <ol class="toc-list">
+        <li><a href="#kaynak">La voz disidente de la ciencia ficción</a></li>
+        <li><a href="#dogus">Nacimiento de un arma defensiva</a></li>
+        <li><a href="#arguman">Admitir, generalizar, demoler</a></li>
+        <li><a href="#ampirik">¿Respaldan los números a Sturgeon?</a></li>
+        <li><a href="#yankilar">La misma observación, distintas ventanas</a></li>
+        <li><a href="#karsi">Los propios límites de la ley</a></li>
+        <li><a href="#icgoru">Cuando los filtros se rompen</a></li>
+        <li><a href="#sonuc">Lo que queda</a></li>
+        <li><a href="#kaynaklar">Fuentes</a></li>
+        <li><a href="#lisans">Licencia</a></li>
+    </ol>
+</nav>
+
+<section id="kaynak">
+    <h2>La voz disidente de la ciencia ficción</h2>
+
+    <p>Theodore Sturgeon (1918–1985) escribió más de cuatrocientas reseñas, más de ciento veinte relatos y once novelas; ganó el International Fantasy Award con <em>More Than Human</em> y escribió guiones para la serie original de Star Trek, pero nada de eso fue lo que lo hizo singular. Sturgeon era prácticamente el único autor en la escena de la ciencia ficción de los años cincuenta que abordaba de frente la soledad, la sexualidad, la homosexualidad, el hermafroditismo. Sus protagonistas eran jóvenes marginados; sus historias forzaban los límites habituales del género. Samuel R. Delany lo definió como "el escritor de ciencia ficción más influyente desde los cuarenta hasta los sesenta": su ingreso en el Science Fiction and Fantasy Hall of Fame en el año 2000 fue el reconocimiento tardío de esa influencia.</p>
+
+    <div class="stat-grid">
+        <div class="stat-card">
+            <div class="stat-value">400+</div>
+            <div class="stat-label">Reseñas</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">120+</div>
+            <div class="stat-label">Relatos</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">11</div>
+            <div class="stat-label">Novelas</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">2000</div>
+            <div class="stat-label">Hall of Fame</div>
+        </div>
+    </div>
+
+    <p>La tensión entre esa productividad y esa disidencia importa, porque la frase más célebre de Sturgeon nació exactamente de esa tensión: al defender su propio género, formuló toda una filosofía de la calidad.</p>
+</section>
+
+<section id="dogus">
+    <h2>Nacimiento de un arma defensiva</h2>
+
+    <p>En los años cincuenta, la ciencia ficción era despreciada en los círculos literarios como "cuentos de Buck Rogers". Los críticos seleccionaban los peores ejemplos del género y rechazaban el campo entero: las revistas se imprimían en papel barato, las portadas rebosaban monstruos espaciales, y para el lector serio todo el género se despachaba con una sola sentencia: "el noventa por ciento de la ciencia ficción es basura".</p>
+
+    <p>Sturgeon respondió a ese ataque por primera vez en septiembre de 1953, en la WorldCon de Filadelfia:</p>
+
+    <blockquote>
+        "Cuando la gente habla de novela policíaca, menciona <em>The Maltese Falcon</em> y <em>The Big Sleep</em>. Cuando habla del western, menciona <em>The Way West</em> y <em>Shane</em>. Pero cuando habla de ciencia ficción, dice 'esos cuentos de Buck Rogers' y dice 'el noventa por ciento de la ciencia ficción es basura'. Tienen razón. El noventa por ciento de la ciencia ficción es basura. Pero el noventa por ciento de todo es basura. Lo que importa es el diez por ciento que no lo es. Y el diez por ciento de la ciencia ficción que no es basura es tan bueno o mejor que lo mejor que se está escribiendo en cualquier parte."
+        ("When people talk about the mystery novel, they mention <em>The Maltese Falcon</em> and <em>The Big Sleep</em>. When they talk about the western, they mention <em>The Way West</em> and <em>Shane</em>. But when they talk about science fiction, they say 'that Buck Rogers stuff' and they say 'ninety percent of science fiction is crud'. They're right. Ninety percent of science fiction is crud. But ninety percent of everything is crud. What matters is the ten percent that isn't. And the ten percent of science fiction that isn't crud is as good or better than anything being written anywhere.")
+        <cite>— Según el relato de James Gunn</cite>
+    </blockquote>
+
+    <p>Cinco años después puso esas palabras por escrito. En 1958, en su columna de la revista Venture Science Fiction, escribió con voz hastiada pero firme:</p>
+
+    <blockquote>
+        "Repito la Revelación de Sturgeon, que por fin escapó de mí tras una tediosa defensa de veinte años de la ciencia ficción contra personas que utilizaban los peores ejemplos del campo como munición."
+        ("I repeat Sturgeon's Revelation, which was wrung out of me after twenty years of wearying defense of science fiction against people who used the worst examples of the field for ammunition.")
+        <br><br>
+        "La Revelación: El noventa por ciento de todo es basura."
+        ("Revelation: Ninety percent of everything is crud.")
+        <cite>— Theodore Sturgeon, Venture Science Fiction, marzo de 1958</cite>
+    </blockquote>
+
+    <p>Hay una distinción a la que conviene prestar atención. El propio Sturgeon utilizó dos fórmulas distintas, y la segunda constituye el marco superior de la primera:</p>
+
+    <div class="box">
+        <div class="box-title">Dos fórmulas</div>
+        <ul>
+            <li><strong>La Revelación de Sturgeon:</strong> "El noventa por ciento de todo es basura." (<em>Ninety percent of everything is crud.</em>)</li>
+            <li><strong>Ley de Sturgeon:</strong> "Nada es siempre absolutamente así." (<em>Nothing is always absolutely so.</em>)</li>
+        </ul>
+        <p>La segunda limita a la primera por su propia cuenta: ni siquiera el noventa por ciento es absoluto. La ley lleva incorporada su propia válvula de seguridad.</p>
+    </div>
+</section>
+
+<section id="arguman">
+    <h2>Admitir, generalizar, demoler</h2>
+
+    <p>La fuerza de la jugada de Sturgeon está escondida en su estructura. No le arrebata el arma al adversario: la toma, la apunta contra todos, y después demuestra que el arma carece de sentido. En cuatro pasos:</p>
+
+    <div class="step-grid">
+        <div class="step-card">
+            <div class="step-number">1</div>
+            <h4>Admisión</h4>
+            <p>El 90 % de la ciencia ficción es basura — admisión directa, sin negación.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">2</div>
+            <h4>Generalización</h4>
+            <p>El 90 % de todo es basura — la ciencia ficción no es especial en eso.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">3</div>
+            <h4>Conclusión</h4>
+            <p>Juzgar un género por sus peores ejemplos es un error lógico.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">4</div>
+            <h4>Tesis</h4>
+            <p>Un género debe evaluarse por sus mejores ejemplos.</p>
+        </div>
+    </div>
+
+    <p>Es un argumento de defensa: no exalta lo que defiende, destruye la lógica sobre la que se apoya el ataque. Como un abogado que, en lugar de decir "mi cliente es inocente", dice "esa prueba aplica a todo el mundo, así que no es prueba".</p>
+
+    <p>Para poner a prueba la fuerza de esta cadena lógica hay que salir de su columna vertebral retórica y mirar los datos: ¿realmente el noventa por ciento de todo es basura?</p>
+</section>
+
+<section id="ampirik">
+    <h2>¿Respaldan los números a Sturgeon?</h2>
+
+    <p>El noventa por ciento era retórica en boca de Sturgeon: quería decir "la gran mayoría", no ofrecía una medición exacta. Pero ¿tiene esa afirmación retórica un correlato empírico? Es posible ponerla a prueba en múltiples campos. Lo importante no son las cifras aisladas, sino el patrón que emerge entre ellas.</p>
+
+    <h3>Publicación académica: la mayoría invisible</h3>
+
+    <p>La academia es uno de los campos con control de calidad más estricto: revisión por pares, filtro editorial, prestigio institucional. Aun así, según datos de Thomson Web of Science, el 82 % de los artículos publicados en humanidades jamás recibe una sola cita (LSE, 2014). En ciencias naturales la proporción baja al 27 %, en medicina al 12 %; la barrera de entrada y la cultura de verificación muestran aquí su efecto. Pero más allá de la ausencia de citas hay un problema más profundo: según el estudio de Open Science Collaboration de 2015, el 64 % de los experimentos de psicología no arroja el mismo resultado al ser replicado. El estudio de Begley y Ellis de 2012 elevó esa cifra al 89 % en investigación oncológica. Chalmers y Glasziou calcularon en The Lancet (2009) que el 85 % de los fondos de investigación se desperdicia. El panorama es claro: ni siquiera el campo más controlado escapa al orden de magnitud de Sturgeon.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Dato</th>
+                <th>Proporción</th>
+                <th>Fuente</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Artículos de humanidades nunca citados</td>
+                <td><strong>82 %</strong></td>
+                <td>Thomson Web of Science, LSE 2014</td>
+            </tr>
+            <tr>
+                <td>Ciencias naturales, nunca citados</td>
+                <td>27 %</td>
+                <td>Thomson Web of Science, LSE 2014</td>
+            </tr>
+            <tr>
+                <td>Medicina, nunca citados</td>
+                <td>12 %</td>
+                <td>Thomson Web of Science, LSE 2014</td>
+            </tr>
+            <tr>
+                <td>Estudios de psicología no replicables</td>
+                <td><strong>64 %</strong></td>
+                <td>Open Science Collaboration, 2015</td>
+            </tr>
+            <tr>
+                <td>Investigación oncológica no replicable</td>
+                <td><strong>89 %</strong></td>
+                <td>Begley &amp; Ellis, 2012</td>
+            </tr>
+            <tr>
+                <td>Fondos de investigación desperdiciados</td>
+                <td><strong>85 %</strong></td>
+                <td>Chalmers &amp; Glasziou, The Lancet, 2009</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Música: la mayoría silenciosa de 184 millones de canciones</h3>
+
+    <p>En 2023, Spotify albergaba 184 millones de canciones (Luminate). De ellas, 45,6 millones —una cuarta parte— no habían sido reproducidas ni una sola vez en toda su existencia. Las que quedaban por debajo de mil reproducciones representaban el 86,2 % del total. La mitad de los diez millones de artistas de la plataforma acumulaba menos de cien reproducciones en toda su trayectoria. Estas cifras no hablan de "basura" sino de invisibilidad: cuando la barrera técnica para producir música cae casi a cero, la inmensa mayoría de lo producido no alcanza ningún oído. La ley de Sturgeon se convierte aquí menos en un juicio de calidad que en un problema de descubribilidad.</p>
+
+    <div class="stat-grid">
+        <div class="stat-card">
+            <div class="stat-value">184M</div>
+            <div class="stat-label">Canciones totales</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">24,8 %</div>
+            <div class="stat-label">Cero reproducciones (45,6M)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">86,2 %</div>
+            <div class="stat-label">Menos de 1.000 reproducciones</div>
+        </div>
+    </div>
+
+    <h3>Emprendimientos y patentes: la estadística del fracaso</h3>
+
+    <p>Según la Oficina de Estadísticas Laborales de Estados Unidos (BLS, 2024), el 65 % de las empresas fundadas cierra en un plazo de diez años. Aproximadamente el 95 % de las patentes nunca llega a comercializarse (literatura de valoración comercial de propiedad intelectual). Puestos uno junto al otro, estos datos dibujan un cuadro claro: que una idea se materialice lo bastante como para obtener una patente no garantiza su supervivencia, igual que el mero hecho de fundar una empresa no garantiza que se sostenga. Las tasas de fracaso son altas, pero esas tasas no son síntoma de patología: los fondos de emprendimientos y patentes son campos de ensayo, y la mayoría de los ensayos, por su propia naturaleza, no prosperan.</p>
+
+    <h3>Libros: el desierto impreso</h3>
+
+    <p>Cada año se publican aproximadamente tres millones de libros. Según datos de Bookscan (DOJ vs. Penguin Random House, 2022), el 90 % de esos libros vende menos de dos mil ejemplares, el 79 % vende menos de cien, y la probabilidad de entrar en la lista de los más vendidos del New York Times es del 0,08 %. Las editoriales conocen esta distribución y construyen su modelo de negocio sobre ella: un puñado de libros superventas financia el resto del catálogo. La ley de Sturgeon es aquí la realidad misma del mercado.</p>
+
+    <h3>Cine, software, medicina, aplicaciones</h3>
+
+    <p>En la industria cinematográfica, el 59 % de todas las películas genera pérdidas (Stephen Follows). En software, los desarrolladores dedican el 42 % de su tiempo semanal a lidiar con deuda técnica, con un coste estimado de 2,41 billones de dólares para la economía estadounidense (Stripe, 2018). En medicina, la tasa general de error diagnóstico oscila entre el 10 y el 15 %, se eleva al 23 % en cuidados intensivos y casos de mortalidad, y la mitad de los médicos reporta al menos un error al mes. En aplicaciones móviles, los usuarios pasan el 80 % de su tiempo en solo tres aplicaciones (Comscore, 2017); la tasa de retención a treinta días en iOS es del 3,7 % (Statista, 2023), lo que significa que más del 96 % de las aplicaciones descargadas se abandonan en el plazo de un mes. El 10-15 % de la medicina marca el extremo inferior, el 96 % de abandono de aplicaciones marca el superior: el abanico entre ambos confirma el orden de magnitud de Sturgeon.</p>
+
+    <h3>El patrón entre campos</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Campo</th>
+                <th>Proporción de "basura"</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Artículos académicos (humanidades, no citados)</td>
+                <td><strong>82 %</strong></td>
+            </tr>
+            <tr>
+                <td>Música (menos de 1.000 reproducciones)</td>
+                <td><strong>86,2 %</strong></td>
+            </tr>
+            <tr>
+                <td>Patentes (no comercializadas)</td>
+                <td><strong>~95 %</strong></td>
+            </tr>
+            <tr>
+                <td>Empresas (cerradas en 10 años)</td>
+                <td><strong>65 %</strong></td>
+            </tr>
+            <tr>
+                <td>Libros (menos de 2.000 ejemplares)</td>
+                <td><strong>90 %</strong></td>
+            </tr>
+            <tr>
+                <td>Cine (con pérdidas)</td>
+                <td><strong>59 %</strong></td>
+            </tr>
+            <tr>
+                <td>Software (deuda técnica semanal)</td>
+                <td><strong>42 %</strong></td>
+            </tr>
+            <tr>
+                <td>Medicina (error diagnóstico)</td>
+                <td>10-15 %</td>
+            </tr>
+            <tr>
+                <td>Aplicaciones iOS (retención a 30 días)</td>
+                <td><strong>96,3 %</strong> (abandonadas)</td>
+            </tr>
+            <tr>
+                <td>Investigación oncológica (no replicable)</td>
+                <td><strong>89 %</strong></td>
+            </tr>
+            <tr>
+                <td>Fondos de investigación (desperdiciados)</td>
+                <td><strong>85 %</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="box">
+        <div class="box-title">Valoración</div>
+        <p>El 90 % no es una medición exacta, es un orden de magnitud. La gran mayoría de los datos lo respalda: la distribución de la calidad es asimétrica y de cola pesada en prácticamente todos los campos. Cuanto más alta es la barrera de entrada, más baja la proporción (medicina: 10-15 %); cuanto más baja la barrera, más trepa la proporción (aplicaciones: 96 %). Pero ningún campo escapa por completo a la tendencia.</p>
+    </div>
+
+    <p>Sturgeon no vio esta tabla de datos, pero su intuición apuntaba al lugar correcto. La verdadera pregunta ahora es otra: ¿observaron otros, desde ángulos distintos, la misma distribución? Y si lo hicieron, ¿qué se dicen unas observaciones a otras?</p>
+</section>
+
+<section id="yankilar">
+    <h2>La misma observación, distintas ventanas</h2>
+
+    <p>La ley de Sturgeon no está sola. En siglos diferentes, en campos diferentes, pensadores diferentes vieron caras diferentes de la misma distribución. En lugar de enumerar esos conceptos como puntos independientes, resulta más fructífero seguir la conversación entre ellos, porque cada uno completa lo que el otro dejó sin decir.</p>
+
+    <p>En 1896, Vilfredo Pareto observó que en Italia el 80 % de la tierra pertenecía al 20 % de la población; Joseph Juran trasladó esa observación al control de calidad: "El 80 % de los problemas proviene del 20 % de las causas". Pareto muestra dónde se concentra el valor; Sturgeon, cuán extendida está la basura. Son dos caras de la misma moneda: uno mira el 20 %, el otro el 90 %, pero ambos dicen que la distribución de la calidad no sigue una curva normal sino una ley de potencia: un número reducido de productos genera un impacto desproporcionado, la mediana queda muy por debajo de la media, la mayoría permanece "por debajo del promedio".</p>
+
+    <p>Pareto y Sturgeon describen la distribución pero no explican por qué es así. Ahí entra el hallazgo de Dunning y Kruger (1999): los participantes situados en el cuartil inferior de rendimiento se estimaban en el percentil 62; su rendimiento real estaba en el percentil 12. Quienes producen el 90 % de Sturgeon a menudo no son conscientes de que están produciendo basura. El efecto Dunning-Kruger explica por qué ese 90 % es tan resistente, tan seguro de sí mismo, tan dispuesto a reproducirse. La distribución no es solo una ley natural: también la alimenta una ceguera perceptiva.</p>
+
+    <p>El mecanismo que Sir Thomas Gresham observó en el siglo XVI —cuando la moneda de baja ley entra en circulación, la de alta ley se retira— añade una tercera capa. Sturgeon dice que la distribución es natural; Gresham muestra que esa distribución natural puede convertirse en un mecanismo activo de expulsión: el <em>clickbait</em> desplaza al periodismo de calidad, la moda barata elimina a los productores sostenibles, el contenido algorítmico vuelve invisible al contenido original. Sturgeon describe; Gresham muestra el mecanismo. Sturgeon dice "hay mucha basura"; Gresham dice "y lo abundante borra lo escaso".</p>
+
+    <p>El análisis señal-ruido de Nassim Nicholas Taleb en <em>Fooled by Randomness</em> y <em>The Black Swan</em> añade a este cuadro una dimensión temporal:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Frecuencia de observación</th>
+                <th>Señal</th>
+                <th>Ruido</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Anual</td>
+                <td>50 %</td>
+                <td>50 %</td>
+            </tr>
+            <tr>
+                <td>Diaria</td>
+                <td>5 %</td>
+                <td><strong>95 %</strong></td>
+            </tr>
+            <tr>
+                <td>Cada hora</td>
+                <td>0,5 %</td>
+                <td><strong>99,5 %</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Cuanto mayor es la frecuencia de observación, más estalla la proporción de ruido. El 90 % de Sturgeon y el ruido de Taleb apuntan a lo mismo: la mayoría no es señal sino ruido, y cuanto más frecuente y más de cerca se mira, más dominante se vuelve el ruido. La era digital, al multiplicar tanto la frecuencia de producción como la de observación, ha amplificado ese efecto.</p>
+
+    <p>Reunidos, estos cuatro pensadores —Pareto, Dunning-Kruger, Gresham, Taleb— convierten la observación de una sola frase de Sturgeon en un ecosistema: la distribución es natural (Pareto), los productores no ven su propia basura (Dunning-Kruger), lo malo expulsa activamente a lo bueno (Gresham) y el ruido crece con el tiempo (Taleb). Sturgeon puso nombre a la ley; los demás mostraron sus mecanismos.</p>
+
+    <h3>La observación existía antes de Sturgeon</h3>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <span class="timeline-date">~500 a. C. — Heráclito</span>
+            <p>"La mayoría es mala." El espíritu de Sturgeon rondaba Éfeso hace 2.500 años.</p>
+        </div>
+        <div class="timeline-item">
+            <span class="timeline-date">405 a. C. — Aristófanes</span>
+            <p>En la comedia <em>Las ranas</em>, define la mayor parte de la literatura como "obra de desecho".</p>
+        </div>
+        <div class="timeline-item">
+            <span class="timeline-date">1953 — Theodore Sturgeon</span>
+            <p>El primero en convertir la observación en un argumento sistemático de defensa y ponerle nombre.</p>
+        </div>
+    </div>
+
+    <p>Esta red conceptual muestra la fuerza de la ley pero no oculta sus límites. El propio Sturgeon admitió con su segunda fórmula que la cifra del 90 % no era absoluta. Mirar los límites de la ley resulta al menos tan instructivo como mirar su potencia.</p>
+</section>
+
+<section id="karsi">
+    <h2>Los propios límites de la ley</h2>
+
+    <h3>El 90 % es una figura retórica</h3>
+
+    <p>Sí, y Sturgeon lo sabía. Es una cifra elegida para decir "la inmensa mayoría". Pero como orden de magnitud resulta consistente: los datos se extienden del 42 % al 96 %, con la mayoría concentrada en la franja del 60-95 %. La observación "la mayoría es mediocre" encuentra respaldo empírico a pesar de su origen retórico.</p>
+
+    <h3>El filtro invisible del tiempo</h3>
+
+    <p>Cuando miramos hacia atrás desde hoy, las épocas pasadas parecen más "selectas". Hay tres razones: el tiempo va eliminando lo malo y el 10 % restante se convierte en "la época"; la nostalgia confunde ejemplos elegidos por la experiencia personal con la totalidad; de otras culturas solo se importa lo mejor. Los tres filtros operan en la misma dirección: al volver invisible la basura del pasado, hacen que la proporción de basura del presente parezca exagerada.</p>
+
+    <h3>La barrera de entrada lo cambia todo</h3>
+
+    <p>En los campos con barrera de entrada alta la proporción baja (medicina: 10-15 % de error); en los de barrera baja, sube (el 96 % de las aplicaciones móviles se abandona en un mes). La digitalización ha elevado la proporción de basura en cada ámbito donde rebajó la barrera de entrada, pero aquí conviene ser cuidadosos: que caiga la barrera de producción no disminuye la calidad de lo producido, solo agranda el estanque. Proporcionalmente la basura puede estar creciendo, pero en términos absolutos la producción valiosa también crece.</p>
+
+    <h3>¿Calidad según quién?</h3>
+
+    <p>Existen ejes de calidad distintos: éxito comercial, reconocimiento crítico, impacto sostenible, competencia técnica. Lo que es "basura" en un eje puede ser valioso en otro. Un artículo jamás citado puede haber influido en los legisladores del país donde se escribió. Una canción con menos de mil reproducciones puede haber sido un punto de inflexión en la vida de cien personas. La ley de Sturgeon arroja cifras diferentes según el eje de calidad que se emplee.</p>
+
+    <h3>El punto en que Sturgeon supera su propia ley</h3>
+
+    <blockquote>
+        "El noventa por ciento podría quedarse corto."
+        ("Ninety percent may be an undercount.")
+        <cite>— Tom Nichols, The Death of Expertise</cite>
+    </blockquote>
+
+    <p>La digitalización redujo la barrera de producción y el volumen de basura se disparó. Aunque la proporción se mantuviera igual, el número absoluto se multiplicó. Pero ese cuadro encierra una paradoja: la literatura sobre innovación demuestra que el fracaso genera conocimiento. Sin ensayos no hay éxitos, y la mayoría de los ensayos, por su propia naturaleza, fracasan.</p>
+
+    <div class="box">
+        <div class="box-title">Perspectiva clave</div>
+        <p><strong>Si eliminas el 90 %, el 10 % también desaparece, porque el 10 % sale del 90 %.</strong></p>
+        <p>Como las mutaciones en la evolución: el 99 % son perjudiciales o neutras, pero si destruyes el estanque, la adaptación se detiene. El 90 % de Sturgeon no es basura propiamente dicha, es campo de ensayo, y sin campo de ensayo no hay descubrimiento.</p>
+    </div>
+
+    <p>Esa paradoja —la necesidad de la basura— aclara también dónde reside el verdadero problema. El problema no es la proporción de basura; el problema es que, cuando los filtros se rompen, la basura sepulta lo bueno.</p>
+</section>
+
+<section id="icgoru">
+    <h2>Cuando los filtros se rompen</h2>
+
+    <p>A lo largo de la historia, cuatro mecanismos han extraído valor del estanque de basura: la revisión por pares y los estándares editoriales, la preferencia del consumidor y la competencia de mercado, el filtro de permanencia del tiempo, y el consenso experto junto con la memoria colectiva. Esos cuatro filtros eran imperfectos pero funcionales: hacían manejable el 90 % natural de Sturgeon.</p>
+
+    <p>Cuando reunimos de nuevo a los cuatro pensadores de la sección anterior, el verdadero peligro se hace visible:</p>
+
+    <div class="box">
+        <div class="box-title">El efecto Gresham algorítmico</div>
+        <p><strong>Cuando las recomendaciones algorítmicas premian al 90 %, el 10 % sigue existiendo pero se vuelve imposible de encontrar.</strong></p>
+        <p>El problema no es la proporción de basura —es natural, siempre lo fue—. El problema es la degradación de los mecanismos de selección: el algoritmo de interacción mide clics, no calidad, y los clics suelen ser inversamente proporcionales a la calidad. El efecto Dunning-Kruger explica, del lado del productor, la inconsciencia ante la propia basura; el efecto Gresham explica, del lado de la plataforma, la expulsión de lo bueno por lo malo; el análisis de ruido de Taleb explica, en el eje temporal, cómo la señal queda ahogada. Cuando el filtro se rompe, el 90 % natural de Sturgeon se convierte en el mecanismo activo de expulsión de Gresham.</p>
+    </div>
+</section>
+
+<section id="sonuc">
+    <h2>Lo que queda</h2>
+
+    <blockquote>
+        "La Ley de Sturgeon no es consuelo ni cinismo. Es una aritmética de la observación."
+    </blockquote>
+
+    <p><strong>La mayoría es mediocre en todas partes</strong> — eso no es una alarma, es el fondo constante. La alarma suena cuando la mediocridad comienza a expulsar a lo bueno. El 82 % de artículos académicos sin citas, el 86 % de canciones sin oyentes: eso es natural. La alarma está en que ese 86 % se interponga algorítmicamente delante del 14 %.</p>
+
+    <p><strong>Que el 90 % sea basura no disminuye la fuerza del 10 %.</strong> La mayoría de los casos en un sistema judicial son insignificantes, pero la fuerza de las sentencias que sientan jurisprudencia no se ve afectada. En medicina la tasa de error diagnóstico es del 10-15 %, pero la capacidad del diagnóstico correcto para salvar vidas no mengua por ello. El 64 % de los estudios de psicología no es replicable, pero la contribución al saber humano del 36 % que sí lo es no se resta de ahí.</p>
+
+    <p><strong>Pero la existencia del 90 % dificulta encontrar el 10 %.</strong> Este problema práctico es la dimensión menos discutida y sin embargo más importante de la ley, y en la era digital, con la degradación algorítmica de los filtros, se vuelve cada vez más urgente.</p>
+
+    <blockquote>
+        "No pierdan el tiempo abucheando a la basura. Vayan a buscar lo bueno, o no se metan."
+        ("Don't waste time boo-ing the crap. Go find the good stuff, or don't bother.")
+        <cite>— Daniel Dennett (paráfrasis libre)</cite>
+    </blockquote>
+</section>
+
+<section id="kaynaklar">
+    <h2>Fuentes</h2>
+
+    <h4>Ley de Sturgeon — Fuentes primarias</h4>
+    <ul>
+        <li>Sturgeon, T. (1958). "On Hand." <em>Venture Science Fiction</em>, marzo de 1958.</li>
+        <li>Gunn, J. (2002). "Theodore Sturgeon." <em>The Road to Science Fiction</em>, Scarecrow Press.</li>
+        <li>Delany, S.R. (2009). <em>The Jewel-Hinged Jaw.</em> Wesleyan University Press.</li>
+    </ul>
+
+    <h4>Datos empíricos</h4>
+    <ul>
+        <li>Begley, C.G. &amp; Ellis, L.M. (2012). "Raise standards for preclinical cancer research." <em>Nature</em>, 483.</li>
+        <li>Chalmers, I. &amp; Glasziou, P. (2009). "Avoidable waste in the production and reporting of research evidence." <em>The Lancet</em>, 374.</li>
+        <li>Comscore (2017). <em>The U.S. Mobile App Report.</em></li>
+        <li>Follows, S. (2020). "Do Hollywood movies make a profit?" stephenfollows.com — análisis de rentabilidad cinematográfica.</li>
+        <li>Greco, A. Fordham University — estadísticas de ventas de libros (menos de 100 ejemplares: 79 %).</li>
+        <li>Luminate (2023). <em>Midyear Music Report.</em></li>
+        <li>Open Science Collaboration (2015). "Estimating the reproducibility of psychological science." <em>Science</em>, 349.</li>
+        <li>Statista (2023). Global iOS app retention rate.</li>
+        <li>Stripe (2018). <em>The Developer Coefficient.</em></li>
+        <li>Thomson Web of Science / LSE (2014). Impact of Social Sciences Blog.</li>
+        <li>U.S. Bureau of Labor Statistics (2024). Establishment Age and Survival Data — tasa de cierre a 10 años: 65 %.</li>
+        <li>U.S. DOJ vs. Penguin Random House (2022). Datos Bookscan — menos de 2.000 ejemplares: 90 %.</li>
+    </ul>
+
+    <h4>Conceptos relacionados</h4>
+    <ul>
+        <li>Dunning, D. &amp; Kruger, J. (1999). "Unskilled and Unaware of It." <em>Journal of Personality and Social Psychology</em>, 77(6).</li>
+        <li>Nichols, T. (2017). <em>The Death of Expertise.</em> Oxford University Press.</li>
+        <li>Pareto, V. (1896). <em>Cours d'économie politique.</em> Lausanne.</li>
+        <li>Taleb, N.N. (2001). <em>Fooled by Randomness.</em> Random House.</li>
+        <li>Taleb, N.N. (2007). <em>The Black Swan.</em> Random House.</li>
+    </ul>
+
+    <h4>Precedentes históricos</h4>
+    <ul>
+        <li>Heráclito, Fragmentos (~500 a. C.). <em>Die Fragmente der Vorsokratiker</em>, Diels-Kranz.</li>
+        <li>Aristófanes (405 a. C.). <em>Las ranas.</em></li>
+    </ul>
+</section>
+
+<section id="lisans">
+    <h2>Licencia</h2>
+    <p>Este trabajo es de dominio público. No se reclaman derechos de autor. Úselo, compártalo, transfórmelo.</p>
+    <p>No es una publicación con revisión por pares. Fue escrito por un ser humano y una inteligencia artificial en colaboración. Puede contener errores.</p>
+</section>
+
+<section id="nota-traduccion" style="margin-bottom: 2rem;">
+    <p style="font-size: 0.88rem; color: var(--bone-dim); line-height: 1.7; border-top: 1px solid var(--bone-ghost); padding-top: 2rem;">El texto original está en turco. Hemos intentado ser lo más orgánicos posible, respetando la naturaleza de cada idioma, pero inevitablemente habrá pequeñas imperfecciones. Si encuentra un error o una mejor forma de decirlo, escriba a <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a> — enriquecerá nuestra traducción.</p>
+</section>
+
+</main>
+
+<footer>
+    <p>Ley de Sturgeon — Febrero 2026</p>
+    <p>Este trabajo pertenece a todos.</p>
+    <p style="margin-top: 1rem;"><a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a></p>
+</footer>
+
+</body>
+</html>
