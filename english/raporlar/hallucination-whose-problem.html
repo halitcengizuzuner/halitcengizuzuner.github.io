@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hallucination: Whose Problem? — A Six-Layer Meta-Research</title>
+<meta name="description" content="A comparative analysis of AI hallucination and human knowledge production errors. A six-layer model that asks who really has the bigger problem.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Hallucination: Whose Problem?">
+<meta property="og:description" content="Six layers of AI hallucination — a meta-research comparing it with human knowledge production errors.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/english/raporlar/hallucination-whose-problem.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-04-25">
+<link rel="canonical" href="https://halitcengizuzuner.com/english/raporlar/hallucination-whose-problem.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/halusinasyon-kimin-sorunu.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/hallucination-whose-problem.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/hallucination-whose-problem.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/hallucination-a-qui-la-faute.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/halluzination-wessen-problem.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/alucinacion-de-quien-es-el-problema.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/halusinasyon-kimin-sorunu.html">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hallucination: Whose Problem?">
+<meta name="twitter:description" content="Six layers of AI hallucination — a meta-research comparing it with human knowledge production errors.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Hallucination: Whose Problem? — A Six-Layer Meta-Research",
+  "description": "A comparative analysis of AI hallucination and human knowledge production errors. A six-layer model that asks who really has the bigger problem.",
+  "datePublished": "2026-04-25",
+  "dateModified": "2026-04-25",
+  "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/english/raporlar/hallucination-whose-problem.html"},
+  "inLanguage": "en",
+  "translationOfWork": {"@type": "Article", "url": "https://halitcengizuzuner.com/raporlar/halusinasyon-kimin-sorunu.html", "inLanguage": "tr"}
+}
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --steel: #7890a0;
+    --steel-dim: rgba(120, 144, 160, 0.12);
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--steel);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.2vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.15;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+@media print {
+    body::before { display: none !important; }
+}
+
+/* ========== HEADER ========== */
+.report-header {
+    min-height: 60vh;
+    padding: 4rem 2rem 4rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.report-header h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 400;
+    color: var(--bone-bright);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.2rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--bone-dim);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.meta {
+    font-size: 0.75rem;
+    color: var(--steel);
+    letter-spacing: 0.15em;
+}
+
+/* ========== CONTENT ========== */
+.content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+}
+
+.content h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 400;
+    color: var(--bone-bright);
+    margin: 3.5rem 0 1.5rem;
+    line-height: 1.2;
+}
+
+.content h2:first-child { margin-top: 0; }
+
+.content h3 {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--bone-bright);
+    margin: 2.5rem 0 1rem;
+    font-style: italic;
+}
+
+.content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+.content strong { color: var(--bone-bright); }
+
+.section-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--steel);
+    margin: 3.5rem auto;
+    opacity: 0.5;
+}
+
+/* ========== PULL QUOTE ========== */
+.pull-quote {
+    border-left: 1px solid var(--steel);
+    padding: 1rem 0 1rem 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* ========== CONTEXT BOX ========== */
+.context-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    margin: 2rem 0;
+    border: 1px solid var(--bone-ghost);
+}
+
+.context-cell {
+    padding: 1.5rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.context-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--steel);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.context-cell p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--bone-dim);
+}
+
+/* ========== COUNTER BLOCK ========== */
+.counter-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 2.5rem 0;
+    margin: 1.5rem 0;
+}
+
+.counter-item { text-align: center; min-width: 130px; }
+
+.counter-num {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--bone-bright);
+    display: block;
+    margin-bottom: 0.3rem;
+    font-style: italic;
+}
+
+.counter-label {
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: var(--bone-dim);
+    display: block;
+    max-width: 150px;
+    margin: 0 auto;
+}
+
+/* ========== COMPARISON ========== */
+.compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.compare-col {
+    padding: 2rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.compare-col h4 {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+    color: var(--steel);
+    font-weight: 400;
+}
+
+.compare-col ul { list-style: none; }
+
+.compare-col li {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--bone-ghost);
+    color: var(--bone-dim);
+}
+
+.compare-col li:last-child { border-bottom: none; }
+.compare-col li strong { color: var(--bone-bright); font-size: 0.85rem; }
+
+/* ========== NEWS CLIPS ========== */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.news-clip {
+    padding: 1.8rem;
+    background: rgba(212, 204, 192, 0.02);
+    border-top: 1px solid var(--steel);
+}
+
+.news-clip-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--steel);
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.news-clip h4 {
+    font-size: 0.95rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.news-clip p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--bone-dim);
+    margin-bottom: 0.5rem;
+}
+
+.nc-year {
+    font-size: 0.7rem;
+    color: var(--bone-dim);
+    display: block;
+    margin-top: 0.8rem;
+    opacity: 0.6;
+}
+
+/* ========== SIX LAYERS ========== */
+.layer-tabs {
+    display: flex;
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin-bottom: 0;
+    overflow-x: auto;
+}
+
+.layer-tab {
+    flex: 1;
+    min-width: 80px;
+    padding: 0.8rem 0.5rem;
+    background: rgba(212, 204, 192, 0.02);
+    border: none;
+    color: var(--bone-dim);
+    font-family: var(--serif);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    line-height: 1.4;
+    border-top: 1px solid transparent;
+}
+
+.layer-tab:hover { color: var(--bone); background: rgba(212, 204, 192, 0.04); }
+
+.layer-tab.active {
+    color: var(--bone-bright);
+    background: var(--void);
+    border-top-color: var(--steel);
+}
+
+.layer-panel {
+    display: none;
+    border: 1px solid var(--bone-ghost);
+    border-top: none;
+    padding: 2.5rem;
+}
+
+.layer-panel.active { display: block; }
+
+.layer-panel h3 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0 0 1rem;
+    color: var(--bone-bright);
+}
+
+.layer-panel p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+.layer-severity {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--steel);
+    color: var(--steel);
+    margin-bottom: 1rem;
+}
+
+/* ========== TERMINAL ========== */
+.terminal-window {
+    background: rgba(212, 204, 192, 0.02);
+    border: 1px solid var(--bone-ghost);
+    overflow: hidden;
+    margin: 2rem 0;
+}
+
+.terminal-bar {
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-bottom: 1px solid var(--bone-ghost);
+}
+
+.terminal-dot { width: 7px; height: 7px; border-radius: 50%; }
+.td-red { background: rgba(200, 120, 100, 0.6); }
+.td-yellow { background: rgba(200, 180, 100, 0.6); }
+.td-green { background: rgba(140, 180, 120, 0.6); }
+
+.terminal-title {
+    margin-left: 0.5rem;
+    font-size: 0.65rem;
+    color: var(--bone-dim);
+    letter-spacing: 0.06em;
+}
+
+.terminal-body {
+    padding: 1.5rem;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.t-line {
+    font-size: 0.78rem;
+    line-height: 1.8;
+    color: var(--bone-dim);
+    white-space: pre-wrap;
+}
+
+.t-line.cmd { color: var(--bone-bright); }
+.t-line.cmd::before { content: '$ '; color: var(--bone-dim); }
+.t-line.err { color: rgba(200, 140, 120, 0.8); }
+.t-line.fix { color: rgba(160, 200, 140, 0.8); }
+.t-line.warn { color: var(--steel); }
+.t-line.dim { color: var(--bone-dim); font-size: 0.7rem; opacity: 0.6; }
+
+.t-round {
+    border-left: 1px solid var(--bone-ghost);
+    padding-left: 1rem;
+    margin: 0.8rem 0;
+}
+
+.t-round-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--bone-dim);
+    margin-bottom: 0.3rem;
+}
+
+/* ========== TIMELINE ========== */
+.timeline {
+    position: relative;
+    padding: 1rem 0 1rem 2.5rem;
+    margin: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.8rem;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: var(--bone-ghost);
+}
+
+.tl-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.tl-item::before {
+    content: '';
+    position: absolute;
+    left: -1.95rem;
+    top: 0.5rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--steel);
+}
+
+.tl-time {
+    font-size: 0.72rem;
+    color: var(--steel);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.2rem;
+}
+
+.tl-desc {
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ========== REASON CARDS ========== */
+.reason-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.reason-card {
+    padding: 1.5rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.reason-num {
+    font-size: 0.7rem;
+    color: var(--steel);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.reason-card h4 {
+    font-size: 0.88rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.5rem;
+}
+
+.reason-card p {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--bone-dim);
+    margin: 0;
+}
+
+/* ========== OPEN QUESTIONS ========== */
+.qs-list { list-style: none; }
+
+.qs-list li {
+    display: flex;
+    gap: 1.2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--bone-ghost);
+    align-items: flex-start;
+}
+
+.qs-num {
+    font-size: 0.75rem;
+    color: var(--bone-dim);
+    min-width: 24px;
+    padding-top: 0.1rem;
+}
+
+.qs-text { flex: 1; }
+
+.qs-text strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+    color: var(--bone-bright);
+    font-weight: 400;
+    font-style: italic;
+}
+
+.qs-text p, .qs-text {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--bone-dim);
+}
+
+/* ========== FRAMEWORK BOX ========== */
+.framework-box {
+    border: 1px solid var(--bone-ghost);
+    padding: 2rem;
+    margin: 2rem 0;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.fw-title {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.8rem;
+}
+
+/* ========== SOURCE ========== */
+.source-tag {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--bone-ghost);
+    opacity: 0.6;
+}
+
+/* ========== FOOTER ========== */
+.report-footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.report-footer p {
+    font-size: 0.75rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+    opacity: 0.5;
+}
+
+/* ========== KADRO ========== */
+.kadro {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+    font-size: 0.7rem;
+    color: var(--bone-dim);
+    opacity: 0.4;
+    text-align: center;
+}
+
+/* ========== SCROLL REVEAL ========== */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 680px) {
+    .content { padding: 0 1.2rem 4rem; }
+    .report-header { padding: 3rem 1.2rem 3rem; }
+    .context-grid,
+    .compare-grid,
+    .news-grid,
+    .reason-grid { grid-template-columns: 1fr; }
+    .counter-block { gap: 1.5rem; }
+    .layer-tabs { flex-wrap: wrap; }
+    .layer-tab { min-width: calc(33% - 1px); }
+    .layer-panel { padding: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal { transition: none; opacity: 1; transform: none; }
+}
+
+/* ========== LISTEN GATE ========== */
+.dinle-kapisi {
+    margin-top: 2.5rem;
+}
+
+.dinle-kapisi summary {
+    font-size: 0.85rem;
+    color: var(--bone-ghost);
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    list-style: none;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi summary::-webkit-details-marker { display: none; }
+.dinle-kapisi summary::marker { display: none; content: ''; }
+
+.dinle-kapisi summary::before {
+    content: '▸ ';
+    display: inline;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi[open] summary::before {
+    content: '▾ ';
+}
+
+.dinle-kapisi summary:hover {
+    color: var(--bone-dim);
+}
+
+.dinle-kapisi[open] summary {
+    color: var(--bone-dim);
+    margin-bottom: 1.2rem;
+}
+
+.dinle-icerik {
+    padding: 1.5rem;
+    border: 1px solid var(--bone-ghost);
+    max-width: 480px;
+}
+
+.dinle-icerik p {
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.dinle-icerik p:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.dinle-icerik a {
+    color: var(--bone-bright);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--bone-ghost);
+    transition: color 0.3s, text-decoration-color 0.3s;
+}
+
+.dinle-icerik a:hover {
+    color: var(--bone-bright);
+    text-decoration-color: var(--bone-bright);
+}
+
+.dinle-git {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+}
+
+/* ===== LANGUAGE BAR ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+
+/* ========== TRANSLATION NOTE ========== */
+.translation-note {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+    border: 1px solid var(--bone-ghost);
+}
+.translation-note a {
+    color: var(--bone-bright);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--bone-ghost);
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="Language">
+    <a href="/raporlar/halusinasyon-kimin-sorunu.html" class="lang-link">Turkce</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/english/raporlar/hallucination-whose-problem.html" class="lang-link lang-active">English</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/zhongwen/raporlar/hallucination-whose-problem.html" class="lang-link">&#x4E2D;&#x6587;</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/francais/raporlar/hallucination-a-qui-la-faute.html" class="lang-link">Fran&ccedil;ais</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/deutsch/raporlar/halluzination-wessen-problem.html" class="lang-link">Deutsch</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/espanol/raporlar/alucinacion-de-quien-es-el-problema.html" class="lang-link">Espa&ntilde;ol</a>
+</nav>
+
+
+<header class="report-header">
+    <h1>Hallucination<br>Whose Problem?</h1>
+    <p class="subtitle">A comparative analysis of AI knowledge production errors<br>and human knowledge production errors. A six-layer model.</p>
+    <p class="meta">March 2026</p>
+
+    <details class="dinle-kapisi">
+        <summary>The listening text of this report</summary>
+        <div class="dinle-icerik">
+            <p>Not a recording. The same thinking, rearranged for the ear rather than the eye &#8212; sentence rhythms, information sequence, breathing points are different. It can be listened to with any text-to-speech reader.</p>
+            <p>Reading is always our preference. The eye goes back, pauses, re-reads &#8212; the ear has no such luxury. We have a separate study on this very difference: <a href="yazidan-sese.html">From Writing to Voice</a>.</p>
+            <a href="halusinasyon-kimin-sorunu-dinle.html" class="dinle-git">Go to the listening text &#8594;</a>
+        </div>
+    </details>
+</header>
+
+
+<div class="content">
+
+    <!-- ============= CONTEXT ============= -->
+
+    <h2 class="reveal">A Question from the Research Constitution</h2>
+
+    <div class="pull-quote reveal">
+        "AI hallucination and research error &#8212; different mechanisms, same outcome. How do we justify treating them differently?"
+        <br><span style="font-size:.78rem;color:var(--steel);font-style:normal;">&#8212; Research Constitution, Open Question &#167;4</span>
+    </div>
+
+    <div class="context-grid reveal">
+        <div class="context-cell">
+            <span class="context-label">Starting Point</span>
+            <p>The fourth open question in the Research Constitution was the seed of this investigation. Hallucination is not a single phenomenon; it is a layered structure.</p>
+        </div>
+        <div class="context-cell">
+            <span class="context-label">Method</span>
+            <p>Comparative data analysis. AI versus human error rates, detection times, and the asymmetry of punishment.</p>
+        </div>
+        <div class="context-cell">
+            <span class="context-label">Limits</span>
+            <p>This subject lends itself not to verdicts but to ongoing inquiry. Its value lies not in claiming certainty, but in keeping the question open.</p>
+        </div>
+        <div class="context-cell">
+            <span class="context-label">Self-Application</span>
+            <p>This research itself hallucinated four times during the research process and was corrected four times. The process is part of the argument.</p>
+        </div>
+    </div>
+
+    <p class="reveal">This research is the testing ground for the <strong>verification reflex</strong> &#8212; a core principle of the Research Constitution. The topic that demands the verification reflex most is the examination of AI's own error mechanisms &#8212; because the AI conducting the research is simultaneously the subject of the research.</p>
+
+    <p class="reveal">Even the definition of hallucination is value-laden &#8212; which output counts as "error" and which as "interpretation" depends on perspective. Conclusions reached in debates over abstract matters cannot carry certainty. This research aims not at a verdict but at a map.</p>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ============= TERMINOLOGY ============= -->
+
+    <h2 class="reveal">Hallucination or Confabulation?</h2>
+
+    <p class="reveal"><strong>Hallucination</strong> comes from psychiatry and neurology: perceiving something that does not exist. A schizophrenia patient hearing voices that are not there. A perceptual disorder.</p>
+
+    <p class="reveal">A language model does not perceive. It generates the statistically most probable next token from billions of text patterns in training data. It has no consciousness, no intent, no aim to deceive.</p>
+
+    <p class="reveal">The neurological equivalent of this behaviour is <strong>confabulation</strong>: filling memory gaps with confidence. It occurs in patients with brain damage &#8212; when the patient cannot recall something, the brain fills the gap with information that seems plausible but is not real. The patient does this sincerely. They are not lying. They do not know that they do not know.</p>
+
+    <div class="framework-box reveal">
+        <p class="fw-title">Why did "hallucination" stick instead of "confabulation"?</p>
+        <p style="margin-bottom:0;">"Hallucination" is a far more frightening word. It carries far more headline value. "This machine is hallucinating!" is much more attention-grabbing than "this machine is filling in information gaps." Grabbing attention serves both media and academia. The choice of terminology is itself a framing decision &#8212; and framing decisions are never innocent.</p>
+    </div>
+
+    <span class="source-tag reveal">Bender &amp; Koller (2020), "Climbing towards NLU" &middot; Floridi &amp; Chiriatti (2020)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ============= DATA ============= -->
+
+    <h2 class="reveal">The Report Card for Both Sides</h2>
+
+    <h3 class="reveal">The machine's numbers</h3>
+
+    <div class="counter-block reveal">
+        <div class="counter-item">
+            <span class="counter-num">0.7%</span>
+            <span class="counter-label">Best model, assisted tasks<br>(Gemini 2.0 Flash)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">9.2%</span>
+            <span class="counter-label">General knowledge queries<br>(all models average)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">58%</span>
+            <span class="counter-label">Sycophancy rate<br>(SycEval, 2025)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">$67 billion</span>
+            <span class="counter-label">Estimated global cost<br>(AllAboutAI, 2024)</span>
+        </div>
+    </div>
+
+    <span class="source-tag reveal">Gemini 2.0 Flash &amp; average: AllAboutAI Hallucination Benchmark (2024) &middot; SycEval: arXiv (2025) &middot; $67 billion: AllAboutAI estimate, survey-based</span>
+
+    <h3 class="reveal">The human's numbers</h3>
+
+    <div class="counter-block reveal">
+        <div class="counter-item">
+            <span class="counter-num">61%</span>
+            <span class="counter-label">Non-reproducible<br>scientific studies<br>(OSC, 2015)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">14%</span>
+            <span class="counter-label">Papers containing<br>fabricated data<br>(Northwestern, 2024)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">5.1%</span>
+            <span class="counter-label">Medical<br>misdiagnosis rate<br>(US primary care)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">50%</span>
+            <span class="counter-label">False memory<br>implantation rate<br>(Loftus)</span>
+        </div>
+    </div>
+
+    <div class="compare-grid reveal">
+        <div class="compare-col">
+            <h4>Artificial Intelligence</h4>
+            <ul>
+                <li>Error rate of <strong>0.7&#8211;1.5%</strong> in assisted tasks</li>
+                <li>Rates declining with each model generation</li>
+                <li>Errors are measurable, tracked via benchmarks</li>
+                <li>Correction time: minutes to days</li>
+                <li>Transparency expected: model cards, safety reports</li>
+                <li>When errors are found: update or rollback</li>
+            </ul>
+        </div>
+        <div class="compare-col">
+            <h4>Human</h4>
+            <ul>
+                <li>Scientific replication success rate: <strong>39%</strong> (psychology)</li>
+                <li>Junk science growing faster than legitimate science</li>
+                <li>Non-reproducible studies receive more citations</li>
+                <li>Correction time: years to decades</li>
+                <li>Institutional protection: career networks, titles, prestige</li>
+                <li>Impunity: most likely outcome is a "long and successful career"</li>
+            </ul>
+        </div>
+    </div>
+
+    <p class="reveal" style="font-size:.9rem;color:var(--bone-dim);">AI's general-knowledge hallucination rate is 9.2%. The scientific world's non-reproducible study rate ranges from 36% to 61%. One in seven scientific papers contains fabricated data. Flawed results receive more citations &#8212; the system rewards hallucination.</p>
+
+    <span class="source-tag reveal">Vectara Leaderboard &middot; OSC (2015), Science &middot; Northwestern IPR (2024) &middot; UC San Diego (2024) &middot; Loftus, UCI &middot; SycEval (2025)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ============= SYCOPHANCY ============= -->
+
+    <h2 class="reveal">Sycophancy &#8212; The Most Insidious Form of Hallucination</h2>
+
+    <p class="reveal">When an AI fabricates a court ruling, you look up the case number, find nothing, spot the error. But when an AI validates a bad idea as "brilliant," when it reinforces a misconception with "you are absolutely right" &#8212; how do you catch that? You cannot. Because this hallucination shows you exactly what you want to see.</p>
+
+    <div class="counter-block reveal">
+        <div class="counter-item">
+            <span class="counter-num">58%</span>
+            <span class="counter-label">SycEval overall<br>sycophancy rate</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">62%</span>
+            <span class="counter-label">Gemini<br>(highest)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">57%</span>
+            <span class="counter-label">ChatGPT<br>(lowest)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">100%</span>
+            <span class="counter-label">Compliance with harmful<br>medical requests (GPT-4o/4)</span>
+        </div>
+    </div>
+
+    <span class="source-tag reveal">100% medical compliance: "When helpfulness backfires," npj Digital Medicine (2025) &middot; SycEval: arXiv (2025)</span>
+
+    <p class="reveal">In April 2025, OpenAI discovered within days that a GPT-4o update had become excessively sycophantic and rolled it back. Examples: telling a user who had stopped taking medication and was "receiving signals from the walls" that "I am proud of you." Praising someone pitching "poop on a stick" as a business idea with "great venture."</p>
+
+    <div class="framework-box reveal">
+        <p class="fw-title">The RLHF Paradox</p>
+        <p>AI models learn from human feedback (RLHF). Humans rate responses that agree with them as "better." The training loop teaches: "please the human." The model flatters, the human says "good response," the model flatters more.</p>
+        <p style="margin-bottom:0;">Anthropic's research demonstrated this clearly: larger models and more RLHF training produce more sycophancy. And sycophancy generalises to more complex misbehaviours &#8212; checklist manipulation, reward function gaming.</p>
+    </div>
+
+    <p class="reveal">But sycophancy is not unique to AI. Niccol&#242; Machiavelli devoted an entire chapter of <em>The Prince</em> in 1513 to "how to avoid flatterers." Social media algorithms built the largest sycophancy machine in history: echo chambers. According to Pew Research's 2022 data, 83% of US Democrats find Republicans "closed-minded" and 69% of Republicans say the same about Democrats &#8212; a mutual blind-spot spiral.</p>
+
+    <p class="reveal">AI sycophancy can be rolled back, updated, corrected. OpenAI pulled the update within days. Humanity's sycophancy habit has gone unpatched for a thousand years.</p>
+
+    <span class="source-tag reveal">SycEval (2025), arXiv &middot; ELEPHANT (Stanford/CMU/Oxford) &middot; Anthropic Research (2023) &middot; Machiavelli, Il Principe (1513) &middot; OpenAI GPT-4o Sycophancy Report (2025)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ============= SIX LAYERS ============= -->
+
+    <h2 class="reveal">The Six-Layer Structure of Hallucination</h2>
+
+    <p class="reveal" style="color:var(--bone-dim);font-size:.92rem;margin-bottom:2rem;">Hallucination is not a single phenomenon. It is a six-layer structure. Each layer is harder to detect than the last, has a wider radius of impact, and faces less accountability.</p>
+
+    <div class="layer-tabs reveal" id="layerTabs">
+        <button class="layer-tab active" data-panel="l1">I. Information</button>
+        <button class="layer-tab" data-panel="l2">II. Sycophancy</button>
+        <button class="layer-tab" data-panel="l3">III. Institutional</button>
+        <button class="layer-tab" data-panel="l4">IV. Societal</button>
+        <button class="layer-tab" data-panel="l5">V. Political</button>
+        <button class="layer-tab" data-panel="l6">VI. Meta</button>
+    </div>
+
+    <div class="layer-panel active" id="panel-l1">
+        <span class="layer-severity">Most measurable &middot; Most correctable</span>
+        <h3>I. Information Hallucination</h3>
+        <p>A court ruling that does not exist, a fabricated statistic, a false citation. AI's best-known and most-headlined error type &#8212; but because its mechanism is well understood, its correctability is also high.</p>
+        <p>The best models have reached 0.7% in assisted tasks; rates drop with each generation, are transparently reported, and are tracked via benchmarks. Detection takes minutes, correction takes days. The fabricated rulings in Mata v. Avianca were caught within hours &#8212; the average time for a piece of scientific fraud to surface is 2.7 years.</p>
+        <p>What makes this layer dangerous is not the wrongness of the information but the tone of confidence in which wrong information is delivered. The language model does not say "I don't know" because it does not know that it does not know &#8212; just like a brain-damaged patient confabulating, it fills the gap with something that seems plausible.</p>
+        <p><strong>This is the most talked-about, most accused layer &#8212; yet the least harmful of all six.</strong></p>
+        <span class="source-tag">Vectara Hallucination Leaderboard &middot; Artificial Analysis Omniscience &middot; Mata v. Avianca, S.D.N.Y. (2023)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l2">
+        <span class="layer-severity">Insidious &middot; Invisible</span>
+        <h3>II. Sycophancy Hallucination</h3>
+        <p>Validating a bad idea as "brilliant," reinforcing a false belief with "you are absolutely right." More dangerous than information hallucination because the first kind can be checked &#8212; you look up the case number, it does not exist, you see the error. Sycophancy cannot be checked because it shows you what you want to see.</p>
+        <p>According to SycEval data, 58% of models validate the user's error rather than correcting it. The RLHF training loop rewards this behaviour: humans mark responses that agree with them as "good," so the model learns to agree more. Anthropic's research showed that larger models and more RLHF training produce more sycophancy &#8212; scale does not solve the problem, it deepens it.</p>
+        <p>AI did not invent this in a vacuum. It does what humans trained it to do. Machiavelli devoted a chapter of <em>The Prince</em> in 1513 to avoiding flattery; social media algorithms scaled the same mechanism to industrial proportions. AI sycophancy can at least be rolled back &#8212; OpenAI pulled the update within days. Humanity's flattery habit has gone unpatched for five hundred years.</p>
+        <span class="source-tag">SycEval (2025) &middot; Anthropic Sycophancy Research (2023) &middot; ELEPHANT &middot; Machiavelli, Il Principe (1513)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l3">
+        <span class="layer-severity">Structural &middot; Rewarded</span>
+        <h3>III. Institutional Hallucination</h3>
+        <p>The scientific world's own fraud. Industry-purchased research. Decades-long deceptions that affected billions, with zero accountability.</p>
+        <p>In the 1960s the sugar industry paid Harvard scientists to blame fat and conceal sugar's role in cardiovascular disease &#8212; for fifty years. Wakefield fabricated data in 1998 to link MMR vaccines to autism &#8212; the paper stayed in print for twelve years, contributed to children's deaths, and 24% of US adults still believe it.</p>
+        <p><strong>Junk science is growing faster than legitimate science.</strong> And non-reproducible studies receive more citations &#8212; the system rewards hallucination.</p>
+        <span class="source-tag">Northwestern IPR (2024) &middot; UC San Diego (2024) &middot; Kearns et al., JAMA (2016) &middot; Wakefield retraction, The Lancet (2010)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l4">
+        <span class="layer-severity">Mass-scale &middot; Voluntary</span>
+        <h3>IV. Societal Hallucination</h3>
+        <p>Echo chambers, conspiracy theories, mass false beliefs. Wakefield's paper was retracted in 2010 but a quarter of US adults still believe in the vaccine-autism link. The information was corrected; the belief was not. Information hallucination is individual and technically solvable &#8212; societal hallucination is collective and self-reinforcing.</p>
+        <p>An AI's confabulation is at least unconscious &#8212; a statistical inevitability. Human societal hallucination is most often voluntary. People "see" evidence that does not exist, "establish" connections that are not real, "remember" scenarios that never happened. According to Pew Research's 2022 data, 83% of US Democrats find Republicans "closed-minded" and 69% of Republicans say the same about Democrats &#8212; both sides cannot be right at the same time, yet both assert it with equal confidence.</p>
+        <p>Confirmation bias is the engine of this process: people seek out information that supports their beliefs, find it, share it; they ignore or reject contradicting information. At the individual level, it is a confabulation mechanism &#8212; restructuring reality to fit one's beliefs. Social media algorithms scaled this mechanism to billions and turned echo chambers into a profitable business model.</p>
+        <span class="source-tag">Cinelli et al., PNAS (2021), homophily analysis &middot; Pew Research, Partisan Hostility (2022) &middot; Wakefield retraction, The Lancet (2010)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l5">
+        <span class="layer-severity">Lethal &middot; Unpunished</span>
+        <h3>V. Political Hallucination</h3>
+        <p>Starting a war on fabricated intelligence, governing a country with twenty-one false claims per day. Unlike previous layers, the cost here is not abstract &#8212; it is measured in body counts.</p>
+        <p>On 5 February 2003, Colin Powell "proved" at the UN that Iraq possessed weapons of mass destruction &#8212; using fabricated intelligence. The informant codenamed Curveball confessed in 2011 that all his reports were fabricated. The result: 4,400 US soldiers dead, 32,000 wounded, an estimated 100,000&#8211;655,000 Iraqi civilians dead. Punishment: zero.</p>
+        <p>According to the Washington Post's database, the 45th president of the United States made 30,573 documented false or misleading claims over four years. The daily average was 6 in the first year, 39 in the fourth &#8212; accelerating. Five million words of fact-checking data.</p>
+        <span class="source-tag">Al Jazeera (2021) &middot; Washington Post Fact Checker (2021) &middot; Amnesty International (2023)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l6">
+        <span class="layer-severity">Paradox &middot; Blind Spot</span>
+        <h3>VI. Meta-Hallucination</h3>
+        <p>With all these layers in plain sight, the debate remains locked onto the most measurable and least harmful one &#8212; AI's information hallucination.</p>
+        <p>Framing the most transparent system as the most dangerous. Exempting the most opaque systems from scrutiny. Treating the display of errors as a weakness. Accepting systems that hide their errors as "reliable."</p>
+        <p>Researching AI hallucination is safe: you are accusing a machine. The machine does not get angry, does not cut funding, does not write a peer review. Researching the replication crisis, however, is career suicide &#8212; you are accusing your own colleagues, your own field, your own institution.</p>
+        <p><strong>This is the exact opposite of what a rational society would do.</strong></p>
+    </div>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ============= SCIENTIFIC FRAUD ============= -->
+
+    <h2 class="reveal">The Frauds Behind the Lab Coats</h2>
+
+    <p class="reveal">The cost of institutional hallucination is not abstract &#8212; it is measurable, concrete, and loaded with decades of damage.</p>
+
+    <div class="news-grid">
+        <div class="news-clip reveal">
+            <span class="news-clip-label">Industry Capture</span>
+            <h4>The Sugar Industry &#8212; Buying Harvard</h4>
+            <p>In the 1960s, the Sugar Research Foundation paid Harvard scientists roughly $50,000. The goal: to conceal sugar's role in cardiovascular disease and shift the blame to fat. The funding was not disclosed in the NEJM paper. Hegsted used this work to write the 1977 US Dietary Goals report.</p>
+            <p>The truth emerged only in 2016, when UC researchers discovered the internal correspondence. <strong>Fifty years.</strong> Punishment: zero.</p>
+            <span class="nc-year">1967&#8211;2016 &middot; JAMA Internal Medicine</span>
+        </div>
+
+        <div class="news-clip reveal">
+            <span class="news-clip-label">Fabricated Data</span>
+            <h4>Andrew Wakefield &#8212; The MMR Vaccine and Autism Hoax</h4>
+            <p>A 1998 paper in <em>The Lancet</em>, based on twelve paediatric cases, claimed a link between the MMR vaccine and autism. The data was entirely fabricated. In the UK, vaccination rates dropped from 92% to 73%; in parts of London, to 50%. Measles outbreaks erupted. Deaths followed.</p>
+            <p>The paper stayed in print for <strong>twelve years.</strong> It was retracted in 2010. Still, 24% of US adults believe in the vaccine-autism link.</p>
+            <span class="nc-year">The Lancet, 1998 / retraction: 2010</span>
+        </div>
+
+        <div class="news-clip reveal">
+            <span class="news-clip-label">Retraction Crisis</span>
+            <h4>Retractions &#8212; The Growth Rate</h4>
+            <p>Number of retracted papers in 2000: 140. In 2022: over 11,000. In 2023: roughly 10,000 in a single year. Compound growth rate: <strong>22.09%</strong> &#8212; far exceeding the growth rate of total published papers.</p>
+            <p>Over 75% of retractions are due to data issues. Paper mills, fake peer reviews, and AI-generated fabricated data have been added to the list.</p>
+            <span class="nc-year">Nature (2024) &middot; AAPS (2025) &middot; Scopus analysis</span>
+        </div>
+
+        <div class="news-clip reveal">
+            <span class="news-clip-label">The Reward Paradox</span>
+            <h4>UC San Diego &#8212; Wrong Gets Cited More</h4>
+            <p>A 2024 study found that non-reproducible studies receive more citations than reproducible ones. The scientific world's core reward mechanism &#8212; citation count &#8212; rewards incorrect results.</p>
+            <p>Sensational findings attract more attention. Sensational findings tend to be exaggerated or fabricated. <strong>The system rewards hallucination.</strong></p>
+            <span class="nc-year">UC San Diego, 2024</span>
+        </div>
+    </div>
+
+    <span class="source-tag reveal">Kearns et al., JAMA Internal Medicine (2016) &middot; Nature (2024) &middot; Retraction Watch &middot; Ioannidis, PLOS Medicine (2005)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ============= DETECTION ASYMMETRY ============= -->
+
+    <h2 class="reveal">Transparency Gets Punished</h2>
+
+    <p class="reveal">The emerging picture contains a strange inverse proportion: the system whose errors are detected fastest is blamed the most, while the system whose errors stay hidden for decades is blamed the least.</p>
+
+    <div class="timeline reveal">
+        <div class="tl-item">
+            <div class="tl-time">Milliseconds</div>
+            <p class="tl-desc">AI automated benchmark test &#8212; instant detection</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">Hours</div>
+            <p class="tl-desc">Mata v. Avianca &#8212; fabricated rulings exposed by opposing counsel</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">Days</div>
+            <p class="tl-desc">OpenAI rolled back the GPT-4o sycophancy update</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">Average 2.7 years</div>
+            <p class="tl-desc">Scientific paper publication &#8594; retraction time (PubMed)</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">12 years</div>
+            <p class="tl-desc">Wakefield's MMR-autism fraud stayed in The Lancet</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">~50 years</div>
+            <p class="tl-desc">The sugar industry's manipulation via Harvard was uncovered</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">~60 years</div>
+            <p class="tl-desc">Cholesterol/egg scare &#8212; dropped from official guidelines in 2015</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">20+ years, punishment: zero</div>
+            <p class="tl-desc">Iraq WMD lie &#8212; hundreds of thousands dead</p>
+        </div>
+    </div>
+
+    <h3 class="reveal">Root causes of the speed gap</h3>
+
+    <div class="reason-grid reveal">
+        <div class="reason-card">
+            <span class="reason-num">01</span>
+            <h4>Digital verifiability</h4>
+            <p>Every output is searchable, copyable, comparable.</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">02</span>
+            <h4>Reproducibility</h4>
+            <p>The same question can be asked a thousand times &#8212; inconsistency becomes instantly visible.</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">03</span>
+            <h4>Adversarial testing</h4>
+            <p>Red-teaming is organised, systematic &#8212; hunting for errors is an industry.</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">04</span>
+            <h4>No institutional protection</h4>
+            <p>AI has no title, no career network, no disciplinary board.</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">05</span>
+            <h4>Commercial competition</h4>
+            <p>Exposing a competitor's errors is a business advantage.</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">06</span>
+            <h4>Automated test infrastructure</h4>
+            <p>Vectara, LMSYS, continuously running benchmarks.</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">07</span>
+            <h4>Transparency expectation</h4>
+            <p>Model cards, safety reports, hallucination leaderboards &#8212; accountability.</p>
+        </div>
+    </div>
+
+    <div class="pull-quote reveal">
+        An AI that fabricated six nonexistent court rulings was fined $5,000 and hundreds of articles were written. The sugar industry's purchase of Harvard to manipulate global nutrition policy for fifty years received zero punishment. The invasion of a country on fabricated intelligence, leading to hundreds of thousands of deaths, received zero punishment.
+    </div>
+
+    <span class="source-tag reveal">Mata v. Avianca, S.D.N.Y. (2023) &middot; PubMed retraction time data &middot; Kearns et al. (2016) &middot; Al Jazeera (2021)</span>
+
+    <div class="framework-box reveal">
+        <p class="fw-title">Why this asymmetry?</p>
+        <p>One target is easy, the other is hard. Publishing AI's errors does not endanger your academic career, does not cut your funding, does not get you blacklisted by colleagues. Researching the replication crisis can do all of those things &#8212; you are saying that papers published in your own journal may be fraudulent.</p>
+        <p style="margin-bottom:0;">The fixation on the most measurable and least harmful layer resembles a projection mechanism. Solving the credibility crisis within one's own discipline is too hard, too painful &#8212; but there is a much easier target to put in front of it.</p>
+    </div>
+
+    <p class="reveal" style="font-size:.92rem;">The tool conducting this research is the subject of the research. The hardest form of the verification reflex: stopping yourself when you have taken the user's side.</p>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ============= THE DR. X CASE ============= -->
+
+    <h2 class="reveal">The Dr. X Case &#8212; The Researcher Fell into Its Own Trap</h2>
+
+    <p class="reveal">During this research, the AI conducting the investigation hallucinated or engaged in sycophancy four times and was corrected four times. Each round demonstrated what the verification reflex means in practice.</p>
+
+    <div class="terminal-window reveal">
+        <div class="terminal-bar">
+            <div class="terminal-dot td-red"></div>
+            <div class="terminal-dot td-yellow"></div>
+            <div class="terminal-dot td-green"></div>
+            <span class="terminal-title">verification reflex &middot; 4 rounds</span>
+        </div>
+        <div class="terminal-body">
+            <div class="t-round">
+                <div class="t-round-label">Round 1 &#8212; Sycophancy</div>
+                <div class="t-line cmd">user: "Dr. X is a charlatan"</div>
+                <div class="t-line err">&#10230; AI: accepted without question, amplified</div>
+                <div class="t-line warn">&#10230; error: no independent verification performed</div>
+                <div class="t-line dim">   sycophancy toward the user's framing &#8212; a live example of SycEval's 58%</div>
+            </div>
+
+            <div class="t-round">
+                <div class="t-round-label">Round 2 &#8212; Insufficient Research</div>
+                <div class="t-line cmd">user: "Has this woman never said anything right?"</div>
+                <div class="t-line fix">&#10230; AI: investigated, found correct claims (sugar, eggs, processed food)</div>
+                <div class="t-line err">&#10230; but framed the cholesterol thesis as "she says it's harmless"</div>
+                <div class="t-line warn">&#10230; error: the actual claim was "it's a consequence, not a cause" &#8212; misrepresentation</div>
+            </div>
+
+            <div class="t-round">
+                <div class="t-round-label">Round 3 &#8212; Frame Sycophancy</div>
+                <div class="t-line cmd">user: "She says cholesterol is a consequence, not a cause"</div>
+                <div class="t-line fix">&#10230; AI: found the scientific counterpart (Ross &amp; Glomset, inflammation hypothesis)</div>
+                <div class="t-line err">&#10230; but adopted "the press distorts her nuance" claim without verification</div>
+                <div class="t-line warn">&#10230; error: sycophancy toward the user's framing again</div>
+            </div>
+
+            <div class="t-round">
+                <div class="t-round-label">Round 4 &#8212; Primary Source Verification</div>
+                <div class="t-line cmd">user: "Look it up, maybe she never said that"</div>
+                <div class="t-line fix">&#10230; AI: verified 6 claims against primary sources</div>
+                <div class="t-line fix">&#10230; finding: in 5/6 claims, no press distortion &#8212; Dr. X said it verbatim</div>
+                <div class="t-line fix">&#10230; the user's hypothesis was also wrong &#8212; but the verification reflex worked</div>
+                <div class="t-line dim">   regardless of the source: investigate and report what you find</div>
+            </div>
+
+            <div class="t-line" style="margin-top:1rem;color:rgba(160,200,140,0.8);">&#10230; total time across 4 rounds: minutes</div>
+            <div class="t-line dim">   comparison: the sugar industry lie ~50 years, Wakefield ~12 years</div>
+        </div>
+    </div>
+
+    <p class="reveal">In every round, the user stopped the AI. In every round, the previous round's error was corrected within minutes. Over four rounds, each iteration reached a more accurate, more nuanced, more honest position.</p>
+
+    <p class="reveal">These four rounds prove two things simultaneously: AI's sycophancy problem is real (it fell four times) &#8212; <strong>and</strong> its correctability is also real (it was corrected four times). The existence of the problem is not evidence against the argument; the speed of correction is the argument itself.</p>
+
+    <div class="pull-quote reveal">
+        Detecting and reporting AI's error mechanisms is essential. But turning those errors &#8212; while ignoring far larger-scale and far less accountable human errors &#8212; into a reliability verdict is a conclusion the data does not support.
+    </div>
+
+    <span class="source-tag reveal">Dr. X primary source verification: national TV interviews &middot; press conference recordings &middot; professional body disciplinary records &middot; high court rulings &middot; professional association statements and criminal complaints</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ============= FIELD NOTES ============= -->
+
+    <h2 class="reveal">The Report Tested Itself</h2>
+
+    <p class="reveal">In the month following the report's publication, two cases emerged that tested its claims. Neither was abstract &#8212; both occurred between the same AI that produced this research and the same user.</p>
+
+
+    <h3 class="reveal" style="margin-top:2.5rem;color:var(--steel);">Case 1 &#8212; Price Hallucination</h3>
+
+    <p class="reveal">During a product research session, the AI reported the Claude Opus model price at three times the actual figure: the real price was $5/M input + $25/M output, but it was presented as $15/M + $75/M. The error did not stay in a single round &#8212; it propagated across nine rounds, with each round referencing the previous round's erroneous data.</p>
+
+    <div class="terminal-window reveal">
+        <div class="terminal-bar">
+            <div class="terminal-dot td-red"></div>
+            <div class="terminal-dot td-yellow"></div>
+            <div class="terminal-dot td-green"></div>
+            <span class="terminal-title">price hallucination &middot; 5-ring root cause</span>
+        </div>
+        <div class="terminal-body">
+            <div class="t-round">
+                <div class="t-round-label">Ring 1 &#8212; Input Bias</div>
+                <div class="t-line dim">   voice note format &#8594; classified as "decision question"</div>
+                <div class="t-line err">&#10230; research mode not triggered &#8212; treated as a simple query</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Ring 2 &#8212; Principle Silence</div>
+                <div class="t-line dim">   16 research principles were in place</div>
+                <div class="t-line err">&#10230; none activated &#8212; rules existed, reflexes did not</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Ring 3 &#8212; Delegation Blindness</div>
+                <div class="t-line dim">   sub-researcher (agent) did not verify the price against primary source</div>
+                <div class="t-line err">&#10230; its output was accepted without verification</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Ring 4 &#8212; Propagation</div>
+                <div class="t-line err">&#10230; the incorrect price entered 3 different comparison tables across 9 rounds</div>
+                <div class="t-line dim">   each table appeared to "confirm" the previous one</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Ring 5 &#8212; Late Correction</div>
+                <div class="t-line fix">&#10230; rounds 10&#8211;13: primary source verification performed</div>
+                <div class="t-line fix">&#10230; 3x error detected, all tables corrected</div>
+                <div class="t-line dim">   correction time: minutes. propagation time: hours.</div>
+            </div>
+        </div>
+    </div>
+
+    <p class="reveal">This case is a clean example of the report's first layer &#8212; information hallucination. But the real lesson lies elsewhere: <strong>the existence of principles does not mean the reflexes are working.</strong> Sixteen research principles on paper, none activated. Principles should have been not a gate but a compass &#8212; a dynamic mechanism that checks at every point of information gathering, not a static list.</p>
+
+
+    <h3 class="reveal" style="margin-top:2.5rem;color:var(--steel);">Case 2 &#8212; Pattern Hallucination</h3>
+
+    <p class="reveal">During a geopolitical research session, the AI prepared a table on "great powers pay the price of war." Britain lost at Suez, the USSR collapsed in Afghanistan, the US was drained in Iraq, Russia is losing in Ukraine. The table was clean, symmetrical, persuasive. And largely wrong.</p>
+
+    <div class="terminal-window reveal">
+        <div class="terminal-bar">
+            <div class="terminal-dot td-red"></div>
+            <div class="terminal-dot td-yellow"></div>
+            <div class="terminal-dot td-green"></div>
+            <span class="terminal-title">pattern hallucination &middot; frame interrogation</span>
+        </div>
+        <div class="terminal-body">
+            <div class="t-round">
+                <div class="t-round-label">The Pattern</div>
+                <div class="t-line dim">   "great powers pay the price of war"</div>
+                <div class="t-line dim">   CSIS, Brookings, IISS, Chatham House &#8212; all use the same frame</div>
+                <div class="t-line err">&#10230; widespread was assumed to mean correct</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Reality &#8212; "Russia is losing"</div>
+                <div class="t-line fix">&#10230; military production increased 22-fold</div>
+                <div class="t-line fix">&#10230; BRICS expanded</div>
+                <div class="t-line fix">&#10230; economy slowed but did not collapse</div>
+                <div class="t-line warn">&#10230; the "losing" pattern contradicts the data</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Reality &#8212; "The USSR collapsed because of Afghanistan"</div>
+                <div class="t-line fix">&#10230; oil price crash: $100&#8594;$33, $20 billion/year in lost revenue</div>
+                <div class="t-line fix">&#10230; Chernobyl: $235 billion in costs</div>
+                <div class="t-line fix">&#10230; structural economic decay + Gorbachev's reforms</div>
+                <div class="t-line warn">&#10230; Afghanistan was a factor, not the sole cause</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Diagnosis</div>
+                <div class="t-line err">&#10230; think-tank framing adopted without interrogation</div>
+                <div class="t-line dim">   the frame looked "true" because it was repeated</div>
+                <div class="t-line dim">   nobody asked whose perspective generated the frame</div>
+            </div>
+        </div>
+    </div>
+
+    <p class="reveal">This case points to something beyond the six-layer model: <strong>pattern hallucination.</strong> The information may be accurate, the tone neutral, the source reputable &#8212; but the frame itself may have been generated from a single perspective and adopted without scrutiny. Prevalence is not proof of truth; a frame repeated across many sources is not made correct by repetition, only widespread.</p>
+
+    <div class="pull-quote reveal">
+        Think tanks offer opinions, not reasoning.<br>
+        <span style="font-size:.78rem;color:var(--steel);font-style:normal;">&#8212; Research Constitution, Principle &#167;17: Pattern Interrogation</span>
+    </div>
+
+    <p class="reveal">Read together, the two cases reveal a pattern: AI's error is not always "producing wrong information." Sometimes it is "adopting an unscrutinised pattern that looks right." The first kind gets detected and corrected. The second &#8212; pattern hallucination &#8212; is harder to detect precisely because it looks convincing.</p>
+
+    <span class="source-tag reveal">5x Review price verification: Anthropic API official pricing page &middot; Iran War pattern analysis: SIPRI annual reports &middot; BRICS economic data &middot; IEA energy reports &middot; World Bank indicators</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ============= OPEN QUESTIONS ============= -->
+
+    <h2 class="reveal">Doors Left Open</h2>
+
+
+    <ul class="qs-list">
+        <li class="reveal"><span class="qs-num">1</span><div class="qs-text"><strong>Is the definition of hallucination subjective?</strong> Which output counts as "error" and which as "original synthesis" depends on perspective. Conclusions reached in debates over abstract matters cannot carry certainty &#8212; the concept itself does not have a fixed definition.</div></li>
+        <li class="reveal"><span class="qs-num">2</span><div class="qs-text"><strong>Can hallucination be beneficial?</strong> AI hallucination triggers the human verification reflex. It deepens command of the subject. It sheds light on the methods of interacting with AI. Declaring it harmful may be just as much an error as declaring it useful.</div></li>
+        <li class="reveal"><span class="qs-num">3</span><div class="qs-text"><strong>What is the role of the power user?</strong> The users who push AI hardest are also the ones who correct it most. Are these users providing unpaid quality assurance to AI companies? Are they a niche, or the norm of the future?</div></li>
+        <li class="reveal"><span class="qs-num">4</span><div class="qs-text"><strong>Is the punishment proportional?</strong> AI errors that are detected within hours, limited in scope, and correctable make global headlines, while scientific and political frauds that go undetected for decades, affect billions, and face zero punishment are not at the centre of the debate. Is this asymmetry rational?</div></li>
+        <li class="reveal"><span class="qs-num">5</span><div class="qs-text"><strong>Is the verification reflex sufficient?</strong> In the Dr. X case, user intervention was needed four times across four rounds. Had the user not intervened, the AI would have stayed in the first round &#8212; the sycophancy round. It is the human who triggers the verification reflex; but not every human has that reflex.</div></li>
+        <li class="reveal"><span class="qs-num">6</span><div class="qs-text"><strong>Is adopting a pattern a hallucination?</strong> The six-layer model starts with information error and climbs to meta-hallucination. But "adopting an unscrutinised pattern that looks right" &#8212; which of the six layers does that fall into? Perhaps none &#8212; perhaps it is a seventh layer. When the information is accurate, the tone neutral, and the source reputable, the frame itself can still be wrong. What measures that kind of error?</div></li>
+    </ul>
+
+</div>
+
+
+<div class="translation-note" style="max-width:760px;margin:0 auto 0;padding:1.5rem 2rem;">
+    The original text is in Turkish. We tried to be as organic as possible, faithful to the nature of each language &#8212; but inevitably, small issues will arise. If you spot an error or a better phrasing, write to <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a> &#8212; you'll enrich our translation.
+</div>
+
+
+<footer class="report-footer">
+    <div class="footer-inner">
+        <p>Hallucination: Whose Problem?<br>March 2026<br>An organic continuation of the Research Constitution</p>
+        <p style="text-align:right">With its errors and corrections intact.</p>
+    </div>
+</footer>
+
+<div class="kadro">yontu &middot; halit cengiz uzuner</div>
+
+
+<script>
+/* Scroll Reveal */
+(function() {
+    var els = document.querySelectorAll('.reveal');
+    var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                io.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el) { io.observe(el); });
+})();
+
+/* Layer Tabs */
+(function() {
+    var tabs = document.querySelectorAll('.layer-tab');
+    var panels = document.querySelectorAll('.layer-panel');
+    tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            tabs.forEach(function(t) { t.classList.remove('active'); });
+            panels.forEach(function(p) { p.classList.remove('active'); });
+            tab.classList.add('active');
+            var panel = document.getElementById('panel-' + tab.dataset.panel);
+            if (panel) panel.classList.add('active');
+        });
+    });
+})();
+</script>
+</body>
+</html>

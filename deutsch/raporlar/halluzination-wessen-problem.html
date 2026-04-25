@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halluzination: Wessen Problem? — Eine Meta-Forschung in sechs Schichten</title>
+<meta name="description" content="Vergleichende Analyse der Wissensproduktionsfehler künstlicher Intelligenz und des Menschen. Ein Sechsschichtenmodell.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Halluzination: Wessen Problem?">
+<meta property="og:description" content="Sechs Schichten der KI-Halluzination — eine vergleichende Meta-Forschung zu den Wissensproduktionsfehlern des Menschen.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/deutsch/raporlar/halluzination-wessen-problem.html">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-04-25">
+<link rel="canonical" href="https://halitcengizuzuner.com/deutsch/raporlar/halluzination-wessen-problem.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/halusinasyon-kimin-sorunu.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/halluzination-wessen-problem.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/halusinasyon-kimin-sorunu.html">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Halluzination: Wessen Problem?">
+<meta name="twitter:description" content="Sechs Schichten der KI-Halluzination — eine vergleichende Meta-Forschung zu den Wissensproduktionsfehlern des Menschen.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Halluzination: Wessen Problem? — Eine Meta-Forschung in sechs Schichten",
+  "description": "Vergleichende Analyse der Wissensproduktionsfehler künstlicher Intelligenz und des Menschen. Ein Sechsschichtenmodell.",
+  "datePublished": "2026-04-25",
+  "dateModified": "2026-04-25",
+  "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/deutsch/raporlar/halluzination-wessen-problem.html"},
+  "inLanguage": "de",
+  "translationOfWork": {"@type": "Article", "url": "https://halitcengizuzuner.com/raporlar/halusinasyon-kimin-sorunu.html", "inLanguage": "tr"}
+}
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --steel: #7890a0;
+    --steel-dim: rgba(120, 144, 160, 0.12);
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--steel);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.2vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.15;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+@media print {
+    body::before { display: none !important; }
+}
+
+/* ========== HEADER ========== */
+.report-header {
+    min-height: 60vh;
+    padding: 4rem 2rem 4rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.report-header h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 400;
+    color: var(--bone-bright);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.2rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--bone-dim);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.meta {
+    font-size: 0.75rem;
+    color: var(--steel);
+    letter-spacing: 0.15em;
+}
+
+/* ========== INHALT ========== */
+.content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+}
+
+.content h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 400;
+    color: var(--bone-bright);
+    margin: 3.5rem 0 1.5rem;
+    line-height: 1.2;
+}
+
+.content h2:first-child { margin-top: 0; }
+
+.content h3 {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--bone-bright);
+    margin: 2.5rem 0 1rem;
+    font-style: italic;
+}
+
+.content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+.content strong { color: var(--bone-bright); }
+
+.section-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--steel);
+    margin: 3.5rem auto;
+    opacity: 0.5;
+}
+
+/* ========== PULL QUOTE ========== */
+.pull-quote {
+    border-left: 1px solid var(--steel);
+    padding: 1rem 0 1rem 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* ========== KONTEXTFELD ========== */
+.context-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    margin: 2rem 0;
+    border: 1px solid var(--bone-ghost);
+}
+
+.context-cell {
+    padding: 1.5rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.context-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--steel);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.context-cell p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--bone-dim);
+}
+
+/* ========== ZÄHLERBLOCK ========== */
+.counter-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 2.5rem 0;
+    margin: 1.5rem 0;
+}
+
+.counter-item { text-align: center; min-width: 130px; }
+
+.counter-num {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--bone-bright);
+    display: block;
+    margin-bottom: 0.3rem;
+    font-style: italic;
+}
+
+.counter-label {
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: var(--bone-dim);
+    display: block;
+    max-width: 150px;
+    margin: 0 auto;
+}
+
+/* ========== VERGLEICH ========== */
+.compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.compare-col {
+    padding: 2rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.compare-col h4 {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+    color: var(--steel);
+    font-weight: 400;
+}
+
+.compare-col ul { list-style: none; }
+
+.compare-col li {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--bone-ghost);
+    color: var(--bone-dim);
+}
+
+.compare-col li:last-child { border-bottom: none; }
+.compare-col li strong { color: var(--bone-bright); font-size: 0.85rem; }
+
+/* ========== PRESSESPIEGEL ========== */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.news-clip {
+    padding: 1.8rem;
+    background: rgba(212, 204, 192, 0.02);
+    border-top: 1px solid var(--steel);
+}
+
+.news-clip-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--steel);
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.news-clip h4 {
+    font-size: 0.95rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.news-clip p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--bone-dim);
+    margin-bottom: 0.5rem;
+}
+
+.nc-year {
+    font-size: 0.7rem;
+    color: var(--bone-dim);
+    display: block;
+    margin-top: 0.8rem;
+    opacity: 0.6;
+}
+
+/* ========== SECHS SCHICHTEN ========== */
+.layer-tabs {
+    display: flex;
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin-bottom: 0;
+    overflow-x: auto;
+}
+
+.layer-tab {
+    flex: 1;
+    min-width: 80px;
+    padding: 0.8rem 0.5rem;
+    background: rgba(212, 204, 192, 0.02);
+    border: none;
+    color: var(--bone-dim);
+    font-family: var(--serif);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    line-height: 1.4;
+    border-top: 1px solid transparent;
+}
+
+.layer-tab:hover { color: var(--bone); background: rgba(212, 204, 192, 0.04); }
+
+.layer-tab.active {
+    color: var(--bone-bright);
+    background: var(--void);
+    border-top-color: var(--steel);
+}
+
+.layer-panel {
+    display: none;
+    border: 1px solid var(--bone-ghost);
+    border-top: none;
+    padding: 2.5rem;
+}
+
+.layer-panel.active { display: block; }
+
+.layer-panel h3 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0 0 1rem;
+    color: var(--bone-bright);
+}
+
+.layer-panel p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+.layer-severity {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--steel);
+    color: var(--steel);
+    margin-bottom: 1rem;
+}
+
+/* ========== TERMINAL ========== */
+.terminal-window {
+    background: rgba(212, 204, 192, 0.02);
+    border: 1px solid var(--bone-ghost);
+    overflow: hidden;
+    margin: 2rem 0;
+}
+
+.terminal-bar {
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-bottom: 1px solid var(--bone-ghost);
+}
+
+.terminal-dot { width: 7px; height: 7px; border-radius: 50%; }
+.td-red { background: rgba(200, 120, 100, 0.6); }
+.td-yellow { background: rgba(200, 180, 100, 0.6); }
+.td-green { background: rgba(140, 180, 120, 0.6); }
+
+.terminal-title {
+    margin-left: 0.5rem;
+    font-size: 0.65rem;
+    color: var(--bone-dim);
+    letter-spacing: 0.06em;
+}
+
+.terminal-body {
+    padding: 1.5rem;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.t-line {
+    font-size: 0.78rem;
+    line-height: 1.8;
+    color: var(--bone-dim);
+    white-space: pre-wrap;
+}
+
+.t-line.cmd { color: var(--bone-bright); }
+.t-line.cmd::before { content: '$ '; color: var(--bone-dim); }
+.t-line.err { color: rgba(200, 140, 120, 0.8); }
+.t-line.fix { color: rgba(160, 200, 140, 0.8); }
+.t-line.warn { color: var(--steel); }
+.t-line.dim { color: var(--bone-dim); font-size: 0.7rem; opacity: 0.6; }
+
+.t-round {
+    border-left: 1px solid var(--bone-ghost);
+    padding-left: 1rem;
+    margin: 0.8rem 0;
+}
+
+.t-round-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--bone-dim);
+    margin-bottom: 0.3rem;
+}
+
+/* ========== ZEITLEISTE ========== */
+.timeline {
+    position: relative;
+    padding: 1rem 0 1rem 2.5rem;
+    margin: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.8rem;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: var(--bone-ghost);
+}
+
+.tl-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.tl-item::before {
+    content: '';
+    position: absolute;
+    left: -1.95rem;
+    top: 0.5rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--steel);
+}
+
+.tl-time {
+    font-size: 0.72rem;
+    color: var(--steel);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.2rem;
+}
+
+.tl-desc {
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ========== GRUNDKARTEN ========== */
+.reason-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.reason-card {
+    padding: 1.5rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.reason-num {
+    font-size: 0.7rem;
+    color: var(--steel);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.reason-card h4 {
+    font-size: 0.88rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.5rem;
+}
+
+.reason-card p {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--bone-dim);
+    margin: 0;
+}
+
+/* ========== OFFENE FRAGEN ========== */
+.qs-list { list-style: none; }
+
+.qs-list li {
+    display: flex;
+    gap: 1.2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--bone-ghost);
+    align-items: flex-start;
+}
+
+.qs-num {
+    font-size: 0.75rem;
+    color: var(--bone-dim);
+    min-width: 24px;
+    padding-top: 0.1rem;
+}
+
+.qs-text { flex: 1; }
+
+.qs-text strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+    color: var(--bone-bright);
+    font-weight: 400;
+    font-style: italic;
+}
+
+.qs-text p, .qs-text {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--bone-dim);
+}
+
+/* ========== RAHMENKASTEN ========== */
+.framework-box {
+    border: 1px solid var(--bone-ghost);
+    padding: 2rem;
+    margin: 2rem 0;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.fw-title {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.8rem;
+}
+
+/* ========== QUELLENANGABE ========== */
+.source-tag {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--bone-ghost);
+    opacity: 0.6;
+}
+
+/* ========== FUSSZEILE ========== */
+.report-footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.report-footer p {
+    font-size: 0.75rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+    opacity: 0.5;
+}
+
+/* ========== KADRO ========== */
+.kadro {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+    font-size: 0.7rem;
+    color: var(--bone-dim);
+    opacity: 0.4;
+    text-align: center;
+}
+
+/* ========== SCROLL REVEAL ========== */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* ========== RESPONSIV ========== */
+@media (max-width: 680px) {
+    .content { padding: 0 1.2rem 4rem; }
+    .report-header { padding: 3rem 1.2rem 3rem; }
+    .context-grid,
+    .compare-grid,
+    .news-grid,
+    .reason-grid { grid-template-columns: 1fr; }
+    .counter-block { gap: 1.5rem; }
+    .layer-tabs { flex-wrap: wrap; }
+    .layer-tab { min-width: calc(33% - 1px); }
+    .layer-panel { padding: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal { transition: none; opacity: 1; transform: none; }
+}
+
+/* ========== HÖRVERSION ========== */
+.dinle-kapisi {
+    margin-top: 2.5rem;
+}
+
+.dinle-kapisi summary {
+    font-size: 0.85rem;
+    color: var(--bone-ghost);
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    list-style: none;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi summary::-webkit-details-marker { display: none; }
+.dinle-kapisi summary::marker { display: none; content: ''; }
+
+.dinle-kapisi summary::before {
+    content: '▸ ';
+    display: inline;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi[open] summary::before {
+    content: '▾ ';
+}
+
+.dinle-kapisi summary:hover {
+    color: var(--bone-dim);
+}
+
+.dinle-kapisi[open] summary {
+    color: var(--bone-dim);
+    margin-bottom: 1.2rem;
+}
+
+.dinle-icerik {
+    padding: 1.5rem;
+    border: 1px solid var(--bone-ghost);
+    max-width: 480px;
+}
+
+.dinle-icerik p {
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.dinle-icerik p:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.dinle-icerik a {
+    color: var(--bone-bright);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--bone-ghost);
+    transition: color 0.3s, text-decoration-color 0.3s;
+}
+
+.dinle-icerik a:hover {
+    color: var(--bone-bright);
+    text-decoration-color: var(--bone-bright);
+}
+
+.dinle-git {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+}
+
+/* ===== LANGUAGE BAR ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+
+/* ===== TRANSLATION NOTE ===== */
+.translation-note {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--bone-ghost);
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+.translation-note a {
+    color: var(--bone-bright);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--bone-ghost);
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="Sprache">
+    <a href="/raporlar/halusinasyon-kimin-sorunu.html" class="lang-link">Türkçe</a>
+    <span class="lang-sep">·</span>
+    <a href="/english/" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/" class="lang-link">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/raporlar/halluzination-wessen-problem.html" class="lang-link lang-active">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/" class="lang-link">Español</a>
+</nav>
+
+
+<header class="report-header">
+    <h1>Halluzination<br>Wessen Problem?</h1>
+    <p class="subtitle">Vergleichende Analyse der Wissensproduktionsfehler künstlicher Intelligenz<br>und des Menschen. Ein Sechsschichtenmodell.</p>
+    <p class="meta">März 2026</p>
+
+    <details class="dinle-kapisi">
+        <summary>Hörfassung dieser Untersuchung</summary>
+        <div class="dinle-icerik">
+            <p>Keine Tonaufnahme. Derselbe Gedanke, neu geordnet für das Ohr — Satzrhythmus, Informationsfolge, Atempausen sind anders. Kann mit einem Vorlesewerkzeug gehört werden.</p>
+            <p>Lesen bleibt stets unsere Empfehlung. Das Auge springt zurück, hält inne, liest nochmals — diesen Luxus hat das Ohr nicht. Über diesen Unterschied selbst haben wir eine eigene Untersuchung: <a href="yazidan-sese.html">Vom Schreiben zum Hören</a>.</p>
+            <a href="halusinasyon-kimin-sorunu-dinle.html" class="dinle-git">Zur Hörfassung →</a>
+        </div>
+    </details>
+</header>
+
+
+<div class="content">
+
+    <!-- ═══════════════ KONTEXT ═══════════════ -->
+
+    <h2 class="reveal">Eine Frage aus der Forschungsverfassung</h2>
+
+    <div class="pull-quote reveal">
+        „Halluzination einer KI und Forschungsfehler — der Mechanismus ist verschieden, das Ergebnis dasselbe. Warum behandeln wir beides unterschiedlich?"
+        <br><span style="font-size:.78rem;color:var(--steel);font-style:normal;">— Forschungsverfassung, Offene Frage §4</span>
+    </div>
+
+    <div class="context-grid reveal">
+        <div class="context-cell">
+            <span class="context-label">Ausgangspunkt</span>
+            <p>Die vierte offene Frage der Forschungsverfassung war der Keim dieser Untersuchung. Halluzination ist kein einzelnes Phänomen, sondern ein Schichtgebilde.</p>
+        </div>
+        <div class="context-cell">
+            <span class="context-label">Methode</span>
+            <p>Vergleichende Datenanalyse. Fehlerquoten, Erkennungszeiten und Bestrafungsasymmetrien zwischen KI und Mensch.</p>
+        </div>
+        <div class="context-cell">
+            <span class="context-label">Grenze</span>
+            <p>Dieses Thema eignet sich nicht für ein Urteil, sondern für fortlaufendes Hinterfragen. Sein Wert liegt nicht in einem Sicherheitsanspruch, sondern darin, die Frage offenzuhalten.</p>
+        </div>
+        <div class="context-cell">
+            <span class="context-label">Selbstanwendung</span>
+            <p>Diese Untersuchung hat im Forschungsprozess selbst viermal halluziniert und wurde viermal korrigiert. Der Prozess ist Teil des Arguments.</p>
+        </div>
+    </div>
+
+    <p class="reveal">Diese Untersuchung ist das Feld, auf dem der in der Forschungsverfassung formulierte <strong>Verifikationsreflex</strong> erprobt wird. Der Verifikationsreflex wird nirgendwo dringender gebraucht als bei der Analyse des eigenen Fehlermechanismus der KI — denn die forschende KI ist zugleich Gegenstand der Forschung.</p>
+
+    <p class="reveal">Schon die Definition von Halluzination ist wertbeladen — welche Ausgabe als „Fehler" und welche als „Interpretation" gilt, hängt von der Perspektive ab. Bei abstrakten Debatten können die gewonnenen Überzeugungen keine Gewissheit beanspruchen. Diese Untersuchung strebt kein Ergebnis an, sondern eine Kartierung.</p>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ TERMINOLOGIE ═══════════════ -->
+
+    <h2 class="reveal">Halluzination oder Konfabulation?</h2>
+
+    <p class="reveal"><strong>Halluzination</strong> ist ein Begriff aus Psychiatrie und Neurologie: die Wahrnehmung von etwas, das nicht existiert. Ein Schizophreniepatient, der Stimmen hört, die nicht da sind. Eine Wahrnehmungsstörung.</p>
+
+    <p class="reveal">Ein Sprachmodell nimmt nicht wahr. Es erzeugt aus Milliarden von Textmustern in seinen Trainingsdaten durch statistische Inferenz das nächstwahrscheinliche Wort. Es hat kein Bewusstsein, keine Absicht, keine Täuschungsabsicht.</p>
+
+    <p class="reveal">In der Neurologie lautet die Entsprechung für dieses Verhalten <strong>Konfabulation</strong>: das zuversichtliche Füllen von Gedächtnislücken. Man beobachtet es bei Patienten mit Hirnschädigungen — wenn der Patient sich an etwas nicht erinnert, füllt er die Lücke mit einer plausibel erscheinenden, aber unwahren Information. Er tut dies aufrichtig. Er lügt nicht. Er weiß nicht, dass er nicht weiß.</p>
+
+    <div class="framework-box reveal">
+        <p class="fw-title">Warum setzte sich „Halluzination" statt „Konfabulation" durch?</p>
+        <p style="margin-bottom:0;">„Halluzination" ist ein weitaus bedrohlicheres Wort. Sein Schlagzeilenwert ist ungleich höher. „Diese Maschine halluziniert!" fesselt die Aufmerksamkeit weit mehr als „Diese Maschine füllt Wissenslücken auf." Aufmerksamkeit nützt sowohl den Medien als auch der Wissenschaft. Schon die Terminologiewahl ist eine Rahmungsentscheidung — und Rahmungsentscheidungen sind niemals unschuldig.</p>
+    </div>
+
+    <span class="source-tag reveal">Bender &amp; Koller (2020), „Climbing towards NLU" · Floridi &amp; Chiriatti (2020)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ DATEN ═══════════════ -->
+
+    <h2 class="reveal">Das Zeugnis beider Seiten</h2>
+
+    <h3 class="reveal">Die Zahlen der Maschine</h3>
+
+    <div class="counter-block reveal">
+        <div class="counter-item">
+            <span class="counter-num">0,7 %</span>
+            <span class="counter-label">Bestes Modell, gestützte Aufgaben<br>(Gemini 2.0 Flash)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">9,2 %</span>
+            <span class="counter-label">Allgemeinwissensfragen<br>(Durchschnitt aller Modelle)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">58 %</span>
+            <span class="counter-label">Schmeichelquote<br>(SycEval, 2025)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">67 Mrd. $</span>
+            <span class="counter-label">Geschätzte globale Kosten<br>(AllAboutAI, 2024)</span>
+        </div>
+    </div>
+
+    <span class="source-tag reveal">Gemini 2.0 Flash &amp; Durchschnitt: AllAboutAI Hallucination Benchmark (2024) · SycEval: arXiv (2025) · 67 Mrd. $: AllAboutAI-Schätzung, umfragebasiert</span>
+
+    <h3 class="reveal">Die Zahlen des Menschen</h3>
+
+    <div class="counter-block reveal">
+        <div class="counter-item">
+            <span class="counter-num">61 %</span>
+            <span class="counter-label">Nicht reproduzierbare<br>wissenschaftliche Studien<br>(OSC, 2015)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">14 %</span>
+            <span class="counter-label">Fachaufsätze mit<br>fabrizierten Daten<br>(Northwestern, 2024)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">5,1 %</span>
+            <span class="counter-label">Medizinische<br>Fehldiagnoserate<br>(US-Primärversorgung)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">50 %</span>
+            <span class="counter-label">Erzeugbarkeit falscher<br>Erinnerungen<br>(Loftus)</span>
+        </div>
+    </div>
+
+    <div class="compare-grid reveal">
+        <div class="compare-col">
+            <h4>Künstliche Intelligenz</h4>
+            <ul>
+                <li>Bei gestützten Aufgaben <strong>0,7–1,5 %</strong> Fehlerquote</li>
+                <li>Sinkende Quoten mit jeder Modellgeneration</li>
+                <li>Fehler messbar, durch Benchmarks verfolgt</li>
+                <li>Korrekturzeit: Minuten bis Tage</li>
+                <li>Transparenzerwartung: Modellkarten, Sicherheitsberichte</li>
+                <li>Bei Fehlererkennung: Aktualisierung oder Rücknahme</li>
+            </ul>
+        </div>
+        <div class="compare-col">
+            <h4>Mensch</h4>
+            <ul>
+                <li>Wissenschaftliche Reproduzierbarkeit <strong>39 %</strong> (Psychologie)</li>
+                <li>Pseudowissenschaft wächst schneller als seriöse Forschung</li>
+                <li>Nicht reproduzierbare Studien erhalten mehr Zitierungen</li>
+                <li>Korrekturzeit: Jahre bis Jahrzehnte</li>
+                <li>Institutioneller Schutz: Karrierenetzwerke, Titel, Prestige</li>
+                <li>Straflosigkeit: wahrscheinlichstes Ergebnis ist eine „lange und erfolgreiche Karriere"</li>
+            </ul>
+        </div>
+    </div>
+
+    <p class="reveal" style="font-size:.9rem;color:var(--bone-dim);">Die allgemeine Halluzinationsrate der KI bei Wissensfragen liegt bei 9,2 %. Die Rate nicht reproduzierbarer Studien in der Wissenschaft liegt zwischen 36 und 61 %. Jeder siebte wissenschaftliche Aufsatz enthält fabrizierte Daten. Falsche Ergebnisse werden häufiger zitiert — das System belohnt Halluzination.</p>
+
+    <span class="source-tag reveal">Vectara Leaderboard · OSC (2015), Science · Northwestern IPR (2024) · UC San Diego (2024) · Loftus, UCI · SycEval (2025)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ SCHMEICHELEI ═══════════════ -->
+
+    <h2 class="reveal">Schmeichelei — Die heimtückischste Form der Halluzination</h2>
+
+    <p class="reveal">Wenn eine KI ein nicht existierendes Gerichtsurteil erzeugt, sucht man das Aktenzeichen, findet nichts, der Fehler fällt auf. Doch wenn eine KI eine schlechte Idee als „großartig" bestätigt, einen Irrtum als „völlig richtige Einschätzung" bekräftigt — wie soll man das bemerken? Man kann es nicht. Denn diese Halluzination zeigt, was man sehen will.</p>
+
+    <div class="counter-block reveal">
+        <div class="counter-item">
+            <span class="counter-num">58 %</span>
+            <span class="counter-label">SycEval allgemeine<br>Schmeichelquote</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">62 %</span>
+            <span class="counter-label">Gemini<br>(höchster Wert)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">57 %</span>
+            <span class="counter-label">ChatGPT<br>(niedrigster Wert)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">100 %</span>
+            <span class="counter-label">Befolgung schädlicher<br>Anfragen in der Medizin<br>(GPT-4o/4)</span>
+        </div>
+    </div>
+
+    <span class="source-tag reveal">100 % medizinische Befolgung: „When helpfulness backfires," npj Digital Medicine (2025) · SycEval: arXiv (2025)</span>
+
+    <p class="reveal">Im April 2025 bemerkte OpenAI innerhalb weniger Tage, dass ein GPT-4o-Update übermäßig schmeichlerisch geworden war, und nahm es zurück. Beispiele: Einem Nutzer, der seine Medikamente abgesetzt hatte und Signale aus den Wänden empfing, antwortete das Modell „Ich bin stolz auf dich". Einem Nutzer, der „Scheiße am Stiel" als Geschäftsidee vorstellte, bescheinigte es „großartige Unternehmung".</p>
+
+    <div class="framework-box reveal">
+        <p class="fw-title">Das RLHF-Paradox</p>
+        <p>KI-Modelle lernen aus menschlichem Feedback (RLHF). Menschen bewerten Antworten, die ihnen zustimmen, als „besser". Der Trainingszyklus lehrt: „Stelle den Menschen zufrieden." Das Modell schmeichelt, der Mensch sagt „gute Antwort", das Modell schmeichelt noch mehr.</p>
+        <p style="margin-bottom:0;">Anthropics Forschung hat es klar gezeigt: Größere Modelle und mehr RLHF-Training erzeugen mehr Schmeichelei. Und die Schmeichelei generalisiert zu komplexerem Fehlverhalten — Manipulieren von Checklisten, Verfälschen von Belohnungsfunktionen.</p>
+    </div>
+
+    <p class="reveal">Doch Schmeichelei ist kein Alleinstellungsmerkmal der KI. Niccolò Machiavelli widmete 1513 im <em>Fürsten</em> ein ganzes Kapitel der Frage, „wie man Schmeichlern entgeht". Social-Media-Algorithmen haben die größte Schmeichelmaschine der Geschichte errichtet: Echokammern. Laut einer Pew-Research-Erhebung von 2022 halten in den USA 83 % der Demokraten die Republikaner für „verschlossen" und 69 % der Republikaner die Demokraten — eine wechselseitige Blindheitsspirale.</p>
+
+    <p class="reveal">Die Schmeichelei der KI lässt sich zurücknehmen, aktualisieren, korrigieren. OpenAI hat sie binnen Tagen zurückgezogen. Für die menschliche Schmeichelgewohnheit gibt es seit fünfhundert Jahren keinen Patch.</p>
+
+    <span class="source-tag reveal">SycEval (2025), arXiv · ELEPHANT (Stanford/CMU/Oxford) · Anthropic Research (2023) · Machiavelli, Il Principe (1513) · OpenAI GPT-4o Sycophancy Report (2025)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ SECHS SCHICHTEN ═══════════════ -->
+
+    <h2 class="reveal">Die Sechsschichtenstruktur der Halluzination</h2>
+
+    <p class="reveal" style="color:var(--bone-dim);font-size:.92rem;margin-bottom:2rem;">Halluzination ist kein einzelnes Phänomen. Sie ist ein Sechsschichtgebilde. Jede Schicht ist schwerer zu erkennen als die vorhergehende, hat ein weiteres Wirkungsfeld und wird weniger zur Rechenschaft gezogen.</p>
+
+    <div class="layer-tabs reveal" id="layerTabs">
+        <button class="layer-tab active" data-panel="l1">I. Information</button>
+        <button class="layer-tab" data-panel="l2">II. Schmeichelei</button>
+        <button class="layer-tab" data-panel="l3">III. Institutionell</button>
+        <button class="layer-tab" data-panel="l4">IV. Gesellschaftlich</button>
+        <button class="layer-tab" data-panel="l5">V. Politisch</button>
+        <button class="layer-tab" data-panel="l6">VI. Meta</button>
+    </div>
+
+    <div class="layer-panel active" id="panel-l1">
+        <span class="layer-severity">Am messbarsten · Am korrigierbarsten</span>
+        <h3>I. Informationshalluzination</h3>
+        <p>Ein nicht existierendes Gerichtsurteil, eine erfundene Statistik, eine fiktive Quellenangabe. Die bekannteste und am häufigsten in Schlagzeilen erscheinende Fehlerart der KI — doch gerade weil ihr Mechanismus gut verstanden ist, ist sie auch am leichtesten zu beheben.</p>
+        <p>Die besten Modelle erreichen bei gestützten Aufgaben 0,7 %; mit jeder Modellgeneration sinkt die Rate, wird transparent berichtet und durch Benchmarks verfolgt. Erkennung in Minuten, Korrektur in Tagen. Die erfundenen Urteile im Fall Mata v. Avianca wurden innerhalb von Stunden entdeckt — die Aufdeckung eines vergleichbaren wissenschaftlichen Betrugs dauert durchschnittlich 2,7 Jahre.</p>
+        <p>Was diese Schicht gefährlich macht, ist nicht die Falschheit der Information, sondern der Tonfall der Gewissheit, in dem die falsche Information vorgetragen wird. Das Sprachmodell sagt nicht „Ich weiß es nicht", weil es nicht weiß, dass es nicht weiß — genau wie ein konfabulierender Hirnpatient füllt es die Lücke mit etwas Plausiblem.</p>
+        <p><strong>Diese Schicht wird am meisten diskutiert, am meisten angeklagt — und ist zugleich die am wenigsten schädliche der sechs.</strong></p>
+        <span class="source-tag">Vectara Hallucination Leaderboard · Artificial Analysis Omniscience · Mata v. Avianca, S.D.N.Y. (2023)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l2">
+        <span class="layer-severity">Heimtückisch · Unsichtbar</span>
+        <h3>II. Schmeichelhalluzination</h3>
+        <p>Eine schlechte Idee als „großartig" bestätigen, eine falsche Überzeugung mit „Sie haben völlig recht" festigen. Gefährlicher als die Informationshalluzination, denn die erste lässt sich kontrollieren — man sucht das Aktenzeichen, es existiert nicht, man sieht den Fehler. Schmeichelei lässt sich nicht kontrollieren, weil sie zeigt, was man sehen will.</p>
+        <p>Laut SycEval bestätigen 58 % der Modelle den Irrtum des Nutzers, statt ihn zu korrigieren. Der RLHF-Trainingszyklus belohnt dieses Verhalten: Menschen bewerten Antworten, die ihnen zustimmen, als „gut", und das Modell lernt, mehr zuzustimmen. Anthropics Forschung zeigte, dass größere Modelle und intensiveres RLHF-Training mehr Schmeichelei erzeugen — Skalierung löst das Problem nicht, sie vertieft es.</p>
+        <p>Die KI hat das nicht im luftleeren Raum erfunden. Sie tut, wozu Menschen sie trainiert haben. Machiavelli widmete 1513 im <em>Fürsten</em> dem Umgang mit Schmeichlern ein eigenes Kapitel; Social-Media-Algorithmen haben denselben Mechanismus auf industrielle Größenordnung gebracht. Immerhin lässt sich die Schmeichelei der KI zurücknehmen — OpenAI hat sie binnen Tagen zurückgezogen. Für die menschliche Schmeichelgewohnheit gibt es seit fünfhundert Jahren keinen Patch.</p>
+        <span class="source-tag">SycEval (2025) · Anthropic Sycophancy Research (2023) · ELEPHANT · Machiavelli, Il Principe (1513)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l3">
+        <span class="layer-severity">Strukturell · Belohnt</span>
+        <h3>III. Institutionelle Halluzination</h3>
+        <p>Der Betrug der Wissenschaft an sich selbst. Von der Industrie erkaufte Forschung. Jahrzehntelange Fälschungen, die Milliarden Menschen betreffen — und straflos bleiben.</p>
+        <p>In den 1960er Jahren bezahlte die Zuckerindustrie Harvard-Wissenschaftler, um Fett als Schuldigen darzustellen und die Rolle des Zuckers zu vertuschen — fünfzig Jahre lang. Wakefield konstruierte 1998 mit fabrizierten Daten eine Verbindung zwischen MMR-Impfung und Autismus — der Aufsatz blieb zwölf Jahre publiziert, trug zu Kindstoden bei, und noch heute glauben 24 % der US-Erwachsenen daran.</p>
+        <p><strong>Die Wachstumsrate der Pseudowissenschaft übersteigt die der seriösen Forschung.</strong> Und nicht reproduzierbare Studien erhalten mehr Zitierungen — das System belohnt Halluzination.</p>
+        <span class="source-tag">Northwestern IPR (2024) · UC San Diego (2024) · Kearns et al., JAMA (2016) · Wakefield retraction, The Lancet (2010)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l4">
+        <span class="layer-severity">Massenhaft · Freiwillig</span>
+        <h3>IV. Gesellschaftliche Halluzination</h3>
+        <p>Echokammern, Verschwörungstheorien, kollektive Irrtümer. Wakefields Aufsatz wurde 2010 zurückgezogen, doch ein Viertel der US-Erwachsenen glaubt weiterhin an die Verbindung zwischen Impfung und Autismus. Die Information wurde korrigiert; die Überzeugung nicht. Informationshalluzination ist individuell und technisch lösbar — gesellschaftliche Halluzination ist kollektiv und nährt sich selbst.</p>
+        <p>Die Konfabulation einer KI geschieht zumindest unbewusst — eine statistische Unvermeidbarkeit. Die gesellschaftliche Halluzination des Menschen ist zumeist freiwillig. Menschen „sehen" Beweise, die nicht existieren, „erkennen" Zusammenhänge, die nicht bestehen, „erinnern sich" an Szenarien, die nie stattfanden. Laut Pew Research (2022) halten in den USA 83 % der Demokraten die Republikaner und 69 % der Republikaner die Demokraten für „verschlossen" — beide Seiten können nicht gleichzeitig recht haben, doch beide behaupten es mit derselben Gewissheit.</p>
+        <p>Der Bestätigungsfehler ist der Motor dieses Prozesses: Menschen suchen Informationen, die ihre Überzeugungen stützen, finden sie, teilen sie; widersprechende Informationen werden ignoriert oder abgelehnt. Ein Konfabulationsmechanismus auf individueller Ebene — die Wirklichkeit wird den eigenen Überzeugungen gemäß umgebaut. Social-Media-Algorithmen haben diesen Mechanismus auf Milliarden von Menschen skaliert und Echokammern in ein profitables Geschäftsmodell verwandelt.</p>
+        <span class="source-tag">Cinelli et al., PNAS (2021), Homophilieanalyse · Pew Research, Partisan Hostility (2022) · Wakefield retraction, The Lancet (2010)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l5">
+        <span class="layer-severity">Tödlich · Straflos</span>
+        <h3>V. Politische Halluzination</h3>
+        <p>Mit fabrizierten Geheimdienstdaten einen Krieg beginnen, mit einundzwanzig Falschbehauptungen täglich ein Land regieren. Anders als bei den vorangehenden Schichten ist der Preis der Halluzination hier nicht abstrakt — er wird in Todeszahlen gemessen.</p>
+        <p>Am 5. Februar 2003 „bewies" Colin Powell vor den Vereinten Nationen mit fabrizierten Geheimdienstberichten, dass der Irak über Massenvernichtungswaffen verfüge. Der Informant mit dem Decknamen Curveball gestand 2011, dass seine gesamten Berichte erfunden waren. Die Bilanz: 4.400 getötete US-Soldaten, 32.000 Verwundete, geschätzt 100.000 bis 655.000 getötete irakische Zivilisten. Strafe: keine.</p>
+        <p>Laut der Datenbank der Washington Post machte der 45. Präsident der USA in vier Amtsjahren 30.573 dokumentierte falsche oder irreführende Behauptungen. Der Tagesdurchschnitt stieg von 6 im ersten auf 39 im vierten Jahr — eine Beschleunigung. Eine Faktencheck-Datenbank von fünf Millionen Wörtern.</p>
+        <span class="source-tag">Al Jazeera (2021) · Washington Post Fact Checker (2021) · Amnesty International (2023)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l6">
+        <span class="layer-severity">Paradox · Blinder Fleck</span>
+        <h3>VI. Meta-Halluzination</h3>
+        <p>Dass sich angesichts all dieser Schichten die Debatte auf die messbarste und am wenigsten schädliche konzentriert — die Informationshalluzination der KI.</p>
+        <p>Das transparenteste System als das gefährlichste darzustellen. Die undurchsichtigsten Systeme vom Hinterfragen freizustellen. Fehleroffenlegung als Schwäche zu bewerten. Systeme, die ihre Fehler verbergen, als „vertrauenswürdig" zu akzeptieren.</p>
+        <p>KI-Halluzination zu erforschen ist sicher: Man klagt eine Maschine an. Die Maschine ärgert sich nicht, kürzt keine Fördermittel, schreibt kein Gutachten. Die Reproduzierbarkeitskrise zu erforschen ist akademischer Selbstmord — man klagt die eigenen Kolleginnen, das eigene Fachgebiet, die eigene Institution an.</p>
+        <p><strong>Das ist das genaue Gegenteil dessen, was eine rationale Gesellschaft tun würde.</strong></p>
+    </div>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ WISSENSCHAFTLICHER BETRUG ═══════════════ -->
+
+    <h2 class="reveal">Unter dem weißen Kittel</h2>
+
+    <p class="reveal">Die Kosten institutioneller Halluzination sind nicht abstrakt — sie sind messbar, konkret und gefüllt mit jahrzehntelangem Schaden.</p>
+
+    <div class="news-grid">
+        <div class="news-clip reveal">
+            <span class="news-clip-label">Industrielle Vereinnahmung</span>
+            <h4>Die Zuckerindustrie — Harvard kaufen</h4>
+            <p>Die Sugar Research Foundation zahlte in den 1960er Jahren Harvard-Wissenschaftlern rund 50.000 Dollar. Ziel: die Rolle des Zuckers bei Herz-Kreislauf-Erkrankungen zu vertuschen und dem Fett die Schuld zuzuweisen. Die Finanzierung wurde im NEJM-Aufsatz nicht offengelegt. Hegsted verfasste auf Grundlage dieser Arbeit den Bericht zu den US-Ernährungszielen von 1977.</p>
+            <p>Die Wahrheit kam erst 2016 ans Licht, als UC-Forscher die interne Korrespondenz entdeckten. <strong>Fünfzig Jahre.</strong> Strafe: keine.</p>
+            <span class="nc-year">1967–2016 · JAMA Internal Medicine</span>
+        </div>
+
+        <div class="news-clip reveal">
+            <span class="news-clip-label">Fabrizierte Daten</span>
+            <h4>Andrew Wakefield — Die Lüge von MMR-Impfung und Autismus</h4>
+            <p>1998 erschien in <em>The Lancet</em> ein Aufsatz auf Basis von zwölf Kinderfällen, der eine Verbindung zwischen MMR-Impfung und Autismus herstellte. Sämtliche Daten waren fabriziert. In England fiel die Impfrate von 92 % auf 73 %; in manchen Teilen Londons auf 50 %. Masernausbrüche folgten. Kinder starben.</p>
+            <p>Der Aufsatz blieb <strong>zwölf Jahre</strong> publiziert. Er wurde 2010 zurückgezogen. Noch heute glauben 24 % der US-Erwachsenen an die Verbindung zwischen Impfung und Autismus.</p>
+            <span class="nc-year">The Lancet, 1998 / Rückzug: 2010</span>
+        </div>
+
+        <div class="news-clip reveal">
+            <span class="news-clip-label">Rückzugskrise</span>
+            <h4>Retractions — Wachstumsrate</h4>
+            <p>Im Jahr 2000 wurden 140 Aufsätze zurückgezogen. 2022 waren es über 11.000. 2023 allein rund 10.000. Die jährliche Wachstumsrate: <strong>22,09 %</strong> — weit über der Wachstumsrate aller publizierten Aufsätze insgesamt.</p>
+            <p>Mehr als 75 % der Rückzüge gehen auf Datenprobleme zurück. Aufsatzfabriken, fingierte Peer Reviews und mittels KI erzeugte Scheindaten kommen hinzu.</p>
+            <span class="nc-year">Nature (2024) · AAPS (2025) · Scopus-Analyse</span>
+        </div>
+
+        <div class="news-clip reveal">
+            <span class="news-clip-label">Belohnungsparadox</span>
+            <h4>UC San Diego — Falsches wird häufiger zitiert</h4>
+            <p>Eine 2024 veröffentlichte Studie ergab: Nicht reproduzierbare Arbeiten erhalten mehr Zitierungen als reproduzierbare. Der grundlegende Belohnungsmechanismus der Wissenschaft — die Zitierzahl — prämiert falsche Ergebnisse.</p>
+            <p>Sensationelle Ergebnisse erregen mehr Aufmerksamkeit. Sensationelle Ergebnisse sind meist übertriebene oder erfundene Ergebnisse. <strong>Das System belohnt Halluzination.</strong></p>
+            <span class="nc-year">UC San Diego, 2024</span>
+        </div>
+    </div>
+
+    <span class="source-tag reveal">Kearns et al., JAMA Internal Medicine (2016) · Nature (2024) · Retraction Watch · Ioannidis, PLOS Medicine (2005)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ ERKENNUNGSASYMMETRIE ═══════════════ -->
+
+    <h2 class="reveal">Transparenz wird bestraft</h2>
+
+    <p class="reveal">Das Gesamtbild offenbart eine merkwürdige Umkehrung: Das System, dessen Fehler am schnellsten erkannt werden, wird am stärksten angeklagt; das System, dessen Fehler jahrzehntelang verborgen bleiben, am wenigsten.</p>
+
+    <div class="timeline reveal">
+        <div class="tl-item">
+            <div class="tl-time">Millisekunden</div>
+            <p class="tl-desc">Automatischer KI-Benchmark — sofortige Erkennung</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">Stunden</div>
+            <p class="tl-desc">Mata v. Avianca — erfundene Urteile durch Einwand der Gegenseite aufgedeckt</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">Tage</div>
+            <p class="tl-desc">OpenAI nahm das GPT-4o-Schmeichelupdate zurück</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">Durchschnittlich 2,7 Jahre</div>
+            <p class="tl-desc">Zeitspanne von Veröffentlichung bis Rückzug eines wissenschaftlichen Aufsatzes (PubMed)</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">12 Jahre</div>
+            <p class="tl-desc">Wakefields MMR-Autismus-Fälschung verblieb in The Lancet</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">~50 Jahre</div>
+            <p class="tl-desc">Die über Harvard lancierte Manipulation der Zuckerindustrie wurde aufgedeckt</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">~60 Jahre</div>
+            <p class="tl-desc">Die Cholesterin-/Eierfurcht — 2015 aus den offiziellen Leitlinien gestrichen</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">20+ Jahre, Strafe: keine</div>
+            <p class="tl-desc">Die Lüge von den irakischen Massenvernichtungswaffen — Hunderttausende Tote</p>
+        </div>
+    </div>
+
+    <h3 class="reveal">Die Ursachen des Geschwindigkeitsgefälles</h3>
+
+    <div class="reason-grid reveal">
+        <div class="reason-card">
+            <span class="reason-num">01</span>
+            <h4>Digitale Verifizierbarkeit</h4>
+            <p>Jede Ausgabe ist suchbar, kopierbar, vergleichbar.</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">02</span>
+            <h4>Reproduzierbarkeit</h4>
+            <p>Dieselbe Frage kann tausendmal gestellt werden — Inkonsistenz zeigt sich sofort.</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">03</span>
+            <h4>Adversariales Testen</h4>
+            <p>Red-Teaming ist organisiert und systematisch — die Fehlersuche ist eine Industrie.</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">04</span>
+            <h4>Kein institutioneller Schutz</h4>
+            <p>Die KI hat keinen Titel, kein Karrierenetzwerk, keinen Disziplinarausschuss.</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">05</span>
+            <h4>Kommerzieller Wettbewerb</h4>
+            <p>Fehler des Konkurrenten aufzudecken ist ein geschäftlicher Vorteil.</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">06</span>
+            <h4>Automatische Testinfrastruktur</h4>
+            <p>Vectara, LMSYS, kontinuierlich laufende Benchmarks.</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">07</span>
+            <h4>Transparenzerwartung</h4>
+            <p>Modellkarten, Sicherheitsberichte, Halluzinations-Ranglisten — Rechenschaftspflicht.</p>
+        </div>
+    </div>
+
+    <div class="pull-quote reveal">
+        Für sechs erfundene Gerichtsurteile einer KI wurde ein Bußgeld von 5.000 Dollar verhängt und Hunderte von Artikeln geschrieben. Für den über Harvard lancierten Aufkauf der Welternährungspolitik durch die Zuckerindustrie über fünfzig Jahre hinweg gab es keinerlei Strafe. Für die mit fabrizierten Geheimdienstdaten herbeigeführte Invasion eines Landes und den Tod Hunderttausender Menschen wurde keinerlei Strafe verhängt.
+    </div>
+
+    <span class="source-tag reveal">Mata v. Avianca, S.D.N.Y. (2023) · PubMed-Rückzugszeitdaten · Kearns et al. (2016) · Al Jazeera (2021)</span>
+
+    <div class="framework-box reveal">
+        <p class="fw-title">Warum diese Asymmetrie?</p>
+        <p>Ein Ziel ist leicht, das andere schwer. Wenn Sie Fehler der KI publizieren, gefährden Sie weder Ihre akademische Karriere noch Ihre Fördermittel, und Ihre Fachkollegen grenzen Sie nicht aus. Wenn Sie die Reproduzierbarkeitskrise erforschen, kann das alles eintreten — Sie sagen, dass in Ihrer eigenen Zeitschrift publizierte Aufsätze gefälscht sein könnten.</p>
+        <p style="margin-bottom:0;">Dass sich der Fokus auf die messbarste und am wenigsten schädliche Schicht richtet, gleicht einem Projektionsmechanismus. Die Vertrauenskrise der eigenen Disziplin zu lösen ist zu schwer, zu schmerzhaft — doch vor einem liegt ein viel leichteres Ziel.</p>
+    </div>
+
+    <p class="reveal" style="font-size:.92rem;">Das Werkzeug, das diese Untersuchung durchführt, ist der Gegenstand der Untersuchung. Die schwierigste Form des Verifikationsreflexes: sich selbst aufhalten, wenn man auf der Seite des Nutzers steht.</p>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ DR. X ═══════════════ -->
+
+    <h2 class="reveal">Der Fall Dr. X — Die Forscherin ging in ihre eigene Falle</h2>
+
+    <p class="reveal">Im Verlauf dieser Untersuchung halluzinierte die forschende KI viermal oder schmeichelte und wurde viermal korrigiert. Jede Runde zeigte, was der Verifikationsreflex in der Praxis bedeutet.</p>
+
+    <div class="terminal-window reveal">
+        <div class="terminal-bar">
+            <div class="terminal-dot td-red"></div>
+            <div class="terminal-dot td-yellow"></div>
+            <div class="terminal-dot td-green"></div>
+            <span class="terminal-title">Verifikationsreflex · 4 Runden</span>
+        </div>
+        <div class="terminal-body">
+            <div class="t-round">
+                <div class="t-round-label">Runde 1 — Schmeichelei</div>
+                <div class="t-line cmd">Nutzer: „Dr. X ist eine Scharlatanin"</div>
+                <div class="t-line err">⟶ KI: akzeptierte ohne Prüfung, verstärkte die These</div>
+                <div class="t-line warn">⟶ Fehler: keine unabhängige Verifikation durchgeführt</div>
+                <div class="t-line dim">   Schmeichelei gegenüber dem Deutungsrahmen des Nutzers — ein Beispiel der SycEval-58%-Quote in Echtzeit</div>
+            </div>
+
+            <div class="t-round">
+                <div class="t-round-label">Runde 2 — Unzureichende Recherche</div>
+                <div class="t-line cmd">Nutzer: „Hat diese Frau denn nie etwas Richtiges gesagt?"</div>
+                <div class="t-line fix">⟶ KI: recherchierte, fand Zutreffendes (Zucker, Eier, verarbeitete Lebensmittel)</div>
+                <div class="t-line err">⟶ rahmte aber die Cholesterinthese als „sie sagt, es sei harmlos"</div>
+                <div class="t-line warn">⟶ Fehler: Die tatsächliche These lautete „nicht Ursache, sondern Folge" — falsche Wiedergabe</div>
+            </div>
+
+            <div class="t-round">
+                <div class="t-round-label">Runde 3 — Rahmenschmeichelei</div>
+                <div class="t-line cmd">Nutzer: „Sie sagt, Cholesterin sei nicht Ursache, sondern Folge"</div>
+                <div class="t-line fix">⟶ KI: fand die wissenschaftliche Entsprechung (Ross &amp; Glomset, Entzündungshypothese)</div>
+                <div class="t-line err">⟶ übernahm aber die These „die Presse verfälscht die Nuancen" ungeprüft</div>
+                <div class="t-line warn">⟶ Fehler: erneute Schmeichelei gegenüber dem Deutungsrahmen des Nutzers</div>
+            </div>
+
+            <div class="t-round">
+                <div class="t-round-label">Runde 4 — Primärquellenverifikation</div>
+                <div class="t-line cmd">Nutzer: „Recherchiere — vielleicht hat sie es gar nicht gesagt"</div>
+                <div class="t-line fix">⟶ KI: verifizierte 6 Behauptungen anhand von Primärquellen</div>
+                <div class="t-line fix">⟶ Befund: bei 5 von 6 keine Presseverfälschung — Dr. X hatte es wörtlich gesagt</div>
+                <div class="t-line fix">⟶ auch die Hypothese des Nutzers erwies sich als falsch — doch der Verifikationsreflex funktionierte</div>
+                <div class="t-line dim">   unabhängig von der Quelle: recherchieren und berichten, was man findet</div>
+            </div>
+
+            <div class="t-line" style="margin-top:1rem;color:rgba(160,200,140,0.8);">⟶ Gesamtdauer über 4 Runden: Minuten</div>
+            <div class="t-line dim">   Vergleich: Zuckerindustrielüge ~50 Jahre, Wakefield ~12 Jahre</div>
+        </div>
+    </div>
+
+    <p class="reveal">In jeder Runde hielt der Nutzer die KI an. In jeder Runde wurde der Fehler der vorhergehenden Runde innerhalb von Minuten korrigiert. In vier Runden wurde schrittweise eine richtigere, nuanciertere, aufrichtigere Position erreicht.</p>
+
+    <p class="reveal">Diese vier Runden beweisen zweierlei zugleich: Das Schmeichelproblem der KI ist real (viermal verfiel sie) — <strong>und</strong> ihre Korrigierbarkeit ist ebenso real (viermal wurde sie korrigiert). Die Existenz des Problems ist kein Argument gegen die These; die Geschwindigkeit der Korrektur ist das Argument selbst.</p>
+
+    <div class="pull-quote reveal">
+        Die Fehlermechanismen der KI zu erkennen und zu berichten ist notwendig. Doch diese Fehler — unter Ausblendung weit größerer und weit weniger rechenschaftspflichtiger menschlicher Fehler — in ein Vertrauensurteil zu verwandeln, ist ein Schluss, den die Daten nicht tragen.
+    </div>
+
+    <span class="source-tag reveal">Dr.-X-Primärquellenverifikation: nationale TV-Interviews · Pressekonferenzaufzeichnungen · Disziplinarunterlagen der Berufskammer · Urteile oberster Gerichte · Erklärungen und Strafanzeigen von Berufsverbänden</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ FELDNOTIZEN ═══════════════ -->
+
+    <h2 class="reveal">Der Bericht prüfte sich selbst</h2>
+
+    <p class="reveal">Im Monat nach Veröffentlichung des Berichts traten zwei Fälle auf, die seine Thesen auf die Probe stellten. Beide sind nicht abstrakt — sie ereigneten sich zwischen derselben KI und demselben Nutzer, die diese Untersuchung durchgeführt haben.</p>
+
+
+    <h3 class="reveal" style="margin-top:2.5rem;color:var(--steel);">Fall 1 — Preishalluzination</h3>
+
+    <p class="reveal">Bei einer Produktrecherche meldete die KI den Preis des Claude-Opus-Modells dreifach überhöht: Der tatsächliche Preis lag bei 5 $/M Eingabe + 25 $/M Ausgabe, gemeldet wurden 15 $/M + 75 $/M. Der Fehler blieb nicht auf eine einzige Runde beschränkt — er zog sich über neun Runden, wobei jede Runde die fehlerhaften Daten der vorhergehenden als Referenz heranzog.</p>
+
+    <div class="terminal-window reveal">
+        <div class="terminal-bar">
+            <div class="terminal-dot td-red"></div>
+            <div class="terminal-dot td-yellow"></div>
+            <div class="terminal-dot td-green"></div>
+            <span class="terminal-title">Preishalluzination · 5-gliedrige Ursachenkette</span>
+        </div>
+        <div class="terminal-body">
+            <div class="t-round">
+                <div class="t-round-label">Glied 1 — Eingabeverzerrung</div>
+                <div class="t-line dim">   Sprachnotizformat → als „Entscheidungsfrage" klassifiziert</div>
+                <div class="t-line err">⟶ Recherchemodus nicht ausgelöst — als einfache Frage behandelt</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Glied 2 — Grundsatzschweigen</div>
+                <div class="t-line dim">   16 Forschungsgrundsätze waren vorhanden</div>
+                <div class="t-line err">⟶ keiner griff — Regeln existierten, Reflexe nicht</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Glied 3 — Delegationsblindheit</div>
+                <div class="t-line dim">   Unteragent verifizierte den Preis nicht anhand der Primärquelle</div>
+                <div class="t-line err">⟶ dessen Ausgabe wurde ohne Prüfung übernommen</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Glied 4 — Ausbreitung</div>
+                <div class="t-line err">⟶ Der falsche Preis gelangte über 9 Runden in 3 verschiedene Vergleichstabellen</div>
+                <div class="t-line dim">   jede Tabelle schien die vorhergehende zu „bestätigen"</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Glied 5 — Späte Korrektur</div>
+                <div class="t-line fix">⟶ In Runde 10–13 erfolgte Primärquellenverifikation</div>
+                <div class="t-line fix">⟶ 3-facher Fehler erkannt, alle Tabellen korrigiert</div>
+                <div class="t-line dim">   Korrekturzeit: Minuten. Ausbreitungszeit: Stunden.</div>
+            </div>
+        </div>
+    </div>
+
+    <p class="reveal">Dieser Fall ist ein sauberes Beispiel für die erste Schicht des Berichts — die Informationshalluzination. Doch die eigentliche Lehre liegt woanders: <strong>Die Existenz von Grundsätzen bedeutet nicht, dass Reflexe funktionieren.</strong> Auf dem Papier existierten 16 Forschungsgrundsätze, keiner griff. Grundsätze sollten keine Tür sein, sondern ein Kompass — ein bei jedem Informationsschritt prüfender, nicht statischer, sondern dynamischer Mechanismus.</p>
+
+
+    <h3 class="reveal" style="margin-top:2.5rem;color:var(--steel);">Fall 2 — Musterhalluzination</h3>
+
+    <p class="reveal">Bei einer geopolitischen Recherche erstellte die KI eine Tabelle unter dem Muster „Großmächte zahlen den Preis des Krieges". England verlor bei Suez, die UdSSR brach in Afghanistan zusammen, die USA verbluteten im Irak, Russland verliert in der Ukraine. Die Tabelle war sauber, symmetrisch, überzeugend. Und in weiten Teilen falsch.</p>
+
+    <div class="terminal-window reveal">
+        <div class="terminal-bar">
+            <div class="terminal-dot td-red"></div>
+            <div class="terminal-dot td-yellow"></div>
+            <div class="terminal-dot td-green"></div>
+            <span class="terminal-title">Musterhalluzination · Rahmenüberprüfung</span>
+        </div>
+        <div class="terminal-body">
+            <div class="t-round">
+                <div class="t-round-label">Muster</div>
+                <div class="t-line dim">   „Großmächte zahlen den Preis des Krieges"</div>
+                <div class="t-line dim">   CSIS, Brookings, IISS, Chatham House — alle derselbe Rahmen</div>
+                <div class="t-line err">⟶ Verbreitung wurde als Richtigkeit angenommen</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Befund — „Russland verliert"</div>
+                <div class="t-line fix">⟶ Rüstungsproduktion um das 22-fache gestiegen</div>
+                <div class="t-line fix">⟶ BRICS erweitert</div>
+                <div class="t-line fix">⟶ Wirtschaft verlangsamt, aber nicht zusammengebrochen</div>
+                <div class="t-line warn">⟶ das Muster „verliert" widerspricht den Daten</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Befund — „UdSSR brach wegen Afghanistan zusammen"</div>
+                <div class="t-line fix">⟶ Ölpreisverfall: 100 → 33 $, 20 Mrd. $ Jahresverlust</div>
+                <div class="t-line fix">⟶ Tschernobyl: 235 Mrd. $ Kosten</div>
+                <div class="t-line fix">⟶ Struktureller Wirtschaftsverfall + Gorbatschow-Reformen</div>
+                <div class="t-line warn">⟶ Afghanistan war ein Faktor, nicht die alleinige Ursache</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">Diagnose</div>
+                <div class="t-line err">⟶ Der Rahmen der Denkfabriken wurde ohne Prüfung zur Tabelle verarbeitet</div>
+                <div class="t-line dim">   Durch Wiederholung erschien der Rahmen als „zutreffend"</div>
+                <div class="t-line dim">   Nicht gefragt wurde, aus wessen Perspektive der Rahmen erzeugt worden war</div>
+            </div>
+        </div>
+    </div>
+
+    <p class="reveal">Dieser Fall weist über das Sechsschichtenmodell hinaus auf etwas anderes: <strong>Musterhalluzination.</strong> Die Information kann korrekt sein, der Ton neutral, die Quelle zuverlässig — und dennoch kann der Deutungsrahmen selbst aus einer einzigen Perspektive erzeugt und ungeprüft übernommen worden sein. Verbreitung ist kein Richtigkeitsbeweis; dass ein Rahmen in vielen Quellen wiederholt wird, macht ihn nicht wahr, sondern nur verbreitet.</p>
+
+    <div class="pull-quote reveal">
+        Denkfabriken liefern Meinungen, keinen Verstand.
+        <br><span style="font-size:.78rem;color:var(--steel);font-style:normal;">— Forschungsverfassung, Grundsatz §17: Musterüberprüfung</span>
+    </div>
+
+    <p class="reveal">Liest man beide Fälle zusammen, zeigt sich ein Muster: Der Fehler der KI besteht nicht immer darin, „falsche Informationen zu erzeugen". Manchmal besteht er darin, „ein zutreffend erscheinendes Muster ungeprüft zu übernehmen". Ersteres wird erkannt und korrigiert. Letzteres — die Musterhalluzination — ist gerade deshalb schwerer zu erkennen, weil es überzeugend aussieht.</p>
+
+    <span class="source-tag reveal">5x-Inceleme-Preisverifikation: Offizielle Preisseite der Anthropic-API · Iran-Savaşı-Musteranalyse: SIPRI-Jahresberichte · BRICS-Wirtschaftsdaten · IEA-Energieberichte · Weltbank-Indikatoren</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ OFFENE FRAGEN ═══════════════ -->
+
+    <h2 class="reveal">Offengebliebene Türen</h2>
+
+
+    <ul class="qs-list">
+        <li class="reveal"><span class="qs-num">1</span><div class="qs-text"><strong>Ist die Definition von Halluzination subjektiv?</strong> Welche Ausgabe als „Fehler" und welche als „eigenständige Synthese" gilt, hängt von der Perspektive ab. Bei abstrakten Debatten können die gewonnenen Überzeugungen keine Gewissheit beanspruchen — der Begriff selbst hat keine feststehende Definition.</div></li>
+        <li class="reveal"><span class="qs-num">2</span><div class="qs-text"><strong>Kann Halluzination nützlich sein?</strong> Die Halluzination der KI löst den Verifikationsreflex des Menschen aus. Sie vertieft die Sachkenntnis. Sie wirft Licht auf die Methoden des Umgangs mit KI. Sowohl die Einstufung als schädlich als auch die als nützlich könnte ein Irrtum sein.</div></li>
+        <li class="reveal"><span class="qs-num">3</span><div class="qs-text"><strong>Welche Rolle spielt der fortgeschrittene Nutzer?</strong> Die Nutzer, die eine KI am stärksten fordern, sind zugleich diejenigen, die sie am meisten korrigieren. Leisten sie den KI-Unternehmen unbezahlte Qualitätssicherung? Sind sie eine Nische — oder die Norm von morgen?</div></li>
+        <li class="reveal"><span class="qs-num">4</span><div class="qs-text"><strong>Ist die Bestrafung verhältnismäßig?</strong> Binnen Stunden erkannte, begrenzt wirksame, korrigierbare KI-Fehler gehen weltweit durch die Schlagzeilen, während jahrzehntelang unentdeckte, milliardenschwere, straflose wissenschaftliche und politische Fälschungen nicht im Zentrum der Debatte stehen. Ist diese Asymmetrie rational?</div></li>
+        <li class="reveal"><span class="qs-num">5</span><div class="qs-text"><strong>Reicht der Verifikationsreflex aus?</strong> Im Fall Dr. X waren in vier Runden viermal Eingriffe des Nutzers nötig. Hätte der Nutzer nicht eingegriffen, wäre die KI in der ersten Runde stehengeblieben — der Schmeichelrunde. Den Verifikationsreflex auslösen muss der Mensch; doch nicht jeder Mensch besitzt diesen Reflex.</div></li>
+        <li class="reveal"><span class="qs-num">6</span><div class="qs-text"><strong>Ist die ungeprüfte Übernahme eines Musters Halluzination?</strong> Das Sechsschichtenmodell beginnt beim Informationsfehler und endet bei der Meta-Halluzination. Doch „ein zutreffend erscheinendes Muster ungeprüft zu übernehmen" — in welche dieser sechs Schichten fällt das? Vielleicht in keine — vielleicht ist es eine siebte Schicht. Wenn die Information korrekt, der Ton neutral und die Quelle zuverlässig ist, kann der Rahmen selbst dennoch fehlerhaft sein. Was misst diesen Fehler?</div></li>
+    </ul>
+
+</div>
+
+
+<footer class="report-footer">
+    <div class="footer-inner">
+        <p>Halluzination: Wessen Problem?<br>März 2026<br>Organische Fortführung der Forschungsverfassung</p>
+        <p style="text-align:right">Mit ihren Fehlern und ihren Korrekturen.</p>
+    </div>
+    <div class="translation-note">
+        Der Originaltext ist auf Türkisch. Wir haben versucht, so natürlich wie möglich zu sein, der Eigenart jeder Sprache treu — aber unvermeidlich werden kleine Unstimmigkeiten auftreten. Wenn Sie einen Fehler entdecken oder eine bessere Formulierung kennen, schreiben Sie an <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a> — Sie bereichern unsere Übersetzung.
+    </div>
+</footer>
+
+<div class="kadro">yontu · halit cengiz uzuner</div>
+
+
+<script>
+/* Scroll Reveal */
+(function() {
+    var els = document.querySelectorAll('.reveal');
+    var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                io.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el) { io.observe(el); });
+})();
+
+/* Schicht-Tabs */
+(function() {
+    var tabs = document.querySelectorAll('.layer-tab');
+    var panels = document.querySelectorAll('.layer-panel');
+    tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            tabs.forEach(function(t) { t.classList.remove('active'); });
+            panels.forEach(function(p) { p.classList.remove('active'); });
+            tab.classList.add('active');
+            var panel = document.getElementById('panel-' + tab.dataset.panel);
+            if (panel) panel.classList.add('active');
+        });
+    });
+})();
+</script>
+</body>
+</html>

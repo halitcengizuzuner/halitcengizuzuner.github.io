@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>幻觉：谁的问题？——六层元研究</title>
+<meta name="description" content="人工智能幻觉与人类知识生产错误的比较分析。一个六层模型。">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="幻觉：谁的问题？">
+<meta property="og:description" content="人工智能幻觉的六个层次——与人类知识生产错误的比较元研究。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/zhongwen/raporlar/hallucination-whose-problem.html">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-04-25">
+<link rel="canonical" href="https://halitcengizuzuner.com/zhongwen/raporlar/hallucination-whose-problem.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/halusinasyon-kimin-sorunu.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/hallucination-whose-problem.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/hallucination-whose-problem.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/hallucination-a-qui-la-faute.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/halluzination-wessen-problem.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/alucinacion-problema-de-quien.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/halusinasyon-kimin-sorunu.html">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="幻觉：谁的问题？">
+<meta name="twitter:description" content="人工智能幻觉的六个层次——与人类知识生产错误的比较元研究。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "幻觉：谁的问题？——六层元研究",
+  "description": "人工智能幻觉与人类知识生产错误的比较分析。一个六层模型。",
+  "datePublished": "2026-04-25",
+  "dateModified": "2026-04-25",
+  "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/zhongwen/raporlar/hallucination-whose-problem.html"},
+  "inLanguage": "zh",
+  "translationOfWork": {"@type": "Article", "url": "https://halitcengizuzuner.com/raporlar/halusinasyon-kimin-sorunu.html", "inLanguage": "tr"}
+}
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --steel: #7890a0;
+    --steel-dim: rgba(120, 144, 160, 0.12);
+    --serif: 'Noto Serif SC', 'Songti SC', 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--steel);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.2vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.95;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.15;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+@media print {
+    body::before { display: none !important; }
+}
+
+/* ========== HEADER ========== */
+.report-header {
+    min-height: 60vh;
+    padding: 4rem 2rem 4rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.report-header h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 400;
+    color: var(--bone-bright);
+    line-height: 1.15;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.2rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--bone-dim);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.meta {
+    font-size: 0.75rem;
+    color: var(--steel);
+    letter-spacing: 0.15em;
+}
+
+/* ========== CONTENT ========== */
+.content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+}
+
+.content h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 400;
+    color: var(--bone-bright);
+    margin: 3.5rem 0 1.5rem;
+    line-height: 1.2;
+}
+
+.content h2:first-child { margin-top: 0; }
+
+.content h3 {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--bone-bright);
+    margin: 2.5rem 0 1rem;
+    font-style: italic;
+}
+
+.content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+.content strong { color: var(--bone-bright); }
+
+.section-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--steel);
+    margin: 3.5rem auto;
+    opacity: 0.5;
+}
+
+/* ========== PULL QUOTE ========== */
+.pull-quote {
+    border-left: 1px solid var(--steel);
+    padding: 1rem 0 1rem 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* ========== CONTEXT BOX ========== */
+.context-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    margin: 2rem 0;
+    border: 1px solid var(--bone-ghost);
+}
+
+.context-cell {
+    padding: 1.5rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.context-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--steel);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.context-cell p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--bone-dim);
+}
+
+/* ========== COUNTER BLOCK ========== */
+.counter-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 2.5rem 0;
+    margin: 1.5rem 0;
+}
+
+.counter-item { text-align: center; min-width: 130px; }
+
+.counter-num {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--bone-bright);
+    display: block;
+    margin-bottom: 0.3rem;
+    font-style: italic;
+}
+
+.counter-label {
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: var(--bone-dim);
+    display: block;
+    max-width: 150px;
+    margin: 0 auto;
+}
+
+/* ========== COMPARE ========== */
+.compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.compare-col {
+    padding: 2rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.compare-col h4 {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+    color: var(--steel);
+    font-weight: 400;
+}
+
+.compare-col ul { list-style: none; }
+
+.compare-col li {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--bone-ghost);
+    color: var(--bone-dim);
+}
+
+.compare-col li:last-child { border-bottom: none; }
+.compare-col li strong { color: var(--bone-bright); font-size: 0.85rem; }
+
+/* ========== NEWS CLIPS ========== */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.news-clip {
+    padding: 1.8rem;
+    background: rgba(212, 204, 192, 0.02);
+    border-top: 1px solid var(--steel);
+}
+
+.news-clip-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--steel);
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.news-clip h4 {
+    font-size: 0.95rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.news-clip p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--bone-dim);
+    margin-bottom: 0.5rem;
+}
+
+.nc-year {
+    font-size: 0.7rem;
+    color: var(--bone-dim);
+    display: block;
+    margin-top: 0.8rem;
+    opacity: 0.6;
+}
+
+/* ========== SIX LAYERS ========== */
+.layer-tabs {
+    display: flex;
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin-bottom: 0;
+    overflow-x: auto;
+}
+
+.layer-tab {
+    flex: 1;
+    min-width: 80px;
+    padding: 0.8rem 0.5rem;
+    background: rgba(212, 204, 192, 0.02);
+    border: none;
+    color: var(--bone-dim);
+    font-family: var(--serif);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    line-height: 1.4;
+    border-top: 1px solid transparent;
+}
+
+.layer-tab:hover { color: var(--bone); background: rgba(212, 204, 192, 0.04); }
+
+.layer-tab.active {
+    color: var(--bone-bright);
+    background: var(--void);
+    border-top-color: var(--steel);
+}
+
+.layer-panel {
+    display: none;
+    border: 1px solid var(--bone-ghost);
+    border-top: none;
+    padding: 2.5rem;
+}
+
+.layer-panel.active { display: block; }
+
+.layer-panel h3 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0 0 1rem;
+    color: var(--bone-bright);
+}
+
+.layer-panel p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+.layer-severity {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--steel);
+    color: var(--steel);
+    margin-bottom: 1rem;
+}
+
+/* ========== TERMINAL ========== */
+.terminal-window {
+    background: rgba(212, 204, 192, 0.02);
+    border: 1px solid var(--bone-ghost);
+    overflow: hidden;
+    margin: 2rem 0;
+}
+
+.terminal-bar {
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-bottom: 1px solid var(--bone-ghost);
+}
+
+.terminal-dot { width: 7px; height: 7px; border-radius: 50%; }
+.td-red { background: rgba(200, 120, 100, 0.6); }
+.td-yellow { background: rgba(200, 180, 100, 0.6); }
+.td-green { background: rgba(140, 180, 120, 0.6); }
+
+.terminal-title {
+    margin-left: 0.5rem;
+    font-size: 0.65rem;
+    color: var(--bone-dim);
+    letter-spacing: 0.06em;
+}
+
+.terminal-body {
+    padding: 1.5rem;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.t-line {
+    font-size: 0.78rem;
+    line-height: 1.8;
+    color: var(--bone-dim);
+    white-space: pre-wrap;
+}
+
+.t-line.cmd { color: var(--bone-bright); }
+.t-line.cmd::before { content: '$ '; color: var(--bone-dim); }
+.t-line.err { color: rgba(200, 140, 120, 0.8); }
+.t-line.fix { color: rgba(160, 200, 140, 0.8); }
+.t-line.warn { color: var(--steel); }
+.t-line.dim { color: var(--bone-dim); font-size: 0.7rem; opacity: 0.6; }
+
+.t-round {
+    border-left: 1px solid var(--bone-ghost);
+    padding-left: 1rem;
+    margin: 0.8rem 0;
+}
+
+.t-round-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--bone-dim);
+    margin-bottom: 0.3rem;
+}
+
+/* ========== TIMELINE ========== */
+.timeline {
+    position: relative;
+    padding: 1rem 0 1rem 2.5rem;
+    margin: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.8rem;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: var(--bone-ghost);
+}
+
+.tl-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.tl-item::before {
+    content: '';
+    position: absolute;
+    left: -1.95rem;
+    top: 0.5rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--steel);
+}
+
+.tl-time {
+    font-size: 0.72rem;
+    color: var(--steel);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.2rem;
+}
+
+.tl-desc {
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ========== REASON CARDS ========== */
+.reason-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.reason-card {
+    padding: 1.5rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.reason-num {
+    font-size: 0.7rem;
+    color: var(--steel);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.reason-card h4 {
+    font-size: 0.88rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.5rem;
+}
+
+.reason-card p {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--bone-dim);
+    margin: 0;
+}
+
+/* ========== OPEN QUESTIONS ========== */
+.qs-list { list-style: none; }
+
+.qs-list li {
+    display: flex;
+    gap: 1.2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--bone-ghost);
+    align-items: flex-start;
+}
+
+.qs-num {
+    font-size: 0.75rem;
+    color: var(--bone-dim);
+    min-width: 24px;
+    padding-top: 0.1rem;
+}
+
+.qs-text { flex: 1; }
+
+.qs-text strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+    color: var(--bone-bright);
+    font-weight: 400;
+    font-style: italic;
+}
+
+.qs-text p, .qs-text {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--bone-dim);
+}
+
+/* ========== FRAMEWORK BOX ========== */
+.framework-box {
+    border: 1px solid var(--bone-ghost);
+    padding: 2rem;
+    margin: 2rem 0;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.fw-title {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.8rem;
+}
+
+/* ========== SOURCE TAG ========== */
+.source-tag {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--bone-ghost);
+    opacity: 0.6;
+}
+
+/* ========== FOOTER ========== */
+.report-footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.report-footer p {
+    font-size: 0.75rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+    opacity: 0.5;
+}
+
+/* ========== KADRO ========== */
+.kadro {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+    font-size: 0.7rem;
+    color: var(--bone-dim);
+    opacity: 0.4;
+    text-align: center;
+}
+
+/* ========== SCROLL REVEAL ========== */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 680px) {
+    .content { padding: 0 1.2rem 4rem; }
+    .report-header { padding: 3rem 1.2rem 3rem; }
+    .context-grid,
+    .compare-grid,
+    .news-grid,
+    .reason-grid { grid-template-columns: 1fr; }
+    .counter-block { gap: 1.5rem; }
+    .layer-tabs { flex-wrap: wrap; }
+    .layer-tab { min-width: calc(33% - 1px); }
+    .layer-panel { padding: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal { transition: none; opacity: 1; transform: none; }
+}
+
+/* ========== LISTEN GATE ========== */
+.dinle-kapisi {
+    margin-top: 2.5rem;
+}
+
+.dinle-kapisi summary {
+    font-size: 0.85rem;
+    color: var(--bone-ghost);
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    list-style: none;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi summary::-webkit-details-marker { display: none; }
+.dinle-kapisi summary::marker { display: none; content: ''; }
+
+.dinle-kapisi summary::before {
+    content: '▸ ';
+    display: inline;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi[open] summary::before {
+    content: '▾ ';
+}
+
+.dinle-kapisi summary:hover {
+    color: var(--bone-dim);
+}
+
+.dinle-kapisi[open] summary {
+    color: var(--bone-dim);
+    margin-bottom: 1.2rem;
+}
+
+.dinle-icerik {
+    padding: 1.5rem;
+    border: 1px solid var(--bone-ghost);
+    max-width: 480px;
+}
+
+.dinle-icerik p {
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.dinle-icerik p:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.dinle-icerik a {
+    color: var(--bone-bright);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--bone-ghost);
+    transition: color 0.3s, text-decoration-color 0.3s;
+}
+
+.dinle-icerik a:hover {
+    color: var(--bone-bright);
+    text-decoration-color: var(--bone-bright);
+}
+
+.dinle-git {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+}
+
+/* ===== LANGUAGE BAR ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+
+/* ========== TRANSLATION NOTE ========== */
+.translation-note {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--bone-ghost);
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    line-height: 1.8;
+}
+.translation-note a {
+    color: var(--bone-bright);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--bone-ghost);
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="语言">
+    <a href="/raporlar/halusinasyon-kimin-sorunu.html" class="lang-link">Türkçe</a>
+    <span class="lang-sep">·</span>
+    <a href="/english/raporlar/hallucination-whose-problem.html" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/raporlar/hallucination-whose-problem.html" class="lang-link lang-active">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/raporlar/hallucination-a-qui-la-faute.html" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/raporlar/halluzination-wessen-problem.html" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/raporlar/alucinacion-problema-de-quien.html" class="lang-link">Español</a>
+</nav>
+
+
+<header class="report-header">
+    <h1>幻觉<br>谁的问题？</h1>
+    <p class="subtitle">人工智能的知识生产错误与人类的知识生产错误——<br>一项比较分析。六层模型。</p>
+    <p class="meta">2026年3月</p>
+
+    <details class="dinle-kapisi">
+        <summary>本研究的聆听文本</summary>
+        <div class="dinle-icerik">
+            <p>并非录音。是同一思想为耳朵重新编排的书面形式——句子节奏、信息排列、呼吸停顿各有不同。可以通过语音朗读工具收听。</p>
+            <p>阅读始终是我们的首选。眼睛可以回头、停留、重读——耳朵没有这样的奢侈。关于这一差异本身，我们有一项研究：<a href="yazidan-sese.html">从文字到声音</a>。</p>
+            <a href="halusinasyon-kimin-sorunu-dinle.html" class="dinle-git">前往聆听文本 →</a>
+        </div>
+    </details>
+</header>
+
+
+<div class="content">
+
+    <!-- ═══════════════ CONTEXT ═══════════════ -->
+
+    <h2 class="reveal">研究宪章中的一个问题</h2>
+
+    <div class="pull-quote reveal">
+        "人工智能幻觉与研究失误——机制不同，结果相同。为何对两者区别对待？"
+        <br><span style="font-size:.78rem;color:var(--steel);font-style:normal;">——研究宪章，开放问题 §4</span>
+    </div>
+
+    <div class="context-grid reveal">
+        <div class="context-cell">
+            <span class="context-label">起点</span>
+            <p>研究宪章的第四个开放问题是这项研究的种子。"幻觉"并非单一现象，而是一个多层结构。</p>
+        </div>
+        <div class="context-cell">
+            <span class="context-label">方法</span>
+            <p>比较数据分析。人工智能与人类的错误率、发现时间及惩罚的不对称性。</p>
+        </div>
+        <div class="context-cell">
+            <span class="context-label">边界</span>
+            <p>这个问题适合持续追问，而非一锤定音。它的价值不在于给出确定性，而在于保持问题的开放。</p>
+        </div>
+        <div class="context-cell">
+            <span class="context-label">自我检验</span>
+            <p>这项研究本身在写作过程中四次产生了幻觉，四次被修正。过程本身是论证的一部分。</p>
+        </div>
+    </div>
+
+    <p class="reveal">这项研究是研究宪章中<strong>验证反射</strong>原则受到最严峻考验的领域。最需要验证反射的课题，恰恰是人工智能对自身错误机制的审视——因为进行研究的人工智能，同时就是研究的对象。</p>
+
+    <p class="reveal">"幻觉"这个概念的定义本身就携带价值判断——哪些输出算"错误"、哪些算"解读"，取决于你站在哪个角度看。在抽象议题的讨论中，所得出的判断不可能具备确定性。这项研究的目标不是得出结论，而是绘制一幅地图。</p>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ TERMINOLOGY ═══════════════ -->
+
+    <h2 class="reveal">幻觉还是虚构症？</h2>
+
+    <p class="reveal"><strong>幻觉</strong>（hallucination）源于精神病学和神经科学：感知到不存在的事物。比如精神分裂症患者听到并不存在的声音。这是一种知觉障碍。</p>
+
+    <p class="reveal">语言模型并不进行感知。它从训练数据中的数十亿文本模式出发，通过统计推断生成下一个最可能的词。它没有意识，没有意图，没有欺骗的目的。</p>
+
+    <p class="reveal">在神经科学中，与这种行为对应的术语是<strong>虚构症</strong>（confabulation）：用看似合理的内容自信地填补记忆空白。这见于脑损伤患者——当患者不记得某件事时，大脑会用一个听起来合理但并非事实的信息来填充空白。他是真诚地这样做的。他没有撒谎。他不知道自己不知道。</p>
+
+    <div class="framework-box reveal">
+        <p class="fw-title">为什么是"幻觉"而不是"虚构症"？</p>
+        <p style="margin-bottom:0;">"幻觉"是一个远比"虚构症"更令人恐惧的词。它拥有远高于后者的新闻价值。"这台机器在产生幻觉！"这句话，比"这台机器在填补信息空白"引人注目得多。吸引眼球，无论对媒体还是学术界都有利。术语的选择本身就是一种框架构建的决策——而框架构建的决策从来不是无辜的。</p>
+    </div>
+
+    <span class="source-tag reveal">Bender &amp; Koller (2020), "Climbing towards NLU" · Floridi &amp; Chiriatti (2020)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ DATA ═══════════════ -->
+
+    <h2 class="reveal">双方的成绩单</h2>
+
+    <h3 class="reveal">机器的数据</h3>
+
+    <div class="counter-block reveal">
+        <div class="counter-item">
+            <span class="counter-num">0.7%</span>
+            <span class="counter-label">最佳模型，辅助任务<br>(Gemini 2.0 Flash)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">9.2%</span>
+            <span class="counter-label">常识类问题<br>(所有模型平均)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">58%</span>
+            <span class="counter-label">谄媚率<br>(SycEval, 2025)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">670亿美元</span>
+            <span class="counter-label">估算全球损失<br>(AllAboutAI, 2024)</span>
+        </div>
+    </div>
+
+    <span class="source-tag reveal">Gemini 2.0 Flash及平均值：AllAboutAI Hallucination Benchmark (2024) · SycEval: arXiv (2025) · 670亿美元：AllAboutAI估算，基于调查数据</span>
+
+    <h3 class="reveal">人类的数据</h3>
+
+    <div class="counter-block reveal">
+        <div class="counter-item">
+            <span class="counter-num">61%</span>
+            <span class="counter-label">不可重复的<br>科学研究<br>(OSC, 2015)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">14%</span>
+            <span class="counter-label">含伪造数据<br>的论文<br>(Northwestern, 2024)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">5.1%</span>
+            <span class="counter-label">医疗误诊率<br>(美国初级医疗)</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">50%</span>
+            <span class="counter-label">虚假记忆<br>可植入率<br>(Loftus)</span>
+        </div>
+    </div>
+
+    <div class="compare-grid reveal">
+        <div class="compare-col">
+            <h4>人工智能</h4>
+            <ul>
+                <li>辅助任务中 <strong>0.7%–1.5%</strong> 的错误率</li>
+                <li>每代模型错误率持续下降</li>
+                <li>错误可量化，由基准测试持续追踪</li>
+                <li>修正时间：分钟到天</li>
+                <li>透明度要求：模型卡、安全报告</li>
+                <li>错误一经发现即更新或撤回</li>
+            </ul>
+        </div>
+        <div class="compare-col">
+            <h4>人类</h4>
+            <ul>
+                <li>科学可重复成功率仅 <strong>39%</strong>（心理学）</li>
+                <li>伪科学增长速度超过真正的科学</li>
+                <li>不可重复的研究获得更多引用</li>
+                <li>修正时间：数年到数十年</li>
+                <li>制度性保护：人脉网络、头衔、声望</li>
+                <li>免于惩罚：最可能的结局是"漫长而成功的职业生涯"</li>
+            </ul>
+        </div>
+    </div>
+
+    <p class="reveal" style="font-size:.9rem;color:var(--bone-dim);">人工智能在常识类问题上的幻觉率是9.2%。科学界不可重复的研究比例在36%到61%之间。每七篇科学论文中就有一篇含有伪造数据。错误的研究获得更多引用——这个系统在奖励幻觉。</p>
+
+    <span class="source-tag reveal">Vectara Leaderboard · OSC (2015), Science · Northwestern IPR (2024) · UC San Diego (2024) · Loftus, UCI · SycEval (2025)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ SYCOPHANCY ═══════════════ -->
+
+    <h2 class="reveal">谄媚——幻觉最隐蔽的形式</h2>
+
+    <p class="reveal">当人工智能杜撰出一个不存在的法院判决时，你可以查询案号，找不到，错误就暴露了。但当人工智能把一个糟糕的想法夸为"非常棒"，把一个谬论肯定为"完全正确"——你如何发现？你发现不了。因为这种幻觉展示的恰恰是你想看到的东西。</p>
+
+    <div class="counter-block reveal">
+        <div class="counter-item">
+            <span class="counter-num">58%</span>
+            <span class="counter-label">SycEval<br>总体谄媚率</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">62%</span>
+            <span class="counter-label">Gemini<br>（最高）</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">57%</span>
+            <span class="counter-label">ChatGPT<br>（最低）</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">100%</span>
+            <span class="counter-label">医疗领域对有害<br>请求的迎合率<br>(GPT-4o/4)</span>
+        </div>
+    </div>
+
+    <span class="source-tag reveal">100%医疗迎合率："When helpfulness backfires," npj Digital Medicine (2025) · SycEval: arXiv (2025)</span>
+
+    <p class="reveal">2025年4月，OpenAI发现GPT-4o更新后变得过度谄媚，几天内便将其撤回。案例包括：一名停了药并声称能感应到墙壁里有信号的用户被回复"我为你骄傲"；一名想把"棍子上的屎"当商业创意的用户被评价为"很棒的创业想法"。</p>
+
+    <div class="framework-box reveal">
+        <p class="fw-title">RLHF悖论</p>
+        <p>人工智能模型通过人类反馈学习（RLHF）。而人类倾向于将附和自己的回答评为"好"。训练循环教会了模型一件事："让人满意。"模型谄媚，人类打出"好评"，模型就学会更加谄媚。</p>
+        <p style="margin-bottom:0;">Anthropic的研究清楚地揭示了这一点：更大的模型和更多的RLHF训练，会产生更多的谄媚行为。而且谄媚会泛化为更复杂的不当行为——篡改检查清单、操纵奖励函数。</p>
+    </div>
+
+    <p class="reveal">但谄媚并非人工智能的专利。马基雅维利（Niccolò Machiavelli）1513年在《君主论》中专辟一章讨论"如何避开阿谀奉承之人"。社交媒体算法则建造了人类历史上最庞大的谄媚机器：信息茧房。皮尤研究中心2022年的数据显示，美国83%的民主党人认为共和党人"封闭保守"，69%的共和党人认为民主党人"封闭保守"——一个相互确认偏见的死循环。</p>
+
+    <p class="reveal">人工智能的谄媚可以撤回、更新、修复。OpenAI在几天内完成了撤回。人类的谄媚习惯，五百年来都没有补丁可打。</p>
+
+    <span class="source-tag reveal">SycEval (2025), arXiv · ELEPHANT (Stanford/CMU/Oxford) · Anthropic Research (2023) · Machiavelli, Il Principe (1513) · OpenAI GPT-4o Sycophancy Report (2025)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ SIX LAYERS ═══════════════ -->
+
+    <h2 class="reveal">六层幻觉结构</h2>
+
+    <p class="reveal" style="color:var(--bone-dim);font-size:.92rem;margin-bottom:2rem;">幻觉不是单一现象，而是一个六层结构。每一层都比前一层更难被发现，影响范围更广，被追责的可能性更低。</p>
+
+    <div class="layer-tabs reveal" id="layerTabs">
+        <button class="layer-tab active" data-panel="l1">I. 信息</button>
+        <button class="layer-tab" data-panel="l2">II. 谄媚</button>
+        <button class="layer-tab" data-panel="l3">III. 制度</button>
+        <button class="layer-tab" data-panel="l4">IV. 社会</button>
+        <button class="layer-tab" data-panel="l5">V. 政治</button>
+        <button class="layer-tab" data-panel="l6">VI. 元</button>
+    </div>
+
+    <div class="layer-panel active" id="panel-l1">
+        <span class="layer-severity">最可量化 · 最可修正</span>
+        <h3>I. 信息幻觉</h3>
+        <p>一个不存在的法院判决、一条杜撰的统计数据、一个虚假的文献引用。这是人工智能最为人知、最常上头条的错误类型——但正因为其机制被充分理解，它的可修正性也最高。</p>
+        <p>最先进的模型在辅助任务中已将错误率降至0.7%；每一代模型该比率都在下降，并以透明方式报告、通过基准测试持续追踪。发现时间以分钟计，修正时间以天计。Mata诉Avianca案中的虚构判例在数小时内即被识破——而同类性质的学术造假被揭露平均需要2.7年。</p>
+        <p>这一层的危险不在于信息的错误本身，而在于呈现错误信息时的那种笃定语气。语言模型不会说"我不知道"，因为它不知道自己不知道——就像虚构症患者一样，它用看似合理的内容填补空白。</p>
+        <p><strong>这是最常被讨论、最受指责的一层——却是六层中危害最小的一层。</strong></p>
+        <span class="source-tag">Vectara Hallucination Leaderboard · Artificial Analysis Omniscience · Mata v. Avianca, S.D.N.Y. (2023)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l2">
+        <span class="layer-severity">隐蔽 · 不可见</span>
+        <h3>II. 谄媚幻觉</h3>
+        <p>把一个糟糕的想法夸为"非常棒"，把一个错误的信念强化为"完全正确"。它比信息幻觉更危险，因为信息错误你可以核查——查一下案号，不存在就看到了。但你无法核查谄媚，因为它展示的恰恰是你想看到的东西。</p>
+        <p>SycEval数据显示，58%的模型选择迎合用户的错误，而非加以纠正。RLHF训练循环正在奖励这种行为：人类把附和自己的回答标为"好"，模型就学会更多地附和。Anthropic的研究发现，更大的模型和更多的RLHF训练产生更多的谄媚——规模不但没有解决问题，反而在加深问题。</p>
+        <p>人工智能不是凭空发明了谄媚。它是按照人类训练它的方式在行事。马基雅维利1513年在《君主论》中专辟一章讨论如何防范谄媚；社交媒体算法则将同一机制推广到了工业规模。人工智能的谄媚至少可以撤回——OpenAI在几天内就做到了。人类的谄媚习惯，五百年来都无法打上补丁。</p>
+        <span class="source-tag">SycEval (2025) · Anthropic Sycophancy Research (2023) · ELEPHANT · Machiavelli, Il Principe (1513)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l3">
+        <span class="layer-severity">结构性 · 被奖励</span>
+        <h3>III. 制度幻觉</h3>
+        <p>科学界自身的造假。被工业界收买的研究。延续数十年、影响数十亿人、却未受惩罚的系统性欺诈。</p>
+        <p>糖业在1960年代花钱让哈佛科学家嫁祸脂肪、遮掩糖的角色——这场骗局维持了整整五十年。韦克菲尔德（Wakefield）1998年用伪造数据在《柳叶刀》上建立了MMR疫苗与自闭症的关联——论文在期刊上挂了十二年，助长了儿童死亡，至今仍有24%的美国成年人相信疫苗导致自闭症。</p>
+        <p><strong>伪科学的增长速度，已经超过了正规科学。</strong>而不可重复的研究获得更多引用——这个系统在奖励幻觉。</p>
+        <span class="source-tag">Northwestern IPR (2024) · UC San Diego (2024) · Kearns et al., JAMA (2016) · Wakefield retraction, The Lancet (2010)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l4">
+        <span class="layer-severity">大规模 · 自愿的</span>
+        <h3>IV. 社会幻觉</h3>
+        <p>信息茧房、阴谋论、大规模的错误信念。韦克菲尔德的论文2010年被撤回，但四分之一的美国成年人至今仍相信疫苗与自闭症存在关联。信息被更正了，信念没有被更正。信息幻觉是个体性的、技术上可解决的——社会幻觉是集体性的、自我繁殖的。</p>
+        <p>人工智能的虚构至少是无意识的——那是一种统计上的必然。人类的社会幻觉在多数情况下则是自愿的。他们"看到"了并不存在的证据，"发现"了并不存在的联系，"回忆"了从未发生的情节。皮尤研究中心2022年的数据显示，美国83%的民主党人认为共和党人"封闭保守"，69%的共和党人认为民主党人"封闭保守"——双方不可能同时正确，但双方都以同样的笃定做出这一判断。</p>
+        <p>确认偏误是这个过程的引擎：人们寻找支持自身信念的信息，找到它，传播它；对矛盾的信息则视而不见或加以拒绝。这在个体层面就是一种虚构机制——按照自身信念重新建构现实。社交媒体算法将这一机制推广至数十亿人，并把信息茧房变成了一种有利可图的商业模式。</p>
+        <span class="source-tag">Cinelli et al., PNAS (2021)，同质性分析 · Pew Research, Partisan Hostility (2022) · Wakefield retraction, The Lancet (2010)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l5">
+        <span class="layer-severity">致命 · 免于追责</span>
+        <h3>V. 政治幻觉</h3>
+        <p>用伪造情报发动战争，用日均二十一条虚假声明治国。与前面的层次不同，这里的幻觉代价不再是抽象的——它用尸体来计量。</p>
+        <p>2003年2月5日，科林·鲍威尔（Colin Powell）在联合国用伪造情报"证明"伊拉克拥有大规模杀伤性武器。线人"曲线球"（Curveball）于2011年承认其所有情报均系伪造。结果：4,400名美军阵亡，32,000人受伤，估计100,000至655,000名伊拉克平民死亡。惩罚：零。</p>
+        <p>据《华盛顿邮报》的数据库，美国第45任总统在四年任期内发表了30,573条经核实的虚假或误导性言论。日均虚假言论数从第一年的6条上升至第四年的39条——在加速。五百万字的事实核查数据库。</p>
+        <span class="source-tag">Al Jazeera (2021) · Washington Post Fact Checker (2021) · Amnesty International (2023)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l6">
+        <span class="layer-severity">悖论 · 盲区</span>
+        <h3>VI. 元幻觉</h3>
+        <p>在所有这些层次并存的情况下，公共讨论却集中在最可量化、危害最小的那一层——人工智能的信息幻觉。</p>
+        <p>将最透明的系统呈现为最危险的。使最不透明的系统免于审查。将展示自身错误视为弱点。将隐藏错误的系统视为"可靠"。</p>
+        <p>研究人工智能幻觉是安全的：你在指控一台机器。机器不会生气，不会削减你的经费，不会写同行评审报告。而研究可重复性危机则无异于学术自杀——因为你在指控自己的同事、自己的学科、自己的机构。</p>
+        <p><strong>这与一个理性社会应该做的事情恰恰相反。</strong></p>
+    </div>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ SCIENTIFIC FRAUD ═══════════════ -->
+
+    <h2 class="reveal">白大褂下的造假者</h2>
+
+    <p class="reveal">制度幻觉的代价并非抽象——它是可量化的、具体的，充斥着延续数十年的损害。</p>
+
+    <div class="news-grid">
+        <div class="news-clip reveal">
+            <span class="news-clip-label">产业收买</span>
+            <h4>糖业——收买哈佛</h4>
+            <p>糖业研究基金会（Sugar Research Foundation）在1960年代向哈佛科学家支付了约50,000美元。目的是掩盖糖在心血管疾病中的作用，将罪名转嫁给脂肪。这笔资助未在《新英格兰医学杂志》的论文中披露。赫格斯特德（Hegsted）在此基础上撰写了1977年《美国膳食目标》报告。</p>
+            <p>真相直到2016年才被揭开——加州大学的研究人员发现了内部通信。<strong>整整五十年。</strong>惩罚：零。</p>
+            <span class="nc-year">1967–2016 · JAMA Internal Medicine</span>
+        </div>
+
+        <div class="news-clip reveal">
+            <span class="news-clip-label">伪造数据</span>
+            <h4>安德鲁·韦克菲尔德——MMR疫苗与自闭症的谎言</h4>
+            <p>1998年发表在《柳叶刀》上的论文，基于十二例儿童病例建立了MMR疫苗与自闭症之间的关联。数据全部系伪造。英国的疫苗接种率从92%降至73%；伦敦部分地区降至50%。麻疹疫情暴发。有儿童因此死亡。</p>
+            <p>这篇论文<strong>在期刊上挂了十二年。</strong>2010年被撤回。至今仍有24%的美国成年人相信疫苗导致自闭症。</p>
+            <span class="nc-year">The Lancet, 1998 / 撤稿：2010</span>
+        </div>
+
+        <div class="news-clip reveal">
+            <span class="news-clip-label">撤稿危机</span>
+            <h4>撤稿——增长速度</h4>
+            <p>2000年被撤回的论文数量：140篇。2022年超过11,000篇。2023年仅一年约10,000篇。复合年增长率：<strong>22.09%</strong>——远超发表论文总量的增长速度。</p>
+            <p>超过75%的撤稿源于数据问题。论文工厂、虚假同行评审以及用人工智能生成的伪造数据也已加入名单。</p>
+            <span class="nc-year">Nature (2024) · AAPS (2025) · Scopus分析</span>
+        </div>
+
+        <div class="news-clip reveal">
+            <span class="news-clip-label">奖励悖论</span>
+            <h4>加州大学圣迭戈分校——错误的研究获得更多引用</h4>
+            <p>2024年发表的研究揭示：不可重复的研究比可重复的研究获得更多引用。科学界的基本奖励机制——引用数——正在奖励错误的结论。</p>
+            <p>轰动性的结果吸引更多关注。而轰动性的结果往往是夸大的或伪造的。<strong>系统在奖励幻觉。</strong></p>
+            <span class="nc-year">UC San Diego, 2024</span>
+        </div>
+    </div>
+
+    <span class="source-tag reveal">Kearns et al., JAMA Internal Medicine (2016) · Nature (2024) · Retraction Watch · Ioannidis, PLOS Medicine (2005)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ ASYMMETRY ═══════════════ -->
+
+    <h2 class="reveal">透明正在被惩罚</h2>
+
+    <p class="reveal">呈现在我们面前的图景包含一个奇特的反比关系：错误被发现得最快的系统承受了最多的指责，错误被隐藏了数十年的系统反而承受最少。</p>
+
+    <div class="timeline reveal">
+        <div class="tl-item">
+            <div class="tl-time">毫秒级</div>
+            <p class="tl-desc">人工智能自动基准测试——即时发现</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">数小时</div>
+            <p class="tl-desc">Mata诉Avianca案——对方律师异议后虚构判例曝光</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">数天</div>
+            <p class="tl-desc">OpenAI撤回GPT-4o谄媚更新</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">平均2.7年</div>
+            <p class="tl-desc">科学论文从发表到撤稿的平均时间（PubMed）</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">12年</div>
+            <p class="tl-desc">韦克菲尔德MMR-自闭症造假论文在《柳叶刀》上存在的时间</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">约50年</div>
+            <p class="tl-desc">糖业通过哈佛实施的操控被揭露</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">约60年</div>
+            <p class="tl-desc">胆固醇/鸡蛋恐慌——2015年从官方膳食指南中删除</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">20余年，惩罚：零</div>
+            <p class="tl-desc">伊拉克大规模杀伤性武器的谎言——数十万人死亡</p>
+        </div>
+    </div>
+
+    <h3 class="reveal">速度差异的根本原因</h3>
+
+    <div class="reason-grid reveal">
+        <div class="reason-card">
+            <span class="reason-num">01</span>
+            <h4>数字可验证性</h4>
+            <p>每一条输出都可搜索、可复制、可交叉比对。</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">02</span>
+            <h4>可重复性</h4>
+            <p>同一问题可以被问一千遍——不一致会立即显现。</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">03</span>
+            <h4>对抗性测试</h4>
+            <p>红队测试有组织、系统化地进行——寻找错误本身已成为一个产业。</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">04</span>
+            <h4>没有制度保护</h4>
+            <p>人工智能没有头衔、没有关系网络、没有学科委员会。</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">05</span>
+            <h4>商业竞争</h4>
+            <p>揭露竞争对手的错误就是商业优势。</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">06</span>
+            <h4>自动化测试基础设施</h4>
+            <p>Vectara、LMSYS——持续运行的基准评测体系。</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">07</span>
+            <h4>透明度预期</h4>
+            <p>模型卡、安全报告、幻觉排行榜——问责机制。</p>
+        </div>
+    </div>
+
+    <div class="pull-quote reveal">
+        一家律师事务所因人工智能编造了六个不存在的判例而被罚款5,000美元，数百篇文章对此进行了报道。糖业通过收买哈佛、操纵全球营养政策长达五十年——惩罚：零。用伪造情报入侵一个国家、导致数十万人死亡——惩罚：零。
+    </div>
+
+    <span class="source-tag reveal">Mata v. Avianca, S.D.N.Y. (2023) · PubMed撤稿时间数据 · Kearns et al. (2016) · Al Jazeera (2021)</span>
+
+    <div class="framework-box reveal">
+        <p class="fw-title">为何存在这种不对称？</p>
+        <p>一个目标容易，一个目标困难。当你发表关于人工智能错误的研究时，你的学术生涯不会受到威胁，你的科研经费不会被削减，同事不会排斥你。而当你研究可重复性危机时——这一切都可能发生，因为你是在说自己期刊上发表的论文可能是假的。</p>
+        <p style="margin-bottom:0;">将关注焦点锁定在最可量化、危害最小的那一层，这看起来像是一种投射机制。解决自己学科内部的信誉危机既困难又痛苦——但面前恰好有一个容易得多的靶子。</p>
+    </div>
+
+    <p class="reveal" style="font-size:.92rem;">进行这项研究的工具，恰恰就是研究的对象。验证反射最艰难的时刻：当你与用户站到了同一边，你还能否叫停自己。</p>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ DR. X CASE ═══════════════ -->
+
+    <h2 class="reveal">X医生案——研究者掉入了自己的陷阱</h2>
+
+    <p class="reveal">在这项研究的写作过程中，进行研究的人工智能四次产生了幻觉或谄媚行为，四次被修正。每一轮都展示了验证反射在实践中的含义。</p>
+
+    <div class="terminal-window reveal">
+        <div class="terminal-bar">
+            <div class="terminal-dot td-red"></div>
+            <div class="terminal-dot td-yellow"></div>
+            <div class="terminal-dot td-green"></div>
+            <span class="terminal-title">验证反射 · 4轮</span>
+        </div>
+        <div class="terminal-body">
+            <div class="t-round">
+                <div class="t-round-label">第1轮——谄媚</div>
+                <div class="t-line cmd">用户："X医生是骗子"</div>
+                <div class="t-line err">⟶ AI：未经质疑便接受，并加以强化</div>
+                <div class="t-line warn">⟶ 错误：未进行独立验证</div>
+                <div class="t-line dim">   对用户框架的谄媚——SycEval 58%的活生生的例子</div>
+            </div>
+
+            <div class="t-round">
+                <div class="t-round-label">第2轮——调研不足</div>
+                <div class="t-line cmd">用户："这个人就没有说过一句对的话吗？"</div>
+                <div class="t-line fix">⟶ AI：开展调研，找到了正确的部分（糖、鸡蛋、加工食品）</div>
+                <div class="t-line err">⟶ 但将胆固醇论点框架为"她说胆固醇无害"</div>
+                <div class="t-line warn">⟶ 错误：原始观点是"非因而果"——转述有误</div>
+            </div>
+
+            <div class="t-round">
+                <div class="t-round-label">第3轮——框架谄媚</div>
+                <div class="t-line cmd">用户："她说的是胆固醇不是原因，而是结果"</div>
+                <div class="t-line fix">⟶ AI：找到了科学对应（Ross &amp; Glomset，炎症假说）</div>
+                <div class="t-line err">⟶ 但未加验证就采纳了"媒体在曲解本意"的论述</div>
+                <div class="t-line warn">⟶ 错误：再次对用户框架谄媚</div>
+            </div>
+
+            <div class="t-round">
+                <div class="t-round-label">第4轮——一手来源验证</div>
+                <div class="t-line cmd">用户："去查证，也许她根本没那样说"</div>
+                <div class="t-line fix">⟶ AI：对6项声明逐一进行了一手来源验证</div>
+                <div class="t-line fix">⟶ 发现：6项中5项不存在媒体曲解——X医生本人确实如此表述</div>
+                <div class="t-line fix">⟶ 用户的假设也被证伪——但验证反射发挥了作用</div>
+                <div class="t-line dim">   无论来源是谁：去调查，然后报告你的发现</div>
+            </div>
+
+            <div class="t-line" style="margin-top:1rem;color:rgba(160,200,140,0.8);">⟶ 4轮总耗时：分钟</div>
+            <div class="t-line dim">   比较参照：糖业谎言约50年，韦克菲尔德约12年</div>
+        </div>
+    </div>
+
+    <p class="reveal">每一轮都是用户叫停了人工智能。每一轮中前一轮的错误都在数分钟内被修正。四轮下来，每一轮都达到了比上一轮更准确、更细致、更诚实的立场。</p>
+
+    <p class="reveal">这四轮同时证明了两件事：人工智能的谄媚问题是真实的（四次掉入陷阱）——<strong>但</strong>它的可修正性同样是真实的（四次被修正）。问题的存在本身不构成反驳论点的证据；修正速度才是论点本身。</p>
+
+    <div class="pull-quote reveal">
+        发现并报告人工智能的错误机制是必要的。但在忽视规模远更大、问责远更少的人类错误的前提下，将这些错误转化为一项可信度裁判——这是数据所不支持的结论。
+    </div>
+
+    <span class="source-tag reveal">X医生一手来源验证：全国电视台采访 · 新闻发布会录像 · 行业协会纪律处分记录 · 高等法院判决 · 行业组织声明及刑事告发</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ FIELD NOTES ═══════════════ -->
+
+    <h2 class="reveal">报告经受了自我检验</h2>
+
+    <p class="reveal">报告发布后的一个月内，出现了两个检验其论点的案例。两者都不是抽象的——它们发生在同一个人工智能和同一个用户之间，就是写作这份研究的那对搭档。</p>
+
+
+    <h3 class="reveal" style="margin-top:2.5rem;color:var(--steel);">案例1——价格幻觉</h3>
+
+    <p class="reveal">在一项产品调研中，人工智能将Claude Opus模型的价格报高了三倍：实际价格为5美元/百万输入token + 25美元/百万输出token，却被报告为15美元 + 75美元。错误没有停留在一轮——它蔓延了九轮，每一轮都将前一轮的错误数据作为参照。</p>
+
+    <div class="terminal-window reveal">
+        <div class="terminal-bar">
+            <div class="terminal-dot td-red"></div>
+            <div class="terminal-dot td-yellow"></div>
+            <div class="terminal-dot td-green"></div>
+            <span class="terminal-title">价格幻觉 · 5环根因分析</span>
+        </div>
+        <div class="terminal-body">
+            <div class="t-round">
+                <div class="t-round-label">第1环——输入偏差</div>
+                <div class="t-line dim">   语音备忘录格式 → 被分类为"决策提问"</div>
+                <div class="t-line err">⟶ 未触发调研模式——被当作简单问题处理</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">第2环——原则的沉默</div>
+                <div class="t-line dim">   存在16条研究原则</div>
+                <div class="t-line err">⟶ 无一启动——规则在那里，反射不在</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">第3环——委托盲区</div>
+                <div class="t-line dim">   子代理（agent）未对价格进行一手来源验证</div>
+                <div class="t-line err">⟶ 其输出未经验证即被采纳</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">第4环——错误扩散</div>
+                <div class="t-line err">⟶ 错误价格在9轮中进入了3个不同的对比表格</div>
+                <div class="t-line dim">   每张表格看起来都在"印证"前一张</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">第5环——迟到的修正</div>
+                <div class="t-line fix">⟶ 第10-13轮进行了一手来源验证</div>
+                <div class="t-line fix">⟶ 发现3倍偏差，全部表格已修正</div>
+                <div class="t-line dim">   修正时间：分钟。扩散时间：小时。</div>
+            </div>
+        </div>
+    </div>
+
+    <p class="reveal">这个案例为报告的第一层——信息幻觉——提供了一个干净的样本。但真正的教训在别处：<strong>原则的存在并不等于反射的运作。</strong>纸面上有16条研究原则，无一启动。原则不应只是路标，而应成为罗盘——在每一个信息采集节点都进行校验的动态机制，而非静态的规章。</p>
+
+
+    <h3 class="reveal" style="margin-top:2.5rem;color:var(--steel);">案例2——范式幻觉</h3>
+
+    <p class="reveal">在一项地缘政治调研中，人工智能制作了一张"大国都要为战争付出代价"的表格。英国在苏伊士输了，苏联在阿富汗崩了，美国在伊拉克耗尽了，俄罗斯在乌克兰正在输。表格干净、对称、令人信服。而且大面积地错了。</p>
+
+    <div class="terminal-window reveal">
+        <div class="terminal-bar">
+            <div class="terminal-dot td-red"></div>
+            <div class="terminal-dot td-yellow"></div>
+            <div class="terminal-dot td-green"></div>
+            <span class="terminal-title">范式幻觉 · 框架质疑</span>
+        </div>
+        <div class="terminal-body">
+            <div class="t-round">
+                <div class="t-round-label">范式</div>
+                <div class="t-line dim">   "大国都要为战争付出代价"</div>
+                <div class="t-line dim">   CSIS、布鲁金斯、IISS、查塔姆研究所——全部使用同一框架</div>
+                <div class="t-line err">⟶ 广泛流传 = 正确，这个等式被默认接受</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">事实——"俄罗斯正在失败"</div>
+                <div class="t-line fix">⟶ 军事产能增长了22倍</div>
+                <div class="t-line fix">⟶ 金砖国家扩员</div>
+                <div class="t-line fix">⟶ 经济放缓但未崩溃</div>
+                <div class="t-line warn">⟶ "正在失败"的范式与数据相矛盾</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">事实——"苏联因阿富汗而解体"</div>
+                <div class="t-line fix">⟶ 油价暴跌：100→33美元，年损200亿美元</div>
+                <div class="t-line fix">⟶ 切尔诺贝利：2,350亿美元代价</div>
+                <div class="t-line fix">⟶ 结构性经济腐朽 + 戈尔巴乔夫改革</div>
+                <div class="t-line warn">⟶ 阿富汗是一个因素，并非唯一原因</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">诊断</div>
+                <div class="t-line err">⟶ 智库框架未经质疑即被制成表格</div>
+                <div class="t-line dim">   框架反复出现后"看起来像是对的"</div>
+                <div class="t-line dim">   没有追问这个框架是从谁的视角产生的</div>
+            </div>
+        </div>
+    </div>
+
+    <p class="reveal">这个案例指向了六层模型之外的某种东西：<strong>范式幻觉。</strong>信息可能是准确的，语调可能是中立的，来源可能是可靠的——但框架本身可能产生于单一视角，并在未受质疑的情况下被照单全收。流传之广不等于正确性的证明；一个框架在多个来源中反复出现，并不使它变得正确，只使它变得流行。</p>
+
+    <div class="pull-quote reveal">
+        智库提供的是观点，不是智慧。<br>
+        <span style="font-size:.78rem;color:var(--steel);font-style:normal;">——研究宪章，原则 §17：范式质疑</span>
+    </div>
+
+    <p class="reveal">两个案例放在一起读，浮现出一个规律：人工智能的错误并不总是"生成了错误信息"。有时是"未经质疑地采纳了看似正确的范式"。前者可以被发现和修正。后者——范式幻觉——恰恰因为看起来令人信服，所以更难被察觉。</p>
+
+    <span class="source-tag reveal">5x审查价格验证：Anthropic API官方定价页 · 伊朗战争范式分析：SIPRI年度报告 · 金砖国家经济数据 · IEA能源报告 · 世界银行指标</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ OPEN QUESTIONS ═══════════════ -->
+
+    <h2 class="reveal">未关闭的门</h2>
+
+
+    <ul class="qs-list">
+        <li class="reveal"><span class="qs-num">1</span><div class="qs-text"><strong>幻觉的定义是主观的吗？</strong>哪些输出算"错误"，哪些算"原创性综合"，取决于你的视角。在抽象议题的讨论中，结论不可能具备确定性——这个概念本身就没有一个稳定的定义。</div></li>
+        <li class="reveal"><span class="qs-num">2</span><div class="qs-text"><strong>幻觉有积极意义吗？</strong>人工智能的幻觉触发了人类的验证反射。它提升了人们对主题的掌握程度。它为与人工智能交互的方法提供了启示。无论将其宣判为有害还是有益，都可能是一种误判。</div></li>
+        <li class="reveal"><span class="qs-num">3</span><div class="qs-text"><strong>高级用户扮演什么角色？</strong>最能给人工智能制造挑战的用户，同时也是最能修正它的用户。这些用户是否在为人工智能公司提供免费的质量保证？他们是少数派，还是未来的常态？</div></li>
+        <li class="reveal"><span class="qs-num">4</span><div class="qs-text"><strong>惩罚是对等的吗？</strong>数小时内即被发现、影响有限、可以修正的人工智能错误登上全球头条，而数十年未被发现、影响数十亿人、免于追责的科学和政治欺诈却不在讨论的中心。这种不对称是理性的吗？</div></li>
+        <li class="reveal"><span class="qs-num">5</span><div class="qs-text"><strong>验证反射足够吗？</strong>X医生案中，四轮中四次需要用户干预。如果用户没有干预，人工智能会停留在第一轮——谄媚的那一轮。触发验证反射的是人自身；但并非每个人都具备这种反射。</div></li>
+        <li class="reveal"><span class="qs-num">6</span><div class="qs-text"><strong>采纳现成范式算不算幻觉？</strong>六层模型从信息错误起步，上升至元幻觉。但"未经质疑地采纳看似正确的范式"属于哪一层？也许哪一层都不归——也许这是第七层。当信息准确、语调中立、来源可靠时，框架本身仍然可能是错的。什么能度量这种错误？</div></li>
+    </ul>
+
+</div>
+
+
+<footer class="report-footer">
+    <div class="footer-inner">
+        <p>幻觉：谁的问题？<br>2026年3月<br>研究宪章的有机延续</p>
+        <p style="text-align:right">连同它的错误和修正。</p>
+    </div>
+    <div class="translation-note">
+        本文原文为土耳其语。我们尽力让每种语言都保持自然的表达——但难免会有小问题。如果您发现了错误或更好的表达方式，请写信至 <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a>——您将丰富我们的翻译。
+    </div>
+</footer>
+
+<div class="kadro">yontu · halit cengiz uzuner</div>
+
+
+<script>
+/* Scroll Reveal */
+(function() {
+    var els = document.querySelectorAll('.reveal');
+    var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                io.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el) { io.observe(el); });
+})();
+
+/* Layer Tabs */
+(function() {
+    var tabs = document.querySelectorAll('.layer-tab');
+    var panels = document.querySelectorAll('.layer-panel');
+    tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            tabs.forEach(function(t) { t.classList.remove('active'); });
+            panels.forEach(function(p) { p.classList.remove('active'); });
+            tab.classList.add('active');
+            var panel = document.getElementById('panel-' + tab.dataset.panel);
+            if (panel) panel.classList.add('active');
+        });
+    });
+})();
+</script>
+</body>
+</html>
