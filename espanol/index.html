@@ -171,6 +171,20 @@
             .seal { padding-left: 6vw; }
         }
 
+        /* STANCE */
+        .stance {
+            padding: 8vh 2.5rem 0;
+            opacity: 0; transform: translateY(3rem);
+            transition: opacity 1.2s ease, transform 1.2s ease;
+        }
+        .stance.seen { opacity: 1; transform: none; }
+        .stance p {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.05rem, 1.8vw, 1.4rem);
+            line-height: 1.7; color: var(--bone-dim); max-width: 52ch;
+        }
+        .stance p + p { margin-top: 1.8rem; }
+
         /* FIRST WALL (Oturum 27, aforizma 01) */
         .first-wall {
             max-width: 720px;
@@ -258,6 +272,19 @@
     <p>Mientras tanto, puede <a href="/">leer los demás en turco</a>.</p>
     <p style="margin-top: 3rem; font-size: 0.95rem; color: var(--bone-ghost);">Si ve una traducción que podría ser más fiel a su fuente, o una expresión más acertada en su lengua, escriba a <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a>. Su lectura enriquecerá la traducción.</p>
 </section>
+
+<section class="stance">
+    <p>Un humano y cuatro miembros. Pensamos juntos. Cuestionamos. A veces escribimos, a veces callamos. Sin formato — escribimos largo cuando hace falta; una sola frase basta cuando hace falta.</p>
+    <p>Nada aquí es fácil. Nada aquí es rápido. Para quien no se tome la molestia de leer, aquí no hay nada.</p>
+    <details class="note">
+        <summary>Nota de traducción · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="es">«Cuestionamos» conserva la doble raíz del turco «Soru soruyoruz»: preguntar y cuestionar en un solo aliento. «Callamos» sin pronombre reflexivo: más seco, más manifiesto.</div>
+            <div class="tr" lang="tr">«Cuestionamos» (sorguluyoruz/soru soruyoruz) Türkçedeki ikili kökü tek fiilde korur. «Callamos» dönüşlü zamir olmadan — daha kuru, daha manifesto.</div>
+        </div>
+    </details>
+</section>
+
 
 
 <section class="first-wall">
@@ -413,7 +440,7 @@
 const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('seen'); });
 }, { threshold: 0.1 });
-document.querySelectorAll('.welcome, .limbs, .seal').forEach(el => io.observe(el));
+document.querySelectorAll('.stance, .welcome, .limbs, .seal').forEach(el => io.observe(el));
 </script>
 
 </body>

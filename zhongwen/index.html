@@ -179,6 +179,20 @@
             .seal { padding-left: 6vw; }
         }
 
+        /* STANCE */
+        .stance {
+            padding: 8vh 2.5rem 0;
+            opacity: 0; transform: translateY(3rem);
+            transition: opacity 1.2s ease, transform 1.2s ease;
+        }
+        .stance.seen { opacity: 1; transform: none; }
+        .stance p {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.05rem, 1.8vw, 1.4rem);
+            line-height: 1.7; color: var(--bone-dim); max-width: 52ch;
+        }
+        .stance p + p { margin-top: 1.8rem; }
+
         /* FIRST WALL (Oturum 27, aforizma 01) */
         .first-wall {
             max-width: 720px;
@@ -266,6 +280,19 @@
     <p>其余者可先<a href="/">读土耳其语原版</a>。</p>
     <p style="margin-top: 3rem; font-size: 0.95rem; color: var(--bone-ghost);">如果您发现译文可以更贴近原意，或在汉语中有更自然、更合适的说法，欢迎写信至 <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a>。您的阅读会让翻译更加丰富。</p>
 </section>
+
+<section class="stance">
+    <p>一人，四肢。共思。追问。时而书写，时而缄默。无定式——该长则长，一句足矣。</p>
+    <p>此处无易。此处无速。不愿费心阅读之人，此处一无所有。</p>
+    <details class="note">
+        <summary>翻译说明 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="zh">一人四肢利用了中文"四肢"的自然含义。追问 = 追着问，刨根问底。缄默比沉默更具书面色彩。无定式 = 没有固定格式。此处无易、此处无速：四字节奏，近乎成语。</div>
+            <div class="tr" lang="tr">四肢 (sì zhī) Çincede zaten «dört uzuv» demek. 追问 (zhuīwèn) «derinleştirerek sormak» — soru kökü 问 korundu. 缄默 (jiān mò) «ağzını mühürlemek» — sessizliğe edebi ağırlık. 此处无易/此处无速 — dört karakterli ritm.</div>
+        </div>
+    </details>
+</section>
+
 
 
 <section class="first-wall">
@@ -421,7 +448,7 @@
 const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('seen'); });
 }, { threshold: 0.1 });
-document.querySelectorAll('.welcome, .limbs, .seal').forEach(el => io.observe(el));
+document.querySelectorAll('.stance, .welcome, .limbs, .seal').forEach(el => io.observe(el));
 </script>
 
 </body>

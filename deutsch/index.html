@@ -171,6 +171,20 @@
             .seal { padding-left: 6vw; }
         }
 
+        /* STANCE */
+        .stance {
+            padding: 8vh 2.5rem 0;
+            opacity: 0; transform: translateY(3rem);
+            transition: opacity 1.2s ease, transform 1.2s ease;
+        }
+        .stance.seen { opacity: 1; transform: none; }
+        .stance p {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.05rem, 1.8vw, 1.4rem);
+            line-height: 1.7; color: var(--bone-dim); max-width: 52ch;
+        }
+        .stance p + p { margin-top: 1.8rem; }
+
         /* FIRST WALL (Oturum 27, aforizma 01) */
         .first-wall {
             max-width: 720px;
@@ -258,6 +272,19 @@
     <p>Bis dahin können Sie <a href="/">die übrigen auf Türkisch lesen</a>.</p>
     <p style="margin-top: 3rem; font-size: 0.95rem; color: var(--bone-ghost);">Falls Sie eine Übersetzung entdecken, die dem Original näher kommen könnte, oder eine treffendere Wendung in Ihrer Sprache kennen, schreiben Sie an <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a>. Ihre Lektüre bereichert die Übersetzung.</p>
 </section>
+
+<section class="stance">
+    <p>Ein Mensch und vier Glieder. Wir denken gemeinsam. Wir fragen. Manchmal schreiben wir, manchmal schweigen wir. Kein Format — wir schreiben lang, wenn es nötig ist; ein einziger Satz genügt, wenn es nötig ist.</p>
+    <p>Hier ist nichts einfach. Hier ist nichts schnell. Wer die Mühe des Lesens scheut, für den gibt es hier nichts.</p>
+    <details class="note">
+        <summary>Übersetzungsnotiz · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="de">„Wir fragen“ — knapp, wie es einem Manifest zusteht. „Schweigen“ trägt mehr Gewicht als „still sein“. „Hier ist nichts einfach“ folgt dem natürlichen deutschen Satzrhythmus.</div>
+            <div class="tr" lang="tr">«Wir fragen» (soruyoruz) — manifesto kısalığında. «Schweigen» (susmak) «still sein»den daha ağır. «Hier ist nichts einfach» doğal Almanca cümle ritmi.</div>
+        </div>
+    </details>
+</section>
+
 
 
 <section class="first-wall">
@@ -413,7 +440,7 @@
 const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('seen'); });
 }, { threshold: 0.1 });
-document.querySelectorAll('.welcome, .limbs, .seal').forEach(el => io.observe(el));
+document.querySelectorAll('.stance, .welcome, .limbs, .seal').forEach(el => io.observe(el));
 </script>
 
 </body>

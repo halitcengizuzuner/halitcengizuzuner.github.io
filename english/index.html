@@ -185,6 +185,20 @@
             .seal { padding-left: 6vw; }
         }
 
+        /* STANCE */
+        .stance {
+            padding: 8vh 2.5rem 0;
+            opacity: 0; transform: translateY(3rem);
+            transition: opacity 1.2s ease, transform 1.2s ease;
+        }
+        .stance.seen { opacity: 1; transform: none; }
+        .stance p {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.05rem, 1.8vw, 1.4rem);
+            line-height: 1.7; color: var(--bone-dim); max-width: 52ch;
+        }
+        .stance p + p { margin-top: 1.8rem; }
+
         /* FIRST WALL (Oturum 27, aforizma 01) */
         .first-wall {
             max-width: 720px;
@@ -272,6 +286,19 @@
     <p>Until then, you can <a href="/">read the others in Turkish</a>.</p>
     <p style="margin-top: 3rem; font-size: 0.95rem; color: var(--bone-ghost);">If you notice a translation that could be truer to its source, or a more fitting phrase in your own tongue, please write to <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a>. Your reading will make the translation richer.</p>
 </section>
+
+<section class="stance">
+    <p>One human and four limbs. We think together. We question. Sometimes we write, sometimes we remain silent. We have no format — we write long when needed; a single sentence will do when needed.</p>
+    <p>Nothing here is easy. Nothing here is fast. For those who will not take the trouble to read, there is nothing here.</p>
+    <details class="note">
+        <summary>Translation note · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="en">"We question" carries the root echo of the Turkish "Soru soruyoruz" — both asking and questioning in a single breath. "Remain silent" was chosen over "stay silent" for its weight.</div>
+            <div class="tr" lang="tr">«Soru soruyoruz» Türkçede kök tekrarı taşır (sor-u sor-). «Question» hem soru sormak hem sorgulamak — ikili anlam tek kelimede. «Remain silent» sessizliğe edebi ağırlık katar.</div>
+        </div>
+    </details>
+</section>
+
 
 
 <section class="first-wall">
@@ -427,7 +454,7 @@
 const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('seen'); });
 }, { threshold: 0.1 });
-document.querySelectorAll('.welcome, .limbs, .seal').forEach(el => io.observe(el));
+document.querySelectorAll('.stance, .welcome, .limbs, .seal').forEach(el => io.observe(el));
 </script>
 
 </body>

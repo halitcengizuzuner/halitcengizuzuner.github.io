@@ -171,6 +171,20 @@
             .seal { padding-left: 6vw; }
         }
 
+        /* STANCE */
+        .stance {
+            padding: 8vh 2.5rem 0;
+            opacity: 0; transform: translateY(3rem);
+            transition: opacity 1.2s ease, transform 1.2s ease;
+        }
+        .stance.seen { opacity: 1; transform: none; }
+        .stance p {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.05rem, 1.8vw, 1.4rem);
+            line-height: 1.7; color: var(--bone-dim); max-width: 52ch;
+        }
+        .stance p + p { margin-top: 1.8rem; }
+
         /* FIRST WALL (Oturum 27, aforizma 01) */
         .first-wall {
             max-width: 720px;
@@ -258,6 +272,19 @@
     <p>En attendant, vous pouvez <a href="/">lire les autres en turc</a>.</p>
     <p style="margin-top: 3rem; font-size: 0.95rem; color: var(--bone-ghost);">Si vous repérez une traduction qui pourrait être plus fidèle à sa source, ou une tournure plus juste dans votre langue, écrivez à <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a>. Votre lecture enrichira la traduction.</p>
 </section>
+
+<section class="stance">
+    <p>Un humain et quatre membres. Nous pensons ensemble. Nous questionnons. Parfois nous écrivons, parfois nous nous taisons. Nous n’avons pas de format — nous écrivons long quand il le faut, une seule phrase suffit quand il le faut.</p>
+    <p>Rien ici n’est facile. Rien ici n’est rapide. Pour qui ne prendra pas la peine de lire, il n’y a rien ici.</p>
+    <details class="note">
+        <summary>Note de traduction · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="fr">« Nous questionnons » porte le double sens du turc « Soru soruyoruz » — à la fois poser des questions et remettre en question. « Nous nous taisons » préserve le poids du silence comme acte.</div>
+            <div class="tr" lang="tr">«Nous questionnons» (soru soruyoruz/sorguluyoruz) Türkçedeki ikili anlamı tek fiilde taşır. «Nous nous taisons» (susuyoruz) sessizliği eylem olarak korur.</div>
+        </div>
+    </details>
+</section>
+
 
 
 <section class="first-wall">
@@ -413,7 +440,7 @@
 const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('seen'); });
 }, { threshold: 0.1 });
-document.querySelectorAll('.welcome, .limbs, .seal').forEach(el => io.observe(el));
+document.querySelectorAll('.stance, .welcome, .limbs, .seal').forEach(el => io.observe(el));
 </script>
 
 </body>
