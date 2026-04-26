@@ -596,6 +596,60 @@ a { color: inherit; text-decoration: none; }
     opacity: 0.6;
 }
 
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(120, 144, 160, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '›';
+    margin-right: 0.5rem;
+    color: var(--steel);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--steel);
+    font-style: italic;
+}
+
 /* ========== FOOTER ========== */
 .report-footer {
     max-width: 760px;
@@ -1413,6 +1467,45 @@ a { color: inherit; text-decoration: none; }
     </div>
     <div class="translation-note">
         本文原文为土耳其语。我们尽力让每种语言都保持自然的表达——但难免会有小问题。如果您发现了错误或更好的表达方式，请写信至 <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a>——您将丰富我们的翻译。
+    </div>
+
+    <div class="transcreation-notes">
+        <h3>转创注释</h3>
+
+        <details>
+            <summary>"虚构症" — konfabülasyon / uydurma</summary>
+            <div class="note-body">
+                土耳其语有一个毁灭性地直白的词：<em>uydurma</em>——"编造"。不带任何临床的体面，不借拉丁语的缓冲。英文<em>confabulation</em>听起来像医学术语，几乎可以被原谅。中文"虚构症"取了折中路径——保留了临床外衣，但"虚构"二字在日常中文中也指小说创作，这层歧义反而暗合了语言模型的行为本质：它在"写小说"，只是自己不知道。
+            </div>
+        </details>
+
+        <details>
+            <summary>"系统在奖励幻觉" — sistem halüsinasyonu ödüllendiriyor</summary>
+            <div class="note-body">
+                土耳其语<em>ödüllendirmek</em>几乎只用于有意识的主体——奖赏孩子、表彰士兵。用它来修饰抽象系统，本身就是一种修辞上的拟人化。英文<em>rewards</em>在这个语境下极其日常。中文"奖励"同样日常，但"系统在奖励幻觉"这个句式在中文里天然带有讽刺意味——因为中文读者熟悉"体制奖励服从"的隐喻传统。
+            </div>
+        </details>
+
+        <details>
+            <summary>"白大褂下的造假者" — Önlüğün Altındaki Sahtekarlar</summary>
+            <div class="note-body">
+                土耳其语原文用<em>önlük</em>（工作服/罩衣），不像英文<em>lab coat</em>那样精确指向实验室。中文"白大褂"是中国语境中对医生和科学家最具辨识度的视觉符号——它比土耳其语原文更具象，也比英文版更具文化锚点。在中国公共话语中，"白大褂"自带信任与权威的含义，用它来修饰"造假者"的反差效果因此更强。
+            </div>
+        </details>
+
+        <details>
+            <summary>"未关闭的门" — Açık Kalan Kapılar</summary>
+            <div class="note-body">
+                土耳其语<em>açık kalan kapılar</em>的被动语态暗示"没有人选择让它们敞开——它们只是那样留着"。英文<em>Doors Left Open</em>微妙地暗示了一个决定。中文"未关闭的门"用否定式（"未"）强调了一种未完成状态——这与中国古典哲学中"悬而未决"的认知传统相呼应，也契合了佛学中"不下断语"的态度。
+            </div>
+        </details>
+
+        <details>
+            <summary>"谄媚" — dalkavukluk / yağcılık</summary>
+            <div class="note-body">
+                土耳其语有两个层次的词：<em>dalkavukluk</em>（阿谀——带有道德谴责）和<em>yağcılık</em>（字面意为"抹油"——更口语化的蔑称）。英文<em>sycophancy</em>源自古希腊语，听起来学术而遥远。中文"谄媚"兼具文言的典雅和白话的锋利——它是《史记》和微博评论区都能使用的词，这种跨时代的通用性是其他语言难以复制的。
+            </div>
+        </details>
     </div>
 </footer>
 

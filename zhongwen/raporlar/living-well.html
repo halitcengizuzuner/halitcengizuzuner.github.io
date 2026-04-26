@@ -193,6 +193,60 @@ em { color: var(--bone-dim); }
     text-decoration-color: var(--bone-ghost);
 }
 
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(160, 112, 104, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '›';
+    margin-right: 0.5rem;
+    color: var(--wine);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--wine);
+    font-style: italic;
+}
+
 footer {
     max-width: 640px;
     margin: 0 auto;
@@ -405,6 +459,45 @@ footer a:hover { color: var(--bone); }
 
 <div class="translation-note">
     原��是土耳其语。我们尽力让中文版读起来自然流畅——但难免会有小瑕疵。如果您发现错误或更好的表达，请写信至 <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a>——您将丰富我们的翻译。
+</div>
+
+<div class="transcreation-notes">
+    <h3>转创注释</h3>
+
+    <details>
+        <summary>"酿成"——değerlendirmek</summary>
+        <div class="note-body">
+            土耳其语<em>değerlendirmek</em>的本义是"评估、衡量"——理性的、有距离感的动词。但阿尔坦对他所描述的那些人生并非冷眼旁观；他是在品味它们，翻来覆去地咂摸。中文选择了<em>酿</em>——把时间当作原料，经发酵而成味。"酿"带着手艺人的耐心和感官的愉悦，比"利用"或"珍惜"更接近阿尔坦文字中那种既沉溺又超然的姿态。英文版用了<em>savouring</em>（品尝），走的是味觉路线；中文的"酿"更进一步——不只是品，还要等。
+        </div>
+    </details>
+
+    <details>
+        <summary>"操蛋"——bombok</summary>
+        <div class="note-body">
+            土耳其语<em>bombok</em>是一个粗鄙、直截、无法在正式语域中使用的词，大约介于"烂透了"和"狗屎一坨"之间。英文版为了维持散文格调降级为<em>gone to hell</em>（下了地狱）；中文选择不降级——<em>操蛋</em>保留了原文的脏和短。阿尔坦自己就是这种矛盾的混合体：内容粗粝，笔调从容。在"香槟"和"操蛋"并列的那个句子里，如果把脏字磨平，张力就没了。损失：不熟悉中文粗口层级的读者可能觉得过于突兀。收获：阿尔坦的声音被完整保留。
+        </div>
+    </details>
+
+    <details>
+        <summary>"小念珠"——tespih</summary>
+        <div class="note-body">
+            土耳其语<em>tespih</em>是一串在手指间捻转的珠子——半是祈祷用具，半是冥想习惯，半是社交手势。英文版用了<em>worry beads</em>（希腊kombolói），强调世俗性和焦虑感。中文选择<em>念珠</em>，这在中文语境里天然带有佛教色彩——这既是收获也是风险。收获：中国读者对"念珠"有即刻的身体记忆（寺庙、手串、长辈），不需要文化注释就能感受到那种重复的、无目的的手指运动。风险：佛教念珠的庄严可能盖过阿尔坦笔下那些老人无所事事地搓珠子的散淡气息。加"小"字——<em>小念珠</em>——是一个微调：缩小了庄严感，暗示这不是法器，只是手中的东西。
+        </div>
+    </details>
+
+    <details>
+        <summary>"Sağmacılar（伊斯坦布尔一所监狱）"</summary>
+        <div class="note-body">
+            <em>Sağmacılar</em>是一个地名——伊斯坦布尔某所监狱的一个监舍——单词本身浓缩了土耳其数十年政治关押的记忆。对土耳其读者而言，这个词无需解释就能激起一整章历史。中文没有等效的单音节压缩方式。我们保留了土耳其语原名并加括号标注"伊斯坦布尔一所监狱"——最低限度的上下文。保留原名是一个刻意的选择：让中文读者感受到一个无法翻译的词的存在本身就是信息——它提示你，在另一种语言里有一整个世界被压进了这几个音节，而你此刻站在门外。
+        </div>
+    </details>
+
+    <details>
+        <summary>"像石子投入井中那般圆满的孤独"</summary>
+        <div class="note-body">
+            土耳其语原文：<em>taşların dibine düşen yalnızlık</em>——直译是"沉到石头最深处的孤独"，孤独如一颗石子落入井底，无人打捞。英文版放弃了井的意象，用<em>accomplished solitude</em>（达成的孤独）传达自足感。中文做了另一个选择——<em>保留</em>意象：石子、井、下沉。同时选用<em>圆满</em>而非"完整"或"自足"：圆满在中文里（尤其在佛教语境）暗示功德完成、无缺无憾——这给孤独加上了一层土耳其语原文没有明说但结构暗示的含义：这种孤独不是残缺，是修成。两个独立评估者均认为，井的意象在中文里的视觉冲击力比在英文里更强——中文读者对"投井"这个动作有文学和历史的双重记忆。
+        </div>
+    </details>
 </div>
 
 </main>

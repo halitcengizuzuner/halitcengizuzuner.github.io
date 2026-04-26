@@ -375,6 +375,61 @@ li {
 
 li::marker { color: var(--bone-ghost); }
 
+/* ========== TRANSCREATION NOTES ========== */
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(184, 112, 80, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--rust);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--rust);
+    font-style: italic;
+}
+
 /* ========== FOOTER ========== */
 footer {
     max-width: 740px;
@@ -1006,6 +1061,45 @@ footer a:hover { color: var(--bone); }
 <section style="border-top: 1px solid var(--bone-ghost); padding-top: 2rem; margin-bottom: 2rem;">
     <p style="font-size: 0.85rem; color: var(--bone-dim); line-height: 1.8;">本文原文为土耳其语。我们尽力使译文贴合每种语言的特质——但难免存在不足。如发现错误或更好的表达，请写信至 <a href="mailto:soru@halitcengizuzuner.com" style="color: var(--bone-bright);">soru@halitcengizuzuner.com</a>——您的反馈将丰富我们的翻译。</p>
 </section>
+
+<div class="transcreation-notes">
+    <h3>转创注释</h3>
+
+    <details>
+        <summary>"万事九成皆废品" — Her şeyin yüzde doksanı çöptür</summary>
+        <div class="note-body">
+            原文标题<em>Her şeyin yüzde doksanı çöptür</em>（万事的百分之九十都是垃圾）是斯特金原话的土耳其语直译。中文版选择了"万事九成皆废品"——七个字，用古典汉语的节拍（四三结构）压缩了原文的口语散文感。"废品"而非"垃圾"：<em>çöp</em>和英文<em>crud</em>都偏日常粗俗，但中文"垃圾"在网络语境中已被用滥（"垃圾食品""信息垃圾"），失去了冲击力。"废品"保留了工业/生产的隐喻色彩——与斯特金作为生产者（作家）发言的身份更吻合。
+        </div>
+    </details>
+
+    <details>
+        <summary>"启示" vs "定律" — Vahiy vs Yasa</summary>
+        <div class="note-body">
+            斯特金本人区分了两个公式：<em>Sturgeon's Revelation</em>（启示）和<em>Sturgeon's Law</em>（定律）。中文版将<em>Revelation</em>译为"启示"，将<em>Law</em>译为"定律"。"启示"在中文里有宗教和世俗双重含义（《启示录》vs "这给了我启示"），与斯特金那种带着厌倦的先知口吻恰好共振。"定律"则比"法则"更硬——物理学用"定律"，社会科学用"法则"，选择"定律"是因为斯特金的语气本身就在模仿自然科学的确定性，尽管他知道这是修辞。
+        </div>
+    </details>
+
+    <details>
+        <summary>"巴克·罗杰斯" — 文化注释的中文策略</summary>
+        <div class="note-body">
+            原文中<em>Buck Rogers</em>是美国读者熟知的早期科幻符号，土耳其语读者也能从语境中理解其贬义。但中文读者——尤其是非科幻迷——可能完全不知道这个名字。中文版选择了"巴克·罗杰斯"加括号注释"美国早期科幻英雄"的处理方式，在引用段落中直接嵌入而非做脚注。这是因为中文版的整体策略是减少脚注（脚注打断中文竖排/长段的阅读节奏），将必要信息内嵌于正文。英文版不需要注释，法德西版做了类似的括号处理。
+        </div>
+    </details>
+
+    <details>
+        <summary>"赫拉克利特" — 时间轴中的先秦共鸣</summary>
+        <div class="note-body">
+            原文的历史时间轴从赫拉克利特（约公元前500年）的"多数人是坏的"开始。中文读者读到这个时间点会自然联想到先秦诸子——孔子（前551–前479）、老子、荀子的<em>性恶论</em>。中文版没有插入这些中国对应物（原文没有，加入会改变论证结构），但时间轴本身在中文语境中获得了一层原文不具备的回声：中国读者知道，同一个世纪里，东方也有人在思考人性中的劣质成分。这种沉默的共鸣是翻译无法制造也无需制造的——它存在于读者的文化记忆中。
+        </div>
+    </details>
+
+    <details>
+        <summary>"算法化的格雷欣效应" — 概念翻译的锚定</summary>
+        <div class="note-body">
+            报告的核心洞见——<em>Algoritmik Gresham etkisi</em>（算法化的格雷欣效应）——在中文经济学文献中，"格雷欣法则"（劣币驱逐良币）是标准译法。中文版保留了"格雷欣"而非意译为"劣驱良"，因为这个专名在中文知识界已有足够的辨识度。但在首次出现时补充了"劣币进入市场时良币退出流通"的解释——这是中文版独有的处理，英文版假设读者知道<em>Gresham's Law</em>，土耳其语版同样假设。中文版不做这个假设，但也不过度解释——一句话锚定，然后信任读者。
+        </div>
+    </details>
+</div>
 
 </main>
 

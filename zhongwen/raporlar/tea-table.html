@@ -221,6 +221,60 @@ a { color: inherit; text-decoration: none; }
     line-height: 2.2;
 }
 
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(184, 144, 96, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--cay);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--cay);
+    font-style: italic;
+}
+
 @media (max-width: 600px) {
     .book { padding: 8vh 1.5rem 6rem; }
     .hz { font-size: 1.3rem; }
@@ -574,6 +628,45 @@ a { color: inherit; text-decoration: none; }
 译者注：本文原文为土耳其语。对话中的《道德经》原文（汉字与拼音）保持不变。<br>
 原文中的土耳其语译释，在此以现代汉语重新诠释——<br>
 道回到了它自己的语言之中。
+</div>
+
+<div class="transcreation-notes">
+    <h3>转创注释</h3>
+
+    <details>
+        <summary>"道回到了它自己的语言之中" — 中文版的独特地位</summary>
+        <div class="note-body">
+            这篇文章在六个语言版本中，中文版占据独一无二的位置：原文对话中引用的《道德经》汉字（<em>不出户，知天下</em>和<em>道法自然</em>）在其他五个版本中是异质的嵌入物，而在中文版中它们回到了母语。土耳其语原文需要拼音和译释来搭建桥梁，英法德西版本需要音译加注。中文版不需要任何桥梁——原典直接在正文中呼吸。这不是翻译优势，而是文本本身的一次回家。
+        </div>
+    </details>
+
+    <details>
+        <summary>"攫取与触碰" — avuçlamak ile dokunmak</summary>
+        <div class="note-body">
+            原文中Halit提出的核心区分是<em>avuçlamak</em>（用掌攫取）与<em>dokunmak</em>（触碰）——宗教攫取，道触碰。中文选择了"攫取"和"触碰"这对词。"攫取"在现代中文里带有强烈的贬义和力量感，比原文的<em>avuçlamak</em>（字面义：用掌包住）更激烈。但这种激烈恰好服务于对话的戏剧性：Halit在挑战宗教的占有欲。英文版用<em>clutch</em>与<em>touch</em>，保留了身体感但缺少中文"攫"字的视觉暴力——一只爪形的手。
+        </div>
+    </details>
+
+    <details>
+        <summary>"用手理解的人" — elleriyle anlayan</summary>
+        <div class="note-body">
+            <em>Elleriyle anlayan</em>（用手理解的人）是对话的转折点之一。中文直译为"用手理解的人"——在汉语里，"手"与"理解"的并置产生了一种庄子式的共鸣：<em>庖丁解牛</em>的典故里，技艺超越认知的那个瞬间，正是这段对话在谈论的。其他语言版本没有这个现成的文化对应物。中文读者不需要解释就能感受到这个意象的重量——这是翻译中罕见的意外丰饶。
+        </div>
+    </details>
+
+    <details>
+        <summary>"可道之道，非常道" — 翻译的不可能与不必要</summary>
+        <div class="note-body">
+            原文中<em>道可道，非常道</em>以汉字出现，土耳其语对话围绕它展开。在英法德西版本中，这句话必须被翻译（<em>The Tao that can be told...</em>），而每一次翻译都是一次背叛——正如这句话本身所宣告的。中文版是唯一不需要翻译这句话的版本。悖论由此完成了一个闭环：一句关于不可言说的陈述，在其他语言中被迫再次言说，唯独在中文里保持了它的沉默。
+        </div>
+    </details>
+
+    <details>
+        <summary>"三个声音" — 人称与语体的中文化</summary>
+        <div class="note-body">
+            原文的对话体在土耳其语中有天然的亲密感——土耳其语口语本就松弛、直接。中文版面临一个选择：用白话的松弛感对应，还是用文言的凝练感呼应道家文本的底色。最终选择了一条中间道路：对话部分用当代书面白话（不追求口语化），引文和舞台指示用略带文言气息的句式（如"长久的沉默"而非"沉默了很久"）。这种语体分层在原文中不存在——它是中文版自己的建筑决策。
+        </div>
+    </details>
 </div>
 
 </div>

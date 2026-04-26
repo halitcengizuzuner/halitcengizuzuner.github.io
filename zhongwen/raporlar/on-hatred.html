@@ -371,6 +371,61 @@ body {
 .footnotes li { margin-bottom: 8px; }
 .footnotes a { color: var(--accent); text-decoration: none; }
 
+/* === TRANSCREATION NOTES === */
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--muted);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(196, 120, 90, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--accent);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--accent);
+    font-style: italic;
+}
+
 /* === MOBİL === */
 @media (max-width: 600px) {
   .cover-content { padding: 40px 20px; }
@@ -774,6 +829,45 @@ body {
 
 <div class="article-footer" style="border-top: none; margin-top: 20px;">
   <em>本文原文为土耳其语。我们尽力使中文版自然流畅——忠于思想而非字句。如果您发现可以改进之处，请写信至 <strong>soru@halitcengizuzuner.com</strong>——您将丰富我们的翻译。</em>
+</div>
+
+<div class="transcreation-notes" style="max-width: 720px; margin: 0 auto; padding: 0 24px;">
+    <h3>转创注释</h3>
+
+    <details>
+        <summary>"论仇恨" — Nefret Üzerine</summary>
+        <div class="note-body">
+            原标题<em>Nefret Üzerine</em>直译为"关于仇恨"。中文选择了"论仇恨"——一个古典论说文的标题格式（论X），呼应韩愈《师说》、柳宗元《封建论》等传统。英文版<em>On Hatred</em>同样采用论说体（蒙田、培根的随笔传统），但中文的"论"字比英文的<em>on</em>更庄重，暗示更系统的剖析。这与原文的基调契合——这不是一篇散文感怀，而是一份拆解报告。
+        </div>
+    </details>
+
+    <details>
+        <summary>"有机之恶" — organik kötülük</summary>
+        <div class="note-body">
+            原文的核心概念<em>organik kötülük</em>（organic evil）在中文版中被译为"有机之恶"。"有机"在当代中文里主要联想是"有机食品"，但这里刻意利用了它更古老的含义——"具有生命结构的、自然生长的"。"有机之恶"在中文里形成了一种陌生化效果：读者必须停下来思考这两个词为何被放在一起。这种陌生化是有意为之的——原文正在挑战读者对"恶"的预设分类。法文版用<em>mal organique</em>，德文版用<em>organisches Böse</em>，都保持了同样的陌生化策略。
+        </div>
+    </details>
+
+    <details>
+        <summary>"无力的告白" — iradesizliğin itirafı</summary>
+        <div class="note-body">
+            <em>İradesizliğin itirafı</em>字面义是"无意志的坦白"。中文选择了"无力的告白"——"无力"比"无意志"更直击要害（中文里"没有意志"听起来像性格缺陷，而原文谈论的是结构性的无能为力），"告白"比"坦白"更带有主动性和私密性。英文版用<em>The Confession of Powerlessness</em>，保留了宗教忏悔的回声。中文的"告白"则更接近日语借词的现代用法——一种面向自我的、带有勇气的坦诚，而非面向上帝的忏悔。
+        </div>
+    </details>
+
+    <details>
+        <summary>"萨图恩吞噬其子" — 戈雅画作的中文重命名</summary>
+        <div class="note-body">
+            戈雅的<em>Saturno devorando a su hijo</em>在中文美术史文献中通常被译为"农神吞噬其子"或"萨图恩吞噬其子"。中文版选择了后者——保留罗马神名而非功能性称谓（"农神"）。原因在于：原文将萨图恩与仇恨的自噬性并置，"萨图恩"作为专名比"农神"更具神话重量。这是一个微小但刻意的选择：让中文读者面对的是一个名字，而非一个职能标签。
+        </div>
+    </details>
+
+    <details>
+        <summary>"奇格尔测试" — 刑罚理论的中文化</summary>
+        <div class="note-body">
+            原文用电影角色安东·奇格尔（Anton Chigurh）来测试四种刑罚理论——报应、改造、威慑、隔离。中文版将法律术语做了本土化处理：<em>retribution</em>译为"报应"（而非更学术化的"报复性正义"），<em>incapacitation</em>译为"隔离——使其丧失行为能力"（加了破折号解释，因为中文法学界对此术语没有统一译法）。作者本人是从业三十年的法律人，原文的法律论述带有实务经验的质感——中文版试图保留这种"法庭上的人在说话"的语感，而非将其学术化。
+        </div>
+    </details>
 </div>
 
 <nav style="max-width:680px;margin:3rem auto 2rem;padding:2rem 1.5rem;border-top:1px solid rgba(212,204,192,0.15);">

@@ -161,6 +161,60 @@ li::marker { color: var(--bone-ghost); }
     text-decoration-color: var(--bone-ghost);
 }
 
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(160, 152, 176, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--ash);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--ash);
+    font-style: italic;
+}
+
 footer { max-width: 680px; margin: 0 auto; padding: 4rem 2.5rem; border-top: 1px solid var(--bone-ghost); }
 footer p { font-size: 0.8rem; color: var(--bone-ghost); line-height: 1.8; }
 footer a { color: var(--bone-dim); transition: color 0.3s; }
@@ -525,6 +579,45 @@ footer a:hover { color: var(--bone); }
 
 <div class="translation-note">
     原文为土耳其语。我们尽力使中文译文顺畅自然——但难免会有细微的不足之处。如果您发现错误或更恰当的表达，请写信至 <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a>——您会丰富我们的翻译。
+</div>
+
+<div class="transcreation-notes">
+    <h3>转创注释</h3>
+
+    <details>
+        <summary>"就是这样" — aynen öyle</summary>
+        <div class="note-body">
+            土耳其语<em>aynen öyle</em>是一个从阿拉伯语词根<em>ayn</em>（眼/本质）演化而来的最小肯定表达。中文选择了"就是这样"作为标题——四个字，语气比"没错"更完整，比"确实如此"更口语化。这个选择牺牲了原词从"眼睛"到"空壳"的词源旅程（中文无法复刻），但收获了汉语自身的节奏感：四字格是汉语思维的天然单元。英文版用<em>Exactly</em>保留了精确性的语义残影，中文版则选择了语感上的妥帖。
+        </div>
+    </details>
+
+    <details>
+        <summary>"认知寄生" — epistemik parazitlik</summary>
+        <div class="note-body">
+            原文的核心概念<em>epistemik parazitlik</em>（认识论意义上的寄生）在中文里被译为"认知寄生"。"认知"比"认识论"更接近日常学术中文的用语习惯，而"寄生"恰好是一个在中文科学话语中高度成熟的隐喻——从生物学到社会批评，中文读者对"寄生"的联想网络比土耳其语或英语读者更丰富。这里中文版实际上比原文更锐利：<em>parazit</em>在土耳其语中主要是外来术语，而"寄生"在中文里是一个有深厚文化根基的词。
+        </div>
+    </details>
+
+    <details>
+        <summary>"交际性交融" — fatik birlik</summary>
+        <div class="note-body">
+            马林诺夫斯基的<em>phatic communion</em>在土耳其语中被直译为<em>fatik birlik</em>。中文版采用了"交际性交融"——这是语言学界已有的标准译法，但读起来生硬。报告正文中更多使用"交际性沟通"这个更自然的说法，只在首次出现时给出完整术语。这是一种策略性的双层处理：学术精确度在括号里，阅读流畅度在正文里。法文版和德文版也面临同样的术语僵硬问题，各自做了类似的妥协。
+        </div>
+    </details>
+
+    <details>
+        <summary>"词的皮肤""词的骨骼" — sözcüğün derisi / sözcüğün kemiği</summary>
+        <div class="note-body">
+            原文的两个章节标题——<em>sözcüğün derisi</em>（词的皮肤）和<em>sözcüğün kemiği</em>（词的骨骼）——构成一组身体隐喻。中文保留了这组隐喻并将其嵌入"触碰"和"寄生"的框架中："触碰——词的皮肤"与"寄生——词的骨骼"。这在中文里读起来比在土耳其语里更像古典散文的章回标题——一种意外的文体共鸣。英文版将它们处理为<em>Touch — the skin of the word</em>和<em>Parasite — the bone of the word</em>，保持了同样的解剖学平行，但少了中文四字对仗带来的节拍感。
+        </div>
+    </details>
+
+    <details>
+        <summary>"相槌" — aizuchi</summary>
+        <div class="note-body">
+            日语<em>相槌</em>（aizuchi）概念在原文中作为跨文化比较出现。中文版处于独特的优势位置：汉字"相槌"对中文读者来说虽非日常用语，但字面可解（"相互的锤击"——锻造时的配合节奏），比任何西语版本都更接近概念的原始触感。其他语言版本只能音译<em>aizuchi</em>再加注释，中文版则让读者直接进入汉字的视觉语义场。这是中文翻译少有的结构性优势之一。
+        </div>
+    </details>
 </div>
 
 </main>

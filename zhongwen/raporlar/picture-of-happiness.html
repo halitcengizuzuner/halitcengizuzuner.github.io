@@ -132,6 +132,60 @@ em { color: var(--bone-dim); font-style: normal; }
 .painting figcaption strong { color: var(--straw); }
 .breath { height: 8vh; }
 .divider { width: 40px; height: 1px; background: var(--bone-ghost); margin: 4rem 0; }
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(200, 160, 85, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '›';
+    margin-right: 0.5rem;
+    color: var(--straw);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--straw);
+    font-style: italic;
+}
+
 footer { max-width: 700px; margin: 0 auto; padding: 4rem 2.5rem; border-top: 1px solid var(--bone-ghost); }
 footer p { font-size: 0.8rem; color: var(--bone-ghost); line-height: 1.8; }
 footer a { color: var(--bone-dim); transition: color 0.3s; }
@@ -388,6 +442,45 @@ footer a:hover { color: var(--bone); }
 
 <p>后来别人来了：一个人用迪诺的口吻写了一首诗，另一个人贴上了一位美国画家的作品，所有人都说"这就是答案"。但六十多年来，最诚实的回应依然是阿比丁的沉默——因为有些问题不是问题，有些沉默比一切言语说得更多。</p>
 
+</div>
+
+<div class="transcreation-notes">
+    <h3>转创注释</h3>
+
+    <details>
+        <summary>"幸福的画像" — Mutluluğun Resmi</summary>
+        <div class="note-body">
+            土耳其语标题<em>Mutluluğun Resmi</em>中的<em>resim</em>兼有"画"与"画像"两义，暧昧而日常。中文选择了"画像"而非"图画"，因为<em>画像</em>在中国古典传统中暗含"为某物立传"的庄重意味——与全文追溯一个问题命运的基调更为契合。英文版用了<em>picture</em>，保留了轻盈；中文版选择加重。
+        </div>
+    </details>
+
+    <details>
+        <summary>"一个问题的遭遇" — Bir sorunun başına gelenler</summary>
+        <div class="note-body">
+            土耳其语原文直译为"降临在一个问题头上的事"——一种拟人化的句法，仿佛问题本身也会遭受命运。中文"遭遇"二字同样赋予无生命之物以经历感，但比土耳其语原文更凝练。英文版<em>What happened to a question</em>选择了叙述性的平铺，中文版选择了古汉语里更常见的压缩。
+        </div>
+    </details>
+
+    <details>
+        <summary>"帕夏" — Paşa</summary>
+        <div class="note-body">
+            <em>Paşa</em>在土耳其语中自带一整套文化密码：奥斯曼贵族、没落世家、旧秩序的余晖。中文读者对此无感，需要补充。我们加注了"奥斯曼高级军政头衔"的括号说明——这在英文版和法文版中都未做，因为西方读者对奥斯曼头衔有基本认知。中文译本在此处做了其他语言未做的桥接工作。
+        </div>
+    </details>
+
+    <details>
+        <summary>"稚拙艺术" — naif sanat</summary>
+        <div class="note-body">
+            土耳其语直接借用法语<em>naïf</em>，英文用<em>naïve art</em>，两者都保留了来自绘画史的专业术语感。中文"素人艺术"是常见译法但偏口语，"稚拙艺术"则呼应中国美术批评中对齐白石早期画风的讨论用语——更贴近中文读者的审美坐标系。括号内保留了"素人艺术"作为辅助理解。
+        </div>
+    </details>
+
+    <details>
+        <summary>"钳子" — kıskaç</summary>
+        <div class="note-body">
+            分析纳齐姆反复提问结构时，土耳其语用了<em>kıskaç</em>（钳子/虎钳），英文保留了<em>vice</em>。中文"钳子"同样是物理工具的意象，但中文里"钳子"更常出现在日常语境而非修辞分析中——这使得这个比喻在中文中更具冲击力，因为它打破了学术行文的惯性。
+        </div>
+    </details>
 </div>
 
 </main>

@@ -196,6 +196,60 @@ em { color: var(--bone-dim); }
     line-height: 1.6;
 }
 
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(112, 104, 160, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '›';
+    margin-right: 0.5rem;
+    color: var(--yanki);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--yanki);
+    font-style: italic;
+}
+
 footer {
     max-width: 640px;
     margin: 0 auto;
@@ -662,6 +716,45 @@ footer a:hover { color: var(--bone); }
 
 <div style="max-width: 640px; margin: 0 auto; padding: 2rem 2.5rem;">
   <p style="font-size: 0.8rem; color: rgba(212, 204, 192, 0.28); line-height: 1.8; font-style: italic;">本文原文为土耳其语。我们尽力使中文版自然流畅——忠于思想而非字句。如果您发现可以改进之处，请写信至 <strong>soru@halitcengizuzuner.com</strong>——您将丰富我们的翻译。</p>
+</div>
+
+<div class="transcreation-notes" style="max-width:580px;margin:0 auto;padding:0 2.5rem 2rem;">
+    <h3>转创注释</h3>
+
+    <details>
+        <summary>"从文字到声音" — Yazıdan Sese</summary>
+        <div class="note-body">
+            土耳其语<em>Yazıdan Sese</em>中的<em>yazı</em>同时指"书写"和"文字"，<em>ses</em>同时指"声音"和"嗓音"。这种双义性在标题层面制造了优雅的模糊。中文"从文字到声音"选择了最透明的对应——但失去了一层：中文"声音"不像土耳其语<em>ses</em>那样天然包含"人的嗓音"义。英文<em>From Text to Voice</em>中的<em>voice</em>恰好兼具"声音"和"嗓音"。中文在此处比英文损失更大。
+        </div>
+    </details>
+
+    <details>
+        <summary>"走神" — zihin dağılması</summary>
+        <div class="note-body">
+            土耳其语<em>zihin dağılması</em>直译为"心智的散落"——一个较为正式的表述。英文学术文献用<em>mind wandering</em>。中文"走神"是极其口语化的词，两个字，干净利落——这种简洁反而比学术翻译更准确地捕捉了现象本身：注意力不是"散落"，而是"走了"。中文在此处比土耳其语和英语都更传神。
+        </div>
+    </details>
+
+    <details>
+        <summary>"合成口语性" — sentetik sözlülük</summary>
+        <div class="note-body">
+            Ong的核心概念<em>secondary orality</em>在土耳其语中被译为<em>ikincil sözlülük</em>——保留了学术术语感。中文学界通常译为"次生口语文化"，但本文选择了"合成口语性"——突出了技术合成（TTS）的维度，这是Ong未曾预见但本文核心论述的方向。这个译法是中文版独有的创造性偏移。
+        </div>
+    </details>
+
+    <details>
+        <summary>"可听性" — dinlenebilirlik</summary>
+        <div class="note-body">
+            土耳其语<em>dinlenebilirlik</em>是从<em>dinlemek</em>（听）派生的名词，结构透明，一望即知其义。英文<em>listenability</em>同理。中文"可听性"是三个字的造词——"可"+"听"+"性"——在中文学术写作中属于标准构词法（如"可读性""可用性"），但对非学术读者来说仍有一丝生涩。这种生涩本身或许是恰当的：这个概念本来就不该听起来太顺耳。
+        </div>
+    </details>
+
+    <details>
+        <summary>"韵律" — prozodi / bürün</summary>
+        <div class="note-body">
+            土耳其语有两个词：借词<em>prozodi</em>和本土词<em>bürün</em>。英文统一用<em>prosody</em>。中文"韵律"在日常用法中更接近"诗歌的节奏感"而非语言学的"超音段特征"——但恰恰因为这种诗意联想，它在一篇讨论文字与声音关系的文章中格外合适。中文"韵律"的美学重量大于其技术精确度，而本文正是在美学层面讨论这个问题。
+        </div>
+    </details>
 </div>
 
 <nav style="max-width:680px;margin:3rem auto 2rem;padding:2rem 1.5rem;border-top:1px solid rgba(212,204,192,0.15);">

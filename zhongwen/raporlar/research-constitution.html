@@ -1218,6 +1218,60 @@ figcaption { font-size: .7rem; color: var(--dim); margin-top: .55rem; line-heigh
 .sub-card li::before { content: '›'; position: absolute; left: 0; color: var(--muted); }
 .sub-card li:last-child { border-bottom: none; }
 
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--muted);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(120, 168, 144, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '›';
+    margin-right: 0.5rem;
+    color: #78a890;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: #78a890;
+    font-style: italic;
+}
+
 /* ══════════════════════════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════════════════════════ */
@@ -2539,6 +2593,38 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
     </ul>
   </div>
 </section>
+
+<div class="transcreation-notes" style="max-width:580px;margin:3rem auto;padding:0 2rem;">
+    <h3>转创注释</h3>
+
+    <details>
+        <summary>"为思考立法" — Düşünceye yasama yapmak</summary>
+        <div class="note-body">
+            土耳其语副标题<em>düşünmeye yasa yazmak</em>中，"立法"（<em>yasa yazmak</em>）是对"宪章"概念的解释性延伸。中文"为思考立法"保留了这一法律隐喻，但在中文语境中，"立法"天然携带国家权力的联想——这使得标题多了一层反讽：谁有权为思考立法？英文版<em>legislating thought</em>也有类似效果，但中国读者对"法"字的敏感度更高，因为"以法治学"在中国学术讨论中有活跃的现实指涉。
+        </div>
+    </details>
+
+    <details>
+        <summary>"亲历之错" — yaşanmış hatalar</summary>
+        <div class="note-body">
+            土耳其语<em>yaşanmış</em>的字面意思是"被活过的"——强调错误不是理论上的，而是切身经历的。中文"亲历"保留了这种身体性，但增加了"亲"字带来的亲近感。英文版没有对应的单词选择，用了<em>lived errors</em>——信息等价但质感不同。中文"亲历之错淬炼原则"借用了冶金意象（<em>淬炼</em>），这是中文译本独有的修辞层，土耳其语和英文版均未使用。
+        </div>
+    </details>
+
+    <details>
+        <summary>"验证反射" — doğrulama refleksi</summary>
+        <div class="note-body">
+            这是全文的核心概念。土耳其语<em>refleks</em>直接借自法语/英语，对土耳其读者来说是半透明的外来词。中文"反射"既是生理学术语（膝跳反射），也是日常用语（条件反射）——两个语义层同时激活，恰好吻合作者的意图：验证应当像生理反射一样不经思考即触发。英文<em>reflex</em>同理，但中文读者还会联想到巴甫洛夫——这在中国教育背景中是比西方更普及的文化参照。
+        </div>
+    </details>
+
+    <details>
+        <summary>"活文档" — yaşayan belge</summary>
+        <div class="note-body">
+            土耳其语<em>yaşayan belge</em>直译为"活着的文件"——一个在软件工程中常见但在人文学科中罕见的概念。中文"活文档"简洁且信息透明，但缺少了土耳其语中<em>yaşayan</em>（活着的）那种生命力的隐喻重量。英文<em>living document</em>已是技术界的固定搭配，对英文读者不产生新鲜感；对中文读者，"活文档"仍然带有一丝陌生的新意。
+        </div>
+    </details>
+</div>
 
 
 <!-- ═══════════════════════════════════════════════════════════════
