@@ -492,6 +492,65 @@ body {
 .home-link:hover {
     color: var(--bone);
 }
+
+/* ===== TRANSCREATION NOTES ===== */
+.transcreation-notes {
+    max-width: 720px;
+    margin: 40px auto;
+    padding: 0 24px;
+}
+
+.transcreation-notes h3 {
+    font-family: var(--sans);
+    font-size: 0.7em;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(196, 120, 90, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: var(--serif);
+    font-size: 1em;
+    color: var(--dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--accent);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-family: var(--sans);
+    font-size: 0.85em;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--accent);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -774,6 +833,45 @@ body {
 
 <div class="article-footer" style="border-top: none; margin-top: 20px;">
   <em>Ce texte a été écrit originellement en turc. Nous avons cherché à le rendre aussi naturel que possible en français — en restant fidèle à la voix plutôt qu'aux mots. Si vous repérez quelque chose qui pourrait mieux sonner, écrivez-nous à <strong>soru@halitcengizuzuner.com</strong> — vous enrichirez notre traduction.</em>
+</div>
+
+<div class="transcreation-notes">
+    <h3>Notes de transcréation</h3>
+
+    <details>
+        <summary>« De la haine » — Nefret Üzerine</summary>
+        <div class="note-body">
+            Le turc <em>üzerine</em> signifie « sur, au sujet de » — c'est le marqueur classique du traité ou de l'essai philosophique turc. « De la haine » en français s'inscrit dans la tradition des titres philosophiques francophones (De la démocratie, De l'esprit des lois) et porte un ton plus solennel que « Sur la haine ». Ce gain de gravité est voulu : le texte n'est pas un commentaire mais un démontage, et le titre doit porter cette intention.
+        </div>
+    </details>
+
+    <details>
+        <summary>« rapport de démontage » — sökme raporu</summary>
+        <div class="note-body">
+            Le turc <em>sökme raporu</em> est un terme technique de maintenance — le rapport qu'on rédige quand on démonte une machine pour en comprendre le fonctionnement. En français, « rapport de démontage » garde cette dimension mécanique : on ne parle pas de la haine, on la démonte pièce par pièce. L'expression n'existe pas comme genre littéraire en français ; c'est précisément l'étrangeté voulue. Le lecteur doit sentir qu'il entre dans un atelier, pas dans une bibliothèque.
+        </div>
+    </details>
+
+    <details>
+        <summary>« vomir la haine » — nefreti kusmak</summary>
+        <div class="note-body">
+            Le turc <em>kusmak</em> (vomir) est physique, viscéral — le corps qui rejette. « Vomir la haine » en français est plus littéraire qu'en turc, où l'expression est plus crue. Mais le chapitre oppose précisément la pulsion corporelle (vomir) à la fonction institutionnelle (punir). Garder « vomir » — malgré le décalage de registre — préserve la thèse du chapitre : la punition n'est pas l'évacuation d'un dégoût, c'est un acte structuré. Adoucir aurait effacé le contraste.
+        </div>
+    </details>
+
+    <details>
+        <summary>« le lien de causalité adéquat » — uygun illiyet bağı</summary>
+        <div class="note-body">
+            Le turc <em>uygun illiyet bağı</em> est un terme du droit turc des obligations — la théorie de la causalité adéquate, héritée du droit suisse (adäquater Kausalzusammenhang). Le français juridique connaît le concept mais n'emploie pas exactement la même formule. « Lien de causalité adéquat » a été retenu parce que le texte parle depuis l'expérience d'un juriste turc — et que la terminologie doit porter cette voix-là, pas celle du droit français. Le lecteur juriste francophone reconnaît le concept ; le non-juriste comprend par le contexte.
+        </div>
+    </details>
+
+    <details>
+        <summary>« un composé falsifié » — sahte bir bileşke</summary>
+        <div class="note-body">
+            Le turc <em>sahte bir bileşke</em> mêle chimie (<em>bileşke</em> = composé, résultante) et morale (<em>sahte</em> = faux, falsifié). « Composé falsifié » en français garde la double lecture : un mélange chimique dont la formule est fausse. Ce qui est sacrifié : en turc, <em>bileşke</em> est aussi le terme de physique pour « résultante de forces » — la haine comme vecteur résultant de forces émotionnelles. Le français « composé » ne porte pas cette lecture mécanique. Le mot a été choisi pour la chimie, pas la physique — un sacrifice de registre.
+        </div>
+    </details>
 </div>
 
 <nav style="max-width:680px;margin:3rem auto 2rem;padding:2rem 1.5rem;border-top:1px solid rgba(212,204,192,0.15);">

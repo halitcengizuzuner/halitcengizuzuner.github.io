@@ -533,6 +533,60 @@ footer a:hover { color: var(--bone); }
 .home-link:hover {
     color: var(--bone);
 }
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(184, 112, 80, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--rust);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--rust);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -1004,6 +1058,38 @@ footer a:hover { color: var(--bone); }
     <p>Cette étude est dans le domaine public. Aucune revendication de droits. Utilisez, partagez, transformez.</p>
     <p>Il ne s'agit pas d'une publication académique évaluée par des pairs. Un humain et une intelligence artificielle l'ont écrite ensemble. Elle peut contenir des erreurs.</p>
 </section>
+
+<div class="transcreation-notes">
+    <h3>Notes de transcréation</h3>
+
+    <details>
+        <summary>« camelote » — çöp</summary>
+        <div class="note-body">
+            Le turc <em>çöp</em> signifie littéralement « ordure », « déchet » — un mot brutal, sans nuance. L'anglais de Sturgeon utilisait <em>crud</em>, familier et méprisant. Le français offrait « merde » (trop vulgaire pour un essai), « daube » (trop culinaire), « camelote » (marchandise de mauvaise qualité, registre populaire mais pas grossier). « Camelote » préserve le mépris affectueux de Sturgeon — celui d'un homme qui aime son genre tout en reconnaissant sa médiocrité majoritaire.
+        </div>
+    </details>
+
+    <details>
+        <summary>« arme de défense » — savunma silahı</summary>
+        <div class="note-body">
+            Le turc <em>savunma silahı</em> est transparent : « arme de défense ». Mais en français juridique, « arme de défense » a une connotation réglementaire (catégories d'armes). Nous l'avons néanmoins conservé car le texte file explicitement la métaphore du procès — l'avocat, la preuve, la munition — et « arme de défense » s'inscrit naturellement dans ce champ lexical. Le contexte dissipe l'ambiguïté.
+        </div>
+    </details>
+
+    <details>
+        <summary>« à queue lourde » — ağır kuyruklu</summary>
+        <div class="note-body">
+            Le turc <em>ağır kuyruklu</em> calque le terme statistique anglais <em>heavy-tailed</em>. En français, « à queue lourde » est le terme technique exact en théorie des probabilités — la distribution où les valeurs extrêmes sont plus fréquentes que dans une loi normale. Nous avons gardé le terme technique sans le gloser, car le contexte (Pareto, loi de puissance) le rend lisible même pour un lecteur non spécialiste.
+        </div>
+    </details>
+
+    <details>
+        <summary>« la mauvaise monnaie chassant la bonne » — kötü para iyiyi kovar</summary>
+        <div class="note-body">
+            Le turc utilise une formulation directe : <em>kötü para iyiyi kovar</em> (« la mauvaise monnaie chasse la bonne »). En français, cette phrase est un classique de l'histoire économique — la loi de Gresham y circule sous cette forme exacte depuis le XIX<sup>e</sup> siècle. Nous avons donc utilisé la formulation canonique française plutôt qu'une traduction littérale du turc. Le lecteur francophone reconnaît immédiatement la référence.
+        </div>
+    </details>
+</div>
 
 </main>
 

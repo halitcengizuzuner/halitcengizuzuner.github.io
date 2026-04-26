@@ -283,6 +283,61 @@ footer a:hover { color: var(--bone); }
 .home-link:hover {
     color: var(--bone);
 }
+
+/* ===== TRANSCREATION NOTES ===== */
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(160, 152, 176, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--ash);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--ash);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -508,6 +563,38 @@ footer a:hover { color: var(--bone); }
 <section id="traduction" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--bone-ghost);">
     <p style="font-size: 0.85rem; color: var(--bone-ghost); line-height: 1.7;">Note de traduction — L'original turc emploie l'expression « aynen oyle » (litt. « exactement comme ça »). L'équivalent naturel en français est « exactement » ou « c'est ça » — ces formules minimales d'approbation qui traversent la conversation quotidienne sans qu'on y prête attention. Quand le texte évoque les spécificités turques du mot, « aynen oyle » est conservé tel quel.</p>
 </section>
+
+<div class="transcreation-notes">
+    <h3>Notes de transcréation</h3>
+
+    <details>
+        <summary>« Exactement » — aynen öyle</summary>
+        <div class="note-body">
+            Le titre turc <em>aynen öyle</em> porte deux mots dont l'étymologie arabe (<em>ayn</em> = l'oeil, l'essence) est centrale dans le rapport. « Exactement » en français perd cette racine corporelle — l'oeil, l'essence de la chose — mais gagne en universalité : tout francophone reconnaît immédiatement ce tic verbal, ce mot qu'on prononce sans y penser. Le sacrifice étymologique est compensé par la reconnaissance instantanée — qui est précisément le sujet du texte.
+        </div>
+    </details>
+
+    <details>
+        <summary>« communion phatique » — fatik iletişim</summary>
+        <div class="note-body">
+            Le turc emploie <em>fatik iletişim</em>, calque direct du concept de Malinowski. Le français a un avantage que le turc n'a pas : le mot « phatique » existe déjà dans la tradition linguistique francophone (Jakobson l'a théorisé en français). « Communion phatique » sonne donc plus naturel en français qu'en turc, où <em>fatik</em> reste un terme technique importé. Ce gain de fluidité est rare dans une traduction — il est conservé tel quel.
+        </div>
+    </details>
+
+    <details>
+        <summary>« parasitisme épistémique » — epistemik parazitlik</summary>
+        <div class="note-body">
+            Le turc <em>epistemik parazitlik</em> est un néologisme forgé dans le rapport. Le français permet « parasitisme épistémique » — qui a l'avantage de s'inscrire dans la tradition philosophique francophone (Zagzebski, Sosa) tout en gardant la métaphore biologique du parasite. Le mot « parasitisme » est plus précis que <em>parazitlik</em> turc : il désigne le comportement, pas seulement la qualité. Ce que l'on perd : la brutalité du turc, où <em>parazit</em> est aussi une insulte courante.
+        </div>
+    </details>
+
+    <details>
+        <summary>« Deux mots, une question » — İki Kelime, Bir Soru</summary>
+        <div class="note-body">
+            Le titre turc fonctionne parce que <em>aynen öyle</em> est bien deux mots. En français, « exactement » n'en est qu'un. Le titre « Deux mots, une question » a été conservé par fidélité à la structure originale et parce que le sous-titre « Ce que deux mots donnent à penser » renvoie au phénomène linguistique global — pas seulement au titre français. Le lecteur francophone comprend : il s'agit des deux mots turcs dont l'étude est faite.
+        </div>
+    </details>
+</div>
 
 </main>
 

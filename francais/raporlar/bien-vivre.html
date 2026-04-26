@@ -193,6 +193,60 @@ em { color: var(--bone-dim); }
     text-decoration-color: var(--bone-ghost);
 }
 
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(160, 112, 104, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--wine);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--wine);
+    font-style: italic;
+}
+
 footer {
     max-width: 640px;
     margin: 0 auto;
@@ -405,6 +459,45 @@ footer a:hover { color: var(--bone); }
 
 <div class="translation-note">
     Le texte original est en turc. Nous avons essayé de rester aussi organiques que possible, en respectant la nature du français — mais il y aura inévitablement de petites imperfections. Si vous repérez une erreur ou une formulation plus juste, écrivez à <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a> — vous enrichirez notre traduction.
+</div>
+
+<div class="transcreation-notes">
+    <h3>Notes de transcréation</h3>
+
+    <details>
+        <summary>« le quartier carcéral » — Sağmacılar</summary>
+        <div class="note-body">
+            En turc, <em>Sağmacılar</em> est un seul mot qui condense des décennies d'incarcération politique à Istanbul — un quartier de prison dont le nom seul évoque un chapitre précis de l'histoire turque. Le français n'a pas d'équivalent aussi comprimé. « Le quartier carcéral » pose le cadre minimal ; le thé reste (geste universel de normalité dans l'enfermement). Ce qui se perd : la reconnaissance instantanée qu'éprouve le lecteur turc, le poids que le mot porte avant même que la phrase ne s'achève.
+        </div>
+    </details>
+
+    <details>
+        <summary>« chapelet » — tespih</summary>
+        <div class="note-body">
+            Le turc <em>tespih</em> est un objet à mi-chemin entre le chapelet de prière, le geste méditatif et le tic social — des grains qu'on égrène entre les doigts. « Chapelet » en français penche vers la prière catholique, ce qui n'est pas faux mais décale le registre. Le mot a été retenu parce que l'image d'« égrener les grains » fonctionne naturellement en français et que l'expression « morts de peur que le fil ne casse » restitue la tension qu'Altan décrit — des vies passées à tourner trois perles en tremblant.
+        </div>
+    </details>
+
+    <details>
+        <summary>« a foutu le camp » — bombok</summary>
+        <div class="note-body">
+            Le turc <em>bombok</em> est vulgaire, frontal, sans appel — quelque part entre « parti en merde » et « complètement foutu ». L'atmosphère littéraire du texte demandait de la retenue : « a foutu le camp » garde la brutalité et le registre familier sans casser le ton de l'essai. La version anglaise a opté pour <em>gone to hell</em>, plus retenue encore ; le français permet un cran de plus dans la verdeur tout en restant dans les limites de la prose composée — ce qui est plus fidèle au contraste qu'Altan pratiquait : contenu rude, livraison maîtrisée.
+        </div>
+    </details>
+
+    <details>
+        <summary>« une solitude aussi réussie qu'une pierre jetée dans un puits » — kuyuya atılan bir taş kadar başarılı yalnızlık</summary>
+        <div class="note-body">
+            Le turc dit littéralement : <em>une solitude aussi accomplie qu'une pierre jetée dans un puits</em>. La métaphore est spatiale, gravitationnelle — la solitude comme une pierre qui tombe au fond et qu'on ne récupère pas. La version anglaise a sacrifié le puits pour garder « accomplished solitude » ; le français permet de garder les deux — le puits et l'accomplissement. « Réussie » porte une ambiguïté voulue : une solitude qui a atteint sa plénitude, qui s'est achevée — comme le son unique, sans réponse, d'une pierre dans l'eau.
+        </div>
+    </details>
+
+    <details>
+        <summary>« Pour certains » — Bazılarına göre</summary>
+        <div class="note-body">
+            La formule turque <em>bazılarına göre</em> (« selon certains ») est la colonne vertébrale rythmique du texte — une anaphore qui revient comme un refrain. « Pour certains » plutôt que « selon certains » : en français, « selon » introduit une opinion rapportée, une distance ; « pour » place le lecteur à l'intérieur de la vision, comme si on la vivait. C'est un choix de proximité plutôt que de neutralité — fidèle à Altan, qui ne rapporte pas mais montre.
+        </div>
+    </details>
 </div>
 
 </main>

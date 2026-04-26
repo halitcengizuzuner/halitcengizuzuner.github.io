@@ -772,6 +772,60 @@ a { color: inherit; text-decoration: none; }
     text-decoration-color: var(--bone-ghost);
 }
 
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(120, 144, 160, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--steel);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--steel);
+    font-style: italic;
+}
+
 /* ===== HOME LINK ===== */
 .home-nav {
     text-align: center;
@@ -1405,6 +1459,44 @@ a { color: inherit; text-decoration: none; }
 
 </div>
 
+<div class="transcreation-notes" style="max-width:700px;margin:3rem auto;padding:0 2.5rem;">
+    <h3>Notes de transcréation</h3>
+
+    <details>
+        <summary>« hallucination » — halüsinasyon</summary>
+        <div class="note-body">
+            Le turc a emprunté directement le mot <em>halüsinasyon</em> au français. Paradoxe : en retraduisant vers le français, le mot revient à sa langue d'origine mais avec un bagage sémantique nouveau — celui de l'erreur informationnelle de l'IA, absent du sens psychiatrique originel. Le titre français « Hallucination : à qui la faute ? » préserve cette tension entre le sens clinique (perception sans objet) et le sens technique (production de fausses informations). Le deux-points remplace les parenthèses du turc « Halüsinasyon: Kimin Sorunu? » pour respecter la convention typographique française.
+        </div>
+    </details>
+
+    <details>
+        <summary>« flagornerie » — yağcılık</summary>
+        <div class="note-body">
+            Le turc <em>yağcılık</em> (littéralement « faire du beurre ») désigne la flatterie servile — le comportement de celui qui dit ce que l'autre veut entendre. En contexte IA, cela décrit le <em>sycophancy</em> anglais : le modèle qui valide l'utilisateur au lieu de le corriger. « Flagornerie » est le mot français le plus précis — flatterie basse et intéressée — là où « complaisance » serait trop neutre et « servilité » trop fort. Le registre légèrement littéraire du mot convient au ton du rapport.
+        </div>
+    </details>
+
+    <details>
+        <summary>« méta-recherche » — meta-araştırma</summary>
+        <div class="note-body">
+            Le turc <em>meta-araştırma</em> est un calque direct. En français académique, « méta-analyse » désigne spécifiquement l'agrégation statistique d'études — ce qui n'est pas le cas ici. « Méta-recherche » est plus rare mais plus exact : une recherche qui prend la recherche elle-même pour objet, qui interroge ses propres méthodes et biais. Le trait d'union est conservé conformément à l'usage français du préfixe <em>méta-</em>.
+        </div>
+    </details>
+
+    <details>
+        <summary>« à qui la faute » — kimin sorunu</summary>
+        <div class="note-body">
+            Le turc <em>kimin sorunu</em> signifie littéralement « le problème de qui » — une question de responsabilité plus que de culpabilité. Le français « à qui la faute » introduit une nuance morale absente du turc : <em>faute</em> implique un coupable, <em>sorun</em> implique un problème structurel. Ce glissement est délibéré — il reflète précisément le débat que le rapport déconstruit : la tendance à chercher un coupable (l'IA, l'utilisateur, le développeur) là où il y a un système.
+        </div>
+    </details>
+
+    <details>
+        <summary>« couches » — katmanlar</summary>
+        <div class="note-body">
+            Le turc <em>katman</em> (couche, strate) est géologique et technique. Le français « couche » porte les deux sens — géologique (couche sédimentaire) et informatique (couche réseau). Dans un rapport sur l'IA, le double sens est productif : les six couches d'hallucination sont à la fois une stratification analytique et une métaphore de sédimentation — chaque couche se dépose sur la précédente, et le tout forme un terrain.
+        </div>
+    </details>
+</div>
 
 <footer class="report-footer">
     <div class="translation-note">

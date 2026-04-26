@@ -348,6 +348,60 @@ footer a:hover { color: var(--bone); }
 .home-link:hover {
     color: var(--bone);
 }
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(112, 104, 160, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--yanki);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--yanki);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -651,6 +705,38 @@ footer a:hover { color: var(--bone); }
 <p>Torre, I.; Goslin, J.; White, L.; Zanatto, D. (2018). "Trust in Artificial Voices: Congruency Effect." <em>ACM CUI.</em></p>
 <p>Yang, J. et al. (2026). "Short-Term Perceptual Training Modulates Neural Responses to Deepfake Speech." <em>eNeuro.</em></p>
 <p>Zong, J. et al. (2022). Étude narrative de tableaux avec des participants malvoyants.</p>
+</div>
+
+<div class="transcreation-notes">
+    <h3>Notes de transcréation</h3>
+
+    <details>
+        <summary>« Du texte à la voix » — Yazıdan Sese</summary>
+        <div class="note-body">
+            Le turc <em>Yazıdan Sese</em> signifie littéralement « de l'écrit à la voix » — un mouvement directionnel, de A vers B. Le français « Du texte à la voix » reproduit cette trajectoire mais introduit un article défini (« la voix ») là où le turc n'en a pas. Ce « la » singularise : il ne s'agit pas de n'importe quelle voix, mais de <em>la</em> voix — celle du lecteur synthétique, celle qui remplace l'oeil. L'article fait du titre une destination plutôt qu'une direction.
+        </div>
+    </details>
+
+    <details>
+        <summary>« vagabondage mental » — zihin gezinmesi</summary>
+        <div class="note-body">
+            Le turc <em>zihin gezinmesi</em> (littéralement « promenade de l'esprit ») est une expression légère, presque agréable. Le terme scientifique anglais <em>mind-wandering</em> est neutre. Le français « vagabondage mental » ajoute une connotation d'errance — le vagabond n'a pas de destination, il dérive. C'est exactement ce qui se passe quand l'auditeur décroche : l'attention ne part pas vers un objet précis, elle se dissout. « Divagation » aurait été trop péjoratif ; « errance mentale » trop littéraire.
+        </div>
+    </details>
+
+    <details>
+        <summary>« traduire — dans la même langue » — çevirmektir — aynı dilde</summary>
+        <div class="note-body">
+            Le turc <em>çevirmektir — aynı dilde</em> (« c'est traduire — dans la même langue ») utilise le tiret cadratin pour créer une rupture syntaxique : la phrase semble terminée après « traduire », puis le complément arrive comme une surprise. En français, le tiret cadratin produit le même effet de retardement. « Convertir » ou « adapter » auraient été plus techniques ; « traduire » est délibérément paradoxal — on traduit entre deux langues, pas dans la même. Ce paradoxe est la thèse du rapport.
+        </div>
+    </details>
+
+    <details>
+        <summary>« lisibilité auditive » — dinlenebilirlik</summary>
+        <div class="note-body">
+            Le turc <em>dinlenebilirlik</em> est un néologisme transparent : « écoutabilité », la qualité de ce qui peut être écouté. L'anglais utilise <em>listenability</em> (Rubin, 2012). Le français n'a pas d'équivalent établi. « Écoutabilité » serait un calque disgracieux. « Lisibilité auditive » détourne un concept existant (la lisibilité, qualité de ce qui peut être lu) vers l'oreille — un transfert qui reflète exactement le propos du rapport : l'écoute est une lecture par un autre canal.
+        </div>
+    </details>
 </div>
 
 </main>

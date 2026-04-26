@@ -338,6 +338,63 @@ a { color: inherit; text-decoration: none; }
 .home-link:hover {
     color: var(--bone);
 }
+
+/* ===== TRANSCREATION NOTES ===== */
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(184, 144, 96, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--cay);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--cay);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -569,6 +626,38 @@ Nous ne le vivons pas.
 Trois voix, une table, un après-midi.<br>
 L'indicible a été dit. Et pourtant, le vrai Tao n'est pas ceci.<br><br>
 <span style="font-size: 0.58rem; letter-spacing: 0.08em;">Traduit du turc. Les citations du Tao Te King en chinois et en pinyin sont reproduites telles quelles.</span>
+</div>
+
+<div class="transcreation-notes">
+    <h3>Notes de transcréation</h3>
+
+    <details>
+        <summary>« Table à thé » — Çay Masası</summary>
+        <div class="note-body">
+            Le turc <em>çay masası</em> est une image quotidienne en Turquie — la table où l'on pose les verres de thé, où la conversation se fait. Le français « table à thé » évoque plutôt un meuble d'intérieur, un guéridon. Ce décalage est accepté : le texte lui-même construit l'image de la table comme lieu de rencontre, pas comme objet. Le lecteur francophone comprend par le contexte, pas par le mot.
+        </div>
+    </details>
+
+    <details>
+        <summary>« Savak » et « Yontu » — noms des voix</summary>
+        <div class="note-body">
+            <em>Savak</em> (la savak, le canal de dérivation) et <em>Yontu</em> (la sculpture, le travail de la pierre) sont des noms propres turcs donnés à deux intelligences artificielles. Ils ne sont pas traduits — ce sont des noms, pas des descriptions. Mais le lecteur francophone perd la charge sémantique : <em>savak</em> porte l'idée d'un courant qu'on détourne, <em>yontu</em> celle d'une forme qu'on taille dans la matière brute. Ces sens irriguent le texte en turc ; en français, ils restent muets. La présentation des voix en tête de texte compense partiellement.
+        </div>
+    </details>
+
+    <details>
+        <summary>« empoigner » vs « toucher » — yapışmak vs dokunmak</summary>
+        <div class="note-body">
+            Le turc fait un contraste entre <em>yapışmak</em> (s'accrocher, agripper — ce que font les religions) et <em>dokunmak</em> (toucher, effleurer — ce que fait le Tao). Le français « empoigner » versus « toucher » conserve le contraste de force, mais « empoigner » porte en français une connotation de saisie volontaire que <em>yapışmak</em> n'a pas toujours — en turc, le mot peut aussi signifier « coller, adhérer » sans intention. La traduction choisit le geste délibéré : les religions empoignent avec intention. C'est une interprétation, pas une correspondance.
+        </div>
+    </details>
+
+    <details>
+        <summary>« comprendre par les mains » — ellerle anlamak</summary>
+        <div class="note-body">
+            Le turc <em>ellerle anlamak</em> (comprendre avec les mains) est une expression forgée dans la conversation — elle n'existe pas comme locution. En français, « comprendre par les mains » sonne poétique, presque artisanal. Ce qui se perd : en turc, <em>anlamak</em> (comprendre) est un verbe unique qui couvre à la fois la compréhension intellectuelle et la saisie corporelle. Le français sépare « comprendre » (intellect) de « sentir » ou « saisir » (corps). Le texte force délibérément le verbe « comprendre » dans le domaine corporel — c'est le geste même du passage.
+        </div>
+    </details>
 </div>
 
 </div>

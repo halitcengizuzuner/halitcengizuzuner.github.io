@@ -1369,6 +1369,63 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
 .home-link:hover {
     color: var(--bone);
 }
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2.5rem;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--muted);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(120, 168, 144, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: #78a890;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: #78a890;
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -2536,6 +2593,38 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
     </ul>
   </div>
 </section>
+
+<div class="transcreation-notes">
+    <h3>Notes de transcréation</h3>
+
+    <details>
+        <summary>« constitution » — anayasa</summary>
+        <div class="note-body">
+            Le turc <em>anayasa</em> signifie strictement « constitution » au sens juridique — loi fondamentale d'un État. L'utiliser pour un cadre de recherche est déjà une métaphore dans l'original turc. En français, « constitution » porte le même poids institutionnel (1789, la V<sup>e</sup> République), ce qui rend la métaphore plus audacieuse encore. Nous l'avons conservée car c'est précisément l'intention du texte : traiter les principes de recherche avec la gravité d'une loi fondamentale, tout en insistant sur le fait que cette constitution est vivante — elle se modifie après chaque recherche.
+        </div>
+    </details>
+
+    <details>
+        <summary>« écrire les règles de la pensée » — düşüncenin kurallarını yazmak</summary>
+        <div class="note-body">
+            Le turc est littéral : <em>düşüncenin kurallarını yazmak</em> (« écrire les règles de la pensée »). En français, « règles de la pensée » évoque Descartes et le <em>Discours de la méthode</em> — une résonance absente du turc. Ce gain intertextuel est accidentel mais bienvenu : le rapport partage avec Descartes l'ambition de codifier une méthode, tout en s'en distinguant par son refus du système unique.
+        </div>
+    </details>
+
+    <details>
+        <summary>« cas vécus » — yaşanmış vakalar</summary>
+        <div class="note-body">
+            Le turc <em>yaşanmış vakalar</em> (littéralement « cas vécus ») insiste sur l'expérience directe — ces cas ont été traversés, pas simplement observés. « Cas vécus » en français conserve cette dimension existentielle que « cas d'étude » ou « études de cas » aurait effacée. Le rapport ne compile pas des exemples ; il raconte des expériences qui ont modifié les principes.
+        </div>
+    </details>
+
+    <details>
+        <summary>« document vivant » — canlı belge</summary>
+        <div class="note-body">
+            Le turc <em>canlı</em> signifie « vivant » au sens biologique — qui respire, qui grandit. En informatique francophone, « document vivant » (<em>living document</em>) est un terme établi. Mais dans ce contexte, le mot porte plus que sa convention technique : la constitution se modifie réellement après chaque recherche, comme un organisme qui s'adapte. « Document évolutif » aurait été plus neutre ; « vivant » préserve la charge organique de l'original.
+        </div>
+    </details>
+</div>
 
 
 <!-- ═══════════════════════════════════════════════════════════════

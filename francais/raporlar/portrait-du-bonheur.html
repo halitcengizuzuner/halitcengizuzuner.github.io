@@ -170,6 +170,60 @@ footer a:hover { color: var(--bone); }
 .translation-note { margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--bone-ghost); font-size: 0.85rem; color: var(--bone-dim); line-height: 1.7; }
 .translation-note a { color: var(--bone-bright); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; text-decoration-color: var(--bone-ghost); }
 
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(200, 160, 85, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--straw);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--straw);
+    font-style: italic;
+}
+
 /* ===== HOME LINK ===== */
 .home-nav {
     text-align: center;
@@ -391,6 +445,38 @@ mes larmes, de vos mains ?
 
 <p>Puis d'autres vinrent : l'un écrivit un poème dans la voix de Dino, un autre colla le tableau d'une peintre américaine, tout le monde dit « voici la réponse ». Mais depuis plus de soixante ans, la réponse la plus honnête reste le silence d'Abidin — parce que certaines questions ne sont pas des questions, et certains silences en disent plus que tout ce qui pourrait être dit.</p>
 
+</div>
+
+<div class="transcreation-notes">
+    <h3>Notes de transcréation</h3>
+
+    <details>
+        <summary>« Saurais-tu peindre » — yapabilir misin</summary>
+        <div class="note-body">
+            Le turc <em>yapabilir misin</em> contient à la fois la capacité technique et la permission existentielle — « es-tu capable » et « oses-tu ». Le conditionnel français « saurais-tu » introduit une nuance absente du turc : il sous-entend un doute poli, presque une prière. Nous l'avons préféré à « peux-tu » (trop direct) et à « pourrais-tu » (trop timide) car il préserve le ton rhétorique de Nazım — celui qui pose une question dont il connaît déjà la réponse.
+        </div>
+    </details>
+
+    <details>
+        <summary>« couvre-lit rapiécé » — yamalı yorgan</summary>
+        <div class="note-body">
+            Le turc <em>yamalı yorgan</em> désigne un édredon fait de pièces cousues ensemble — objet central de la mémoire domestique anatolienne, symbole de pauvreté digne et de chaleur partagée. Le français n'a pas d'équivalent chargé de la même mémoire collective. « Courtepointe » serait techniquement correct mais évoque l'artisanat décoratif. « Couvre-lit rapiécé » conserve l'image de la réparation visible — les pièces, les coutures — sans ajouter de connotation artisanale.
+        </div>
+    </details>
+
+    <details>
+        <summary>« un étau » — kıskaç</summary>
+        <div class="note-body">
+            Le turc <em>kıskaç</em> signifie littéralement « pince » ou « tenaille » — un mouvement de serrage qui capture des deux côtés. Pour décrire la structure rhétorique de la question répétée de Nazım, nous avons choisi « étau » plutôt que « tenaille » ou « piège » : l'étau serre lentement, méthodiquement, et c'est exactement ce que fait la répétition — la première question ouvre l'espace, la seconde le referme.
+        </div>
+    </details>
+
+    <details>
+        <summary>« la lettre restée sans réponse » — cevap gelmeyen mektup</summary>
+        <div class="note-body">
+            Le turc <em>cevap gelmeyen mektup</em> signifie littéralement « la lettre dont la réponse n'est pas venue » — une formulation active, où c'est la réponse qui ne vient pas, comme si elle avait choisi de ne pas venir. Le français « lettre restée sans réponse » déplace le sujet vers la lettre elle-même. Ce glissement est délibéré : en français, l'accent tombe sur l'attente plutôt que sur l'absence, ce qui convient mieux au registre littéraire du texte.
+        </div>
+    </details>
 </div>
 
 </main>
