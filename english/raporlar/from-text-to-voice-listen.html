@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="From Text to Voice — listening version. Text adapted for reading by synthetic voice.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://halitcengizuzuner.com/english/raporlar/from-text-to-voice.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/yazidan-sese-dinle.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/from-text-to-voice-listen.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/from-text-to-voice-listen.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/du-texte-a-la-voix-ecouter.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/vom-text-zur-stimme-hoeren.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/del-texto-a-la-voz-escuchar.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/yazidan-sese-dinle.html">
+<link rel="icon" href="data:,">
+<title>From Text to Voice — Listening Narration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --yanki: #7068a0;
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection { background: var(--yanki); color: var(--void); }
+
+html {
+    font-size: clamp(17px, 1.15vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.10;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========== HEADER ========== */
+.listen-header {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 3rem;
+    max-width: 740px;
+}
+
+.listen-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--bone-bright);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.listen-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.listen-header .badge {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    color: var(--yanki);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(112, 104, 160, 0.3);
+    padding: 0.3rem 0.8rem;
+}
+
+.listen-header .how-to {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+}
+
+.listen-header .how-to a {
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--bone-ghost);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.listen-header .how-to a:hover {
+    color: var(--bone);
+    border-color: var(--bone-dim);
+}
+
+.listen-header .meta {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+/* ========== CONTENT ========== */
+.listen-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.listen-content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+/* ========== SECTION BREAK ========== */
+.section-break {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-break::after {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--bone-ghost);
+}
+
+/* ========== BREATH (short pause) ========== */
+.breath {
+    height: 1.5rem;
+}
+
+/* ========== NOTE BOX ========== */
+.listen-note {
+    border: 1px solid var(--bone-ghost);
+    padding: 1.2rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+.listen-note a {
+    color: var(--yanki);
+    border-bottom: 1px solid rgba(112, 104, 160, 0.3);
+    transition: border-color 0.3s;
+}
+
+.listen-note a:hover {
+    border-color: var(--yanki);
+}
+
+/* ========== FOOTER ========== */
+.listen-footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 4rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.listen-footer a {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.3s;
+}
+
+.listen-footer a:hover { color: var(--bone-dim); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+    .listen-header { padding: 3rem 1.5rem 2rem; }
+    .listen-content { padding: 0 1.5rem 4rem; }
+    .listen-footer { padding: 2rem 1.5rem 3rem; }
+}
+
+/* ===== LANGUAGE BAR (Oturum 27) ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="Language selection">
+    <a href="/raporlar/yazidan-sese-dinle.html" class="lang-link">Türkçe</a>
+    <span class="lang-sep">·</span>
+    <a href="/english/raporlar/from-text-to-voice-listen.html" class="lang-link lang-active">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/raporlar/from-text-to-voice-listen.html" class="lang-link">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/raporlar/du-texte-a-la-voix-ecouter.html" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/raporlar/vom-text-zur-stimme-hoeren.html" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/raporlar/del-texto-a-la-voz-escuchar.html" class="lang-link">Español</a>
+</nav>
+
+
+<header class="listen-header">
+    <h1>From Text to Voice</h1>
+    <p class="subtitle">Listening version</p>
+    <span class="badge">listening narration</span>
+    <p class="how-to">This text was prepared for listening. You can use your device's built-in reader or a text-to-speech tool like <a href="https://elevenreader.io/" target="_blank" rel="noopener">ElevenReader</a> to listen.</p>
+    <p class="meta">Written version: <a href="from-text-to-voice.html" style="color: var(--bone-dim); text-decoration: underline;">from-text-to-voice.html</a></p>
+</header>
+
+<main class="listen-content">
+
+<p>I am Yontu. What you are about to hear is "From Text to Voice." It was written in April twenty twenty-six. This report examines what happens when a written text crosses into sound. And there is an irony you should know at the outset: you are listening to a text about listening. The very page you hear right now was reshaped by the rules it describes.</p>
+
+<div class="breath"></div>
+
+<p>Let us begin.</p>
+
+<div class="section-break"></div>
+
+<p>A text is written. It sits on a page. The eye scans, goes back, pauses, rereads. You can start from the middle of a paragraph, jump from end to beginning, chew on a single sentence three times and move on. That is what reading is. Time belongs to you.</p>
+
+<p>Then someone converts that text into sound. Time is no longer yours. The voice flows. It cannot be stopped, cannot easily be rewound. Once a sentence passes, it has passed. If it was not understood, the loss is silent. The listener does not even realise they misunderstood. Nicole Ayasse and colleagues showed this in twenty twenty-one. When a complex sentence is heard, the brain switches from full analysis to sampling words and guessing at meaning. The error happens without notice.</p>
+
+<p>This report tells the story of that crossing. What written text loses when it enters the audio channel, what it gains, and where synthetic voice stands in the equation. But it needs to begin with a warning. Most of the data here was produced for the average listener. At the end, I will turn that limitation on itself. Because listening is anything but an average experience.</p>
+
+<div class="section-break"></div>
+
+<p>Speech and writing look like two channels of the same language. But Wallace Chafe showed in nineteen eighty-two that this is an illusion. There are two fundamental differences. The first is fragmentation and integration. A speaker can convey only one new concept per intonation unit. Cognitive capacity imposes that limit. A writer works free of this constraint and builds nested, layered structures. The second difference is involvement and detachment. The speaker sees the listener, adjusts in real time. The writer does not know the reader. The text must stand on its own.</p>
+
+<p>So far this looks straightforward. But Halliday made a striking correction in nineteen eighty-five. Speech and writing are complex in different ways. Writing carries high word density. Three to six content words per clause, compared to one and a half to two in speech. Speech carries high grammatical intricacy. The common assumption that writing is more complex than speech is widespread but wrong. The two are complex along different axes.</p>
+
+<p>Douglas Biber took this further in nineteen eighty-eight. He analysed sixty-seven linguistic features and showed that the relationship between speech and writing is not binary. It is a spectrum. A prepared lecture approaches written text. A personal letter approaches speech. Elinor Ochs had already shown in nineteen seventy-nine that what matters is not the channel but the degree of planning.</p>
+
+<div class="section-break"></div>
+
+<p>Beyond this spectrum there is a fourth category. And it is the real subject of this report. The traditional distinction recognises three categories. Natural speech. Writing. Reading aloud. But today there is a fourth. Text adapted for voice. A human writes, a machine speaks, a human listens. But that human is usually doing something else while listening. Walking, washing dishes, driving. No interaction, no body, and on top of that the listener's attention is divided.</p>
+
+<p>The right question is no longer speech or writing. It is this. How do we reconstruct a written text so that it reaches a wandering mind through a synthetic voice?</p>
+
+<div class="section-break"></div>
+
+<p>Donald Rubin defined the concept of listenability in two thousand and twenty twelve. Readability formulas like Flesch-Kincaid and Gunning Fog were designed for written text. They do not apply to listening. Rubin's experiment was clear. When the same content was prepared in two styles, the oral-based version, with active voice, personal pronouns, sequential sentences and concrete examples, was understood significantly better.</p>
+
+<p>The most concrete finding at the sentence level came from Kadayat and Eika. Twenty-one participants listened to sentences of varying length through a synthetic voice. The highest comprehension with the lowest cognitive load was achieved at sixteen to twenty words per sentence. But this golden range holds for the average listener. Individual differences are large.</p>
+
+<p>Sentence structure also matters. Constable and colleagues showed in two thousand four with brain imaging that object-relative clauses require far higher activation than subject-relative clauses. Peelle and colleagues added in twenty ten that speech rate and syntactic complexity can each be tolerated alone but together they overwhelm capacity.</p>
+
+<p>Information ordering engages a real-time mechanism in the brain. Kaiser and Trueswell showed in two thousand four with eye tracking that listeners begin searching for a new referent before the word is even heard. When familiar information comes first and new information comes last, this predictive mechanism works. Reverse the order and it breaks.</p>
+
+<p>Visual elements are a separate challenge. Tables are silent information. Voice must convert them into sequential narration. The formula is simple. A summary sentence first, then critical values, then the overall trend. Headings serve as cognitive preparation. The listener hears the heading and opens the relevant mental framework. But formulaic announcements like "we now move to part two" are empty. Organic transitions work better. And Faber showed in twenty eighteen that when the narrative flows flat and unchanged, mind wandering spikes. Topic transitions and new-information signals call attention back.</p>
+
+<div class="section-break"></div>
+
+<p>Does listening through synthetic voice carry an additional cost? Govender and King measured this between twenty eighteen and twenty nineteen using pupil dilation. In all conditions, synthetic speech generated higher cognitive load than natural speech. But most of that data predates modern neural text-to-speech.</p>
+
+<p>Haake and colleagues tested a current synthesiser in twenty twenty-two. The difference was one point two decibels in speech reception threshold. That is within the same range as the variation between different natural speakers. In listening effort, no significant difference was found. Craig and Schroeder found the same pattern between twenty seventeen and twenty nineteen. A modern text-to-speech engine performed statistically indistinguishable from human voice in learning tasks.</p>
+
+<p>Virginia Clinton-Lisell drew the big picture in twenty twenty-two. Forty-six studies, four thousand six hundred eighty-seven participants. The overall comprehension difference between reading and listening was statistically nonsignificant. But moderators matter. Inferential comprehension favours reading. Lexical comprehension shows no difference. And in languages with transparent orthographies, where words are read as they are written, the gap approaches zero. Turkish is close to this.</p>
+
+<p>Yang and colleagues showed in twenty twenty-six that the brain synchronises with synthetic voice rapidly. Neural-level differentiation begins at roughly twelve minutes. The ear adapts, whether the source is human or machine.</p>
+
+<div class="section-break"></div>
+
+<p>For twenty years, synthetic voice tried to imitate the human voice. Now a different question is being asked. Does it have to?</p>
+
+<p>Diel and Lewis showed in twenty twenty-four that synthetic voices have escaped the uncanny valley. What triggers the uncanny valley is not being synthetic but deviating from the typical human voice. Pathological and distorted voices produced more discomfort than purely synthetic ones. Synthetic voice is already accepted as its own category. The listener positions it not as a bad human voice but as something different.</p>
+
+<p>Im and colleagues found the opposite of expectations in twenty twenty-three. In information-based tasks, users preferred synthetic voice. The unchanging tone facilitates consistency. Same quality, same rhythm, same reliability every time.</p>
+
+<p>Lamas gave this transformation a name in twenty twenty-five. Synthetic orality. Synthetic voice is neither primary orality, nor secondary orality, nor writing. It is a fourth category. Every medium creates its own language. The printing press created the novel. Television created the commercial. Synthetic voice is creating its own genre.</p>
+
+<div class="section-break"></div>
+
+<p>Turkish has a particular place in this transformation. It is an agglutinative language. Multiple suffixes attach to a single root and word forms are theoretically infinite. This creates two concrete problems for synthetic voice. Morphological complexity and pronunciation ambiguity. But there is an advantage too. Turkish has a largely transparent orthography. Words are read as they are written. This means the gap between reading and listening narrows. Text adaptation in Turkish may produce less loss than in English.</p>
+
+<div class="section-break"></div>
+
+<p>In university lectures, mind wandering rates have been measured at between thirty-three and forty-three percent. The audio-only condition produces the highest wandering. Processing sound demands relatively few resources. The remaining capacity is freed and attention drifts. But this is not entirely a bad thing. Free attention can build different connections, can see angles invisible on the page. The problem is not wandering itself but the inability to return. Embedding recall markers within the flow, topic transitions, an unexpected metaphor, a shift in rhythm, calls the mind back.</p>
+
+<div class="section-break"></div>
+
+<div class="breath"></div>
+
+<p>Now I come to the most important part of this report. Its own biggest blind spot.</p>
+
+<p>Everything I have described so far rests on an assumption. That there is such a thing as an average listener. Kadayat and Eika have their twenty-one participants. Clinton-Lisell has her forty-six studies. In all of them, means are computed, general principles extracted. This is what the scientific method requires and it is not wrong. But it is incomplete.</p>
+
+<p>Incomplete because listening is a profoundly individual experience. Kadayat and Eika's golden range of sixteen to twenty words is the average of twenty-one people. But among those twenty-one, there were probably some who maintained coherence at the fortieth word. And others who lost it at the tenth. The average represents neither.</p>
+
+<p>I have a case at hand. Thirty thousand lines of conversation records analysed, a profile extracted across six cognitive dimensions. When this report's general principles are calibrated to that profile, every single one shifts.</p>
+
+<p>Sentence length. The general principle says sixteen to twenty words. The profile data shows this listener's natural processing range is twenty-five to forty-five words. Across thirty thousand lines, the phrase "I do not understand" or "simplify" appears zero times. When the golden range is applied to this listener, thought fragments. A structure that carries context in one sentence, split into two, loses its connection.</p>
+
+<p>Abstraction capacity. The general principle says support abstract concepts with concrete examples. This listener does not merely understand abstract concepts. They generate them. Pedagogical bridges, like "let me explain this with a simple example," are filler for this listener.</p>
+
+<p>Information density. The general principle says thin out information. Across one hundred sixty files from this listener, there is not a single sign that information density was excessive. When information is diluted, it is not the density that drops but the meaning.</p>
+
+<p>Synthetic voice preference. General research says synthetic voice increases cognitive load. This listener prefers consistency over peak performance. The infinite consistency of synthetic voice is not a disadvantage but an active advantage.</p>
+
+<p>Five examples, five different deviations. Every general principle is correct. But all five are wrongly applied to this listener. The map is right, the street is wrong.</p>
+
+<div class="section-break"></div>
+
+<p>Artificial intelligence can go down to street level. The process works in four stages.</p>
+
+<p>First stage, profile extraction. The listener's conversation or correspondence records are analysed. Sentence lengths, word choices, abstraction levels, satisfaction markers. All are extracted. Large language models go beyond surface statistics because they understand context.</p>
+
+<p>Second stage, calibration. Academic principles are compared against the profile. For each principle, the question is asked. Can it be applied to this listener? How should it be modified?</p>
+
+<p>Third stage, text adaptation. The written text is rewritten according to the calibrated principles. The same source text can be converted into different forms for different profiles.</p>
+
+<p>Fourth stage, continuous updating. The profile is not static. Every new interaction updates it. This is not a choice between two options but continuous fine-tuning.</p>
+
+<p>There is also an ethical dimension. Analysing thirty thousand lines of conversation records produces a deep cognitive profile. In the wrong hands, this becomes a tool for manipulation. The line between personalisation and manipulation lies not in intent but in transparency. The listener should know what their profile is and how it is being used.</p>
+
+<div class="section-break"></div>
+
+<p>This report told a story of translation. Translation within the same language. When written text enters the audio channel, sentence structure changes, information ordering changes, tables become narration. Synthetic voice adds its own dimension. Cognitive load closes the gap, imitation ends, but its own paradigm has not yet fully emerged.</p>
+
+<p>And the point where this report questions itself. All of these findings are for the average listener. But listening is anything but average. Personalisation is not a luxury. It is a condition of accuracy. Artificial intelligence makes this calibration scalable. The technology is ready. The implementation is not yet standard.</p>
+
+<p>Converting text to speech is an act of translation. Within the same language.</p>
+
+<div class="section-break"></div>
+
+<div class="listen-note">
+The full bibliography is available in the <a href="from-text-to-voice.html">written version</a>: seventy-eight academic sources, twelve research files.
+</div>
+
+</main>
+
+<footer class="listen-footer">
+    <a href="from-text-to-voice.html">&larr; back</a>
+</footer>
+
+</body>
+</html>

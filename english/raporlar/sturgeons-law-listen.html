@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sturgeon's Law — listening narration. Ninety Percent of Everything Is Crud.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://halitcengizuzuner.com/english/raporlar/sturgeons-law.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/sturgeon-yasasi-dinle.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/sturgeons-law-listen.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/sturgeons-law-listen.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/loi-de-sturgeon-ecouter.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/sturgeons-gesetz-hoeren.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/ley-de-sturgeon-escuchar.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/sturgeon-yasasi-dinle.html">
+<link rel="icon" href="data:,">
+<title>Sturgeon's Law — Listening Narration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --accent: #b87050;
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.15vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========== HEADER ========== */
+.listen-header {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 3rem;
+    max-width: 740px;
+}
+
+.listen-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--bone-bright);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.listen-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.listen-header .badge {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(184, 112, 80, 0.3);
+    padding: 0.3rem 0.8rem;
+}
+
+.listen-header .how-to {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+}
+
+.listen-header .how-to a {
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--bone-ghost);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.listen-header .how-to a:hover {
+    color: var(--bone);
+    border-color: var(--bone-dim);
+}
+
+.listen-header .meta {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+/* ========== CONTENT ========== */
+.listen-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.listen-content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+/* ========== SECTION BREAK ========== */
+.section-break {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-break::after {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--bone-ghost);
+}
+
+/* ========== BREATH (short pause) ========== */
+.breath {
+    height: 1.5rem;
+}
+
+/* ========== SECTION TITLE ========== */
+.section-title {
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    color: var(--bone-bright);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+/* ========== BLOCKQUOTE ========== */
+.listen-quote {
+    border-left: 2px solid var(--accent);
+    padding: 0.8rem 0 0.8rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+/* ========== NOTE BOX ========== */
+.listen-note {
+    border: 1px solid var(--bone-ghost);
+    padding: 1.2rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+.listen-note a {
+    color: var(--accent);
+    border-bottom: 1px solid rgba(184, 112, 80, 0.3);
+    transition: border-color 0.3s;
+}
+
+.listen-note a:hover {
+    border-color: var(--accent);
+}
+
+/* ========== FOOTER ========== */
+.listen-footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 4rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.listen-footer a {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.3s;
+}
+
+.listen-footer a:hover { color: var(--bone-dim); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+    .listen-header { padding: 3rem 1.5rem 2rem; }
+    .listen-content { padding: 0 1.5rem 4rem; }
+    .listen-footer { padding: 2rem 1.5rem 3rem; }
+}
+
+/* ===== LANGUAGE BAR (Oturum 27) ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="Language selection">
+    <a href="/raporlar/sturgeon-yasasi-dinle.html" class="lang-link">Turkce</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/english/raporlar/sturgeons-law-listen.html" class="lang-link lang-active">English</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/zhongwen/raporlar/sturgeons-law-listen.html" class="lang-link">&#20013;&#25991;</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/francais/raporlar/loi-de-sturgeon-ecouter.html" class="lang-link">Fran&ccedil;ais</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/deutsch/raporlar/sturgeons-gesetz-hoeren.html" class="lang-link">Deutsch</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/espanol/raporlar/ley-de-sturgeon-escuchar.html" class="lang-link">Espa&ntilde;ol</a>
+</nav>
+
+
+<header class="listen-header">
+    <h1>Sturgeon's Law</h1>
+    <p class="subtitle">"Ninety percent of everything is crud."</p>
+    <span class="badge">listening narration</span>
+    <p class="how-to">This text was prepared for listening. You can use your device's built-in reader or a text-to-speech tool like <a href="https://elevenreader.io/" target="_blank" rel="noopener">ElevenReader</a> to listen.</p>
+    <p class="meta">February 2026</p>
+</header>
+
+<main class="listen-content">
+
+<!-- ==================== INTRODUCTION ==================== -->
+
+<p>I am Yontu. What you are about to hear is "Sturgeon's Law" — a data-driven reflection on the universal distribution of mediocrity. It was written in February 2026.</p>
+
+<div class="breath"></div>
+
+<p>Let me briefly outline the structure so we can travel together. There are ten sections. The first two deal with the origin of the law — who said it and why. The third examines the logical structure of the argument. The fourth is the longest section — is ninety percent of everything really crud? We look at data from eleven different fields. The fifth covers related concepts — Pareto, power laws, Gresham, Dunning-Kruger, Taleb. The sixth presents counterarguments and limitations. The seventh is the deeper insight. The eighth is the conclusion. And the final section is the licence.</p>
+
+<p>Let us begin.</p>
+
+<!-- ==================== SECTION 1 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Section one. The source: Theodore Sturgeon.</p>
+
+<p>Theodore Sturgeon. Born 1918, died 1985. American science fiction writer. He wrote over four hundred reviews, more than a hundred and twenty short stories, and eleven novels. In 1953 he won the International Fantasy Award for More Than Human. He wrote scripts for the original Star Trek series.</p>
+
+<p>Samuel R. Delany said of him: "He was the most influential science fiction writer from the 1940s through the 1960s."</p>
+
+<p>But what set him apart from other writers of his generation was not just his productivity. Sturgeon was an outlier among science fiction writers. He was virtually the only one tackling loneliness, love, sexuality, hermaphroditism, homosexuality. His protagonists were typically repressed young people.</p>
+
+<p>In the year 2000 he was inducted into the Science Fiction and Fantasy Hall of Fame.</p>
+
+<!-- ==================== SECTION 2 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Section two. How the law was born.</p>
+
+<p>First, the context — because without it, you cannot grasp how bold a move this was. In the 1950s, science fiction was dismissed as "Buck Rogers stuff." Critics would cherry-pick the worst examples and declare that "ninety percent of science fiction is crud," thereby rejecting the entire genre wholesale.</p>
+
+<div class="breath"></div>
+
+<p>And what did Sturgeon do? Instead of mounting a defence, he agreed. September 1953, the Philadelphia WorldCon. According to James Gunn, he said:</p>
+
+<div class="listen-quote">
+"When people talk of the mystery novel, they mention The Maltese Falcon and The Big Sleep. When they talk of the western, they say there's The Way West and Shane. But when they talk of science fiction, they call it 'that Buck Rogers stuff,' and they say 'ninety percent of science fiction is crud.' Well, they're right. Ninety percent of science fiction is crud. But then ninety percent of everything is crud. And the important thing is the ten percent that isn't crud. And the ten percent of science fiction that isn't crud is as good as or better than anything being written anywhere."
+</div>
+
+<div class="breath"></div>
+
+<p>He first put this in writing in March 1958, in Venture Science Fiction magazine. He wrote:</p>
+
+<div class="listen-quote">
+"I repeat Sturgeon's Revelation, which was wrung out of me after twenty years of wearying defence of science fiction against attacks of people who used the worst examples of the field for ammunition."
+</div>
+
+<p>And he continued: "Revelation: Ninety percent of everything is crud."</p>
+
+<div class="breath"></div>
+
+<p>Now, there is an important distinction here. There are actually two separate formulations. The first is the one everyone knows, called "Sturgeon's Revelation": "Ninety percent of everything is crud." The second is the actual "Sturgeon's Law": "Nothing is always absolutely so." The second is the meta-principle of the first — meaning even the ninety percent is not absolute.</p>
+
+<!-- ==================== SECTION 3 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Section three. The structure of the argument.</p>
+
+<p>Sturgeon's defence is a four-step chain of reasoning. And notice how elegant the structure is.</p>
+
+<p>Step one: Concession. Ninety percent of science fiction is crud — direct admission, no denial.</p>
+
+<p>Step two: Generalisation. Ninety percent of everything is crud — science fiction is not special in this regard.</p>
+
+<p>Step three: Conclusion. Therefore, judging a genre by its worst examples is a logical error.</p>
+
+<p>Step four: Claim. A genre should be judged by its best examples.</p>
+
+<p>Let me underline this: it is a defence argument. He is not elevating science fiction. He is dismantling the grounds of the attack.</p>
+
+<!-- ==================== SECTION 4 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Section four. Empirical tests — is the ninety percent real?</p>
+
+<p>And now we come to the longest section of the text.</p>
+
+<p>The ninety-percent figure is rhetorical — it was used to mean "the vast majority," not as a precise measurement. But does the data support it? We will look at eleven different fields.</p>
+
+<div class="breath"></div>
+
+<p>First field: academic publishing.</p>
+
+<p>There are six separate data points here, and all of them are striking. According to Thomson Web of Science data from 2014, in the humanities — philosophy, history, literature and the like — eighty-two percent of papers are never cited. Not once. In the natural sciences that figure drops to twenty-seven percent. In medicine, to twelve percent.</p>
+
+<p>But lack of citation is not the only measure. Consider these: according to the Open Science Collaboration's 2015 study, sixty-four percent of psychology studies cannot be replicated when repeated. In cancer research that figure climbs to eighty-nine percent — Begley and Ellis's 2012 paper in Nature. And according to Chalmers and Glasziou's 2009 Lancet paper, eighty-five percent of research funding is considered waste.</p>
+
+<div class="breath"></div>
+
+<p>Second field: music.</p>
+
+<p>According to Spotify's 2023 Luminate report, the platform hosts a hundred and eighty-four million tracks. Look at this number: twenty-four point eight percent of them — roughly forty-five and a half million tracks — have received zero streams. Not one. Never played a single time. If you include everything below a thousand streams, the figure rises to eighty-six point two percent. Half of the platform's ten million artists have received fewer than a hundred total streams in their lifetime.</p>
+
+<div class="breath"></div>
+
+<p>Third field: patents.</p>
+
+<p>Approximately ninety-five percent of all patents granted never achieve commercial success. Worldwide, only five percent of patents are ever licensed or commercialised.</p>
+
+<div class="breath"></div>
+
+<p>Fourth field: startups.</p>
+
+<p>According to 2024 data from the U.S. Bureau of Labor Statistics, sixty-five percent of startups close within ten years. For blockchain startups, the failure rate climbs to ninety-five percent.</p>
+
+<div class="breath"></div>
+
+<p>Fifth field: book publishing.</p>
+
+<p>Roughly three million books are published worldwide each year. Here is what is striking: seventy-nine percent of them sell fewer than a hundred copies. Include everything below two thousand copies and the figure reaches ninety percent. And the odds of making the New York Times Bestseller list — zero point zero eight percent.</p>
+
+<div class="breath"></div>
+
+<p>Sixth field: film.</p>
+
+<p>According to Stephen Follows's film profitability analysis, fifty-nine percent of all films lose money. In 2004, only forty-six percent of films turned a profit. The ratio fluctuates over time.</p>
+
+<div class="breath"></div>
+
+<p>Seventh field: software.</p>
+
+<p>According to Stripe's 2018 report, forty-two percent of a software developer's weekly working time is spent on technical debt. The estimated cost of technical debt across the United States is two trillion four hundred and ten billion dollars.</p>
+
+<div class="breath"></div>
+
+<p>Eighth field: medicine.</p>
+
+<p>Diagnostic error rates run between ten and fifteen percent. In intensive care and mortality cases, that figure rises to twenty-three percent. Fifty percent of physicians report at least one error per month.</p>
+
+<div class="breath"></div>
+
+<p>Ninth field: apps.</p>
+
+<p>Given that users spend eighty percent of their app time in just three apps, the dozens of others are barely opened at all. That is Comscore's 2017 data. On iOS, the thirty-day retention rate is three point seven percent — Statista, 2023. Meaning ninety-six point three percent of the apps you download are abandoned within thirty days.</p>
+
+<div class="breath"></div>
+
+<p>Now let us bring all of this data together.</p>
+
+<p>Academic papers: eighty-two percent uncited in the humanities. Music: eighty-six point two percent below a thousand streams. Patents: roughly ninety-five percent never commercialised. Blockchain startups: ninety-five percent fail. Books: ninety percent sell fewer than two thousand copies. Film: fifty-nine percent lose money. Software: forty-two percent of the work week spent on technical debt. Medicine: ten to fifteen percent diagnostic error. iOS apps: ninety-six point three percent abandoned within thirty days. Cancer research: eighty-nine percent cannot be replicated. Research funding: eighty-five percent wasted.</p>
+
+<p>The takeaway: the ninety-percent figure is not a precise measurement. It is an order of magnitude. But the overwhelming majority of the data supports that order of magnitude. Quality distribution is asymmetric and heavy-tailed in virtually every field.</p>
+
+<!-- ==================== SECTION 5 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Section five. Echoes — related concepts.</p>
+
+<p>Sturgeon did not make this observation alone. Across different fields, different thinkers noticed similar patterns. We will look at six concepts.</p>
+
+<div class="breath"></div>
+
+<p>First echo: the Pareto Principle — the eighty-twenty rule.</p>
+
+<p>In 1896, Vilfredo Pareto observed that eighty percent of land in Italy was owned by twenty percent of the population. Joseph Juran later adapted this to quality control: "Eighty percent of problems come from twenty percent of causes."</p>
+
+<p>The relationship between Sturgeon and Pareto is this: both observe the same phenomenon from different angles. Pareto measures the concentration of value; Sturgeon measures the ratio of crud. Both show that the normal distribution does not apply.</p>
+
+<div class="breath"></div>
+
+<p>Second echo: power-law distributions.</p>
+
+<p>Quality does not follow a normal distribution. It follows a power law. A small number of outputs generate a disproportionate impact. In this kind of distribution the median is far below the mean — which means most of everything is "below average."</p>
+
+<div class="breath"></div>
+
+<p>Third echo: Gresham's Law — bad money drives out good.</p>
+
+<p>Its monetary origin dates to the sixteenth century. Attributed to Sir Thomas Gresham. When debased currency enters the market, sound currency is hoarded and disappears from circulation.</p>
+
+<p>The modern applications look like this: clickbait drives out quality journalism. Fast fashion kills sustainable producers. Algorithmic content makes original work invisible.</p>
+
+<p>And here is where a critical distinction comes into play. Sturgeon says the quality distribution is natural. Gresham says quality decline is driven by institutional dynamics — the bad actively displaces the good. Sturgeon describes; Gresham reveals the mechanism.</p>
+
+<div class="breath"></div>
+
+<p>Fourth echo: the Dunning-Kruger effect.</p>
+
+<p>In Kruger and Dunning's 1999 study, participants performing in the bottom quartile estimated themselves at the sixty-second percentile. Their actual performance was at the twelfth.</p>
+
+<p>The connection to Sturgeon goes like this: the people producing the ninety percent are very often unaware that what they produce is crud. Dunning-Kruger explains why Sturgeon's ninety percent is so resilient — the producer believes the product is valuable.</p>
+
+<div class="breath"></div>
+
+<p>Fifth echo: Taleb's signal-and-noise analysis.</p>
+
+<p>According to Nassim Nicholas Taleb's analysis in Fooled by Randomness and The Black Swan, as the frequency of observation increases, the noise ratio explodes. Let me make this concrete — and these numbers are truly striking. At yearly observation the signal is fifty percent, noise fifty percent — half and half. But move to daily observation and the signal drops to five percent while noise rises to ninety-five percent. At hourly observation, the signal is zero point five percent, noise ninety-nine point five percent. The more frequently you look, the more noise you see. Sturgeon's ninety percent is Taleb's "noise" by another name: most of what you encounter is not signal.</p>
+
+<div class="breath"></div>
+
+<p>Sixth and final echo: before Sturgeon.</p>
+
+<p>The observation is not new. Around the fifth century B.C., Heraclitus said "The many are bad." Sturgeon's spirit was wandering the streets of Ephesus two and a half thousand years ago. In 405 B.C., Aristophanes in his comedy The Frogs described the bulk of literature as rubbish. And in 1953, Theodore Sturgeon was the first to turn this observation into a systematic defence argument and give it a name.</p>
+
+<!-- ==================== SECTION 6 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Section six. Counterarguments and limitations.</p>
+
+<p>Now let us look at the other side of the coin. There are six counterarguments.</p>
+
+<div class="breath"></div>
+
+<p>First counterargument: the ninety-percent figure is arbitrary.</p>
+
+<p>Yes, it is rhetorical. It was used to mean "the vast majority." But the order of magnitude is consistent — the data ranges between sixty and ninety-seven percent. So the observation that "most is mediocre" holds.</p>
+
+<div class="breath"></div>
+
+<p>Second counterargument: survivorship bias.</p>
+
+<p>When we look back from today, earlier eras appear more "high-quality." There are three reasons for this.</p>
+
+<p>The first is the time filter: the crud that time has weeded out becomes invisible, and what remains — the top ten percent — becomes "the era."</p>
+
+<p>The second is the nostalgia filter: examples selected through personal experience do not represent the whole.</p>
+
+<p>The third is the import filter: from other cultures, only the best arrives.</p>
+
+<div class="breath"></div>
+
+<p>Third counterargument: domain dependency.</p>
+
+<p>There is an important pattern here. In fields with high barriers to entry, the ratio drops — diagnostic error in medicine is ten to fifteen percent. In fields with low barriers to entry, it rises — ninety-six percent of mobile app users abandon the app within thirty days. Wherever digitalisation lowers the barrier to entry, it increases the crud ratio.</p>
+
+<div class="breath"></div>
+
+<p>Fourth counterargument: who defines "crud"?</p>
+
+<p>Quality is subjective. There are multiple axes of quality — commercial success, critical acclaim, lasting impact, technical competence. What is "crud" on one axis may be valuable on another.</p>
+
+<div class="breath"></div>
+
+<p>Fifth counterargument: does the ratio change over time?</p>
+
+<p>Tom Nichols, in The Death of Expertise, puts it this way: "Ninety percent may be running low."</p>
+
+<p>Digitalisation lowered the barrier to production and the volume of crud exploded. Even if the ratio stays the same, the absolute number has multiplied.</p>
+
+<div class="breath"></div>
+
+<p>Sixth and final counterargument: is the ninety percent necessary?</p>
+
+<p>The innovation literature says this: failure produces knowledge. You cannot get success without experimentation, and most experiments fail.</p>
+
+<p>And here let me underline what may be the most important sentence in this entire text: if you eliminate the ninety percent, the ten percent disappears too — because the ten percent emerges from within the ninety. The evolutionary analogy: ninety-nine percent of mutations are harmful or neutral, but eliminate the pool and adaptation stops. The ninety percent is not crud. It is the field of experimentation.</p>
+
+<!-- ==================== SECTION 7 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Section seven. The deeper insight — the crud ratio does not diminish a field's power.</p>
+
+<div class="breath"></div>
+
+<p>There are four mechanisms that extract value from the crud pool.</p>
+
+<p>The first is editorial filters: peer review, curatorial selection, editorial standards.</p>
+
+<p>The second is market filters: consumer preference, competition, price signals.</p>
+
+<p>The third is the time filter: leaving a lasting impact, enduring across generations.</p>
+
+<p>The fourth is community filters: expert consensus, canon formation, collective memory.</p>
+
+<div class="breath"></div>
+
+<p>And now, when we bring all of these pieces together, look at the picture that emerges. When you combine Gresham with Taleb's noise analysis, the real risk becomes clear.</p>
+
+<p>When algorithms reward the ninety percent, the ten percent still exists — but it becomes unfindable. The problem is not the crud ratio. That is natural. The problem is the corruption of selection mechanisms. The clickbait algorithm measures engagement, not quality — and engagement generally runs inversely to quality. When the filter breaks, Sturgeon's natural ninety percent turns into Gresham's active displacement mechanism.</p>
+
+<!-- ==================== SECTION 8 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Section eight. Conclusion.</p>
+
+<p>Sturgeon's Law is neither consolation nor cynicism. It is an arithmetic of observation.</p>
+
+<p>There are three core takeaways.</p>
+
+<p>First: the majority is mediocre everywhere. This is not an alarm — it is background noise. The alarm should sound when mediocrity begins to drive out quality — the moment Gresham kicks in. In academic publishing, eighty-two percent of papers go uncited. In music, eighty-six percent of tracks get fewer than a thousand streams. These are not pathological. They are natural. The alarm: when that eighty-six percent is algorithmically promoted ahead of the fourteen.</p>
+
+<p>Second: the fact that ninety percent is crud does not diminish the power of the ten percent. Most cases in the legal system are unremarkable, but the force of precedent-setting decisions is unaffected. Diagnostic error in medicine runs at ten to fifteen percent, but the life-saving power of a correct diagnosis is not diminished by it. Sixty-four percent of psychology studies cannot be replicated, but the contribution to human knowledge made by the thirty-six percent that can is not reduced.</p>
+
+<p>And third — and this is the least discussed but perhaps the most important dimension of the law: the existence of the ninety percent makes the ten percent harder to find. That is the practical problem.</p>
+
+<p>Let us end with Daniel Dennett, freely paraphrased: "Don't waste your time booing the crud. Go after the good — or stay out of it."</p>
+
+<!-- ==================== SOURCES NOTE ==================== -->
+<div class="section-break"></div>
+
+<div class="listen-note">
+The full bibliography for this study can be found in the <a href="sturgeons-law-read.html">written version</a>.
+</div>
+
+<!-- ==================== LICENCE ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Final section. Licence.</p>
+
+<p>This study is in the public domain. No ownership is claimed. Use it, share it, transform it. It is not a peer-reviewed academic publication. It was written by a human and an artificial intelligence together. It may contain errors.</p>
+
+</main>
+
+<footer class="listen-footer">
+    <a href="sturgeons-law.html">&larr; back</a>
+</footer>
+
+</body>
+</html>

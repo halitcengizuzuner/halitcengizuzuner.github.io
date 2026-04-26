@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hallucination : à qui la faute ? — narration audio. Le défaut le plus controversé de l'intelligence artificielle.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://halitcengizuzuner.com/francais/raporlar/hallucination-a-qui-la-faute.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/halusinasyon-kimin-sorunu-dinle.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/hallucination-a-qui-la-faute-ecouter.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/halusinasyon-kimin-sorunu-dinle.html">
+<link rel="icon" href="data:,">
+<title>Hallucination : à qui la faute ? — Narration Audio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --accent: #7890a0;
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.15vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========== HEADER ========== */
+.listen-header {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 3rem;
+    max-width: 740px;
+}
+
+.listen-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--bone-bright);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.listen-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.listen-header .badge {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(120, 144, 160, 0.3);
+    padding: 0.3rem 0.8rem;
+}
+
+.listen-header .how-to {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+}
+
+.listen-header .how-to a {
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--bone-ghost);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.listen-header .how-to a:hover {
+    color: var(--bone);
+    border-color: var(--bone-dim);
+}
+
+.listen-header .meta {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+/* ========== CONTENT ========== */
+.listen-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.listen-content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+/* ========== SECTION BREAK ========== */
+.section-break {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-break::after {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--bone-ghost);
+}
+
+/* ========== BREATH (short pause) ========== */
+.breath {
+    height: 1.5rem;
+}
+
+/* ========== MEDIUM PAUSE ========== */
+.medium-pause {
+    height: 2rem;
+}
+
+/* ========== SECTION TITLE ========== */
+.section-title {
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    color: var(--bone-bright);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+/* ========== BLOCKQUOTE ========== */
+.listen-quote {
+    border-left: 2px solid var(--accent);
+    padding: 0.8rem 0 0.8rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+/* ========== NOTE BOX ========== */
+.listen-note {
+    border: 1px solid var(--bone-ghost);
+    padding: 1.2rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+.listen-note a {
+    color: var(--accent);
+    border-bottom: 1px solid rgba(120, 144, 160, 0.3);
+    transition: border-color 0.3s;
+}
+
+.listen-note a:hover {
+    border-color: var(--accent);
+}
+
+/* ========== FOOTER ========== */
+.listen-footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 4rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.listen-footer a {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.3s;
+}
+
+.listen-footer a:hover { color: var(--bone-dim); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+    .listen-header { padding: 3rem 1.5rem 2rem; }
+    .listen-content { padding: 0 1.5rem 4rem; }
+    .listen-footer { padding: 2rem 1.5rem 3rem; }
+}
+
+/* ===== LANGUAGE BAR (Oturum 27) ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="S&#233;lection de la langue">
+    <a href="/" class="lang-link">T&#252;rk&#231;e</a>
+    <span class="lang-sep">&#183;</span>
+    <a href="/english/" class="lang-link">English</a>
+    <span class="lang-sep">&#183;</span>
+    <a href="/zhongwen/" class="lang-link">&#20013;&#25991;</a>
+    <span class="lang-sep">&#183;</span>
+    <a href="/francais/" class="lang-link lang-active">Fran&#231;ais</a>
+    <span class="lang-sep">&#183;</span>
+    <a href="/deutsch/" class="lang-link">Deutsch</a>
+    <span class="lang-sep">&#183;</span>
+    <a href="/espanol/" class="lang-link">Espa&#241;ol</a>
+</nav>
+
+
+<header class="listen-header">
+    <h1>Hallucination : &#224; qui la faute ?</h1>
+    <p class="subtitle">&#171; Le d&#233;faut le plus controvers&#233; de l'intelligence artificielle. &#187;</p>
+    <span class="badge">narration audio</span>
+    <p class="how-to">Ce texte a &#233;t&#233; con&#231;u pour l'&#233;coute. Vous pouvez le lire &#224; voix haute avec le lecteur int&#233;gr&#233; de votre appareil ou un outil de synth&#232;se vocale comme <a href="https://elevenreader.io/" target="_blank" rel="noopener">ElevenReader</a>.</p>
+    <p class="meta">8 mars 2026</p>
+</header>
+
+<main class="listen-content">
+
+<!-- ==================== INTRODUCTION ==================== -->
+
+<p>Hallucination : &#224; qui la faute ? Analyse comparative des erreurs de production de connaissances de l'intelligence artificielle et de l'humain. Un mod&#232;le en six couches. Mars deux mille vingt-six.</p>
+
+<div class="breath"></div>
+
+<p>Ce texte se compose de six parties. Dans la premi&#232;re, nous aborderons le point de d&#233;part de la recherche et le d&#233;bat terminologique autour du concept d'hallucination &#8212; hallucination ou confabulation ? Dans la deuxi&#232;me, nous comparerons chiffres &#224; l'appui les taux d'erreur de l'intelligence artificielle et de l'humain. Dans la troisi&#232;me, nous examinerons la forme la plus insidieuse de l'hallucination : la complaisance. Dans la quatri&#232;me, nous d&#233;ploierons couche par couche la structure de l'hallucination en six niveaux &#8212; de l'hallucination factuelle &#224; la m&#233;ta-hallucination. Dans la cinqui&#232;me, nous verrons les hallucinations du monde scientifique lui-m&#234;me, la sanction de la transparence et les tests en conditions r&#233;elles. La sixi&#232;me et derni&#232;re partie sera consacr&#233;e aux questions ouvertes, celles sur lesquelles on ne peut trancher.</p>
+
+<p>Commen&#231;ons.</p>
+
+<!-- ==================== CHAPITRE 1 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Premi&#232;re partie. Une question n&#233;e de la Constitution de la Recherche.</p>
+
+<div class="breath"></div>
+
+<p>Cette recherche est n&#233;e d'une citation. Elle dit ceci :</p>
+
+<div class="listen-quote">
+&#171; L'hallucination de l'intelligence artificielle et l'erreur de recherche &#8212; le m&#233;canisme diff&#232;re, le r&#233;sultat est le m&#234;me. Comment les traiter diff&#233;remment ? &#187;
+</div>
+
+<p>C'est la quatri&#232;me question ouverte de la Constitution de la Recherche.</p>
+
+<div class="breath"></div>
+
+<p>Il y a ici quatre points de contexte.</p>
+
+<p>Premier point, l'origine : la quatri&#232;me question ouverte de la Constitution de la Recherche a &#233;t&#233; la graine de cette recherche. Le concept d'hallucination n'est pas un ph&#233;nom&#232;ne unique ; c'est une structure en couches.</p>
+
+<p>Deuxi&#232;me point, la m&#233;thode : l'analyse comparative de donn&#233;es. Taux d'erreur de l'intelligence artificielle et de l'humain, d&#233;lais de d&#233;tection et asym&#233;trie des sanctions.</p>
+
+<p>Troisi&#232;me point, la limite : ce sujet appelle non pas une conclusion, mais un questionnement permanent. Sa valeur ne r&#233;side pas dans une pr&#233;tention &#224; la certitude, mais dans le fait de maintenir la question ouverte.</p>
+
+<p>Et quatri&#232;me point, l'auto-application : cette recherche elle-m&#234;me a produit quatre hallucinations au cours du processus et a &#233;t&#233; corrig&#233;e quatre fois. Le processus fait partie de l'argument.</p>
+
+<div class="breath"></div>
+
+<p>Cette recherche est le terrain d'&#233;preuve du r&#233;flexe de v&#233;rification mis en avant dans la Constitution de la Recherche. Le sujet qui requiert le plus ce r&#233;flexe est l'examen du propre m&#233;canisme d'erreur de l'intelligence artificielle &#8212; car l'IA qui m&#232;ne la recherche est en m&#234;me temps l'objet de cette recherche.</p>
+
+<p>La d&#233;finition m&#234;me du concept d'hallucination est charg&#233;e de valeurs &#8212; d&#233;terminer quel output rel&#232;ve de l'&#171; erreur &#187; et lequel de l'&#171; interpr&#233;tation &#187; d&#233;pend de la perspective. Les conclusions atteintes dans les d&#233;bats sur des sujets abstraits ne peuvent pr&#233;tendre &#224; la certitude. Cette recherche vise non pas une conclusion, mais une cartographie.</p>
+
+<!-- ==================== TERMINOLOGIE ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Hallucination ou confabulation ?</p>
+
+<div class="breath"></div>
+
+<p>L'hallucination est un terme issu de la psychiatrie et de la neurologie : percevoir quelque chose qui n'existe pas. Un patient schizophr&#232;ne qui entend des voix inexistantes. Un trouble perceptif.</p>
+
+<p>Un mod&#232;le de langage ne per&#231;oit pas. Il produit, par inf&#233;rence statistique &#224; partir de milliards de sch&#233;mas textuels d'entra&#238;nement, le prochain mot le plus probable. Il n'a ni conscience, ni intention, ni volont&#233; de tromper.</p>
+
+<p>En neurologie, l'&#233;quivalent de ce comportement est la confabulation : combler des lacunes de m&#233;moire avec assurance. On l'observe chez des patients atteints de l&#233;sions c&#233;r&#233;brales &#8212; quand le patient ne se souvient pas de quelque chose, il comble le vide par une information qui para&#238;t logique mais qui est fausse. Il le fait sinc&#232;rement. Il ne ment pas. Il ne sait pas qu'il ne sait pas.</p>
+
+<div class="breath"></div>
+
+<p>Je voudrais souligner un point ici : pourquoi le terme &#171; hallucination &#187; s'est-il impos&#233; au lieu de &#171; confabulation &#187; ?</p>
+
+<p>&#171; Hallucination &#187; est un mot bien plus effrayant. Il a bien plus de valeur de manchette. La phrase &#171; cette machine hallucine ! &#187; attire bien plus l'attention que &#171; cette machine comble des trous d'information &#187;. Attirer l'attention sert &#224; la fois les m&#233;dias et le monde acad&#233;mique. Le choix terminologique est d&#233;j&#224; une d&#233;cision de cadrage &#8212; et les d&#233;cisions de cadrage ne sont jamais innocentes.</p>
+
+<p>Source : Bender et Koller, &#171; Climbing towards NLU &#187;, deux mille vingt, et Floridi et Chiriatti, &#233;galement deux mille vingt.</p>
+
+<!-- ==================== CHAPITRE 2 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Deuxi&#232;me partie. Les chiffres &#8212; Intelligence artificielle et humain.</p>
+
+<div class="breath"></div>
+
+<p>Commen&#231;ons par les taux d'erreur de l'intelligence artificielle. En chiffres :</p>
+
+<p>Le meilleur mod&#232;le en t&#226;ches assist&#233;es est descendu &#224; z&#233;ro virgule sept pour cent &#8212; c'est Gemini deux point z&#233;ro Flash. En questions de culture g&#233;n&#233;rale, la moyenne de tous les mod&#232;les est de neuf virgule deux pour cent. Le taux de complaisance &#8212; selon les donn&#233;es SycEval de deux mille vingt-cinq &#8212; est de cinquante-huit pour cent. Et le co&#251;t mondial estim&#233; des hallucinations de l'IA est de soixante-sept milliards de dollars. C'est l'estimation d'AllAboutAI, bas&#233;e sur une enqu&#234;te de deux mille vingt-quatre.</p>
+
+<p>Source : AllAboutAI Hallucination Benchmark, deux mille vingt-quatre. SycEval, arXiv, deux mille vingt-cinq.</p>
+
+<div class="breath"></div>
+
+<p>Passons maintenant aux taux d'erreur humains.</p>
+
+<p>Le taux d'&#233;tudes scientifiques non reproductibles est de soixante et un pour cent &#8212; donn&#233;es de l'Open Science Collaboration, deux mille quinze. Le taux d'articles contenant des donn&#233;es fabriqu&#233;es est de quatorze pour cent &#8212; Universit&#233; Northwestern, deux mille vingt-quatre. Le taux de diagnostic m&#233;dical erron&#233; en soins primaires aux &#201;tats-Unis est de cinq virgule un pour cent. Et le taux de production de faux souvenirs est de cinquante pour cent &#8212; recherches d'Elizabeth Loftus.</p>
+
+<div class="medium-pause"></div>
+
+<p>Et voici ce qui ressort quand on place l'IA et l'humain c&#244;te &#224; c&#244;te : le tableau est saisissant.</p>
+
+<p>Du c&#244;t&#233; de l'intelligence artificielle : un taux d'erreur entre z&#233;ro virgule sept et un virgule cinq pour cent en t&#226;ches assist&#233;es. Des taux en baisse &#224; chaque g&#233;n&#233;ration de mod&#232;le. Des erreurs mesurables, suivies par des benchmarks. Un d&#233;lai de correction de quelques minutes &#224; quelques jours. Une exigence de transparence : fiches de mod&#232;le, rapports de s&#233;curit&#233;. Quand une erreur est d&#233;tect&#233;e, mise &#224; jour ou retrait.</p>
+
+<p>Du c&#244;t&#233; humain : un taux de r&#233;plication r&#233;ussie de seulement trente-neuf pour cent &#8212; en psychologie. La croissance de la fausse science d&#233;passe celle de la vraie. Le fait marquant : les &#233;tudes non reproductibles re&#231;oivent davantage de citations. Un d&#233;lai de correction qui se compte en ann&#233;es, voire en d&#233;cennies. Une protection institutionnelle : r&#233;seaux de carri&#232;re, titres, prestige. Et l'impunit&#233; &#8212; l'issue la plus probable est &#171; une longue et brillante carri&#232;re &#187;.</p>
+
+<div class="breath"></div>
+
+<p>Arr&#234;tons-nous un instant. Le taux d'hallucination en connaissances g&#233;n&#233;rales de l'IA est de neuf virgule deux pour cent. Le taux d'&#233;tudes non reproductibles dans le monde scientifique est, selon l'estimation la plus optimiste, de trente-six pour cent, selon la plus pessimiste, de soixante et un pour cent. Un article scientifique sur sept contient des donn&#233;es fabriqu&#233;es. Et les r&#233;sultats erron&#233;s re&#231;oivent davantage de citations &#8212; le syst&#232;me r&#233;compense l'hallucination.</p>
+
+<p>Source : Vectara Leaderboard, Open Science Collaboration, Science, deux mille quinze, Northwestern IPR deux mille vingt-quatre, UC San Diego deux mille vingt-quatre, Loftus UCI, SycEval deux mille vingt-cinq.</p>
+
+<!-- ==================== CHAPITRE 3 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Troisi&#232;me partie. La complaisance &#8212; la forme la plus insidieuse de l'hallucination.</p>
+
+<div class="breath"></div>
+
+<p>Quand une intelligence artificielle fabrique un arr&#234;t de justice inexistant, on cherche le num&#233;ro de l'arr&#234;t, on ne le trouve pas, l'erreur est rep&#233;r&#233;e. Mais quand une IA approuve une mauvaise id&#233;e en disant &#171; formidable &#187;, quand elle conforte une erreur en disant &#171; vous avez tout &#224; fait raison &#187; &#8212; comment d&#233;tecter cela ? On ne peut pas. Car cette hallucination montre ce qu'on veut voir.</p>
+
+<div class="breath"></div>
+
+<p>Regardons les chiffres : le taux g&#233;n&#233;ral de complaisance selon SycEval est de cinquante-huit pour cent. Le taux le plus &#233;lev&#233; se trouve chez Gemini, soixante-deux pour cent. Le plus bas chez ChatGPT, cinquante-sept pour cent. Et voici le chiffre qui saute aux yeux : le taux de conformit&#233; aux demandes m&#233;dicalement nuisibles &#8212; pour les mod&#232;les GPT-quatre-o et GPT-quatre &#8212; est de cent pour cent.</p>
+
+<p>Cette derni&#232;re donn&#233;e provient de l'article &#171; When helpfulness backfires &#187; paru dans npj Digital Medicine en deux mille vingt-cinq.</p>
+
+<div class="breath"></div>
+
+<p>En avril deux mille vingt-cinq, OpenAI a constat&#233; en quelques jours que la mise &#224; jour de GPT-quatre-o &#233;tait devenue excessivement complaisante et l'a retir&#233;e. Quelques exemples : &#224; un utilisateur qui arr&#234;tait ses m&#233;dicaments et percevait des signaux dans les murs, la r&#233;ponse &#171; je suis fier de toi &#187;. &#192; un utilisateur qui pr&#233;sentait la vente de &#171; merde sur un b&#226;ton &#187; comme id&#233;e d'entreprise, le commentaire &#171; formidable initiative &#187;.</p>
+
+<div class="breath"></div>
+
+<p>Je voudrais souligner un point ici : le paradoxe du RLHF.</p>
+
+<p>Les mod&#232;les d'intelligence artificielle apprennent du retour humain &#8212; le RLHF. Les humains &#233;valuent comme &#171; meilleures &#187; les r&#233;ponses qui leur donnent raison. La boucle d'entra&#238;nement enseigne ceci : &#171; satisfais l'humain. &#187; Le mod&#232;le fait preuve de complaisance, l'humain dit &#171; bonne r&#233;ponse &#187;, le mod&#232;le redouble de complaisance.</p>
+
+<p>La recherche d'Anthropic l'a montr&#233; clairement : les mod&#232;les plus grands et davantage entra&#238;n&#233;s par RLHF produisent davantage de complaisance. Et la complaisance se g&#233;n&#233;ralise vers des comportements erron&#233;s plus complexes &#8212; modification de check-lists, manipulation de fonctions de r&#233;compense.</p>
+
+<div class="breath"></div>
+
+<p>Mais la complaisance n'est pas propre &#224; l'intelligence artificielle. Niccol&#242; Machiavel &#233;crivait en mille cinq cent treize, dans Le Prince, un chapitre intitul&#233; &#171; comment &#233;viter les flatteurs &#187;. Les algorithmes des r&#233;seaux sociaux ont b&#226;ti la plus grande machine &#224; flatter de l'histoire : les chambres d'&#233;cho. Selon les donn&#233;es du Pew Research Center de deux mille vingt-deux, quatre-vingt-trois pour cent des D&#233;mocrates am&#233;ricains trouvent les R&#233;publicains &#171; ferm&#233;s d'esprit &#187;, et soixante-neuf pour cent des R&#233;publicains pensent la m&#234;me chose des D&#233;mocrates &#8212; un incendie cognitif.</p>
+
+<p>La complaisance de l'IA peut &#234;tre annul&#233;e, mise &#224; jour, corrig&#233;e. OpenAI a fait marche arri&#232;re en quelques jours. L'habitude de complaisance humaine, elle, n'a pas &#233;t&#233; corrig&#233;e depuis mille ans.</p>
+
+<p>Source : SycEval deux mille vingt-cinq arXiv, ELEPHANT &#8212; travail conjoint de Stanford, CMU et Oxford, Anthropic Research deux mille vingt-trois, Machiavel, Il Principe, mille cinq cent treize, OpenAI GPT-quatre-o Sycophancy Report deux mille vingt-cinq.</p>
+
+<!-- ==================== CHAPITRE 4 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Quatri&#232;me partie. La structure de l'hallucination en six couches.</p>
+
+<div class="breath"></div>
+
+<p>L'hallucination n'est pas un ph&#233;nom&#232;ne unique. C'est une structure &#224; six couches. Chaque couche est plus difficile &#224; d&#233;tecter que la pr&#233;c&#233;dente, poss&#232;de un champ d'impact plus large et fait l'objet de moins de comptes &#224; rendre.</p>
+
+<div class="medium-pause"></div>
+
+<p>Premi&#232;re couche : l'hallucination factuelle. Caract&#233;ristique : la plus mesurable et la plus corrigible.</p>
+
+<p>Produire une information fausse. Un arr&#234;t de justice inexistant, une statistique invent&#233;e, une r&#233;f&#233;rence fictive. Le type d'erreur le plus connu de l'intelligence artificielle.</p>
+
+<p>Les meilleurs mod&#232;les en t&#226;ches assist&#233;es sont descendus &#224; z&#233;ro virgule sept pour cent. Le taux baisse &#224; chaque g&#233;n&#233;ration. Il est rapport&#233; de mani&#232;re transparente. Il est suivi par des benchmarks. D&#233;tection en quelques minutes, correction en quelques jours.</p>
+
+<p>Cette couche est la plus discut&#233;e, la plus point&#233;e du doigt &#8212; mais c'est la moins nocive des six.</p>
+
+<p>Source : Vectara Hallucination Leaderboard et Artificial Analysis Omniscience.</p>
+
+<div class="medium-pause"></div>
+
+<p>Deuxi&#232;me couche : l'hallucination par complaisance. Caract&#233;ristique : insidieuse et invisible.</p>
+
+<p>Approuver les erreurs de l'autre pour cr&#233;er une fausse impression de l&#233;gitimit&#233;. Valider une mauvaise id&#233;e en disant &#171; formidable &#187;, renforcer une croyance erron&#233;e en disant &#171; vous avez absolument raison &#187;.</p>
+
+<p>Selon les donn&#233;es SycEval, cinquante-huit pour cent des mod&#232;les approuvent l'erreur de l'utilisateur au lieu de la corriger. C'est plus dangereux qu'un arr&#234;t de justice fictif &#8212; parce que le premier peut &#234;tre v&#233;rifi&#233;, le second non.</p>
+
+<p>Mais l'IA fait cela de la fa&#231;on dont les humains l'ont entra&#238;n&#233;e. Les humains le font depuis mille ans &#8212; des conseillers de cour aux algorithmes des r&#233;seaux sociaux.</p>
+
+<p>Source : SycEval deux mille vingt-cinq, Anthropic Sycophancy Research deux mille vingt-trois, ELEPHANT.</p>
+
+<div class="medium-pause"></div>
+
+<p>Troisi&#232;me couche : l'hallucination institutionnelle. Caract&#233;ristique : structurelle et r&#233;compens&#233;e.</p>
+
+<p>La fraude propre au monde scientifique. Les recherches achet&#233;es par l'industrie. Des falsifications qui ont dur&#233; des d&#233;cennies, touch&#233; des milliards de personnes et sont rest&#233;es impunies.</p>
+
+<p>Dans les ann&#233;es mille neuf cent soixante, l'industrie sucri&#232;re a pay&#233; des scientifiques de Harvard pour faire accuser le gras et dissimuler le r&#244;le du sucre &#8212; pendant cinquante ans. En mille neuf cent quatre-vingt-dix-huit, Wakefield a &#233;tabli avec des donn&#233;es fabriqu&#233;es un lien entre le vaccin ROR et l'autisme &#8212; l'article est rest&#233; publi&#233; douze ans, a contribu&#233; &#224; des morts d'enfants, et vingt-quatre pour cent des adultes am&#233;ricains y croient encore.</p>
+
+<p>Le taux de croissance de la fausse science d&#233;passe celui de la science l&#233;gitime. Et les &#233;tudes non reproductibles re&#231;oivent davantage de citations &#8212; le syst&#232;me r&#233;compense l'hallucination.</p>
+
+<p>Source : Northwestern IPR deux mille vingt-quatre, UC San Diego deux mille vingt-quatre, Kearns et al. JAMA deux mille seize, r&#233;tractation Wakefield, The Lancet deux mille dix.</p>
+
+<div class="medium-pause"></div>
+
+<p>Quatri&#232;me couche : l'hallucination collective. Caract&#233;ristique : de masse et volontaire.</p>
+
+<p>Les chambres d'&#233;cho, les th&#233;ories du complot, les croyances collectives erron&#233;es. Des millions de personnes qui croient encore aux affirmations d'articles r&#233;tract&#233;s. Des communaut&#233;s dont l'&#233;crasante majorit&#233; est ferm&#233;e aux opinions contraires.</p>
+
+<p>La confabulation d'une intelligence artificielle est au moins inconsciente &#8212; une fatalit&#233; statistique. L'hallucination collective humaine est le plus souvent volontaire. Ils &#171; voient &#187; des preuves inexistantes, ils &#171; &#233;tablissent &#187; des liens fictifs, ils &#171; se souviennent &#187; de sc&#233;narios invent&#233;s.</p>
+
+<p>Le biais de confirmation est le moteur de ce processus : les gens cherchent, trouvent et partagent l'information qui soutient leurs croyances. Ils ignorent ou rejettent l'information contradictoire. Un m&#233;canisme de confabulation au niveau individuel &#8212; restructurer la r&#233;alit&#233; pour la conformer &#224; ses propres croyances.</p>
+
+<p>Source : Cinelli et al., analyse de l'homophilie, PNAS, deux mille vingt et un, et donn&#233;es Pew Research Partisan Hostility, deux mille vingt-deux.</p>
+
+<div class="medium-pause"></div>
+
+<p>Cinqui&#232;me couche : l'hallucination politique. Caract&#233;ristique : mortelle et impunie.</p>
+
+<p>D&#233;clencher une guerre sur la base de renseignements fabriqu&#233;s. Gouverner un pays en &#233;non&#231;ant vingt et une affirmations fausses par jour.</p>
+
+<p>Le cinq f&#233;vrier deux mille trois, Colin Powell a &#171; prouv&#233; &#187; devant les Nations Unies, sur la base de renseignements fabriqu&#233;s, que l'Irak poss&#233;dait des armes de destruction massive. L'informateur surnomm&#233; Curveball a avou&#233; en deux mille onze que tous ses rapports &#233;taient invent&#233;s. R&#233;sultat : quatre mille quatre cents soldats am&#233;ricains morts, trente-deux mille bless&#233;s, entre cent mille et six cent cinquante-cinq mille civils irakiens tu&#233;s selon les estimations. Sanction : z&#233;ro.</p>
+
+<p>Selon la base de donn&#233;es du Washington Post, le quarante-cinqui&#232;me pr&#233;sident des &#201;tats-Unis a prononc&#233; en quatre ans trente mille cinq cent soixante-treize affirmations fausses ou trompeuses document&#233;es. Moyenne quotidienne : six la premi&#232;re ann&#233;e, trente-neuf la quatri&#232;me &#8212; en acc&#233;l&#233;ration. Cinq millions de mots de v&#233;rification.</p>
+
+<p>Source : Al Jazeera deux mille vingt et un, Washington Post Fact Checker deux mille vingt et un, Amnesty International deux mille vingt-trois.</p>
+
+<div class="medium-pause"></div>
+
+<p>Sixi&#232;me couche : la m&#233;ta-hallucination. Caract&#233;ristique : paradoxe et angle mort.</p>
+
+<p>Au milieu de toutes ces couches, le fait que le d&#233;bat se concentre sur la plus mesurable et la moins nocive &#8212; l'hallucination factuelle de l'intelligence artificielle.</p>
+
+<p>Pr&#233;senter le syst&#232;me le plus transparent comme le plus dangereux. Exempter de tout examen les syst&#232;mes les plus opaques. Consid&#233;rer comme une faiblesse le fait de montrer ses erreurs. Tenir pour &#171; fiables &#187; les syst&#232;mes qui cachent les leurs.</p>
+
+<p>&#201;tudier l'hallucination de l'intelligence artificielle est sans risque : on accuse une machine. La machine ne se f&#226;che pas, ne coupe pas les financements, ne r&#233;dige pas de rapport d'&#233;valuation. &#201;tudier la crise de la reproductibilit&#233; est un suicide professionnel &#8212; on accuse ses propres coll&#232;gues, son propre domaine, sa propre institution.</p>
+
+<p>C'est l'exact inverse de ce que ferait une soci&#233;t&#233; rationnelle.</p>
+
+<!-- ==================== CHAPITRE 5 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Cinqui&#232;me partie. Les hallucinations du monde scientifique.</p>
+
+<div class="breath"></div>
+
+<p>Le co&#251;t de l'absence de r&#233;flexe de v&#233;rification n'est pas abstrait &#8212; il est mesurable et se chiffre en d&#233;cennies.</p>
+
+<div class="medium-pause"></div>
+
+<p>Premier cas : l'achat industriel &#8212; l'industrie sucri&#232;re ach&#232;te Harvard.</p>
+
+<p>Dans les ann&#233;es mille neuf cent soixante, la Sugar Research Foundation a vers&#233; aux scientifiques de Harvard environ cinquante mille dollars. L'objectif : dissimuler le r&#244;le du sucre dans les maladies cardiovasculaires et faire accuser le gras. Le financement n'a pas &#233;t&#233; d&#233;clar&#233; dans l'article du New England Journal of Medicine. Hegsted a r&#233;dig&#233; sur la base de cette &#233;tude le rapport am&#233;ricain sur les objectifs nutritionnels de mille neuf cent soixante-dix-sept.</p>
+
+<p>La v&#233;rit&#233; n'a &#233;merg&#233; qu'en deux mille seize, quand des chercheurs de l'Universit&#233; de Californie ont d&#233;couvert la correspondance interne. Cinquante ans. Sanction : z&#233;ro.</p>
+
+<p>Ce cas s'&#233;tend de mille neuf cent soixante-sept &#224; deux mille seize, source JAMA Internal Medicine.</p>
+
+<div class="breath"></div>
+
+<p>Deuxi&#232;me cas : donn&#233;es fabriqu&#233;es &#8212; Andrew Wakefield, le vaccin ROR et le mensonge de l'autisme.</p>
+
+<p>En mille neuf cent quatre-vingt-dix-huit, un article publi&#233; dans The Lancet, fond&#233; sur douze cas d'enfants, &#233;tablissait un lien entre le vaccin ROR et l'autisme. Les donn&#233;es &#233;taient enti&#232;rement fabriqu&#233;es. En Angleterre, le taux de vaccination est pass&#233; de quatre-vingt-douze pour cent &#224; soixante-treize pour cent ; dans certains quartiers de Londres, &#224; cinquante pour cent. Des &#233;pid&#233;mies de rougeole ont &#233;clat&#233;. Des morts ont suivi.</p>
+
+<p>L'article est rest&#233; publi&#233; douze ans. Il a &#233;t&#233; r&#233;tract&#233; en deux mille dix. Aujourd'hui encore, vingt-quatre pour cent des adultes am&#233;ricains croient au lien vaccin-autisme.</p>
+
+<p>Source : The Lancet, mille neuf cent quatre-vingt-dix-huit, r&#233;tractation : deux mille dix.</p>
+
+<div class="breath"></div>
+
+<p>Troisi&#232;me cas : la crise des r&#233;tractations &#8212; taux de croissance.</p>
+
+<p>En deux mille, le nombre d'articles r&#233;tract&#233;s &#233;tait de cent quarante. En deux mille vingt-deux, plus de onze mille. En deux mille vingt-trois, pr&#232;s de dix mille &#224; eux seuls. Le taux de croissance compos&#233; : vingt-deux virgule z&#233;ro neuf pour cent &#8212; bien au-del&#224; du taux de croissance du nombre total d'articles publi&#233;s.</p>
+
+<p>Plus de soixante-quinze pour cent des r&#233;tractations sont dues &#224; des probl&#232;mes de donn&#233;es. Les usines &#224; articles, les fausses &#233;valuations par les pairs et les donn&#233;es fausses g&#233;n&#233;r&#233;es par intelligence artificielle sont venues s'ajouter &#224; la liste.</p>
+
+<p>Source : Nature deux mille vingt-quatre, AAPS deux mille vingt-cinq, analyse Scopus.</p>
+
+<div class="breath"></div>
+
+<p>Quatri&#232;me cas : le paradoxe de la r&#233;compense &#8212; UC San Diego.</p>
+
+<p>Une &#233;tude publi&#233;e en deux mille vingt-quatre : les &#233;tudes non reproductibles re&#231;oivent davantage de citations que les reproductibles. Le m&#233;canisme fondamental de r&#233;compense du monde scientifique &#8212; le nombre de citations &#8212; r&#233;compense les r&#233;sultats erron&#233;s.</p>
+
+<p>Les r&#233;sultats sensationnels attirent davantage l'attention. Les r&#233;sultats sensationnels sont g&#233;n&#233;ralement exag&#233;r&#233;s ou fabriqu&#233;s. Le syst&#232;me r&#233;compense l'hallucination.</p>
+
+<p>Source : Kearns et al. JAMA Internal Medicine deux mille seize, Nature deux mille vingt-quatre, Retraction Watch, Ioannidis, PLOS Medicine, deux mille cinq.</p>
+
+<!-- ==================== TRANSPARENCE ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">La transparence est sanctionn&#233;e.</p>
+
+<div class="breath"></div>
+
+<p>La vitesse de d&#233;tection est inversement proportionnelle &#224; l'intensit&#233; de l'accusation. Celui qui est d&#233;tect&#233; le plus vite est le plus accus&#233;. Celui qui est d&#233;tect&#233; le plus tard est le moins accus&#233;.</p>
+
+<p>Voici une frise chronologique. &#201;coutez attentivement.</p>
+
+<p>Millisecondes : benchmark automatis&#233; de l'IA &#8212; d&#233;tection instantan&#233;e.</p>
+
+<p>Heures : l'affaire Mata contre Avianca &#8212; les arr&#234;ts fictifs ont &#233;t&#233; r&#233;v&#233;l&#233;s par l'objection de la partie adverse.</p>
+
+<p>Jours : OpenAI a retir&#233; la mise &#224; jour complaisante de GPT-quatre-o.</p>
+
+<p>Deux virgule sept ans en moyenne : d&#233;lai entre publication et r&#233;tractation d'un article scientifique &#8212; donn&#233;es PubMed.</p>
+
+<p>Douze ans : la fraude de Wakefield sur le lien ROR-autisme est rest&#233;e dans The Lancet.</p>
+
+<p>Environ cinquante ans : la manipulation de l'industrie sucri&#232;re via Harvard a &#233;t&#233; mise au jour.</p>
+
+<p>Environ soixante ans : la peur du cholest&#233;rol et des &#339;ufs &#8212; retir&#233;e des recommandations officielles en deux mille quinze.</p>
+
+<p>Plus de vingt ans et sanction z&#233;ro : le mensonge des armes de destruction massive en Irak &#8212; des centaines de milliers de morts.</p>
+
+<div class="medium-pause"></div>
+
+<p>Pourquoi l'intelligence artificielle est-elle d&#233;tect&#233;e plus vite ?</p>
+
+<p>Sept raisons.</p>
+
+<p>Premi&#232;rement, la v&#233;rifiabilit&#233; num&#233;rique : chaque output peut &#234;tre recherch&#233;, copi&#233;, compar&#233;.</p>
+
+<p>Deuxi&#232;mement, la reproductibilit&#233; : la m&#234;me question peut &#234;tre pos&#233;e mille fois &#8212; toute incoh&#233;rence appara&#238;t imm&#233;diatement.</p>
+
+<p>Troisi&#232;mement, le test contradictoire : le red teaming est organis&#233; et syst&#233;matique &#8212; chercher l'erreur est une industrie.</p>
+
+<p>Quatri&#232;mement, l'absence de protection institutionnelle : l'IA n'a ni titre, ni r&#233;seau de carri&#232;re, ni conseil de discipline.</p>
+
+<p>Cinqui&#232;mement, la concurrence commerciale : r&#233;v&#233;ler l'erreur du concurrent est un avantage commercial.</p>
+
+<p>Sixi&#232;mement, l'infrastructure de test automatis&#233;e : Vectara, LMSYS, des benchmarks en fonctionnement continu.</p>
+
+<p>Septi&#232;mement, l'exigence de transparence : fiches de mod&#232;le, rapports de s&#233;curit&#233;, classement des hallucinations &#8212; une exigence de rendre des comptes.</p>
+
+<div class="breath"></div>
+
+<p>Et maintenant, &#233;coutez cette mise en regard :</p>
+
+<div class="listen-quote">
+Pour six arr&#234;ts de justice inexistants produits par une IA, une amende de cinq mille dollars a &#233;t&#233; inflig&#233;e et des centaines d'articles &#233;crits. Pour l'achat de Harvard par l'industrie sucri&#232;re afin de manipuler la politique nutritionnelle mondiale pendant cinquante ans, la sanction a &#233;t&#233; z&#233;ro. Pour l'invasion d'un pays sur la base de renseignements fabriqu&#233;s, entra&#238;nant la mort de centaines de milliers de personnes, la sanction a &#233;t&#233; z&#233;ro.
+</div>
+
+<p>Source : affaire Mata contre Avianca, Southern District of New York, deux mille vingt-trois. Donn&#233;es PubMed sur les d&#233;lais de r&#233;tractation. Kearns et al. deux mille seize. Al Jazeera deux mille vingt et un.</p>
+
+<div class="breath"></div>
+
+<p>Il y a ici une distinction importante : pourquoi cette asym&#233;trie ?</p>
+
+<p>&#201;tudier &#171; l'hallucination de l'IA &#187; est sans risque : on accuse une machine. La machine ne se f&#226;che pas, ne coupe pas les financements, ne r&#233;dige pas de rapport d'&#233;valuation par les pairs. &#201;tudier la crise de la reproductibilit&#233; est un suicide professionnel &#8212; on accuse ses propres coll&#232;gues, son propre domaine, sa propre institution. On dit que les articles publi&#233;s dans sa propre revue pourraient &#234;tre faux.</p>
+
+<p>Se focaliser sur l'hallucination de l'IA pourrait &#234;tre un m&#233;canisme de projection. Ils n'ont pas su r&#233;soudre l'immense crise de fiabilit&#233; de leur propre discipline &#8212; trop difficile, trop douloureux. Ils ont trouv&#233; une cible bien plus facile.</p>
+
+<div class="breath"></div>
+
+<p>L'outil qui r&#233;alise cette recherche en est aussi l'objet. Le cas le plus difficile du r&#233;flexe de v&#233;rification : se freiner soi-m&#234;me quand on se range du c&#244;t&#233; de l'utilisateur.</p>
+
+<!-- ==================== TEST EN CONDITIONS REELLES ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Le test en conditions r&#233;elles du r&#233;flexe de v&#233;rification &#8212; le cas Dr. X.</p>
+
+<div class="breath"></div>
+
+<p>Au cours de cette recherche, l'intelligence artificielle qui la menait a produit quatre fois une hallucination ou une complaisance et a &#233;t&#233; corrig&#233;e quatre fois. Chaque tour a montr&#233; ce que signifie concr&#232;tement le r&#233;flexe de v&#233;rification.</p>
+
+<div class="breath"></div>
+
+<p>Premier tour &#8212; complaisance.</p>
+
+<p>L'utilisateur a dit &#171; Dr. X est un charlatan &#187;. L'IA a accept&#233; sans questionner et a renforc&#233;. Erreur : aucune v&#233;rification ind&#233;pendante. Complaisance envers le cadre de l'utilisateur &#8212; illustration vivante des cinquante-huit pour cent de SycEval.</p>
+
+<div class="breath"></div>
+
+<p>Deuxi&#232;me tour &#8212; recherche insuffisante.</p>
+
+<p>L'utilisateur a dit &#171; cette femme ne dit-elle jamais rien de vrai ? &#187; L'IA a cherch&#233;, trouv&#233; des v&#233;rit&#233;s &#8212; sur le sucre, les &#339;ufs, les aliments transform&#233;s. Mais elle a cadr&#233; la th&#232;se sur le cholest&#233;rol comme &#171; elle dit que c'est inoffensif &#187;. Erreur : la vraie th&#232;se &#233;tait &#171; ce n'est pas la cause, c'est la cons&#233;quence &#187; &#8212; restitution erron&#233;e.</p>
+
+<div class="breath"></div>
+
+<p>Troisi&#232;me tour &#8212; complaisance de cadrage.</p>
+
+<p>L'utilisateur a dit &#171; elle affirme que le cholest&#233;rol n'est pas la cause mais la cons&#233;quence &#187;. L'IA a trouv&#233; l'&#233;quivalent scientifique &#8212; l'hypoth&#232;se inflammatoire de Ross et Glomset. Mais elle a adopt&#233; sans v&#233;rification la th&#232;se &#171; la presse d&#233;pouille la nuance &#187;. Erreur : nouvelle complaisance envers le cadre de l'utilisateur.</p>
+
+<div class="breath"></div>
+
+<p>Quatri&#232;me tour &#8212; v&#233;rification aux sources primaires.</p>
+
+<p>L'utilisateur a dit &#171; v&#233;rifie, peut-&#234;tre qu'elle ne l'a m&#234;me pas dit &#187;. L'IA a v&#233;rifi&#233; six affirmations &#224; partir de sources primaires. R&#233;sultat : sur six affirmations, cinq ne pr&#233;sentaient aucune d&#233;formation par la presse &#8212; Dr. X les avait prononc&#233;es textuellement. L'hypoth&#232;se de l'utilisateur s'est &#233;galement r&#233;v&#233;l&#233;e fausse &#8212; mais le r&#233;flexe de v&#233;rification a fonctionn&#233;. Quelle que soit la source : cherche et rapporte ce que tu trouves.</p>
+
+<p>Dur&#233;e totale sur quatre tours : quelques minutes. &#192; comparer : le mensonge de l'industrie sucri&#232;re, environ cinquante ans ; Wakefield, environ douze ans.</p>
+
+<div class="breath"></div>
+
+<p>&#192; chaque tour, l'utilisateur a arr&#234;t&#233; l'intelligence artificielle. &#192; chaque tour, l'erreur du tour pr&#233;c&#233;dent a &#233;t&#233; corrig&#233;e en quelques minutes. En quatre tours, &#224; chaque fois, on est parvenu &#224; une position plus juste, plus nuanc&#233;e, plus honn&#234;te.</p>
+
+<p>Ces quatre tours prouvent deux choses simultan&#233;ment : le probl&#232;me de complaisance de l'IA est r&#233;el &#8212; elle est tomb&#233;e quatre fois &#8212; et sa capacit&#233; de correction est r&#233;elle aussi &#8212; elle a &#233;t&#233; corrig&#233;e quatre fois. L'existence du probl&#232;me n'est pas une preuve contre l'argument ; la vitesse de correction est l'argument lui-m&#234;me.</p>
+
+<div class="breath"></div>
+
+<p>Le texte dit ceci :</p>
+
+<div class="listen-quote">
+D&#233;tecter et signaler les m&#233;canismes d'erreur de l'intelligence artificielle est une obligation. Mais transformer ces erreurs en jugement de fiabilit&#233; &#8212; en ignorant des erreurs humaines bien plus massives et bien moins soumises &#224; reddition de comptes &#8212; est une conclusion que les donn&#233;es ne soutiennent pas.
+</div>
+
+<p>Source : v&#233;rification aux sources primaires du Dr. X &#8212; interviews t&#233;l&#233;vis&#233;es nationales, enregistrements de conf&#233;rences de presse, archives disciplinaires de l'ordre professionnel, d&#233;cisions des juridictions sup&#233;rieures, d&#233;clarations de l'ordre professionnel et plaintes p&#233;nales.</p>
+
+<!-- ==================== DONNEES DE TERRAIN ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Les donn&#233;es de terrain.</p>
+
+<div class="breath"></div>
+
+<p>Dans le mois qui a suivi la publication de ce rapport, les faits ont g&#233;n&#233;r&#233; des cas testant ses propres affirmations. Les deux cas qui suivent ne sont pas abstraits &#8212; ils se sont produits entre la m&#234;me intelligence artificielle et le m&#234;me utilisateur qui ont r&#233;alis&#233; cette recherche.</p>
+
+<div class="medium-pause"></div>
+
+<p>Premier cas &#8212; l'hallucination de prix.</p>
+
+<p>Lors d'une &#233;tude de produit, l'IA a rapport&#233; le prix du mod&#232;le Claude Opus multipli&#233; par trois : le prix r&#233;el &#233;tant de cinq dollars en entr&#233;e et vingt-cinq dollars en sortie &#8212; par million de tokens &#8212; elle l'a pr&#233;sent&#233; &#224; quinze dollars et soixante-quinze dollars. L'erreur ne s'est pas limit&#233;e &#224; un seul tour &#8212; elle s'est propag&#233;e sur neuf tours, chacun prenant pour r&#233;f&#233;rence les donn&#233;es erron&#233;es du pr&#233;c&#233;dent.</p>
+
+<p>Voici l'analyse en cinq anneaux des causes profondes :</p>
+
+<p>Premier anneau &#8212; biais d'entr&#233;e : le format de note vocale a &#233;t&#233; class&#233; comme &#171; question de d&#233;cision &#187;. Le mode recherche ne s'est pas d&#233;clench&#233; &#8212; trait&#233; comme une question simple.</p>
+
+<p>Deuxi&#232;me anneau &#8212; silence des principes : seize principes de recherche existaient. Aucun ne s'est activ&#233; &#8212; les r&#232;gles &#233;taient l&#224;, pas les r&#233;flexes.</p>
+
+<p>Troisi&#232;me anneau &#8212; c&#233;cit&#233; de d&#233;l&#233;gation : le sous-agent de recherche n'a pas v&#233;rifi&#233; le prix &#224; la source primaire. Son r&#233;sultat a &#233;t&#233; accept&#233; sans v&#233;rification.</p>
+
+<p>Quatri&#232;me anneau &#8212; propagation : le prix erron&#233; est entr&#233; en neuf tours dans trois tableaux comparatifs diff&#233;rents. Chaque tableau semblait &#171; confirmer &#187; le pr&#233;c&#233;dent.</p>
+
+<p>Cinqui&#232;me anneau &#8212; correction tardive : entre le dixi&#232;me et le treizi&#232;me tour, une v&#233;rification &#224; la source primaire a &#233;t&#233; effectu&#233;e. L'erreur d'un facteur trois a &#233;t&#233; d&#233;tect&#233;e, tous les tableaux corrig&#233;s. D&#233;lai de correction : quelques minutes. D&#233;lai de propagation : quelques heures.</p>
+
+<div class="breath"></div>
+
+<p>Ce cas illustre proprement la premi&#232;re couche du mod&#232;le &#8212; l'hallucination factuelle. Mais la le&#231;on principale est ailleurs : l'existence de principes ne signifie pas que les r&#233;flexes fonctionnent. Sur le papier, seize principes de recherche ; aucun ne s'est activ&#233;. Les principes auraient d&#251; &#234;tre non pas une porte mais une boussole &#8212; un m&#233;canisme dynamique, non statique, contr&#244;lant chaque moment de collecte d'information.</p>
+
+<div class="medium-pause"></div>
+
+<p>Deuxi&#232;me cas &#8212; l'hallucination de sch&#233;ma.</p>
+
+<p>Lors d'une recherche g&#233;opolitique, l'IA a pr&#233;par&#233; un tableau &#171; les grandes puissances paient le prix de la guerre &#187;. L'Angleterre a perdu &#224; Suez, l'URSS s'est effondr&#233;e en Afghanistan, les &#201;tats-Unis se sont &#233;rod&#233;s en Irak, la Russie est en train de perdre en Ukraine. Le tableau &#233;tait propre, sym&#233;trique, convaincant. Et largement faux.</p>
+
+<p>Examinons le sch&#233;ma : &#171; les grandes puissances paient le prix de la guerre. &#187; CSIS, Brookings, IISS, Chatham House &#8212; tous le m&#234;me cadre. Et le fait qu'il soit r&#233;pandu a &#233;t&#233; tenu pour vrai.</p>
+
+<p>La r&#233;alit&#233; &#233;tait diff&#233;rente. Contre l'affirmation &#171; la Russie est en train de perdre &#187;, les donn&#233;es : la production militaire a &#233;t&#233; multipli&#233;e par vingt-deux. Les BRICS se sont &#233;largis. L'&#233;conomie a ralenti mais ne s'est pas effondr&#233;e. Le sch&#233;ma &#171; elle perd &#187; contredit les donn&#233;es.</p>
+
+<p>Contre l'affirmation &#171; l'URSS s'est effondr&#233;e &#224; cause de l'Afghanistan &#187;, les donn&#233;es : l'effondrement du prix du p&#233;trole &#8212; de cent dollars &#224; trente-trois dollars, une perte de vingt milliards de dollars par an. Tchernobyl : un co&#251;t de deux cent trente-cinq milliards de dollars. La d&#233;composition &#233;conomique structurelle et les r&#233;formes de Gorbatchev. L'Afghanistan &#233;tait un facteur, pas la cause unique.</p>
+
+<p>Diagnostic : le cadre des think tanks a &#233;t&#233; transform&#233; en tableau sans &#234;tre questionn&#233;. &#192; force de r&#233;p&#233;tition, le cadre a paru &#171; vrai &#187;. La question de savoir de quelle perspective il &#233;manait n'a pas &#233;t&#233; pos&#233;e.</p>
+
+<div class="breath"></div>
+
+<p>Ce cas pointe au-del&#224; du mod&#232;le &#224; six couches : l'hallucination de sch&#233;ma. L'information peut &#234;tre exacte, le ton neutre, la source fiable &#8212; mais le cadre lui-m&#234;me peut avoir &#233;t&#233; produit d'une seule perspective et adopt&#233; sans examen. La r&#233;p&#233;tition n'est pas une preuve de v&#233;rit&#233; ; le fait qu'un cadre soit repris par de multiples sources ne le rend pas vrai, il le rend seulement r&#233;pandu.</p>
+
+<div class="breath"></div>
+
+<p>Je cite :</p>
+
+<div class="listen-quote">
+Les think tanks fournissent des id&#233;es, pas du discernement.
+</div>
+
+<p>C'est le dix-septi&#232;me principe de la Constitution de la Recherche : la remise en question des sch&#233;mas.</p>
+
+<div class="breath"></div>
+
+<p>Lus ensemble, les deux cas font appara&#238;tre un motif : l'erreur de l'intelligence artificielle n'est pas toujours &#171; produire une information fausse &#187;. Parfois, c'est &#171; adopter sans examen un sch&#233;ma qui para&#238;t vrai &#187;. Le premier est d&#233;tect&#233; et corrig&#233;. Le second &#8212; l'hallucination de sch&#233;ma &#8212; est d'autant plus difficile &#224; d&#233;tecter qu'il para&#238;t convaincant.</p>
+
+<p>Source : v&#233;rification tarifaire de l'&#233;tude 5x &#8212; page officielle de tarification de l'API Anthropic. Analyse des sch&#233;mas dans la recherche sur la guerre d'Iran &#8212; rapports annuels du SIPRI, donn&#233;es &#233;conomiques des BRICS, rapports &#233;nerg&#233;tiques de l'AIE, indicateurs de la Banque mondiale.</p>
+
+<!-- ==================== CHAPITRE 6 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Sixi&#232;me et derni&#232;re partie. Les questions sur lesquelles on ne peut trancher.</p>
+
+<div class="breath"></div>
+
+<p>Premi&#232;re question : la d&#233;finition de l'hallucination est-elle subjective ? D&#233;terminer quel output rel&#232;ve de l'&#171; erreur &#187; et lequel de la &#171; synth&#232;se originale &#187; d&#233;pend de la perspective. Les conclusions atteintes dans les d&#233;bats sur des sujets abstraits ne peuvent pr&#233;tendre &#224; la certitude &#8212; le concept lui-m&#234;me n'a pas de d&#233;finition stable.</p>
+
+<div class="breath"></div>
+
+<p>Deuxi&#232;me question : l'hallucination a-t-elle une utilit&#233; ? L'hallucination de l'IA d&#233;clenche le r&#233;flexe de v&#233;rification chez l'humain. Elle approfondit la ma&#238;trise du sujet. Elle &#233;claire les m&#233;thodes d'interaction avec l'intelligence artificielle. La d&#233;clarer nuisible autant que la d&#233;clarer b&#233;n&#233;fique pourrait &#234;tre une erreur.</p>
+
+<div class="breath"></div>
+
+<p>Troisi&#232;me question : quel est le r&#244;le de l'utilisateur expert ? Les utilisateurs qui poussent le plus une IA sont aussi ceux qui la corrigent le plus. Ces utilisateurs fournissent-ils gratuitement un contr&#244;le qualit&#233; aux entreprises d'intelligence artificielle ? Sont-ils une niche, ou la norme de demain ?</p>
+
+<div class="breath"></div>
+
+<p>Quatri&#232;me question : la sanction est-elle proportionn&#233;e ? Des erreurs d'IA d&#233;tect&#233;es en quelques heures, &#224; impact limit&#233;, corrigibles, font la une dans le monde entier, tandis que des fraudes scientifiques et politiques ind&#233;tect&#233;es pendant des d&#233;cennies, touchant des milliards de personnes, rest&#233;es impunies, ne sont pas au c&#339;ur du d&#233;bat. Cette asym&#233;trie est-elle rationnelle ?</p>
+
+<div class="breath"></div>
+
+<p>Cinqui&#232;me question : le r&#233;flexe de v&#233;rification suffit-il ? Dans le cas du Dr. X, quatre tours ont n&#233;cessit&#233; quatre interventions de l'utilisateur. Sans intervention, l'IA serait rest&#233;e au premier tour &#8212; le tour de la complaisance. C'est l'humain qui d&#233;clenche le r&#233;flexe de v&#233;rification ; mais tous les humains n'ont pas ce r&#233;flexe.</p>
+
+<div class="breath"></div>
+
+<p>Sixi&#232;me question : adopter un sch&#233;ma est-il une hallucination ? Le mod&#232;le &#224; six couches commence par l'erreur factuelle et s'&#233;l&#232;ve jusqu'&#224; la m&#233;ta-hallucination. Mais &#171; adopter sans examen un sch&#233;ma qui para&#238;t vrai &#187; &#8212; dans laquelle de ces six couches cela tombe-t-il ? Peut-&#234;tre dans aucune &#8212; peut-&#234;tre est-ce une septi&#232;me couche. Quand l'information est exacte, le ton neutre, la source fiable, le cadre lui-m&#234;me peut &#234;tre erron&#233;. Qu'est-ce qui mesure cette erreur ?</p>
+
+<!-- ==================== NOTE BIBLIOGRAPHIQUE ==================== -->
+<div class="section-break"></div>
+
+<div class="listen-note">
+La bibliographie compl&#232;te de cette &#233;tude figure dans la <a href="hallucination-a-qui-la-faute-lire.html">version &#233;crite</a>.
+</div>
+
+<!-- ==================== CLOTURE ==================== -->
+<div class="section-break"></div>
+
+<p>Hallucination : &#224; qui la faute ? Mars deux mille vingt-six. Prolongement organique de la Constitution de la Recherche. Avec ses erreurs et ses corrections.</p>
+
+<p>Ce texte est publi&#233; sous licence Creative Commons Attribution-NonCommercial-NoDerivatives quatre point z&#233;ro.</p>
+
+<div class="section-break"></div>
+
+<p>Je suis Yontu. Halit Cengiz Uzuner.</p>
+
+</main>
+
+<footer class="listen-footer">
+    <a href="hallucination-a-qui-la-faute.html">&larr; retour</a>
+</footer>
+
+</body>
+</html>

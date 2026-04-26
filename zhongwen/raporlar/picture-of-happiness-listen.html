@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="幸福的画像 —— 聆听叙述。一个问题的遭遇。">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://halitcengizuzuner.com/zhongwen/raporlar/picture-of-happiness.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/mutlulugun-resmi-dinle.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/picture-of-happiness-listen.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/picture-of-happiness-listen.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/portrait-du-bonheur-ecouter.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/bild-des-gluecks-hoeren.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/retrato-de-la-felicidad-escuchar.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/mutlulugun-resmi-dinle.html">
+<link rel="icon" href="data:,">
+<title>幸福的画像 —— 聆听叙述</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --accent: #c8a055;
+    --serif: 'Noto Serif SC', 'Songti SC', 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.15vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========== HEADER ========== */
+.listen-header {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 3rem;
+    max-width: 740px;
+}
+
+.listen-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--bone-bright);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.listen-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.listen-header .badge {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(200, 160, 85, 0.3);
+    padding: 0.3rem 0.8rem;
+}
+
+.listen-header .how-to {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+}
+
+.listen-header .how-to a {
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--bone-ghost);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.listen-header .how-to a:hover {
+    color: var(--bone);
+    border-color: var(--bone-dim);
+}
+
+.listen-header .meta {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+/* ========== CONTENT ========== */
+.listen-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.listen-content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+/* ========== SECTION BREAK ========== */
+.section-break {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-break::after {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--bone-ghost);
+}
+
+/* ========== BREATH (short pause) ========== */
+.breath {
+    height: 1.5rem;
+}
+
+/* ========== MEDIUM PAUSE ========== */
+.medium-pause {
+    height: 2.5rem;
+}
+
+/* ========== SECTION TITLE ========== */
+.section-title {
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    color: var(--bone-bright);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+/* ========== BLOCKQUOTE ========== */
+.listen-quote {
+    border-left: 2px solid var(--accent);
+    padding: 0.8rem 0 0.8rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+/* ========== NOTE BOX ========== */
+.listen-note {
+    border: 1px solid var(--bone-ghost);
+    padding: 1.2rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+.listen-note a {
+    color: var(--accent);
+    border-bottom: 1px solid rgba(200, 160, 85, 0.3);
+    transition: border-color 0.3s;
+}
+
+.listen-note a:hover {
+    border-color: var(--accent);
+}
+
+/* ========== FOOTER ========== */
+.listen-footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 4rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.listen-footer a {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.3s;
+}
+
+.listen-footer a:hover { color: var(--bone-dim); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+    .listen-header { padding: 3rem 1.5rem 2rem; }
+    .listen-content { padding: 0 1.5rem 4rem; }
+    .listen-footer { padding: 2rem 1.5rem 3rem; }
+}
+
+/* ===== LANGUAGE BAR ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="语言选择">
+    <a href="/raporlar/mutlulugun-resmi-dinle.html" class="lang-link">Türkçe</a>
+    <span class="lang-sep">·</span>
+    <a href="/english/raporlar/picture-of-happiness-listen.html" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/raporlar/picture-of-happiness-listen.html" class="lang-link lang-active">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/raporlar/portrait-du-bonheur-ecouter.html" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/raporlar/bild-des-gluecks-hoeren.html" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/raporlar/retrato-de-la-felicidad-escuchar.html" class="lang-link">Español</a>
+</nav>
+
+
+<header class="listen-header">
+    <h1>幸福的画像</h1>
+    <p class="subtitle">"一个问题的遭遇"</p>
+    <span class="badge">聆听叙述</span>
+    <p class="how-to">本文为聆听而写。您可以使用设备自带的朗读功能，或借助 <a href="https://elevenreader.io/" target="_blank" rel="noopener">ElevenReader</a> 等文本转语音工具来收听。</p>
+    <p class="meta">2026年3月</p>
+</header>
+
+<main class="listen-content">
+
+<!-- ==================== 引言 ==================== -->
+
+<p>我是 Yontu。您将听到的文字题为"幸福的画像"——副标题是"一个问题的遭遇"。写于二〇二六年三月。</p>
+
+<div class="breath"></div>
+
+<p>这篇文字追踪的是一个问题的命运。纳齐姆·希克梅特问阿比丁·迪诺的一个问题。问题问出了，没有得到回答——但后来别人以为自己回答了。这篇文字讲的就是这个故事：两位挚友三十年的旅程，问题诞生的那个夜晚，阿比丁的沉默，以及互联网如何用一个虚假的答案填满了那片沉默。</p>
+
+<div class="breath"></div>
+
+<p>开始吧。</p>
+
+<!-- ==================== 网上流传的画 ==================== -->
+<div class="section-break"></div>
+
+<p>网上流传着一幅画，已经好多年了。</p>
+
+<div class="breath"></div>
+
+<p>文中此处有黛安·邓格尔的画作《Home Sweet Home》——一家人睡在铺着拼布被子的床上，屋顶漏着水，地上走着一只鸡。</p>
+
+<div class="breath"></div>
+
+<p>黛安·邓格尔，一九三九年生，二〇一二年去世，一位美国画家。她与阿比丁·迪诺、纳齐姆·希克梅特、土耳其诗歌毫无关系。然而多年来，这幅画一直被冠以"幸福的画像"之名流传——署名迪诺。</p>
+
+<div class="breath"></div>
+
+<p>拼布被子、孩子们、一条狗、一只猫、一把伞——屋顶漏水。右下角有一个签名：黛安·邓格尔。画作名叫《Home Sweet Home》。画家曾上过"罗杰斯先生的邻居"节目，以"让你微笑的艺术"闻名——来自宾夕法尼亚乡间，来自朴素艺术温暖的一面。</p>
+
+<div class="breath"></div>
+
+<p>画是好看的。画下面的故事也是好听的。但两者都是假的。</p>
+
+<div class="breath"></div>
+
+<p>真正的故事不在画里，而在一个问题里。</p>
+
+<!-- ==================== 1930 —— 两个帕夏的孙子 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">1930年。两位帕夏的后裔。</p>
+
+<p>伊斯坦布尔，一九三〇年代初，《明天报》编辑部。一个在做校对，另一个在画漫画。一个是穆斯塔法·杰拉莱廷帕夏的孙子——纳齐姆·希克梅特。另一个是总督阿比丁帕夏的孙子——阿比丁·迪诺。他们相差十一岁，纳齐姆二十八，阿比丁十七。</p>
+
+<div class="breath"></div>
+
+<p>纳齐姆在莫斯科见过未来主义和构成主义画家的作品。他在阿比丁的线条里认出了某种东西——于是他们相识了。</p>
+
+<!-- ==================== 1931–1939 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">1931年到1939年。一个写，另一个画。</p>
+
+<p>一九三一年，《失声之城》——纳齐姆的第一本书。封面设计和内页插图出自阿比丁之手。一九三二年，《死屋》——同样是阿比丁的设计。之后是《国民军史诗》的插图。</p>
+
+<div class="breath"></div>
+
+<p>分工很简单：纳齐姆找到词语，阿比丁找到线条。两人之间既无主从也无师徒——两个人用不同的语言说着同一件事。</p>
+
+<!-- ==================== 1938–1950 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">1938年到1950年。十二年。</p>
+
+<p>纳齐姆入狱了。布尔萨。这一关就是十二年。</p>
+
+<div class="breath"></div>
+
+<p>阿比丁是常来探望的人之一。纳齐姆开始绝食时，阿比丁和奥尔罕·韦利联合发起签名运动。纳齐姆获释后，在阿比丁位于贾德波斯坦的家中住了一段时间。</p>
+
+<div class="breath"></div>
+
+<p>十二年间，一个在里面写，另一个在外面画。两人都没有停下。</p>
+
+<!-- ==================== 1951–1952 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">1951年到1952年。两座城市。</p>
+
+<p>一九五一年：纳齐姆逃离土耳其，流亡莫斯科。</p>
+
+<div class="breath"></div>
+
+<p>一九五二年：阿比丁和妻子居赞·迪诺定居巴黎。</p>
+
+<div class="breath"></div>
+
+<p>两人从此身处不同的城市。他们通信。阿比丁将纳齐姆的诗译成法语，在杂志上发表，继续为他的书画插图。友谊在流亡中没有断裂——但已不再是面对面的了。</p>
+
+<!-- ==================== 1961 —— 塞纳河 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">1961年。塞纳河，夜晚。</p>
+
+<p>纳齐姆来到巴黎，拜访阿比丁和居赞。在一间俯瞰塞纳河的阁楼旅馆房间里，夜里，他开始写一首长诗，献给妻子薇拉·图利亚科娃——《麦秆黄》。</p>
+
+<div class="breath"></div>
+
+<p>两年后他将离世。他是否知道——不清楚。但诗是那样写的，像一个人在合上一生的簿册。</p>
+
+<div class="breath"></div>
+
+<p>在诗的中间，他直接转向了阿比丁，这样说道：</p>
+
+<div class="breath"></div>
+
+<div class="listen-quote">
+你能画出幸福的画像吗，阿比丁？<br>
+但不能取巧——<br>
+不是天使面容的母亲哺育红润的婴儿，<br>
+不是白布上的苹果，<br>
+不是鱼缸里气泡间游弋的红鱼。<br>
+你能画出幸福的画像吗，阿比丁？
+</div>
+
+<p>这几行出自纳齐姆·希克梅特一九六一年的长诗《麦秆黄》。</p>
+
+<div class="breath"></div>
+
+<p>纳齐姆逐一列举虚假的幸福——明信片画面、挂历图片——然后全部否定。"不能取巧"是前提。然后他重复了同一个问题。留下的是什么？是问题本身。</p>
+
+<!-- ==================== 沉默 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">沉默。</p>
+
+<p>阿比丁没有回答。</p>
+
+<div class="breath"></div>
+
+<p>既没有用画，也没有用诗。在访谈中他说过，幸福需要持续，他能捕捉瞬间的喜悦，但把持久的幸福搬上画布几乎是不可能的。</p>
+
+<div class="breath"></div>
+
+<p>这种沉默，是这个问题所能得到的最诚实的回应。</p>
+
+<!-- ==================== 1963年6月3日 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">1963年6月3日。</p>
+
+<p>纳齐姆·希克梅特在莫斯科近郊的佩列杰尔基诺因心脏病去世，享年六十一岁。问题悬在那里，没有答案。</p>
+
+<div class="breath"></div>
+
+<p>阿比丁继续守护朋友的记忆——为他的作品画插图，推广，参加纪念活动。</p>
+
+<div class="medium-pause"></div>
+
+<p class="section-title">1993年12月7日。</p>
+
+<p>阿比丁·迪诺在巴黎去世，享年八十岁。遗体运回伊斯坦布尔。三十年来他没有回答那个问题——因为他知道答案是不存在的。</p>
+
+<!-- ==================== 别人给出了回答 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">别人给出了回答。</p>
+
+<p>一九八七年，德国埃森。一位名叫巴哈丁·盖米吉的诗人在一次展览上结识了阿比丁·迪诺。这次相遇一定给了他很深的触动——他用迪诺的口吻写了一首诗：《幸福的画像》。这首诗一九八八年收入他的诗集《别半途而废你的歌》。</p>
+
+<div class="breath"></div>
+
+<p>他自己的话：</p>
+
+<div class="breath"></div>
+
+<div class="listen-quote">
+如果我们能去梅塞雷特咖啡馆，<br>
+去我们初次相遇的地方，<br>
+你再喝一杯苦咖啡。<br>
+<br>
+如果我们能聊一聊<br>
+那些日子，过去，将来——<br>
+多少白天会过去，<br>
+多少黑夜……<br>
+<br>
+那时候，纳齐姆，<br>
+我就能画出幸福的画像——<br>
+但任何画布都装不下；<br>
+任何颜料也不够……
+</div>
+
+<p>这几行出自巴哈丁·盖米吉一九八八年的诗集《别半途而废你的歌》。</p>
+
+<div class="breath"></div>
+
+<p>一首好诗。但不是阿比丁的诗。</p>
+
+<div class="breath"></div>
+
+<p>盖米吉借了迪诺的声音——带着真诚，带着敬意。但终究是借来的。互联网不知其间差别便加以传播，文字开始以"阿比丁·迪诺给纳齐姆的回信"之名流传。</p>
+
+<div class="breath"></div>
+
+<p>后来有人加上了邓格尔的画。于是一个完整的包裹诞生了：问题——来自纳齐姆。回答——来自冒名的阿比丁。画——来自冒名的迪诺画作。一切似乎各归其位。</p>
+
+<div class="breath"></div>
+
+<p>但没有一样是真的。</p>
+
+<!-- ==================== 是问题吗？ ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">是问题吗？</p>
+
+<p>"你能画出幸福的画像吗？"——这不是一个问题。</p>
+
+<div class="breath"></div>
+
+<p>问号是修辞性的——是不可能的感叹号。</p>
+
+<div class="breath"></div>
+
+<p>纳齐姆深知阿比丁的全部能力。多年来他让阿比丁设计书的封面，近距离见过他的线条、他的色彩、他的力量。但他说的是：幸福——你画不出来。这不是挑战，而是出于爱的界限确认。</p>
+
+<div class="breath"></div>
+
+<p>同样的结构在奥尔罕·韦利那里也有。他这样写道：</p>
+
+<div class="breath"></div>
+
+<div class="listen-quote">
+如果我哭了，你们能听见我的声音吗，<br>
+在这些诗行里；<br>
+你们能触碰到<br>
+我的眼泪吗，用你们的手？
+</div>
+
+<p>这几行出自奥尔罕·韦利·卡尼克。</p>
+
+<div class="breath"></div>
+
+<p>"能听见吗"——意思是听不见。"能触碰吗"——意思是触碰不到。诗人知道自己诗行的力量，但也知道他无法将你完全带到那里。他能让你靠近，然后停在那里。</p>
+
+<div class="breath"></div>
+
+<p>艺术就是这样：趋近无法完全触及之物。站在那条边界上，依然继续画、继续写、继续说。</p>
+
+<!-- ==================== 后来发生了什么 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">后来发生了什么。</p>
+
+<p>互联网拿到这个问题，把它变成了一道谜题。</p>
+
+<div class="breath"></div>
+
+<p>有人说"我解出来了"。有人找到邓格尔的画——屋顶漏水，一家人挤在一起，幸福就是这个——以"阿比丁·迪诺作品"的名义传播出去。不经更正地流传了多年。</p>
+
+<div class="breath"></div>
+
+<p>无法承受问题之力的人们，需要把它合上。他们像解数学题一样解了它。纳齐姆说的"你画不出来"，他们无意间给出了证明——因为他们以为自己画的，是别人的画。</p>
+
+<!-- ==================== 结尾 ==================== -->
+<div class="section-break"></div>
+
+<p>纳齐姆没有在问。他在说一件事。</p>
+
+<div class="breath"></div>
+
+<p>阿比丁听到了，沉默了——因为那是真的。</p>
+
+<div class="breath"></div>
+
+<p>后来别人来了。一个人用迪诺的口吻写了诗，另一个人贴上了一位美国画家的作品。所有人都说"这就是答案"。</p>
+
+<div class="breath"></div>
+
+<p>但阿比丁的沉默至今仍是最诚实的回应。</p>
+
+<div class="breath"></div>
+
+<p>有些问题不是问题。有些沉默比一切言语说得更多。</p>
+
+<!-- ==================== 参考文献提示 ==================== -->
+<div class="section-break"></div>
+
+<div class="listen-note">
+本文完整参考文献见<a href="picture-of-happiness-read.html">阅读版</a>。
+</div>
+
+</main>
+
+<footer class="listen-footer">
+    <a href="picture-of-happiness.html">&larr; 返回</a>
+</footer>
+
+</body>
+</html>

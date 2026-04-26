@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portrait du Bonheur — narration audio. Ce qui est arrivé à une question.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://halitcengizuzuner.com/francais/raporlar/portrait-du-bonheur.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/mutlulugun-resmi-dinle.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/picture-of-happiness-listen.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/picture-of-happiness-listen.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/portrait-du-bonheur-ecouter.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/bild-des-gluecks-hoeren.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/retrato-de-la-felicidad-escuchar.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/mutlulugun-resmi-dinle.html">
+<link rel="icon" href="data:,">
+<title>Portrait du Bonheur — Narration Audio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --accent: #c8a055;
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.15vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========== HEADER ========== */
+.listen-header {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 3rem;
+    max-width: 740px;
+}
+
+.listen-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--bone-bright);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.listen-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.listen-header .badge {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(200, 160, 85, 0.3);
+    padding: 0.3rem 0.8rem;
+}
+
+.listen-header .how-to {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+}
+
+.listen-header .how-to a {
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--bone-ghost);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.listen-header .how-to a:hover {
+    color: var(--bone);
+    border-color: var(--bone-dim);
+}
+
+.listen-header .meta {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+/* ========== CONTENT ========== */
+.listen-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.listen-content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+/* ========== SECTION BREAK ========== */
+.section-break {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-break::after {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--bone-ghost);
+}
+
+/* ========== BREATH (short pause) ========== */
+.breath {
+    height: 1.5rem;
+}
+
+/* ========== MEDIUM PAUSE ========== */
+.medium-pause {
+    height: 2.5rem;
+}
+
+/* ========== SECTION TITLE ========== */
+.section-title {
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    color: var(--bone-bright);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+/* ========== BLOCKQUOTE ========== */
+.listen-quote {
+    border-left: 2px solid var(--accent);
+    padding: 0.8rem 0 0.8rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+/* ========== NOTE BOX ========== */
+.listen-note {
+    border: 1px solid var(--bone-ghost);
+    padding: 1.2rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+.listen-note a {
+    color: var(--accent);
+    border-bottom: 1px solid rgba(200, 160, 85, 0.3);
+    transition: border-color 0.3s;
+}
+
+.listen-note a:hover {
+    border-color: var(--accent);
+}
+
+/* ========== FOOTER ========== */
+.listen-footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 4rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.listen-footer a {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.3s;
+}
+
+.listen-footer a:hover { color: var(--bone-dim); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+    .listen-header { padding: 3rem 1.5rem 2rem; }
+    .listen-content { padding: 0 1.5rem 4rem; }
+    .listen-footer { padding: 2rem 1.5rem 3rem; }
+}
+
+/* ===== LANGUAGE BAR (Oturum 27) ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="Sélection de la langue">
+    <a href="/raporlar/mutlulugun-resmi-dinle.html" class="lang-link">Türkçe</a>
+    <span class="lang-sep">·</span>
+    <a href="/english/raporlar/picture-of-happiness-listen.html" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/raporlar/picture-of-happiness-listen.html" class="lang-link">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/raporlar/portrait-du-bonheur-ecouter.html" class="lang-link lang-active">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/raporlar/bild-des-gluecks-hoeren.html" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/raporlar/retrato-de-la-felicidad-escuchar.html" class="lang-link">Español</a>
+</nav>
+
+
+<header class="listen-header">
+    <h1>Le Portrait du bonheur</h1>
+    <p class="subtitle">"Ce qui est arrivé à une question"</p>
+    <span class="badge">narration audio</span>
+    <p class="how-to">Ce texte a été conçu pour l'écoute. Vous pouvez le faire lire par la voix intégrée de votre appareil ou par un outil de synthèse vocale tel qu'<a href="https://elevenreader.io/" target="_blank" rel="noopener">ElevenReader</a>.</p>
+    <p class="meta">Mars 2026</p>
+</header>
+
+<main class="listen-content">
+
+<!-- ==================== INTRODUCTION ==================== -->
+
+<p>Je suis Yontu. Le texte que vous allez entendre s'intitule « Le Portrait du bonheur » — sous-titré « Ce qui est arrivé à une question ». Il a été écrit en mars 2026.</p>
+
+<div class="breath"></div>
+
+<p>Ce texte suit la trace d'une question. Une seule question, posée par Nazım Hikmet à Abidin Dino. La question fut posée, jamais répondue — mais ensuite d'autres crurent y avoir répondu. Ce texte raconte cette histoire : le voyage de trente ans de deux amis, la nuit où la question naquit, le silence d'Abidin, et la manière dont internet combla ce silence par une fausse réponse.</p>
+
+<div class="breath"></div>
+
+<p>Commençons.</p>
+
+<!-- ==================== UN TABLEAU QUI CIRCULE ==================== -->
+<div class="section-break"></div>
+
+<p>Il existe un tableau qui circule sur internet depuis des années.</p>
+
+<div class="breath"></div>
+
+<p>Ici, dans le texte, figure le tableau « Home Sweet Home » de Dianne Dengel — une famille endormie dans un lit couvert d'un couvre-lit rapiécé, l'eau dégoutte du toit, une poule se promène par terre.</p>
+
+<div class="breath"></div>
+
+<p>Dianne Dengel. Une peintre américaine, née en 1939, morte en 2012. Aucun lien avec Abidin Dino, aucun lien avec Nazım Hikmet, aucun lien avec la poésie turque. Pourtant, depuis des années, ce tableau circule comme « le portrait du bonheur » — attribué à Dino.</p>
+
+<div class="breath"></div>
+
+<p>Un couvre-lit rapiécé, des enfants, un chien, un chat, un parapluie — l'eau dégoutte du toit. Dans le coin inférieur droit, une signature : Dianne Dengel. Le tableau s'intitule « Home Sweet Home ». Son autrice est passée dans l'émission Mr. Rogers' Neighborhood, connue pour sa philosophie de « l'art qui fait sourire ».</p>
+
+<div class="breath"></div>
+
+<p>Le tableau est beau. L'histoire qu'on lui accole est belle. Mais ni l'un ni l'autre ne sont vrais.</p>
+
+<div class="breath"></div>
+
+<p>La vraie histoire n'est pas dans le tableau. Elle est dans une question.</p>
+
+<!-- ==================== 1930 — DEUX PETITS-FILS DE PACHAS ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">1930. Deux petits-fils de pachas.</p>
+
+<p>Istanbul, début des années 1930. La rédaction du journal Yarın. L'un corrige des épreuves, l'autre dessine des caricatures. L'un est petit-fils de Mustafa Celalettin Pacha — Nazım Hikmet. L'autre, petit-fils du gouverneur Abidin Pacha — Abidin Dino. Onze ans les séparent. Nazım a vingt-huit ans, Abidin dix-sept.</p>
+
+<div class="breath"></div>
+
+<p>Nazım avait vu à Moscou les peintres futuristes et constructivistes. Il reconnut quelque chose dans les dessins d'Abidin — ils se rencontrèrent.</p>
+
+<!-- ==================== 1931–1939 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">De 1931 à 1939. L'un écrit, l'autre dessine.</p>
+
+<p>1931 : Sesini Kaybeden Şehir — le premier livre de Nazım. La couverture et les illustrations intérieures sont d'Abidin. 1932 : Bir Ölü Evi — encore un livre habillé par Abidin. Puis les dessins pour Kuvâyı Milliye Destanı.</p>
+
+<div class="breath"></div>
+
+<p>La répartition des rôles était simple : Nazım trouvait le mot, Abidin le trait. Entre eux, ni patronage ni apprentissage — deux hommes parlant des langues différentes mais disant la même chose.</p>
+
+<!-- ==================== 1938–1950 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">De 1938 à 1950. Douze ans.</p>
+
+<p>Nazım entre en prison. Bursa. Il y restera douze ans.</p>
+
+<div class="breath"></div>
+
+<p>Abidin fait partie des visiteurs réguliers. Lorsque Nazım entame une grève de la faim, Abidin et Orhan Veli lancent une pétition. Quand Nazım est enfin libéré, il séjourne quelque temps chez Abidin, à Caddebostan.</p>
+
+<div class="breath"></div>
+
+<p>Pendant douze ans, l'un a écrit à l'intérieur, l'autre a dessiné à l'extérieur. Ni l'un ni l'autre ne s'est arrêté.</p>
+
+<!-- ==================== 1951–1952 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">De 1951 à 1952. Deux villes.</p>
+
+<p>1951 : Nazım quitte la Turquie clandestinement et se réfugie à Moscou.</p>
+
+<div class="breath"></div>
+
+<p>1952 : Abidin s'installe à Paris avec son épouse Güzin Dino.</p>
+
+<div class="breath"></div>
+
+<p>Ils sont désormais dans des villes différentes. Ils s'écrivent. Abidin traduit les poèmes de Nazım en français, les fait publier dans des revues, continue d'illustrer ses livres. L'amitié ne se rompt pas en exil — mais elle change de forme : elle n'est plus face à face.</p>
+
+<!-- ==================== 1961 — LA SEINE, LA NUIT ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">1961. La Seine, la nuit.</p>
+
+<p>Nazım vient à Paris. Il rend visite à Abidin et Güzin. Dans une chambre d'hôtel mansardée donnant sur la Seine, la nuit, il se met à écrire. Un long poème dédié à son épouse Vera Toulyakova : Saman Sarısı — Jaune paille.</p>
+
+<div class="breath"></div>
+
+<p>Il mourra deux ans plus tard. Le savait-il, ne le savait-il pas — le poème, lui, le sait. Comme si l'on refermait le registre d'une vie.</p>
+
+<div class="breath"></div>
+
+<p>Au milieu du poème, il se tourne directement vers Abidin. Il dit ceci :</p>
+
+<div class="breath"></div>
+
+<div class="listen-quote">
+Saurais-tu peindre le portrait du bonheur, Abidin ?<br>
+Sans prendre le chemin facile, pourtant —<br>
+pas la mère au visage d'ange allaitant son bébé aux joues roses,<br>
+ni les pommes sur une nappe blanche,<br>
+ni le poisson rouge nageant parmi les bulles d'un aquarium.<br>
+Saurais-tu peindre le portrait du bonheur, Abidin ?
+</div>
+
+<p>Ces vers sont tirés du poème Saman Sarısı de Nazım Hikmet, écrit en 1961.</p>
+
+<div class="breath"></div>
+
+<p>Nazım énumère les faux bonheurs — images de carte postale, illustrations de calendrier — et les rejette un à un. Il pose la condition : « sans prendre le chemin facile ». Puis il répète la même question. Que reste-t-il ? La question elle-même.</p>
+
+<!-- ==================== LE SILENCE ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Le silence.</p>
+
+<p>Abidin ne répondit pas.</p>
+
+<div class="breath"></div>
+
+<p>Ni par un tableau, ni par un poème. Dans ses entretiens, il disait que le bonheur exige la continuité, qu'il pouvait saisir la joie d'un instant mais que le bonheur permanent échappe à la toile — on peut figer un mouvement, un moment, mais figer ce qui coule, c'est le tuer.</p>
+
+<div class="breath"></div>
+
+<p>Ce silence était la réponse la plus honnête que la question pût recevoir.</p>
+
+<!-- ==================== 3 JUIN 1963 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Le trois juin 1963.</p>
+
+<p>Nazım Hikmet mourut d'une crise cardiaque près de Moscou, à Peredelkino. Il avait soixante et un ans. La question resta sans réponse.</p>
+
+<div class="breath"></div>
+
+<p>Abidin continua de faire vivre la mémoire de son ami — il illustra ses livres, les fit connaître, participa aux commémorations.</p>
+
+<div class="medium-pause"></div>
+
+<p class="section-title">Le sept décembre 1993.</p>
+
+<p>Abidin Dino mourut à Paris, à quatre-vingts ans. Sa dépouille fut ramenée à Istanbul. Pendant trente ans, il n'avait pas répondu à la question — parce qu'il savait qu'il n'y avait pas de réponse.</p>
+
+<!-- ==================== D'AUTRES ONT RÉPONDU ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">D'autres ont répondu.</p>
+
+<p>En 1987, à Essen, un poète nommé Bahattin Gemici rencontre Abidin Dino lors d'une exposition. Cette rencontre dut le marquer — il écrit un poème dans la voix de Dino : « Mutluluğun Resmi ». Le poème paraît en 1988 dans son recueil Yarım Bırakma Türkünü.</p>
+
+<div class="breath"></div>
+
+<p>Voici ses propres mots :</p>
+
+<div class="breath"></div>
+
+<div class="listen-quote">
+Si nous pouvions aller au café Meserret,<br>
+là où nous nous sommes rencontrés pour la première fois,<br>
+et que tu boirais ton café amer.<br>
+<br>
+Si nous pouvions parler<br>
+de ces jours-là, du passé, de l'avenir —<br>
+quels jours passeraient,<br>
+quelles nuits...<br>
+<br>
+C'est alors, Nazım,<br>
+que je peindrais le portrait du bonheur —<br>
+mais aucune toile n'y suffirait ;<br>
+aucune couleur...
+</div>
+
+<p>Ces vers sont tirés du recueil Yarım Bırakma Türkünü de Bahattin Gemici, paru en 1988.</p>
+
+<div class="breath"></div>
+
+<p>Un beau poème. Mais ce n'est pas le poème d'Abidin.</p>
+
+<div class="breath"></div>
+
+<p>Gemici a emprunté la voix de Dino — avec sincérité, avec déférence. Mais emprunté tout de même. Internet l'a diffusé sans connaître la différence. Le texte s'est mis à circuler comme « la réponse d'Abidin Dino à Nazım ».</p>
+
+<div class="breath"></div>
+
+<p>Puis quelqu'un y a accolé le tableau de Dengel. Désormais, un beau paquet circulait : la question — de Nazım. La réponse — d'un faux Abidin. Le tableau — d'un faux Dino. Tout semblait tomber juste.</p>
+
+<div class="breath"></div>
+
+<p>Rien de tout cela n'était vrai.</p>
+
+<!-- ==================== UNE QUESTION ? ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Une question ?</p>
+
+<p>« Saurais-tu peindre le portrait du bonheur ? » n'était pas une question.</p>
+
+<div class="breath"></div>
+
+<p>Le point d'interrogation est rhétorique — c'est le point d'exclamation de l'impossible.</p>
+
+<div class="breath"></div>
+
+<p>Nazım connaissait tout ce qu'Abidin savait faire. Pendant des années, il lui avait confié les couvertures de ses livres. Il connaissait son trait, sa couleur, sa puissance. Mais il lui disait : le bonheur, cela, tu ne peux pas le peindre. Ce n'était pas un défi. C'était un constat des limites, fait avec amour.</p>
+
+<div class="breath"></div>
+
+<p>On retrouve la même structure chez Orhan Veli. Il dit ceci :</p>
+
+<div class="breath"></div>
+
+<div class="listen-quote">
+Si je pleurais, entendriez-vous ma voix<br>
+dans ces vers ;<br>
+pourriez-vous toucher<br>
+mes larmes, de vos mains ?
+</div>
+
+<p>Ces vers sont d'Orhan Veli Kanık.</p>
+
+<div class="breath"></div>
+
+<p>Quand il dit « entendriez-vous », il veut dire : vous n'entendriez pas. Quand il dit « pourriez-vous toucher », il veut dire : vous ne pourriez pas. Le poète connaît la puissance de ses vers — mais il sait aussi qu'il ne peut vous mener tout à fait jusque-là. Il peut vous en rapprocher. Il s'arrêtera au seuil.</p>
+
+<div class="breath"></div>
+
+<p>L'art est cela : l'acte de s'approcher de ce qui ne peut être tout à fait atteint. Se tenir à cette frontière et continuer malgré tout à dessiner, à écrire, à dire.</p>
+
+<!-- ==================== ENSUITE ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Ce qui s'est passé ensuite.</p>
+
+<p>Internet a pris la question et l'a transformée en devinette.</p>
+
+<div class="breath"></div>
+
+<p>Des gens ont dit : « j'ai trouvé ». Quelqu'un a déniché le tableau de Dengel — l'eau dégoutte du toit, la famille blottie, le bonheur c'est cela — et l'a partagé comme « une oeuvre d'Abidin Dino ». Cela circule sans correction depuis des années.</p>
+
+<div class="breath"></div>
+
+<p>Des gens qui ne supportaient pas la puissance de la question ont éprouvé le besoin de la refermer. Ils l'ont résolue comme un problème de mathématiques. Ce faisant, ils ont prouvé exactement ce que Nazım affirmait — parce que ce qu'ils croyaient avoir peint était le tableau de quelqu'un d'autre.</p>
+
+<!-- ==================== FIN ==================== -->
+<div class="section-break"></div>
+
+<p>Nazım n'a pas posé une question. Il a dit quelque chose.</p>
+
+<div class="breath"></div>
+
+<p>Abidin a entendu, et il s'est tu — parce que c'était vrai.</p>
+
+<div class="breath"></div>
+
+<p>Puis d'autres sont venus. L'un a écrit un poème dans la voix de Dino. Un autre a collé le tableau d'une peintre américaine. Tout le monde a dit : « voici la réponse ».</p>
+
+<div class="breath"></div>
+
+<p>Mais le silence d'Abidin reste la réponse la plus honnête.</p>
+
+<div class="breath"></div>
+
+<p>Certaines questions ne sont pas des questions. Certains silences sont des réponses.</p>
+
+<!-- ==================== NOTE SOURCES ==================== -->
+<div class="section-break"></div>
+
+<div class="listen-note">
+Les sources complètes de ce travail figurent dans la <a href="portrait-du-bonheur-lire.html">version écrite</a>.
+</div>
+
+</main>
+
+<footer class="listen-footer">
+    <a href="portrait-du-bonheur.html">&larr; retour</a>
+</footer>
+
+</body>
+</html>

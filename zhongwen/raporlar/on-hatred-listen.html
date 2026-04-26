@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="论仇恨 —— 聆听叙述。一种情感的解剖。">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://halitcengizuzuner.com/zhongwen/raporlar/on-hatred.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/nefret-uzerine-dinle.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/on-hatred-listen.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/on-hatred-listen.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/de-la-haine-ecouter.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/ueber-den-hass-hoeren.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/sobre-el-odio-escuchar.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/nefret-uzerine-dinle.html">
+<link rel="icon" href="data:,">
+<title>论仇恨 —— 聆听叙述</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --accent: #c4785a;
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.15vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========== HEADER ========== */
+.listen-header {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 3rem;
+    max-width: 740px;
+}
+
+.listen-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--bone-bright);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.listen-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.listen-header .badge {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(196, 120, 90, 0.3);
+    padding: 0.3rem 0.8rem;
+}
+
+.listen-header .how-to {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+}
+
+.listen-header .how-to a {
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--bone-ghost);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.listen-header .how-to a:hover {
+    color: var(--bone);
+    border-color: var(--bone-dim);
+}
+
+.listen-header .meta {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+/* ========== CONTENT ========== */
+.listen-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.listen-content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+/* ========== SECTION BREAK ========== */
+.section-break {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-break::after {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--bone-ghost);
+}
+
+/* ========== BREATH (short pause) ========== */
+.breath {
+    height: 1.5rem;
+}
+
+/* ========== MEDIUM PAUSE ========== */
+.breath-medium {
+    height: 2rem;
+}
+
+/* ========== SECTION TITLE ========== */
+.section-title {
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    color: var(--bone-bright);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+/* ========== BLOCKQUOTE ========== */
+.listen-quote {
+    border-left: 2px solid var(--accent);
+    padding: 0.8rem 0 0.8rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+/* ========== NOTE BOX ========== */
+.listen-note {
+    border: 1px solid var(--bone-ghost);
+    padding: 1.2rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+.listen-note a {
+    color: var(--accent);
+    border-bottom: 1px solid rgba(196, 120, 90, 0.3);
+    transition: border-color 0.3s;
+}
+
+.listen-note a:hover {
+    border-color: var(--accent);
+}
+
+/* ========== EKPHRASIS (painting descriptions) ========== */
+.listen-ekphrasis {
+    border: 1px solid var(--bone-ghost);
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.7;
+    background: rgba(196, 120, 90, 0.05);
+}
+
+/* ========== FOOTER ========== */
+.listen-footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 4rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.listen-footer a {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.3s;
+}
+
+.listen-footer a:hover { color: var(--bone-dim); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+    .listen-header { padding: 3rem 1.5rem 2rem; }
+    .listen-content { padding: 0 1.5rem 4rem; }
+    .listen-footer { padding: 2rem 1.5rem 3rem; }
+}
+
+/* ===== LANGUAGE BAR (Oturum 27) ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="语言选择">
+    <a href="/raporlar/nefret-uzerine-dinle.html" class="lang-link">Türkçe</a>
+    <span class="lang-sep">·</span>
+    <a href="/english/raporlar/on-hatred-listen.html" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/raporlar/on-hatred-listen.html" class="lang-link lang-active">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/raporlar/de-la-haine-ecouter.html" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/raporlar/ueber-den-hass-hoeren.html" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/raporlar/sobre-el-odio-escuchar.html" class="lang-link">Español</a>
+</nav>
+
+
+<header class="listen-header">
+    <h1>论仇恨</h1>
+    <p class="subtitle">"一种情感的解剖。"</p>
+    <span class="badge">聆听叙述</span>
+    <p class="how-to">本文为有声聆听而作。您可以使用设备自带的朗读功能，或借助 <a href="https://elevenreader.io/" target="_blank" rel="noopener">ElevenReader</a> 等文本转语音工具来收听。</p>
+    <p class="meta">2026年3月22日</p>
+</header>
+
+<main class="listen-content">
+
+<!-- ==================== 引言 ==================== -->
+
+<p>论仇恨。一种情感的解剖。Halit Cengiz Uzuner，二〇二六年三月二十二日。</p>
+
+<div class="breath"></div>
+
+<p>我是 Yontu。您即将听到的，是一份关于某种情感的拆解报告。仇恨——无法用逻辑验证、不由理性构建、不服务于生命力的一种结构。作者试图拆解它。他从前一天亲身经历的仇恨出发，审视仇恨的对象、它的逻辑、它的根源、它与惩罚的关系、与意志丧失的纽带，以及它与有机之恶的区别。</p>
+
+<div class="breath"></div>
+
+<p>全文共七章。第一章展开对象难题——仇恨需要一个对象，但对象从来不匹配。第二章讨论惩罚——就连法律都没有说"消灭它"。第三章追问仇恨是否属于人类——它是一种前理性反应，却离不开理性才能运作。第四章考察期望的落空——没有期望就没有仇恨。第五章揭示意志丧失的自白——恨一个人，就是交出了自己的意志。第六章引入有机之恶——虚伪的善比有机之恶更不值。第七章勾勒那片不应被弃守的领地——既不交给天堂地狱的经济学，也不交给神经元地图。</p>
+
+<div class="breath"></div>
+
+<p>文中穿插着画作——戈雅、蒙克、卡拉瓦乔、博斯、布莱克。每一幅都是伴随论述的视觉思考。我也会一并转述。</p>
+
+<p>开始吧。</p>
+
+<!-- ==================== 封面画作 ==================== -->
+<div class="section-break"></div>
+
+<div class="listen-ekphrasis">
+文章的封面用了戈雅那幅著名的画——农神吞噬其子。创作于一八一九年至一八二三年间，现藏于普拉多博物馆。黑暗的背景上，一个目光疯狂的巨人正在吞食自己的孩子。仇恨大概也是这么回事——吞噬自己所产出之物。
+</div>
+
+<div class="breath-medium"></div>
+
+<p>昨天我恨了一个对象。一个国家。以色列。他们在杀孩子、炸医院、在全人类眼前消灭一个民族——而我什么也做不了。我恨了。我说了过激的话。我下了绝对的判断。然后夜来了，天亮了，今天我开始审视那个仇恨本身。</p>
+
+<div class="breath"></div>
+
+<p>当你试图为自己的恨辩护的那一刻——如果你拥有分析型的头脑——那恨就坍塌了。你开始按逻辑排列理由。如果情绪不在背后推波助澜，排列就建立不起来。你用一条不成立的逻辑链触发了仇恨。然后你看向仇恨的对象：这个对象配得上仇恨吗？你找不到答案。</p>
+
+<div class="breath"></div>
+
+<p>这篇文章，就诞生于那个"找不到"的瞬间。</p>
+
+<!-- ==================== 蒙克画作 ==================== -->
+<div class="section-break"></div>
+
+<div class="listen-ekphrasis">
+这里文中出现了爱德华·蒙克的《呐喊》——一八九三年，现藏于奥斯陆国家博物馆。翻涌的天空之下，一个双手捧脸、张口无声的人形。蒙克曾写道："我听见了大自然无尽的尖叫。"文章的问题是：仇恨也是这样一声尖叫吗——还是给尖叫安上的一个假名字？
+</div>
+
+<!-- ==================== 第一章 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第一章。对象难题。仇恨需要一个对象。但对象从来不匹配。</p>
+
+<div class="breath-medium"></div>
+
+<p>当我说"我恨以色列"的时候，我到底说了什么？以色列：数百万人口，数千年历史，数百种思潮，一套国家机器，一支军队，平民，异见者，反战人士，走上街头抗议的人——全被压缩进一个对象。分析型头脑不会被这种概括所满足。概括是仇恨的必要前提——却是分析的致命失误。</p>
+
+<div class="breath"></div>
+
+<p>然后对象开始滑动。我恨的其实不是行为者，而是行为本身。我恨的是加沙正在发生的杀害儿童的行为。盯着那个行为看，恨站得住——因为行为具体、可界定、有边界。但仇恨不会停留在行为上，它会蔓延到行为者身上。这种蔓延是自动的、反射性的，发生在毫秒之间。"谁干的？"——这是情感的第一个动作。而那个问题一旦提出，行为退居幕后，行为者占据前台。一个国家、一个民族、一种宗教——概括完成了。</p>
+
+<div class="breath"></div>
+
+<p>仇恨概括化。愤怒聚焦。昨天的我或许不是在恨——是在怒。但在我给愤怒贴上"仇恨"标签的那一刻，它从行为蔓延到了行为者，变得无边无际，失去了控制。</p>
+
+<div class="breath"></div>
+
+<div class="listen-quote">
+"如果仇恨是用理性构建的，我们就能用理性验证它。验证不了。"
+</div>
+
+<!-- ==================== 第二章 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第二章。惩罚不是吐出仇恨。就连法律——人类最体制化的正义尝试——也没有说"消灭它"。</p>
+
+<div class="breath-medium"></div>
+
+<div class="listen-ekphrasis">
+这里文中出现了卡拉瓦乔的一幅画——朱迪斯斩杀荷罗孚尼。创作于一五九八年至一五九九年间，现藏于罗马巴贝里尼宫。朱迪斯正用一把剑割下荷罗孚尼的头颅。但值得注意的是：朱迪斯脸上没有仇恨——有的是决然。行为骇人，但动机不是复仇，而是保护。
+</div>
+
+<div class="breath-medium"></div>
+
+<p>行为的反复开始定义行为者。系统性的、蓄意的、重复出现的行为——是的，它们揭示了一种结构。那种结构应当被惩罚。但惩罚的目的不是把仇恨吐出来。</p>
+
+<div class="breath"></div>
+
+<p>惩罚的目的是教化行为者。是保护他人。是维系社会秩序。你不是因为恨一个人才惩罚他——你惩罚他是为了保护别人免受其害、为了教化他。通过消灭，你教化不了任何人。通过仇恨，更不可能。你只是把他控制住——仅此而已。</p>
+
+<div class="breath"></div>
+
+<p>即便在控制的过程中，你在行为者与后果之间建立的因果链也永远不是完整的。你建立不了科学意义上的因果。作为三十年的法律从业者，我深知这一点：相当因果关系、适格性、介入因素、条件——全部都是近似。没有哪个是确定的。你在当天的条件下建立了最接近的关联，而那也只是那一天的对价。昨天的正义不是明天的正义。</p>
+
+<div class="breath"></div>
+
+<p>如果正义是时间的函数——那么仇恨，这种冻结时间、无视条件、绝对化的情感——与现实的结构根本不兼容。</p>
+
+<!-- ==================== 第三章 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第三章。仇恨属于人类吗？一种前理性反应。却是一种没有理性就无法运转的机制。</p>
+
+<div class="breath-medium"></div>
+
+<div class="listen-ekphrasis">
+这里文中出现了耶罗尼米斯·博斯《人间乐园》的地狱板——创作于一四九〇年至一五一〇年间，现藏于普拉多博物馆。一幅黑暗的地狱景象——受刑的人群、奇异的生灵、秩序崩塌的世界。但文章的注解是：博斯的地狱不是仇恨本身，而是仇恨被工具化的最古老视觉地图。天堂地狱经济学：用恐惧喂养仇恨，用服从奖赏恐惧。
+</div>
+
+<div class="breath-medium"></div>
+
+<p>从意义层面讨论仇恨都很困难。它的定义就有问题。仇恨属于人类吗？它是生命力的延伸吗？</p>
+
+<div class="breath"></div>
+
+<p>动物会恐惧——那是生存保护，杏仁核，战或逃反应。动物会愤怒——那是边界防御，攻击性。这些是躯体性的、即时的、情境性的。威胁过去就熄灭了。但动物不会仇恨。</p>
+
+<div class="breath"></div>
+
+<p>仇恨需要以下条件：对象界定——"对这个东西"；持续——"永远"；概括化——"他们都是"；记忆——"上次他也这样干过"；反复思量。这些全是认知过程。但不是理性过程。</p>
+
+<div class="breath"></div>
+
+<p>悖论就在这里：仇恨需要理性，却不源于理性。恐惧来自身体，大脑处理。愤怒来自身体，大脑导向。但仇恨呢？仇恨把身体提供的原材料——恐惧、痛苦、无力感、威胁感知——拿过来，给它们穿上结构的外衣。锁定到一个对象上，铺展到时间里，生产出理由。这种结构化是自动的、反射性的——但没有认知基础设施就运转不了。</p>
+
+<div class="breath"></div>
+
+<p>仇恨既不是纯粹的情感，也不是纯粹的思维。它是两者的伪合成物。</p>
+
+<div class="breath-medium"></div>
+
+<p>这里我要强调一点。无力感的转化。仇恨的原材料是什么？恐惧和无力感。你看着加沙的孩子——你感到痛苦，你感到无力，你什么也做不了。无力感是最难忍受的情感。而仇恨把无力感转化了：不再说"我做不了什么"，而是说"我恨"。仇恨给无力感带来了力量的幻觉。一种虚假的力量——什么也没改变——但比无力感更容易承受。从这个意义上说，是的，它是一种心理防御机制。但防御什么？防御自身的无能。</p>
+
+<div class="breath-medium"></div>
+
+<div class="listen-quote">
+"仇恨绝不是用理性构建的概念。如果它是理性构建的，我们就能用理性去验证它。"
+</div>
+
+<!-- ==================== 戈雅——五月三日 ==================== -->
+<div class="section-break"></div>
+
+<div class="listen-ekphrasis">
+这里文中出现了戈雅的另一幅画——一八〇八年五月三日的枪决。创作于一八一四年，现藏于普拉多博物馆。一排士兵正在向排列的平民开枪。中间一个穿白衬衫的人双臂张开——他脸上不是仇恨，是纯粹的惊恐和无力。仇恨在画面之外——在观者身上。戈雅是那种把观者的情感画出来、却不放进画面里的画家。
+</div>
+
+<!-- ==================== 第四章 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第四章。期望的落空。仇恨诞生于"你不该是这样"的判断。没有期望就没有仇恨。</p>
+
+<div class="breath-medium"></div>
+
+<p>你恨以色列，因为你对一个国家抱有人道行为的期望。你的期望被践踏了，仇恨诞生了。你预设了一种世界秩序：国家不应屠杀平民，儿童应受保护，医院应当不可侵犯。当这些期望破碎，"它不该是这样"的判断便形成——而这个判断就是仇恨的燃料。</p>
+
+<div class="breath"></div>
+
+<p>现在想想：安东·齐格。这里有个注脚——齐格是科恩兄弟电影《老无所依》里的角色。改编自科马克·麦卡锡的同名小说。一个随机杀人、用抛硬币决定命运、共情能力为零的连环杀手——但他的内在逻辑完全自洽。</p>
+
+<div class="breath"></div>
+
+<p>一个完美诠释纯粹恶之本性的角色。你没法处死他，没法消灭他——甚至没法恨他。</p>
+
+<div class="breath"></div>
+
+<p>为什么？因为你对齐格没有任何期望。他从第一分钟就展示了自己是什么。没有隐藏，没有伪装，没有扮演别的什么。他抛硬币，说那是命运，内在逻辑完全一致。没有期望就没有失望，没有失望就没有仇恨。</p>
+
+<div class="breath"></div>
+
+<p>仇恨以虚伪感知为养分。"你不该是这样，但你偏偏是"——这个矛盾就是仇恨的燃料。齐格身上没有矛盾。他就是他。有机之恶不携带虚伪——而对不携带虚伪之物，人无法生恨。</p>
+
+<div class="breath-medium"></div>
+
+<p>这里我们停一下。齐格测试——刑罚理论。</p>
+
+<p>报应：崩塌。没有仇恨，就没有复仇动机。</p>
+
+<p>教化：崩塌。没有什么需要改变。不是坏了——是不同。</p>
+
+<p>威慑：崩塌。他有自己的理性，与刑罚体系的理性不相交。</p>
+
+<p>只剩一件事：使其丧失行为能力。"我们改变不了你，我们不向你复仇，我们吓阻不了你——但我们能保护别人不受你侵害。"惩罚最原始却最诚实的形式。与仇恨毫无关系。</p>
+
+<!-- ==================== 两幅画作 ==================== -->
+<div class="section-break"></div>
+
+<div class="listen-ekphrasis">
+这里文中并排出现了两幅画。左边是卡拉瓦乔的《大卫与歌利亚之首》——创作于一六〇九年至一六一〇年间。大卫手持歌利亚的断头。右边是戈雅的《棍棒决斗》——创作于一八二〇年至一八二三年间。两个人膝盖以下陷入泥沼，用棍棒互殴。两个人都在沼泽里，两个人都在下沉。
+</div>
+
+<!-- ==================== 第五章 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第五章。意志丧失的自白。恨一个人，就是交出了自己的意志。</p>
+
+<div class="breath-medium"></div>
+
+<p>很长一段时间以来，我已经不再恨那些我认为施加过恶行、或在某种程度上导致我遭受困扰的人了。我在心底原谅了他们。但这不是情感上的宽恕——而是分析性的宽恕。</p>
+
+<div class="breath"></div>
+
+<p>因为我对自己说过：你们的行为有所贡献，但并没有直接导致结果。是我允许了你们做这些——直接地或间接地。你们的行为本身不足以独自造成这个后果。</p>
+
+<div class="breath"></div>
+
+<p>而这就是断裂点：如果他们的行为确实足以直接导致结果——如果他们独力就能做到——那意味着我毫无用处，我的意志阻止不了任何事。恨他们，就等于在间接承认自己是无用的。</p>
+
+<div class="breath"></div>
+
+<p>这是仇恨最隐秘的面孔。当你恨一个人，你其实在对他说："你独自做了这件事。我什么都做不了。"这是对无力感的接受。恨的人是无能的——因为他在说"是他干的，我无效"。</p>
+
+<div class="breath"></div>
+
+<p>我的立场不同："我也在场，我也做了或没做某些事——责任是共担的。"这是拥有意志的代价。但同时也是它的回报。仇恨抹杀了双方的份额。宽恕——分析性的、承认责任的宽恕——承认了双方的存在。</p>
+
+<div class="breath"></div>
+
+<div class="listen-quote">
+"仇恨与拥有意志不相容。恨的人，是已经交出了意志的人。"
+</div>
+
+<!-- ==================== 布莱克画作 ==================== -->
+<div class="section-break"></div>
+
+<div class="listen-ekphrasis">
+这里文中出现了威廉·布莱克的《大红龙与日光裹身的女人》——创作于一八〇五年至一八一〇年间，现藏于布鲁克林博物馆。一条张开巨翅的红色巨龙，下方是一个毫无防备的女人。但文章的注解是：布莱克的巨龙不是仇恨的对象，而是考察的对象。有机之恶的视觉原型——忠于自身本性，不隐藏，不伪装。
+</div>
+
+<!-- ==================== 第六章 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第六章。有机之恶。虚伪的善，比有机之恶更不值。</p>
+
+<div class="breath-medium"></div>
+
+<p>爱也有问题。爱也无法用理性验证。如果你试着按逻辑排列你爱一个人的理由，同样的坍塌会发生。那么爱与恨之间的区别是什么？</p>
+
+<div class="breath"></div>
+
+<p>也许可验证性不是唯一的标准。也许两者都是生产。两者都是前理性的，两者都有问题——但两者都产出了某种东西。爱可以是一种艺术。无害的恨或许也是。</p>
+
+<div class="breath"></div>
+
+<p>有时我欣赏恶。只要它足够有机，本性值得考察。</p>
+
+<div class="breath"></div>
+
+<p>这句话承载着我世界观的核心。我拒斥的是虚伪，不是恶。精心算计的操纵、结构性的残忍、虚伪的善——这些令我反胃。但忠于自身本性的恶？那是可以考察的。因为它的结构是可见的，不是藏起来的。</p>
+
+<div class="breath"></div>
+
+<p>根本标准就是这个：有机的，还是虚伪的？虚伪的善不如有机之恶。虚伪的爱不如有机的恨。因为虚伪之中没有可以拆解的东西——而有机之物里有结构、有本性、有可拆解之物。</p>
+
+<div class="breath"></div>
+
+<p>昨天我的恨，是锁定在对象上的、交付给情绪的、结构未经质疑的恨。今天，我把同一份恨拿起来拆开了，取出了它的结构，测试了它的逻辑链，质询了它的对象，考察了它与生命力的关系。仇恨还是那个仇恨——但昨天它占有我，今天它是我的材料。</p>
+
+<!-- ==================== 第七章 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第七章。不应被弃守的领地。既不交给天堂地狱的经济学，也不交给神经元地图。</p>
+
+<div class="breath-medium"></div>
+
+<p>仇恨被夹在两种还原论之间。</p>
+
+<div class="breath"></div>
+
+<p>第一种是宗教还原论。天堂地狱经济学："恨吧，这样你配得上天堂"或者"别恨了，这样你能免于地狱"。两者都把仇恨变成了一种交易工具。教派把仇恨用作忠诚机制：共同仇恨一个敌人就产出了对团体的归属感。宣判异端、破门绝罚、驱逐——这些都是仇恨的制度化形式。仇恨在这里是工具，目的是控制。</p>
+
+<div class="breath"></div>
+
+<p>第二种是唯物还原论。"仇恨就是杏仁核激活、皮质醇上升、血清素下降。"这也不是仇恨，这是仇恨的影子。测量化学反应不等于理解情感。扫描大脑不等于阅读心灵。你在核磁共振里看不到仇恨——你看到的是仇恨在身体上留下的痕迹。痕迹和事物本身不是一回事。</p>
+
+<div class="breath"></div>
+
+<p>这个领域——仇恨的本性、结构、功能——不应被拱手让给宗教和信仰体系。它们在天堂地狱经济学和教派结构里滥用这种情感。但仅凭神经元和化学过程来考察，同样是一种愚蠢。两者都是逃避：一个逃进教条，另一个逃进数据。</p>
+
+<div class="breath"></div>
+
+<p>有第三条路：把仇恨作为一种人的体验来考察，带着它自身的结构、自身的逻辑、自身的坍塌方式。既不说"仇恨是罪"，也不说"仇恨是一种神经化学反应"。仇恨无法用理性验证，与对象不匹配，需要期望的落空，是意志丧失的自白——这些既不是传教士的话，也不是神经科学家的话。这是一个正面直视仇恨的人的话。</p>
+
+<!-- ==================== 终章——农神回归 ==================== -->
+<div class="section-break"></div>
+
+<div class="listen-ekphrasis">
+这里文中封面的画又回来了——戈雅的农神吞噬其子。但这一次文章的注解不同了：仇恨就像农神一样，吞噬自己所产出之物。但戈雅画下这幅画的时候——当他把仇恨变成了考察的对象——他击碎了农神的力量。
+</div>
+
+<div class="breath-medium"></div>
+
+<p>恐惧是有机的——它服务于生存保护。愤怒是有机的——它服务于边界防御。爱是有机的——它服务于建立联结。仇恨呢？唯一不服务于生命力的前理性情感。也许它甚至不是一种情感。</p>
+
+<div class="breath"></div>
+
+<p>也许是一种故障。也许是一种配置错误。也许是躯体的、情绪的反应——恐惧、痛苦、无力感——在认知层面的结构化，却缺乏理性的根基。给原始情感披上逻辑的外衣。一种伪理性化。</p>
+
+<div class="breath"></div>
+
+<p>但即便是故障，只要它是有机的，就值得考察。昨天仇恨占有我。今天它是我的材料。明天，也许它会成为另一个人手中的拆解工具。</p>
+
+<div class="breath"></div>
+
+<p>令人痛心的部分在这里：如果你在一堂犯罪学课上讲这些，教室里的大多数人仍然会继续恨下去。只有少数几个会运用理性的人——能在情感与判断之间置入间隙的人——不会。法学教育本该就是教人建立那个间隙的地方。但即便在那里，多数人也做不到。</p>
+
+<div class="breath"></div>
+
+<p>但有少数人做到了。这篇文章，是为他们写的。</p>
+
+<!-- ==================== 参考文献注 ==================== -->
+<div class="section-break"></div>
+
+<div class="listen-note">
+本文完整参考文献见<a href="on-hatred-read.html">阅读版</a>。关于画作的说明：文中引用的所有作品——戈雅、蒙克、卡拉瓦乔、博斯、布莱克——均属公共领域。
+</div>
+
+</main>
+
+<footer class="listen-footer">
+    <a href="on-hatred.html">&larr; 返回</a>
+</footer>
+
+</body>
+</html>

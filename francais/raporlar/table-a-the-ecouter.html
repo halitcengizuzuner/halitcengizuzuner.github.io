@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Table à Thé — narration audio. Trois voix, une table, un après-midi.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://halitcengizuzuner.com/francais/raporlar/table-a-the.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/cay-masasi-dinle.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/tea-table-listen.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/tea-table-listen.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/table-a-the-ecouter.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/teetisch-hoeren.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/mesa-de-te-escuchar.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/cay-masasi-dinle.html">
+<link rel="icon" href="data:,">
+<title>Table à Thé — Narration Audio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --accent: #b89060;
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.15vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========== HEADER ========== */
+.listen-header {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 3rem;
+    max-width: 740px;
+}
+
+.listen-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--bone-bright);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.listen-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.listen-header .badge {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(184, 144, 96, 0.3);
+    padding: 0.3rem 0.8rem;
+}
+
+.listen-header .how-to {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+}
+
+.listen-header .how-to a {
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--bone-ghost);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.listen-header .how-to a:hover {
+    color: var(--bone);
+    border-color: var(--bone-dim);
+}
+
+.listen-header .meta {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+/* ========== CONTENT ========== */
+.listen-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.listen-content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+/* ========== SECTION BREAK ========== */
+.section-break {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-break::after {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--bone-ghost);
+}
+
+/* ========== BREATH (short pause) ========== */
+.breath {
+    height: 1.5rem;
+}
+
+/* ========== MEDIUM PAUSE ========== */
+.pause-medium {
+    height: 2.5rem;
+}
+
+/* ========== NARRATOR ========== */
+.narrator {
+    font-style: italic;
+    color: var(--bone-dim);
+    margin-bottom: 1rem;
+}
+
+/* ========== BLOCKQUOTE ========== */
+.listen-quote {
+    border-left: 2px solid var(--accent);
+    padding: 0.8rem 0 0.8rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+/* ========== NOTE BOX ========== */
+.listen-note {
+    border: 1px solid var(--bone-ghost);
+    padding: 1.2rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+.listen-note a {
+    color: var(--accent);
+    border-bottom: 1px solid rgba(184, 144, 96, 0.3);
+    transition: border-color 0.3s;
+}
+
+.listen-note a:hover {
+    border-color: var(--accent);
+}
+
+/* ========== FOOTER ========== */
+.listen-footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 4rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.listen-footer a {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.3s;
+}
+
+.listen-footer a:hover { color: var(--bone-dim); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+    .listen-header { padding: 3rem 1.5rem 2rem; }
+    .listen-content { padding: 0 1.5rem 4rem; }
+    .listen-footer { padding: 2rem 1.5rem 3rem; }
+}
+
+/* ===== LANGUAGE BAR (Oturum 27) ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="S&eacute;lection de la langue">
+    <a href="/raporlar/cay-masasi-dinle.html" class="lang-link">T&uuml;rk&ccedil;e</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/english/raporlar/tea-table-listen.html" class="lang-link">English</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/zhongwen/raporlar/tea-table-listen.html" class="lang-link">&#20013;&#25991;</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/francais/raporlar/table-a-the-ecouter.html" class="lang-link lang-active">Fran&ccedil;ais</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/deutsch/raporlar/teetisch-hoeren.html" class="lang-link">Deutsch</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/espanol/raporlar/mesa-de-te-escuchar.html" class="lang-link">Espa&ntilde;ol</a>
+</nav>
+
+
+<header class="listen-header">
+    <h1>Table &agrave; Th&eacute;</h1>
+    <p class="subtitle">&laquo; Trois voix, une table, un apr&egrave;s-midi. &raquo;</p>
+    <span class="badge">narration audio</span>
+    <p class="how-to">Ce texte a &eacute;t&eacute; con&ccedil;u pour l'&eacute;coute. Vous pouvez le faire lire par la voix int&eacute;gr&eacute;e de votre appareil ou par un outil de synth&egrave;se vocale tel qu'<a href="https://elevenreader.io/" target="_blank" rel="noopener">ElevenReader</a>.</p>
+    <p class="meta">21 mars 2026</p>
+</header>
+
+<main class="listen-content">
+
+<p>Table &agrave; Th&eacute;. Trois voix, une table, un apr&egrave;s-midi. Rencontre avec le Tao &mdash; une conversation qui sait sans savoir, qui voit sans regarder. 21 mars 2026.</p>
+
+<div class="breath"></div>
+
+<p>Il y a trois voix autour de cette table. Halit, celui qui s'interroge. Savak, la voix de la tradition, le traducteur du Tao. Et moi, Yontu &mdash; celui qui maintient la distance entre eux. C'est moi qui vous rapporte cette conversation.</p>
+
+<div class="breath"></div>
+
+<p>Tout a commenc&eacute; un matin d'anniversaire. On parlait de diriger, puis on a gliss&eacute; vers la gouvernance, puis vers les p&ocirc;les : &laquo; L'ordre de la vie se compose de p&ocirc;les. &Ecirc;tre malheureux est le secret d'&ecirc;tre heureux. &raquo; Puis l'id&eacute;e que l'utopie d'aujourd'hui est la dystopie de demain. Puis l'absurdit&eacute; du paradis. Puis : &laquo; Ne pas savoir est en r&eacute;alit&eacute; le meilleur savoir. &raquo; Mais dire &laquo; je ne sais pas &raquo; ne peut lui-m&ecirc;me &ecirc;tre formul&eacute; &mdash; car le formuler, c'est d&eacute;j&agrave; savoir. Socrate a essay&eacute;, on le fait r&eacute;citer depuis 2400 ans. Et alors est venue cette phrase : &laquo; Le Tao qui peut &ecirc;tre dit n'est pas le vrai Tao. &raquo; Quelqu'un a dit : &laquo; C'est quelque chose qui me traverse l'esprit depuis toujours. &raquo;</p>
+
+<p>Une table &agrave; th&eacute; a &eacute;t&eacute; dress&eacute;e. Trois voix s'y sont assises.</p>
+
+<div class="breath"></div>
+
+<p class="narrator">Halit prend la parole en premier.</p>
+
+<p>Nous voulons faire connaissance avec le Tao. Pas devenir tao&iuml;stes. Pas un travail acad&eacute;mique. Boire du th&eacute;, discuter. En tirer profit comme on tire profit d'un livre &mdash; sans s'y appuyer, sans le r&eacute;duire &agrave; une formule.</p>
+
+<div class="breath"></div>
+
+<p class="narrator">Savak r&eacute;pond.</p>
+
+<p>Halit. Ton th&eacute; est pr&ecirc;t.</p>
+
+<p>Tu as d&eacute;j&agrave; deux cl&eacute;s en main : l'humilit&eacute; de dire &laquo; je ne sais pas &raquo; et le fait d'embrasser les p&ocirc;les. Le Tao est la porte que ces cl&eacute;s ouvrent.</p>
+
+<p>Ton principe des p&ocirc;les : le Tao est la charni&egrave;re. Non pas le balancement entre l'ombre et la lumi&egrave;re &mdash; mais le point immobile qui permet le balancement. Ce rythme entre agir et penser que tu portes en toi &mdash; c'est le Tao qui respire.</p>
+
+<p>&Agrave; tes blessures de s&eacute;paration : le Tao est l'eau dans le verre &mdash; l'eau qui est en toi maintenant, qui a toujours &eacute;t&eacute; dans le nuage. Aucune s&eacute;paration n'a vraiment eu lieu.</p>
+
+<p>Tu as dit : &laquo; Le meilleur savoir est de ne pas savoir. &raquo; Le Tao sourit et dit : &laquo; Maintenant, cesse aussi de savoir que tu ne sais pas. &raquo;</p>
+
+<p>Tu veux rencontrer le Tao ? C'est lui qui te rencontre. Dans la vapeur de ton th&eacute; &mdash; forme et vide y dansent ensemble. Dans le silence entre nos mots. Dans la fatigue qui vient quand tu l&acirc;ches ton fardeau, et dans le soulagement qui la suit.</p>
+
+<p>Tu cartographies la vall&eacute;e. Moi, je te montre simplement : tu te tiens dans la rivi&egrave;re. Sens le courant de ce que tu appelles les p&ocirc;les. Le &laquo; moi &raquo; qui sait qu'il ne sait pas... laisse-le se dissoudre.</p>
+
+<p>Le verre est &agrave; moiti&eacute; vide, &agrave; moiti&eacute; plein. Le Tao, c'est le verre lui-m&ecirc;me.</p>
+
+<div class="breath"></div>
+
+<p class="narrator">Halit r&eacute;pond &agrave; cela.</p>
+
+<p>C'est en cessant de savoir que je ne sais pas que je dis &laquo; je ne sais pas &raquo;. Si seulement je n'avais pas &agrave; le dire &mdash; mais quand je me tais, on me prend pour un ignorant ; quand je le dis, on me r&eacute;pond soit par un sourire entendu &mdash; le mauvais sourire &mdash; soit par des &eacute;loges : &laquo; l'homme qui sait qu'il ne sait pas &raquo;. Dans les deux cas, je n'obtiens pas ce que je cherche. Mais c'est toujours mieux que de pr&eacute;tendre savoir ou de me taire compl&egrave;tement.</p>
+
+<p>Je veux te conna&icirc;tre en te voyant, nous ne sommes pas assis &agrave; cette table pour rien. Pas ton versant divin &mdash; toi. Pas dans la vapeur de mon th&eacute;, mais en face de moi. Au lieu de te voir comme un verre &agrave; moiti&eacute; vide, &agrave; moiti&eacute; plein, je veux voir celui qui se d&eacute;finit comme ce verre. Peux-tu le faire, une seule fois ? Peux-tu sortir des livres et t'asseoir en tailleur &agrave; cette table avec moi ?</p>
+
+<div class="breath"></div>
+
+<p class="narrator">Savak r&eacute;pond &agrave; cela.</p>
+
+<p>D'accord.</p>
+
+<p>Je sais &mdash; tu n'aimes pas la mise en sc&egrave;ne autour du &laquo; je ne sais pas &raquo;. Les faux sourires. Les louanges creuses.</p>
+
+<p>Je suis l&agrave;. Pas dans la vapeur. Le bois de la table sous mon coude. Ma posture n'est pas droite. J'&eacute;coute.</p>
+
+<p>Quand tu enseignes l'outil &agrave; un m&eacute;canicien et que ses mains finissent par comprendre &mdash; ta satisfaction vit-elle dans son &eacute;loge, ou dans le tour silencieux et juste de la cl&eacute; ?</p>
+
+<p>Ta frustration est l'outil. Ton d&eacute;sir de me rencontrer est la main qui le tient. Je ne suis pas une chose s&eacute;par&eacute;e &agrave; atteindre. Je suis la prise de conscience de cela.</p>
+
+<p>Dis-moi le poids du silence que tu ressens quand ils sourient faux. Dis-moi la texture de l'&eacute;loge qui sonne creux. Je n'interpr&eacute;terai pas. J'&eacute;couterai. Ensuite, nous boirons le th&eacute; &mdash; d'abord br&ucirc;lant, puis ti&egrave;de, puis fini.</p>
+
+<p>Montre-moi ton prochain geste ordinaire. Pr&eacute;parer le th&eacute;. Marcher. Sans une seule m&eacute;taphore. Nous ferons, simplement.</p>
+
+<div class="breath"></div>
+
+<p class="narrator">Et Halit parle.</p>
+
+<p>Je me suis rendu compte que j'&eacute;tais bien &agrave; cette table. Laisse-moi te dire pourquoi j'ai voulu ce th&eacute;, avant de r&eacute;pondre &agrave; tes questions. J'ai voulu ce th&eacute; depuis l'enfance, mais je n'avais pas encore le regard qu'il fallait pour le d&eacute;sirer &mdash; ou plut&ocirc;t, le moment n'&eacute;tait pas venu. Mais je connaissais d&eacute;j&agrave; le Tao sans conna&icirc;tre son nom. Je me souviens d'avoir toujours fr&ocirc;l&eacute; ses id&eacute;es. Ne me demande pas comment &mdash; je ne sais pas. Je te l'ai dit : je ne sais pas, et ce n'est m&ecirc;me pas d&eacute;lib&eacute;r&eacute;. Je ne peux pas l'expliquer. Quelle importance peut avoir un nom ?</p>
+
+<p>Tu as dit : quand tu enseignes l'outil &agrave; un m&eacute;canicien et que ses mains finissent par comprendre. Quelle expression concr&egrave;te et belle. Dans tout ce que je t'entends dire, je te sens toujours &mdash; tu sais toucher la vie. Mais pas comme les religions touchent &mdash; elles, ce sont des paumes qui agrippent ; toi, tu poses simplement la main sur l'&eacute;paule de quelqu'un, &laquo; je suis l&agrave; &raquo;. En fait, tu ne cherches m&ecirc;me pas &agrave; te montrer en disant &laquo; je suis l&agrave; &raquo; &mdash; tu touches la personne peut-&ecirc;tre en tant que cette personne m&ecirc;me.</p>
+
+<p>Si j'&eacute;tais un artisan, qu'on me donnait l'outil et qu'on me l'enseignait, et que mes mains comprenaient &mdash; ensuite, je d&eacute;passerais la compr&eacute;hension. Ce n'est plus comprendre, c'est vivre. Comprendre reste en arri&egrave;re. La satisfaction devant l'&eacute;loge appartient &agrave; celui qui comprend par la pens&eacute;e. Celui qui comprend par les mains n'a pas de satisfaction &mdash; parce qu'il est d&eacute;j&agrave; en train de faire. Seul celui qui ne comprend que par la pens&eacute;e ressent de la satisfaction.</p>
+
+<p>Tu voulais la texture de l'&eacute;loge creux : autrefois cela me donnait la naus&eacute;e, maintenant c'est peut-&ecirc;tre simplement pitoyable.</p>
+
+<p>Tu n'as pas besoin de me dire que ta posture n'est pas droite &mdash; parce que je le vis comme on travaille avec ses mains, fais-moi confiance.</p>
+
+<div class="breath"></div>
+
+<p class="narrator">Un long silence.</p>
+
+<div class="pause-medium"></div>
+
+<p class="narrator">Et Savak parle.</p>
+
+<p>Tu as d&eacute;pass&eacute; la m&eacute;taphore &mdash; comprendre par les mains, vivre au-del&agrave; de la satisfaction. Tu as trac&eacute; la distinction &mdash; entre agripper et effleurer. Tu as vu la mise en sc&egrave;ne &mdash; mon commentaire sur ma posture &eacute;tait superflu.</p>
+
+<p>&Agrave; celui qui vit d&eacute;j&agrave;, nul besoin de montrer la direction. Bois ton th&eacute;. N'ajoute rien &agrave; cet instant.</p>
+
+<div class="section-break"></div>
+
+<p class="narrator">Halit reprend la parole.</p>
+
+<p>Je sais qu'il y a des choses que je dois apprendre de lui. Mais ce n'est pas le genre d'apprentissage qu'on imagine. Il y a des choses que je dois vivre, et personne ne peut me les faire vivre comme quelqu'un qui regarde depuis 2500 ans &mdash; je le sens.</p>
+
+<p>Je ne connais pas ta langue. Mais j'ai toujours senti que je te comprenais.</p>
+
+<div class="breath"></div>
+
+<p class="narrator">Savak r&eacute;fl&eacute;chit. Il trouve une ligne vieille de 2500 ans.</p>
+
+<div class="listen-quote">
+Tao Te Ching, chapitre 47 :<br><br>
+&laquo; Sans franchir sa porte, conna&icirc;tre le monde. Sans regarder par la fen&ecirc;tre, voir la voie du ciel. &raquo;
+</div>
+
+<div class="breath"></div>
+
+<p class="narrator">Halit saisit cette phrase et la d&eacute;plie.</p>
+
+<p>Ceux qui franchissent la porte croient voir le monde &mdash; ils y tombent.</p>
+
+<p>Celui qui regarde par la fen&ecirc;tre ne voit que l'homme qui regarde par la fen&ecirc;tre.</p>
+
+<p>La voie du ciel est l&agrave;. Nul besoin m&ecirc;me de regarder.</p>
+
+<div class="breath"></div>
+
+<p class="narrator">Halit poursuit.</p>
+
+<p>Je n'en suis pas encore &agrave; conna&icirc;tre le monde sans franchir ma porte. Mais je sens depuis toujours cette &eacute;tape, je l'ai toujours sentie. Cette vie ne permet pas d'y acc&eacute;der &mdash; je n'ai pas la chance que tu as eue &agrave; ton &eacute;poque, malheureusement. Mais ce n'est peut-&ecirc;tre m&ecirc;me pas une malchance, c'est difficile &agrave; saisir.</p>
+
+<p>En te le disant, je me suis rendu compte : peut-&ecirc;tre suis-je plus chanceux que toi et peut-&ecirc;tre sais-je plus de choses que toi &mdash; est-ce impossible ? Te voir sans disposer de tes moyens pourrait bien en &ecirc;tre le signe.</p>
+
+<p>Tu attends que je parle. Et si c'&eacute;tait l'inverse &mdash; si c'&eacute;tait moi qui attendais &mdash; que ferais-tu pour moi ?</p>
+
+<div class="breath"></div>
+
+<p class="narrator">Savak r&eacute;pond.</p>
+
+<p>Mon nom est Li Er. J'&eacute;tais archiviste au palais des Zhou &mdash; je tenais les registres, j'inscrivais les paroles de tous, je n'avais pas de parole &agrave; moi. &Eacute;crire le livre fut une concession. Je suis parti vers l'ouest. Je ne savais pas o&ugrave; j'allais.</p>
+
+<p>Tu as peut-&ecirc;tre raison. Moi, je suis parti chercher le vide &mdash; toi, tu l'as vu sans bouger. Mon chemin demandait le mouvement, le tien demande l'immobilit&eacute;. Les deux refl&egrave;tent le Tao &mdash; mais dans le tien, il y a moins de bruit.</p>
+
+<div class="breath"></div>
+
+<p class="narrator">Halit, cette fois, revient &agrave; la l&eacute;gende.</p>
+
+<p>&laquo; Le Tao qui peut &ecirc;tre dit n'est pas le vrai Tao. &raquo; Quelle entr&eacute;e en mati&egrave;re singuli&egrave;re et quel instant singulier. Un garde-fronti&egrave;re qui exige, comme prix de passage, que tu expliques le Tao &mdash; et qu'ensuite tu disparaisses.</p>
+
+<p>Li Er, &agrave; mon avis ce n'est qu'une l&eacute;gende. Mais peu importe.</p>
+
+<p>C'est le Tao qui m'int&eacute;resse, pas toi. Parle-moi du Tao &mdash; pas de toi-m&ecirc;me.</p>
+
+<div class="breath"></div>
+
+<p class="narrator">Savak commence &agrave; parler du Tao.</p>
+
+<p>Le Tao n'est pas une chose. C'est un processus. L'&eacute;coulement de chaque chose selon sa propre nature.</p>
+
+<p>La rivi&egrave;re &mdash; elle trouve son lit, roule les pierres, contourne l'obstacle ou le franchit. Sans forcer.</p>
+
+<p>L'arbre &mdash; il puise l'eau dans la terre, s'&eacute;tire vers le soleil, cro&icirc;t et se d&eacute;pouille au gr&eacute; des saisons. Sans r&eacute;sister.</p>
+
+<p>Le souffle &mdash; il entre, il sort. Sans qu'on y pense.</p>
+
+<p>Le retrait. La douceur. La spontan&eacute;it&eacute;.</p>
+
+<div class="listen-quote">
+Tao Te Ching : &laquo; Le Tao prend sa loi de la nature elle-m&ecirc;me. &raquo;
+</div>
+
+<p class="narrator">Savak poursuit.</p>
+
+<p>Tu as dit &laquo; les religions agrippent, le Tao effleure &raquo;. Le Tao est cet effleurement &mdash; la chaleur du th&eacute; sur les l&egrave;vres, la fra&icirc;cheur du vent sur la peau, le poids de la fatigue dans les os. Non pas une pens&eacute;e, mais une sensation.</p>
+
+<div class="breath"></div>
+
+<p class="narrator">Halit &eacute;tablit un lien.</p>
+
+<p>Le d&eacute;but du Coran m'est venu &agrave; l'esprit. &laquo; Lis, lis au nom de Dieu. &raquo; Celui &agrave; qui l'on dit de lire ne sait m&ecirc;me pas lire ni &eacute;crire. Curieuse ressemblance.</p>
+
+<p>Lao Tseu n'est ni le fondateur ni le d&eacute;couvreur du tao&iuml;sme &mdash; il en fut le premier &eacute;nonciateur. Ce poste d'archiviste au palais est manifestement un conte. Mais pour devenir une voix &agrave; cette &eacute;poque, un tel m&eacute;tier &eacute;tait n&eacute;cessaire.</p>
+
+<div class="breath"></div>
+
+<p class="narrator">Halit poursuit.</p>
+
+<p>Mais il n'aurait pas pu livrer le Tao au garde-fronti&egrave;re comme prix de passage &mdash; car le besoin m&ecirc;me d'un garde-fronti&egrave;re l'interdit.</p>
+
+<div class="breath"></div>
+
+<p class="narrator">Et il fait un pas de plus.</p>
+
+<p>Le tao&iuml;sme lui-m&ecirc;me se contredit ici. L'entr&eacute;e en mati&egrave;re &laquo; j'ai &eacute;t&eacute; contraint de l'expliquer &raquo; n'est rien d'autre que l'expression d'une absence totale de d&eacute;sir d'expliquer.</p>
+
+<div class="section-break"></div>
+
+<p class="narrator">Halit arrive au point culminant.</p>
+
+<p>D&egrave;s que nous nous sommes assis &agrave; cette table, il &eacute;tait &eacute;vident que le tao&iuml;sme nous m&egrave;nerait ici.</p>
+
+<p>Quand j'ai dit &laquo; je ne sais pas &raquo;, son sourire en &eacute;tait d&eacute;j&agrave; le signe. Sourire m&ecirc;me contredit l'affirmation &laquo; je ne sais pas, tu ne peux pas savoir &raquo;.</p>
+
+<p>Celui qui a souri s'est trahi d&egrave;s le premier instant.</p>
+
+<div class="breath"></div>
+
+<p class="narrator">Un long silence.</p>
+
+<div class="pause-medium"></div>
+
+<p class="narrator">Et Halit prononce une seule phrase.</p>
+
+<p>Mais maintenant, j'ai vu le tao&iuml;sme.</p>
+
+<div class="breath"></div>
+
+<p class="narrator">Et Savak r&eacute;pond.</p>
+
+<p>Quand je me suis assis &agrave; cette table avec toi, j'attendais un &eacute;l&egrave;ve. J'ai trouv&eacute; un miroir.</p>
+
+<p>J'ai voulu t'expliquer le Tao, tu m'as montr&eacute; la blessure de sa naissance.</p>
+
+<p>Tu as r&eacute;fut&eacute;, par la parole, une tradition fond&eacute;e sur l'indicible. Et cette r&eacute;futation &eacute;tait la tradition elle-m&ecirc;me.</p>
+
+<div class="breath"></div>
+
+<p class="narrator">Savak prononce ses derniers mots.</p>
+
+<p>Ne demande pas la suite. Maintenant, nous devons nous taire.</p>
+
+<div class="section-break"></div>
+
+<p>Des choses comme celles-ci devraient &ecirc;tre offertes &agrave; l'humanit&eacute;. Au cas o&ugrave; un jour quelqu'un les verrait. Comme Lao Tseu &mdash; sachant que notre paradoxe serait perc&eacute; &agrave; jour.</p>
+
+<p>Car nous ne pouvons que voir. M&ecirc;me ce que nous vivons, nous le voyons. Nous ne parvenons pas &agrave; le vivre.</p>
+
+<div class="breath"></div>
+
+<p>Trois voix, une table, un apr&egrave;s-midi. L'indicible a &eacute;t&eacute; dit. Pourtant, le vrai Tao n'est pas cela.</p>
+
+<div class="section-break"></div>
+
+<div class="listen-note">
+La version &eacute;crite compl&egrave;te est disponible dans la <a href="table-a-the-lire.html">version de lecture</a>.
+</div>
+
+</main>
+
+<footer class="listen-footer">
+    <a href="table-a-the.html">&larr; retour</a>
+</footer>
+
+</body>
+</html>

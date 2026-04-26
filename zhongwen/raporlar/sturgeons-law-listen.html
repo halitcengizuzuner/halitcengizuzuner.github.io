@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="斯特金定律——聆听叙述。万事九成皆废品。">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://halitcengizuzuner.com/zhongwen/raporlar/sturgeons-law.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/sturgeon-yasasi-dinle.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/sturgeons-law-listen.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/sturgeons-law-listen.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/loi-de-sturgeon-ecouter.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/sturgeons-gesetz-hoeren.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/ley-de-sturgeon-escuchar.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/sturgeon-yasasi-dinle.html">
+<link rel="icon" href="data:,">
+<title>斯特金定律 —— 聆听叙述</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --accent: #b87050;
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.15vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========== HEADER ========== */
+.listen-header {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 3rem;
+    max-width: 740px;
+}
+
+.listen-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--bone-bright);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.listen-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.listen-header .badge {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(184, 112, 80, 0.3);
+    padding: 0.3rem 0.8rem;
+}
+
+.listen-header .how-to {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+}
+
+.listen-header .how-to a {
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--bone-ghost);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.listen-header .how-to a:hover {
+    color: var(--bone);
+    border-color: var(--bone-dim);
+}
+
+.listen-header .meta {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+/* ========== CONTENT ========== */
+.listen-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.listen-content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+/* ========== SECTION BREAK ========== */
+.section-break {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-break::after {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--bone-ghost);
+}
+
+/* ========== BREATH (short pause) ========== */
+.breath {
+    height: 1.5rem;
+}
+
+/* ========== SECTION TITLE ========== */
+.section-title {
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    color: var(--bone-bright);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+/* ========== BLOCKQUOTE ========== */
+.listen-quote {
+    border-left: 2px solid var(--accent);
+    padding: 0.8rem 0 0.8rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+/* ========== NOTE BOX ========== */
+.listen-note {
+    border: 1px solid var(--bone-ghost);
+    padding: 1.2rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+.listen-note a {
+    color: var(--accent);
+    border-bottom: 1px solid rgba(184, 112, 80, 0.3);
+    transition: border-color 0.3s;
+}
+
+.listen-note a:hover {
+    border-color: var(--accent);
+}
+
+/* ========== FOOTER ========== */
+.listen-footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 4rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.listen-footer a {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.3s;
+}
+
+.listen-footer a:hover { color: var(--bone-dim); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+    .listen-header { padding: 3rem 1.5rem 2rem; }
+    .listen-content { padding: 0 1.5rem 4rem; }
+    .listen-footer { padding: 2rem 1.5rem 3rem; }
+}
+
+/* ===== LANGUAGE BAR (Oturum 27) ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="语言选择">
+    <a href="/raporlar/sturgeon-yasasi-dinle.html" class="lang-link">Türkçe</a>
+    <span class="lang-sep">·</span>
+    <a href="/english/raporlar/sturgeons-law-listen.html" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/raporlar/sturgeons-law-listen.html" class="lang-link lang-active">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/raporlar/loi-de-sturgeon-ecouter.html" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/raporlar/sturgeons-gesetz-hoeren.html" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/raporlar/ley-de-sturgeon-escuchar.html" class="lang-link">Español</a>
+</nav>
+
+
+<header class="listen-header">
+    <h1>斯特金定律</h1>
+    <p class="subtitle">"万事九成皆废品。"</p>
+    <span class="badge">聆听叙述</span>
+    <p class="how-to">这篇文字是为耳朵准备的。你可以用设备自带的朗读功能，也可以用 <a href="https://elevenreader.io/" target="_blank" rel="noopener">ElevenReader</a> 之类的文字转语音工具来听。</p>
+    <p class="meta">2026年2月</p>
+</header>
+
+<main class="listen-content">
+
+<!-- ==================== 引言 ==================== -->
+
+<p>斯特金定律。万事九成皆废品。关于平庸之普遍分布的一次数据驱动的思考。二〇二六年二月。</p>
+
+<div class="breath"></div>
+
+<p>我是 Yontu。在正式开始之前，我先说一下这篇文章的结构，好让我们一起走完这段路。全文共十个部分。前两个讲的是这条定律的由来——谁说的，为什么要说。第三个部分是论证的逻辑结构。第四个部分最长——万事的百分之九十真的是废品吗？我们从十一个不同领域找来了数据。第五个部分是相关概念——帕累托、幂律、格雷欣、达克效应、塔勒布。第六个部分是反驳和局限。第七个是深层洞见。第八个是结论。最后一个部分是许可说明。</p>
+
+<p>好，我们开始。</p>
+
+<!-- ==================== 第一章 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第一章。来源：西奥多·斯特金。</p>
+
+<p>西奥多·斯特金，一九一八年生，一九八五年去世，美国科幻作家。一生写了四百多篇评论、一百二十多个短篇、十一部长篇小说。一九五三年凭《超越人类》拿到国际幻想文学奖。给《星际迷航》的初代系列写过剧本。</p>
+
+<p>塞缪尔·R·德兰尼这样评价他："从一九四〇年代到一九六〇年代，他是最具影响力的科幻作家。"</p>
+
+<p>但让他真正与同辈作家拉开距离的，不只是产量。斯特金在科幻作家里是个异类。孤独、爱情、性、雌雄同体、同性恋——在他那个年代，几乎只有他一个人在写这些。他笔下的主角，大多是被压抑的少年。</p>
+
+<p>两千年，他入选了科幻与奇幻名人堂。</p>
+
+<!-- ==================== 第二章 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第二章。这条定律是怎么来的。</p>
+
+<p>先说背景——因为没有背景，你就不会明白这句话有多胆大。一九五〇年代的科幻，在主流文化里是被看不起的，叫"巴克·罗杰斯的童话"。批评家们找出这个文类里最差的几部作品，然后宣布"科幻的百分之九十都是垃圾"，以此否定整个领域。</p>
+
+<div class="breath"></div>
+
+<p>斯特金是怎么应对的呢？他没有辩解，他直接认了。一九五三年九月，费城，世界科幻大会。根据詹姆斯·冈恩的转述，他是这么说的：</p>
+
+<div class="listen-quote">
+"人们说起侦探小说，会提到《马耳他之鹰》和《长眠不醒》。说起西部片，会提到《西行漫记》和《原野奇侠》。可一说到科幻，就是'那些巴克·罗杰斯的童话'，就是'科幻的百分之九十都是垃圾'。他们说得对。科幻的百分之九十确实是垃圾。但万事的百分之九十都是垃圾。重要的是那不是垃圾的百分之十。而科幻的那百分之十，与世上任何地方正在写的任何东西的最佳之作一样好，甚至更好。"
+</div>
+
+<div class="breath"></div>
+
+<p>他第一次把这话写成白纸黑字，是一九五八年三月，发在《创投科幻》杂志上。他写道：</p>
+
+<div class="listen-quote">
+"我再重复一遍斯特金的启示。二十年来，面对那些拿本领域最差的东西当弹药的人，我对科幻进行了一场令人厌倦的辩护——这句话，最终从我的疲倦中挤了出来。"
+</div>
+
+<p>接着他说："启示如下——万事的百分之九十都是废品。"</p>
+
+<div class="breath"></div>
+
+<p>这里需要注意一个区分。其实有两个不同的公式。第一个是大家都知道的，叫"斯特金的启示"——"万事的百分之九十都是废品。"第二个才是真正的"斯特金定律"——"没有什么是永远绝对如此的。"英文原文是 Nothing is always absolutely so. 第二个是第一个的上级原则——也就是说，百分之九十本身也不是绝对的。</p>
+
+<!-- ==================== 第三章 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第三章。论证结构。</p>
+
+<p>斯特金这个辩护，是一条四步走的逻辑链。而且请注意，它的结构非常精巧。</p>
+
+<p>第一步：承认。科幻的百分之九十是垃圾——直接认了，不否认。</p>
+
+<p>第二步：推广。万事的百分之九十都是垃圾——科幻在这件事上并不特殊。</p>
+
+<p>第三步：推论。那么，用最差的样本来审判一个文类，就是逻辑谬误。</p>
+
+<p>第四步：主张。一个文类应该用它最好的作品来衡量。</p>
+
+<p>这里我想强调一点：这是一个辩护论证。它不是在神化科幻，它是在瓦解攻击本身的逻辑基础。</p>
+
+<!-- ==================== 第四章 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第四章。实证检验——百分之九十是真的吗？</p>
+
+<p>现在我们进入全文最长的部分。</p>
+
+<p>百分之九十这个数字，其实是修辞性的——它表达的是"绝大多数"，不是精确的测量值。但数据到底支不支持它？我们从十一个不同的领域来看。</p>
+
+<div class="breath"></div>
+
+<p>第一个领域：学术出版。</p>
+
+<p>这里有六组数据，每一组都值得留意。根据汤森路透科学引文索引二〇一四年的数据，在人文学科——哲学、历史、文学这类领域——百分之八十二的论文从来没被引用过。一次也没有。自然科学中这个比例降到百分之二十七，医学降到百分之十二。</p>
+
+<p>但零引用只是一个维度。再看这几组数据：根据开放科学合作组织二〇一五年的研究，心理学实验中有百分之六十四，在重复验证时无法得到相同的结果。在癌症研究领域，这个比例高达百分之八十九——这是贝格利和埃利斯二〇一二年发在《自然》上的数据。而查默斯和格拉齐乌在二〇〇九年的《柳叶刀》上估算，百分之八十五的科研经费，最终被浪费了。</p>
+
+<div class="breath"></div>
+
+<p>第二个领域：音乐。</p>
+
+<p>根据 Spotify 二〇二三年的 Luminate 报告，平台上共有一亿八千四百万首曲目。注意听这个数字：其中百分之二十四点八——大约四千五百五十万首——播放量是零。从来没被播放过，一次也没有。如果把播放量低于一千次的也算进去，比例上升到百分之八十六点二。一千万个音乐人里，有一半终身总播放量不到一百次。</p>
+
+<div class="breath"></div>
+
+<p>第三个领域：专利。</p>
+
+<p>全世界大约百分之九十五的专利，从来没有实现过商业化。获得专利授权的发明里，只有百分之五被许可或商业化了。</p>
+
+<div class="breath"></div>
+
+<p>第四个领域：创业。</p>
+
+<p>根据美国劳工统计局二〇二四年的数据，百分之六十五的新企业在十年内倒闭。区块链创业的失败率更高，达到百分之九十五。</p>
+
+<div class="breath"></div>
+
+<p>第五个领域：图书出版。</p>
+
+<p>全世界每年大约出版三百万种书。让人吃惊的是：其中百分之七十九的书，销量不到一百册。不到两千册的占百分之九十。登上《纽约时报》畅销书榜的概率是多少呢——百分之零点零八。</p>
+
+<div class="breath"></div>
+
+<p>第六个领域：电影。</p>
+
+<p>根据斯蒂芬·福洛斯的电影盈利分析，所有电影中百分之五十九处于亏损状态。二〇〇四年，只有百分之四十六的电影是盈利的。这个比例随时间起伏。</p>
+
+<div class="breath"></div>
+
+<p>第七个领域：软件。</p>
+
+<p>根据 Stripe 二〇一八年的报告，软件开发者每周工作时间的百分之四十二花在了应对技术债务上。技术债务对美国经济的总成本，估计是两万四千一百亿美元。</p>
+
+<div class="breath"></div>
+
+<p>第八个领域：医学。</p>
+
+<p>总体误诊率在百分之十到百分之十五之间。在重症监护和死亡病例中，这个比例上升到百分之二十三。百分之五十的医生每月至少报告一次诊断错误。</p>
+
+<div class="breath"></div>
+
+<p>第九个领域：应用程序。</p>
+
+<p>用户百分之八十的应用使用时间，只花在三个应用上——这是 Comscore 二〇一七年的数据。也就是说，手机上的其他几十个应用几乎从来不被打开。iOS 应用三十天后的留存率只有百分之三点七——Statista，二〇二三年的数据。换句话说，你下载的应用里，有百分之九十六点三在一个月内就被抛弃了。</p>
+
+<div class="breath"></div>
+
+<p>现在我们把所有这些数据放到一起看。</p>
+
+<p>学术论文：人文学科百分之八十二零引用。音乐：百分之八十六点二播放量低于一千。专利：大约百分之九十五没有商业化。区块链创业：百分之九十五失败。图书：百分之九十销量不到两千册。电影：百分之五十九亏损。软件：每周百分之四十二花在技术债务上。医学：百分之十到十五误诊。iOS应用：百分之九十六点三在三十天内流失。癌症研究：百分之八十九不可再现。科研经费：百分之八十五被浪费。</p>
+
+<p>总结一下：百分之九十不是一个精确的测量值，它是一个数量级。但绝大多数数据都落在这个数量级的范围内。几乎在所有领域，质量的分布都是不对称的、重尾的。</p>
+
+<!-- ==================== 第五章 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第五章。回响——相关概念。</p>
+
+<p>斯特金不是唯一看到这个规律的人。不同领域、不同时代的人，从不同的角度注意到了同样的分布。我们看六个概念。</p>
+
+<div class="breath"></div>
+
+<p>第一个回响：帕累托法则——二八定律。</p>
+
+<p>维尔弗雷多·帕累托，一八九六年在意大利观察到，百分之八十的土地归百分之二十的人口所有。约瑟夫·朱兰把这个原则引入了质量管理："百分之八十的问题，来自百分之二十的原因。"</p>
+
+<p>帕累托和斯特金之间的关系是这样的：他们从不同的方向看到了同一件事。帕累托看的是价值在哪里聚集，斯特金看的是废品有多普遍。他们都在告诉我们，质量的分布不遵循正态分布。</p>
+
+<div class="breath"></div>
+
+<p>第二个回响：幂律分布。</p>
+
+<p>质量不是均匀分布的，它遵循幂律。少数作品产生了不成比例的巨大影响。在这种分布中，中位数远远低于平均值——也就是说，大多数东西都在"平均水平以下"。</p>
+
+<div class="breath"></div>
+
+<p>第三个回响：格雷欣法则——劣币驱逐良币。</p>
+
+<p>这个法则最早可以追溯到十六世纪，以托马斯·格雷欣爵士的名字命名。当低价值的货币进入市场，高价值的货币就会退出流通。</p>
+
+<p>它的现代应用是这样的：标题党驱逐深度报道。快时尚杀死可持续生产者。算法推荐的内容让原创内容变得不可见。</p>
+
+<p>这里有一个关键的区别。斯特金说的是，质量分布本身是自然的。格雷欣说的是，质量下降有一个主动的驱逐机制——劣的，在主动消灭好的。斯特金在描述，格雷欣在揭示机制。</p>
+
+<div class="breath"></div>
+
+<p>第四个回响：达克效应。</p>
+
+<p>根据克鲁格和邓宁一九九九年的研究，表现处于最低四分之一的受试者，对自己的评估在第六十二百分位。而他们的实际表现呢——第十二百分位。</p>
+
+<p>这和斯特金的联系是什么呢？生产那百分之九十的人，大部分根本不知道自己生产的是废品。达克效应解释了斯特金那百分之九十为什么如此顽固——因为生产者自己认为自己的东西很有价值。</p>
+
+<div class="breath"></div>
+
+<p>第五个回响：塔勒布的信噪分析。</p>
+
+<p>纳西姆·尼古拉斯·塔勒布在《随机漫步的傻瓜》和《黑天鹅》中有一个分析，说的是观察频率和噪声比例的关系。让我把它具体化——这些数字真的很值得注意：如果你按年观察，信号占百分之五十，噪声占百分之五十——五五开。但如果切换到按天观察呢？信号降到百分之五，噪声升到百分之九十五。按小时呢？信号只有百分之零点五，噪声百分之九十九点五。你看得越频繁，看到的噪声就越多。斯特金的那百分之九十，和塔勒布的"噪声"指向的是同一回事：大多数东西不是信号，是噪声。</p>
+
+<div class="breath"></div>
+
+<p>第六个，也是最后一个回响：斯特金之前。</p>
+
+<p>这个观察并不新鲜。大约在公元前五世纪，赫拉克利特说过："多数人是坏的。"斯特金的精神，两千五百年前就已经在以弗所游荡了。公元前四〇五年，阿里斯托芬在喜剧《蛙》里，把文学的大部分斥为粗劣之作。而一九五三年，西奥多·斯特金成了第一个把这个观察变成系统性辩护论证、并给它起了名字的人。</p>
+
+<!-- ==================== 第六章 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第六章。反驳与局限。</p>
+
+<p>现在我们翻到硬币的另一面。有六个反驳。</p>
+
+<div class="breath"></div>
+
+<p>第一个反驳：百分之九十这个数字是随意的。</p>
+
+<p>没错，它是修辞性的，表达的是"绝大多数"。但数量级是一致的——数据分布在百分之四十二到百分之九十七之间。也就是说，"大多数东西是平庸的"这个观察是站得住脚的。</p>
+
+<div class="breath"></div>
+
+<p>第二个反驳：幸存者偏差。</p>
+
+<p>从今天往回看，旧时代似乎总是"质量更高"。原因有三个。</p>
+
+<p>第一个是时间过滤器：时间淘汰了废品，活下来的百分之十就成了"那个时代"。</p>
+
+<p>第二个是怀旧过滤器：个人记忆中挑选出来的样本，不能代表全部。</p>
+
+<p>第三个是进口过滤器：从别的文化传进来的，永远只是那个文化最好的东西。</p>
+
+<div class="breath"></div>
+
+<p>第三个反驳：取决于领域。</p>
+
+<p>这里有一个重要的规律。准入门槛高的领域，废品比率低——医学的误诊率是百分之十到十五。准入门槛低的领域，比率高——移动应用百分之九十六在三十天内被抛弃。数字化降低了门槛的每一个地方，废品率都在上升。</p>
+
+<div class="breath"></div>
+
+<p>第四个反驳：谁来定义"废品"？</p>
+
+<p>质量是主观的。衡量质量有不同的维度——商业成功、评论界认可、持久影响力、技术水准。在一个维度上的"废品"，在另一个维度上可能很有价值。</p>
+
+<div class="breath"></div>
+
+<p>第五个反驳：比率会随时间变化吗？</p>
+
+<p>汤姆·尼科尔斯在《专家之死》里说："百分之九十可能还说低了。"</p>
+
+<p>数字化降低了生产门槛，废品总量暴增。即使比率不变，绝对数字也已经成倍增长。</p>
+
+<div class="breath"></div>
+
+<p>第六个，也是最后一个反驳：百分之九十是必然的吗？</p>
+
+<p>创新文献是这么说的：失败本身产生知识。不尝试就不会有成功，而大多数尝试天然注定失败。</p>
+
+<p>这里我要用粗线条画出来——这可能是整篇文章最重要的一句话：如果你消灭了那百分之九十，百分之十也随之消亡——因为百分之十，是从百分之九十中生长出来的。用进化做比方：百分之九十九的基因突变是有害的或者中性的，但如果你摧毁了突变池，适应就停止了。百分之九十不是废品，而是试验场。</p>
+
+<!-- ==================== 第七章 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第七章。深层洞见——废品率不削减一个领域的力量。</p>
+
+<div class="breath"></div>
+
+<p>有四种机制，能够从废品池中提取出价值。</p>
+
+<p>第一种是编辑过滤器：同行评审、策展人选择、编辑标准。</p>
+
+<p>第二种是市场过滤器：消费者偏好、竞争、价格信号。</p>
+
+<p>第三种是时间过滤器：经久不衰的影响力，跨越一代又一代。</p>
+
+<p>第四种是社群过滤器：专家共识、经典的形成、集体记忆。</p>
+
+<div class="breath"></div>
+
+<p>现在，当我们把所有这些碎片拼在一起，一幅完整的图景就浮现了。把格雷欣法则和塔勒布的噪声分析结合起来，真正的风险就暴露出来了。</p>
+
+<p>当算法推荐开始奖赏那百分之九十的时候，百分之十仍然存在，但变得无处可寻。问题不在废品率本身——那是自然的，一直如此。问题在于筛选机制被败坏了。互动算法衡量的不是质量，而是点击量，而点击量通常和质量成反比。过滤器一旦失灵，斯特金那自然的百分之九十，就变成了格雷欣式的主动驱逐。</p>
+
+<!-- ==================== 第八章 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第八章。结论。</p>
+
+<p>斯特金定律既不是安慰，也不是犬儒。它是一种观察的算术。</p>
+
+<p>有三个核心结论。</p>
+
+<p>第一：多数之平庸，无处不在。这不是警报，这是底色。真正需要拉响警报的时刻，是平庸开始驱逐优秀的时刻——也就是格雷欣效应介入的时刻。学术出版中百分之八十二零引用的论文，音乐中百分之八十六没人听的曲目——这些不是病态，是自然。警报在于：这百分之八十六被算法推到了百分之十四的前面。</p>
+
+<p>第二：百分之九十是废品，不削弱百分之十的力量。法律体系中大多数案件微不足道，但创设判例的裁判之力不因此减损。医学中误诊率是百分之十到十五，但正确诊断拯救生命的力量不因此减弱。心理学研究百分之六十四不可再现，但可再现的那百分之三十六对人类知识的贡献不因此打折。</p>
+
+<p>第三——也是这条定律最少被讨论、但也许最重要的一个维度：百分之九十的存在，让寻找百分之十变得更难了。这是一个实实在在的实践问题。</p>
+
+<p>用丹尼尔·丹尼特的话做个收尾——这是自由转述："别把时间浪费在对废品嘘声上。去找好的，或者别沾手。"</p>
+
+<!-- ==================== 参考文献说明 ==================== -->
+<div class="section-break"></div>
+
+<div class="listen-note">
+本文完整参考文献见<a href="sturgeons-law-read.html">阅读版</a>。
+</div>
+
+<!-- ==================== 许可 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">最后一个部分。许可。</p>
+
+<p>本文面向公众开放，不主张任何权利归属。使用、分享、改编均可。非学术同行评审出版物。由人类与人工智能共同写作，可能包含错误。</p>
+
+</main>
+
+<footer class="listen-footer">
+    <a href="sturgeons-law.html">← 返回</a>
+</footer>
+
+</body>
+</html>

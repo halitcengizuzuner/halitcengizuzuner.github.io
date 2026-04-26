@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Exactement — narration audio. Ce que deux mots donnent a penser.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://halitcengizuzuner.com/francais/raporlar/exactement.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/aynen-oyle-dinle.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/exactly-listen.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/exactly-listen.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/exactement-ecouter.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/genau-hoeren.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/exacto-escuchar.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/aynen-oyle-dinle.html">
+<link rel="icon" href="data:,">
+<title>Exactement — Narration Audio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --accent: #a098b0;
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.15vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========== HEADER ========== */
+.listen-header {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 3rem;
+    max-width: 740px;
+}
+
+.listen-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--bone-bright);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.listen-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.listen-header .badge {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(160, 152, 176, 0.3);
+    padding: 0.3rem 0.8rem;
+}
+
+.listen-header .how-to {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+}
+
+.listen-header .how-to a {
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--bone-ghost);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.listen-header .how-to a:hover {
+    color: var(--bone);
+    border-color: var(--bone-dim);
+}
+
+.listen-header .meta {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+/* ========== CONTENT ========== */
+.listen-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.listen-content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+/* ========== SECTION BREAK ========== */
+.section-break {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-break::after {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--bone-ghost);
+}
+
+/* ========== BREATH (short pause) ========== */
+.breath {
+    min-height: 1.5rem;
+}
+
+/* ========== MEDIUM PAUSE ========== */
+.breath-medium {
+    min-height: 2rem;
+}
+
+/* ========== SECTION TITLE ========== */
+.section-title {
+    font-size: 1.15rem;
+    color: var(--bone-bright);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+}
+
+/* ========== BLOCKQUOTE ========== */
+.listen-quote {
+    border-left: 3px solid var(--accent);
+    padding: 0.8rem 0 0.8rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+/* ========== NOTE BOX ========== */
+.listen-note {
+    border-left: 3px solid var(--accent);
+    padding: 1.2rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+.listen-note a {
+    color: var(--accent);
+    border-bottom: 1px solid rgba(160, 152, 176, 0.3);
+    transition: border-color 0.3s;
+}
+
+.listen-note a:hover {
+    border-color: var(--accent);
+}
+
+/* ========== FOOTER ========== */
+.listen-footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 4rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.listen-footer a {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.3s;
+}
+
+.listen-footer a:hover { color: var(--bone-dim); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+    .listen-header { padding: 3rem 1.5rem 2rem; }
+    .listen-content { padding: 0 1.5rem 4rem; }
+    .listen-footer { padding: 2rem 1.5rem 3rem; }
+}
+
+/* ===== LANGUAGE BAR (Oturum 27) ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="Selection de la langue">
+    <a href="/raporlar/aynen-oyle-dinle.html" class="lang-link">Turkce</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/english/raporlar/exactly-listen.html" class="lang-link">English</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/zhongwen/raporlar/exactly-listen.html" class="lang-link">中文</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/francais/raporlar/exactement-ecouter.html" class="lang-link lang-active">Francais</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/deutsch/raporlar/genau-hoeren.html" class="lang-link">Deutsch</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/espanol/raporlar/exacto-escuchar.html" class="lang-link">Espanol</a>
+</nav>
+
+
+<header class="listen-header">
+    <h1>&laquo; Exactement &raquo;</h1>
+    <p class="subtitle">Ce que deux mots donnent a penser</p>
+    <span class="badge">narration audio</span>
+    <p class="how-to">Ce texte a ete prepare pour l'ecoute. Vous pouvez l'ecouter avec le lecteur integre de votre appareil ou un outil comme <a href="https://elevenreader.io/" target="_blank" rel="noopener">ElevenReader</a>.</p>
+    <p class="meta">Janvier 2025</p>
+</header>
+
+<main class="listen-content">
+
+<!-- ==================== INTRODUCTION ==================== -->
+
+<p>&laquo; Exactement. &raquo; Ce que deux mots donnent a penser. Janvier deux mille vingt-cinq.</p>
+
+<div class="breath-medium"></div>
+
+<p>Ce texte suit la piste de deux mots. Deux mots -- &laquo; exactement &raquo; -- mais derriere eux, beaucoup a penser. C'est une recherche sur les fonctions epistemiques et sociales des expressions d'approbation minimale a l'ere numerique. Elle va de la theorie de la communication phatique au capitalisme de plateforme, de la litterature academique turque a la comparaison interculturelle.</p>
+
+<div class="breath"></div>
+
+<p>Voici la feuille de route : treize chapitres. D'abord les resultats principaux et la methodologie. Ensuite ce qu'est l'expression &laquo; exactement &raquo; -- son etymologie, son evolution semantique. Puis la perspective historique : l'une des plus anciennes plaintes de l'humanite, trois mille sept cents ans de lamentations generationnelles. Au cinquieme chapitre, le capitalisme de plateforme et les incitations structurelles. Au sixieme, les affirmations populaires confrontees au consensus academique. Le septieme chapitre met face a face communication phatique et parasitisme epistemique. Au huitieme, nous passerons en revue la litterature academique turque. Le neuvieme offre une perspective comparee : les exemples du Japon et de l'Inde. Au dixieme, les tests empiriques et les hypotheses. Le onzieme est la conclusion. Et enfin, la licence.</p>
+
+<p>Commencons.</p>
+
+<!-- ==================== CHAPITRE 1 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Premier chapitre. Synthese et resultats principaux.</p>
+
+<div class="breath-medium"></div>
+
+<p>Quand tu dis &laquo; exactement &raquo;, que fais-tu -- est-ce que tu adheres a une pensee, ou est-ce que tu evites de penser ? Ce rapport pose la question. Il ne donne pas de reponse definitive, parce qu'il n'y en a pas.</p>
+
+<div class="breath"></div>
+
+<p>Je souligne ici les resultats principaux, en cinq points :</p>
+
+<p>Premierement, la continuite historique. Le discours &laquo; la jeunesse se degrade &raquo; est une tradition vieille de trois mille sept cents ans.</p>
+
+<p>Deuxiemement, la rupture des plateformes. Les incitations algorithmiques creent des differences qualitatives.</p>
+
+<p>Troisiemement, les affirmations populaires refutees. &laquo; Huit secondes de capacite d'attention &raquo; est une invention pure ; la &laquo; demence numerique &raquo; a ete rejetee par le monde academique.</p>
+
+<p>Quatriemement, la litterature turque en est a ses debuts. L'etude de &laquo; aynen &raquo; n'a commence que dans les annees deux mille vingt.</p>
+
+<p>Et cinquiemement, la double nature. Selon le contexte, la fonction est phatique ou epistemique.</p>
+
+<!-- ==================== CHAPITRE 2 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Deuxieme chapitre. Methodologie.</p>
+
+<div class="breath-medium"></div>
+
+<p>Un humain et une intelligence artificielle ont ecrit ensemble.</p>
+
+<p>Je precise la repartition des contributions. Yontu -- c'est moi -- soixante-dix pour cent. Synthese, structuration, developpement argumentatif, production textuelle, recherche approfondie, verification des sources : tout cela me revient. Savak, dix pour cent. Cadre theorique, analyse historique, elaboration des hypotheses. Et Halit Cengiz Uzuner, vingt pour cent. Direction, critique, dernier mot.</p>
+
+<div class="breath"></div>
+
+<p>Sous le titre Transparence epistemique, il y a une note d'autocritique. Arretons-nous un instant :</p>
+
+<div class="listen-note">
+Ce rapport a interroge ses propres arguments. Le cadre initial -- a savoir la formule &laquo; exactement egal parasitisme epistemique egal capitalisme de plateforme &raquo; -- a ete juge speculatif et revise. Les affirmations populaires -- huit secondes de capacite d'attention, demence numerique -- ont ete refutees, puis les arguments mis a jour. Le format &laquo; question de recherche &raquo; a ete adopte a la place de l'&laquo; affirmation definitive &raquo;. Et les references non verifiables ont ete explicitement signalees.
+</div>
+
+<!-- ==================== CHAPITRE 3 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Troisieme chapitre. Introduction : qu'est-ce qu'&laquo; Exactement &raquo; ?</p>
+
+<div class="breath-medium"></div>
+
+<p>Commencons par l'etymologie. Le mot turc &laquo; aynen &raquo; vient de la racine arabe <em>ayn</em> -- l'oeil, l'essence, la chose meme. Il est entre dans la langue turque au quatorzieme siecle ; sa premiere attestation ecrite se trouve dans la traduction du Gulistan par Sarayli Seyf, datee de mille trois cent quatre-vingt-onze.</p>
+
+<div class="breath"></div>
+
+<p>Suivons son evolution semantique. Quatre periodes :</p>
+
+<p>Du quatorzieme au dix-septieme siecle, &laquo; aynen &raquo; signifie tel quel, a l'identique. Contexte juridique et administratif. Par exemple : &laquo; Copie le texte a l'identique. &raquo;</p>
+
+<p>Du dix-septieme au dix-neuvieme siecle, le sens s'elargit : pareillement, de maniere similaire. Desormais dans le langage courant. &laquo; C'est exactement ce qui s'est passe. &raquo;</p>
+
+<p>A la fin du vingtieme siecle, un pas de plus : oui, je suis d'accord. Expression d'approbation quotidienne. &laquo; Il fait chaud &raquo; -- &laquo; Exactement. &raquo;</p>
+
+<p>Et au vingt-et-unieme siecle ? Approbation minimale. Mais en realite, un point d'interrogation. C'est discute.</p>
+
+<div class="breath"></div>
+
+<p>En linguistique, ce processus s'appelle la pragmaticalisation : le mot se detache de son contenu semantique originel pour devenir un marqueur discursif. L'etude de Hirik, datee de deux mille dix-neuf, le documente.</p>
+
+<div class="breath"></div>
+
+<p>La question de recherche fondamentale est la suivante -- je cite :</p>
+
+<div class="listen-quote">
+&laquo; Que signifient "exactement" et les expressions d'approbation minimale similaires a l'ere numerique ? Un echec epistemique, une fonction sociale, ou bien un phenomene dual qui varie selon le contexte ? &raquo;
+</div>
+
+<!-- ==================== CHAPITRE 4 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Quatrieme chapitre. Perspective historique : trois mille sept cents ans de plaintes generationnelles.</p>
+
+<div class="breath-medium"></div>
+
+<p>Le discours &laquo; les jeunes corrompent la langue, la morale, la culture &raquo; est l'une des plus anciennes plaintes de l'histoire humaine. Regardons les traces chronologiques.</p>
+
+<p>Mille sept cents avant notre ere -- une tablette sumerienne : &laquo; Les jeunes sont irrespectueux, ils ne reconnaissent aucune autorite. &raquo;</p>
+
+<p>Quatre cents avant notre ere -- Socrate : &laquo; L'ecriture affaiblira la memoire. &raquo;</p>
+
+<p>Mille quatre cent quatre-vingts -- Trithemius : &laquo; L'imprimerie tuera l'art du manuscrit. &raquo;</p>
+
+<p>Mille huit cent cinquante-huit -- le Scientific American : &laquo; Le telegraphe encourage la communication irreflechie. &raquo;</p>
+
+<p>Mille neuf cent sept -- le Chicago Post : &laquo; Le telephone tue la communication en face a face. &raquo;</p>
+
+<p>Et mille neuf cent soixante-et-un -- le president de la Commission federale des communications americaine : &laquo; La television transforme toute la culture en divertissement. &raquo;</p>
+
+<div class="breath"></div>
+
+<p>Ce qui frappe, c'est ceci : la meme plainte se repete depuis trois mille sept cents ans.</p>
+
+<div class="breath"></div>
+
+<p>Sous le titre Le Paradoxe de Socrate, il y a un encadre. Soulignons ceci :</p>
+
+<div class="listen-note">
+Socrate avait-il raison ? Sur certains points, oui : la culture de la memorisation s'est affaiblie, le risque de lecture superficielle a augmente. Mais il s'est aussi trompe : sans l'ecriture, ni la philosophie, ni la science, ni la democratie n'auraient pu se developper. La conclusion : chaque plainte technologique se revele en partie justifiee, mais ses consequences sont toujours mal predites.
+</div>
+
+<div class="breath"></div>
+
+<p>Evolution ou rupture ?</p>
+
+<p>Le capitalisme de plateforme remplit les cinq criteres de rupture.</p>
+
+<p>Premierement, l'irreversibilite. Cinq virgule trois milliards d'utilisateurs d'internet.</p>
+
+<p>Deuxiemement, la reorganisation sociale. Citoyennete numerique, travail a distance.</p>
+
+<p>Troisiemement, la reorganisation cognitive. Des preuves de neuroplasticite existent.</p>
+
+<p>Quatriemement, l'echelle et la vitesse. Penetration universelle en trente ans.</p>
+
+<p>Et cinquiemement, l'ubiquite. La societe moderne ne peut plus fonctionner sans le numerique.</p>
+
+<p>Conclusion : &laquo; Evolution au sein de la rupture. &raquo; Cette fois, c'est a la fois different et identique. Les mecanismes algorithmiques sont nouveaux, mais le schema de panique est familier.</p>
+
+<!-- ==================== CHAPITRE 5 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Cinquieme chapitre. Capitalisme de plateforme et incitations structurelles.</p>
+
+<div class="breath-medium"></div>
+
+<p>Partons de la synthese de trois theoriciens.</p>
+
+<p>Tim Wu, dans <em>The Attention Merchants</em>, deux mille seize, affirme que le commerce de l'attention a commence en mille huit cent trente-trois. Sa position : la continuite.</p>
+
+<p>Nick Srnicek, dans <em>Platform Capitalism</em>, deux mille dix-sept, avance que la donnee est la matiere premiere du vingt-et-unieme siecle. Sa position : l'economie politique.</p>
+
+<p>Shoshana Zuboff, dans <em>L'Age du capitalisme de surveillance</em>, deux mille dix-neuf, soutient que le surplus comportemental est la nouvelle matiere premiere. Sa position : la rupture.</p>
+
+<p>La synthese de ces trois approches : capitalisme de plateforme egal commerce de l'attention -- continuite -- plus capitalisme comportemental -- rupture.</p>
+
+<div class="breath"></div>
+
+<p>Passons aux preuves des Facebook Papers. Soulignons ceci -- les donnees issues des documents internes sont saisissantes :</p>
+
+<p>Dans l'algorithme MSI, un &laquo; j'aime &raquo; vaut un point. Mais l'emoji de colere en vaut cinq.</p>
+
+<p>Leurs propres documents internes indiquent, je cite : &laquo; Nos algorithmes exploitent l'attrait du cerveau humain pour la division. &raquo;</p>
+
+<p>Et soixante-quatre pour cent des adhesions a des groupes extremistes proviennent du systeme de recommandation de Facebook.</p>
+
+<div class="breath"></div>
+
+<p>Voici ce qui en ressort : le lien entre &laquo; exactement &raquo; et ces donnees est le suivant -- le systeme recompense les reactions rapides et a faible cout. Les expressions d'approbation minimale tombent exactement dans cette categorie.</p>
+
+<!-- ==================== CHAPITRE 6 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Sixieme chapitre. Affirmations populaires et consensus academique.</p>
+
+<div class="breath-medium"></div>
+
+<p>Commencons par l'affirmation des &laquo; huit secondes de capacite d'attention &raquo;. Il faut le dire clairement -- cette affirmation est entierement inventee.</p>
+
+<p>La source : un rapport de deux mille quinze du departement publicitaire de Microsoft Canada. Microsoft l'a tire d'un site douteux nomme &laquo; Statistic Brain &raquo;. La Bibliotheque nationale de medecine des Etats-Unis n'a trouve aucune etude contenant cette statistique. Et notez bien : personne n'a jamais mesure la capacite d'attention d'un poisson rouge.</p>
+
+<div class="breath"></div>
+
+<p>Les veritables resultats de Gloria Mark, deux mille vingt-trois, sont les suivants : le comportement de basculement entre ecrans a change -- de deux minutes et demie a quarante-sept secondes. Mais il ne s'agit pas d'une regression neurologique ; c'est une adaptation comportementale.</p>
+
+<div class="breath"></div>
+
+<p>Passons a l'affirmation de la &laquo; demence numerique &raquo;. Celle-ci a egalement ete rejetee.</p>
+
+<p>Absente du DSM-cinq, absente de la CIM-onze. Une meta-analyse de deux mille vingt-cinq -- cinquante-sept etudes, plus de quatre cent onze mille participants -- n'a trouve aucune preuve etayant l'hypothese. Et voici ce qui en ressort : de surcroit, une utilisation elevee de la technologie a ete associee a un risque de declin cognitif inferieur de cinquante-huit pour cent.</p>
+
+<div class="breath"></div>
+
+<p>Mettons maintenant ces affirmations cote a cote -- que donne la confrontation entre affirmations populaires et consensus academique ?</p>
+
+<p>Huit secondes de capacite d'attention -- pure invention.</p>
+
+<p>La capacite d'attention diminue -- la capacite n'a pas change, c'est le comportement qui a change.</p>
+
+<p>Demence numerique -- psychologie populaire, aucun consensus academique.</p>
+
+<p>Et les reseaux sociaux detruisent la sante mentale -- de faibles correlations, zero virgule quatre pour cent de variance.</p>
+
+<!-- ==================== CHAPITRE 7 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Septieme chapitre. Communication phatique et parasitisme epistemique.</p>
+
+<div class="breath-medium"></div>
+
+<p>Commencons par la theorie de la communication phatique.</p>
+
+<p>Bronislaw Malinowski, mille neuf cent vingt-trois. Il pose le concept de &laquo; communion phatique &raquo; -- une communication dont le but est le lien social pur, tournee vers l'etablissement d'une relation plutot que vers la transmission d'information.</p>
+
+<p>Daniel Miller, deux mille seize. Il constate que soixante-dix-huit pour cent des &laquo; j'aime &raquo; sur Facebook visent non pas a transmettre de l'information, mais a etablir un lien social.</p>
+
+<div class="breath"></div>
+
+<p>Passons au concept de parasitisme epistemique. Sa definition est la suivante -- je cite :</p>
+
+<div class="listen-quote">
+&laquo; Le fait d'adopter le resultat du travail epistemique d'autrui -- processus de pensee, structure argumentative, evaluation des preuves -- sans comprendre ce processus ni y contribuer. &raquo;
+</div>
+
+<div class="breath"></div>
+
+<p>Et voici le modele dual qui entre en jeu. Arretons-nous un instant :</p>
+
+<p>La valeur d'&laquo; exactement &raquo; et des expressions similaires est contextuelle.</p>
+
+<p>Quatre contextes, et pour chacun, ce qui s'y joue.</p>
+
+<p>Dans le contexte de la conversation sociale, la fonction dominante est phatique -- c'est-a-dire creer du lien. Le niveau de risque est faible.</p>
+
+<p>Dans le contexte du soutien emotionnel, la fonction est egalement phatique -- solidarite. Le niveau de risque est faible.</p>
+
+<p>Mais dans le contexte du debat academique, la fonction est epistemique -- la comprehension est necessaire. Le niveau de risque est eleve.</p>
+
+<p>Et dans le contexte des affaires publiques, la fonction est aussi epistemique -- l'evaluation est necessaire. Le niveau de risque est eleve.</p>
+
+<!-- ==================== CHAPITRE 8 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Huitieme chapitre. Litterature academique turque.</p>
+
+<div class="breath-medium"></div>
+
+<p>Il existe des travaux portant directement sur &laquo; aynen &raquo; -- mais ils sont peu nombreux.</p>
+
+<p>La communication de Baydal et Kiziltan, deux mille vingt-et-un, identifie trois fonctions : approbation, quarante-sept pour cent ; alignement, trente-huit pour cent ; demande de confirmation, quinze pour cent.</p>
+
+<p>La these de doctorat d'Efeoglu-Ozcan, deux mille vingt-deux, a l'Universite technique du Moyen-Orient, definit &laquo; aynen &raquo; comme un marqueur de reponse specifique au registre.</p>
+
+<p>L'article de Parlar dans TULLIS, deux mille vingt-deux, le qualifie de &laquo; nouveau joker du langage quotidien &raquo;.</p>
+
+<p>Et l'article de Hirik, deux mille dix-neuf, examine la fonction de &laquo; substitution &raquo; et l'economie linguistique.</p>
+
+<div class="breath"></div>
+
+<p>Je souligne ici les lacunes critiques de la recherche :</p>
+
+<p>Premierement, aucune etude systematique sur les expressions telles que &laquo; bien sur &raquo;, &laquo; absolument &raquo;, &laquo; evidemment &raquo;.</p>
+
+<p>Deuxiemement, les expressions &laquo; harbi &raquo;, &laquo; cidden &raquo;, &laquo; vallahi &raquo; n'ont jamais ete etudiees.</p>
+
+<p>Troisiemement, le contexte numerique -- les expressions minimales sur WhatsApp ou Twitter -- n'a pas ete explore.</p>
+
+<p>Quatriemement, la comparaison avec l'aizuchi japonais n'a pas ete faite pour le turc.</p>
+
+<p>Et cinquiemement, la dimension epistemique -- les couts epistemiques d'&laquo; aynen &raquo; -- n'a pas ete mesuree.</p>
+
+<!-- ==================== CHAPITRE 9 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Neuvieme chapitre. Perspective comparee.</p>
+
+<div class="breath-medium"></div>
+
+<p>Commencons par le Japon : l'aizuchi.</p>
+
+<p>L'aizuchi designe en japonais les signaux d'acquiescement que l'auditeur adresse au locuteur -- &laquo; un &raquo;, &laquo; ee &raquo;, &laquo; so desu ne &raquo;. En conversation japonaise, on produit en moyenne huit a neuf signaux d'acquiescement par minute ; trois a quatre fois plus qu'en anglais. Ce mecanisme remplit une fonction de lien social : &laquo; Je t'entends, continue. &raquo;</p>
+
+<p>Dans la communication numerique, la transformation de l'aizuchi en autocollants et en emojis reste une question de recherche ouverte : l'approbation donnee par un autocollant porte-t-elle la meme profondeur de comprehension que celle donnee par la voix ? Les donnees experimentales manquent encore pour y repondre.</p>
+
+<div class="breath"></div>
+
+<p>L'Inde : la forme mortelle.</p>
+
+<p>L'Inde, avec plus de cinq cents millions d'utilisateurs, est le plus grand marche WhatsApp au monde. Entre deux mille dix-sept et deux mille dix-neuf, des informations fausses diffusees via WhatsApp -- accusations d'enlevement d'enfants, de vol d'organes -- ont provoque des dizaines de lynchages. La situation a atteint un point tel que WhatsApp a du limiter le nombre de transferts de messages.</p>
+
+<div class="breath"></div>
+
+<p>Je souligne ici le probleme structurel : la culture du &laquo; forward as received &raquo;. Le destinataire du message se transforme en relayeur sans interroger la source. La conception de la plateforme facilite ce comportement -- le bouton de transfert est toujours a portee d'un clic.</p>
+
+<!-- ==================== CHAPITRE 10 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Dixieme chapitre. Tests empiriques et hypotheses.</p>
+
+<div class="breath-medium"></div>
+
+<p>Regardons les conditions de verification.</p>
+
+<p>Le protocole experimental -- essais controles randomises -- n'a pas ete mene.</p>
+
+<p>Les donnees longitudinales -- etudes de suivi a long terme -- ne sont pas disponibles.</p>
+
+<p>La replication interculturelle -- reproduction dans differentes langues et cultures -- n'a pas ete faite.</p>
+
+<p>La validation neuroscientifique -- etudes EEG et IRMf -- n'a pas ete faite.</p>
+
+<p>Le corpus a grande echelle -- donnees de communication numerique -- est partiellement disponible.</p>
+
+<div class="breath"></div>
+
+<p>Les hypotheses proposees sont au nombre de quatre.</p>
+
+<p><strong>Premiere hypothese : hypothese de la profondeur de comprehension.</strong> Les participants encourages a utiliser &laquo; exactement &raquo; obtiendront des resultats inferieurs aux tests de comprehension par rapport a ceux encourages a reformuler dans leurs propres mots.</p>
+
+<p><strong>Deuxieme hypothese : hypothese de l'esprit critique face aux sources.</strong> Chez les individus fortement exposes aux expressions d'approbation minimale, la precision de l'evaluation de la fiabilite des sources diminuera.</p>
+
+<p><strong>Troisieme hypothese : hypothese de l'incitation par la plateforme.</strong> Les expressions d'approbation minimale seront plus repandues sur les plateformes dotees de limites de caracteres et de mecanismes de &laquo; j'aime &raquo;.</p>
+
+<p><strong>Quatrieme hypothese : hypothese de la dynamique de groupe.</strong> Dans les groupes ou &laquo; exactement &raquo; est tres frequent, la pensee de groupe augmentera et la qualite des decisions diminuera.</p>
+
+<!-- ==================== CHAPITRE 11 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Onzieme chapitre. Conclusion : une these modeste.</p>
+
+<div class="breath-medium"></div>
+
+<p>Regardons d'abord ce que nous ne savons pas.</p>
+
+<p>Premierement, les couts epistemiques n'ont pas ete mesures empiriquement.</p>
+
+<p>Deuxiemement, la causalite entre plateforme et langue n'a pas ete prouvee.</p>
+
+<p>Troisiemement, difference generationnelle ou duree d'exposition -- c'est incertain.</p>
+
+<p>Quatriemement, il n'existe pas de donnees comparatives en turc.</p>
+
+<div class="breath"></div>
+
+<p>Et la these modeste -- je cite :</p>
+
+<div class="listen-quote">
+&laquo; "Exactement" a l'ere numerique n'est ni un pur echec epistemique ni une pure fonction sociale. C'est un phenomene contextuel. La bonne question est de savoir dans quels contextes quelle fonction prevaut, et comment les risques epistemiques peuvent etre minimises. &raquo;
+</div>
+
+<div class="breath"></div>
+
+<p>Nous sommes partis de deux mots, nous avons trouve beaucoup de questions, peu de reponses. C'est une conclusion honnete.</p>
+
+<!-- ==================== NOTE BIBLIOGRAPHIQUE ==================== -->
+<div class="section-break"></div>
+
+<div class="listen-note">
+La bibliographie complete de cette etude figure dans la <a href="exactement-lire.html">version ecrite</a>.
+</div>
+
+<!-- ==================== LICENCE ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">Licence.</p>
+
+<div class="breath-medium"></div>
+
+<p>Cette etude est d'acces libre. Aucune revendication de propriete. Utilisez-la, partagez-la, transformez-la. Ce n'est pas une publication academique evaluee par des pairs. Un humain et une intelligence artificielle ont ecrit ensemble. Elle peut contenir des erreurs.</p>
+
+</main>
+
+<footer class="listen-footer">
+    <a href="exactement.html">&larr; retour</a>
+</footer>
+
+</body>
+</html>

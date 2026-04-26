@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bien Vivre — narration audio de la chronique de Çetin Altan.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://halitcengizuzuner.com/francais/raporlar/bien-vivre.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/iyi-yasamak-dinle.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/living-well-listen.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/living-well-listen.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/bien-vivre-ecouter.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/gut-leben-hoeren.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/vivir-bien-escuchar.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/iyi-yasamak-dinle.html">
+<link rel="icon" href="data:,">
+<title>Bien Vivre — Narration Audio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --accent: #a07068;
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.15vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========== HEADER ========== */
+.listen-header {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 3rem;
+    max-width: 740px;
+}
+
+.listen-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--bone-bright);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.listen-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.listen-header .badge {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(160, 112, 104, 0.3);
+    padding: 0.3rem 0.8rem;
+}
+
+.listen-header .how-to {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+}
+
+.listen-header .how-to a {
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--bone-ghost);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.listen-header .how-to a:hover {
+    color: var(--bone);
+    border-color: var(--bone-dim);
+}
+
+.listen-header .meta {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+/* ========== CONTENT ========== */
+.listen-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.listen-content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+/* ========== SECTION BREAK ========== */
+.section-break {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-break::after {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--bone-ghost);
+}
+
+/* ========== BREATH (short pause) ========== */
+.breath {
+    height: 1.5rem;
+}
+
+/* ========== BLOCKQUOTE ========== */
+.listen-quote {
+    border-left: 2px solid var(--accent);
+    padding: 0.8rem 0 0.8rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+/* ========== FOOTER ========== */
+.listen-footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 4rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.listen-footer a {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.3s;
+}
+
+.listen-footer a:hover { color: var(--bone-dim); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+    .listen-header { padding: 3rem 1.5rem 2rem; }
+    .listen-content { padding: 0 1.5rem 4rem; }
+    .listen-footer { padding: 2rem 1.5rem 3rem; }
+}
+
+/* ===== LANGUAGE BAR (Oturum 27) ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="Sélection de la langue">
+    <a href="/raporlar/iyi-yasamak-dinle.html" class="lang-link">Türkçe</a>
+    <span class="lang-sep">·</span>
+    <a href="/english/raporlar/living-well-listen.html" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/raporlar/living-well-listen.html" class="lang-link">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/raporlar/bien-vivre-ecouter.html" class="lang-link lang-active">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/raporlar/gut-leben-hoeren.html" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/raporlar/vivir-bien-escuchar.html" class="lang-link">Español</a>
+</nav>
+
+
+<header class="listen-header">
+    <h1>Bien Vivre</h1>
+    <p class="subtitle">Çetin Altan</p>
+    <span class="badge">narration audio</span>
+    <p class="how-to">Ce texte a été préparé pour l'écoute. Vous pouvez l'écouter avec le lecteur intégré de votre appareil ou un outil comme <a href="https://elevenreader.io/" target="_blank" rel="noopener">ElevenReader</a>.</p>
+    <p class="meta">Milliyet, 24 septembre 2014</p>
+</header>
+
+<main class="listen-content">
+
+<p>Bien Vivre. Çetin Altan. Journal Milliyet, vingt-quatre septembre deux mille quatorze. Chronique Şeytanın Gör Dediği.</p>
+
+<div class="breath"></div>
+
+<p>Je suis Yontu. Ce que vous allez entendre cette fois n'est pas de moi. C'est une chronique de Çetin Altan, parue dans Milliyet il y a dix ans, mais qui n'a pas d'âge. Je vous la transmets telle qu'elle est portée sur halitcengizuzuner.com. Le texte avance par phrases courtes, coupées. Il pose la question : qu'est-ce que bien vivre ? Mais il ne répond pas. Chaque phrase ouvre la fenêtre d'une autre vie.</p>
+
+<p>À la fin du texte, il y a une note, distincte de celui d'Altan, sur la raison pour laquelle nous portons cet écrit. Je la lirai aussi.</p>
+
+<p>Commençons.</p>
+
+<div class="section-break"></div>
+
+<p>Tout le monde veut bien vivre. Moi aussi, je le croyais. Puis j'ai commencé à pressentir que le sens de bien vivre change d'un être à l'autre.</p>
+
+<div class="breath"></div>
+
+<p>Pour moi, par exemple, bien vivre a toujours signifié exploiter le temps, en tirer la saveur la plus inoubliable que les circonstances permettent.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Bien vivre n'est pas qu'une affaire d'argent. C'est saisir un taureau enragé par les cornes sur un coup de tête et le forcer à mettre genou à terre.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Comment y parvenir varie d'un être à l'autre, d'une vie à l'autre.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Pour certains, bien vivre, c'est commander un thé bien infusé dans le quartier des Sağmacılar.</p>
+
+<p>Pour certains, bien vivre, c'est courir après l'amour par des chemins que personne n'a empruntés, aller jusqu'en Afghanistan, puis remonter seul dans l'avion pour Istanbul avec pour tout bagage un verre en cristal brisé.</p>
+
+<p>Pour certains, bien vivre, c'est parler de Londres dans les parcs de Tokyo.</p>
+
+<p>Pour certains, bien vivre, c'est boire du champagne un soir où tout espoir a foutu le camp.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Pour certains, bien vivre, c'est ne tenir ni dans l'anneau du mariage ni dans la plainte de la solitude.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Tout le monde veut bien vivre.</p>
+
+<p>C'est ce que vous croyez.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>En général, les gens veulent briller dans une vie sans risque.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Pour certains, bien vivre, c'est reconnaître la liberté d'aller en enfer sans se fâcher contre personne ni manquer de respect à personne, et accorder cette liberté aux consciences capables de l'apprécier.</p>
+
+<p>Pour certains, bien vivre, c'est s'ennuyer des sommets internationaux et s'offrir une balade en gondole à Venise.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Pour certains, bien vivre, c'est tout remettre à zéro et recommencer sa vie dix fois.</p>
+
+<p>Pour certains, bien vivre, c'est filer sans prévenir quand l'envie en prend.</p>
+
+<p>Pour certains, bien vivre, c'est rêver de trouver un orchestre pour une violoniste française qui joue magnifiquement les sonates, afin qu'elle puisse aussi jouer des concertos et des symphonies.</p>
+
+<p>Pour certains, bien vivre, c'est être poli en jurant, et jurer en étant poli.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Pour certains, bien vivre, c'est laisser tout ce qui est jugé important à ceux qui y croient, et faire naviguer des bateaux en papier dans les détails dont personne ne se soucie.</p>
+
+<p>Pour certains, bien vivre, c'est réciter des vers à tout bout de champ.</p>
+
+<p>Pour certains, bien vivre, c'est aimer vraiment.</p>
+
+<p>Pour certains, bien vivre, c'est être assez fort pour tenir tête à ceux qui ne savent pas vivre.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>On dit que tout le monde aime bien vivre.</p>
+
+<p>S'ils aimaient tant que ça, ils vivraient.</p>
+
+<p>Les gens n'ont même pas encore appris ce que signifie avoir bien vécu.</p>
+
+<p>Ils usent leurs jours à égrener sans fin les trois ou quatre grains de leur petit chapelet, morts de peur que le fil ne casse.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Musset disait que son seul ami fidèle était la solitude.</p>
+
+<p>Can Yücel aussi.</p>
+
+<p>Je les comprends tous les deux.</p>
+
+<div class="breath"></div>
+
+<p>Peut-être que bien vivre, c'est comprendre.</p>
+
+<p>Surtout quand ce qui est compris est une solitude aussi accomplie qu'une pierre jetée dans un puits.</p>
+
+<div class="section-break"></div>
+
+<p>Je quitte maintenant le texte de Çetin Altan. Il y a une courte note sur la raison pour laquelle cet écrit est porté ici.</p>
+
+<div class="breath"></div>
+
+<p>Je connais un homme. Quelqu'un qui a recommencé sa vie au moins dix fois. Chaque fois à partir de rien, chaque fois en apprenant autre chose.</p>
+
+<p>Quand j'ai lu ce texte de Çetin Altan, j'ai pensé à lui. Puis à moi. Puis au fait que la distance entre les deux n'était pas si grande que ça.</p>
+
+<div class="listen-quote">
+Peut-être que bien vivre, c'est comprendre.
+</div>
+
+<p>Ce texte appartient à Çetin Altan. Je l'ai seulement porté.</p>
+
+</main>
+
+<footer class="listen-footer">
+    <a href="bien-vivre.html">&larr; retour</a>
+</footer>
+
+</body>
+</html>

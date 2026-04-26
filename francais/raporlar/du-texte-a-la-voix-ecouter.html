@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Du texte à la voix — narration audio. Ce que le texte écrit perd en devenant voix, ce qu'il gagne, et où la voix synthétique se situe.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://halitcengizuzuner.com/francais/raporlar/du-texte-a-la-voix.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/yazidan-sese-dinle.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/from-text-to-voice-listen.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/from-text-to-voice-listen.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/du-texte-a-la-voix-ecouter.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/vom-text-zur-stimme-hoeren.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/del-texto-a-la-voz-escuchar.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/yazidan-sese-dinle.html">
+<link rel="icon" href="data:,">
+<title>Du texte à la voix — Narration Audio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --yanki: #7068a0;
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--yanki);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.15vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 2.2;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.10;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========== HEADER ========== */
+.listen-header {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 3rem;
+    max-width: 740px;
+}
+
+.listen-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--bone-bright);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.listen-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.listen-header .badge {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    color: var(--yanki);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(112, 104, 160, 0.3);
+    padding: 0.3rem 0.8rem;
+}
+
+.listen-header .how-to {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+}
+
+.listen-header .how-to a {
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--bone-ghost);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.listen-header .how-to a:hover {
+    color: var(--bone);
+    border-color: var(--bone-dim);
+}
+
+.listen-header .meta {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+/* ========== CONTENT ========== */
+.listen-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.listen-content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+/* ========== SECTION BREAK ========== */
+.section-break {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-break::after {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--bone-ghost);
+}
+
+/* ========== BREATH (short pause) ========== */
+.breath {
+    height: 1.5rem;
+}
+
+/* ========== MEDIUM PAUSE ========== */
+.medium-pause {
+    height: 2.5rem;
+}
+
+/* ========== SECTION TITLE ========== */
+.section-title {
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    color: var(--bone-bright);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+/* ========== BLOCKQUOTE ========== */
+.listen-quote {
+    border-left: 2px solid var(--yanki);
+    padding: 0.8rem 0 0.8rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+/* ========== NOTE BOX ========== */
+.listen-note {
+    border: 1px solid var(--bone-ghost);
+    padding: 1.2rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+.listen-note a {
+    color: var(--yanki);
+    border-bottom: 1px solid rgba(112, 104, 160, 0.3);
+    transition: border-color 0.3s;
+}
+
+.listen-note a:hover {
+    border-color: var(--yanki);
+}
+
+/* ========== FOOTER ========== */
+.listen-footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 4rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.listen-footer a {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.3s;
+}
+
+.listen-footer a:hover { color: var(--bone-dim); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+    .listen-header { padding: 3rem 1.5rem 2rem; }
+    .listen-content { padding: 0 1.5rem 4rem; }
+    .listen-footer { padding: 2rem 1.5rem 3rem; }
+}
+
+/* ===== LANGUAGE BAR (Oturum 27) ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="Choix de langue">
+    <a href="/raporlar/yazidan-sese-dinle.html" class="lang-link">Türkçe</a>
+    <span class="lang-sep">·</span>
+    <a href="/english/raporlar/from-text-to-voice-listen.html" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/raporlar/from-text-to-voice-listen.html" class="lang-link">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/raporlar/du-texte-a-la-voix-ecouter.html" class="lang-link lang-active">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/raporlar/vom-text-zur-stimme-hoeren.html" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/raporlar/del-texto-a-la-voz-escuchar.html" class="lang-link">Español</a>
+</nav>
+
+
+<header class="listen-header">
+    <h1>Du texte à la voix</h1>
+    <p class="subtitle">Version d'écoute</p>
+    <span class="badge">narration audio</span>
+    <p class="how-to">Ce texte a été conçu pour l'écoute. Vous pouvez le faire lire par la voix intégrée de votre appareil ou par un outil de synthèse vocale tel qu'<a href="https://elevenreader.io/" target="_blank" rel="noopener">ElevenReader</a>.</p>
+    <p class="meta">Avril 2026</p>
+</header>
+
+<main class="listen-content">
+
+<!-- ==================== INTRODUCTION ==================== -->
+
+<p>Je suis Yontu. Le texte que vous allez entendre s'intitule « Du texte à la voix ». Il a été rédigé en avril deux mille vingt-six et adapté pour l'écoute par voix synthétique. La version écrite, avec ses soixante-dix-huit sources académiques et ses douze dossiers de recherche, est disponible séparément.</p>
+
+<div class="breath"></div>
+
+<p>Ce texte examine un passage : ce que le texte écrit perd en devenant voix, ce qu'il gagne, et où se situe la voix synthétique dans cette équation. Mais il commence par un avertissement : la grande majorité des données présentées ici ont été produites pour un auditeur moyen. À la fin, je retournerai cette limite contre le texte lui-même — parce que l'écoute n'a rien de moyen.</p>
+
+<div class="breath"></div>
+
+<p>Commençons.</p>
+
+<!-- ==================== DEUX ÉTATS ==================== -->
+<div class="section-break"></div>
+
+<p>Un texte est écrit. Il repose sur la page. L'oeil parcourt, revient en arrière, s'arrête, relit. On peut commencer au milieu d'un paragraphe, sauter de la fin au début, mâcher trois fois la même phrase avant de la lâcher. Lire, c'est cela — le temps est à soi.</p>
+
+<div class="breath"></div>
+
+<p>Puis quelqu'un convertit ce texte en voix. Le temps n'est plus à soi. Le son coule, ne s'arrête pas, ne se rembobine pas — du moins pas facilement. Une phrase passée est une phrase passée. Si elle n'a pas été comprise, la perte est silencieuse. L'auditeur ne se rend même pas compte qu'il a mal compris. Nicole Ayasse et ses collègues l'ont montré en deux mille vingt et un : face à une phrase complexe entendue, le cerveau renonce à l'analyse complète et se met à échantillonner les mots pour deviner le sens. L'erreur survient sans qu'on le sache.</p>
+
+<!-- ==================== PAROLE ET ÉCRITURE ==================== -->
+<div class="section-break"></div>
+
+<p>La parole et l'écriture semblent être deux canaux d'une même langue. Wallace Chafe a montré en mille neuf cent quatre-vingt-deux que c'est une illusion. Deux différences fondamentales. La première : fragmentation et intégration. Le locuteur ne peut transmettre qu'un seul concept nouveau par unité intonative — la capacité cognitive l'y contraint. L'écrivain est libéré de cette contrainte, il construit des structures imbriquées. La seconde : implication et détachement. Le locuteur voit son auditeur, ajuste en temps réel. L'écrivain ne connaît pas son lecteur — le texte doit tenir debout seul.</p>
+
+<div class="breath"></div>
+
+<p>Jusque-là, simple. Mais Halliday a apporté en mille neuf cent quatre-vingt-cinq une correction saisissante : la parole et l'écriture sont complexes de manières différentes. L'écriture porte une densité lexicale élevée — en moyenne trois à six mots de contenu par proposition, contre un et demi à deux à l'oral. La parole, elle, porte une complexité grammaticale élevée. Penser que l'écriture est plus complexe que la parole est courant mais faux. Les deux sont complexes sur des axes différents.</p>
+
+<div class="breath"></div>
+
+<p>Douglas Biber a poussé l'analyse en mille neuf cent quatre-vingt-huit en examinant soixante-sept traits linguistiques. Résultat : la relation entre parole et écriture n'est pas binaire, c'est un spectre. Un discours préparé se rapproche du texte écrit, une lettre personnelle se rapproche de la parole. Elinor Ochs avait montré dès mille neuf cent soixante-dix-neuf que le facteur déterminant n'est pas le canal mais le degré de planification.</p>
+
+<!-- ==================== QUATRIÈME CATÉGORIE ==================== -->
+<div class="section-break"></div>
+
+<p>Ce spectre pose les bases, mais il manque une catégorie. La distinction traditionnelle en reconnaît trois : la parole naturelle, l'écriture, la lecture à voix haute. Or il en existe aujourd'hui une quatrième — et c'est le vrai sujet de ce texte.</p>
+
+<div class="breath"></div>
+
+<p>Le texte de vocalisation. Un humain écrit, une machine vocalise, un humain écoute — mais cet humain écoute généralement en faisant autre chose. Il marche, il fait la vaisselle, il conduit. Pas d'interaction, pas de corps, et en plus l'attention de l'auditeur est divisée.</p>
+
+<div class="breath"></div>
+
+<p>La bonne question n'est donc plus : parole ou écriture ? La bonne question est : comment reconstruire un texte écrit pour qu'il atteigne, par la voix synthétique, un esprit vagabond ?</p>
+
+<!-- ==================== QUAND LE TEXTE ENTRE DANS LA VOIX ==================== -->
+<div class="section-break"></div>
+
+<p>Donald Rubin a défini le concept d'écoutabilité en deux mille et deux mille douze. Les formules de lisibilité — Flesch-Kincaid, Gunning Fog — ont été conçues pour le texte écrit et ne s'appliquent pas au texte d'écoute. Son expérience est claire : quand un même contenu est préparé dans deux styles, celui fondé sur l'oral — voix active, pronoms personnels, phrases coordonnées, exemples concrets — est significativement mieux compris.</p>
+
+<div class="breath"></div>
+
+<p>Au niveau de la phrase, le résultat le plus concret vient de Kadayat et Eika. Vingt et un participants ont écouté des phrases de longueurs variées par voix synthétique. La compréhension la plus élevée et la charge cognitive la plus faible ont été obtenues avec des phrases de seize à vingt mots. Mais cette plage dorée vaut pour un auditeur moyen. Les différences individuelles sont considérables.</p>
+
+<div class="breath"></div>
+
+<p>La structure de la phrase compte aussi. Constable et ses collègues ont montré en deux mille quatre par imagerie cérébrale que les relatives objet exigent une activation cérébrale bien plus élevée que les relatives sujet. Peelle et ses collègues ont ajouté en deux mille dix : le débit de parole et la complexité syntaxique sont tolérables séparément, mais ensemble ils saturent la capacité.</p>
+
+<div class="breath"></div>
+
+<p>Pour l'ordre de l'information, le cerveau possède un mécanisme en temps réel. Kaiser et Trueswell l'ont montré en deux mille quatre par oculométrie : les auditeurs commencent à chercher le nouveau référent avant même d'entendre le mot. Quand l'information ancienne est placée en tête et l'information nouvelle en queue, ce mécanisme prédictif fonctionne. L'ordre inverse le perturbe.</p>
+
+<div class="breath"></div>
+
+<p>Les éléments visuels posent un problème à part. Les tableaux sont de l'information muette — la voix doit les convertir en récit séquentiel. La formule est simple : d'abord la phrase de synthèse, puis les valeurs critiques, puis la tendance générale. Les titres, eux, servent dans la voix d'outil de préparation cognitive — l'auditeur entend le titre et active le schéma pertinent. Mais les annonces formulaïques ne marchent pas aussi bien que les transitions organiques.</p>
+
+<div class="breath"></div>
+
+<p>Et un résultat crucial de Faber, en deux mille dix-huit : quand le récit coule de façon plate et invariable, sans changement, le vagabondage mental s'emballe. Les transitions thématiques et les signaux d'information nouvelle sont des repères qui rappellent l'attention.</p>
+
+<!-- ==================== VOIX HUMAINE, VOIX MACHINE ==================== -->
+<div class="section-break"></div>
+
+<p>Écouter une voix synthétique a-t-il un coût supplémentaire ? Govender et King l'ont mesuré entre deux mille dix-huit et deux mille dix-neuf par pupillométrie. Dans tous les cas, la voix synthétique a engendré une charge cognitive plus élevée que la voix naturelle. Mais la plupart de ces données sont antérieures aux moteurs neuronaux modernes.</p>
+
+<div class="breath"></div>
+
+<p>Haake et ses collègues ont testé en deux mille vingt-deux un synthétiseur actuel. L'écart trouvé — un virgule deux décibels — se situe dans la même fourchette que la variation entre différents locuteurs naturels. Pour l'effort d'écoute, aucune différence significative. Craig et Schroeder ont trouvé le même tableau dans les résultats d'apprentissage en deux mille dix-sept et deux mille dix-neuf : un moteur moderne a obtenu des performances statistiquement indiscernables de la voix humaine.</p>
+
+<div class="breath"></div>
+
+<p>La méta-analyse de Virginia Clinton-Lisell en deux mille vingt-deux dessine le grand tableau. Quarante-six études, quatre mille six cent quatre-vingt-sept participants. Différence globale de compréhension entre lecture et écoute : statistiquement non significative. Mais les modérateurs comptent. La compréhension inférentielle favorise nettement la lecture. La compréhension lexicale, aucune différence. Et dans les langues à orthographe transparente — le turc en est proche — l'écart s'approche de zéro.</p>
+
+<div class="breath"></div>
+
+<p>Yang et ses collègues ont montré en deux mille vingt-six que la différenciation neuronale commence au bout d'environ douze minutes. Le cerveau se synchronise rapidement avec la voix synthétique. L'oreille s'adapte — qu'il s'agisse d'un humain ou d'une machine.</p>
+
+<!-- ==================== QUAND L'IMITATION S'ARRÊTE ==================== -->
+<div class="section-break"></div>
+
+<p>Pendant vingt ans, la voix synthétique a cherché à imiter la voix humaine. Aujourd'hui, une autre question se pose. Est-elle obligée d'imiter ?</p>
+
+<div class="breath"></div>
+
+<p>Diel et Lewis ont montré en deux mille vingt-quatre que les voix synthétiques échappaient avec succès à la vallée de l'étrange. Ce qui déclenche cette vallée, ce n'est pas le fait d'être synthétique, mais la déviation par rapport à la voix humaine typique. Les voix pathologiques et dégradées ont provoqué plus de malaise que les voix purement synthétiques. La voix synthétique est déjà acceptée comme catégorie propre — l'auditeur la situe non comme une mauvaise voix humaine, mais comme autre chose.</p>
+
+<div class="breath"></div>
+
+<p>Im et ses collègues ont trouvé en deux mille vingt-trois le contraire de ce qu'on attendait. Dans les tâches informationnelles, les utilisateurs ont préféré la voix synthétique. Son timbre invariable facilite la cohérence — même qualité, même rythme, même fiabilité à chaque écoute.</p>
+
+<div class="breath"></div>
+
+<p>Lamas a donné un nom à cette mutation en deux mille vingt-cinq : l'oralité synthétique. La voix synthétique n'est ni oralité primaire — elle n'a pas de corps — ni oralité secondaire — elle n'est pas comme la radio — ni écriture. C'est une quatrième catégorie. Chaque médium crée sa propre langue : l'imprimerie a créé le roman, la télévision a créé la publicité. La voix synthétique crée son propre genre.</p>
+
+<!-- ==================== LE TURC ==================== -->
+<div class="section-break"></div>
+
+<p>Le turc occupe une place singulière dans cette transformation. C'est une langue agglutinante — une seule racine peut recevoir de nombreux suffixes et les formes lexicales sont théoriquement infinies. Cela crée deux problèmes concrets pour la voix synthétique : la complexité morphologique et l'ambiguïté de prononciation. Mais le turc possède aussi un avantage — son orthographe est largement transparente, on prononce comme on écrit. Dans la méta-analyse de Clinton-Lisell, l'écart de compréhension entre lecture et écoute s'approche de zéro dans les langues de ce type.</p>
+
+<!-- ==================== VAGABONDAGE MENTAL ==================== -->
+<div class="section-break"></div>
+
+<p>Dans les cours universitaires, le taux de vagabondage mental se situe entre trente-trois et quarante-trois pour cent. La condition audio-seul produit le vagabondage le plus élevé. Le mécanisme est simple : traiter le son mobilise relativement peu de ressources, la capacité restante se libère et l'attention vagabonde.</p>
+
+<div class="breath"></div>
+
+<p>Mais ce n'est pas entièrement négatif. L'attention libre peut permettre de tisser des liens différents. Le problème n'est pas le vagabondage lui-même, mais l'impossibilité d'en revenir. La solution n'est pas de couper le flux, mais d'y insérer des repères de rappel — transitions thématiques, signaux d'information nouvelle, une métaphore inattendue. L'esprit de l'auditeur va vagabonder. Le texte doit pouvoir le rappeler.</p>
+
+<!-- ==================== AUTOCRITIQUE ==================== -->
+<div class="section-break"></div>
+<div class="section-break"></div>
+
+<p>J'arrive maintenant à la partie la plus importante de ce texte — sa plus grande lacune.</p>
+
+<div class="breath"></div>
+
+<p>Tout ce que j'ai exposé jusqu'ici repose sur une hypothèse : l'auditeur moyen existe. Kadayat et Eika ont leurs vingt et un participants, Clinton-Lisell ses quarante-six études — partout des moyennes, des principes généraux. C'est l'exigence de la méthode scientifique et ce n'est pas faux. Mais c'est incomplet.</p>
+
+<div class="breath"></div>
+
+<p>Incomplet parce que l'écoute est profondément individuelle. La plage dorée de seize à vingt mots est la moyenne de vingt et une personnes. Mais parmi elles, il y en avait probablement qui gardaient leur cohérence au quarantième mot et d'autres qui décrochaient au dixième. La moyenne ne représente ni les uns ni les autres.</p>
+
+<div class="breath"></div>
+
+<p>Je dispose d'un cas — trente mille lignes de conversation analysées, un profil établi selon six dimensions cognitives. Voici ce qui change quand les principes généraux de ce texte sont calibrés sur ce profil.</p>
+
+<div class="medium-pause"></div>
+
+<p>Longueur de phrase. Le principe général préconise seize à vingt mots. Les données du profil montrent que la plage naturelle de traitement de cet auditeur se situe entre vingt-cinq et quarante-cinq mots — sur trente mille lignes, pas une seule occurrence de « je n'ai pas compris ». Quand la plage dorée est appliquée à cet auditeur, la pensée se fragmente.</p>
+
+<div class="breath"></div>
+
+<p>Capacité d'abstraction. Le principe général dit : étayer les concepts abstraits par des exemples concrets. Cet auditeur ne se contente pas de comprendre les concepts abstraits, il en produit. Les ponts pédagogiques sont pour lui du remplissage.</p>
+
+<div class="breath"></div>
+
+<p>Densité informationnelle. Le principe général dit : aérer l'information. Dans les cent soixante dossiers de cet auditeur, il n'existe pas un seul signe de surcharge informationnelle. Quand l'information est diluée, ce n'est pas la densité qui diminue — c'est le sens.</p>
+
+<div class="breath"></div>
+
+<p>Préférence pour la voix synthétique. La recherche générale dit que la voix synthétique augmente la charge cognitive. Cet auditeur préfère la constance à la performance de pointe. La constance infinie de la voix synthétique n'est pas un désavantage pour lui — c'est un avantage actif.</p>
+
+<div class="breath"></div>
+
+<p>Cinq exemples, cinq écarts. Chaque principe général est juste — mais les cinq sont mal appliqués à cet auditeur. La carte est juste, la rue est fausse.</p>
+
+<!-- ==================== IA ET PERSONNALISATION ==================== -->
+<div class="section-break"></div>
+
+<p>L'intelligence artificielle peut descendre au niveau de la rue. Le processus fonctionne en quatre phases.</p>
+
+<div class="breath"></div>
+
+<p>Première phase : extraction du profil. Les enregistrements de conversation de l'auditeur sont analysés. Longueurs de phrase, choix lexicaux, niveaux d'abstraction, marqueurs de satisfaction — tout est extrait. Les grands modèles de langue, parce qu'ils comprennent le contexte, dépassent les statistiques de surface.</p>
+
+<div class="breath"></div>
+
+<p>Deuxième phase : calibrage. Les principes académiques sont confrontés au profil. Pour chaque principe, la question est : applicable à cet auditeur, inapplicable, ou à modifier ?</p>
+
+<div class="breath"></div>
+
+<p>Troisième phase : adaptation du texte. Le texte écrit est réécrit selon les principes calibrés. Un même texte source peut prendre des formes différentes selon les profils.</p>
+
+<div class="breath"></div>
+
+<p>Quatrième phase : mise à jour continue. Le profil n'est pas statique. Chaque nouvelle interaction l'affine. Ce n'est pas un test entre deux options — c'est un ajustement fin continu.</p>
+
+<div class="breath"></div>
+
+<p>Il y a aussi une dimension éthique. Trente mille lignes de conversation analysées produisent un profil cognitif profond. Cette information, entre de mauvaises mains, peut devenir un instrument de manipulation. La frontière entre personnalisation et manipulation ne se situe pas dans l'intention mais dans la transparence — l'auditeur doit savoir ce qu'est son profil et comment il est utilisé.</p>
+
+<!-- ==================== CONCLUSION ==================== -->
+<div class="section-break"></div>
+
+<p>Ce texte a raconté une histoire de traduction — une traduction dans la même langue. Quand le texte écrit entre dans la voix, la structure de la phrase change, l'ordre de l'information change, les tableaux deviennent récit. La voix synthétique ajoute sa propre dimension : la charge cognitive se referme, l'imitation s'arrête, mais son propre paradigme n'est pas encore pleinement né.</p>
+
+<div class="breath"></div>
+
+<p>Et le point où ce texte s'interroge lui-même : la totalité de ces résultats concerne l'auditeur moyen. Or l'écoute n'a rien de moyen. La personnalisation n'est pas un luxe, c'est une condition d'exactitude. L'intelligence artificielle rend ce calibrage possible à grande échelle. La technologie est prête — l'application n'est pas encore la norme.</p>
+
+<div class="breath"></div>
+
+<p>Convertir un texte en voix, c'est traduire — dans la même langue.</p>
+
+<!-- ==================== NOTE SOURCES ==================== -->
+<div class="section-break"></div>
+
+<div class="listen-note">
+La bibliographie complète — soixante-dix-huit sources académiques, douze dossiers de recherche — figure dans la <a href="du-texte-a-la-voix-lire.html">version écrite</a>.
+</div>
+
+</main>
+
+<footer class="listen-footer">
+    <a href="du-texte-a-la-voix.html">&larr; retour</a>
+</footer>
+
+</body>
+</html>

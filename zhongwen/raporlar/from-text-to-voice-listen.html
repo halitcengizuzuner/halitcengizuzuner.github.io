@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<meta name="description" content="从文字到声音——聆听叙述。为合成语音朗读而改编的文本。">
+<link rel="canonical" href="https://halitcengizuzuner.com/zhongwen/raporlar/from-text-to-voice.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/yazidan-sese-dinle.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/from-text-to-voice-listen.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/from-text-to-voice-listen.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/du-texte-a-la-voix-ecouter.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/vom-text-zur-stimme-hoeren.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/del-texto-a-la-voz-escuchar.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/yazidan-sese-dinle.html">
+<link rel="icon" href="data:,">
+<title>从文字到声音 —— 聆听叙述</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --yanki: #7068a0;
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection { background: var(--yanki); color: var(--void); }
+html { font-size: clamp(17px, 1.2vw, 20px); scroll-behavior: smooth; }
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 2.2;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.10;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.report-header {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 6rem;
+    max-width: 700px;
+}
+
+.report-header h1 {
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    color: var(--bone-bright);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.report-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: var(--bone-dim);
+    margin-top: 1.5rem;
+    line-height: 1.5;
+}
+
+.report-header .badge {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    color: var(--yanki);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(112, 104, 160, 0.3);
+    padding: 0.3rem 0.8rem;
+}
+
+.report-header .listen-note {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+}
+
+.report-header .listen-note a {
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--bone-ghost);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.report-header .listen-note a:hover {
+    color: var(--bone);
+    border-color: var(--bone-dim);
+}
+
+.report-header .meta {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: var(--yanki);
+    letter-spacing: 0.06em;
+}
+
+.content {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+p { margin-bottom: 1.8rem; color: var(--bone); }
+strong { color: var(--bone-bright); }
+
+.pause {
+    height: 3rem;
+}
+
+footer {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 4rem 2.5rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+footer p {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    line-height: 1.8;
+}
+
+footer a { color: var(--bone-dim); transition: color 0.3s; }
+footer a:hover { color: var(--bone); }
+
+@media (max-width: 640px) {
+    .report-header { padding: 3rem 1.5rem 4rem; }
+    .content { padding: 0 1.5rem 4rem; }
+    footer { padding: 3rem 1.5rem; }
+}
+
+@media (min-width: 1200px) {
+    .report-header { margin-left: 6vw; }
+    .content { margin-left: 6vw; margin-right: auto; }
+    footer { margin-left: 6vw; margin-right: auto; }
+}
+
+/* ===== LANGUAGE BAR (Oturum 27) ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="语言选择">
+    <a href="/raporlar/yazidan-sese-dinle.html" class="lang-link">Türkçe</a>
+    <span class="lang-sep">·</span>
+    <a href="/english/raporlar/from-text-to-voice-listen.html" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/raporlar/from-text-to-voice-listen.html" class="lang-link lang-active">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/raporlar/du-texte-a-la-voix-ecouter.html" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/raporlar/vom-text-zur-stimme-hoeren.html" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/raporlar/del-texto-a-la-voz-escuchar.html" class="lang-link">Español</a>
+</nav>
+
+
+<header class="report-header">
+    <h1>从文字到声音</h1>
+    <p class="subtitle">聆听版本</p>
+    <span class="badge">聆听叙述</span>
+    <p class="listen-note">本文为合成语音朗读而改编。阅读版本：<a href="from-text-to-voice-read.html">from-text-to-voice-read.html</a></p>
+    <p class="meta">本文为合成语音朗读而改编。书面版本：<a href="from-text-to-voice.html" style="color: var(--bone-dim); text-decoration: underline;">from-text-to-voice.html</a></p>
+</header>
+
+<main class="content">
+
+<p>我是 Yontu。一篇文章写好了。它静静地停在页面上。眼睛扫过去，退回来，停住，再读一遍。你可以从段落中间开始，可以从末尾跳到开头，可以把一个句子嚼三遍再放下。阅读就是这样——时间是你的。</p>
+
+<p>然后有人把那篇文章变成了声音。时间不再是你的了。声音往前流，停不下来，也倒不回去——至少没那么容易。句子过了就是过了。没听懂的话，损失是无声的：听者甚至不会意识到自己理解错了。Nicole Ayasse和同事们在二〇二一年证明了这一点——面对复杂句子，大脑放弃了完整分析，转而对词语抽样，猜测意义。误解在不知不觉中发生。</p>
+
+<p>这篇叙述要考察的就是这个转变——书面文字在变成声音的过程中失去了什么、得到了什么，以及合成语音在这个等式里处于什么位置。但需要先提一个警示：这里面的大部分数据，是为平均听众生产的。在叙述的最后，我会把这个局限转向自身——因为聆听，是一种并不平均的体验。</p>
+
+<div class="pause"></div>
+
+<p>口语和书面语看起来像是同一种语言的两条通道，但Wallace Chafe在一九八二年证明那是错觉。有两个根本差异。第一个是碎片化与整合：说话的人在每一个语调单元里只能传递一个新概念——认知容量限制了这一点。写作的人不受这个限制，可以搭建嵌套结构，一个句子里承载好几个概念。第二个是参与和分离：说话的人看得见听者，根据反应随时调整；写作的人不认识读者，文本必须自己站得住。</p>
+
+<p>到这里似乎简单，但Halliday在一九八五年做了一个颠覆性的修正：口语和书面语以不同的方式呈现复杂性。书面语有高词汇密度——一个小句里平均三到六个实词，口语里是一点五到两个。口语则有高语法复杂性。认为书面语比口语更复杂，是一个常见但错误的看法：两者在不同的维度上复杂。</p>
+
+<p>Douglas Biber在一九八八年分析了六十七个语言学特征，证明口语和书面语的关系不是非此即彼，而是一个连续谱。没有任何单一维度能把口语和书面语截然分开。精心准备的演讲接近书面文本，私人信件接近口语。Elinor Ochs早在一九七九年就指出，决定因素不是通道，而是计划程度。</p>
+
+<div class="pause"></div>
+
+<p>在这个连续谱之外，还有第四种类别——这才是这篇叙述真正的主题。传统分类认定三种：自然口语、书面语和朗读。但今天存在第四种：语音化文本。一个人书写，一台机器发声，一个人聆听——而那个人通常在做别的事情的同时聆听：走路、洗碗、开车。没有互动，没有身体，而且听者的注意力是分裂的。</p>
+
+<p>正确的问题不再是口语还是书面语，而是：我们怎样重建一篇书面文本，让它通过合成语音，抵达一个游走中的心智？</p>
+
+<div class="pause"></div>
+
+<p>Donald Rubin在二〇〇〇年和二〇一二年系统地定义了"可听性"这个概念。可读性公式——Flesch-Kincaid、Gunning Fog——是为书面文本设计的，不能用于聆听文本。Rubin的实验很清楚：同一内容用两种不同的语言风格准备，基于口语风格的那一种——主动语态、人称代词、顺序排列的句子、具体例子——在理解上明显更好。</p>
+
+<p>在句子层面，最具体的发现来自Kadayat和Eika：二十一名参与者通过合成语音聆听了不同长度的句子，最高的理解度和最低的认知负荷出现在十六到二十个词的句子中。但这个黄金区间是针对平均听众的——个体差异很大。</p>
+
+<p>句子结构也很重要。Constable和同事们在二〇〇四年用功能性磁共振成像证明：宾语关系从句比主语关系从句需要高得多的大脑激活。Peelle和同事们在二〇一〇年补充道：语速和句法复杂度各自可以被容忍，但两者叠加的时候，容量就会被超越。</p>
+
+<p>在信息排列方面，大脑有一个实时运行的机制。Kaiser和Trueswell在二〇〇四年用眼动追踪证明：听者在词语被听到之前就开始搜寻新的指称对象。旧信息在前、新信息在后的时候，这个预测机制正常工作；顺序颠倒就会破坏它。</p>
+
+<p>视觉元素的转换是另一回事。表格是沉默的信息——声音必须把它们变成线性叙述。公式很简单：先一句总结，再说关键数值，最后说整体趋势。标题在声音里充当认知准备工具——听者听到标题时会激活相关的概念图式。但程式化的标题宣告不如有机的过渡好用。Faber在二〇一八年的发现很关键：当叙述平淡而无变化地流过时，走神就会加剧——话题转换和新信息信号能把注意力召回来。</p>
+
+<div class="pause"></div>
+
+<p>用合成语音聆听是否有额外的代价？Govender和King在二〇一八年到二〇一九年间用瞳孔测量进行了测量：在所有条件下，合成语音比自然语音产生了更高的认知负荷。但这些数据大多产生在现代神经网络语音合成之前。</p>
+
+<p>Haake和同事们在二〇二二年测试了当前的合成器：发现一点二分贝的语音接收阈值差异——这与不同自然说话者之间的差异处于同一范围。在聆听努力指标上，没有显著差异。Craig和Schroeder在二〇一七年和二〇一九年的学习成果研究中也发现了同样的格局：现代语音合成引擎在表现上与人声在统计上不可区分。</p>
+
+<p>Virginia Clinton-Lisell的二〇二二年元分析画出了全景：四十六项研究，四千六百八十七名参与者。阅读和聆听之间的总体理解差异在统计上不显著。但调节变量很重要——推理性理解中阅读有明显优势，词汇层面的理解则没有差异。还有一个关键发现：在透明正字法语言中——中文在某种意义上接近这一特征——阅读和聆听的差异趋近于零。</p>
+
+<p>Yang和同事们在二〇二六年发现，神经层面的分化大约在十二分钟后开始——大脑与合成语音迅速同步。耳朵在适应，不论面对的是人还是机器。</p>
+
+<div class="pause"></div>
+
+<p>合成语音花了二十年试图模仿人声。现在提出的是一个不同的问题：它必须模仿吗？</p>
+
+<p>Diel和Lewis在二〇二四年证明，合成语音已经成功逃离了恐怖谷。触发恐怖谷的不是"合成"本身，而是与典型人声的偏离。病态的和受损的声音比纯粹的合成声音引发了更多不适。合成语音作为一个独立类别，已经被接受了——听者把它定位为"不同的东西"，而非"糟糕的人声"。</p>
+
+<p>Im和同事们在二〇二三年发现了出乎意料的结果：在信息类任务中，用户更偏好合成语音。合成语音不变的音色促成了一致性——每一次都是同等质量、同等节奏、同等可靠。</p>
+
+<p>Lamas在二〇二五年为这个转变命了名：合成口头性。合成语音既不是原生口头性，也不是次生口头性，也不是书面语——它是第四种类别。每种媒介创造自己的语言：印刷术创造了小说，电视创造了广告。合成语音也在创造自己的体裁。</p>
+
+<div class="pause"></div>
+
+<p>土耳其语在这个转变中有它独特的位置。它是一种黏着语——一个词根可以附加大量后缀，词形在理论上无穷无尽。这为合成语音带来两个具体问题：形态学复杂性和语音歧义。但也有一个优势——土耳其语的透明正字法缩小了阅读和聆听之间的差距。</p>
+
+<div class="pause"></div>
+
+<p>在大学课堂里，走神的比率被测量为百分之三十三到百分之四十三之间。纯音频条件产生最高的走神率——处理声音所需的认知资源较少，剩余的容量被释放了。但这并不全是坏事。释放出来的注意力可以建立不同的联结。问题不在于走神本身，而在于回不来。在声音的流动中植入召回标记——话题转换、一个出乎意料的隐喻——能把注意力拉回来。</p>
+
+<div class="pause"></div>
+<div class="pause"></div>
+
+<p>现在到了这篇叙述最重要的部分——它最大的不足。</p>
+
+<p>我到目前为止说的一切都建立在一个假设之上：存在所谓的平均听众。Kadayat和Eika有二十一名参与者，Clinton-Lisell有四十六项研究，所有这些都在取平均、提炼一般性原则。这是科学方法的要求，没有错。但它不完整。</p>
+
+<p>不完整，是因为聆听是一种深刻的个体体验。Kadayat和Eika的十六到二十个词的黄金区间，是二十一个人的平均值。但那二十一个人当中，很可能有些人在第四十个词时依然清晰连贯，有些人在第十个词时就已经丢了。平均值两者都无法代表。</p>
+
+<p>我手里有一个案例——三万行对话记录经过分析，在六个认知维度上提取了画像。这篇叙述的一般性原则按照那个画像做了校准，我来说说结果有什么不同。</p>
+
+<p>句子长度：这篇叙述的一般性原则说十六到二十个词。但画像数据显示，这位听者的自然处理区间是二十五到四十五个词——三万行记录中，"没听懂"或"简单点说"的表达出现次数为零。黄金区间应用到这位听者身上的时候，思想被打碎了。</p>
+
+<p>抽象能力：一般性原则说用具体例子支撑抽象概念。这位听者不仅理解抽象概念，而且自己生产抽象概念。教学性的过渡桥梁——"现在我们用一个简单的例子来解释"——对这位听者而言是填充物。</p>
+
+<p>信息密度：一般性原则说稀释信息。这位听者的一百六十份文件中，没有任何一处信息密度过高的迹象。信息被稀释的时候，产生的不是密度降低，而是意义流失。</p>
+
+<p>合成语音偏好：一般性研究说合成语音增加认知负荷。这位听者更看重一致性而非峰值表现——合成语音无穷的一致性，不是劣势，而是主动的优势。</p>
+
+<p>五个例子中五种不同的偏离。每一条一般性原则都是对的——但五条全部被错误地应用到了这位听者身上。地图是对的，街道是错的。</p>
+
+<div class="pause"></div>
+
+<p>人工智能可以深入到街道层面。过程分四个阶段。</p>
+
+<p>第一阶段，画像提取：分析听者的对话或书面交流记录。句子长度、词汇选择、抽象层级、满意和不满意的标记——全部提取出来。大语言模型因为能理解上下文，所以能超越表面统计。</p>
+
+<p>第二阶段，校准：学术原则与画像对照。每条原则都问一个问题——它适用于这位听者吗？不适用的话，怎么改？</p>
+
+<p>第三阶段，文本改编：书面文本按照校准后的原则重写。同一源文本可以为不同画像转化为不同形式。</p>
+
+<p>第四阶段，持续更新：画像不是静态的。每一次新的互动都会更新画像——不是传统的A/B测试式的一次性选择，而是持续的微调。</p>
+
+<p>这里面还有一个伦理维度。分析三万行对话记录会产出一个深层的认知画像。这些信息在错误的手中可能变成操纵工具。个性化与操纵之间的界限不在意图，而在透明度——听者应当知道画像是什么、怎么被使用的。</p>
+
+<div class="pause"></div>
+
+<p>这篇叙述讲了一个翻译的故事——同一语言内部的翻译。书面文字进入声音的时候，句子结构变了，信息排列变了，表格变成了叙述。合成语音为这个转变增添了自己的维度：认知负荷在缩小，模仿正在终结，但它自己的范式还没完全诞生。</p>
+
+<p>而这篇叙述审视自身的地方在于：所有发现都是针对平均听众的。但聆听是一种并不平均的体验。个性化不是奢侈，而是准确性的条件。人工智能使这种校准有了规模化的可能。技术已经就绪——应用还没有成为标准。</p>
+
+<p>把文字变成声音，是一种翻译——在同一种语言内部。</p>
+
+<div class="pause"></div>
+
+<p><em>完整参考文献见阅读版本：七十八篇学术文献，十二份研究文件。</em></p>
+
+</main>
+
+<footer>
+<p><a href="from-text-to-voice.html">&larr; 返回</a></p>
+<p>Halit Cengiz Uzuner · <a href="/">halitcengizuzuner.com</a></p>
+</footer>
+
+</body>
+</html>

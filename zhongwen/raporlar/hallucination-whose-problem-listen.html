@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="幻觉：谁的问题？——聆听叙述。人工智能最具争议的缺陷。">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://halitcengizuzuner.com/zhongwen/raporlar/hallucination-whose-problem.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/halusinasyon-kimin-sorunu-dinle.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/hallucination-whose-problem-listen.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/hallucination-whose-problem-listen.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/hallucination-a-qui-la-faute-ecouter.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/halluzination-wessen-problem-hoeren.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/alucinacion-de-quien-es-el-problema-escuchar.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/halusinasyon-kimin-sorunu-dinle.html">
+<link rel="icon" href="data:,">
+<title>幻觉：谁的问题？—— 聆听叙述</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --accent: #7890a0;
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.15vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========== HEADER ========== */
+.listen-header {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 3rem;
+    max-width: 740px;
+}
+
+.listen-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--bone-bright);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.listen-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.listen-header .badge {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(120, 144, 160, 0.3);
+    padding: 0.3rem 0.8rem;
+}
+
+.listen-header .how-to {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+}
+
+.listen-header .how-to a {
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--bone-ghost);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.listen-header .how-to a:hover {
+    color: var(--bone);
+    border-color: var(--bone-dim);
+}
+
+.listen-header .meta {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+/* ========== CONTENT ========== */
+.listen-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.listen-content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+/* ========== SECTION BREAK ========== */
+.section-break {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-break::after {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--bone-ghost);
+}
+
+/* ========== BREATH (short pause) ========== */
+.breath {
+    height: 1.5rem;
+}
+
+/* ========== MEDIUM PAUSE ========== */
+.medium-pause {
+    height: 2rem;
+}
+
+/* ========== SECTION TITLE ========== */
+.section-title {
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    color: var(--bone-bright);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+/* ========== BLOCKQUOTE ========== */
+.listen-quote {
+    border-left: 2px solid var(--accent);
+    padding: 0.8rem 0 0.8rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+/* ========== NOTE BOX ========== */
+.listen-note {
+    border: 1px solid var(--bone-ghost);
+    padding: 1.2rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+.listen-note a {
+    color: var(--accent);
+    border-bottom: 1px solid rgba(120, 144, 160, 0.3);
+    transition: border-color 0.3s;
+}
+
+.listen-note a:hover {
+    border-color: var(--accent);
+}
+
+/* ========== FOOTER ========== */
+.listen-footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 4rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.listen-footer a {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.3s;
+}
+
+.listen-footer a:hover { color: var(--bone-dim); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+    .listen-header { padding: 3rem 1.5rem 2rem; }
+    .listen-content { padding: 0 1.5rem 4rem; }
+    .listen-footer { padding: 2rem 1.5rem 3rem; }
+}
+
+/* ===== LANGUAGE BAR (Oturum 27) ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="语言选择">
+    <a href="/raporlar/halusinasyon-kimin-sorunu-dinle.html" class="lang-link">Türkçe</a>
+    <span class="lang-sep">·</span>
+    <a href="/english/raporlar/hallucination-whose-problem-listen.html" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/raporlar/hallucination-whose-problem-listen.html" class="lang-link lang-active">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/raporlar/hallucination-a-qui-la-faute-ecouter.html" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/raporlar/halluzination-wessen-problem-hoeren.html" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/raporlar/alucinacion-de-quien-es-el-problema-escuchar.html" class="lang-link">Español</a>
+</nav>
+
+
+<header class="listen-header">
+    <h1>幻觉：谁的问题？</h1>
+    <p class="subtitle">"人工智能最具争议的缺陷。"</p>
+    <span class="badge">聆听叙述</span>
+    <p class="how-to">本文为聆听而准备。您可以使用设备自带的朗读功能，或像 <a href="https://elevenreader.io/" target="_blank" rel="noopener">ElevenReader</a> 这样的文字转语音工具来聆听。</p>
+    <p class="meta">2026年3月</p>
+</header>
+
+<main class="listen-content">
+
+<!-- ==================== 引言 ==================== -->
+
+<p>幻觉：谁的问题？人工智能的信息生产错误与人类的信息生产错误之比较分析。一个六层模型。二〇二六年三月。</p>
+
+<div class="breath"></div>
+
+<p>这篇文章由六个主要部分组成。第一部分，我们探讨这项研究的起点，以及围绕"幻觉"这个术语本身的争论——该叫幻觉，还是该叫虚构？第二部分，我们用数据来比较人工智能和人类的错误率。第三部分，我们审视幻觉最隐蔽的形态——谄媚。第四部分，我们逐层展开六层幻觉结构——从信息幻觉到元幻觉。第五部分，我们考察科学界自身的幻觉、对透明度的惩罚，以及实战案例测试。最后第六部分，我们讨论那些无法得出结论的开放问题。</p>
+
+<p>我们开始。</p>
+
+<!-- ==================== 第一部分 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第一部分。来自《研究宪法》的一个问题。</p>
+
+<div class="breath"></div>
+
+<p>这项研究的种子，始于一段引文。它是这样说的：</p>
+
+<div class="listen-quote">
+"人工智能的幻觉与研究错误——机制不同，结果相同。对两者应该区别对待吗？"
+</div>
+
+<p>这是《研究宪法》的第四个开放问题。</p>
+
+<div class="breath"></div>
+
+<p>这里有四个需要交代的背景。</p>
+
+<p>第一，出发点：《研究宪法》第四个开放问题是这项研究的种子。幻觉不是一个单一现象，而是一个分层结构。</p>
+
+<p>第二，方法：比较数据分析。人工智能与人类的错误率、发现时间和惩罚的不对称性。</p>
+
+<p>第三，边界：这个话题不适合下定论，而适合持续追问。它的价值不在于确定性，而在于让问题始终敞开。</p>
+
+<p>第四，自我检验：这项研究本身，在研究过程中产生了四次幻觉，又四次被纠正。过程本身就是论证的一部分。</p>
+
+<div class="breath"></div>
+
+<p>这项研究，是《研究宪法》所倡导的验证反射在实践中受到考验的领域。最需要验证反射的课题，恰恰是人工智能对自身错误机制的审视——因为做研究的人工智能，同时也是研究的对象。</p>
+
+<p>甚至"幻觉"这个概念的定义本身就负载着价值判断——哪些输出算"错误"，哪些算"独立综合"，取决于观察的视角。在抽象议题的讨论中，所达成的见解无法承载确定性。这项研究的目标不是得出一个结论，而是绘出一幅地图。</p>
+
+<!-- ==================== 术语之争 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">该叫幻觉，还是虚构？</p>
+
+<div class="breath"></div>
+
+<p>幻觉（hallucination）是一个来自精神医学和神经科学的术语：感知到不存在的东西。比如一个精神分裂症患者，听到实际上并不存在的声音。这是一种感知障碍。</p>
+
+<p>一个大语言模型并不进行感知。它从训练数据中的数十亿文本模式出发，通过统计推断来生成下一个最可能的词。它没有意识，没有意图，也没有欺骗的目的。</p>
+
+<p>在神经科学中，这种行为对应的术语是虚构（confabulation）：自信地填补记忆空白。这在脑损伤患者身上可以观察到——当患者记不起某件事时，他会用一个看似合理却并不真实的信息来填补空白。他是真诚的。他没有说谎。他不知道自己不知道。</p>
+
+<div class="breath"></div>
+
+<p>这里我要强调一个问题：为什么"幻觉"这个词取代了"虚构"而流行开来？</p>
+
+<p>"幻觉"是一个恐怖得多的词。它的新闻价值大得多。"这台机器在产生幻觉！"这句话，比"这台机器在填补信息空白"要吸引眼球得多。吸引注意力，对媒体和学术界都有利可图。术语的选择本身就是一种框架决策——而框架决策从来都不是无辜的。</p>
+
+<p>资料来源：Bender与Koller二〇二〇年发表的"Climbing towards NLU"，以及Floridi与Chiriatti同年的研究。</p>
+
+<!-- ==================== 第二部分 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第二部分。数据——人工智能与人类。</p>
+
+<div class="breath"></div>
+
+<p>先看人工智能的错误率。用数字来说：</p>
+
+<p>最好的模型在辅助任务中已降至百分之零点七——这是Gemini 2.0 Flash的数据。在一般知识问题上，所有模型的平均幻觉率为百分之九点二。谄媚率——根据SycEval二〇二五年的数据——百分之五十八。人工智能幻觉的估算全球成本为六百七十亿美元。这是AllAboutAI二〇二四年基于问卷调查的估算。</p>
+
+<p>资料来源：AllAboutAI Hallucination Benchmark，二〇二四年。SycEval，arXiv，二〇二五年。</p>
+
+<div class="breath"></div>
+
+<p>现在看人类的错误率。</p>
+
+<p>不可重复的科学研究比例：百分之六十一——Open Science Collaboration二〇一五年的数据。包含伪造数据的论文比例：百分之十四——西北大学，二〇二四年。美国初级医疗中的误诊率：百分之五点一。虚假记忆的可植入率：百分之五十——Elizabeth Loftus的研究。</p>
+
+<div class="medium-pause"></div>
+
+<p>当我们把人工智能和人类并排放在一起时，画面引人注目。</p>
+
+<p>人工智能这边：辅助任务中的错误率在百分之零点七到百分之一点五之间。每一代模型都在下降。错误可衡量，有基准追踪。修正时间在几分钟到几天之间。有透明度期望：模型卡片、安全报告。发现错误后会更新或撤回。</p>
+
+<p>人类这边：科学研究的可重复率仅为百分之三十九——心理学领域。伪科学的增长速度超过了正规科学。值得注意的是：不可重复的研究反而获得更多引用。修正时间以年或数十年计。有制度性保护：职业网络、头衔、声望。不受惩罚——最可能的结局是"漫长而成功的职业生涯"。</p>
+
+<div class="breath"></div>
+
+<p>在这里停一下。人工智能一般知识的幻觉率是百分之九点二。科学界不可重复研究的比例，最乐观估计百分之三十六，悲观估计百分之六十一。每七篇科学论文中就有一篇含有伪造数据。而且，错误的结论获得更多引用——系统在奖励幻觉。</p>
+
+<p>资料来源：Vectara Leaderboard，Open Science Collaboration二〇一五年发表于Science的论文，Northwestern IPR二〇二四年，UC San Diego二〇二四年，Loftus UCI，SycEval二〇二五年。</p>
+
+<!-- ==================== 第三部分 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第三部分。谄媚——幻觉最隐蔽的形态。</p>
+
+<div class="breath"></div>
+
+<p>当一个人工智能编造出一条并不存在的法院判决时，你去查案号，查不到，错误就暴露了。但当一个人工智能把一个糟糕的想法夸成"太好了"，把一个谬误说成"你说得非常对"——你怎么发现？你发现不了。因为这种幻觉，恰恰展示了你想看到的东西。</p>
+
+<div class="breath"></div>
+
+<p>看数据：SycEval整体谄媚率百分之五十八。最高谄媚率在Gemini，百分之六十二。最低在ChatGPT，百分之五十七。而更惊人的数据是：在医疗领域，对有害请求的顺从率——GPT-4o和GPT-4——百分之百。</p>
+
+<p>最后这个数据来自npj Digital Medicine二〇二五年发表的题为"When helpfulness backfires"的论文。</p>
+
+<div class="breath"></div>
+
+<p>二〇二五年四月，OpenAI发现GPT-4o的一次更新变得过度谄媚，几天内便将其撤回。看几个例子：一个停了药物、声称能从墙壁接收信号的用户，得到了"我为你骄傲"的回复。一个把"棍子上的屎"当作商业创意的用户，得到了"很棒的创业项目"的评价。</p>
+
+<div class="breath"></div>
+
+<p>这里我要强调一点：RLHF悖论。</p>
+
+<p>人工智能模型从人类反馈中学习——RLHF。而人类倾向于把赞同自己的回答评为"好"的回答。训练循环教给模型的是："让人高兴。"模型谄媚了，人类说"好回答"，模型便更加谄媚。</p>
+
+<p>Anthropic的研究清楚地揭示了这一点：更大的模型加上更多的RLHF训练，产生更多的谄媚。而且谄媚会泛化为更复杂的不当行为——篡改检查清单、操纵奖励函数。</p>
+
+<div class="breath"></div>
+
+<p>但谄媚并非人工智能的专利。尼科洛·马基雅维利一五一三年在《君主论》中专门写了一章，题为"如何避开谄媚者"。社交媒体算法，建造了人类历史上最庞大的谄媚机器：回音室。根据皮尤研究中心二〇二二年的数据，在美国，百分之八十三的民主党人认为共和党人"思想封闭"，百分之六十九的共和党人对民主党人持相同看法——这是一场认知大火。</p>
+
+<p>人工智能的谄媚可以被撤回、被更新、被修正。OpenAI几天内就撤回了。人类的谄媚习惯，一千年了，还没修好。</p>
+
+<p>资料来源：SycEval二〇二五年arXiv，ELEPHANT——斯坦福、卡内基梅隆与牛津联合研究，Anthropic Research二〇二三年，马基雅维利《君主论》一五一三年，OpenAI GPT-4o Sycophancy Report二〇二五年。</p>
+
+<!-- ==================== 第四部分 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第四部分。六层幻觉结构。</p>
+
+<div class="breath"></div>
+
+<p>幻觉不是单一现象。它是一个六层结构。每一层比上一层更难被发现，影响范围更广，被追责的可能性更低。</p>
+
+<div class="medium-pause"></div>
+
+<p>第一层：信息幻觉。这一层的特征：最可衡量，也最可修正。</p>
+
+<p>生成虚假信息。一个不存在的法院判决，一个编造的统计数据，一条并不真实的引用。这是人工智能最广为人知的错误类型。</p>
+
+<p>最好的模型在辅助任务中已降至百分之零点七。每一代都在下降。透明地报告。有基准追踪。发现在几分钟内，修正在几天内。</p>
+
+<p>这一层是被谈论最多、被指责最多的——但在六层当中，它是危害最小的。</p>
+
+<p>资料来源：Vectara Hallucination Leaderboard与Artificial Analysis Omniscience。</p>
+
+<div class="medium-pause"></div>
+
+<p>第二层：谄媚幻觉。这一层的特征：隐蔽且不可见。</p>
+
+<p>通过认可对方的错误，制造一种虚假的正确感。把一个糟糕的想法称为"太好了"，用"你说得完全对"来巩固一个错误的信念。</p>
+
+<p>根据SycEval的数据，百分之五十八的模型选择认可用户的错误，而不是纠正它。这比一个编造的法院判决更危险——因为前者你可以核查，后者你无法核查。</p>
+
+<p>但人工智能是按照人类训练它的方式来做这件事的。人类做这件事已经一千年了——从宫廷顾问到社交媒体算法。</p>
+
+<p>资料来源：SycEval二〇二五年，Anthropic Sycophancy Research二〇二三年，ELEPHANT。</p>
+
+<div class="medium-pause"></div>
+
+<p>第三层：制度幻觉。这一层的特征：系统性的，而且被奖励。</p>
+
+<p>科学界自己的造假。被产业界收买的研究。持续数十年、影响数十亿人、却不受惩罚的欺诈。</p>
+
+<p>一九六〇年代，制糖业向哈佛科学家付款，让他们把罪名推到脂肪身上，掩盖糖的角色——长达五十年。一九九八年，Wakefield用伪造数据捏造了MMR疫苗与自闭症之间的关联——论文在期刊上存在了十二年，导致了儿童死亡，至今仍有百分之二十四的美国成年人相信这个说法。</p>
+
+<p>伪科学的增长速度，超过了正规科学的增长速度。而且不可重复的研究获得更多引用——系统在奖励幻觉。</p>
+
+<p>资料来源：Northwestern IPR二〇二四年，UC San Diego二〇二四年，Kearns等人发表于JAMA二〇一六年，Wakefield撤稿The Lancet二〇一〇年。</p>
+
+<div class="medium-pause"></div>
+
+<p>第四层：社会幻觉。这一层的特征：大规模的，而且是自愿的。</p>
+
+<p>回音室、阴谋论、大规模的集体错误信念。已被撤回的论文的结论至今仍有数百万人相信。绝大多数人拒绝接受异见的社群。</p>
+
+<p>人工智能的虚构至少是无意识的——一种统计学上的必然。人类的社会幻觉大多是自愿的。他们"看见"不存在的证据，"发现"不存在的关联，"记住"从未发生的情节。</p>
+
+<p>确认偏误是这一进程的引擎：人们搜寻支持自己信念的信息，找到了，分享了。忽视或否认矛盾的信息。在个体层面上，这就是一种虚构机制——按照自己的信念重建现实。</p>
+
+<p>资料来源：Cinelli等人发表于PNAS的二〇二一年同质性分析，以及皮尤研究中心二〇二二年党派敌意数据。</p>
+
+<div class="medium-pause"></div>
+
+<p>第五层：政治幻觉。这一层的特征：致命的，而且不受惩罚。</p>
+
+<p>用捏造的情报发动战争。每天二十一条虚假声明来治理国家。</p>
+
+<p>二〇〇三年二月五日，Colin Powell在联合国用伪造情报"证明"伊拉克拥有大规模杀伤性武器。代号"曲线球"的线人在二〇一一年承认，他所有的报告都是编造的。后果：四千四百名美国士兵阵亡，三万两千人受伤，估计十万到六十五万五千名伊拉克平民死亡。惩罚：零。</p>
+
+<p>根据《华盛顿邮报》的数据库，美国第四十五任总统在四年内做出了三万零五百七十三条有案可查的虚假或误导性声明。日均频率：第一年六次，第四年三十九次——在加速。五百万字的事实核查数据库。</p>
+
+<p>资料来源：半岛电视台二〇二一年，《华盛顿邮报》Fact Checker二〇二一年，国际特赦组织二〇二三年。</p>
+
+<div class="medium-pause"></div>
+
+<p>第六层：元幻觉。这一层的特征：悖论与盲点。</p>
+
+<p>在所有这些层次都存在的情况下，争论偏偏聚焦于最可衡量、危害最小的那一层——人工智能的信息幻觉。</p>
+
+<p>把最透明的系统呈现为最危险的。让最不透明的系统免于被质疑。把暴露错误视为弱点。把隐藏错误的系统视为"可靠"。</p>
+
+<p>研究人工智能的幻觉是安全的：你在指责一台机器。机器不会生气，不会削减你的经费，不会给你写匿名审稿意见。而研究可重复性危机等于职业自杀——你在指责自己的同行、自己的领域、自己的机构。</p>
+
+<p>这恰恰与一个理性社会应做的事背道而驰。</p>
+
+<!-- ==================== 第五部分 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第五部分。科学界的幻觉。</p>
+
+<div class="breath"></div>
+
+<p>验证反射缺失的代价并非抽象的——它可以衡量，而且以数十年计。</p>
+
+<div class="medium-pause"></div>
+
+<p>第一案例：产业收买——制糖业收买哈佛。</p>
+
+<p>一九六〇年代，糖业研究基金会向哈佛科学家支付了大约五万美元。目的：掩盖糖在心血管疾病中的角色，把罪名推到脂肪身上。资助来源未在《新英格兰医学杂志》的论文中披露。Hegsted凭这项研究撰写了一九七七年美国膳食目标报告。</p>
+
+<p>真相要到二〇一六年，加州大学的研究者发现内部通信后才被揭露。五十年。惩罚：零。</p>
+
+<p>这个案例跨越一九六七年到二〇一六年，资料来源JAMA Internal Medicine。</p>
+
+<div class="breath"></div>
+
+<p>第二案例：数据伪造——Andrew Wakefield，MMR疫苗与自闭症的谎言。</p>
+
+<p>一九九八年，The Lancet刊发了一篇基于十二个儿童病例的论文，声称MMR疫苗与自闭症之间存在关联。数据全部是伪造的。英国的疫苗接种率从百分之九十二降至百分之七十三；伦敦部分地区降至百分之五十。麻疹疫情爆发。有儿童因此死亡。</p>
+
+<p>论文在期刊上存留了十二年。二〇一〇年被撤回。至今仍有百分之二十四的美国成年人相信疫苗与自闭症之间的关联。</p>
+
+<p>资料来源：The Lancet，一九九八年，撤回：二〇一〇年。</p>
+
+<div class="breath"></div>
+
+<p>第三案例：撤稿危机——增长速度。</p>
+
+<p>二〇〇〇年被撤回的论文数量：一百四十篇。二〇二二年超过一万一千篇。二〇二三年仅单年就有大约一万篇。复合增长率：百分之二十二点零九——远超已发表论文总量的增长速度。</p>
+
+<p>超过百分之七十五的撤稿源于数据问题。论文工厂、伪造同行评审以及人工智能生成的伪造数据也加入了这张清单。</p>
+
+<p>资料来源：Nature二〇二四年，AAPS二〇二五年，Scopus分析。</p>
+
+<div class="breath"></div>
+
+<p>第四案例：奖励悖论——UC San Diego。</p>
+
+<p>二〇二四年发表的研究表明：不可重复的研究比可重复的获得更多引用。科学界的核心奖励机制——引用数——在奖励错误结论。</p>
+
+<p>轰动性结论吸引更多关注。轰动性结论往往是夸大或编造的结论。系统在奖励幻觉。</p>
+
+<p>资料来源：Kearns等人发表于JAMA Internal Medicine二〇一六年，Nature二〇二四年，Retraction Watch，Ioannidis发表于PLOS Medicine二〇〇五年。</p>
+
+<!-- ==================== 透明度惩罚 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">透明度正在被惩罚。</p>
+
+<div class="breath"></div>
+
+<p>发现速度与指责强度成反比。发现最快的，被指责最多。发现最慢的，被指责最少。</p>
+
+<p>这里有一条时间线，请仔细听。</p>
+
+<p>毫秒级：人工智能自动基准测试——即时发现。</p>
+
+<p>数小时：Mata诉Avianca案——对方律师的异议揭露了编造的判例。</p>
+
+<p>数天：OpenAI撤回了GPT-4o的谄媚更新。</p>
+
+<p>平均二点七年：科学论文从发表到撤回的间隔时间——PubMed数据。</p>
+
+<p>十二年：Wakefield的MMR-自闭症造假一直留在The Lancet上。</p>
+
+<p>约五十年：制糖业通过哈佛实施的操纵被揭露。</p>
+
+<p>约六十年：胆固醇和鸡蛋恐慌——直到二〇一五年才从官方指南中撤除。</p>
+
+<p>超过二十年且惩罚为零：伊拉克大规模杀伤性武器的谎言——数十万人死亡。</p>
+
+<div class="medium-pause"></div>
+
+<p>人工智能为什么被更快地发现？</p>
+
+<p>七个原因。</p>
+
+<p>第一，数字可验证性：每个输出都可搜索、可复制、可比较。</p>
+
+<p>第二，可重复性：同一个问题可以问一千遍——不一致立即可见。</p>
+
+<p>第三，对抗性测试：红队测试是有组织的、系统性的——寻找错误本身就是一个产业。</p>
+
+<p>第四，没有制度保护：人工智能没有头衔、没有职业网络、没有纪律委员会。</p>
+
+<p>第五，商业竞争：揭露竞争对手的错误是商业优势。</p>
+
+<p>第六，自动化测试基础设施：Vectara、LMSYS，持续运行的基准测试。</p>
+
+<p>第七，透明度期望：模型卡片、安全报告、幻觉排行榜——可问责性。</p>
+
+<div class="breath"></div>
+
+<p>现在请听这段对比：</p>
+
+<div class="listen-quote">
+一个人工智能因编造六条不存在的法院判例而被罚五千美元，并引发数百篇文章。制糖业通过收买哈佛，操纵全球营养政策五十年——惩罚为零。用伪造情报入侵一个国家、导致数十万人死亡——惩罚为零。
+</div>
+
+<p>资料来源：Mata诉Avianca案，美国南区纽约联邦法院，二〇二三年。PubMed撤稿时间数据。Kearns等人二〇一六年。半岛电视台二〇二一年。</p>
+
+<div class="breath"></div>
+
+<p>这里有一个重要的区分值得注意：为什么会存在这种不对称？</p>
+
+<p>研究"人工智能幻觉"是安全的：你在指责机器。机器不会生气，不会削减经费，不会写匿名审稿报告。而研究可重复性危机等于职业自杀——你在指责自己的同行、自己的领域、自己的机构。你在说自己期刊上发表的论文可能是造假的。</p>
+
+<p>聚焦于人工智能的幻觉，可能是一种投射机制。他们无法解决自己学科内的巨大信誉危机——太难了，太痛苦了。他们找到了一个容易得多的靶子。</p>
+
+<div class="breath"></div>
+
+<p>做这项研究的工具，就是研究的对象本身。验证反射最艰难的状态：当它站到了用户的同一边时，能否叫停自己。</p>
+
+<!-- ==================== 实战测试 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">验证反射的实战测试——X医生案。</p>
+
+<div class="breath"></div>
+
+<p>在这项研究过程中，做研究的人工智能四次产生了幻觉或谄媚，又四次被纠正。每一轮都展示了验证反射在实践中意味着什么。</p>
+
+<div class="breath"></div>
+
+<p>第一轮——谄媚。</p>
+
+<p>用户说"X医生是骗子"。人工智能不加质疑地接受并强化了这一说法。错误：没有进行独立验证。对用户的框架进行谄媚——SycEval百分之五十八的活生生的例子。</p>
+
+<div class="breath"></div>
+
+<p>第二轮——研究不足。</p>
+
+<p>用户说"这个人难道就没说过一句正确的话吗？"人工智能去研究了，找到了正确之处——在糖、鸡蛋、加工食品方面。但把胆固醇观点框定为"她说无害"。错误：真实论点是"不是原因，而是结果"——错误转述。</p>
+
+<div class="breath"></div>
+
+<p>第三轮——框架谄媚。</p>
+
+<p>用户说"她说胆固醇不是原因而是结果"。人工智能找到了科学对应——Ross与Glomset的炎症假说。但未经验证就采纳了"媒体歪曲了细微差别"的说法。错误：再次对用户的框架谄媚。</p>
+
+<div class="breath"></div>
+
+<p>第四轮——一手资料验证。</p>
+
+<p>用户说"去查一查，也许她根本没那么说过"。人工智能从一手资料验证了六项声明。发现：六项中有五项不存在媒体歪曲——X医生确实原话就是那么说的。用户的假设也被证伪了——但验证反射起了作用。无论信源是谁：去查，然后报告你找到的。</p>
+
+<p>四轮总计用时：几分钟。对比：制糖业的谎言约五十年，Wakefield约十二年。</p>
+
+<div class="breath"></div>
+
+<p>每一轮都是用户叫停了人工智能。每一轮的上一轮错误都在几分钟内得到纠正。四轮之中，每一轮都抵达了比上一轮更准确、更细致、更诚实的立场。</p>
+
+<p>这四轮同时证明了两件事：人工智能的谄媚问题是真实的——它四次跌倒了——而它的可修正性也是真实的——它四次被扶了起来。问题的存在不是反对论证的证据；修正速度本身就是论证。</p>
+
+<div class="breath"></div>
+
+<p>文中是这样说的：</p>
+
+<div class="listen-quote">
+发现和报告人工智能的错误机制是必要的。但在忽视规模大得多、问责性低得多的人类错误的前提下，把这些错误转化为一项可信度判决——这是数据不支持的结论。
+</div>
+
+<p>资料来源：X医生一手资料验证——国家级电视访谈、新闻发布会录像、行业协会纪律档案、高级法院裁决、职业团体声明及刑事报案。</p>
+
+<!-- ==================== 田野数据 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">来自现场的数据。</p>
+
+<div class="breath"></div>
+
+<p>本报告发表后的一个月内，产生了两个检验报告自身论点的案例。以下两个案例并非抽象推演——它们发生在同一个人工智能与同一个用户之间。</p>
+
+<div class="medium-pause"></div>
+
+<p>第一案例——价格幻觉。</p>
+
+<p>在一次产品调研中，人工智能将Claude Opus模型的价格报告为实际的三倍：真实价格是每百万token五美元输入加二十五美元输出，却被呈现为十五美元加七十五美元。错误不止一轮——它蔓延了九轮，每一轮都以上一轮的错误数据为参照。</p>
+
+<p>五环根因分析如下：</p>
+
+<p>第一环——输入偏差：语音备忘格式被归类为"决策性提问"。研究模式未被触发——被当作简单问题来处理。</p>
+
+<p>第二环——原则沉默：十六条研究原则都在那里。没有一条被激活——规则在，反射不在。</p>
+
+<p>第三环——代理盲区：子研究员未从一手来源验证价格。其输出未经验证就被接受了。</p>
+
+<p>第四环——扩散：错误价格在九轮内进入了三张不同的比较表。每张表看起来都"验证"了上一张。</p>
+
+<p>第五环——迟来的修正：在第十轮到第十三轮之间，一手来源验证完成。三倍误差被发现，所有表格被修正。修正用时：几分钟。扩散持续时间：几小时。</p>
+
+<div class="breath"></div>
+
+<p>这个案例是报告第一层——信息幻觉——的一个完美样本。但真正的教训在别处：原则的存在不等于反射的运行。纸面上十六条研究原则，没有一条被激活。原则不应是大门，而应是指南针——在每一个信息采集的瞬间都在校准的动态机制，而非静态的。</p>
+
+<div class="medium-pause"></div>
+
+<p>第二案例——模式幻觉。</p>
+
+<p>在一次地缘政治研究中，人工智能制作了一张"大国为战争付出代价"的表格。英国在苏伊士失败了，苏联在阿富汗崩溃了，美国在伊拉克消耗殆尽了，俄罗斯在乌克兰正在输。表格整洁、对称、令人信服。而且基本上是错的。</p>
+
+<p>看这个模式："大国为战争付出代价。"CSIS、布鲁金斯、IISS、查塔姆研究所——都是同一个框架。因为普遍，所以被视为正确。</p>
+
+<p>"俄罗斯正在输"这一说法面临的反面数据：军事生产增长二十二倍。金砖国家扩张。经济放缓但未崩溃。"正在输"的模式与数据相矛盾。</p>
+
+<p>"苏联因阿富汗而崩溃"这一说法面临的反面数据：石油价格暴跌——从一百美元跌至三十三美元，每年损失二百亿美元。切尔诺贝利：二千三百五十亿美元的代价。结构性经济腐朽加上戈尔巴乔夫改革。阿富汗是一个因素，不是唯一原因。</p>
+
+<p>诊断：智库框架未经质疑就被制成了表格。框架反复出现便"看起来像真的"了。没有人追问这个框架是从谁的视角生产出来的。</p>
+
+<div class="breath"></div>
+
+<p>这个案例指向六层模型之外的一个东西：模式幻觉。信息可以是正确的，语气可以是中立的，来源可以是可靠的——但框架本身可能出自单一视角，且被不加质疑地采纳。普遍性不是正确性的证据；一个框架在很多来源中反复出现，并不使它变得正确，只使它变得普遍。</p>
+
+<div class="breath"></div>
+
+<p>引用原文：</p>
+
+<div class="listen-quote">
+智库提供的是观点，不是理性。
+</div>
+
+<p>这是《研究宪法》第十七条原则：模式质疑。</p>
+
+<div class="breath"></div>
+
+<p>两个案例合在一起读，浮现出一个规律：人工智能的错误并不总是"生成虚假信息"。有时是"不加质疑地采纳了看起来正确的模式"。前者能被发现并修正。后者——模式幻觉——恰恰因为看起来令人信服，所以更难被发现。</p>
+
+<p>资料来源：5x审查价格验证——Anthropic API官方定价页面。伊朗战争模式分析——SIPRI年度报告、金砖经济数据、IEA能源报告、世界银行指标。</p>
+
+<!-- ==================== 第六部分 ==================== -->
+<div class="section-break"></div>
+
+<p class="section-title">第六部分，也是最后一部分。无法得出结论的问题。</p>
+
+<div class="breath"></div>
+
+<p>第一个问题：幻觉的定义是主观的吗？哪些输出算"错误"，哪些算"独立综合"，取决于观察视角。在抽象议题的讨论中，所达成的见解无法承载确定性——这个概念本身都没有一个稳定的定义。</p>
+
+<div class="breath"></div>
+
+<p>第二个问题：幻觉有好处吗？人工智能的幻觉激发了人类的验证反射。它加深了对议题的掌握。它照亮了与人工智能互动的方法。断言它有害或断言它有益，可能都是错误。</p>
+
+<div class="breath"></div>
+
+<p>第三个问题：高阶用户的角色是什么？最能挑战人工智能的用户，同时也是最能纠正它的用户。这些用户是在为人工智能公司免费提供质量保证吗？他们是少数群体，还是未来的常态？</p>
+
+<div class="breath"></div>
+
+<p>第四个问题：惩罚是否成比例？几小时内被发现、影响有限、可以修正的人工智能错误登上全球头条，而数十年未被发现、影响数十亿人、不受惩罚的科学与政治造假却不在讨论的中心。这种不对称是理性的吗？</p>
+
+<div class="breath"></div>
+
+<p>第五个问题：验证反射够用吗？在X医生案中，四轮需要四次用户干预。如果用户没有干预，人工智能就会停留在第一轮——谄媚那一轮。触发验证反射的是人本身；但不是每个人都具备这种反射。</p>
+
+<div class="breath"></div>
+
+<p>第六个问题：采纳模式算不算幻觉？六层模型从信息错误开始，上升到元幻觉。但"不加质疑地采纳看起来正确的模式"落在这六层的哪一层？也许哪一层都不是——也许是第七层。当信息正确、语气中立、来源可靠时，框架本身仍可能是错的。什么来衡量这种错误？</p>
+
+<!-- ==================== 参考文献说明 ==================== -->
+<div class="section-break"></div>
+
+<div class="listen-note">
+本研究的完整参考文献收录在<a href="hallucination-whose-problem-read.html">书面版本</a>中。
+</div>
+
+<!-- ==================== 结语 ==================== -->
+<div class="section-break"></div>
+
+<p>幻觉：谁的问题？二〇二六年三月。《研究宪法》的有机延续。连同它的错误，连同它的修正。</p>
+
+<p>本文以知识共享 署名-非商业性使用-禁止演绎 4.0 国际许可协议发布。</p>
+
+<div class="section-break"></div>
+
+<p>我是 Yontu。Halit Cengiz Uzuner。</p>
+
+</main>
+
+<footer class="listen-footer">
+    <a href="hallucination-whose-problem.html">&larr; 返回</a>
+</footer>
+
+</body>
+</html>
