@@ -1369,6 +1369,80 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
 .home-link:hover {
     color: var(--bone);
 }
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2rem;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: rgba(204, 200, 192, 0.28);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(120, 168, 144, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: rgba(204, 200, 192, 0.58);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: #78a890;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: rgba(204, 200, 192, 0.28);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: #78a890;
+    font-style: italic;
+}
+
+.translation-note-inline {
+    max-width: 580px;
+    margin: 2rem auto 0;
+    padding: 1.5rem 2rem;
+    border: 1px solid rgba(204, 200, 192, 0.15);
+    font-size: 0.82rem;
+    color: rgba(204, 200, 192, 0.4);
+    line-height: 1.7;
+}
+
+.translation-note-inline a {
+    color: rgba(204, 200, 192, 0.58);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-color: rgba(204, 200, 192, 0.15);
+}
 </style>
 </head>
 <body>
@@ -2549,6 +2623,34 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
     </div>
   </div>
 </footer>
+
+<div class="translation-note-inline">
+    Der Originaltext ist auf Türkisch. Wir haben versucht, so nah wie möglich an der Natur des Deutschen zu bleiben — doch kleine Unvollkommenheiten wird es unvermeidlich geben. Wenn Sie einen Fehler oder eine treffendere Formulierung entdecken, schreiben Sie an <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a> — Sie würden unsere Übersetzung bereichern.
+</div>
+
+<div class="transcreation-notes">
+    <h3>Anmerkungen zur Transcreation</h3>
+
+    <details>
+        <summary>„Forschungsverfassung" — araştırma anayasası</summary>
+        <div class="note-body">Das türkische <em>anayasa</em> bedeutet „Verfassung" im staatsrechtlichen Sinn — das Grundgesetz eines Staates. Der Bericht verwendet den Begriff bewusst metaphorisch: Forschung braucht eine Verfassung, ein Grundgesetz des Denkens. Im Deutschen trägt „Verfassung" dieselbe Doppeldeutigkeit (Grundgesetz und Zustand), weshalb „Forschungsverfassung" als Kompositum funktioniert. Die Alternative „Forschungsgrundgesetz" wäre zu spezifisch auf Deutschland bezogen gewesen.</div>
+    </details>
+
+    <details>
+        <summary>„Grundsatz" — ilke</summary>
+        <div class="note-body">Das türkische <em>ilke</em> (Prinzip, Grundsatz) erscheint im Bericht siebzehnmal — als nummerierte Grundsätze der Forschungsverfassung. Im Deutschen war die Wahl zwischen „Prinzip", „Grundsatz" und „Leitsatz". „Grundsatz" wurde gewählt, weil es die juristische Metapher des Titels fortführt: Grundsätze einer Verfassung, nicht Prinzipien eines Handbuchs.</div>
+    </details>
+
+    <details>
+        <summary>„Verifikationskette" — doğrulama zinciri</summary>
+        <div class="note-body">Das türkische <em>doğrulama zinciri</em> (wörtlich: Bestätigungskette) beschreibt den Mechanismus, mit dem Quellen geprüft werden. „Verifikationskette" klingt im Deutschen technischer als das türkische Original — es erinnert an Kryptographie oder Qualitätsmanagement. Diese Verschiebung wurde akzeptiert, weil der Bericht an dieser Stelle genau diese Strenge einfordern will.</div>
+    </details>
+
+    <details>
+        <summary>„Präzedenzfall" — içtihat</summary>
+        <div class="note-body"><em>İçtihat</em> stammt aus dem islamischen Recht und bezeichnet die eigenständige Rechtsfindung; im modernen türkischen Rechtsleben bedeutet es „Präzedenzfall". Im Deutschen ist „Präzedenzfall" rein lateinisch-westlich konnotiert. Der kulturelle Hintergrund des Begriffs geht in der Übersetzung verloren — was im Türkischen an eine tausendjährige Rechtstradition erinnert, klingt im Deutschen nach Common Law.</div>
+    </details>
+</div>
 
 
 <!-- ═══════════════════════════════════════════════════════════════

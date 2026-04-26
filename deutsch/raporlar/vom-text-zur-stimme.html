@@ -348,6 +348,60 @@ footer a:hover { color: var(--bone); }
 .home-link:hover {
     color: var(--bone);
 }
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(112, 104, 160, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--yanki);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--yanki);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -662,6 +716,35 @@ footer a:hover { color: var(--bone); }
 
 <div style="max-width: 640px; margin: 0 auto; padding: 2rem 2.5rem;">
   <p style="font-size: 0.8rem; color: rgba(212, 204, 192, 0.28); line-height: 1.8; font-style: italic;">Dieser Text wurde ursprünglich auf Türkisch verfasst. Wir haben versucht, ihn im Deutschen so natürlich wie möglich klingen zu lassen — der Stimme treu, nicht den Wörtern. Wenn Ihnen etwas auffällt, das besser klingen könnte, schreiben Sie uns an <strong>soru@halitcengizuzuner.com</strong> — Sie bereichern unsere Übersetzung.</p>
+
+  <div class="transcreation-notes">
+      <h3>Anmerkungen zur Transcreation</h3>
+
+      <details>
+          <summary>„Hörbarkeit" — dinlenebilirlik</summary>
+          <div class="note-body">Das türkische <em>dinlenebilirlik</em> ist eine Neubildung — „Hörbarkeit" im Sinne von „wie gut lässt sich ein Text hören". Im Deutschen existiert „Hörbarkeit" als Wort, aber es bedeutet gewöhnlich „akustisch wahrnehmbar sein" (Lautstärke), nicht „kognitiv verarbeitbar sein" (Verständlichkeit). Der englische Fachbegriff <em>listenability</em> (Rubin 2000) trägt diese zweite Bedeutung. Wir haben „Hörbarkeit" mit dem Zusatz „(listenability)" bei der Erstverwendung versehen, damit die semantische Verschiebung sichtbar bleibt.</div>
+      </details>
+
+      <details>
+          <summary>„Vorlesetext" — dinleme metni</summary>
+          <div class="note-body">Die vierte Kategorie des Berichts: ein Text, der geschrieben wird, damit eine Maschine ihn vorliest. Das türkische <em>dinleme metni</em> (wörtlich: „Hörtext") betont den Empfänger — jemand hört zu. „Vorlesetext" im Deutschen betont den Akt — jemand (oder etwas) liest vor. Beide Perspektiven sind korrekt; die deutsche Fassung wechselt zwischen „Vorlesetext" und „Hörtext" je nach Kontext, weil das Deutsche hier keine einzelne Lösung bietet, die beides einfängt.</div>
+      </details>
+
+      <details>
+          <summary>„wandernder Geist" — gezinen zihin</summary>
+          <div class="note-body">Das türkische <em>gezinen zihin</em> übersetzt den Fachbegriff <em>mind wandering</em> mit einer Bewegungsmetapher — der Geist „streift umher". Im Deutschen war die Wahl zwischen „wandernder Geist" (poetisch, aber mehrdeutig — auch: Gespenst) und „schweifende Aufmerksamkeit" (technisch korrekt, aber ohne Poesie). „Wandernder Geist" wurde beibehalten, weil der Bericht an der Stelle bewusst einen bildhaften Ton anschlägt: Der Geist des Hörers wandert, und der Text muss ihn zurückrufen.</div>
+      </details>
+
+      <details>
+          <summary>„Straßenebene der Landkarte" — haritanın sokak düzeyi</summary>
+          <div class="note-body">Im Türkischen eine geläufige Metapher aus der Google-Maps-Welt: <em>sokak düzeyi</em> (Straßenebene, Street View). Im Deutschen funktioniert „Straßenebene" weniger unmittelbar — die Assoziation zu Google Maps ist schwächer, die Metapher klingt abstrakter. Wir haben sie beibehalten, weil der Bericht die Metapher im selben Abschnitt entfaltet: Die Landkarte zeigt das Land, die Straße zeigt die Haustür. Die Entfaltung macht die Metapher selbsterklärend.</div>
+      </details>
+
+      <details>
+          <summary>„synthetische Mündlichkeit" — sentetik sözlülük</summary>
+          <div class="note-body">Ein Fachbegriff aus Lamas 2025: <em>synthetic orality</em>. Das türkische <em>sentetik sözlülük</em> ist eine wörtliche Übertragung, die im Türkischen fremd klingt. Im Deutschen klingt „synthetische Mündlichkeit" ebenfalls konstruiert — aber weniger fremd, weil „Mündlichkeit" in der germanistischen Tradition ein etablierter Fachbegriff ist (Ong, Chafe). Die deutsche Fassung profitiert hier von einer vorhandenen Begriffstradition, die das Türkische nicht hat.</div>
+      </details>
+  </div>
 </div>
 
 <nav style="max-width:680px;margin:3rem auto 2rem;padding:2rem 1.5rem;border-top:1px solid rgba(212,204,192,0.15);">

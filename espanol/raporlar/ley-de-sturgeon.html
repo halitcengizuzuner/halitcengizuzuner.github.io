@@ -533,6 +533,60 @@ footer a:hover { color: var(--bone); }
 .home-link:hover {
     color: var(--bone);
 }
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(184, 112, 80, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--rust);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--rust);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -1013,6 +1067,35 @@ footer a:hover { color: var(--bone); }
 <section id="nota-traduccion" style="margin-bottom: 2rem;">
     <p style="font-size: 0.88rem; color: var(--bone-dim); line-height: 1.7; border-top: 1px solid var(--bone-ghost); padding-top: 2rem;">El texto original está en turco. Hemos intentado ser lo más orgánicos posible, respetando la naturaleza de cada idioma, pero inevitablemente habrá pequeñas imperfecciones. Si encuentra un error o una mejor forma de decirlo, escriba a <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a> — enriquecerá nuestra traducción.</p>
 </section>
+
+<div class="transcreation-notes">
+    <h3>Notas de transcreación</h3>
+
+    <details>
+        <summary>«basura» — crud / crap</summary>
+        <div class="note-body">Sturgeon utilizó <em>crud</em> en su formulación escrita de 1958 y <em>crap</em> en intervenciones orales. Ambas palabras ocupan un registro coloquial-vulgar en inglés — más sucias que «mediocre» pero menos que un insulto abierto. «Basura» en español captura la contundencia y tiene la ventaja de funcionar tanto en registro coloquial como en contexto ensayístico. Se descartó «porquería» (demasiado oral) y «mierda» (excede el registro de Sturgeon, que era provocador pero contenido).</div>
+    </details>
+
+    <details>
+        <summary>«jugada» — hamle</summary>
+        <div class="note-body">El original turco describe la estructura argumentativa de Sturgeon con la palabra <em>hamle</em>, que en turco significa tanto «movimiento» (en ajedrez o esgrima) como «iniciativa estratégica». «Jugada» conserva ambos matices: la connotación lúdica del ajedrez y la astucia táctica. Se descartó «movimiento» (demasiado neutro) y «maniobra» (demasiado militar para el tono del ensayo).</div>
+    </details>
+
+    <details>
+        <summary>«campo de ensayo» — deneme havuzu</summary>
+        <div class="note-body">El turco <em>deneme havuzu</em> — literalmente «estanque de ensayo» — evoca un espacio contenido donde se experimenta. «Campo de ensayo» traslada la idea al español con una imagen más abierta pero igualmente funcional. Lo que importa es la tesis: el noventa por ciento no es desperdicio sino sustrato necesario — sin campo de pruebas no hay descubrimiento. La metáfora evolutiva del párrafo (mutaciones, adaptación) refuerza esta lectura en ambas lenguas.</div>
+    </details>
+
+    <details>
+        <summary>«arma defensiva» — savunma silahı</summary>
+        <div class="note-body">El título del capítulo traduce <em>savunma silahı</em> — literalmente «arma de defensa». En turco, la yuxtaposición <em>savunma</em> (defensa) + <em>silah</em> (arma) tiene una tensión deliberada: un arma es ofensiva por naturaleza, calificarla de defensiva es una paradoja productiva. En español «arma defensiva» funciona pero la paradoja se atenúa — el adjetivo suaviza lo que en turco son dos sustantivos en colisión.</div>
+    </details>
+
+    <details>
+        <summary>«abuchear» — yuhalamak</summary>
+        <div class="note-body">La cita atribuida a Dennett emplea en el original inglés <em>boo</em> y en el turco <em>yuhalamak</em>. «Abuchear» es la traducción natural al español, pero pierde un matiz: <em>yuhalamak</em> en turco tiene una carga física — es el sonido colectivo del estadio, el rechazo corporal de una multitud. «Abuchear» conserva el sentido pero suena más contenido, más teatral. La frase de Dennett es un imperativo brutal: no pierdas energía en despreciar lo malo, ve a buscar lo bueno. Ese tono se conserva.</div>
+    </details>
+</div>
 
 </main>
 

@@ -1369,6 +1369,60 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
 .home-link:hover {
     color: var(--bone);
 }
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(120, 168, 144, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--sage);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--sage);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -2547,6 +2601,30 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
       <p>Constitución de Investigación — v1.0<br>Marzo 2026 · Abierto a discusion · Documento vivo</p>
       <p style="text-align:right">Este documento esta vivo.<br>Se actualiza a si mismo después de cada investigación.<br>Las versiones anteriores permanecen en el repositorio git.<br>v1.0: primera revisión integral — de un mes de vivencias.</p>
     </div>
+  </div>
+
+  <div class="transcreation-notes" style="max-width:760px;margin:0 auto;padding:0 2rem;">
+      <h3>Notas de transcreación</h3>
+
+      <details>
+          <summary>«Constitución» — Anayasa</summary>
+          <div class="note-body">El turco <em>anayasa</em> significa literalmente «ley madre» (<em>ana</em> = madre, <em>yasa</em> = ley) — un documento fundacional que genera y subordina a todos los demás. En español «constitución» conserva el peso jurídico y la jerarquía normativa, pero pierde la imagen materna: en turco, este documento no solo rige la investigación sino que la engendra. La elección es deliberada — no se trata de «principios» ni de «manual» sino de una carta magna que se impone a sí misma.</div>
+      </details>
+
+      <details>
+          <summary>«destilado en» — damıtıldığı yer</summary>
+          <div class="note-body">Las etiquetas de origen de cada principio usan en turco <em>damıtıldığı yer</em> — «el lugar donde fue destilado». El verbo <em>damıtmak</em> (destilar) implica un proceso químico: calentar material crudo, separar lo esencial, condensar. «Destilado en» conserva la metáfora de extracción y purificación — cada principio no fue inventado en abstracto sino extraído por calor de una experiencia concreta.</div>
+      </details>
+
+      <details>
+          <summary>«abrir la cuestión» — meseleyi açmak</summary>
+          <div class="note-body">El turco <em>meseleyi açmak</em> combina <em>mesele</em> (cuestión, asunto — del árabe <em>mas'ala</em>) con <em>açmak</em> (abrir). En español jurídico y filosófico, «abrir la cuestión» funciona con naturalidad, pero se pierde la resonancia etimológica árabe-otomana de <em>mesele</em>, que en turco evoca siglos de tradición de debate jurídico-teológico. El principio establece que el objetivo de la investigación no es cerrar (defender una tesis) sino abrir (expandir el campo de lo preguntable).</div>
+      </details>
+
+      <details>
+          <summary>«documento vivo» — canlı belge</summary>
+          <div class="note-body">El turco <em>canlı</em> (vivo, con vida) aplicado a un documento tiene más fuerza que en español, donde «documento vivo» es ya casi un término técnico de gestión documental. En el original, <em>canlı belge</em> no es una etiqueta de versionado sino una declaración ontológica: este texto respira, se equivoca, se corrige, crece con cada investigación que lo pone a prueba. La traducción conserva las palabras pero necesita el contexto del preámbulo para recuperar esa intensidad.</div>
+      </details>
   </div>
 </footer>
 

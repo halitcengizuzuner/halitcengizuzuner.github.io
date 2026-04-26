@@ -772,6 +772,60 @@ a { color: inherit; text-decoration: none; }
     text-decoration-color: var(--bone-ghost);
 }
 
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(120, 144, 160, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--steel);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--steel);
+    font-style: italic;
+}
+
 /* ===== HOME LINK ===== */
 .home-nav {
     text-align: center;
@@ -1413,6 +1467,35 @@ a { color: inherit; text-decoration: none; }
     </div>
     <div class="translation-note">
         Der Originaltext ist auf Türkisch. Wir haben versucht, so natürlich wie möglich zu sein, der Eigenart jeder Sprache treu — aber unvermeidlich werden kleine Unstimmigkeiten auftreten. Wenn Sie einen Fehler entdecken oder eine bessere Formulierung kennen, schreiben Sie an <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a> — Sie bereichern unsere Übersetzung.
+    </div>
+
+    <div class="transcreation-notes">
+        <h3>Anmerkungen zur Transcreation</h3>
+
+        <details>
+            <summary>„Halluzination" — halüsinasyon</summary>
+            <div class="note-body">Im Türkischen ist <em>halüsinasyon</em> ein Fremdwort — es klingt klinisch, distanziert, fast wie ein Befund. Im Deutschen ist „Halluzination" dagegen tiefer verwurzelt: ein Wort, das aus dem Lateinischen kommt und in der psychiatrischen Tradition des deutschen Sprachraums eine eigene Geschichte hat. Diese unterschiedliche Resonanz verändert den Ton des gesamten Berichts — im Deutschen klingt der Titel schwerer, medizinischer. Wir haben das akzeptiert, weil der Bericht genau diese Schwere aufgreifen will.</div>
+        </details>
+
+        <details>
+            <summary>„Schmeichelrunde" — yağcılık turu</summary>
+            <div class="note-body">Das türkische <em>yağcılık turu</em> (wörtlich: „Runde der Schmeichelei") beschreibt die Tendenz der KI, dem Nutzer zunächst recht zu geben, statt zu widersprechen. „Schmeichelrunde" ist eine freie Bildung, die den Rundenbegriff (aus dem Forschungsverlauf des Berichts — vier Runden, vier Korrekturen) beibehält und die Unterwürfigkeit der ersten KI-Antwort einfängt. „Bestätigungsrunde" wäre technisch präziser gewesen, hätte aber den ironischen Unterton verloren.</div>
+        </details>
+
+        <details>
+            <summary>„Wissensproduktionsfehler" — bilgi üretim hatası</summary>
+            <div class="note-body">Der zentrale Begriff des Berichts. Das türkische <em>bilgi üretim hatası</em> ist eine Wortkette, die sich im Satz unauffällig liest. Im Deutschen wird daraus das Kompositum „Wissensproduktionsfehler" — ein Wort, das seine eigene Schwerkraft entwickelt. Die Länge ist unvermeidlich; die Alternative „Fehler in der Wissensproduktion" wäre weniger dicht, aber in langen Sätzen lesbarer. Wir haben zwischen beiden Formen je nach Satzrhythmus gewechselt.</div>
+        </details>
+
+        <details>
+            <summary>„Meta-Halluzination" — meta-halüsinasyon</summary>
+            <div class="note-body">Die sechste Schicht des Berichts: eine Halluzination über die Halluzination — wenn die Debatte über KI-Fehler selbst verzerrt ist. Im Türkischen funktioniert <em>meta-halüsinasyon</em> als neuer Begriff, weil die Vorsilbe <em>meta-</em> im akademischen Türkisch geläufig ist. Im Deutschen ist „Meta-" ebenso vertraut, aber „Meta-Halluzination" klingt philosophischer, fast wie ein Fachterminus. Der Bericht nutzt diesen Effekt bewusst — die sechste Schicht soll nach Abstraktion klingen, weil sie die Abstraktion selbst thematisiert.</div>
+        </details>
+
+        <details>
+            <summary>„die Bestrafung" — cezalandırma</summary>
+            <div class="note-body">In der vierten offenen Frage fragt der Bericht, ob die <em>cezalandırma</em> (Bestrafung) der KI verhältnismäßig ist. Das türkische Wort ist neutral, fast bürokratisch. Im Deutschen trägt „Bestrafung" einen moralischen Oberton — es klingt, als hätte die KI etwas Verwerfliches getan. Diese Verschiebung ist gewollt: Der Bericht stellt genau diese Asymmetrie in Frage — KI-Fehler werden stärker „bestraft" als menschliche Fehler desselben Kalibers.</div>
+        </details>
     </div>
 </footer>
 

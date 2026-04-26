@@ -283,6 +283,60 @@ footer a:hover { color: var(--bone); }
 .home-link:hover {
     color: var(--bone);
 }
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(160, 152, 176, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--ash);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--ash);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -509,6 +563,31 @@ footer a:hover { color: var(--bone); }
 
 <div class="content" style="padding-bottom: 2rem;">
     <p style="font-size: 0.82rem; color: var(--bone-ghost); line-height: 1.7; border-top: 1px solid var(--bone-ghost); padding-top: 2rem;">Der Originaltext ist auf Türkisch. Wir haben versucht, so organisch wie möglich zu übersetzen und der Natur jeder Sprache gerecht zu werden — aber unvermeidlich wird es kleine Unvollkommenheiten geben. Wenn Sie einen Fehler oder eine bessere Formulierung finden, schreiben Sie an <a href="mailto:soru@halitcengizuzuner.com" style="color: var(--bone-dim);">soru@halitcengizuzuner.com</a> — Sie bereichern unsere Übersetzung.</p>
+
+<div class="transcreation-notes">
+    <h3>Anmerkungen zur Transcreation</h3>
+
+    <details>
+        <summary>„Genau" — aynen öyle</summary>
+        <div class="note-body">Der Titel selbst ist eine Transcreation-Entscheidung. Türkisch <em>aynen öyle</em> („genau so") ist zweisilbig, gesprächsnah, allgegenwärtig. „Genau" ist im Deutschen das exakte funktionale Äquivalent: derselbe Diskursmarker, derselbe inflationäre Gebrauch, dieselbe Schwebe zwischen echter Zustimmung und leerem Reflex. Dass die deutsche Sprache ein Wort besitzt, das den Gegenstand des Textes nicht nur übersetzt, sondern <em>ist</em>, machte die Titelwahl zwingend — und den gesamten Bericht im Deutschen auf eine Weise heimisch, die in anderen Sprachen so nicht erreichbar ist.</div>
+    </details>
+
+    <details>
+        <summary>„Pragmatikalisierung" — pragmatikleşme</summary>
+        <div class="note-body">Der linguistische Fachbegriff <em>pragmatikleşme</em> wurde mit „Pragmatikalisierung" übersetzt — ein im Deutschen geläufiger Terminus der Diskurslinguistik. Im Türkischen ist das Wort eine Neubildung, die Hirik (2019) in die Forschung einführte; im Deutschen existiert der Begriff bereits in der germanistischen Partikelforschung. Diese Koinzidenz verstärkt die Argumentation: Beide Sprachen haben denselben Prozess durchlaufen, beide haben einen Fachbegriff dafür — beide Wörter, <em>aynen</em> und „genau", sind Exemplare desselben Phänomens.</div>
+    </details>
+
+    <details>
+        <summary>„Knochenstruktur" — iskelet</summary>
+        <div class="note-body">Türkisch <em>iskelet</em> (Skelett) wird im Abschnitt über die Entkörperlichung des Wortes im Digitalen verwendet: „Was übrig blieb, war ein Skelett: die Knochenstruktur steht, aber Fleisch, Haut und Gesichtsausdruck fehlen." Im Deutschen wurde „Knochenstruktur" gewählt, um das Bild zu konkretisieren — „Skelett" allein wäre möglich gewesen, aber „Knochenstruktur" betont das Architektonische: etwas, das trägt, aber nicht lebt. Die Metapher bereitet den späteren Abschnitt „Parasit — der Knochen des Wortes" vor.</div>
+    </details>
+
+    <details>
+        <summary>„Sorgenkette" — tespih</summary>
+        <div class="note-body">Auch in diesem Bericht taucht das Wort <em>tespih</em> nicht direkt auf, aber die Idee des gedankenlosen Wiederholens — Perlen drehen, „genau" sagen — durchzieht den Text als Unterstrom. Wo im Türkischen <em>tespih çekmek</em> (an der Gebetskette drehen) als Metapher für mechanisches Wiederholen geläufig ist, fehlt im Deutschen ein einzelnes Bild gleicher Dichte. Die Übersetzerentscheidung war, diese Metapher nicht einzufügen, wo sie im Original fehlt — aber das Wort „Sorgenkette" im Genau-Kontext bewusst nicht zu vermeiden, falls es an anderer Stelle erscheint.</div>
+    </details>
+</div>
+
 </div>
 
 <footer>

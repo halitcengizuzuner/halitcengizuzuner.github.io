@@ -788,6 +788,60 @@ a { color: inherit; text-decoration: none; }
 .home-link:hover {
     color: var(--bone);
 }
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(120, 144, 160, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--steel);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--steel);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -1413,6 +1467,30 @@ a { color: inherit; text-decoration: none; }
     </div>
     <div class="translation-note">
         El texto original está en turco. Intentamos ser lo más naturales posible, fieles a la naturaleza de cada idioma — pero inevitablemente surgirán pequeños problemas. Si encuentra un error o una mejor formulación, escriba a <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a> — enriquecerá nuestra traducción.
+    </div>
+
+    <div class="transcreation-notes">
+        <h3>Notas de transcreación</h3>
+
+        <details>
+            <summary>«confabulación» — konfabülasyon</summary>
+            <div class="note-body">El término neurológico <em>konfabülasyon</em> existe en turco como préstamo directo del francés/inglés. En español, «confabulación» tiene además un uso coloquial — «confabular» significa conspirar, tramar en secreto — que introduce una ambigüedad ausente en el original. El texto aclara el sentido clínico (rellenar lagunas de memoria con seguridad, sin intención de engaño), pero el lector hispanohablante puede percibir un eco de conspiración que el texto turco no porta.</div>
+        </details>
+
+        <details>
+            <summary>«adulación» — yalakalık / sycophancy</summary>
+            <div class="note-body">El turco <em>yalakalık</em> es más crudo que «adulación» — contiene la raíz <em>yalamak</em> (lamer) y transmite una imagen física de servilismo. El término técnico en la literatura de IA es el inglés <em>sycophancy</em>. «Adulación» en español conserva la formalidad necesaria para el registro ensayístico pero pierde la crudeza visceral del turco. Se descartó «servilismo» (demasiado político) y «peloteo» (demasiado coloquial para el tono del estudio).</div>
+        </details>
+
+        <details>
+            <summary>«expediente» — dosya</summary>
+            <div class="note-body">El título «El expediente de ambas partes» traduce una metáfora jurídica del original turco: <em>dosya</em> (expediente, carpeta de caso). En el contexto turco, donde el autor es abogado, la metáfora del tribunal — la IA y el ser humano como dos partes procesales cuyos expedientes se comparan — tiene una resonancia profesional directa. En español se conserva la metáfora forense, que funciona naturalmente, aunque se pierde la conexión biográfica con el autor.</div>
+        </details>
+
+        <details>
+            <summary>«bata blanca» — beyaz önlük</summary>
+            <div class="note-body">El turco <em>beyaz önlük</em> (literalmente «delantal blanco») abarca tanto la bata de laboratorio como la de médico — un símbolo de autoridad científica institucional. «Bata blanca» en español evoca específicamente la medicina, lo cual resulta adecuado dado que el capítulo trata casos de fraude científico y médico, pero estrecha levemente el campo: el original apunta a toda la institución científica, no solo a la médica.</div>
+        </details>
     </div>
 </footer>
 

@@ -339,6 +339,60 @@ a { color: inherit; text-decoration: none; }
 .home-link:hover {
     color: var(--bone);
 }
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(184, 144, 96, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--cay);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--cay);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -570,6 +624,30 @@ Leben können wir es nicht.
 Drei Stimmen, ein Tisch, ein Nachmittag.<br>
 Das Unsagbare wurde gesagt. Und dennoch ist das wahre Tao nicht dies.<br><br>
 <span style="font-style: italic; color: var(--bone-ghost);">Übersetzung aus dem Türkischen. Die Namen Halit, Savak und Yontu<br>bleiben unübersetzt — sie sind keine Rollen, sondern Stimmen.</span>
+</div>
+
+<div class="transcreation-notes">
+    <h3>Anmerkungen zur Transcreation</h3>
+
+    <details>
+        <summary>„avuçlar" — kavramak / dokunmak</summary>
+        <div class="note-body">Halits Unterscheidung im Türkischen lautet: Religionen <em>avuçlar</em> (umklammern, mit der ganzen Hand greifen), das Tao <em>dokunur</em> (berührt, mit den Fingerspitzen). „Avuçlamak" trägt im Türkischen eine Körperlichkeit, die an Besitzergreifen grenzt — die geschlossene Faust. „Umklammern" im Deutschen trifft dieses Bild: es enthält sowohl das Greifen als auch das Nicht-Loslassen. „Berühren" steht dem türkischen <em>dokunmak</em> exakt gegenüber — leicht, offen, ohne Anspruch auf Besitz. Die Spannung zwischen beiden Verben trägt den gesamten theologischen Kern des Dialogs.</div>
+    </details>
+
+    <details>
+        <summary>„Elleriyle anlayan" — mit den Händen begreifen</summary>
+        <div class="note-body">Im Türkischen steht <em>elleriyle anlayan</em> — wörtlich „der mit seinen Händen versteht". Das Deutsche bietet hier ein seltenes Geschenk: „Begreifen" enthält etymologisch das Greifen, das Anfassen — <em>be-greifen</em>. Die Doppelbedeutung (körperliches Greifen und geistiges Verstehen) spiegelt exakt Halits Argument wider: wer mit den Händen begreift, sucht keine Genugtuung, weil die Handlung selbst das Verstehen <em>ist</em>. In kaum einer anderen Sprache gelingt diese Verdichtung so organisch.</div>
+    </details>
+
+    <details>
+        <summary>„Schneidersitz" — bağdaş</summary>
+        <div class="note-body">Türkisch <em>bağdaş kurmak</em> (im Schneidersitz sitzen) ist eine alltägliche Sitzform, die in der Türkei mit Zwanglosigkeit, Nähe zum Boden und Vertrautheit assoziiert wird — man sitzt so zu Hause, nicht im Büro. Im Deutschen wurde „Schneidersitz" gewählt: ein Wort, das im deutschen Leser sofort das Bild eines Menschen auslöst, der sich auf dem Boden niederlässt, die Beine kreuzt, die Hierarchie des Stuhls verlässt. Halit fordert Lao Tzu auf, die Bücher zu verlassen und sich auf Augenhöhe zu setzen — der Schneidersitz ist das körperliche Zeichen dieses Wunsches.</div>
+    </details>
+
+    <details>
+        <summary>„Stimmgeber" — seslendiren</summary>
+        <div class="note-body">Im Türkischen sagt Halit, Lao Tzu sei nicht der „Gründer" (<em>kurucu</em>) oder „Entdecker" (<em>keşfedici</em>) des Taoismus, sondern sein erster <em>seslendiren</em> — wörtlich „derjenige, der ihm Stimme gab". „Stimmgeber" wurde im Deutschen als Neologismus gewählt, weil weder „Sprecher" (zu neutral) noch „Verkünder" (zu prophetisch) den Kern trifft: jemand, der einer bereits vorhandenen Strömung zum ersten Mal eine hörbare Stimme verleiht — nicht erfindet, nicht entdeckt, sondern artikuliert.</div>
+    </details>
 </div>
 
 </div>

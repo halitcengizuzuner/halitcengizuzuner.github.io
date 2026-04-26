@@ -492,6 +492,60 @@ body {
 .home-link:hover {
     color: var(--bone);
 }
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--muted);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(196, 120, 90, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: var(--serif);
+    font-size: 0.88rem;
+    color: var(--dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--accent);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--accent);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -774,6 +828,37 @@ body {
 
 <div class="article-footer" style="border-top: none; margin-top: 20px;">
   <em>Dieser Text wurde ursprünglich auf Türkisch verfasst. Wir haben versucht, ihn im Deutschen so natürlich wie möglich klingen zu lassen — der Stimme treu, nicht den Wörtern. Wenn Ihnen etwas auffällt, das besser klingen könnte, schreiben Sie uns an <strong>soru@halitcengizuzuner.com</strong> — Sie bereichern unsere Übersetzung.</em>
+</div>
+
+<div style="max-width: 720px; margin: 0 auto; padding: 0 24px 40px;">
+<div class="transcreation-notes">
+    <h3>Anmerkungen zur Transcreation</h3>
+
+    <details>
+        <summary>„Zerlegungsbericht" — söküm raporu</summary>
+        <div class="note-body">Türkisch <em>söküm raporu</em> ist eine ungewöhnliche Wortverbindung: <em>söküm</em> (Demontage, Zerlegung — ein technischer Terminus aus der Industrie) kombiniert mit <em>rapor</em> (Bericht). Die Spannung liegt im Kontrast: einen Gefühlszustand mit der Sprache der mechanischen Zerlegung beschreiben. „Zerlegungsbericht" im Deutschen trifft denselben Ton — das Wort klingt nach Werkstatt, nach Protokoll, nach nüchterner Bestandsaufnahme. Es signalisiert von Anfang an: dieser Text behandelt Hass nicht als moralische Kategorie, sondern als Gegenstand der Untersuchung.</div>
+    </details>
+
+    <details>
+        <summary>„Sorgfalt" statt „Sauberkeit" — temiz</summary>
+        <div class="note-body">Im Türkischen benutzt Halit durchgehend das Wort <em>analitik</em> (analytisch), um seinen Zugang zum Hass zu beschreiben: analytische Vergebung, analytische Zerlegung. Im Deutschen wurde an mehreren Stellen die Entscheidung getroffen, nicht bei „analytisch" zu bleiben, sondern dem deutschen Leser zugänglichere Wörter wie „Sorgfalt", „Genauigkeit" und „nüchtern" einzusetzen — Wörter, die im Deutschen dieselbe Haltung transportieren, ohne den Leser in eine akademische Distanz zu drängen, die der türkische Text nicht hat.</div>
+    </details>
+
+    <details>
+        <summary>„Etkisiz kılma" — Sicherungsverwahrung</summary>
+        <div class="note-body">Türkisch <em>etkisiz kılma</em> (wörtlich: „unwirksam machen") ist die juristische Übersetzung des englischen <em>incapacitation</em>. Im Deutschen existiert dafür der präzise Rechtsbegriff „Sicherungsverwahrung" — ein Terminus, der im deutschen Strafrecht eine konkrete Institution bezeichnet (§ 66 StGB). Diese Wahl fügt dem Text eine Schicht hinzu, die im Türkischen so nicht vorhanden ist: der deutsche Leser erkennt nicht nur ein abstraktes Konzept, sondern eine reale strafrechtliche Maßnahme. Halit ist Jurist; dass die Übersetzung hier juristisch exakter wird als das Original, entspricht der Stimme des Textes.</div>
+    </details>
+
+    <details>
+        <summary>„Cennet-cehennem ekonomisi" — die Ökonomie von Himmel und Hölle</summary>
+        <div class="note-body">Im Türkischen liest sich <em>cennet-cehennem ekonomisi</em> wie ein geprägter Begriff — knapp, rhythmisch, fast wie ein Schlagwort. Im Deutschen wurde „die Ökonomie von Himmel und Hölle" gewählt: die ausgeschriebene Form, die den analytischen Charakter betont. Eine Kurzform wie „Himmel-Hölle-Ökonomie" wäre möglich gewesen, hätte aber die ironische Distanz verloren, die Halit braucht — er beschreibt die Religion als Handelsplatz, und „Ökonomie von Himmel und Hölle" klingt bewusst wie die Beschreibung eines Geschäftsmodells.</div>
+    </details>
+
+    <details>
+        <summary>„Sahte iyilik" — geheuchelte Güte</summary>
+        <div class="note-body">Türkisch <em>sahte iyilik</em> (wörtlich: „falsche/unechte Güte") könnte als „falsche Güte" oder „vorgetäuschte Güte" übersetzt werden. „Geheuchelt" wurde gewählt, weil es im Deutschen eine moralische Schärfe besitzt, die „falsch" nicht erreicht: „geheuchelt" impliziert bewusste Täuschung, absichtliches Vorspielen — genau das, was Halit als wertloser als organisches Böses beschreibt. Das Wort trägt im Deutschen eine Tradition mit sich (Pharisäer, Tartüffe), die den Text unbeabsichtigt, aber willkommen bereichert.</div>
+    </details>
+</div>
 </div>
 
 <nav style="max-width:680px;margin:3rem auto 2rem;padding:2rem 1.5rem;border-top:1px solid rgba(212,204,192,0.15);">

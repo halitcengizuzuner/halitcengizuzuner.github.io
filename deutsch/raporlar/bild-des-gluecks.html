@@ -170,6 +170,60 @@ footer a:hover { color: var(--bone); }
 .translation-note { margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--bone-ghost); font-size: 0.85rem; color: var(--bone-dim); line-height: 1.7; }
 .translation-note a { color: var(--bone-bright); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; text-decoration-color: var(--bone-ghost); }
 
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(200, 160, 85, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--straw);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--straw);
+    font-style: italic;
+}
+
 /* ===== HOME LINK ===== */
 .home-nav {
     text-align: center;
@@ -399,6 +453,36 @@ meine Tränen, mit euren Händen?
     <div class="translation-note">
         Der Originaltext ist auf Türkisch. Wir haben versucht, so nah wie möglich an der Natur des Deutschen zu bleiben — doch kleine Unvollkommenheiten wird es unvermeidlich geben. Wenn Sie einen Fehler oder eine treffendere Formulierung entdecken, schreiben Sie an <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a> — Sie würden unsere Übersetzung bereichern.
     </div>
+
+    <div class="transcreation-notes">
+        <h3>Anmerkungen zur Transcreation</h3>
+
+        <details>
+            <summary>„Paschaenkel" — paşa torunu</summary>
+            <div class="note-body">Im Türkischen genügt <em>paşa torunu</em> — zwei Wörter, die sofort eine ganze Gesellschaftsschicht aufrufen: die letzte Generation der osmanischen Aristokratie, die sich von ihrem Erbe löste. Im Deutschen existiert kein Pendant mit derselben Verdichtung. „Paschaenkel" ist eine Neubildung, die das Kompositum-Prinzip des Deutschen nutzt, um die Kürze des Türkischen nachzubilden. Was verloren geht: die Selbstverständlichkeit, mit der ein türkischer Leser den sozialen Ort sofort erkennt.</div>
+        </details>
+
+        <details>
+            <summary>„Strohgelb" — Saman Sarısı</summary>
+            <div class="note-body"><em>Saman Sarısı</em> ist der Titel von Nazıms langem Gedicht — wörtlich „Strohgelb". Im Türkischen klingt der Titel zugleich warm und vergänglich, fast wie eine Farbe aus der Kindheit. „Strohgelb" trifft die wörtliche Bedeutung, doch im Deutschen klingt es nüchterner, technischer — die Wärme des türkischen Originals ist schwerer zu transportieren. Wir haben den Titel beibehalten, weil die Alternative „Goldgelb" oder „Halmgelb" vom Referenten abweichen würde.</div>
+        </details>
+
+        <details>
+            <summary>„ohne es dir leicht zu machen" — kolayına kaçmadan</summary>
+            <div class="note-body">Das türkische <em>kolayına kaçmadan</em> enthält eine Bewegungsmetapher — wörtlich: „ohne in die Leichtigkeit zu flüchten". Es schwingt ein Vorwurf mit, eine Warnung: Mach dir nichts vor. Das Deutsche „ohne es dir leicht zu machen" ist idiomatisch korrekt, aber die Fluchtmetapher fehlt. Die rhetorische Zange, die Nazım zwischen der ersten und zweiten Frage aufbaut, hängt an dieser Bedingung — sie muss Gewicht tragen, nicht nur Information liefern.</div>
+        </details>
+
+        <details>
+            <summary>„geborgte Stimme" — ödünç ses</summary>
+            <div class="note-body">Das Türkische kennt <em>ödünç</em> als alltägliches Wort für „geliehen, geborgt" — es trägt keine moralische Wertung, nur eine Tatsache. „Geborgt" im Deutschen funktioniert ähnlich neutral. Die Versuchung war, „angemaßt" zu schreiben, was stärker wäre, aber dem Text eine Anklage unterlegen würde, die im Original nicht steht. Gemicis Absicht war aufrichtig — der Bericht beurteilt das Ergebnis, nicht die Absicht.</div>
+        </details>
+
+        <details>
+            <summary>„kein Paket" — pakete sığmadı</summary>
+            <div class="note-body">Im Türkischen heißt es wörtlich <em>pakete sığmadı</em> — „es passte nicht in das Paket". Das Wort <em>sığmak</em> (hineinpassen) hat einen körperlichen Unterton: etwas, das zu groß ist für seinen Behälter, das überquillt oder sich sperrt. „Passte in kein Paket" wäre die wörtliche Lösung gewesen; wir haben die Stelle freier gelöst, weil das Deutsche den Ausdruck „ein perfektes Paket" im selben Absatz aufgreift und das Schweigen als das benennt, was im Paket fehlt.</div>
+        </details>
+    </div>
+
     <p style="margin-top: 2rem;">„Das Bild des Glücks" — März 2026</p>
     <p>Dieses Werk gehört allen.</p>
 

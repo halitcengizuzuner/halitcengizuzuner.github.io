@@ -170,6 +170,60 @@ footer a:hover { color: var(--bone); }
 .translation-note { margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--bone-ghost); font-size: 0.85rem; color: var(--bone-dim); line-height: 1.7; }
 .translation-note a { color: var(--bone-bright); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; text-decoration-color: var(--bone-ghost); }
 
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(200, 160, 85, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--straw);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--straw);
+    font-style: italic;
+}
+
 /* ===== HOME LINK ===== */
 .home-nav {
     text-align: center;
@@ -399,6 +453,35 @@ mis lágrimas, con sus manos?
     <div class="translation-note">
         El texto original está en turco. Hemos intentado respetar en lo posible la naturaleza del español — pero inevitablemente habrá pequeñas imperfecciones. Si detecta un error o una formulación más precisa, escriba a <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a> — enriquecería nuestra traducción.
     </div>
+
+<div class="transcreation-notes">
+    <h3>Notas de transcreación</h3>
+
+    <details>
+        <summary>«Dos nietos de pachás» — Paşa torunları</summary>
+        <div class="note-body">El turco <em>paşa</em> es un título otomano que evoca de inmediato un universo de privilegio y decadencia imperial. En español se optó por la transcripción «pachá», aceptada por la RAE, pero se pierde la resonancia cultural automática: para un lector turco, <em>paşa torunu</em> condensa toda una clase social en dos palabras — aristocracia otomana tardía, educación francesa, distancia con el pueblo. El español necesita el contexto narrativo que el turco lleva implícito.</div>
+    </details>
+
+    <details>
+        <summary>«sin tomar el camino fácil» — kolaya kaçmadan</summary>
+        <div class="note-body">La expresión turca <em>kolaya kaçmadan</em> es coloquial y directa — literalmente «sin huir hacia lo fácil», con un matiz de cobardía. «Sin tomar el camino fácil» conserva la advertencia pero pierde el verbo <em>kaçmak</em> (huir, escapar), que en turco transforma la elección fácil en un acto de deserción. El tono de Nazım no es didáctico sino de reproche amistoso — esa tensión se atenúa en español.</div>
+    </details>
+
+    <details>
+        <summary>«una tenaza» — kıskaç</summary>
+        <div class="note-body">Al describir la estructura retórica de Nazım — la pregunta repetida que aprieta por ambos lados — el original turco usa <em>kıskaç</em>, que es literalmente una pinza o tenaza mecánica. En español se eligió «tenaza» por su doble valencia: herramienta que aprieta y movimiento estratégico que cierra el cerco. La imagen del metal que se cierra sobre el objeto funciona en ambas lenguas, aunque en turco <em>kıskaç</em> tiene también un uso militar (maniobra de pinza) que amplía el campo semántico.</div>
+    </details>
+
+    <details>
+        <summary>«colcha de retazos» — yamalı yorgan</summary>
+        <div class="note-body">El turco <em>yamalı yorgan</em> — literalmente «edredón remendado» — es un símbolo doméstico de pobreza digna en la cultura turca, un objeto que aparece en canciones populares y en la memoria colectiva rural. «Colcha de retazos» (o <em>patchwork quilt</em>) traslada la imagen visual pero pierde la carga afectiva específica: en turco, un <em>yamalı yorgan</em> no es pintoresco sino biográfico — es la cama de la infancia pobre, heredada y vuelta a remendar.</div>
+    </details>
+
+    <details>
+        <summary>«¿Podrías pintar…?» — Yapabilir misin…?</summary>
+        <div class="note-body">La pregunta retórica de Nazım emplea en turco la forma <em>-abilir misin</em>, que combina capacidad con cortesía — es a la vez «¿podrías?» y «¿serías capaz?». El español «¿Podrías pintar…?» captura la cortesía pero no la carga de desafío implícito. En turco, preguntar <em>yapabilir misin</em> a un maestro de su oficio es tocar un nervio — es reconocer su dominio y señalar su límite en el mismo gesto. Esa doble filo se pierde parcialmente en la traducción.</div>
+    </details>
+</div>
     <p style="margin-top: 2rem;">«El Retrato de la felicidad» — Marzo 2026</p>
     <p>Esta obra pertenece a todos.</p>
 

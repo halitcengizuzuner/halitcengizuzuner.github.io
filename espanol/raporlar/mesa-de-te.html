@@ -338,6 +338,61 @@ a { color: inherit; text-decoration: none; }
 .home-link:hover {
     color: var(--bone);
 }
+
+/* ===== TRANSCREATION NOTES ===== */
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(184, 144, 96, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--cay);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--cay);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -573,6 +628,38 @@ Lo indecible fue dicho. Aun así, el verdadero Tao no es esto.
 <div class="colophon" style="margin-top: 3rem; font-size: 0.58rem;">
 Traducción del turco. Los nombres Halit, Savak y Yontu permanecen sin traducir.<br>
 Las citas del Tao Te Ching conservan el chino original y el pinyin; la traducción es al español.
+</div>
+
+<div class="transcreation-notes">
+    <h3>Notas de transcreación</h3>
+
+    <details>
+        <summary>«avuçlamak» y «dokunmak» — agarrar y tocar</summary>
+        <div class="note-body">
+            La distinción central del diálogo nace de dos verbos turcos: <em>avuçlamak</em> (agarrar con la palma, cerrar el puño sobre algo) y <em>dokunmak</em> (tocar levemente, rozar). Es Halit quien formula la distinción: «las religiones agarran; tú solo posas la mano levemente en el hombro de alguien». En español, «agarrar» frente a «tocar» replica la oposición con exactitud — agarrar implica posesión, tocar implica contacto sin apropiación. La metáfora religiosa (el puño cerrado de la doctrina frente a la mano abierta del Tao) se transporta sin pérdida.
+        </div>
+    </details>
+
+    <details>
+        <summary>«elleriyle anlayan» — quien comprende con las manos</summary>
+        <div class="note-body">
+            La fórmula turca <em>elleriyle anlayan</em> (literalmente «el que comprende con sus manos») opone dos modos de conocimiento: el intelectual (que produce satisfacción por el elogio) y el corporal (que no busca satisfacción porque ya está haciendo). El español «quien comprende con las manos» conserva la estructura. Lo que se pierde es la sonoridad del turco, donde <em>elleriyle</em> (con sus manos) es una sola palabra fluida de cinco sílabas; el español necesita cuatro palabras separadas. La densidad baja, la claridad sube.
+        </div>
+    </details>
+
+    <details>
+        <summary>«Savak» y «Yontu» — nombres sin traducir</summary>
+        <div class="note-body">
+            <em>Savak</em> (cauce, canal de agua) y <em>Yontu</em> (escultura, talla) son los nombres que Halit da a las dos inteligencias artificiales con las que trabaja. No se traducen porque son nombres propios dentro del universo del autor — del mismo modo que «Lao Tzu» no se traduce. El lector hispanohablante los recibe como sonidos sin significado transparente, lo cual es deliberado: el nombre no debe explicar la función, debe simplemente nombrar.
+        </div>
+    </details>
+
+    <details>
+        <summary>«kendini deşifre etmişti» — se había delatado</summary>
+        <div class="note-body">
+            El turco <em>deşifre etmek</em> (descifrar, desencriptar) se usa aquí en sentido reflexivo: quien sonríe ante «no sé» se descifra a sí mismo — revela involuntariamente que sabe. «Delatarse» en español captura ese doble movimiento: la revelación es involuntaria y autoincriminatoria. Se descartó «desvelarse» (demasiado neutro) y «traicionarse» (demasiado dramático). «Delatarse» porta la carga justa: el gesto revela lo que la doctrina pretendía ocultar.
+        </div>
+    </details>
 </div>
 
 </div>

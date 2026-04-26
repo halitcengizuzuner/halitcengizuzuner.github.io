@@ -348,6 +348,60 @@ footer a:hover { color: var(--bone); }
 .home-link:hover {
     color: var(--bone);
 }
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(112, 104, 160, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--yanki);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--yanki);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -662,6 +716,30 @@ footer a:hover { color: var(--bone); }
 
 <div style="max-width: 640px; margin: 0 auto; padding: 2rem 2.5rem;">
   <p style="font-size: 0.8rem; color: rgba(212, 204, 192, 0.28); line-height: 1.8; font-style: italic;">Este texto fue escrito originalmente en turco. Intentamos que suene lo más natural posible en español — fieles a la voz, no a las palabras. Si encuentras algo que podría sonar mejor, escríbenos a <strong>soru@halitcengizuzuner.com</strong> — enriquecerás nuestra traducción.</p>
+</div>
+
+<div class="transcreation-notes" style="max-width: 640px; margin: 0 auto; padding: 0 2.5rem 3rem;">
+    <h3>Notas de transcreación</h3>
+
+    <details>
+        <summary>«escuchabilidad» — dinlenebilirlik</summary>
+        <div class="note-body">El turco <em>dinlenebilirlik</em> es un neologismo transparente construido por aglutinación: <em>dinle</em> (escuchar) + <em>-n</em> (pasiva) + <em>-ebilir</em> (capacidad) + <em>-lik</em> (sustantivo abstracto) — «la cualidad de poder ser escuchado». En español no existe un equivalente establecido; «escuchabilidad» es un calco deliberado del inglés <em>listenability</em> de Rubin, mantenido para preservar la coherencia con la literatura académica que el informe cita. Se descartó «audibilidad» (se refiere al volumen, no a la comprensión) y «aptitud para la escucha» (demasiado largo para un concepto que aparece repetidamente).</div>
+    </details>
+
+    <details>
+        <summary>«la excursión de la mente» — zihnin gezintisi</summary>
+        <div class="note-body">El turco <em>zihnin gezintisi</em> — literalmente «el paseo de la mente» — traduce el concepto técnico inglés <em>mind wandering</em>. «Divagación mental» es la traducción académica estándar al español, pero el título del capítulo busca otra cosa: no un diagnóstico sino una imagen. «La excursión de la mente» conserva el movimiento voluntario del turco <em>gezinti</em> (paseo, excursión) — la mente no se pierde, sale a caminar. El cuerpo del capítulo usa «divagación» para el registro técnico; el título ofrece la versión poética.</div>
+    </details>
+
+    <details>
+        <summary>«oralidad sintética» — sentetik sözlülük</summary>
+        <div class="note-body">Lamas acuñó <em>synthetic orality</em> en inglés; el turco lo traduce como <em>sentetik sözlülük</em>, donde <em>sözlülük</em> (de <em>söz</em> = palabra, habla) evoca la tradición oral turca (<em>sözlü gelenek</em>). En español, «oralidad sintética» funciona con limpieza — ambas palabras son transparentes y la yuxtaposición produce el mismo efecto de extrañeza productiva. Lo que se pierde es la resonancia de <em>söz</em> en turco, que conecta con la cultura del <em>âşık</em> (trovador) y la transmisión oral de la poesía popular.</div>
+    </details>
+
+    <details>
+        <summary>«el nivel de la calle del mapa» — haritanın sokak seviyesi</summary>
+        <div class="note-body">El turco <em>haritanın sokak seviyesi</em> — «el nivel de calle del mapa» — es una metáfora espacial que opone la vista aérea (principios generales, datos promedio) al recorrido a pie (experiencia individual, personalización). En español la imagen funciona directamente: el mapa muestra el país, pero para encontrar la puerta de tu casa hay que bajar a la calle. La metáfora estructura todo el cierre del informe — los datos científicos son el mapa, la personalización es la calle.</div>
+    </details>
 </div>
 
 <nav style="max-width:680px;margin:3rem auto 2rem;padding:2rem 1.5rem;border-top:1px solid rgba(212,204,192,0.15);">

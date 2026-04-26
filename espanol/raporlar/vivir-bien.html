@@ -193,6 +193,60 @@ em { color: var(--bone-dim); }
     text-decoration-color: var(--bone-ghost);
 }
 
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(160, 112, 104, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--wine);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--wine);
+    font-style: italic;
+}
+
 footer {
     max-width: 640px;
     margin: 0 auto;
@@ -405,6 +459,45 @@ footer a:hover { color: var(--bone); }
 
 <div class="translation-note">
     El texto original está en turco. Intentamos ser lo más orgánicos posible, respetando la naturaleza del español — pero inevitablemente habrá pequeñas imperfecciones. Si encuentra un error o una formulación más acertada, escriba a <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a> — enriquecería nuestra traducción.
+</div>
+
+<div class="transcreation-notes">
+    <h3>Notas de transcreación</h3>
+
+    <details>
+        <summary>«un pabellón de una prisión» — Sağmacılar koğuşu</summary>
+        <div class="note-body">
+            En turco, <em>Sağmacılar</em> es una sola palabra que condensa décadas de encarcelamiento político en Estambul — un pabellón cuyo nombre solo evoca un capítulo concreto de la historia turca. El español no dispone de esa compresión. Añadimos «pabellón de una prisión» como contexto mínimo; el té permanece (gesto universal de normalidad dentro del encierro). Lo que se pierde: el reconocimiento instantáneo que experimenta el lector turco, el modo en que la palabra pesa antes de que la frase termine.
+        </div>
+    </details>
+
+    <details>
+        <summary>«rosario» — tespih</summary>
+        <div class="note-body">
+            El turco <em>tespih</em> es un cordón de cuentas que se pasan entre los dedos — objeto en parte de oración, en parte hábito meditativo, en parte gesto social. A diferencia del inglés, donde «prayer beads» arrastraría la imagen hacia el cristianismo, el español «rosario» ya contiene esa connotación católica — pero también porta un uso secular y popular (el rosario de las abuelas, las cuentas de la preocupación). Optamos por «rosario» porque en el habla coloquial española funciona como sinécdoque de toda cuenta que se pasa entre los dedos con inquietud. La dimensión secular del <em>tespih</em> turco — viejos sentados, dedos en movimiento, pensamiento sin destino — se conserva mejor así que con un neologismo.
+        </div>
+    </details>
+
+    <details>
+        <summary>«exprimir» — değerlendirmek</summary>
+        <div class="note-body">
+            El verbo turco <em>değerlendirmek</em> significa evaluar, calibrar — analítico, distanciado. Pero la relación de Altan con las vidas que describe no es clínica; las saborea, las exprime. El español «exprimir» traslada el acto del tribunal a la cocina: sacarle el jugo al tiempo, apretarlo hasta la última gota. Dos modelos independientes confirmaron el giro; la opción previa «estrujar» añadía una violencia que el turco no portaba.
+        </div>
+    </details>
+
+    <details>
+        <summary>«se ha ido al carajo» — bombok</summary>
+        <div class="note-body">
+            El turco <em>bombok</em> es vulgar, directo, intraducible en registro — entre «se fue a la mierda» y «arruinado del todo». La atmósfera literaria del texto exigía contención: «se ha ido al carajo» conserva la franqueza y la condena sin romper el tono ensayístico. La pérdida en vulgaridad se compensa con la ganancia en coherencia tonal. Altan mismo escribía con esa tensión: contenido áspero, entrega serena. En español, «al carajo» ocupa un registro medio — más crudo que «al diablo», menos crudo que «a la mierda» — que replica ese equilibrio.
+        </div>
+    </details>
+
+    <details>
+        <summary>«soledad consumada» — taşların dibine düşen yalnızlık</summary>
+        <div class="note-body">
+            El turco dice literalmente «una soledad caída al fondo de las piedras». La metáfora es espacial, gravitacional: la soledad como piedra arrojada a un pozo, asentada en el fondo, irrecuperable. «Consumada» es una elección creativa: una soledad que ha alcanzado su propia plenitud, que se sostiene sin buscar aprobación exterior. Se sacrifica la imagen del pozo; lo que permanece es la autosuficiencia — una soledad que ha completado su obra. El español permite además un eco con el uso jurídico de «consumado» (hecho consumado), que añade una capa de irreversibilidad ausente en el original.
+        </div>
+    </details>
 </div>
 
 </main>

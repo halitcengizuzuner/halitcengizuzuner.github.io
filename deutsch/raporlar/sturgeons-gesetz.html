@@ -533,6 +533,60 @@ footer a:hover { color: var(--bone); }
 .home-link:hover {
     color: var(--bone);
 }
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(184, 112, 80, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--rust);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--rust);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -1009,6 +1063,30 @@ footer a:hover { color: var(--bone); }
 
 <div class="content" style="padding-bottom: 2rem;">
     <p style="font-size: 0.82rem; color: var(--bone-ghost); line-height: 1.7; border-top: 1px solid var(--bone-ghost); padding-top: 2rem;">Der Originaltext ist auf Türkisch. Wir haben versucht, so organisch wie möglich zu sein und der Natur jeder Sprache gerecht zu werden — aber unvermeidlich wird es kleine Unvollkommenheiten geben. Wenn Sie einen Fehler oder eine bessere Formulierung finden, schreiben Sie an <a href="mailto:soru@halitcengizuzuner.com" style="color: var(--bone-dim);">soru@halitcengizuzuner.com</a> — Sie bereichern unsere Übersetzung.</p>
+
+    <div class="transcreation-notes">
+        <h3>Anmerkungen zur Transcreation</h3>
+
+        <details>
+            <summary>„Mist" — saçmalık</summary>
+            <div class="note-body">Sturgeons Originalwort war <em>crud</em> — ein Ausdruck, der zwischen „Mist" und „Schund" liegt, umgangssprachlich, aber nicht vulgär. Das türkische <em>saçmalık</em> (Unsinn, Blödsinn) trifft den Register recht genau. Im Deutschen war „Mist" die nächste Entsprechung: derb genug, um Sturgeons Tonfall zu bewahren, aber nicht so grob, dass der analytische Rahmen des Berichts gesprengt würde. „Schund" wäre literarischer gewesen, hätte aber den Science-Fiction-Kontext verloren.</div>
+        </details>
+
+        <details>
+            <summary>„Einräumen, verallgemeinern, zerlegen" — kabul et, genelle, parçala</summary>
+            <div class="note-body">Die türkische Kapitelüberschrift <em>kabul et, genelle, parçala</em> besteht aus drei Imperativen — kurz, rhythmisch, fast wie Befehle. Im Deutschen ist die Infinitivform „Einräumen, verallgemeinern, zerlegen" die natürliche Wahl für solche Aufzählungen. „Einräumen" statt „Zugestehen" — weil es den juristischen Unterton des Textes aufgreift: einen Punkt einräumen, bevor man ihn gegen den Gegner wendet.</div>
+        </details>
+
+        <details>
+            <summary>„Größenordnung" — büyüklük sırası</summary>
+            <div class="note-body">Ein Schlüsselbegriff des Berichts: Sturgeons 90 % sind keine Messung, sondern eine <em>Größenordnung</em>. Das türkische <em>büyüklük sırası</em> ist eine Fachentlehnung, die im Alltag selten vorkommt. Im Deutschen ist „Größenordnung" dagegen Alltagssprache — ein Physiker sagt es, ein Kaufmann versteht es. Dieser Unterschied in der Vertrautheit des Begriffs verändert den Lesefluss: Was im Türkischen als technischer Einschub wirkt, klingt im Deutschen selbstverständlich.</div>
+        </details>
+
+        <details>
+            <summary>„Verteidigungswaffe" — savunma silahı</summary>
+            <div class="note-body">Das Türkische <em>savunma silahı</em> (Verteidigungswaffe) ist wörtlich — aber die Metapher trägt im Deutschen schwerer. Sturgeon verteidigte kein Land, sondern ein Genre. „Verteidigungsargument" wäre präziser gewesen; „Verteidigungswaffe" wurde beibehalten, weil der Bericht im selben Absatz die Anwaltsmetapher aufgreift und die militärische Bildsprache dort bewusst spielt.</div>
+        </details>
+    </div>
 </div>
 
 <footer>

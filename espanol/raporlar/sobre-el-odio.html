@@ -492,6 +492,64 @@ body {
 .home-link:hover {
     color: var(--bone);
 }
+
+/* ===== TRANSCREATION NOTES ===== */
+.transcreation-notes {
+    max-width: 720px;
+    margin: 3rem auto;
+    padding: 0 24px;
+}
+
+.transcreation-notes h3 {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(196, 120, 90, 0.2);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    color: var(--dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--accent);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--accent);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -767,6 +825,45 @@ body {
 
 <div class="article-footer" style="border-top: none; margin-top: 20px;">
   <em>Este texto fue escrito originalmente en turco. Intentamos que suene lo más natural posible en español — fieles a la voz, no a las palabras. Si encuentras algo que podría sonar mejor, escríbenos a <strong>soru@halitcengizuzuner.com</strong> — enriquecerás nuestra traducción.</em>
+</div>
+
+<div class="transcreation-notes">
+    <h3>Notas de transcreación</h3>
+
+    <details>
+        <summary>«söküm raporu» — informe de desmontaje</summary>
+        <div class="note-body">
+            El turco <em>söküm</em> (desmontaje, despiece) pertenece al vocabulario técnico-industrial: se desmonta un motor, se desmonta una estructura. Aplicarlo a una emoción es la operación deliberada del texto: tratar el odio como un mecanismo que puede ser desarmado pieza a pieza. «Informe de desmontaje» conserva esa frialdad técnica aplicada a lo emocional. Se descartó «disección» (demasiado biológico) y «deconstrucción» (demasiado filosófico-académico). «Desmontaje» sugiere que las piezas pueden examinarse por separado — y que después de examinarlas, el mecanismo ya no funciona igual.
+        </div>
+    </details>
+
+    <details>
+        <summary>«acizlik» — impotencia</summary>
+        <div class="note-body">
+            El turco <em>acizlik</em> (del árabe <em>ʿajz</em>) porta un peso que «impotencia» en español solo cubre parcialmente. <em>Acizlik</em> no es solo no poder hacer algo — es la conciencia dolorosa de la propia insuficiencia, una incapacidad que humilla. El español «impotencia» funciona en contexto médico, político y emocional, pero carece del matiz de vergüenza que el turco arrastra desde su raíz árabe. En la frase clave — «quien odia ha entregado su voluntad» — la impotencia es el motor oculto del odio: se odia porque no se puede actuar. Esa equivalencia se sostiene en español, aunque el eco de humillación se atenúa.
+        </div>
+    </details>
+
+    <details>
+        <summary>«organik kötülük» — maldad orgánica</summary>
+        <div class="note-body">
+            La expresión turca <em>organik kötülük</em> es una acuñación del autor: la maldad que es fiel a su propia naturaleza, que no se disfraza, que puede ser examinada precisamente porque no se oculta. «Orgánico» en español tiene connotaciones de alimento natural o de crecimiento espontáneo — ninguna de las cuales es la intención. Pero el adjetivo también porta el sentido de «constitutivo, inherente a la estructura» (como en «ley orgánica»), y ese es el sentido activo aquí. La maldad orgánica no es importada ni fabricada — crece desde dentro, como un órgano del cuerpo. Chigurh es el ejemplo perfecto: su maldad no es una elección, es una constitución.
+        </div>
+    </details>
+
+    <details>
+        <summary>«cennet-cehennem ekonomisi» — economía cielo-infierno</summary>
+        <div class="note-body">
+            La fórmula turca <em>cennet-cehennem ekonomisi</em> es otra acuñación del autor: las religiones que comercian con el odio usando el cielo como recompensa y el infierno como castigo. «Economía cielo-infierno» se traduce literalmente porque la fuerza de la expresión reside en aplicar un término mercantil (economía) a un ámbito supuestamente trascendental (cielo/infierno). La yuxtaposición es idéntica en ambas lenguas: lo sagrado reducido a transacción. En español, «economía» porta además un eco de «economía de mercado» que refuerza la crítica.
+        </div>
+    </details>
+
+    <details>
+        <summary>«vomitar odio» — nefreti kusmak</summary>
+        <div class="note-body">
+            El turco <em>kusmak</em> (vomitar) es visceral y coloquial. El título de la segunda parte — <em>Ceza nefreti kusmak değildir</em> — confronta al lector con una imagen corporal dentro de un argumento jurídico. «El castigo no es vomitar odio» replica esa colisión de registros. Se descartó «escupir odio» (demasiado suave) y «arrojar odio» (demasiado neutro). «Vomitar» conserva la involuntariedad y la repugnancia: lo que se vomita es algo que el cuerpo ya no puede contener — el odio como sustancia tóxica que el organismo expulsa sin control.
+        </div>
+    </details>
 </div>
 
 <div class="article-footer">

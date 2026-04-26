@@ -283,6 +283,61 @@ footer a:hover { color: var(--bone); }
 .home-link:hover {
     color: var(--bone);
 }
+
+/* ===== TRANSCREATION NOTES ===== */
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(160, 152, 176, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--ash);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--ash);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -508,6 +563,45 @@ footer a:hover { color: var(--bone); }
 <section id="nota-traduccion" style="margin-bottom: 2rem;">
     <p style="font-size: 0.88rem; color: var(--bone-dim); line-height: 1.7; border-top: 1px solid var(--bone-ghost); padding-top: 2rem;">El texto original está en turco. Hemos intentado ser lo más orgánicos posible, respetando la naturaleza de cada idioma, pero inevitablemente habrá pequeñas imperfecciones. Si encuentra un error o una mejor forma de decirlo, escriba a <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a> — enriquecerá nuestra traducción.</p>
 </section>
+
+<div class="transcreation-notes">
+    <h3>Notas de transcreación</h3>
+
+    <details>
+        <summary>«Exacto» — Aynen öyle</summary>
+        <div class="note-body">
+            El turco <em>aynen öyle</em> (literalmente «así mismo, tal cual») es la expresión nuclear del ensayo. El español «exacto» replica el mecanismo: una sola palabra que puede ser confirmación genuina o evasión del pensamiento, según el contexto. Se descartaron «totalmente» (demasiado enfático), «claro» (demasiado neutro) y «tal cual» (demasiado literal). «Exacto» comparte con <em>aynen</em> la paradoja etimológica — su raíz latina <em>exactus</em> (llevado a término, completado con rigor) porta una precisión que el uso coloquial ha vaciado.
+        </div>
+    </details>
+
+    <details>
+        <summary>«comunión fática» — fatik iletişim</summary>
+        <div class="note-body">
+            El término de Malinowski <em>phatic communion</em> tiene traducción directa al español: «comunión fática». Sin embargo, en el ensayo se alternan «comunicación fática» (más técnico) y «contacto» (más orgánico) según el contexto. El turco <em>fatik</em> es un préstamo directo sin raíz nativa — igual que en español. La diferencia: en español, «fático» suena a registro académico; en turco, al carecer de tradición lingüística popular para el término, el efecto de extrañeza es aún mayor. Conservamos esa extrañeza deliberada.
+        </div>
+    </details>
+
+    <details>
+        <summary>«parasitismo epistémico» — epistemik parazitlik</summary>
+        <div class="note-body">
+            El turco usa el préstamo directo <em>epistemik parazitlik</em>. El español permite «parasitismo epistémico», que suena más orgánico que «parasitismo epistemológico» (demasiado largo) o «parásito del conocimiento» (demasiado coloquial para el contexto). La metáfora biológica funciona igual en ambas lenguas: un organismo que se alimenta del esfuerzo ajeno sin contribuir.
+        </div>
+    </details>
+
+    <details>
+        <summary>«el hueso de la palabra» — sözcüğün kemiği</summary>
+        <div class="note-body">
+            La metáfora del ensayo estructura la dualidad del fenómeno: <em>sözcüğün derisi</em> (la piel de la palabra = función fática) frente a <em>sözcüğün kemiği</em> (el hueso de la palabra = erosión epistémica). En español la anatomía funciona idénticamente: «la piel» protege, «el hueso» sostiene. La enfermedad que corroe el hueso es más grave que la que daña la piel. La imagen se traduce sin pérdida — una de esas raras coincidencias donde la metáfora cruza idiomas intacta.
+        </div>
+    </details>
+
+    <details>
+        <summary>«forward as received» — aynen iletin</summary>
+        <div class="note-body">
+            El caso indio de WhatsApp usa la fórmula inglesa <em>forward as received</em>, que en el contexto hispanohablante se conoce como «reenviar tal cual se recibió». Mantuvimos la fórmula inglesa original entre paréntesis porque es un término técnico documentado en los estudios sobre desinformación en India. El turco también conserva la fórmula inglesa. La ironía es notable: <em>aynen</em> (la palabra del título) es literalmente la traducción turca de <em>as received</em> — la misma palabra que inicia el ensayo aparece en su ejemplo más letal.
+        </div>
+    </details>
+</div>
 
 </main>
 

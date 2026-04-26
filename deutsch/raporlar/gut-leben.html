@@ -193,6 +193,60 @@ em { color: var(--bone-dim); }
     text-decoration-color: var(--bone-ghost);
 }
 
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(160, 112, 104, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--wine);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--wine);
+    font-style: italic;
+}
+
 footer {
     max-width: 640px;
     margin: 0 auto;
@@ -405,6 +459,35 @@ footer a:hover { color: var(--bone); }
 
 <div class="translation-note">
     Der Originaltext ist auf Türkisch. Wir haben versucht, so organisch wie möglich zu bleiben und der Natur des Deutschen gerecht zu werden — aber es wird unvermeidlich kleine Unvollkommenheiten geben. Wenn Sie einen Fehler oder eine treffendere Formulierung entdecken, schreiben Sie an <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a> — Sie würden unsere Übersetzung bereichern.
+</div>
+
+<div class="transcreation-notes">
+    <h3>Anmerkungen zur Transcreation</h3>
+
+    <details>
+        <summary>„Gefängnistrakt" — Sağmacılar koğuşu</summary>
+        <div class="note-body">Im Türkischen steht ein einziges Wort: <em>Sağmacılar</em> — der Name eines Gefängnistrakts in Istanbul, der für Jahrzehnte politischer Inhaftierung steht. Allein der Name ruft bei türkischen Lesern ein ganzes Kapitel der Landesgeschichte auf. Im Deutschen gibt es keine vergleichbare Verdichtung. „Gefängnistrakt" liefert den minimalen Kontext; der Tee bleibt (eine universelle Geste der Normalität in der Gefangenschaft). Was verloren geht: die sofortige Wiedererkennung, das Gewicht des Wortes, noch bevor der Satz zu Ende ist.</div>
+    </details>
+
+    <details>
+        <summary>„Sorgenkette" — tespih</summary>
+        <div class="note-body">Türkisch <em>tespih</em> ist eine Perlenschnur, die zwischen den Fingern gedreht wird — teils Gebetsobjekt, teils meditative Gewohnheit, teils soziale Geste. „Gebetskette" hätte das Bild in Richtung Rosenkranz verschoben und eine christliche Konnotation erzeugt. „Sorgenkette" (in Anlehnung an die griechischen <em>Kombolói</em>, Sorgenperlen) fängt die säkulare, taktile Gewohnheit ein: alte Männer, die sitzen, deren Finger sich bewegen, deren Gedanken ohne Ziel kreisen. Das kommt dem <em>tespih</em> in den Händen der Männer, die Altan beschreibt, näher als jede kirchliche Übersetzung.</div>
+    </details>
+
+    <details>
+        <summary>„auskosten" — değerlendirmek</summary>
+        <div class="note-body">Das türkische Verb <em>değerlendirmek</em> bedeutet eigentlich „bewerten, einschätzen" — analytisch, distanziert. Doch Altans Verhältnis zu den Leben, die er beschreibt, ist nicht klinisch; er kostet sie aus, dreht sie mit Genuss und Wehmut um. „Auskosten" verschiebt die Handlung von der Beurteilung zum Geschmack — vom Gerichtssaal an den Küchentisch. Die ursprüngliche Wahl „abringen" hätte eine Gewalt hinzugefügt, die das Türkische nicht trägt.</div>
+    </details>
+
+    <details>
+        <summary>„im Arsch ist" — bombok</summary>
+        <div class="note-body">Türkisch <em>bombok</em> ist vulgär, stumpf, im Register kaum übersetzbar — irgendwo zwischen „total am Arsch" und „restlos ruiniert". Die literarische Atmosphäre des Textes verlangte Zurückhaltung: „im Arsch" behält die Direktheit und einen Hauch von Derbheit, ohne den essayistischen Ton zu sprengen. Altan selbst schrieb mit derselben Spannung: grober Inhalt, gefasster Vortrag. Die englische Fassung wählte das mildere „gone to hell"; im Deutschen erlaubt die Umgangssprache eine Stufe mehr Schärfe — und diese Schärfe liegt näher am Original.</div>
+    </details>
+
+    <details>
+        <summary>„vollendete Einsamkeit" — başarılı yalnızlık</summary>
+        <div class="note-body">Das Türkische liest sich wörtlich: <em>kuyuya atılan bir taş kadar başarılı yalnızlık</em> — „eine Einsamkeit, so vollendet wie ein Stein, der in einen Brunnen geworfen wird". Das Bild ist räumlich, gravitatisch: Einsamkeit als Stein, der in einen Brunnen fällt, sich am Grund absetzt, nicht mehr zu holen. „Vollendet" ist eine bewusste Wahl: eine Einsamkeit, die ihre eigene Fülle erreicht hat, sich selbst genügt, keine Bestätigung von außen sucht. Im Deutschen bleibt das Brunnenbild erhalten — „wie ein Stein, der in einen Brunnen fällt" —, und „vollendet" fasst das Adjektiv <em>başarılı</em> (wörtlich: „erfolgreich") in einem Wort, das im Deutschen sowohl Abgeschlossenheit als auch Meisterschaft mitträgt.</div>
+    </details>
 </div>
 
 </main>
