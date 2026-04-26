@@ -772,6 +772,23 @@ a { color: inherit; text-decoration: none; }
     text-underline-offset: 0.18em;
     text-decoration-color: var(--bone-ghost);
 }
+
+/* ===== HOME LINK ===== */
+.home-nav {
+    text-align: center;
+    padding: 0.5rem 0 0;
+}
+.home-link {
+    color: var(--bone-ghost);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: inline-block;
+    line-height: 1;
+}
+.home-link:hover {
+    color: var(--bone-dim);
+}
 </style>
 </head>
 <body>
@@ -788,8 +805,7 @@ a { color: inherit; text-decoration: none; }
     <span class="lang-sep">&middot;</span>
     <a href="/espanol/raporlar/alucinacion-de-quien-es-el-problema.html" class="lang-link">Espa&ntilde;ol</a>
 </nav>
-
-
+<div class="home-nav"><a href="/english/" class="home-link" aria-label="Home">⌂</a></div>
 <header class="report-header">
     <h1>Hallucination<br>Whose Problem?</h1>
     <p class="subtitle">A comparative analysis of AI knowledge production errors<br>and human knowledge production errors. A six-layer model.</p>
