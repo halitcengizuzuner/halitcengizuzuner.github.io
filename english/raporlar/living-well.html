@@ -193,6 +193,60 @@ em { color: var(--bone-dim); }
     text-decoration-color: var(--bone-ghost);
 }
 
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(160, 112, 104, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '›';
+    margin-right: 0.5rem;
+    color: var(--wine);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--wine);
+    font-style: italic;
+}
+
 footer {
     max-width: 640px;
     margin: 0 auto;
@@ -405,6 +459,45 @@ footer a:hover { color: var(--bone); }
 
 <div class="translation-note">
     The original text is in Turkish. We tried to stay as organic as possible, to honour the nature of English — but there will inevitably be small imperfections. If you spot an error or a more fitting phrasing, write to <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a> — you would enrich our translation.
+</div>
+
+<div class="transcreation-notes">
+    <h3>Transcreation Notes</h3>
+
+    <details>
+        <summary>"a prison ward" — Sağmacılar</summary>
+        <div class="note-body">
+            Turkish <em>Sağmacılar</em> is a single word that condenses decades of political incarceration in Istanbul — a prison ward whose name alone conjures a specific chapter of Turkish history. English has no equivalent compression. We added "prison ward" as minimal context; the tea remains (a universal gesture of normalcy within confinement). What is lost: the instant recognition a Turkish reader feels, the way the word itself carries weight before the sentence even finishes.
+        </div>
+    </details>
+
+    <details>
+        <summary>"worry beads" — tespih</summary>
+        <div class="note-body">
+            Turkish <em>tespih</em> is a string of beads turned between the fingers — part prayer object, part meditative habit, part social gesture. "Prayer beads" would evoke rosaries, pulling the image toward Christianity. <em>Worry beads</em> (from Greek <em>kombolói</em>) captures the secular, tactile habit: old men sitting, fingers moving, thought turning without destination. This is closer to how <em>tespih</em> functions in the hands of the men Altan describes.
+        </div>
+    </details>
+
+    <details>
+        <summary>"savouring" — değerlendirmek</summary>
+        <div class="note-body">
+            The Turkish verb <em>değerlendirmek</em> means to evaluate, to assess — analytical, distanced. But Altan's relationship with the lives he describes is not clinical; he savours them, turns them over with pleasure and melancholy. <em>Savouring</em> (British spelling, consistent with the text's <em>recognising</em>) shifts the act from judgment to taste — from the courtroom to the kitchen table. Two independent models flagged this; the original choice <em>wringing</em> added a violence the Turkish did not carry.
+        </div>
+    </details>
+
+    <details>
+        <summary>"gone to hell" — bombok</summary>
+        <div class="note-body">
+            Turkish <em>bombok</em> is vulgar, blunt, untranslatable in register — somewhere between "gone to shit" and "utterly ruined." The text's literary atmosphere demanded restraint: <em>gone to hell</em> keeps the directness and the damnation without breaking the essayistic tone. Both DeepSeek and Gemini agreed — the loss in vulgarity is compensated by the gain in tonal coherence. Altan himself wrote with the same tension: rough content, composed delivery.
+        </div>
+    </details>
+
+    <details>
+        <summary>"accomplished solitude"</summary>
+        <div class="note-body">
+            The Turkish reads: <em>taşların dibine düşen yalnızlık</em> — literally, "a solitude fallen to the bottom of stones." The metaphor is spatial, gravitational: solitude as a stone dropped into a well, settling at the bottom, unretrievable. <em>Accomplished</em> is a creative choice: a solitude that has achieved its own fullness, that sustains itself without seeking approval from outside. The well image is sacrificed; what remains is the self-sufficiency — a solitude that has completed its work. Both evaluators noted the departure; both agreed it works as English prose on its own terms.
+        </div>
+    </details>
 </div>
 
 </main>
