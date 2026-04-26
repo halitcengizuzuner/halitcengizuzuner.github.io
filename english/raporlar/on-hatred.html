@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On Hatred — The Nature, Structure, and Function of Hate</title>
+<meta name="description" content="An investigation into the nature, structure, and function of hatred. Where does it come from, what does it protect, how does it transform? And what is it doing to me today?">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="On Hatred">
+<meta property="og:description" content="An investigation into the nature, structure, and function of hatred. Where does it come from, what does it protect, how does it transform? And what is it doing to me today?">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/english/raporlar/on-hatred.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-03-22">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="On Hatred">
+<meta name="twitter:description" content="An investigation into the nature, structure, and function of hatred. Where does it come from, what does it protect, how does it transform? And what is it doing to me today?">
+<link rel="canonical" href="https://halitcengizuzuner.com/english/raporlar/on-hatred.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/nefret-uzerine.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/on-hatred.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/on-hatred.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/de-la-haine.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/ueber-den-hass.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/sobre-el-odio.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/nefret-uzerine.html">
+<link rel="icon" href="data:,">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "On Hatred",
+  "description": "An investigation into the nature, structure, and function of hatred. Where does it come from, what does it protect, how does it transform? And what is it doing to me today?",
+  "datePublished": "2026-03-22",
+  "dateModified": "2026-04-26",
+  "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/english/raporlar/on-hatred.html"},
+  "inLanguage": "en",
+  "translationOfWork": {"@type": "Article", "@id": "https://halitcengizuzuner.com/raporlar/nefret-uzerine.html"}
+}
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  --bg: #0a0a0a;
+  --surface: #111113;
+  --text: #d4d0c8;
+  --dim: #8a8a9a;
+  --muted: #555566;
+  --accent: #c4785a;
+  --accent2: #7a6a5a;
+  --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Inter', -apple-system, system-ui, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === KAPAK === */
+.cover {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.cover-image {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/82/Francisco_de_Goya%2C_Saturno_devorando_a_su_hijo_%281819-1823%29.jpg');
+  background-size: cover;
+  background-position: center 20%;
+  filter: brightness(0.35) saturate(0.7);
+  z-index: 0;
+}
+
+.cover-content {
+  position: relative;
+  z-index: 1;
+  padding: 60px 40px;
+  background: linear-gradient(transparent, rgba(10,10,10,0.95) 60%);
+}
+
+.cover h1 {
+  font-family: var(--serif);
+  font-size: clamp(3em, 8vw, 6em);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #f0ece4;
+  margin-bottom: 16px;
+}
+
+.cover .subtitle {
+  font-family: var(--sans);
+  font-size: clamp(0.85em, 2vw, 1.05em);
+  font-weight: 300;
+  color: var(--dim);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.cover .meta {
+  font-family: var(--sans);
+  font-size: 0.75em;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 24px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cover .caption {
+  position: absolute;
+  bottom: 12px;
+  right: 20px;
+  font-family: var(--sans);
+  font-size: 0.65em;
+  color: rgba(255,255,255,0.25);
+  z-index: 2;
+}
+
+/* === İÇERİK === */
+.content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.content p {
+  font-size: 1.2em;
+  margin-bottom: 1.6em;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.content p:first-of-type::first-letter {
+  font-size: 3.5em;
+  float: left;
+  line-height: 0.8;
+  margin-right: 8px;
+  margin-top: 6px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* === BÜYÜK ALINTI === */
+.pullquote {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.pullquote blockquote {
+  font-family: var(--serif);
+  font-size: clamp(1.6em, 4vw, 2.4em);
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.4;
+  color: #f0ece4;
+}
+
+.pullquote .attribution {
+  font-family: var(--sans);
+  font-size: 0.8em;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 16px;
+  letter-spacing: 0.05em;
+}
+
+/* === GÖRSEL BÖLÜM === */
+.visual-break {
+  position: relative;
+  width: 100%;
+  margin: 60px 0;
+  overflow: hidden;
+}
+
+.visual-break img {
+  width: 100%;
+  display: block;
+  filter: brightness(0.7) saturate(0.8);
+  transition: filter 0.5s;
+}
+
+.visual-break:hover img {
+  filter: brightness(0.85) saturate(1);
+}
+
+.visual-break .img-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 24px 16px;
+  background: linear-gradient(transparent, rgba(10,10,10,0.9));
+  font-family: var(--sans);
+  font-size: 0.78em;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+}
+
+.visual-break .img-caption strong {
+  color: rgba(255,255,255,0.75);
+  font-weight: 500;
+}
+
+/* === BÖLÜM BAŞLIĞI === */
+.section-header {
+  max-width: 720px;
+  margin: 80px auto 40px;
+  padding: 0 24px;
+}
+
+.section-header .number {
+  font-family: var(--sans);
+  font-size: 0.7em;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.section-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8em, 4vw, 2.6em);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #f0ece4;
+}
+
+.section-header .deck {
+  font-family: var(--sans);
+  font-size: 0.9em;
+  font-weight: 300;
+  color: var(--dim);
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+/* === AYIRICI === */
+.separator {
+  max-width: 720px;
+  margin: 60px auto;
+  padding: 0 24px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 1.4em;
+  letter-spacing: 0.5em;
+}
+
+/* === KUTU === */
+.inset-box {
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 30px 32px;
+  background: var(--surface);
+  border-left: 3px solid var(--accent2);
+  border-radius: 0 8px 8px 0;
+}
+
+.inset-box .box-title {
+  font-family: var(--sans);
+  font-size: 0.7em;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.inset-box p {
+  font-size: 1.05em;
+  margin-bottom: 1em;
+  text-align: left;
+}
+
+.inset-box p:last-child { margin-bottom: 0; }
+
+/* === İKİ SÜTUN GÖRSEL === */
+.dual-image {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin: 60px 0;
+}
+
+.dual-image .img-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.dual-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.65) saturate(0.8);
+  transition: filter 0.5s;
+}
+
+.dual-image .img-panel:hover img {
+  filter: brightness(0.8) saturate(1);
+}
+
+.dual-image .img-label {
+  position: absolute;
+  bottom: 12px;
+  left: 16px;
+  font-family: var(--sans);
+  font-size: 0.7em;
+  color: rgba(255,255,255,0.5);
+}
+
+/* === FOOTER === */
+.article-footer {
+  max-width: 720px;
+  margin: 80px auto 40px;
+  padding: 40px 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-family: var(--sans);
+  font-size: 0.78em;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.article-footer .colophon {
+  margin-top: 20px;
+  font-size: 0.85em;
+  color: rgba(255,255,255,0.2);
+}
+
+/* === DİPNOT === */
+.footnote-ref {
+  font-size: 0.7em;
+  vertical-align: super;
+  color: var(--accent);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footnotes {
+  max-width: 720px;
+  margin: 0 auto 60px;
+  padding: 0 24px;
+  font-family: var(--sans);
+  font-size: 0.8em;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.footnotes ol { padding-left: 20px; }
+.footnotes li { margin-bottom: 8px; }
+.footnotes a { color: var(--accent); text-decoration: none; }
+
+/* === MOBİL === */
+@media (max-width: 600px) {
+  .cover-content { padding: 40px 20px; }
+  .content { padding: 40px 16px; }
+  .content p { font-size: 1.05em; }
+  .dual-image { grid-template-columns: 1fr; }
+  .dual-image img { height: 300px; }
+}
+
+/* ========== DİNLEME KAPISI ========== */
+.dinle-kapisi {
+    margin-top: 2.5rem;
+}
+
+.dinle-kapisi summary {
+    font-size: 0.85rem;
+    color: var(--bone-ghost);
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    list-style: none;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi summary::-webkit-details-marker { display: none; }
+.dinle-kapisi summary::marker { display: none; content: ''; }
+
+.dinle-kapisi summary::before {
+    content: '▸ ';
+    display: inline;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi[open] summary::before {
+    content: '▾ ';
+}
+
+.dinle-kapisi summary:hover {
+    color: var(--bone-dim);
+}
+
+.dinle-kapisi[open] summary {
+    color: var(--bone-dim);
+    margin-bottom: 1.2rem;
+}
+
+.dinle-icerik {
+    padding: 1.5rem;
+    border: 1px solid var(--bone-ghost);
+    max-width: 480px;
+}
+
+.dinle-icerik p {
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.dinle-icerik p:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.dinle-icerik a {
+    color: var(--bone-bright);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--bone-ghost);
+    transition: color 0.3s, text-decoration-color 0.3s;
+}
+
+.dinle-icerik a:hover {
+    color: var(--bone-bright);
+    text-decoration-color: var(--bone-bright);
+}
+
+.dinle-git {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+}
+
+/* ===== LANGUAGE BAR (Oturum 27) ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="Language">
+    <a href="/" class="lang-link">Türkçe</a>
+    <span class="lang-sep">·</span>
+    <a href="/english/" class="lang-link lang-active">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/" class="lang-link">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/" class="lang-link">Español</a>
+</nav>
+
+
+<!-- ═══════════════ KAPAK ═══════════════ -->
+<div class="cover">
+  <div class="cover-image"></div>
+  <div class="cover-content">
+    <h1>On Hatred</h1>
+    <p class="subtitle">The anatomy of an emotion — a teardown report on a structure that cannot be justified by reason, was not built by intellect, and serves no living thing.</p>
+    <p class="meta">Halit Cengiz Uzuner · 22 March 2026</p>
+    <details class="dinle-kapisi">
+        <summary>Listening text for this piece</summary>
+        <div class="dinle-icerik">
+            <p>Not an audio recording. The same thinking, restructured for the ear — different sentence rhythms, different information order, different breathing points. Can be listened to with any text-to-speech tool.</p>
+            <p>Reading is always our preference. The eye goes back, pauses, rereads — the ear has no such luxury. We have a separate investigation into this very difference: <a href="yazidan-sese.html">From Writing to Voice</a>.</p>
+            <a href="nefret-uzerine-dinle.html" class="dinle-git">Go to listening text →</a>
+        </div>
+    </details>
+  </div>
+  <span class="caption">Goya, Saturno devorando a su hijo, 1819–1823 · Museo del Prado</span>
+</div>
+
+<!-- ═══════════════ GİRİŞ ═══════════════ -->
+<div class="content">
+  <p>Yesterday I hated someone. A state. The state of Israel. They are killing children, bombing hospitals, annihilating a people in plain sight of the world — and there is nothing I can do about it. I hated. I made extravagant outbursts. I passed absolute judgments. Then night came, morning came, and today I looked at the hatred itself.</p>
+
+  <p>The moment you try to defend your hatred — if you have an analytical mind — the hatred collapses. You start lining up your reasons in logical order. Unless emotions intervene from the background, that sequence cannot hold together. You triggered hatred through a chain of reasoning that never formed. And you look at the object of your hatred: does this object actually fit the hatred? You cannot find that it does.</p>
+
+  <p>This piece was born from that moment of not finding.</p>
+</div>
+
+<div class="separator">· · ·</div>
+
+<!-- ═══════════════ BÖLÜM 1 ═══════════════ -->
+<div class="visual-break">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/The_Scream.jpg" alt="Edvard Munch, The Scream, 1893" loading="lazy">
+  <div class="img-caption"><strong>Edvard Munch, The Scream (Skrik), 1893</strong> · Nasjonalmuseet, Oslo — "I heard the enormous, infinite scream of nature." Is hatred, too, a scream like that — or a false name given to the scream?</div>
+</div>
+
+<div class="section-header">
+  <div class="number">First Section</div>
+  <h2>The Object Problem</h2>
+  <div class="deck">Hatred demands an object. But the object never fits.</div>
+</div>
+
+<div class="content">
+  <p>When I say "I hate the state of Israel," what have I actually said? The state of Israel: millions of people, thousands of years of history, hundreds of distinct schools of thought, a state apparatus, an army, civilians, dissidents, anti-war voices, people protesting in the streets — all compressed into a single object. An analytical mind cannot accept this generalization. Generalization is the mandatory precondition of hatred — but it is the fatal error of analysis.</p>
+
+  <p>Then the object shifts. What I actually hate is not the perpetrator but the act. I hate the killing of children in Gaza. When I look at that act, the hatred holds — because the act is concrete, definable, bounded. But the feeling of hatred does not stay with the act; it spreads to the perpetrator. This spread is automatic, reflexive, happening in milliseconds. The emotion's first move is the question "who did this?" The moment that question is asked, the act recedes and the perpetrator comes forward. A state, a nation, a religion — the generalization is complete.</p>
+
+  <p>Hatred generalizes; anger focuses. Perhaps yesterday's outburst was not hatred — it was anger. But the moment I called it "hatred," it spread from the act to the actor, became boundless, became uncontrollable.</p>
+</div>
+
+<div class="pullquote">
+  <blockquote>"If reason had built it, reason could verify it. It cannot."</blockquote>
+</div>
+
+<!-- ═══════════════ BÖLÜM 2 ═══════════════ -->
+<div class="section-header">
+  <div class="number">Second Section</div>
+  <h2>Punishment Is Not Vomiting Hatred</h2>
+  <div class="deck">Even law — humanity's most institutional attempt at justice — does not say "destroy."</div>
+</div>
+
+<div class="visual-break">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Judith_Beheading_Holofernes-Caravaggio_%28c.1598-9%29.jpg" alt="Caravaggio, Judith Beheading Holofernes, 1598-99" loading="lazy">
+  <div class="img-caption"><strong>Caravaggio, Judith Beheading Holofernes, 1598–99</strong> · Palazzo Barberini, Rome — There is no hatred on Judith's face — there is resolve. The act is horrifying, but its motive is not vengeance; it is protection.</div>
+</div>
+
+<div class="content">
+  <p>Repetition of an act begins to define the perpetrator. Systematic, deliberate, repeated actions — yes, these reveal a structure. And that structure should be punished. But the purpose of punishment is not to vomit hatred.</p>
+
+  <p>The purpose of punishment is to rehabilitate the offender. To protect others. To maintain social order. You do not punish someone because you hate them — you punish them to protect others from them and to rehabilitate them. You cannot rehabilitate by destroying. You certainly cannot by hating. You bring them under control — nothing more.</p>
+
+  <p>And even in that act of bringing under control, the causal link you draw between offender and consequence is never a perfect cause-and-effect chain. You cannot establish a scientific link. As a lawyer I lived this for thirty years: adequate causation, suitability, intervening factors, conditions — all approximations. None of them certainty. You construct the closest possible link for that day's circumstances, and even that is good only for that day. Yesterday's justice is not tomorrow's justice.</p>
+
+  <p>If justice is a function of time — then hatred, an emotion that freezes time, ignores circumstances, claims absolutes — is incompatible with the structure of reality.</p>
+</div>
+
+<div class="separator">· · ·</div>
+
+<!-- ═══════════════ BÖLÜM 3 ═══════════════ -->
+<div class="section-header">
+  <div class="number">Third Section</div>
+  <h2>Does Hatred Belong to Humans?</h2>
+  <div class="deck">A pre-rational response. But a mechanism that cannot operate without reason.</div>
+</div>
+
+<div class="visual-break">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Hieronymus_Bosch_-_The_Garden_of_Earthly_Delights_-_Hell.jpg" alt="Hieronymus Bosch, The Garden of Earthly Delights — Hell Panel" loading="lazy">
+  <div class="img-caption"><strong>Hieronymus Bosch, The Garden of Earthly Delights — Hell Panel, 1490–1510</strong> · Museo del Prado, Madrid — Bosch's hell is not hatred itself but the oldest visual map of hatred's instrumentalization. The heaven-and-hell economy: feed hatred with fear, reward fear with obedience.</div>
+</div>
+
+<div class="content">
+  <p>It is difficult to even discuss hatred in terms of meaning. Its definition is troubled. Whether hatred belongs to human beings, whether it is an extension of being alive or a structure contrary to life itself — these questions are as tangled as hatred itself.</p>
+
+  <p>An animal can feel fear — preservation of life, the fight-or-flight response triggered by the amygdala.<a href="#fn2" class="footnote-ref">2</a> An animal can feel rage — territorial defense, aggression. These are bodily, momentary, situational. When the threat passes, they fade. But an animal does not hate.</p>
+
+  <p>Hatred requires the following: object identification ("this thing"), persistence ("always"), generalization ("all of them"), memory ("they did this before"), and rumination. All of these are cognitive operations. But none of them are rational operations.</p>
+
+  <p>The paradox sits right here: hatred requires cognition but does not originate from reason. Fear comes from the body; the brain processes it. Anger comes from the body; the brain directs it. Hatred, however, takes the raw material arriving from the body — fear, pain, helplessness, perceived threat — and dresses it in structure. It locks it onto an object, extends it across time, generates justification. This structuring is automatic, reflexive — but it cannot run without cognitive infrastructure.</p>
+
+  <p>Hatred is neither pure emotion nor pure thought. It is a counterfeit compound of both.</p>
+</div>
+
+<div class="inset-box">
+  <div class="box-title">The Helplessness Transformation</div>
+  <p>The raw material of hatred is fear and helplessness. You look at the children of Gaza — you feel pain, you feel helpless, you can do nothing. Helplessness is the hardest emotion to bear. And hatred transforms it: instead of "I can't do anything," it says "I hate." Hatred gives helplessness a feeling of power. A false power — it changes nothing — but it is more bearable than helplessness.</p>
+  <p>In this sense hatred is a defense mechanism — a derivative of what Anna Freud called "reaction formation":<a href="#fn3" class="footnote-ref">3</a> masking an unbearable feeling with another feeling that looks like its opposite but feeds from the same source. Helplessness is unbearable; hatred dresses it up as strength. But defense against what? <strong>Against one's own impotence.</strong></p>
+</div>
+
+<div class="pullquote">
+  <blockquote>"Hatred is certainly not a concept constructed by reason. If reason had constructed it, reason could verify it."</blockquote>
+</div>
+
+<!-- ═══════════════ BÖLÜM 4 ═══════════════ -->
+<div class="visual-break">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/El_Tres_de_Mayo%2C_by_Francisco_de_Goya%2C_from_Prado_in_Google_Earth.jpg/1280px-El_Tres_de_Mayo%2C_by_Francisco_de_Goya%2C_from_Prado_in_Google_Earth.jpg" alt="Goya, The Third of May 1808, 1814" loading="lazy">
+  <div class="img-caption"><strong>Francisco de Goya, The Third of May 1808, 1814</strong> · Museo del Prado, Madrid — The face of the man in the white shirt holds no hatred — only raw terror and helplessness. The hatred in this painting lives outside the frame — in the viewer. Goya is the painter who sketches the viewer's emotion without placing it inside the canvas.</div>
+</div>
+
+<div class="section-header">
+  <div class="number">Fourth Section</div>
+  <h2>The Violation of Expectation</h2>
+  <div class="deck">Hatred is born from the judgment "you should not have been this way." No expectation, no hatred.</div>
+</div>
+
+<div class="content">
+  <p>You hate Israel because you expect humane behavior from a state. Your expectation is violated, and hatred is born. You assume a world order: states should not kill civilians, children should be protected, hospitals should be untouchable. When that expectation breaks, the judgment "this should not have been" forms — and that judgment is the fuel of hatred.</p>
+
+  <p>Against this, consider Anton Chigurh.<a href="#fn1" class="footnote-ref">1</a> A character who perfectly embodies the pure nature of evil. You cannot execute that man, you cannot destroy him — and you cannot even hate him.</p>
+
+  <p>You expect nothing from Chigurh because he shows you what he is from the first minute. Nothing hidden, nothing fake, no pretense of being something else. He flips a coin, calls it fate, and his internal logic is entirely consistent. No expectation, no disappointment; no disappointment, no hatred.</p>
+
+  <p>Hatred feeds on the perception of falseness. "You should not have been this way, yet you are" — that contradiction is hatred's fuel. In Chigurh there is no contradiction. He is what he is. Organic evil carries no pretense — and a human being cannot hate what carries no pretense.</p>
+</div>
+
+<div class="inset-box">
+  <div class="box-title">The Chigurh Test — Theories of Punishment</div>
+  <p><strong>Retribution:</strong> Collapses. No hatred, no motive for vengeance.</p>
+  <p><strong>Rehabilitation:</strong> Collapses. There is nothing to change. He is not broken — he is different.</p>
+  <p><strong>Deterrence:</strong> Collapses. He has his own rationality; it does not intersect with the penal system's rationality.</p>
+  <p>Only one thing remains: <strong>incapacitation.</strong> "We cannot change you, we are not taking revenge on you, we cannot deter you — but we can protect others from you." The most primitive yet most honest form of punishment. And it has nothing to do with hatred.</p>
+</div>
+
+<div class="separator">· · ·</div>
+
+<!-- ═══════════════ BÖLÜM 5 ═══════════════ -->
+<div class="dual-image">
+  <div class="img-panel">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/David_with_the_Head_of_Goliath-Caravaggio_%281610%29.jpg" alt="Caravaggio, David with the Head of Goliath" loading="lazy">
+    <span class="img-label">Caravaggio, David with the Head of Goliath, 1609–10</span>
+  </div>
+  <div class="img-panel">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Francisco_de_Goya_y_Lucientes_-_Duelo_a_garrotazos.jpg" alt="Goya, Fight with Cudgels" loading="lazy">
+    <span class="img-label">Goya, Fight with Cudgels, 1820–23</span>
+  </div>
+</div>
+
+<div class="section-header">
+  <div class="number">Fifth Section</div>
+  <h2>The Confession of Surrendered Will</h2>
+  <div class="deck">To hate is to have surrendered one's own will.</div>
+</div>
+
+<div class="content">
+  <p>For a long time I had stopped hating the people I believed had partly caused events that harmed me, people in whom I had seen evil. I had forgiven them inwardly. But this was not an emotional forgiveness — it was an analytical one.</p>
+
+  <p>Because I had told myself: your actions contributed, but they did not directly cause the outcome. I allowed you to do these things — directly or indirectly. Your actions alone were not sufficient to produce this result.</p>
+
+  <p>And here is the breaking point: if their actions had been directly sufficient — if they could have done it entirely on their own — that would mean I was useless, that my will could not have stopped anything. To hate them is, indirectly, to see myself as powerless.</p>
+
+  <p>This is hatred's most hidden face. When you hate someone, you are telling them: "You did this alone. I could do nothing." The acceptance of helplessness. The one who hates is impotent — because they are saying "they did it, I was ineffective."</p>
+
+  <p>My position is different: "I was there too, I did something or failed to do something — responsibility is shared." This is the price of possessing a will. But it is also the reward. Hatred erases both parties' share. Forgiveness — analytical forgiveness, accepting responsibility — acknowledges the existence of both.</p>
+</div>
+
+<div class="pullquote">
+  <blockquote>"Hatred is incompatible with possessing a will. To hate is to have surrendered it."</blockquote>
+</div>
+
+<!-- ═══════════════ BÖLÜM 6 ═══════════════ -->
+<div class="visual-break">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Brooklyn_Museum_-_The_Great_Red_Dragon_and_the_Woman_Clothed_with_the_Sun_%28Rev._12_1-4%29_-_William_Blake.jpg" alt="William Blake, The Great Red Dragon" loading="lazy">
+  <div class="img-caption"><strong>William Blake, The Great Red Dragon and the Woman Clothed with the Sun, 1805–10</strong> · Brooklyn Museum — Blake's dragon is not an object of hatred but an object of study. The visual archetype of organic evil: true to its nature, nothing hidden, nothing false.</div>
+</div>
+
+<div class="section-header">
+  <div class="number">Sixth Section</div>
+  <h2>Organic Evil</h2>
+  <div class="deck">Counterfeit goodness is worth less than organic evil.</div>
+</div>
+
+<div class="content">
+  <p>Love is problematic too. Love, too, cannot be verified by reason. If you tried to line up your reasons for loving someone in logical order, the same collapse would occur. Verifiability may not be the only criterion. Both are pre-rational, both are problematic — but both produce something. Love can be an art; the harmless form of hatred might be one as well.</p>
+
+  <p>I sometimes love evil. Provided it is deeply organic, provided its nature is worth examining.</p>
+
+  <p>That sentence carries the core of my worldview. I reject falseness, not evil. Calculated manipulation, engineered cruelty, counterfeit goodness — these disgust me. But an evil that is true to its nature? That can be examined. Because its structure is visible, nothing is hidden.</p>
+
+  <p>This is the fundamental criterion: <em>organic, or counterfeit?</em> Counterfeit goodness is worth less than organic evil. Counterfeit love is emptier than organic hatred. Because there is nothing to examine in the counterfeit — in the organic there is structure, there is nature, there is something that can be taken apart.</p>
+
+  <p>Yesterday's hatred was locked onto an object, surrendered to emotion, its structure unquestioned. Today I took that same hatred apart, extracted its structure, tested its chain of reasoning, questioned its object, investigated its relationship to being alive. The hatred is the same hatred — but yesterday it owned me; today it is my material.</p>
+</div>
+
+<div class="separator">· · ·</div>
+
+<!-- ═══════════════ BÖLÜM 7 ═══════════════ -->
+<div class="section-header">
+  <div class="number">Seventh Section</div>
+  <h2>Territory That Must Not Be Surrendered</h2>
+  <div class="deck">Neither to the heaven-and-hell economy nor to neuron maps.</div>
+</div>
+
+<div class="content">
+  <p>Hatred is trapped between two reductionisms.</p>
+
+  <p>The first is religious reductionism. The heaven-and-hell economy: "Hate, so you deserve paradise" or "Do not hate, so you escape hell." Both turn hatred into a trade instrument. Cults use hatred as a loyalty mechanism: hating a common enemy produces belonging to the group. Excommunication, takfir, expulsion — all institutional forms of hatred. Hatred here is a tool; the purpose is control.</p>
+
+  <p>The second is materialist reductionism. "Hatred is amygdala activation, cortisol elevation, serotonin depletion." This is not hatred either; it is hatred's shadow. Semir Zeki and John Romaya's 2008 fMRI study<a href="#fn4" class="footnote-ref">4</a> mapped the brain signature of hatred — putamen and insula activation, partial deactivation in the frontal cortex — but mapping the terrain is not understanding it. Measuring chemistry is not understanding emotion; scanning the brain is not reading the mind. You cannot see hatred on an MRI — you see its bodily trace. The trace and the thing are not the same thing.</p>
+
+  <p>This territory — the nature, structure, and function of hatred — must not be surrendered to religions and belief systems. They exploit this emotion through the heaven-and-hell economy, through cult-like structures. But examining it only through neurons and chemical processes is equally foolish. Both are escape: one into dogma, the other into data.</p>
+
+  <p>There is a third path: examining hatred as a human experience, with its own structure, its own logic, its own mode of collapse. Neither saying "hatred is a sin" nor saying "hatred is a neurochemical reaction." Hatred cannot be verified by reason, it does not fit the object, it requires a violation of expectation, it is the confession of surrendered will — these are neither a preacher's sentences nor a neuroscientist's. These are the sentences of a human being who has confronted hatred itself.</p>
+</div>
+
+<!-- ═══════════════ KAPANIŞ ═══════════════ -->
+<div class="visual-break">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Francisco_de_Goya%2C_Saturno_devorando_a_su_hijo_%281819-1823%29.jpg" alt="Goya, Saturn" loading="lazy" style="filter: brightness(0.3) saturate(0.5);">
+  <div class="img-caption"><strong>Goya, Saturno devorando a su hijo, 1819–1823</strong> · Hatred, too, is like Saturn: it devours what it has produced. But when Goya painted this — when he turned hatred into an object of study — he broke Saturn's power.</div>
+</div>
+
+<div class="content">
+  <p>Fear is organic — it serves the preservation of life. Anger is organic — it serves the defense of boundaries. Love is organic — it serves the making of bonds. Hatred has no place in this sequence. The only pre-rational emotion that does not serve being alive — perhaps not even an emotion at all.</p>
+
+  <p>Perhaps a malfunction. The cognitive structuring of bodily and emotional responses — fear, pain, helplessness — but without a rational foundation. Raw feeling dressed in the costume of logic. A counterfeit rationalization.</p>
+
+  <p>But even as a malfunction, as long as it is organic, it is worth examining. Yesterday hatred owned me. Today it is my material. Tomorrow it may become a teardown tool in someone else's hands.</p>
+
+  <p>Here is the painful part: if you taught this in a criminology class, the majority of the room would go on hating. Only a few people who use their minds — people capable of placing a gap between feeling and judgment — would not. Legal education is precisely the place that should teach that gap. And even there, most fail.</p>
+
+  <p>But a few succeed. And this piece is for them.</p>
+</div>
+
+<!-- ═══════════════ DİPNOTLAR ═══════════════ -->
+<div class="article-footer">
+  <strong>About the images</strong><br>
+  All paintings used in this piece are in the public domain. Digital copies of works by Goya (d. 1828), Bosch (d. 1516), Caravaggio (d. 1610), Munch (d. 1944), and Blake (d. 1827) were sourced from Wikimedia Commons.
+</div>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn1">Anton Chigurh: character in the Coen Brothers' <em>No Country for Old Men</em> (2007), adapted from Cormac McCarthy's novel of the same name (2005). Chigurh is a serial killer who murders arbitrarily, determines fate by coin toss, and has zero capacity for empathy — yet his internal logic is entirely consistent. <a href="#fn1">↩</a></li>
+    <li id="fn2">The amygdala and the fight-or-flight response: Joseph LeDoux's <em>The Emotional Brain</em> (1996) identified the "short circuit" mechanism by which the fear response reaches the amygdala directly via the thalamic pathway. This pathway operates independently of cortical processing — meaning you fear before you think, then you think. Hatred, by contrast, cannot use this short circuit; it requires cognitive structuring. <a href="#fn2">↩</a></li>
+    <li id="fn3">Anna Freud, <em>The Ego and the Mechanisms of Defence</em> (1936). Reaction formation: the ego represses an unbearable impulse or feeling and brings its exact opposite into conscious experience. My use here is a loose analogy — Freud's definition concerns repressed drives; what I mean is the transformation of helplessness into hatred. The mechanism is similar; the material is different. <a href="#fn3">↩</a></li>
+    <li id="fn4">Semir Zeki and John Paul Romaya, "The Neural Correlates of Hate," <em>PLoS ONE</em> 3(10): e3556, 2008. The study showed subjects photographs of people they hated and measured brain activation via fMRI. Putamen and insula activation overlapped with love (an interesting finding), but the partial deactivation in the frontal cortex differed from love — when hating, the capacity for judgment partially shuts down. <a href="#fn4">↩</a></li>
+  </ol>
+</div>
+
+<div class="article-footer">
+  <div class="colophon">
+    Halit Cengiz Uzuner · Giresun, 22 March 2026<br>
+    Produced in partnership with Claude Code.
+  </div>
+</div>
+
+<div class="article-footer" style="border-top: none; margin-top: 20px;">
+  <em>This text was originally written in Turkish. We tried to make it as natural as possible in English — staying true to the voice rather than the words. If you spot something that could sound better, write to <strong>soru@halitcengizuzuner.com</strong> — you'd be enriching our translation.</em>
+</div>
+
+</body>
+</html>
