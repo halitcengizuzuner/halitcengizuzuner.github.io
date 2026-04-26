@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="将书面文字转化为合成语音的科学、实践与局限——一份基于平均听众数据的报告，对自身不足的自我审视。">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="从文字到声音">
+<meta property="og:description" content="将文字转化为声音，是一种翻译——在同一种语言内部。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/zhongwen/raporlar/from-text-to-voice.html">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-04-01">
+<link rel="canonical" href="https://halitcengizuzuner.com/zhongwen/raporlar/from-text-to-voice.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/yazidan-sese.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/from-text-to-voice.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/from-text-to-voice.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/du-texte-a-la-voix.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/vom-text-zur-stimme.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/del-texto-a-la-voz.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/yazidan-sese.html">
+<link rel="icon" href="data:,">
+<title>从文字到声音</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从文字到声音">
+<meta name="twitter:description" content="将文字转化为声音，是一种翻译——在同一种语言内部。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "从文字到声音",
+  "description": "将书面文字转化为合成语音的科学、实践与局限。",
+  "datePublished": "2026-04-01",
+  "dateModified": "2026-04-26",
+  "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/zhongwen/raporlar/from-text-to-voice.html"},
+  "inLanguage": "zh-Hans",
+  "translationOfWork": {"@type": "Article", "inLanguage": "tr", "url": "https://halitcengizuzuner.com/raporlar/yazidan-sese.html"}
+}
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --yanki: #7068a0;
+    --yanki-dim: rgba(112, 104, 160, 0.15);
+    --yanki-ghost: rgba(112, 104, 160, 0.08);
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection { background: var(--yanki); color: var(--void); }
+html { font-size: clamp(17px, 1.2vw, 20px); scroll-behavior: smooth; }
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 2.0;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.10;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.report-header {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 8rem;
+    max-width: 700px;
+}
+
+.report-header h1 {
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    color: var(--bone-bright);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.report-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: var(--bone-dim);
+    margin-top: 1.5rem;
+    line-height: 1.5;
+}
+
+.report-header .meta {
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+.content {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.chapter {
+    margin-bottom: 5rem;
+}
+
+.chapter-title {
+    font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+    color: var(--bone-bright);
+    margin-bottom: 2rem;
+    font-weight: 400;
+    line-height: 1.2;
+    font-style: italic;
+}
+
+p { margin-bottom: 1.5rem; color: var(--bone); }
+strong { color: var(--bone-bright); }
+em { color: var(--bone-dim); }
+
+.callout {
+    border-left: 2px solid var(--yanki);
+    padding: 1.5rem 0 1.5rem 2rem;
+    margin: 2.5rem 0;
+}
+
+.callout p {
+    font-size: 0.95rem;
+    color: var(--bone-dim);
+    margin-bottom: 1rem;
+}
+
+.callout p:last-child { margin-bottom: 0; }
+.callout strong { color: var(--bone); }
+
+.breath { height: 6vh; }
+
+.divider {
+    width: 40px;
+    height: 1px;
+    background: var(--bone-ghost);
+    margin: 4rem 0;
+}
+
+.source-tag {
+    font-size: 0.75rem;
+    color: var(--yanki);
+    vertical-align: super;
+    margin-left: 2px;
+    opacity: 0.8;
+}
+
+.kaynakca {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.kaynakca h2 {
+    font-size: 1.1rem;
+    color: var(--bone-dim);
+    margin-bottom: 2rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.kaynakca p {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+}
+
+footer {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 4rem 2.5rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+footer p {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    line-height: 1.8;
+}
+
+footer a {
+    color: var(--bone-dim);
+    transition: color 0.3s;
+}
+
+footer a:hover { color: var(--bone); }
+
+@media (max-width: 640px) {
+    .report-header { padding: 3rem 1.5rem 4rem; }
+    .content { padding: 0 1.5rem 4rem; }
+    .callout { padding-left: 1.2rem; }
+    footer { padding: 3rem 1.5rem; }
+}
+
+@media (min-width: 1200px) {
+    .report-header { margin-left: 6vw; }
+    .content { margin-left: 6vw; margin-right: auto; }
+    footer { margin-left: 6vw; margin-right: auto; }
+}
+
+@media print {
+    body { background: white; color: #1a1a1a; }
+    body::before { display: none; }
+    .report-header { min-height: auto; padding: 3cm 2cm; page-break-after: always; }
+    .callout { border-color: #999; }
+}
+
+/* ========== DİNLEME KAPISI ========== */
+.dinle-kapisi {
+    margin-top: 2.5rem;
+}
+
+.dinle-kapisi summary {
+    font-size: 0.85rem;
+    color: var(--bone-ghost);
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    list-style: none;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi summary::-webkit-details-marker { display: none; }
+.dinle-kapisi summary::marker { display: none; content: ''; }
+
+.dinle-kapisi summary::before {
+    content: '▸ ';
+    display: inline;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi[open] summary::before {
+    content: '▾ ';
+}
+
+.dinle-kapisi summary:hover {
+    color: var(--bone-dim);
+}
+
+.dinle-kapisi[open] summary {
+    color: var(--bone-dim);
+    margin-bottom: 1.2rem;
+}
+
+.dinle-icerik {
+    padding: 1.5rem;
+    border: 1px solid var(--bone-ghost);
+    max-width: 480px;
+}
+
+.dinle-icerik p {
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.dinle-icerik p:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.dinle-icerik a {
+    color: var(--bone-bright);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--bone-ghost);
+    transition: color 0.3s, text-decoration-color 0.3s;
+}
+
+.dinle-icerik a:hover {
+    color: var(--bone-bright);
+    text-decoration-color: var(--bone-bright);
+}
+
+.dinle-git {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+}
+
+/* ===== LANGUAGE BAR (Oturum 27) ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="语言选择">
+    <a href="/raporlar/yazidan-sese.html" class="lang-link">Türkçe</a>
+    <span class="lang-sep">·</span>
+    <a href="/english/raporlar/from-text-to-voice.html" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/raporlar/from-text-to-voice.html" class="lang-link lang-active">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/raporlar/du-texte-a-la-voix.html" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/raporlar/vom-text-zur-stimme.html" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/raporlar/del-texto-a-la-voz.html" class="lang-link">Español</a>
+</nav>
+
+
+<header class="report-header">
+    <h1>从文字到声音</h1>
+    <p class="subtitle">一篇文章横跨两个世界——眼睛在阅读，耳朵在聆听，中间丢失了什么？</p>
+    <p class="meta">2026年4月 · 78篇学术文献 · 12份研究文件</p>
+
+    <details class="dinle-kapisi">
+        <summary>本研究的聆听文本</summary>
+        <div class="dinle-icerik">
+            <p>这不是录音。这是同一思想为耳朵重新编排的书面版本——句子节奏、信息顺序、呼吸停顿都有所不同。可以用语音朗读工具来聆听。</p>
+            <p>阅读始终是我们的首选。眼睛可以回头、停顿、反复阅读——耳朵没有这种奢侈。本报告本身就是对这种差异的研究。</p>
+            <a href="yazidan-sese-dinle.html" class="dinle-git">前往聆听文本 →</a>
+        </div>
+    </details>
+</header>
+
+<main class="content">
+
+<!-- ═══════ 引言 ═══════ -->
+
+<div class="chapter">
+
+<p>一篇文章写就了。它静静停留在页面上。眼睛扫过去，又回来，停住，再读一遍。可以从段落中间开始，可以从末尾跳到开头，可以把一个句子咀嚼三遍再放下。阅读就是这样——时间属于你。</p>
+
+<p>然后有人把那篇文章转化为声音。时间不再属于你了。声音流淌，无法停止，无法倒回——至少不那么容易。句子过去了就是过去了。没听懂的话，损失是无声的：听者甚至不会意识到自己理解错了。Nicole Ayasse及其同事在2021年证明了这一点：面对复杂句子时，大脑不再进行完整分析，而是转向对词语的抽样和意义猜测。<span class="source-tag">Ayasse 2021</span>误解在不知不觉中发生。</p>
+
+<p>本报告讲述的就是这个转变——书面文字在转化为声音时失去了什么、获得了什么，以及合成语音在这个等式中处于何种位置。但需要从一个警示开始：这里的大部分数据是为"平均听众"而产出的。在报告末尾，我会将这一局限转向报告自身——因为聆听，是一种非平均的体验。</p>
+
+</div>
+
+<div class="breath"></div>
+
+<!-- ═══════ 同一语言的两种形态 ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">同一语言的两种形态</h2>
+
+<p>口语和书面语看起来像同一语言的两个通道，但查菲（Wallace Chafe）在1982年证明这是一种错觉。两者有两个根本差异：第一是<strong>碎片化与整合</strong>。说话者在每个语调单元中只能传递一个新概念——认知容量限制了这一点。他们用"然后……然后……然后……"串联起短小的单元。写作者不受这种限制：嵌套的从句、内嵌结构、一个句子中承载多个概念。第二个差异是<strong>参与与分离</strong>：说话者能看到听者，根据反应进行调整，用手势和表情传递意义；而写作者不认识读者，文本必须独立站立。<span class="source-tag">Chafe 1982</span></p>
+
+<p>到这里看似简单——口语是碎片化和参与式的，书面语是整合式和分离式的。但韩礼德（M.A.K. Halliday）在1985年做出了一个颠覆性的修正：<strong>口语和书面语以不同的方式呈现复杂性。</strong>书面语具有高词汇密度——每个小句平均三到六个实词，口语中则是一点五到两个。口语则具有高语法复杂性——小句之间以意想不到的方式相互连接。"书面语比口语更复杂"是一个常见但错误的看法：两者在不同的维度上复杂。<span class="source-tag">Halliday 1985</span></p>
+
+<p>比伯（Douglas Biber）在1988年通过分析六十七个语言学特征将研究推进了一步。最具区分度的维度是"参与性与信息性"维度：电话交谈得分为正三十五，学术论文为负十五。但没有任何单一维度能够将口语和书面语截然分开——二者的关系不是二元的，而是一个连续谱。一场精心准备的演讲接近书面文本；一封私人信件接近口语。Elinor Ochs在1979年就已指出，决定因素不是通道，而是<strong>计划程度</strong>：一条即兴消息是无计划的，一场会议演讲是有计划的——两者都是"口语"，但并不处于同一位置。<span class="source-tag">Biber 1988, Ochs 1979</span></p>
+
+<p>这种连续谱观念也柔化了翁（Walter Ong）1982年的"大分裂"论题。翁曾为原生口头文化界定了九种思维特征——叠加性、聚合性、冗余性、保守性。然而Scribner和Cole在1981年对瓦伊（Vai）族的研究中发现，识字对认知的影响远小于预期。口语与书面语之间的距离是真实的，但距离的幅度因文化、语境和个体而异。<span class="source-tag">Ong 1982, Scribner & Cole 1981</span></p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ 第四类别 ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">不是三种，而是四种</h2>
+
+<p>传统分类认定三种类别：自然口语、书面语和朗读。自然口语中，生产者与接收者面对面，互动即时发生，身体在场。书面语中，生产者与接收者处于不同时间和空间，没有互动，没有身体。朗读中，一个人或一台机器将文本发声，听者接收，但互动同样不存在。</p>
+
+<p>然而今天存在<strong>第四类别</strong>，这才是本报告的真正主题：<strong>语音化文本</strong>。一个人书写，一台机器发声，一个人聆听——但那个人通常在做别的事情的同时聆听：走路、洗碗、开车。没有互动，没有身体，而且听者的注意力是分裂的。这第四类别既不是口语，也不是书面语，也不是朗读——它处于三者的交汇处，却不属于其中任何一个。</p>
+
+<p>这带来的实际后果是：查菲、韩礼德和比伯的部分发现可以直接应用——词汇密度差异、自足文本的概念、信息结构化的需要。但参与维度、即时调整、肢体语言等维度则不适用。正确的问题不是"口语还是书面语"，而是：<strong>我们如何重建一篇书面文本，使其通过合成语音，抵达一个游走中的心智？</strong></p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ 文字进入声音 ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">当文字进入声音</h2>
+
+<p>鲁宾（Donald Rubin）在2000年和2012年系统性地定义了"可听性"（listenability）这一概念。可读性公式——Flesch-Kincaid、Gunning Fog——是为书面文本设计的，不适用于聆听文本。鲁宾的实验结论清晰：当同一内容用两种不同的语言风格准备时——一种基于口语（主动语态、人称代词、顺序排列的句子、具体例子），另一种基于书面语（被动语态、抽象概念、嵌套从句）——基于口语的文本在理解上明显更优。以书面语模式处理听觉信息，代价尤为高昂。<span class="source-tag">Rubin 2000, 2012</span></p>
+
+<p>在句子层面，最具体的发现来自Kadayat和Eika：二十一名参与者通过合成语音聆听了不同长度的句子，最高理解度和最低认知负荷出现在<strong>十六到二十个词的句子</strong>中。超过二十个词的句子既降低了理解度又增加了负荷。十个词以下的句子则破碎了语境——过短的句子同样是问题。<span class="source-tag">Kadayat & Eika 2020</span>但这个"黄金区间"是对平均听众而言的；个体差异很大。我会在报告末尾回到这一点。</p>
+
+<p>句子结构同样重要。Constable及其同事2004年通过fMRI证明：宾语关系从句（"那个男人爱的女人"）比主语关系从句（"爱那个男人的女人"）需要远为更高的大脑激活——左前额叶、颞叶区域、角回全部更加活跃。<span class="source-tag">Constable 2004</span>Peelle及其同事2010年补充道：语速和句法复杂度各自可以被容忍，但两者叠加时容量便被超越。简化句法是首要干预手段。<span class="source-tag">Peelle 2010</span></p>
+
+<p>在信息排列方面，大脑有一个实时运行的机制。Kaiser和Trueswell在2004年通过眼动追踪证明：听者在词语被听到之前就开始搜寻新的所指对象。当<strong>旧信息在前、新信息在后</strong>排列时，这一预测机制正常运转；颠倒排列则破坏了这一机制。<span class="source-tag">Kaiser & Trueswell 2004</span>这是大脑中的一个默认设定——因个体而有弹性，但总体原则是牢固的。</p>
+
+<p>视觉元素的转换是另一个问题。Zong及其同事2022年与视障参与者合作研究发现：比起原始表格数据，人们更倾向于层级化的摘要叙述。公式很简单——先是总结句，再是关键数值，然后是总体趋势。表格是沉默的信息；声音必须将其转化为线性叙述。<span class="source-tag">Zong 2022</span></p>
+
+<p>标题在声音中有着不同的功能。Lemarié及其同事2012年界定了标题的七种功能；对聆听而言，两种是关键的：<strong>主题标识</strong>（听者激活相关的概念图式）和<strong>边界标记</strong>（"这一部分到此结束"的信号）。但标题宣告和过渡信号并非同一回事。"现在我们进入第二部分"是程式化的，空洞的；"这把我们引向另一个问题"是有机的，有连接的。Faber及其同事2018年证明：当事件变化未发生时——叙述平淡而无变化地流过——走神（mind wandering）会急剧增加。主题转换和新信息信号是将注意力召回的标记。<span class="source-tag">Lemarié 2012, Faber 2018</span></p>
+
+<p>数字的转换同样不可避免。广播新闻七十年的经验很清楚："1,987,452"在声音中变成"大约两百万"。正如Jonathan Kern在NPR编辑手册中所写："印刷文本和声音叙事生活在同一个世界，但地形不同。"印刷新闻的广播版本不是把引语换成音频片段——而是一次根本性的重建。<span class="source-tag">Kern 2008</span></p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ 人声与机器声 ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">人声与机器声</h2>
+
+<p>用合成语音聆听是否有额外的认知代价？Govender和King在2018至2019年间通过瞳孔测量和双任务范式进行了测量：<strong>在所有条件下，合成语音相比自然语音都产生了更高的认知负荷。</strong>在嘈杂环境中差异更加明显——从低质量HMM到高质量DNN，所有合成器都落后于自然语音。<span class="source-tag">Govender & King 2018a, 2018b, 2019</span></p>
+
+<p>但这些数据大多产生于现代神经网络TTS之前。Haake及其同事2022年用DNN合成器在日常句子上进行了测试：发现1.2分贝的SRT差异——这与不同自然说话者之间的差异处于同一范围。在言语反应时间这一聆听努力指标上，<strong>没有显著差异。</strong><span class="source-tag">Haake 2022</span>Craig和Schroeder在2017至2019年的学习成果研究中也发现了同样的格局：现代TTS引擎在迁移学习成果上获得了与人声在统计上不可区分的可信度和学习感知评价。<span class="source-tag">Craig & Schroeder 2017, 2019</span></p>
+
+<p>也存在完全相反的发现——2024年一项针对三十名学生的眼动研究中，人声录音相比合成语音产生了显著更高的学习表现和注意力黏附度。这与Craig和Schroeder的结论相矛盾。差异可能在于语境：在短期信息传递中合成语音足够，但在长篇学习中韵律优势变得突出。</p>
+
+<p>韵律确实是一个关键变量。Pagnotta及其同事2025年的研究表明：用积极韵律聆听的简短描述产生了更多正确回答，且人声比TTS产生了更高的准确率。但发表在Cogent Psychology上的一项2025年研究增添了不同的维度：<strong>在即时回忆中，自然人声相比所有其他条件都产生了更好的记忆保持；一周后，各条件之间的差异消失了。</strong>韵律优势在时间拉长后消融。<span class="source-tag">Pagnotta 2025</span></p>
+
+<p>Virginia Clinton-Lisell的2022年元分析勾勒了全貌：四十六项研究，四千六百八十七名参与者。<strong>阅读与聆听之间的总体理解差异：g = 0.07——统计上不显著。</strong>但调节变量很重要：自定步调阅读有优势（g = 0.13），推理性理解中阅读有明显优势（g = 0.36），词汇理解中无差异（g = -0.01）。还有一个关键发现：在透明正字法语言中——土耳其语和中文在各自意义上都接近这一特征——阅读与聆听的差异趋近于零（g = 0.001）。<span class="source-tag">Clinton-Lisell 2022</span></p>
+
+<p>Yang及其同事2026年的研究表明，神经层面的分化大约在十二分钟后开始——大脑与合成语音迅速同步，但有意识的辨别要困难得多。Segedin及其同事2019年已经证明，人类将针对人类说话者的语音适应机制同样应用于TTS语音。耳朵在适应——无论对面是人还是机器。<span class="source-tag">Yang 2026, Segedin 2019</span></p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ 当模仿结束 ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">当模仿结束</h2>
+
+<p>合成语音用了二十年试图模仿人声。现在提出的是一个不同的问题：它必须模仿吗？</p>
+
+<p>Diel和Lewis在2024年证明合成语音已经成功逃离了恐怖谷（uncanny valley）。触发恐怖谷的不是"合成"本身，而是与典型人声的<strong>偏离</strong>。病态的和受损的声音比纯粹的合成声音引发了更多不适。这表明合成语音已经被接受为一个独立类别——听者将其定位为"不同的东西"，而非"糟糕的人声"。<span class="source-tag">Diel & Lewis 2024</span></p>
+
+<p>Nussbaum、Frühholz和Schweinberger在2025年发表于Trends in Cognitive Sciences的研究走得更远：证明"声音自然度"这一概念在科学上是未定义的。存在两种自然度：基于偏离的（离人声偏离多少）和基于相似性的（与人有多像）。这种模糊性开启了合成语音定义自身自然度的可能。<span class="source-tag">Nussbaum 2025</span></p>
+
+<p>Im及其同事2023年发现了与预期相反的结果：在信息类任务中，用户<strong>更偏好合成语音。</strong>在功能性任务中，合成语音被认为更流畅，获得了更高的能力评价，形成了积极态度。Torre及其同事2018年曾界定了"一致性效应"：如果声音被感知为可信的，且后续体验保持一致，信任就会巩固。合成语音不变的音色促成了这种一致性——每一次都是同等质量、同等节奏、同等可靠。<span class="source-tag">Im 2023, Torre 2018</span></p>
+
+<p>Le Maguer和Cowan在2021年的ACM论文中将这一挑衅写入标题："类人语音合成是容易的路。"困难但正确的路，是让合成语音找到自己的道路。DIS 2025上的"Cabinet of Voices"研究是最具体的例子："超人类声域"（post-human vocalities）的概念。参与者想象合成语音发出鲸鱼般的声音——不是模仿，而是探索。<span class="source-tag">Le Maguer & Cowan 2021, Cabinet of Voices 2025</span></p>
+
+<p>Lamas在2025年发表于Explorations in Media Ecology的文章为这一转变命名：<strong>"合成口头性"</strong>（synthetic orality）。合成语音既不是原生口头性（没有身体），也不是次生口头性（不像广播），也不是书面语——它是第四种类别。从麦克卢汉的视角看，每种媒介创造自己的语言：印刷术创造了小说，电视创造了广告。合成语音也在创造自己的体裁——NotebookLM的AI播客是一个早期范例。<span class="source-tag">Lamas 2025</span></p>
+
+<p>但这一范式转换尚未完成。缺失的东西还很多：不存在一个系统性的"合成语音范式"论题——将碎片整合起来的研究尚未写就。合成语音还没有自己的度量标准——用什么来取代"类人度"仍不明确。长期听者适应研究不足。而且现有研究的绝大多数以英语和西方为中心——文化多样性缺失。</p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ 土耳其语的独特位置 ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">土耳其语的独特位置</h2>
+
+<p>土耳其语是一种黏着语——一个词根可以附加大量后缀，词形在理论上是无限的。这为合成语音带来了两个具体问题。第一是形态学层面：标准词汇库方法不够用，因为像"gelememişlerdenmiş"（意为"据说他们是那些未能前来的人之中的"）这样的词形无法被预先编入词表。Kösaner及其同事2024年开发了一个基于音素的规则型TTS系统来处理土耳其语的复杂形态，证明了形态学分析对正确发音是必不可少的。<span class="source-tag">Kösaner 2024</span>Liu及其同事2024年发现，具有形态学意识的语言模型预训练能够提升低资源黏着语言的质量——这是一种可直接应用于土耳其语的方法。<span class="source-tag">Liu 2024</span></p>
+
+<p>第二是歧义：同一拼写可能导致不同的读法。Hakkani（2002）和Külekçi（2006）证明了形态学消歧对土耳其语合成语音质量至关重要。在文本改编中，这意味着需要识别并修正那些可能产生歧义发音的结构。</p>
+
+<p>但土耳其语也有一个优势。在Clinton-Lisell的元分析中，透明正字法语言——即书写与发音高度对应的语言——阅读与聆听之间的理解差异趋近于零。土耳其语并非完全透明，但非常接近：拉丁字母，大体上是音素文字。这提示我们，文本改编在土耳其语中可能比在英语中产生更少的损失。<span class="source-tag">Clinton-Lisell 2022</span></p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ 走神 ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">心智的漫游</h2>
+
+<p>在大学课堂中，走神（mind wandering）的比例被测量为百分之三十三到百分之四十三之间。<span class="source-tag">Szpunar 2013, Risko 2012</span>纯音频条件产生最高的走神率——Kopp和D'Mello在2016年证明了这一点。机制很简单：处理声音所需的认知资源相对较少，剩余容量被释放，注意力便开始游荡。</p>
+
+<p>但这并非全然是坏事。释放的注意力可以建立不同的联结，看到阅读中看不到的角度。问题不在于走神本身，而在于无法返回。Faber及其同事2018年的发现在此处发挥作用：当事件变化未发生时——叙述平淡而无变化地流过——走神便过度了。解决方案不是切断流动，而是在流动中植入<strong>召回标记</strong>：主题转换、新信息信号、一个出乎意料的隐喻。听者的心智会游荡——文本应当能够将其召回。</p>
+
+</div>
+
+<div class="breath"></div>
+<div class="divider"></div>
+<div class="breath"></div>
+
+<!-- ═══════ 自我批评 ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">本报告最大的不足</h2>
+
+<p>我到目前为止所讲述的一切都基于一个假设：存在所谓的<strong>"平均听众"</strong>。Kadayat和Eika有二十一名参与者，Clinton-Lisell有四十六项研究，Govender有瞳孔测量数据——所有这些都在取平均值、计算置信区间、提炼一般性原则。这是科学方法的要求，并没有错。但它是不完整的。</p>
+
+<p>不完整是因为聆听是一种深刻的个体体验。两个人听同一个句子：一个理解了，另一个丢失了——而丢失的那个甚至不会意识到。Kadayat和Eika"十六到二十个词的黄金区间"是二十一个人的平均值。但在那二十一个人中，很可能有些人在第四十个词时依然保持连贯，有些人在第十个词时就已丢失。平均值两者都无法代表。</p>
+
+<p>这不仅仅是句子长度的问题。在认知特征的每个维度上，个体差异都很大：抽象能力、信息密度耐受度、流动偏好、审美标准、声音敏感度。一个听者需要教学性桥梁（"现在让我们用一个例子来解释"），另一个听者会将同样的桥梁视为填充物而失去注意力。一个听者从程式化的过渡信号（"我们进入第二部分"）中获得安心，另一个人觉得这令人不适。对一个听者而言，合成语音的一致性是优势——每次都是同等质量；对另一个人而言则是单调。</p>
+
+<p>学术研究的时间也是一种局限。本报告中的相当一部分文献来自2020年之前——合成语音技术从那时至今已经发生了根本性的变化。2018年的"高质量DNN合成器"甚至达不到2026年的入门水平。Govender的认知负荷发现应当用今天的引擎重新测试。Craig和Schroeder的"无差异"发现用当前引擎可能变成"合成语音更优"。数据仍然有价值，但质疑其时效性是必要的。</p>
+
+<div class="callout">
+<p>总而言之：本报告基于科学数据，但那些数据描绘的是一幅"不为任何人定制"的图景。想象一张地图——它显示一个国家的大致轮廓，但不显示你家的门。要找到你的家，你需要深入到街道层面。在聆听体验中，街道层面就是<strong>个性化</strong>。</p>
+</div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ 个性化 ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">地图的街道层面</h2>
+
+<p>个性化不是一个抽象概念——需要展示具体改变了什么。我手中有一个案例：三万行对话记录经过分析，在六个认知-语言维度上提取了画像，本报告的七条一般性原则根据该画像进行了校准。下面我将匿名化地呈现该校准的部分结果——为了看到具体的差异。</p>
+
+<p><strong>句子长度：</strong>本报告的一般性原则建议十六到二十个词。但画像数据显示，这位听者的自然处理区间为二十五到四十五个词——在三万行记录中，"没听懂"或"简单点说"的表达出现次数为零。当黄金区间被应用于这位听者时，<strong>思想被打碎了</strong>：一个在单句中承载语境的结构被拆分为两句时，连接断裂了。一般性原则是正确的，但对这位听者而言是有害的。</p>
+
+<p><strong>抽象能力：</strong>一般性原则建议"用具体例子支撑抽象概念"。这位听者不仅理解抽象概念，而且生产抽象概念——在对话中自然地使用自己发明的概念。教学性桥梁（"现在让我们用一个简单的例子来解释"）对这位听者而言是填充物：如果有需要解释的概念，直接解释，不必预告要解释。</p>
+
+<p><strong>信息密度：</strong>一般性原则建议"稀释信息，每个单元只含一个概念"。在这位听者的一百六十份文件中，没有任何一处显示信息密度过高的迹象。抱怨总是来自不足和浅薄。当信息被稀释时，对这位听者而言产生的不是密度降低，而是意义流失。</p>
+
+<p><strong>过渡偏好：</strong>一般性原则建议"使用过渡信号：现在我们进入第二个话题"。这位听者的思维流动呈螺旋式深化——话题从彼此中生长出来，程式化的边界标记打断了流动。不需要"现在让我们进入第二部分"，而需要从前一部分最后的思想中自然生发出来的过渡。</p>
+
+<p><strong>合成语音偏好：</strong>一般性研究认为合成语音增加认知负荷。这位听者偏好一致性胜于峰值表现——即便在听音乐时也选择源头保真而非效果修饰。合成语音的无限一致性对这位听者而言不是劣势，而是<strong>主动优势</strong>。</p>
+
+<p>五个例子中五种不同的偏离。每条一般性原则都是正确的——但五条全部被错误地应用于这位听者。地图是对的，街道是错的。而这只是一位听者——每位听者的偏离模式都将不同。</p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ 人工智能如何实现 ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">人工智能如何实现这一点</h2>
+
+<p>上述校准能由人来完成吗？可以——但无法规模化。阅读三万行对话记录，在六个维度上提取画像，校准七条原则，推导五条新原则——这需要一位语言学家数周的工作，且每遇到一位新听者就必须从头开始。人工智能的做法不同：大语言模型是文本分析的天然基础设施，可以将个性化的每个阶段自动化。</p>
+
+<p>这个过程大致分为四个阶段。<strong>第一阶段，画像提取：</strong>分析听者的对话或书面交流记录。句子长度、词汇选择、抽象层级、话题转换模式、满意/不满意的标记——全部被提取出来。这是经典的文本挖掘任务，但大语言模型因为能够理解上下文，所以能超越表面统计："没听懂"的缺失与"简单点说"的缺失并非同一回事——模型理解这种差异。</p>
+
+<p><strong>第二阶段，校准：</strong>学术原则与画像进行对照。对每条原则的提问是：它适用于这位听者吗？不适用吗？应该如何修改？模型将学术发现作为"平均值"的起点，然后用画像数据计算偏离。Kadayat和Eika的十六到二十个词的区间作为默认起点，但如果画像显示二十五到四十五个词，区间就会更新。</p>
+
+<p><strong>第三阶段，文本改编：</strong>书面文本根据校准后的原则被重写。句子结构、信息排列、过渡信号、标题形式、隐喻密度、信息密度——全部根据画像进行调整。这是大语言模型最擅长的领域：文本生成和转换。同一源文本可以为不同画像转化为不同形式——一种用短句和教学性桥梁，另一种用长句流畅叙述和有机过渡。</p>
+
+<p><strong>第四阶段，持续更新：</strong>画像不是静态的。听者的偏好、认知能力、兴趣领域随时间变化。每次新的互动都会更新画像。模型将先前校准的结果与新数据对照，修正偏差。这不同于传统的A/B测试——不是在两个选项之间选择，而是持续的微调。</p>
+
+<p>从技术角度看，这个过程需要几个组件：一个具有大上下文窗口的语言模型（画像提取需要读取数万行内容），结构化输出生成（画像维度、校准表），长文本生成（改编后的文本），以及持久化记忆（画像更新）。当今的模型能够完成所有这些——限制不在技术，而在应用。绝大多数文本改编平台仍然依赖"可读性等级"之类的单维度指标；个性化校准尚未成为标准。</p>
+
+<p>这里还有一个伦理维度。分析三万行对话记录会产出一个深层的认知画像——从句子处理能力到审美标准，从抽象层级到情感反应模式。这些信息在错误的手中可能变成操纵工具。个性化与操纵之间的界限不在意图，而在透明度：听者应当知道画像是什么、如何被使用、影响了哪些决策。Raghavan和Schneier在2025年的IEEE Spectrum文章中主张合成语音应当被有意地保持机器感——合成语音承载自身身份不是一种贬损而是一种功能。同样的逻辑适用于个性化："为你定制"这一信息应当可见，它应该是一项公开的服务，而非隐秘的调整。<span class="source-tag">Raghavan & Schneier 2025</span></p>
+
+</div>
+
+<div class="breath"></div>
+
+<!-- ═══════ 结语 ═══════ -->
+
+<div class="chapter">
+
+<p>本报告讲述了一个翻译的故事——同一语言内部的翻译。当书面文字进入声音，句子结构改变了，信息排列改变了，表格变成了叙述，标题变成了信号，数字被四舍五入。合成语音为这一转变增添了自身的维度：认知负荷增加但在缩小，韵律缺失但一致性成为优势，模仿正在终结但自身的范式尚未完全诞生。</p>
+
+<p>而报告自我审视之处在于：所有这些发现都是针对"平均听众"的。但聆听是一种非平均的体验。个性化不是奢侈品，而是<strong>准确性的条件</strong>——不将一般性原则校准到个体画像，"正确改编"的主张就是不完整的。人工智能使这种校准具有了可规模化的可能：画像提取、原则校准、文本改编、持续更新。技术已经就绪——应用尚未成为标准。</p>
+
+<p>将文字转化为声音，是一种翻译——在同一种语言内部。</p>
+
+</div>
+
+<!-- ═══════ 参考文献 ═══════ -->
+
+<div class="kaynakca">
+<h2>参考文献</h2>
+
+<p>Ayasse, N.D.; Hodson, A.J.; Wingfield, A. (2021). "Principle of Least Effort and Sentence Comprehension." <em>Frontiers in Psychology.</em> PMID: 33796047</p>
+<p>Biber, D. (1988). <em>Variation across Speech and Writing.</em> Cambridge University Press.</p>
+<p>Cambre, J. ve ark. (2020). "Choice of Voices." <em>CHI 2020.</em></p>
+<p>Chafe, W. (1982, 1985). "Integration and Involvement in Speaking, Writing, and Oral Literature." <em>Spoken and Written Language.</em></p>
+<p>Clinton-Lisell, V. (2022). "Listening Ears or Reading Eyes: A Meta-Analysis." <em>Review of Educational Research.</em></p>
+<p>Constable, R.T. ve ark. (2004). "Sentence Complexity and Input Modality Effects: fMRI." <em>NeuroImage.</em> PMID: 15109993</p>
+<p>Craig, S.D.; Schroeder, N.L. (2017). "Reconsidering the Voice Effect." <em>Computers & Education, 114.</em></p>
+<p>Craig, S.D.; Schroeder, N.L. (2019). "Text-to-Speech Software and Learning." <em>JECR, 57(6).</em></p>
+<p>Diel, A.; Lewis, M. (2024). "Vocal Uncanny Valley: Deviation Hypothesis." <em>ScienceDirect.</em></p>
+<p>Faber, M. ve ark. (2018). "Event Boundaries and Mind Wandering." <em>Psychological Science.</em></p>
+<p>Govender, A.; King, S. (2018). "Using Pupillometry to Measure Cognitive Load of Synthetic Speech." <em>Interspeech 2018.</em></p>
+<p>Govender, A.; Wagner, A.; King, S. (2019). "Pupil Dilation for Cognitive Load TTS." <em>Interspeech 2019.</em></p>
+<p>Haake, M. ve ark. (2022). "Speech Recognition and Listening Effort." PMC9549212.</p>
+<p>Hakkani, D.Z. (2002). 形态学消歧研究——土耳其语TTS。</p>
+<p>Halliday, M.A.K. (1985). <em>Spoken and Written Language.</em> Deakin University Press.</p>
+<p>Im, H.; Sung, B.; Lee, G.; Kok, K.Q.X. (2023). "Let Voice Assistants Sound Like a Machine." <em>Computers in Human Behavior.</em></p>
+<p>Kadayat, B.M.; Eika, E. (2020). TTS聆听中的句子长度研究。[21名参与者，16-20词黄金区间]</p>
+<p>Kaiser, E.; Trueswell, J.C. (2004). "Role of Discourse Context in Processing Flexible Word-Order Language." <em>Cognition.</em> PMID: 15582623</p>
+<p>Kern, J. (2008). <em>Sound Reporting.</em> University of Chicago Press.</p>
+<p>Kopp, K.; D'Mello, S. (2016). 纯音频条件与走神研究。</p>
+<p>Kösaner, O.; Özgen, M.; Birant, C. (2024). "Developing a Rule-Based TTS System for Turkish." DEU Avesis.</p>
+<p>Külekçi, M.O. (2006). 土耳其语TTS研究。</p>
+<p>Lamas, N.J. (2025). "AI, Language Processing and Synthetic Orality." <em>Explorations in Media Ecology, 24(3).</em></p>
+<p>Le Maguer, S.; Cowan, B.R. (2021). "Synthesizing a Human-Like Voice Is the Easy Way." <em>ACM CUI 2021.</em></p>
+<p>Lemarié, J. ve ark. (2012). 标题七种功能研究。</p>
+<p>Liu, R. ve ark. (2024). "TTS for Low-Resource Agglutinative Language with Morphology-Aware Pre-Training." <em>IEEE.</em></p>
+<p>Nussbaum, C.; Frühholz, S.; Schweinberger, S.R. (2025). "Understanding Voice Naturalness." <em>Trends in Cognitive Sciences, 29(5).</em></p>
+<p>Ochs, E. (1979). "Planned and Unplanned Discourse."</p>
+<p>Ong, W.J. (1982). <em>Orality and Literacy.</em> Methuen.</p>
+<p>Pagnotta, M. ve ark. (2025). "Prosody! When intonation helps." <em>Educational Psychology.</em></p>
+<p>Peelle, J.E. ve ark. (2010). "Neural Processing During Older Adults' Comprehension." <em>Cerebral Cortex, 20(4).</em></p>
+<p>Raghavan, B.; Schneier, B. (2025). "AI Voices Should Sound Robotic Again." <em>IEEE Spectrum.</em></p>
+<p>Risko, E.F. ve ark. (2012). 走神与课堂听讲研究。</p>
+<p>Rogowsky, B.A.; Calhoun, B.M.; Tallal, P. (2016). "Does Modality Matter?" <em>SAGE Open.</em></p>
+<p>Rubin, D.L. (2012). "Listenability as a Tool for Advancing Health Literacy." <em>J. Health Communication, 17(S3).</em> PMID: 23030569</p>
+<p>Rubin, D.L.; Hafer, T.; Arata, K. (2000). "Reading and Listening to Oral-Based vs Literate-Based Discourse." <em>Communication Education, 49(2).</em></p>
+<p>Scribner, S.; Cole, M. (1981). <em>The Psychology of Literacy.</em> Harvard University Press.</p>
+<p>Segedin, B.F.; Cohn, M.; Zellou, G. (2019). "Perceptual Adaptation to Device and Human Voices." <em>Interspeech 2019.</em></p>
+<p>Szpunar, K.K. ve ark. (2013). 课堂中的走神研究。</p>
+<p>Torre, I.; Goslin, J.; White, L.; Zanatto, D. (2018). "Trust in Artificial Voices: Congruency Effect." <em>ACM CUI.</em></p>
+<p>Yang, J. ve ark. (2026). "Short-Term Perceptual Training Modulates Neural Responses to Deepfake Speech." <em>eNeuro.</em></p>
+<p>Zong, J. ve ark. (2022). 与视障用户的表格叙述研究。</p>
+</div>
+
+</main>
+
+<footer>
+<p>Halit Cengiz Uzuner · <a href="/">halitcengizuzuner.com</a></p>
+<p>本报告中学术文献的实体副本已存档。</p>
+</footer>
+
+<div style="max-width: 640px; margin: 0 auto; padding: 2rem 2.5rem;">
+  <p style="font-size: 0.8rem; color: rgba(212, 204, 192, 0.28); line-height: 1.8; font-style: italic;">本文原文为土耳其语。我们尽力使中文版自然流畅——忠于思想而非字句。如果您发现可以改进之处，请写信至 <strong>soru@halitcengizuzuner.com</strong>——您将丰富我们的翻译。</p>
+</div>
+
+</body>
+</html>

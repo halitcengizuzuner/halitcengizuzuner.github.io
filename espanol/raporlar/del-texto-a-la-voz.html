@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La ciencia, la práctica y los límites de adaptar un texto escrito para ser escuchado con voz sintética — un informe que cuestiona su propia insuficiencia.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Del texto a la voz">
+<meta property="og:description" content="Convertir un texto en voz es traducir — dentro del mismo idioma.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/espanol/raporlar/del-texto-a-la-voz.html">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-04-01">
+<link rel="canonical" href="https://halitcengizuzuner.com/espanol/raporlar/del-texto-a-la-voz.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/yazidan-sese.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/from-text-to-voice.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/from-text-to-voice.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/du-texte-a-la-voix.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/vom-text-zur-stimme.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/del-texto-a-la-voz.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/yazidan-sese.html">
+<link rel="icon" href="data:,">
+<title>Del texto a la voz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Del texto a la voz">
+<meta name="twitter:description" content="Convertir un texto en voz es traducir — dentro del mismo idioma.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Del texto a la voz",
+  "description": "La ciencia, la práctica y los límites de adaptar un texto escrito para ser escuchado con voz sintética.",
+  "datePublished": "2026-04-01",
+  "dateModified": "2026-04-26",
+  "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/espanol/raporlar/del-texto-a-la-voz.html"},
+  "inLanguage": "es",
+  "translationOfWork": {"@type": "Article", "@id": "https://halitcengizuzuner.com/raporlar/yazidan-sese.html", "inLanguage": "tr"}
+}
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --yanki: #7068a0;
+    --yanki-dim: rgba(112, 104, 160, 0.15);
+    --yanki-ghost: rgba(112, 104, 160, 0.08);
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection { background: var(--yanki); color: var(--void); }
+html { font-size: clamp(17px, 1.2vw, 20px); scroll-behavior: smooth; }
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 2.0;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.10;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.report-header {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 8rem;
+    max-width: 700px;
+}
+
+.report-header h1 {
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    color: var(--bone-bright);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.report-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: var(--bone-dim);
+    margin-top: 1.5rem;
+    line-height: 1.5;
+}
+
+.report-header .meta {
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+.content {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.chapter {
+    margin-bottom: 5rem;
+}
+
+.chapter-title {
+    font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+    color: var(--bone-bright);
+    margin-bottom: 2rem;
+    font-weight: 400;
+    line-height: 1.2;
+    font-style: italic;
+}
+
+p { margin-bottom: 1.5rem; color: var(--bone); }
+strong { color: var(--bone-bright); }
+em { color: var(--bone-dim); }
+
+.callout {
+    border-left: 2px solid var(--yanki);
+    padding: 1.5rem 0 1.5rem 2rem;
+    margin: 2.5rem 0;
+}
+
+.callout p {
+    font-size: 0.95rem;
+    color: var(--bone-dim);
+    margin-bottom: 1rem;
+}
+
+.callout p:last-child { margin-bottom: 0; }
+.callout strong { color: var(--bone); }
+
+.breath { height: 6vh; }
+
+.divider {
+    width: 40px;
+    height: 1px;
+    background: var(--bone-ghost);
+    margin: 4rem 0;
+}
+
+.source-tag {
+    font-size: 0.75rem;
+    color: var(--yanki);
+    vertical-align: super;
+    margin-left: 2px;
+    opacity: 0.8;
+}
+
+.kaynakca {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.kaynakca h2 {
+    font-size: 1.1rem;
+    color: var(--bone-dim);
+    margin-bottom: 2rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.kaynakca p {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+}
+
+footer {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 4rem 2.5rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+footer p {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    line-height: 1.8;
+}
+
+footer a {
+    color: var(--bone-dim);
+    transition: color 0.3s;
+}
+
+footer a:hover { color: var(--bone); }
+
+@media (max-width: 640px) {
+    .report-header { padding: 3rem 1.5rem 4rem; }
+    .content { padding: 0 1.5rem 4rem; }
+    .callout { padding-left: 1.2rem; }
+    footer { padding: 3rem 1.5rem; }
+}
+
+@media (min-width: 1200px) {
+    .report-header { margin-left: 6vw; }
+    .content { margin-left: 6vw; margin-right: auto; }
+    footer { margin-left: 6vw; margin-right: auto; }
+}
+
+@media print {
+    body { background: white; color: #1a1a1a; }
+    body::before { display: none; }
+    .report-header { min-height: auto; padding: 3cm 2cm; page-break-after: always; }
+    .callout { border-color: #999; }
+}
+
+/* ========== DİNLEME KAPISI ========== */
+.dinle-kapisi {
+    margin-top: 2.5rem;
+}
+
+.dinle-kapisi summary {
+    font-size: 0.85rem;
+    color: var(--bone-ghost);
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    list-style: none;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi summary::-webkit-details-marker { display: none; }
+.dinle-kapisi summary::marker { display: none; content: ''; }
+
+.dinle-kapisi summary::before {
+    content: '▸ ';
+    display: inline;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi[open] summary::before {
+    content: '▾ ';
+}
+
+.dinle-kapisi summary:hover {
+    color: var(--bone-dim);
+}
+
+.dinle-kapisi[open] summary {
+    color: var(--bone-dim);
+    margin-bottom: 1.2rem;
+}
+
+.dinle-icerik {
+    padding: 1.5rem;
+    border: 1px solid var(--bone-ghost);
+    max-width: 480px;
+}
+
+.dinle-icerik p {
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.dinle-icerik p:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.dinle-icerik a {
+    color: var(--bone-bright);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--bone-ghost);
+    transition: color 0.3s, text-decoration-color 0.3s;
+}
+
+.dinle-icerik a:hover {
+    color: var(--bone-bright);
+    text-decoration-color: var(--bone-bright);
+}
+
+.dinle-git {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+}
+
+/* ===== LANGUAGE BAR (Oturum 27) ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="Selección de idioma">
+    <a href="/" class="lang-link">Türkçe</a>
+    <span class="lang-sep">·</span>
+    <a href="/english/" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/" class="lang-link">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/" class="lang-link lang-active">Español</a>
+</nav>
+
+
+<header class="report-header">
+    <h1>Del texto a la voz</h1>
+    <p class="subtitle">Un texto entre dos mundos — el ojo lee, el oído escucha, ¿qué se pierde en el camino?</p>
+    <p class="meta">Abril de 2026 · 78 fuentes académicas · 12 archivos de investigación</p>
+
+    <details class="dinle-kapisi">
+        <summary>Texto para escucha de este estudio</summary>
+        <div class="dinle-icerik">
+            <p>No es una grabación de audio. Es la misma reflexión reescrita para el oído — ritmo de las frases, orden de la información, pausas para respirar: todo distinto. Puede escucharse con cualquier herramienta de lectura en voz alta.</p>
+            <p>Leer sigue siendo nuestra preferencia. El ojo vuelve atrás, se detiene, relee — el oído no tiene ese lujo. Este informe investiga precisamente esa diferencia.</p>
+            <a href="del-texto-a-la-voz-escucha.html" class="dinle-git">Ir al texto para escucha →</a>
+        </div>
+    </details>
+</header>
+
+<main class="content">
+
+<!-- ═══════ INTRODUCCIÓN ═══════ -->
+
+<div class="chapter">
+
+<p>Se escribe un texto. Queda en la página. El ojo recorre, vuelve atrás, se detiene, relee. Puede empezar por la mitad de un párrafo, saltar del final al principio, masticar tres veces la misma frase y abandonarla. Leer es eso: el tiempo es tuyo.</p>
+
+<p>Después alguien convierte ese texto en voz. El tiempo ya no es tuyo. El sonido fluye, no se detiene, no rebobina — al menos no fácilmente. Si la frase pasó, pasó. Si no se entendió, la pérdida es silenciosa: el oyente ni siquiera advierte que entendió mal. Nicole Ayasse y sus colegas lo demostraron en 2021: al escuchar una frase compleja, el cerebro abandona el análisis completo y pasa a muestrear palabras para estimar el significado.<span class="source-tag">Ayasse 2021</span> El error ocurre sin aviso.</p>
+
+<p>Este informe narra esa transición — qué pierde un texto escrito al convertirse en voz, qué gana y dónde se sitúa la voz sintética en esa ecuación. Pero necesita empezar con una advertencia: la gran mayoría de los datos que presento se han producido para el "oyente promedio". Al final del informe volveré esa limitación contra sí misma — porque escuchar es una experiencia que no tiene nada de promedio.</p>
+
+</div>
+
+<div class="breath"></div>
+
+<!-- ═══════ DOS ESTADOS DE LA LENGUA ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">Dos estados de una misma lengua</h2>
+
+<p>Habla y escritura parecen dos canales de un mismo idioma, pero Wallace Chafe demostró en 1982 que esa apariencia es ilusoria. Hay dos diferencias fundamentales. La primera: <strong>fragmentación e integración</strong>. El hablante solo puede transmitir un concepto nuevo por cada unidad de entonación — la capacidad cognitiva impone ese límite. Produce unidades breves encadenadas con "y... y... y...". El escritor opera libre de esa restricción: cláusulas subordinadas anidadas, estructuras incrustadas, varios conceptos en una sola oración. La segunda diferencia: <strong>implicación y distanciamiento</strong>. El hablante ve a su oyente, ajusta sobre la marcha, transmite significado con gestos y expresión facial; el escritor desconoce a su lector, el texto debe sostenerse por sí solo.<span class="source-tag">Chafe 1982</span></p>
+
+<p>Hasta aquí parece sencillo — el habla fragmentada e implicada, la escritura integrada y distanciada. Pero M.A.K. Halliday introdujo en 1985 una corrección decisiva: <strong>habla y escritura son complejas de maneras distintas.</strong> La escritura posee alta densidad léxica — entre tres y seis palabras de contenido por cláusula, frente a una y media o dos en el habla. El habla, en cambio, posee alta complejidad gramatical — las cláusulas se encadenan de formas inesperadas. Pensar que "la escritura es más compleja que el habla" es frecuente pero erróneo: ambas son complejas en ejes diferentes.<span class="source-tag">Halliday 1985</span></p>
+
+<p>Douglas Biber, en 1988, llevó el asunto un paso más allá analizando sesenta y siete rasgos lingüísticos. La dimensión más discriminante es la de "implicación frente a información": la conversación telefónica obtiene más treinta y cinco puntos; el artículo académico, menos quince. Pero ninguna dimensión aislada separa con nitidez el habla de la escritura — la relación no es binaria, sino un espectro. Un discurso preparado se acerca al texto escrito; una carta personal se acerca al habla. Elinor Ochs había demostrado en 1979 que el factor determinante no es el canal, sino el <strong>grado de planificación</strong>: un mensaje improvisado no está planificado, una conferencia sí — ambos son "habla", pero no ocupan el mismo lugar.<span class="source-tag">Biber 1988, Ochs 1979</span></p>
+
+<p>Esta concepción espectral suaviza también la tesis de la "Gran Separación" que Walter Ong formuló en 1982. Ong había identificado nueve rasgos cognitivos de las culturas de oralidad primaria — aditivos, acumulativos, redundantes, conservadores. Pero Scribner y Cole, en su investigación de 1981 con el pueblo Vai, descubrieron que los efectos cognitivos de la alfabetización eran mucho menores de lo esperado. La distancia entre habla y escritura es real, pero su magnitud varía según la cultura, el contexto y el individuo.<span class="source-tag">Ong 1982, Scribner & Cole 1981</span></p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ CUARTA CATEGORÍA ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">No tres, sino cuatro</h2>
+
+<p>La distinción tradicional reconoce tres categorías: conversación natural, escritura y lectura en voz alta. En la conversación natural, emisor y receptor están frente a frente, la interacción es inmediata, el cuerpo está presente. En la escritura, emisor y receptor ocupan tiempos y espacios distintos, no hay interacción, no hay cuerpo. En la lectura en voz alta, un ser humano o una máquina vocaliza el texto, el oyente recibe, pero la interacción sigue ausente.</p>
+
+<p>Hoy existe, sin embargo, una cuarta categoría, y es el verdadero objeto de este informe: el <strong>texto para vocalización</strong>. Un ser humano escribe, una máquina vocaliza, un ser humano escucha — pero ese ser humano suele escuchar mientras hace otra cosa: camina, friega los platos, conduce. No hay interacción, no hay cuerpo, y además la atención del oyente está dividida. Esta cuarta categoría no es conversación, ni escritura, ni lectura en voz alta — se sitúa en la intersección de las tres, pero no cabe en ninguna.</p>
+
+<p>La consecuencia práctica es esta: una parte de los hallazgos de Chafe, Halliday y Biber se aplica directamente — la diferencia de densidad léxica, el concepto de texto autónomo, la necesidad de estructurar la información. Pero la dimensión de implicación, el ajuste instantáneo, el lenguaje corporal — esas dimensiones no se aplican. La pregunta correcta no es "¿habla o escritura?", sino: <strong>¿cómo reconstruimos un texto escrito para que, a través de una voz sintética, alcance a una mente que divaga?</strong></p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ CUANDO EL TEXTO ENTRA EN LA VOZ ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">Cuando el texto entra en la voz</h2>
+
+<p>Donald Rubin definió sistemáticamente el concepto de "escuchabilidad" en 2000 y 2012. Las fórmulas de legibilidad — Flesch-Kincaid, Gunning Fog — fueron diseñadas para texto escrito y no son aplicables al texto para escucha. El experimento de Rubin es elocuente: cuando un mismo contenido se preparaba en dos registros distintos — uno basado en lo oral (voz activa, pronombres personales, oraciones coordinadas, ejemplos concretos) y otro basado en lo escrito (voz pasiva, conceptos abstractos, cláusulas subordinadas incrustadas) — el texto de base oral se comprendía significativamente mejor. Procesar el registro escrito mientras se escucha resulta especialmente costoso.<span class="source-tag">Rubin 2000, 2012</span></p>
+
+<p>A nivel de la frase, el hallazgo más concreto proviene de Kadayat y Eika: veintiún participantes escucharon frases de distintas longitudes a través de voz sintética; la comprensión más alta y la carga cognitiva más baja se obtuvieron con <strong>frases de entre dieciséis y veinte palabras</strong>. Las frases que superaban las veinte palabras reducían la comprensión y aumentaban la carga. Por debajo de diez, el contexto se fragmentaba — las frases demasiado breves también son un problema.<span class="source-tag">Kadayat & Eika 2020</span> Pero este "rango dorado" es válido para un oyente promedio; las diferencias individuales son grandes. Volveré sobre esto al final del informe.</p>
+
+<p>La estructura de la frase también importa. Constable y sus colegas demostraron en 2004, mediante fMRI, que las oraciones de relativo de objeto exigen una activación cerebral mucho mayor que las de sujeto — el lóbulo frontal izquierdo, la región temporal y el giro angular trabajan considerablemente más.<span class="source-tag">Constable 2004</span> Peelle y sus colegas añadieron en 2010 que la velocidad del habla y la complejidad sintáctica se toleran por separado, pero juntas desbordan la capacidad. Simplificar la sintaxis es la intervención primaria.<span class="source-tag">Peelle 2010</span></p>
+
+<p>En el orden de la información, el cerebro dispone de un mecanismo en tiempo real. Kaiser y Trueswell lo mostraron en 2004 mediante seguimiento ocular: los oyentes empiezan a buscar el nuevo referente antes de que se pronuncie la palabra. Cuando la <strong>información conocida se coloca primero y la nueva al final</strong>, ese mecanismo predictivo funciona; el orden inverso lo desbarata.<span class="source-tag">Kaiser & Trueswell 2004</span> Es una configuración por defecto del cerebro — admite cierta flexibilidad individual, pero el principio general es sólido.</p>
+
+<p>La transformación de los elementos visuales es un asunto aparte. Zong y sus colegas trabajaron en 2022 con participantes con discapacidad visual: en lugar de datos tabulares en bruto, se prefiere un relato jerárquico resumido. La fórmula es sencilla — primero una frase de síntesis, después los valores críticos, después la tendencia general. La tabla es información silenciosa; la voz debe convertirla en narración secuencial.<span class="source-tag">Zong 2022</span></p>
+
+<p>Los títulos cumplen una función diferente en la voz. Lemarié y sus colegas identificaron en 2012 siete funciones de los títulos; dos son críticas para la escucha: <strong>identificación del tema</strong> (el oyente activa el esquema conceptual pertinente) y <strong>señalización de límite</strong> (la señal de que "esta sección ha terminado"). Pero el anuncio de un título y la señal de transición no son lo mismo. "Pasamos ahora a la segunda sección" es formulaico y vacío; "esto nos lleva a otra pregunta" es orgánico y conectivo. Faber y sus colegas demostraron en 2018 que cuando no se produce un cambio de evento — cuando la narración fluye plana y sin variación — la divagación mental se dispara. Las transiciones temáticas y las señales de información nueva son marcadores que recuperan la atención.<span class="source-tag">Lemarié 2012, Faber 2018</span></p>
+
+<p>La transformación de las cifras es igualmente inevitable. Los setenta años de experiencia del periodismo radiofónico son claros: "1.987.452" se convierte en voz en "aproximadamente dos millones". Como escribió Jonathan Kern en su manual de edición para NPR, "el texto impreso y la narración sonora habitan el mismo mundo, pero el terreno es diferente." La versión radiofónica de una noticia impresa no consiste en convertir citas en fragmentos de audio — es una reconstrucción de raíz.<span class="source-tag">Kern 2008</span></p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ VOZ HUMANA, VOZ DE MÁQUINA ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">Voz humana, voz de máquina</h2>
+
+<p>¿Escuchar con voz sintética tiene un coste adicional? Govender y King lo midieron entre 2018 y 2019 mediante pupilometría y paradigma de doble tarea: <strong>en todas las condiciones, la voz sintética generó una carga cognitiva superior a la voz natural.</strong> En entornos ruidosos la brecha se ensanchaba aún más — desde HMM de baja calidad hasta DNN de alta calidad, todos los sintetizadores quedaron por detrás de la voz natural.<span class="source-tag">Govender & King 2018a, 2018b, 2019</span></p>
+
+<p>Pero la mayoría de esos datos son anteriores al TTS neuronal moderno. Haake y sus colegas, en 2022, probaron un sintetizador basado en DNN con frases cotidianas: encontraron una diferencia SRT de 1,2 decibelios — un rango equivalente al que separa a distintos hablantes naturales entre sí. En los tiempos de respuesta verbal, es decir, en el indicador de esfuerzo auditivo, <strong>no hubo diferencia significativa.</strong><span class="source-tag">Haake 2022</span> Craig y Schroeder hallaron el mismo patrón en resultados de aprendizaje entre 2017 y 2019: el motor TTS moderno obtuvo niveles de fiabilidad y percepción de aprendizaje estadísticamente indistinguibles de la voz humana en tareas de transferencia.<span class="source-tag">Craig & Schroeder 2017, 2019</span></p>
+
+<p>También existen hallazgos en sentido contrario — un estudio de seguimiento ocular de 2024 con treinta estudiantes mostró que la grabación humana producía un rendimiento de aprendizaje y una fidelidad atencional significativamente superiores a las voces sintetizadas. Esto contradice a Craig y Schroeder. La diferencia reside probablemente en el contexto: para transmisiones breves de información la voz sintética basta; en aprendizajes de formato largo, la ventaja prosódica se hace visible.</p>
+
+<p>La prosodia es, en efecto, una variable crítica. Pagnotta y sus colegas mostraron en 2025 que las descripciones breves escuchadas con prosodia positiva producían más respuestas correctas, y que la voz humana generaba mayor precisión que el TTS. Pero un estudio de 2025 publicado en Cogent Psychology añadió una dimensión diferente: <strong>en el recuerdo inmediato, la voz humana natural proporcionó la mejor retención de memoria frente a todas las demás condiciones; una semana después, las diferencias entre condiciones habían desaparecido.</strong> La ventaja prosódica se diluye cuando se extiende en el tiempo.<span class="source-tag">Pagnotta 2025</span></p>
+
+<p>El metaanálisis de Virginia Clinton-Lisell en 2022 traza el panorama general: cuarenta y seis estudios, cuatro mil seiscientos ochenta y siete participantes. <strong>La diferencia global de comprensión entre lectura y escucha: g = 0,07 — estadísticamente insignificante.</strong> Pero los moderadores importan: la lectura a ritmo propio resulta ventajosa (g = 0,13), en comprensión inferencial la lectura es claramente superior (g = 0,36), en comprensión léxica no hay diferencia (g = -0,01). Y un hallazgo crítico: en lenguas de ortografía transparente — el turco se aproxima a esa categoría — la diferencia lectura-escucha se acerca a cero (g = 0,001).<span class="source-tag">Clinton-Lisell 2022</span></p>
+
+<p>Yang y sus colegas demostraron en 2026 que la diferenciación a nivel neuronal comienza en torno a los doce minutos — el cerebro se sincroniza rápidamente con la voz sintética, pero la detección consciente resulta mucho más difícil. Segedin y sus colegas habían mostrado en 2019 que los seres humanos aplican al habla TTS los mismos mecanismos de adaptación fonética que reservan para los hablantes humanos. El oído se adapta — sea humano o máquina.<span class="source-tag">Yang 2026, Segedin 2019</span></p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ CUANDO SE ACABA LA IMITACIÓN ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">Cuando se acaba la imitación</h2>
+
+<p>Durante veinte años, la voz sintética intentó imitar la voz humana. Ahora se plantea una pregunta distinta: ¿tiene que imitarla?</p>
+
+<p>Diel y Lewis demostraron en 2024 que las voces sintéticas logran escapar del valle inquietante (uncanny valley). Lo que desencadena el valle inquietante no es ser sintético, sino <strong>desviarse</strong> de la voz humana típica. Las voces patológicas y degradadas provocaron más incomodidad que las puramente sintéticas. Esto indica que la voz sintética ya se acepta como categoría propia — el oyente la sitúa no como "mala voz humana" sino como "algo diferente".<span class="source-tag">Diel & Lewis 2024</span></p>
+
+<p>Nussbaum, Frühholz y Schweinberger fueron aún más lejos en 2025 en Trends in Cognitive Sciences: demostraron que el concepto de "naturalidad vocal" carece de definición científica. Existen dos tipos de naturalidad: basada en la desviación (cuánto se aparta de la voz humana) y basada en la semejanza humana (cuánto se parece a ella). Esa ambigüedad abre la posibilidad de que la voz sintética defina su propia naturalidad.<span class="source-tag">Nussbaum 2025</span></p>
+
+<p>Im y sus colegas hallaron en 2023 lo contrario de lo esperado: en tareas basadas en información, los usuarios <strong>prefirieron la voz sintética.</strong> En tareas funcionales, la voz sintética fue percibida como más fluida, recibió valoraciones de competencia más altas y generó actitudes positivas. Torre y sus colegas habían descrito en 2018 el "efecto de congruencia": si la voz se percibe como fiable y la experiencia posterior es coherente, la confianza se refuerza. El tono invariable de la voz sintética facilita esa coherencia — la misma calidad cada vez, el mismo ritmo, la misma fiabilidad.<span class="source-tag">Im 2023, Torre 2018</span></p>
+
+<p>Le Maguer y Cowan llevaron la provocación al título en un artículo de ACM en 2021: "La síntesis de voz similar a la humana es el camino fácil." El camino difícil pero correcto es que la voz sintética encuentre el suyo propio. El estudio "Cabinet of Voices" presentado en DIS 2025 ofrece el ejemplo más concreto: el concepto de "vocalidades poshumanas". Los participantes imaginaron voces sintéticas que emitieran sonidos como los de una ballena — no imitación, sino exploración.<span class="source-tag">Le Maguer & Cowan 2021, Cabinet of Voices 2025</span></p>
+
+<p>Lamas dio nombre a esta transformación en 2025, en Explorations in Media Ecology: <strong>"oralidad sintética"</strong> (synthetic orality). La voz sintética no es oralidad primaria (carece de cuerpo), ni oralidad secundaria (no es como la radio), ni escritura — es una cuarta categoría. Desde la perspectiva de McLuhan, cada medio crea su propio lenguaje: la imprenta creó la novela, la televisión creó el anuncio. La voz sintética está creando su propio género — el podcast con IA de NotebookLM es un ejemplo temprano.<span class="source-tag">Lamas 2025</span></p>
+
+<p>Pero este cambio de paradigma aún no se ha completado. Falta mucho: no existe una tesis sistemática del "paradigma de la voz sintética" — el trabajo que reúna las piezas todavía no se ha escrito. No existen métricas propias para la voz sintética — qué medir en lugar de "semejanza con lo humano" sigue siendo incierto. Los estudios de adaptación a largo plazo del oyente son insuficientes. Y la inmensa mayoría de las investigaciones existentes son en inglés y de orientación occidental — la diversidad cultural brilla por su ausencia.</p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ EL TURCO ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">El lugar singular del turco</h2>
+
+<p>El turco es una lengua aglutinante — a una sola raíz pueden adherirse múltiples sufijos, y las formas léxicas son teóricamente infinitas. Esto plantea dos problemas concretos para la voz sintética. El primero es morfológico: los enfoques estándar basados en vocabulario resultan insuficientes, porque una forma como "gelememişlerdenmiş" (algo así como "por lo visto era de los que no pudieron venir") no puede incluirse en una tabla predefinida. Kösaner y sus colegas desarrollaron en 2024 un sistema TTS basado en reglas y fonemas para abordar la morfología compleja del turco; demostraron que el análisis morfológico es imprescindible para una pronunciación correcta.<span class="source-tag">Kösaner 2024</span> Liu y sus colegas encontraron en 2024 que el preentrenamiento de modelos lingüísticos con conciencia morfológica mejora la calidad en lenguas aglutinantes con pocos recursos — un enfoque directamente aplicable al turco.<span class="source-tag">Liu 2024</span></p>
+
+<p>El segundo problema es la ambigüedad: una misma grafía puede dar lugar a lecturas distintas. Hakkani en 2002 y Külekçi en 2006 demostraron que la desambiguación morfológica es crítica para la calidad de la voz sintética en turco. En la adaptación de textos, esto significa identificar y corregir las estructuras que podrían producir pronunciaciones ambiguas.</p>
+
+<p>Pero el turco tiene también una ventaja. En el metaanálisis de Clinton-Lisell, las lenguas de ortografía transparente — las que se leen tal como se escriben — presentan una diferencia de comprensión lectura-escucha cercana a cero. El turco no es transparente en sentido estricto, pero se aproxima: alfabeto latino, escritura en gran medida fonémica. Esto sugiere que la adaptación de textos en turco podría generar menos pérdida que en inglés.<span class="source-tag">Clinton-Lisell 2022</span></p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ DIVAGACIÓN MENTAL ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">La excursión de la mente</h2>
+
+<p>En clases universitarias, la tasa de divagación mental se sitúa entre el treinta y tres y el cuarenta y tres por ciento.<span class="source-tag">Szpunar 2013, Risko 2012</span> La condición de solo audio produce la divagación más alta — Kopp y D'Mello lo demostraron en 2016. El mecanismo es sencillo: procesar el sonido exige relativamente pocos recursos, la capacidad restante queda libre y la atención se va.</p>
+
+<p>Pero esto no es enteramente malo. La atención libre puede establecer conexiones diferentes, descubrir el ángulo que no se ve leyendo. El problema no es la divagación en sí, sino no poder regresar. El hallazgo de Faber y sus colegas en 2018 es pertinente aquí: cuando no se produce un cambio de evento — cuando la narración fluye plana y sin variación — la divagación se descontrola. La solución no es cortar el flujo, sino insertar en su interior <strong>señales de retorno</strong>: transiciones temáticas, marcadores de información nueva, una metáfora inesperada. La mente del oyente va a divagar — el texto debe ser capaz de traerla de vuelta.</p>
+
+</div>
+
+<div class="breath"></div>
+<div class="divider"></div>
+<div class="breath"></div>
+
+<!-- ═══════ AUTOCRÍTICA ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">La mayor carencia de este informe</h2>
+
+<p>Todo lo que he expuesto hasta aquí descansa sobre un supuesto: que existe algo llamado <strong>"oyente promedio"</strong>. Kadayat y Eika tienen veintiún participantes, Clinton-Lisell tiene cuarenta y seis estudios, Govender tiene datos de pupilometría — en todos se calculan promedios, se estiman intervalos de confianza, se extraen principios generales. Es lo que exige el método científico y no es incorrecto. Pero es insuficiente.</p>
+
+<p>Insuficiente porque escuchar es una experiencia profundamente individual. Dos personas oyen la misma frase: una la comprende, la otra la pierde — y la que la pierde ni siquiera lo advierte. El hallazgo del "rango dorado de dieciséis a veinte palabras" de Kadayat y Eika es el promedio de veintiún personas. Pero entre esas veintiún personas probablemente había quienes mantenían la coherencia en la palabra cuarenta y quienes la perdían en la décima. El promedio no representa a ninguno de los dos.</p>
+
+<p>Esto no es solo una cuestión de longitud de frase. La varianza individual es grande en todas las dimensiones del perfil cognitivo: capacidad de abstracción, tolerancia a la densidad informativa, preferencias de flujo, estándares estéticos, sensibilidad al sonido. Un oyente necesita puentes pedagógicos ("vamos a aclarar esto con un ejemplo"), otro percibe esos mismos puentes como relleno y pierde la atención. Un oyente se siente seguro con señales de transición formulaicas ("pasamos a la segunda sección"), otro las encuentra irritantes. Para un oyente la consistencia de la voz sintética es una ventaja — la misma calidad cada vez; para otro es monotonía.</p>
+
+<p>Las fechas de las investigaciones académicas son también una limitación. Una parte significativa de las fuentes de este informe es anterior a 2020 — la tecnología de voz sintética ha cambiado radicalmente desde entonces. El "sintetizador DNN de alta calidad" de 2018 no alcanza siquiera el nivel de entrada de 2026. Los hallazgos de carga cognitiva de Govender deberían volver a testarse con los motores actuales. El resultado de "sin diferencia" de Craig y Schroeder podría convertirse, con los motores de hoy, en "ventaja para la voz sintética". Los datos siguen siendo valiosos, pero cuestionar su vigencia es obligatorio.</p>
+
+<div class="callout">
+<p>En resumen: este informe se apoya en datos científicos, pero esos datos dibujan un cuadro "no personalizado para nadie". Piensen en un mapa — muestra la forma general del país, pero no la puerta de su casa. Para encontrar su casa hay que bajar al nivel de la calle. En la experiencia de escucha, el nivel de la calle es la <strong>personalización</strong>.</p>
+</div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ PERSONALIZACIÓN ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">El nivel de la calle del mapa</h2>
+
+<p>La personalización no es un concepto abstracto — hay que mostrar concretamente qué cambia. Dispongo de un caso: treinta mil líneas de registro conversacional analizadas, un perfil extraído en seis dimensiones cognitivo-lingüísticas, los siete principios generales de este informe calibrados para ese perfil. A continuación presento, de forma anonimizada, algunos resultados de esa calibración — para que se vea la diferencia concreta.</p>
+
+<p><strong>Longitud de frase:</strong> El principio general de este informe dice entre dieciséis y veinte palabras. Pero los datos del perfil muestran que el rango natural de procesamiento de este oyente está entre veinticinco y cuarenta y cinco palabras — en las treinta mil líneas de registro no aparece una sola vez "no entendí" o "simplifícalo". Cuando se aplica el rango dorado a este oyente, <strong>el pensamiento se fragmenta</strong>: una estructura que porta el contexto en una sola frase, al partirse en dos, pierde la conexión. El principio general es correcto, pero para este oyente resulta perjudicial.</p>
+
+<p><strong>Capacidad de abstracción:</strong> El principio general dice "apoya los conceptos abstractos con ejemplos concretos". Este oyente no solo comprende los conceptos abstractos, los produce — utiliza de forma natural, en plena conversación, conceptos que ha inventado él mismo. Los puentes pedagógicos ("vamos a aclarar esto con un ejemplo sencillo") son, para este oyente, relleno: si un concepto requiere explicación, explícalo directamente, no anuncies que vas a explicar.</p>
+
+<p><strong>Densidad informativa:</strong> El principio general dice "diluye la información, un solo concepto por unidad". En los ciento sesenta archivos de este oyente no hay una sola señal de que la densidad informativa le haya resultado excesiva. La queja es siempre por insuficiencia, por superficialidad. Cuando se diluye la información, para este oyente se produce una pérdida — no se reduce la densidad, se reduce el significado.</p>
+
+<p><strong>Preferencia de transición:</strong> El principio general dice "utiliza señales de transición: ahora pasamos al segundo tema". El flujo de pensamiento de este oyente sigue una profundización en espiral — los temas nacen unos de otros, los marcadores de frontera formulaicos cortan el flujo. En lugar de "pasemos a la segunda sección", se necesitan transiciones que surjan orgánicamente del último pensamiento de la sección anterior.</p>
+
+<p><strong>Preferencia de voz sintética:</strong> La investigación general sostiene que la voz sintética aumenta la carga cognitiva. Este oyente prefiere la consistencia al rendimiento pico — incluso al escuchar música elige la fidelidad a la fuente antes que los efectos. La consistencia infinita de la voz sintética no es una desventaja para este oyente, es una <strong>ventaja activa</strong>.</p>
+
+<p>Cinco ejemplos, cinco desviaciones distintas. Cada uno de los principios generales es correcto — pero los cinco se aplican de forma errónea a este oyente. El mapa es correcto, la calle es equivocada. Y este es un solo oyente — el patrón de desviación de cada oyente será diferente.</p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════ PERSONALIZACIÓN CON IA ═══════ -->
+
+<div class="chapter">
+<h2 class="chapter-title">Cómo lo hace la inteligencia artificial</h2>
+
+<p>¿Podría un ser humano realizar la calibración que acabo de describir? Podría — pero no es escalable. Leer treinta mil líneas de registro conversacional, extraer un perfil en seis dimensiones, calibrar siete principios, derivar cinco nuevos — requiere semanas de trabajo de un lingüista, y para cada nuevo oyente hay que empezar de cero. La inteligencia artificial lo hace de otro modo: los grandes modelos de lenguaje constituyen una infraestructura natural para el análisis textual y pueden automatizar cada etapa de la personalización.</p>
+
+<p>El proceso funciona, a grandes rasgos, en cuatro fases. <strong>Primera fase, extracción de perfil:</strong> se analizan los registros conversacionales o epistolares del oyente. Longitudes de frase, selección léxica, niveles de abstracción, patrones de transición temática, señales de satisfacción o insatisfacción — todo se extrae. Es una tarea clásica de minería de textos, pero los grandes modelos de lenguaje, al ser capaces de comprender el contexto, superan la estadística superficial: la ausencia de la expresión "no entendí" y la ausencia de la expresión "simplifícalo" no son la misma cosa — el modelo capta esa diferencia.</p>
+
+<p><strong>Segunda fase, calibración:</strong> los principios académicos se contrastan con el perfil. Para cada principio, la pregunta: ¿es aplicable a este oyente, no lo es, cómo debe modificarse? El modelo toma el hallazgo académico como punto de partida "para el promedio" y calcula las desviaciones con los datos del perfil. El rango de dieciséis a veinte palabras de Kadayat y Eika arranca como valor por defecto, pero si el perfil indica veinticinco a cuarenta y cinco palabras, el rango se actualiza.</p>
+
+<p><strong>Tercera fase, adaptación del texto:</strong> el texto escrito se reescribe según los principios calibrados. Estructura de la frase, orden de la información, señales de transición, formato de los títulos, densidad de metáforas, densidad informativa — todo se ajusta al perfil. Esta fase es el terreno donde los grandes modelos de lenguaje son más potentes: generación y transformación de texto. Un mismo texto fuente puede convertirse en formas distintas para perfiles distintos — uno con frases cortas y puentes pedagógicos, otro con frases largas y fluidas y transiciones orgánicas.</p>
+
+<p><strong>Cuarta fase, actualización continua:</strong> el perfil no es estático. Las preferencias del oyente, su capacidad cognitiva, sus intereses cambian con el tiempo. Cada nueva interacción actualiza el perfil. El modelo compara los resultados de la calibración anterior con los nuevos datos y corrige las desviaciones. Esto difiere del test A/B tradicional — no es elegir entre dos opciones, sino un ajuste fino continuo.</p>
+
+<p>Técnicamente, el proceso requiere varios componentes: un modelo de lenguaje con ventana de contexto amplia (deben leerse decenas de miles de líneas para la extracción del perfil), generación de salida estructurada (dimensiones del perfil, tabla de calibración), generación de texto extenso (el texto adaptado) y memoria persistente (actualizaciones del perfil). Los modelos actuales son capaces de todo ello — la limitación no está en la tecnología, sino en la aplicación. La inmensa mayoría de las plataformas de adaptación textual siguen basándose en métricas unidimensionales como el "nivel de legibilidad"; la calibración personalizada aún no es estándar.</p>
+
+<p>Hay aquí también una dimensión ética. Analizar treinta mil líneas de registro conversacional produce un perfil cognitivo profundo — desde la capacidad de procesamiento de frases hasta los estándares estéticos, desde el nivel de abstracción hasta los patrones de respuesta emocional. Esa información, en manos equivocadas, puede convertirse en instrumento de manipulación. La frontera entre personalización y manipulación no está en la intención, sino en la transparencia: el oyente debe saber qué es su perfil, cómo se utiliza y qué decisiones influye. Raghavan y Schneier defendieron en 2025, en IEEE Spectrum, que las voces sintéticas deberían vocalizarse deliberadamente como robóticas — que la voz sintética porte su propia identidad no es una degradación, es una función. La misma lógica se aplica a la personalización: la información "esto ha sido personalizado para ti" debe ser visible, no un ajuste oculto sino un servicio declarado.<span class="source-tag">Raghavan & Schneier 2025</span></p>
+
+</div>
+
+<div class="breath"></div>
+
+<!-- ═══════ CIERRE ═══════ -->
+
+<div class="chapter">
+
+<p>Este informe ha contado una historia de traducción — una traducción dentro del mismo idioma. Cuando el texto escrito entra en la voz, la estructura de la frase cambia, el orden de la información cambia, las tablas se convierten en narración, los títulos se convierten en señales, las cifras se redondean. La voz sintética añade su propia dimensión a esa transformación: la carga cognitiva aumenta pero se va cerrando, la prosodia falta pero la consistencia es ventaja, la imitación se agota pero su propio paradigma aún no ha terminado de nacer.</p>
+
+<p>Y el lugar donde el informe se cuestiona a sí mismo: la totalidad de estos hallazgos se refiere al "oyente promedio". Pero escuchar es una experiencia que no tiene nada de promedio. La personalización no es un lujo, es una <strong>condición de exactitud</strong> — sin calibrar los principios generales al perfil individual, la pretensión de "adaptación correcta" queda incompleta. La inteligencia artificial hace esa calibración escalable: extracción de perfil, calibración de principios, adaptación del texto, actualización continua. La tecnología está lista — la aplicación aún no es estándar.</p>
+
+<p>Convertir un texto en voz es traducir — dentro del mismo idioma.</p>
+
+</div>
+
+<!-- ═══════ BIBLIOGRAFÍA ═══════ -->
+
+<div class="kaynakca">
+<h2>Bibliografía</h2>
+
+<p>Ayasse, N.D.; Hodson, A.J.; Wingfield, A. (2021). "Principle of Least Effort and Sentence Comprehension." <em>Frontiers in Psychology.</em> PMID: 33796047</p>
+<p>Biber, D. (1988). <em>Variation across Speech and Writing.</em> Cambridge University Press.</p>
+<p>Cambre, J. et al. (2020). "Choice of Voices." <em>CHI 2020.</em></p>
+<p>Chafe, W. (1982, 1985). "Integration and Involvement in Speaking, Writing, and Oral Literature." <em>Spoken and Written Language.</em></p>
+<p>Clinton-Lisell, V. (2022). "Listening Ears or Reading Eyes: A Meta-Analysis." <em>Review of Educational Research.</em></p>
+<p>Constable, R.T. et al. (2004). "Sentence Complexity and Input Modality Effects: fMRI." <em>NeuroImage.</em> PMID: 15109993</p>
+<p>Craig, S.D.; Schroeder, N.L. (2017). "Reconsidering the Voice Effect." <em>Computers & Education, 114.</em></p>
+<p>Craig, S.D.; Schroeder, N.L. (2019). "Text-to-Speech Software and Learning." <em>JECR, 57(6).</em></p>
+<p>Diel, A.; Lewis, M. (2024). "Vocal Uncanny Valley: Deviation Hypothesis." <em>ScienceDirect.</em></p>
+<p>Faber, M. et al. (2018). "Event Boundaries and Mind Wandering." <em>Psychological Science.</em></p>
+<p>Govender, A.; King, S. (2018). "Using Pupillometry to Measure Cognitive Load of Synthetic Speech." <em>Interspeech 2018.</em></p>
+<p>Govender, A.; Wagner, A.; King, S. (2019). "Pupil Dilation for Cognitive Load TTS." <em>Interspeech 2019.</em></p>
+<p>Haake, M. et al. (2022). "Speech Recognition and Listening Effort." PMC9549212.</p>
+<p>Hakkani, D.Z. (2002). Estudio de desambiguación morfológica — TTS en turco.</p>
+<p>Halliday, M.A.K. (1985). <em>Spoken and Written Language.</em> Deakin University Press.</p>
+<p>Im, H.; Sung, B.; Lee, G.; Kok, K.Q.X. (2023). "Let Voice Assistants Sound Like a Machine." <em>Computers in Human Behavior.</em></p>
+<p>Kadayat, B.M.; Eika, E. (2020). Estudio de longitud de frase en escucha TTS. [21 participantes, rango dorado 16-20 palabras]</p>
+<p>Kaiser, E.; Trueswell, J.C. (2004). "Role of Discourse Context in Processing Flexible Word-Order Language." <em>Cognition.</em> PMID: 15582623</p>
+<p>Kern, J. (2008). <em>Sound Reporting.</em> University of Chicago Press.</p>
+<p>Kopp, K.; D'Mello, S. (2016). Estudio sobre condición de solo audio y divagación mental.</p>
+<p>Kösaner, O.; Özgen, M.; Birant, C. (2024). "Developing a Rule-Based TTS System for Turkish." DEU Avesis.</p>
+<p>Külekçi, M.O. (2006). Estudio TTS en turco.</p>
+<p>Lamas, N.J. (2025). "AI, Language Processing and Synthetic Orality." <em>Explorations in Media Ecology, 24(3).</em></p>
+<p>Le Maguer, S.; Cowan, B.R. (2021). "Synthesizing a Human-Like Voice Is the Easy Way." <em>ACM CUI 2021.</em></p>
+<p>Lemarié, J. et al. (2012). Estudio sobre las siete funciones de los títulos.</p>
+<p>Liu, R. et al. (2024). "TTS for Low-Resource Agglutinative Language with Morphology-Aware Pre-Training." <em>IEEE.</em></p>
+<p>Nussbaum, C.; Frühholz, S.; Schweinberger, S.R. (2025). "Understanding Voice Naturalness." <em>Trends in Cognitive Sciences, 29(5).</em></p>
+<p>Ochs, E. (1979). "Planned and Unplanned Discourse."</p>
+<p>Ong, W.J. (1982). <em>Orality and Literacy.</em> Methuen.</p>
+<p>Pagnotta, M. et al. (2025). "Prosody! When intonation helps." <em>Educational Psychology.</em></p>
+<p>Peelle, J.E. et al. (2010). "Neural Processing During Older Adults' Comprehension." <em>Cerebral Cortex, 20(4).</em></p>
+<p>Raghavan, B.; Schneier, B. (2025). "AI Voices Should Sound Robotic Again." <em>IEEE Spectrum.</em></p>
+<p>Risko, E.F. et al. (2012). Estudio sobre divagación mental y atención en clase.</p>
+<p>Rogowsky, B.A.; Calhoun, B.M.; Tallal, P. (2016). "Does Modality Matter?" <em>SAGE Open.</em></p>
+<p>Rubin, D.L. (2012). "Listenability as a Tool for Advancing Health Literacy." <em>J. Health Communication, 17(S3).</em> PMID: 23030569</p>
+<p>Rubin, D.L.; Hafer, T.; Arata, K. (2000). "Reading and Listening to Oral-Based vs Literate-Based Discourse." <em>Communication Education, 49(2).</em></p>
+<p>Scribner, S.; Cole, M. (1981). <em>The Psychology of Literacy.</em> Harvard University Press.</p>
+<p>Segedin, B.F.; Cohn, M.; Zellou, G. (2019). "Perceptual Adaptation to Device and Human Voices." <em>Interspeech 2019.</em></p>
+<p>Szpunar, K.K. et al. (2013). Estudio sobre divagación mental durante clases.</p>
+<p>Torre, I.; Goslin, J.; White, L.; Zanatto, D. (2018). "Trust in Artificial Voices: Congruency Effect." <em>ACM CUI.</em></p>
+<p>Yang, J. et al. (2026). "Short-Term Perceptual Training Modulates Neural Responses to Deepfake Speech." <em>eNeuro.</em></p>
+<p>Zong, J. et al. (2022). Estudio de narración de tablas con usuarios con discapacidad visual.</p>
+</div>
+
+</main>
+
+<footer>
+<p>Halit Cengiz Uzuner · <a href="/">halitcengizuzuner.com</a></p>
+<p>Las copias físicas de las fuentes académicas de este informe están archivadas.</p>
+</footer>
+
+<div style="max-width: 640px; margin: 0 auto; padding: 2rem 2.5rem;">
+  <p style="font-size: 0.8rem; color: rgba(212, 204, 192, 0.28); line-height: 1.8; font-style: italic;">Este texto fue escrito originalmente en turco. Intentamos que suene lo más natural posible en español — fieles a la voz, no a las palabras. Si encuentras algo que podría sonar mejor, escríbenos a <strong>soru@halitcengizuzuner.com</strong> — enriquecerás nuestra traducción.</p>
+</div>
+
+</body>
+</html>
