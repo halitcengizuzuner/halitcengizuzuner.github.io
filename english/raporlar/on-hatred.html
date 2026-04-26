@@ -380,6 +380,64 @@ body {
   .dual-image img { height: 300px; }
 }
 
+/* ========== TRANSCREATION NOTES ========== */
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 24px;
+}
+
+.transcreation-notes h3 {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--muted);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(196, 120, 90, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: var(--serif);
+    font-size: 0.88rem;
+    color: var(--dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--accent);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--accent);
+    font-style: italic;
+}
+
 /* ========== DİNLEME KAPISI ========== */
 .dinle-kapisi {
     margin-top: 2.5rem;
@@ -774,6 +832,38 @@ body {
 
 <div class="article-footer" style="border-top: none; margin-top: 20px;">
   <em>This text was originally written in Turkish. We tried to make it as natural as possible in English — staying true to the voice rather than the words. If you spot something that could sound better, write to <strong>soru@halitcengizuzuner.com</strong> — you'd be enriching our translation.</em>
+</div>
+
+<div class="transcreation-notes">
+    <h3>Transcreation Notes</h3>
+
+    <details>
+        <summary>"serves no form of life" — hiçbir canlıya hizmet etmez</summary>
+        <div class="note-body">
+            The Turkish <em>canlı</em> means "living thing" — broader than "person," broader than "creature," encompassing everything that is alive. The first draft used "serves no living thing," which is accurate but reads as ecological in English. <em>Form of life</em> shifts the register toward philosophy (Wittgenstein's <em>Lebensform</em> echoes faintly) and matches the report's argument that hatred sits outside the sequence of organic emotions — fear, anger, love — that serve being alive. The triangle review caught the gap between casual and philosophical; the revision closes it.
+        </div>
+    </details>
+
+    <details>
+        <summary>"counterfeit compound" — sahte bileşik</summary>
+        <div class="note-body">
+            The Turkish <em>sahte bileşik</em> is chemistry borrowed for psychology: a compound that looks real but whose bonds are unstable. English "fake compound" loses the scientific register; "spurious" sounds archival. <em>Counterfeit</em> carries the deliberate deception the report attributes to hatred — it passes itself off as rational thought, but its bonds between cognition and emotion are forged, not formed. The word recurs later ("counterfeit goodness is worth less than organic evil") and the repetition is deliberate: hatred and the goodness it opposes can both be counterfeit.
+        </div>
+    </details>
+
+    <details>
+        <summary>"the confession of surrendered will" — teslim edilmiş iradenin itirafı</summary>
+        <div class="note-body">
+            This is the report's central formulation — and the hardest to carry. Turkish <em>irade</em> is heavier than English "will"; it carries legal, philosophical, and theological weight simultaneously (a lawyer's <em>irade beyanı</em> is a declaration of intent; Sufi <em>irade</em> is submission to divine will). <em>Teslim</em> is surrender, handing-over, capitulation. The English keeps the passive construction ("surrendered," not "lost") because the report's argument is that hatred is not the absence of will but its active handover to another — to the object of hatred. You gave your will away; hatred is the receipt.
+        </div>
+    </details>
+
+    <details>
+        <summary>"organic evil" — organik kötülük</summary>
+        <div class="note-body">
+            Turkish <em>organik</em> in this context means true-to-its-nature, unmanufactured, growing from within — the opposite of <em>sahte</em> (counterfeit). English "organic" risks sounding like a grocery aisle. But the report builds its entire sixth section on the organic/counterfeit axis, and no synonym (<em>natural, authentic, genuine</em>) carries the same structural opposition. The phrase was kept, trusting the Chigurh passage to calibrate the reader's understanding before the term lands.
+        </div>
+    </details>
 </div>
 
 <nav style="max-width:680px;margin:3rem auto 2rem;padding:2rem 1.5rem;border-top:1px solid rgba(212,204,192,0.15);">

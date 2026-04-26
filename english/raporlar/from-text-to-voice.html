@@ -348,6 +348,60 @@ footer a:hover { color: var(--bone); }
 .home-link:hover {
     color: var(--bone);
 }
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(112, 104, 160, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '›';
+    margin-right: 0.5rem;
+    color: var(--yanki);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--yanki);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -662,6 +716,40 @@ footer a:hover { color: var(--bone); }
 
 <div style="max-width: 640px; margin: 0 auto; padding: 2rem 2.5rem;">
   <p style="font-size: 0.8rem; color: rgba(212, 204, 192, 0.28); line-height: 1.8; font-style: italic;">This text was originally written in Turkish. We tried to make it as natural as possible in English — staying true to the voice rather than the words. If you spot something that could sound better, write to <strong>soru@halitcengizuzuner.com</strong> — you'd be enriching our translation.</p>
+</div>
+
+<div class="transcreation-notes" style="max-width: 640px; margin: 0 auto; padding: 0 2.5rem;">
+    <h3>Transcreation Notes</h3>
+    <details>
+        <summary>"backtracks" &#8212; geri doner</summary>
+        <div class="note-body">
+            The Turkish <em>geri donmek</em> (to return, to go back) is the most ordinary verb imaginable &#8212; it carries no literary weight. The earlier draft used "goes back," which is equally flat. We chose "backtracks" because it implies retracing steps with purpose, not just retreating &#8212; it better captures the deliberate, investigative quality of the eye scanning a page. The ucgen review flagged the original as too passive.
+        </div>
+    </details>
+    <details>
+        <summary>"linger on" &#8212; ciğnemek (chew on)</summary>
+        <div class="note-body">
+            The Turkish original uses <em>cignemek</em> &#8212; literally "to chew." It is a physical metaphor: the mind chews on a sentence the way a mouth chews food, extracting meaning through repetition. English "chew on" exists but sounds colloquial in an academic-adjacent text. We settled on "linger on" &#8212; which preserves the temporal quality (staying with something longer than expected) but sacrifices the bodily, almost gustatory image. The mouth became the mind.
+        </div>
+    </details>
+    <details>
+        <summary>"a text between two worlds" &#8212; iki dunya arasinda bir metin</summary>
+        <div class="note-body">
+            The Turkish subtitle <em>iki dunya arasinda</em> is a common phrase that usually means "caught between two worlds" with a sense of belonging to neither. Applied to a text about eye-reading versus ear-listening, it implies the text itself is homeless &#8212; not fully at home in either medium. English "between two worlds" works but lacks the <em>arada kalmak</em> (being stuck in between) undertone. We accepted the loss because adding "caught" or "stranded" would have over-dramatised a subtitle.
+        </div>
+    </details>
+    <details>
+        <summary>"synthetic orality" &#8212; sentetik sozluluk</summary>
+        <div class="note-body">
+            Lamas coined "synthetic orality" in English; the Turkish translation <em>sentetik sozluluk</em> is our coinage. <em>Sozluluk</em> does not exist as a standard Turkish word &#8212; we derived it from <em>soz</em> (word/speech) + <em>-luk</em> (the quality of being). This is a case where the English came first and the Turkish transcreation had to invent a term. Reversing into English was straightforward; the creative debt ran the other direction.
+        </div>
+    </details>
+    <details>
+        <summary>"the ear has no such luxury" &#8212; kulak icin bu luks yok</summary>
+        <div class="note-body">
+            The Turkish <em>luks</em> (luxury) when applied to a sensory organ sounds sharper than the English equivalent &#8212; it implies that going back and re-reading is not just convenient but extravagant, a privilege the ear is denied by physics. English "luxury" can sound hyperbolic in this context; Turkish readers hear it as precise. We kept it because no other word &#8212; "privilege," "option," "freedom" &#8212; carried the same sense of something valuable that one channel possesses and the other simply does not.
+        </div>
+    </details>
 </div>
 
 <nav style="max-width:680px;margin:3rem auto 2rem;padding:2rem 1.5rem;border-top:1px solid rgba(212,204,192,0.15);">

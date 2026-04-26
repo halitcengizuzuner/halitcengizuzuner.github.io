@@ -267,6 +267,61 @@ footer a:hover { color: var(--bone); }
     .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
 }
 
+/* ===== TRANSCREATION NOTES ===== */
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(160, 152, 176, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--ash);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--ash);
+    font-style: italic;
+}
+
 /* ===== HOME LINK ===== */
 .home-nav {
     text-align: center;
@@ -502,6 +557,45 @@ footer a:hover { color: var(--bone); }
     <p>This work is public. No ownership is claimed. Use it, share it, transform it.</p>
     <p>This is not a peer-reviewed academic publication. A human and AI wrote it together. It may contain errors.</p>
 </section>
+
+<div class="transcreation-notes">
+    <h3>Transcreation Notes</h3>
+
+    <details>
+        <summary>"the very thing itself" — aynen</summary>
+        <div class="note-body">
+            The Arabic root <em>ayn</em> carries a triple load: eye, essence, the-thing-as-it-is. Turkish <em>aynen</em> inherited all three layers. English has no single word that does this work. "Exactly" captures the precision but loses the sensory and ontological dimensions — the eye that sees, the essence that persists. "The very thing itself" was chosen to restore the weight the Turkish word carries before its meaning eroded. DeepSeek suggested alternatives; the phrasing was kept because it echoes the philosophical register the etymology demands.
+        </div>
+    </details>
+
+    <details>
+        <summary>"skeleton" — iskelet metaphor</summary>
+        <div class="note-body">
+            The Turkish original uses <em>iskelet</em> as a deliberate structural metaphor: two words stripped of context are like a skeleton — bone structure without flesh, skin, or facial muscles. The metaphor recurs: "the bone structure stands but the flesh is gone." Both evaluators flagged the anatomical extension as unusual in English essay prose; it was kept because the text's argument depends on it — the skeleton is not decoration but the central image through which the phatic/epistemic distinction is later built.
+        </div>
+    </details>
+
+    <details>
+        <summary>"pragmaticalization" — left untranslated</summary>
+        <div class="note-body">
+            A technical term from discourse analysis (Hirik, 2019) describing a word's drift from semantic content to discourse-marker function. There is no plain-English equivalent that preserves the specificity. The term was kept in its academic form because the report is itself partly a linguistics investigation — domesticating it would have dulled the argument's precision. Context carries the reader; the sentence before it explains what the process does.
+        </div>
+    </details>
+
+    <details>
+        <summary>"evolution within rupture" — kopuş içinde evrim</summary>
+        <div class="note-body">
+            The Turkish formula <em>kopuş içinde evrim</em> is compact and paradoxical: rupture (discontinuity) contains evolution (continuity). English wants to resolve the paradox — "change amid disruption," "continuity through disruption." Both flatten it. <em>Evolution within rupture</em> preserves the spatial metaphor (evolution literally inside the rupture) and lets the paradox sit unresolved, which is the report's point: the answer to "is this time different?" is yes and no simultaneously.
+        </div>
+    </details>
+
+    <details>
+        <summary>"the word drifted from its concrete meaning"</summary>
+        <div class="note-body">
+            Originally rendered as "the word's anchor loosened" — a more poetic image but one that introduced a nautical metaphor absent from the Turkish. The triangle review caught this: the original describes a gradual semantic shift, not a dramatic unmooring. <em>Drifted from its concrete meaning</em> is plainer but truer to the process being described. Sometimes the more interesting English is the less faithful one.
+        </div>
+    </details>
+</div>
 
 </main>
 

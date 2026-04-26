@@ -322,6 +322,61 @@ a { color: inherit; text-decoration: none; }
     .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
 }
 
+/* ===== TRANSCREATION NOTES ===== */
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(184, 144, 96, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--cay);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--cay);
+    font-style: italic;
+}
+
 /* ===== HOME LINK ===== */
 .home-nav {
     text-align: center;
@@ -568,6 +623,45 @@ We cannot live it.
 <p style="margin-top:4rem; font-size:0.72rem; color:var(--bone-ghost); line-height:1.9; font-style:italic;">
 This text was originally written in Turkish. The English you are reading is not a translation in the usual sense — it is a transcreation: the same thought rebuilt in another language. Names (Halit, Savak, Yontu) are untranslated. Chinese characters and Pinyin romanization are preserved as they appear in the original. Where the Turkish carried a particular weight or ambiguity, the English tries to carry the same weight rather than the same words.
 </p>
+
+<div class="transcreation-notes">
+    <h3>Transcreation Notes</h3>
+
+    <details>
+        <summary>"the aspect of God" — Allah tarafı</summary>
+        <div class="note-body">
+            The Turkish <em>Allah tarafı</em> literally means "the God direction" or "the God side" — a spatial metaphor for the divine dimension of things. The first draft kept the spatial image ("the God direction"), but in English this read as either navigation or a corporate euphemism. <em>The aspect of God</em> preserves the sense of looking at one particular face of a multi-sided thing without claiming to see the whole. What is lost: the Turkish <em>taraf</em> carries a bodily sense of facing, of turning toward, that <em>aspect</em> (from Latin <em>aspectus</em>, a looking-at) only faintly echoes.
+        </div>
+    </details>
+
+    <details>
+        <summary>"they clutch" — kavramak / tutmak</summary>
+        <div class="note-body">
+            Halit's original Turkish distinguishes two kinds of holding: religions <em>kavramak</em> (grasp, seize, comprehend-by-seizing), the Tao merely <em>dokunmak</em> (touch). The first draft used "they grasp" for religions — accurate but too close to the neutral sense of "they understand." <em>Clutch</em> adds the constriction, the refusal to release, the desperate quality that the Turkish <em>kavramak</em> carries when set against the lightness of a touch. The triangle review caught the gap; the verb was changed to hold the contrast the passage depends on.
+        </div>
+    </details>
+
+    <details>
+        <summary>"Naturalness" — 自然 (zìrán)</summary>
+        <div class="note-body">
+            The Chinese <em>zìrán</em> is usually translated as "spontaneity" in Western Taoism scholarship. The first draft followed that convention. But <em>zìrán</em> literally means "self-so" — things being what they are by their own nature, without external force. <em>Spontaneity</em> in English suggests impulsiveness, acting on a whim. <em>Naturalness</em> is closer to the philosophical weight: not "doing whatever comes to mind" but "acting according to one's own nature." The Tao Te Ching's <em>dào fǎ zìrán</em> — the Tao takes its law from nature itself — guided the choice.
+        </div>
+    </details>
+
+    <details>
+        <summary>"I realized" — fark ettim</summary>
+        <div class="note-body">
+            Turkish <em>fark ettim</em> sits between "I noticed" and "I realized" — closer to a sudden internal recognition than to visual observation. The first draft used "I noticed it," which in English sounds like spotting something external. The shift to <em>I realized</em> moves the perception inward, where Halit's moment of awareness actually lives. A small change that redirects the entire sentence from the eye to the mind.
+        </div>
+    </details>
+
+    <details>
+        <summary>"turn of the tool" — anahtar çevirme</summary>
+        <div class="note-body">
+            The Turkish <em>anahtar</em> means both "key" and "wrench" — an ambiguity the original exploits. The first draft chose "wrench," which in English summons plumbing. The passage is about a repairman whose hands have learned their work; <em>tool</em> is generic enough to cover any craft while keeping the quiet satisfaction of a precise physical movement. The sensory image survives; the accidental plumbing does not.
+        </div>
+    </details>
+</div>
 
 <div class="colophon">
 Three voices, one table, one afternoon.<br>

@@ -1369,6 +1369,60 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
 .home-link:hover {
     color: var(--bone);
 }
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: 1rem;
+    color: var(--muted);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(120, 168, 144, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: 0.88rem;
+    color: var(--dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '›';
+    margin-right: 0.5rem;
+    color: #78a890;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: #78a890;
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -2546,6 +2600,44 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
     <p style="font-size:.82rem;color:var(--muted);line-height:1.7;font-style:italic;">
       <strong style="color:var(--dim);font-style:normal;">Translation note.</strong> This English text is a transcreation of the Turkish original. The thinking was first constructed in Turkish; this version carries it into English while preserving the document's voice and philosophical precision. Statistics, dates, citations, and proper names are reproduced exactly. Where Turkish-specific legal or linguistic examples appear, brief contextual notes have been kept so the argument remains intact. The original Turkish text is the authoritative version: <a href="/raporlar/arastirma-anayasasi.html" style="color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold2);">Araştırma Anayasası</a>.
     </p>
+  </div>
+</section>
+
+<section style="padding: 2.5rem 0; border-top: none;">
+  <div class="wrap">
+    <div class="transcreation-notes">
+        <h3>Transcreation Notes</h3>
+        <details>
+            <summary>"writing the rules of thought" &#8212; dusuncenin kurallarini yazmak</summary>
+            <div class="note-body">
+                The Turkish subtitle is a paradox compressed into five words: <em>dusuncenin kurallarini yazmak</em> &#8212; "to write the rules of thinking." In Turkish, the possessive chain (dusuncenin kurallari) makes "thought" the owner of its own rules, implying that thought already has rules and we are merely transcribing them. English "writing the rules of thought" could be read as imposing rules from outside. The Turkish version is more humble: discovery, not legislation.
+            </div>
+        </details>
+        <details>
+            <summary>"constitution" &#8212; anayasa</summary>
+            <div class="note-body">
+                <em>Anayasa</em> in Turkish literally means "mother-law" (ana = mother, yasa = law). It carries a specific cultural resonance: the foundational text from which all other rules derive legitimacy. English "constitution" carries the same legal weight but loses the maternal metaphor &#8212; the sense that this document is not just primary but generative, that it gives birth to the principles beneath it. We kept "constitution" because "mother-law" would have sounded anthropological rather than operational.
+            </div>
+        </details>
+        <details>
+            <summary>"lived cases" &#8212; yasanmis vakalar</summary>
+            <div class="note-body">
+                The Turkish <em>yasanmis</em> (lived, experienced) is the past participle of <em>yasamak</em> (to live). When applied to a case or example, it means "this actually happened to us" &#8212; not hypothetical, not borrowed. English "lived cases" works but sounds academic; in Turkish it sounds testimonial. The entire document's authority rests on this word: these are not thought experiments but incidents that occurred during real research sessions and were corrected in real time.
+            </div>
+        </details>
+        <details>
+            <summary>"verification reflex" &#8212; dogrulama refleksi</summary>
+            <div class="note-body">
+                The Turkish <em>refleks</em> is borrowed from French/English but has a narrower usage in Turkish than in English &#8212; it almost always means an involuntary, automatic physical response. Calling verification a <em>refleks</em> makes a strong claim: that checking sources should be as automatic as pulling your hand from a flame. English "reflex" carries this meaning too, but in English "reflex" is also used loosely ("my first reflex was to..."). The Turkish is more literal, more physiological, more demanding.
+            </div>
+        </details>
+        <details>
+            <summary>"the cave wall" &#8212; magara duvari</summary>
+            <div class="note-body">
+                The preamble's cave-wall metaphor works in both languages, but in Turkish <em>magara duvari</em> immediately evokes Plato without needing to name him &#8212; every Turkish reader who went through the national education system knows the allegory. In English, the reference needs no additional context either, but the cultural path is different: Plato's cave is a philosophical commonplace in English, while in Turkish it is a specific high-school memory. The resonance is equal but the route is not.
+            </div>
+        </details>
+    </div>
   </div>
 </section>
 

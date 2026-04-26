@@ -789,6 +789,60 @@ a { color: inherit; text-decoration: none; }
 .home-link:hover {
     color: var(--bone);
 }
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(120, 144, 160, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '›';
+    margin-right: 0.5rem;
+    color: var(--steel);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--steel);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -1409,6 +1463,40 @@ a { color: inherit; text-decoration: none; }
 
 <div class="translation-note" style="max-width:760px;margin:0 auto 0;padding:1.5rem 2rem;">
     The original text is in Turkish. We tried to be as organic as possible, faithful to the nature of each language &#8212; but inevitably, small issues will arise. If you spot an error or a better phrasing, write to <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a> &#8212; you'll enrich our translation.
+</div>
+
+<div class="transcreation-notes" style="max-width:760px;margin:0 auto;padding:2rem 2rem 0;">
+    <h3 style="font-family:'Instrument Serif',serif;">Transcreation Notes</h3>
+    <details>
+        <summary>"confabulation" &#8212; uydurma vs. konfabulasyon</summary>
+        <div class="note-body">
+            Turkish has a devastatingly simple word for this: <em>uydurma</em> &#8212; "making it up." It carries no clinical dignity, no Latin insulation. The English "confabulation" sounds medical, almost forgivable. We kept the clinical term because the report argues for it on technical grounds, but the Turkish reader feels something the English reader does not: the naked directness of calling a machine's output <em>uydurma</em>.
+        </div>
+    </details>
+    <details>
+        <summary>"the system rewards hallucination" &#8212; sistem halusinasyonu odullendiriyor</summary>
+        <div class="note-body">
+            In Turkish, <em>odullendirmek</em> (to reward) is used almost exclusively for deliberate, conscious acts &#8212; you reward a child, a soldier, a performance. Applying it to an abstract system is itself a rhetorical choice that personifies the institution. English "rewards" is more neutral, more commonplace. The Turkish sentence hits harder because it implies agency where none should exist.
+        </div>
+    </details>
+    <details>
+        <summary>"epistemik basarisizlik" &#8212; epistemic failure</summary>
+        <div class="note-body">
+            The Turkish original deliberately uses the borrowed Greek-rooted term <em>epistemik</em> alongside the plain Turkish <em>basarisizlik</em> (failure). This is a conscious code-switch &#8212; dressing a blunt Turkish word in academic clothing to make a point about how institutions use language. In English, "epistemic failure" sounds entirely natural, entirely academic. The friction that the Turkish reader feels &#8212; the collision of registers &#8212; disappears.
+        </div>
+    </details>
+    <details>
+        <summary>"doors left open" &#8212; acik kalan kapilar</summary>
+        <div class="note-body">
+            The Turkish <em>acik kalan kapilar</em> is literally "doors that remained open" &#8212; the passive voice implies that no one chose to leave them open; they simply stayed that way. English "doors left open" subtly implies a decision to leave them open. The Turkish is more honest about the state of not-knowing: the doors are open not because we chose openness but because we could not close them.
+        </div>
+    </details>
+    <details>
+        <summary>"the researcher fell into its own trap" &#8212; arastirmaci kendi tuzagina dustu</summary>
+        <div class="note-body">
+            The Turkish <em>kendi tuzagina dusmek</em> is an idiom with a specific flavour: it implies the trap was of one's own making, not stumbled upon. The English "fell into its own trap" preserves the reflexivity but loses the idiomatic weight &#8212; in Turkish, this phrase is a proverb-grade expression that every reader recognises instantly. In English, it reads as description rather than cultural shorthand.
+        </div>
+    </details>
 </div>
 
 

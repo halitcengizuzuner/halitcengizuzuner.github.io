@@ -141,6 +141,61 @@ footer { max-width: 700px; margin: 0 auto; padding: 4rem 2.5rem; border-top: 1px
 footer p { font-size: 0.8rem; color: var(--bone-ghost); line-height: 1.8; }
 footer a { color: var(--bone-dim); transition: color 0.3s; }
 footer a:hover { color: var(--bone); }
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(200, 160, 85, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '›';
+    margin-right: 0.5rem;
+    color: var(--straw);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--straw);
+    font-style: italic;
+}
+
 .sources { margin-top: 2rem; }
 .sources h3 { font-size: 0.75rem; color: var(--bone-ghost); letter-spacing: 0.1em; margin-bottom: 0.8rem; font-style: italic; }
 .sources ul { list-style: none; font-size: 0.8rem; color: var(--bone-ghost); line-height: 2; }
@@ -401,6 +456,41 @@ my tears, with your hands?
     <div class="translation-note">
         The original text is in Turkish. We tried to stay as organic as possible, to honour the nature of English — but there will inevitably be small imperfections. If you spot an error or a more fitting phrasing, write to <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a> — you would enrich our translation.
     </div>
+
+    <div class="transcreation-notes">
+        <h3>Transcreation Notes</h3>
+        <details>
+            <summary>"without taking the easy way out" — kolaya kaçmadan</summary>
+            <div class="note-body">
+                The Turkish <em>kolaya kaçmadan</em> literally means "without fleeing to the easy." The verb <em>kaçmak</em> (to flee, to escape) implies cowardice — choosing ease is cast as a kind of desertion. English "without taking the easy way out" loses that accusatory edge; it describes a route, not a moral failure. No English phrasing carried both the prohibition and the shame.
+            </div>
+        </details>
+        <details>
+            <summary>"a vice" — the question that tightens</summary>
+            <div class="note-body">
+                In the analysis of the repeated question, the Turkish text uses <em>kıskaç</em> — a physical clamp or vice that closes around something. We kept "vice" in English to preserve the mechanical image: the first question opens the jaws, the second tightens them. A word like "trap" would have implied deception; a vice implies inevitability.
+            </div>
+        </details>
+        <details>
+            <summary>"your bitter coffee" → "my bitter coffee"</summary>
+            <div class="note-body">
+                In Gemici's poem, the coffee belongs to Dino, not to Nazim — the speaker is Dino inviting Nazim to drink <em>his</em> bitter coffee. The Turkish possessive <em>benim acı kahvemi</em> is unambiguous. An earlier draft used "your," which reversed the hospitality. Corrected during triangle verification.
+            </div>
+        </details>
+        <details>
+            <summary>"two grandsons of pashas" — paşa torunları</summary>
+            <div class="note-body">
+                The Turkish <em>paşa torunu</em> is a cultural shorthand — it signals Ottoman aristocracy, privilege, and the weight of inherited status. English "grandson of a pasha" reads as genealogical fact; the Turkish reads as social identity. We added "the last generation of Ottoman aristocracy" to carry the cultural freight that the single word <em>paşa</em> does silently in Turkish.
+            </div>
+        </details>
+        <details>
+            <summary>"the open they wanted closed" — açık bırakılanı kapatmak</summary>
+            <div class="note-body">
+                The Turkish chapter title works as a compressed sentence: <em>kapatmak istedikleri açık</em> — "the open-thing they wanted to close." Turkish allows nouns to be formed from adjectives with zero derivation; English needed a relative clause to do the same work. The resulting title sounds more literary in English than the blunt Turkish original, which is a trade-off we accepted — bluntness in Turkish can sound clumsy in English.
+            </div>
+        </details>
+    </div>
+
     <p style="margin-top: 2rem;">"The Picture of Happiness" — March 2026</p>
     <p>This work belongs to everyone.</p>
 

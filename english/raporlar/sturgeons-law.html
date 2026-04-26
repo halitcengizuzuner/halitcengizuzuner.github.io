@@ -396,6 +396,61 @@ footer a {
 
 footer a:hover { color: var(--bone); }
 
+/* ========== TRANSCREATION NOTES ========== */
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(184, 112, 80, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--rust);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--rust);
+    font-style: italic;
+}
+
 /* ========== LISTENING GATE ========== */
 .dinle-kapisi {
     margin-top: 2.5rem;
@@ -1009,6 +1064,38 @@ footer a:hover { color: var(--bone); }
 <section style="margin-bottom: 2rem;">
     <p style="font-size: 0.85rem; color: var(--bone-ghost); line-height: 1.7; border-top: 1px solid var(--bone-ghost); padding-top: 1.5rem;">The original text is in Turkish. We tried to be as organic as possible, adapting to the nature of each language — but inevitably there will be small issues. If you spot an error or a better way to say something, write to <a href="mailto:soru@halitcengizuzuner.com" style="color: var(--bone-dim);">soru@halitcengizuzuner.com</a> — you'll enrich our translation.</p>
 </section>
+
+<div class="transcreation-notes">
+    <h3>Transcreation Notes</h3>
+
+    <details>
+        <summary>"crud" — zırvalık / değersiz</summary>
+        <div class="note-body">
+            Sturgeon's own word was <em>crud</em> — not "crap," not "garbage," but a mid-century Americanism that is blunt without being vulgar. The Turkish report uses <em>zırvalık</em> (nonsense, drivel) and <em>değersiz</em> (worthless) interchangeably. In the English transcreation, <em>crud</em> was kept exactly as Sturgeon said it — both because it is a direct quotation and because no synonym carries the same weary, unsurprised dismissal. Sturgeon was not angry at the 90%; he was tired of people pretending it did not exist.
+        </div>
+    </details>
+
+    <details>
+        <summary>"shorthand" — kısaltma / retoriktir</summary>
+        <div class="note-body">
+            The Turkish describes the 90% figure as <em>retoriktir</em> — it is rhetoric, not measurement. English "rhetoric" carries negative connotations (empty talk, political spin) that the Turkish does not intend. <em>Shorthand</em> preserves the intended meaning: a compressed way of saying "the vast majority," chosen for impact rather than precision. DeepSeek suggested "stand-in"; the choice was kept because shorthand implies deliberate compression, not substitution — Sturgeon knew what he was doing with the number.
+        </div>
+    </details>
+
+    <details>
+        <summary>"dismissed" — küçümsemek / yok saymak</summary>
+        <div class="note-body">
+            Turkish has two verbs at work: <em>küçümsemek</em> (to belittle) and <em>yok saymak</em> (to treat as nonexistent). The 1950s literary establishment did both to science fiction — it was beneath contempt and simultaneously invisible. <em>Dismissed</em> compresses both acts into one gesture: to wave something away without examination. DeepSeek proposed "relegated"; <em>dismissed</em> was kept because it carries the judicial undertone (a case dismissed is a case denied hearing) that matches Sturgeon's defense-argument structure.
+        </div>
+    </details>
+
+    <details>
+        <summary>"defense weapon" — savunma silahı</summary>
+        <div class="note-body">
+            The section title uses <em>savunma silahı</em> — literally "defense weapon." The legal metaphor runs through the entire report: concede, generalize, dismantle; "like a lawyer saying not 'my client is innocent' but 'this evidence applies to everyone.'" English "defense mechanism" would summon Freud; "defense argument" is too mild. <em>Defense weapon</em> keeps the aggression inside the defense — Sturgeon was not merely responding, he was counterattacking with the opponent's own ammunition. The Turkish legal register (the author is a lawyer) is the invisible spine of the piece.
+        </div>
+    </details>
+</div>
 
 </main>
 
