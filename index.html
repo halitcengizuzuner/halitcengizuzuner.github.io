@@ -31,6 +31,7 @@
         body { opacity: 1 !important; animation: none !important; }
       </style>
     </noscript>
+    <script>document.documentElement.classList.add('js-on')</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -180,9 +181,11 @@
         .stance {
             max-width: 580px;
             padding: 18vh 2.5rem 0;
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .js-on .stance {
             opacity: 0;
             transform: translateY(8px);
-            transition: opacity 1s ease, transform 1s ease;
         }
 
         .stance.seen {
@@ -210,9 +213,11 @@
 
         .thought {
             padding: 0 2.5rem;
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .js-on .thought {
             opacity: 0;
             transform: translateY(8px);
-            transition: opacity 1s ease, transform 1s ease;
         }
 
         .thought.seen {
@@ -270,9 +275,11 @@
             margin-top: 25vh;
             padding: 0 2.5rem 8vh;
             max-width: 480px;
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .js-on .limbs {
             opacity: 0;
             transform: translateY(8px);
-            transition: opacity 1s ease, transform 1s ease;
         }
 
         .limbs.seen {
@@ -312,8 +319,10 @@
         ============================= */
         .seal {
             padding: 6vh 2.5rem 4vh;
-            opacity: 0;
             transition: opacity 1s ease;
+        }
+        .js-on .seal {
+            opacity: 0;
         }
 
         .seal.seen { opacity: 1; }
