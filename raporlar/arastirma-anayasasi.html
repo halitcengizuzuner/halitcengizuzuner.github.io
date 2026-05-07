@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Araştırma Anayasası — Düşüncenin Kurallarını Yazmak</title>
+<noscript>
+  <style>.reveal { opacity: 1 !important; transform: none !important; } body { opacity: 1 !important; animation: none !important; }</style>
+</noscript>
+<script>document.documentElement.classList.add('js-on')</script>
 <meta name="description" content="Araştırma nasıl yapılır? Doğru bilgiye ulaşmanın ilkeleri — kaynak güvenilirliği, varsayım kontrolü, halüsinasyon tespiti. Bir araştırma manifestosu. Halit Cengiz Uzuner.">
 <meta name="author" content="Halit Cengiz Uzuner">
 <meta name="robots" content="index, follow">
@@ -79,11 +83,8 @@ body {
 /* ══════════════════════════════════════════════════════════════
    SCROLL ANİMASYON SİSTEMİ
 ══════════════════════════════════════════════════════════════ */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity .8s ease, transform .8s ease;
-}
+.reveal { transition: opacity .8s ease, transform .8s ease; }
+.js-on .reveal { opacity: 0; transform: translateY(30px); }
 .reveal.from-left  { transform: translateX(-40px); }
 .reveal.from-right { transform: translateX(40px); }
 .reveal.scale-in   { transform: scale(.92); }
