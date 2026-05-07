@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dijital iletişimde yüzün yokluğunun fenomenolojisi — Levinas, Merleau-Ponty ve Heidegger üç farklı lens tutuyor aynı boşluğa. Kaybolan sadece ses tonu değil, etik karşılaşmanın kendisi.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Yüzsüz İletişim">
+<meta property="og:description" content="Ekranda yüz yok — kaybolan sadece ses tonu değil, etik karşılaşmanın kendisi. Levinas, Merleau-Ponty ve Heidegger'in dijital iletişime baktığı üç fenomenolojik lens.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/raporlar/yuzsuz-iletisim.html">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-05-07">
+<link rel="canonical" href="https://halitcengizuzuner.com/raporlar/yuzsuz-iletisim.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/yuzsuz-iletisim.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/faceless-communication.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/faceless-communication.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/communication-sans-visage.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/gesichtslose-kommunikation.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/comunicacion-sin-rostro.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/yuzsuz-iletisim.html">
+<link rel="icon" href="data:,">
+<title>Yüzsüz İletişim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Yüzsüz İletişim">
+<meta name="twitter:description" content="Ekranda yüz yok — kaybolan sadece ses tonu değil, etik karşılaşmanın kendisi.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Yüzsüz İletişim",
+  "description": "Dijital iletişimde yüzün yokluğunun fenomenolojisi — Levinas, Merleau-Ponty ve Heidegger üç farklı lens tutuyor aynı boşluğa.",
+  "datePublished": "2026-05-07",
+  "dateModified": "2026-05-07",
+  "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/raporlar/yuzsuz-iletisim.html"},
+  "inLanguage": "tr",
+  "sameAs": [
+    "https://substack.com/@halitcengizuzuner",
+    "https://medium.com/@avukathalituzuner"
+  ]
+}
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --visage: #5a7a7a;
+    --visage-bright: #7a9a9a;
+    --visage-dim: rgba(90, 122, 122, 0.35);
+    --visage-ghost: rgba(90, 122, 122, 0.15);
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection { background: var(--visage); color: var(--void); }
+html { font-size: clamp(17px, 1.2vw, 20px); scroll-behavior: smooth; }
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.12;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--visage-bright); }
+
+nav.lang-bar {
+    text-align: center;
+    padding: 1.2rem 1rem 0;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    color: var(--bone-ghost);
+}
+nav.lang-bar a { color: var(--bone-ghost); transition: color 0.2s; }
+nav.lang-bar a:hover { color: var(--visage-bright); }
+nav.lang-bar .active { color: var(--bone-bright); }
+nav.lang-bar span.sep { margin: 0 0.45em; opacity: 0.4; }
+
+.book {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 8vh 2.5rem 10rem;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 6vh;
+}
+
+.hero-illustration {
+    display: block;
+    margin: 0 auto 3rem;
+    max-width: 320px;
+    width: 80%;
+    opacity: 0.7;
+}
+
+.title {
+    font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 0.03em;
+    color: var(--visage-bright);
+    line-height: 1.1;
+    margin-bottom: 0.5em;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    color: var(--bone-ghost);
+    font-style: italic;
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto 1.5rem;
+}
+
+.date {
+    font-size: 0.75rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+}
+
+h2 {
+    color: var(--visage);
+    font-size: clamp(1.5rem, 3vw, 1.8rem);
+    font-weight: 400;
+    font-style: italic;
+    margin-top: 5rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+}
+
+h3 {
+    color: var(--visage-bright);
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-style: italic;
+    margin-top: 2.5rem;
+    margin-bottom: 0.8rem;
+}
+
+p { margin-bottom: 1.3rem; text-align: justify; hyphens: auto; }
+em { color: var(--bone-bright); }
+strong { color: var(--visage-bright); font-weight: 600; }
+
+.section-divider {
+    display: block;
+    margin: 4rem auto;
+    text-align: center;
+    opacity: 0.3;
+}
+.section-divider svg { max-width: 200px; width: 50%; }
+
+blockquote {
+    position: relative;
+    margin: 2.5rem -1rem;
+    padding: 1.8rem 2rem 1.8rem 2.5rem;
+    border: none;
+    background: linear-gradient(135deg, var(--visage-ghost), transparent 70%);
+    border-radius: 2px;
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.8;
+}
+blockquote::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--visage);
+    opacity: 0.6;
+    border-radius: 2px;
+}
+blockquote p { margin-bottom: 0.5rem; text-align: left; }
+
+.pull-quote {
+    margin: 3rem -2rem;
+    padding: 2rem 2.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--visage-bright);
+    line-height: 1.7;
+    border-top: 1px solid var(--visage-dim);
+    border-bottom: 1px solid var(--visage-dim);
+}
+
+.illustration {
+    display: block;
+    margin: 3rem auto;
+    max-width: 280px;
+    width: 70%;
+    opacity: 0.6;
+}
+.illustration.wide { max-width: 400px; width: 90%; }
+
+ol, ul { margin-bottom: 1.3rem; padding-left: 1.5rem; }
+li { margin-bottom: 0.5rem; }
+
+.kaynakca {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--visage-ghost);
+}
+.kaynakca h2 { margin-top: 0; font-size: 1.2rem; }
+.kaynakca p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--bone-dim);
+    margin-bottom: 0.4rem;
+    text-align: left;
+}
+
+.diger-yazilar {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--visage-ghost);
+}
+.diger-yazilar h2 { margin-top: 0; font-size: 1.1rem; color: var(--bone-dim); }
+.diger-yazilar ul { list-style: none; padding: 0; }
+.diger-yazilar li { margin-bottom: 0.3rem; }
+.diger-yazilar a {
+    color: var(--bone-ghost);
+    font-size: 0.9rem;
+    transition: color 0.2s;
+    border-bottom: 1px solid transparent;
+}
+.diger-yazilar a:hover { color: var(--visage-bright); border-bottom-color: var(--visage-dim); }
+
+.footer {
+    margin-top: 4rem;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.15em;
+}
+.footer a { border-bottom: 1px solid var(--bone-ghost); }
+.footer a:hover { color: var(--visage-bright); border-bottom-color: var(--visage-bright); }
+
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.seen { opacity: 1; transform: none; }
+
+@media (max-width: 600px) {
+    .book { padding: 6vh 1.3rem 8rem; }
+    blockquote { margin: 2rem 0; padding: 1.2rem 1rem 1.2rem 1.5rem; }
+    .pull-quote { margin: 2rem 0; padding: 1.5rem 1rem; font-size: 1.05rem; }
+    .hero-illustration { max-width: 240px; }
+}
+
+@media (min-width: 1200px) {
+    .book { max-width: 680px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="lang-bar">
+  <a href="/" class="active">Türkçe</a><span class="sep">·</span>
+  <a href="/english/">English</a><span class="sep">·</span>
+  <a href="/zhongwen/">中文</a><span class="sep">·</span>
+  <a href="/francais/">Français</a><span class="sep">·</span>
+  <a href="/deutsch/">Deutsch</a><span class="sep">·</span>
+  <a href="/espanol/">Español</a>
+</nav>
+
+<main class="book">
+
+<header class="hero">
+  <!-- İllüstrasyon: Kaybolan Yüz — sol yarısı net profil, sağ yarısı dağılan noktalar -->
+  <svg class="hero-illustration" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Sol profil: net çizgi -->
+    <path d="M120,200 C115,170 108,140 112,110 C116,80 128,55 148,38 C158,30 168,28 175,35 C182,42 185,55 184,70 C183,82 178,95 170,108 C164,118 155,132 148,148 C142,162 138,178 135,200"
+          stroke="#7a9a9a" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <!-- Göz -->
+    <ellipse cx="162" cy="68" rx="5" ry="3.5" fill="none" stroke="#7a9a9a" stroke-width="1.2" opacity="0.6"/>
+    <circle cx="162" cy="68" r="1.5" fill="#7a9a9a" opacity="0.5"/>
+    <!-- Dudak çizgisi -->
+    <path d="M145,120 C150,118 156,119 160,121" stroke="#7a9a9a" stroke-width="1" fill="none" opacity="0.4"/>
+    <!-- Sağ: dağılan partiküller — yüzün silinmesi -->
+    <circle cx="200" cy="42" r="2.2" fill="#5a7a7a" opacity="0.45"/>
+    <circle cx="218" cy="52" r="1.8" fill="#5a7a7a" opacity="0.38"/>
+    <circle cx="232" cy="38" r="1.3" fill="#5a7a7a" opacity="0.28"/>
+    <circle cx="210" cy="68" r="2.5" fill="#5a7a7a" opacity="0.42"/>
+    <circle cx="228" cy="72" r="1.5" fill="#5a7a7a" opacity="0.32"/>
+    <circle cx="245" cy="58" r="1.0" fill="#5a7a7a" opacity="0.2"/>
+    <circle cx="255" cy="45" r="0.8" fill="#5a7a7a" opacity="0.15"/>
+    <circle cx="205" cy="90" r="2.0" fill="#5a7a7a" opacity="0.4"/>
+    <circle cx="222" cy="95" r="1.6" fill="#5a7a7a" opacity="0.3"/>
+    <circle cx="238" cy="85" r="1.2" fill="#5a7a7a" opacity="0.22"/>
+    <circle cx="250" cy="78" r="0.9" fill="#5a7a7a" opacity="0.14"/>
+    <circle cx="200" cy="115" r="1.8" fill="#5a7a7a" opacity="0.35"/>
+    <circle cx="215" cy="120" r="1.4" fill="#5a7a7a" opacity="0.25"/>
+    <circle cx="230" cy="108" r="1.0" fill="#5a7a7a" opacity="0.18"/>
+    <circle cx="195" cy="140" r="1.5" fill="#5a7a7a" opacity="0.3"/>
+    <circle cx="212" cy="148" r="1.1" fill="#5a7a7a" opacity="0.2"/>
+    <circle cx="225" cy="135" r="0.8" fill="#5a7a7a" opacity="0.12"/>
+    <circle cx="190" cy="168" r="1.2" fill="#5a7a7a" opacity="0.22"/>
+    <circle cx="205" cy="175" r="0.9" fill="#5a7a7a" opacity="0.15"/>
+    <circle cx="260" cy="68" r="0.7" fill="#5a7a7a" opacity="0.1"/>
+    <circle cx="270" cy="52" r="0.5" fill="#5a7a7a" opacity="0.08"/>
+    <!-- İnce bağlantı çizgileri: profil ile partiküller arası -->
+    <line x1="184" y1="70" x2="210" y2="68" stroke="#5a7a7a" stroke-width="0.4" opacity="0.15" stroke-dasharray="3,4"/>
+    <line x1="170" y1="108" x2="200" y2="115" stroke="#5a7a7a" stroke-width="0.4" opacity="0.12" stroke-dasharray="3,4"/>
+    <line x1="148" y1="148" x2="195" y2="140" stroke="#5a7a7a" stroke-width="0.4" opacity="0.1" stroke-dasharray="3,4"/>
+  </svg>
+
+  <h1 class="title">Yüzsüz İletişim</h1>
+  <p class="subtitle">Dijital ortamda yüzün yokluğunun fenomenolojisi</p>
+  <p class="date">Mayıs 2026</p>
+</header>
+
+<!-- ═══════════════════════ GİRİŞ ═══════════════════════ -->
+
+<section class="reveal">
+<p>Bir mesaj gönderiyorsunuz. Karşınızdaki onu okuyor. İkiniz de aynı sözcüklerin önündesiniz &mdash; ama birbirinizi görmüyorsunuz. Yüzünüzü, bedeninizi, nefes alışınızı, duruşunuzu paylaşmıyorsunuz. Paylaştığınız tek şey harfler. Bu, çağımızın varsayılan iletişim biçimidir: her gün milyarlarca mesaj, yüz yüze gelmeden, beden paylaşmadan gönderilir. Ve çoğumuz bunu bir kayıp olarak deneyimlemez &mdash; ne kaybolduğunu bile fark etmeyiz.</p>
+
+<p>Bu çalışma fark etmeye çalışıyor. Dijital metin tabanlı iletişimde kaybolan yalnızca ses tonu veya yüz ifadesi değildir. Kaybolan, fenomenolojik anlamda <em>yüz</em>dür &mdash; Levinas'ın etik karşılaşmanın koşulu saydığı, Ötekinin sonsuzluğunun epifanisi. Kaybolan, <em>beden-özne</em>dir &mdash; Merleau-Ponty'nin algının kendisi olarak konumlandırdığı, dünyayla ilişkinin taşıyıcısı. Ve belki de &mdash; Heidegger'in perspektifinden &mdash; kaybolan bir şey yoktur; çünkü beden zaten gündelik varoluşta &ldquo;yok&rdquo;tur ve yalnızca burada, dijital ortamda, bu yokluk görünür hale gelir.</p>
+
+<p>Üç fenomenolog, aynı yokluğa üç farklı lens tutuyor. Bu çalışma bu üç lensi dijital iletişime yöneltiyor ve soruyor: yüzünü görmediğimiz birisiyle mesajlaşırken, ne kaybediyoruz, ne kazanıyoruz &mdash; ve ne fark etmiyoruz?</p>
+</section>
+
+<!-- ═══════════════════════ I. LEVINAS ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="180" y2="20" stroke="#5a7a7a" stroke-width="1" opacity="0.4"/>
+    <circle cx="100" cy="20" r="3" fill="none" stroke="#5a7a7a" stroke-width="1" opacity="0.5"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>I. Levinas: Yüz ve Etik Komut</h2>
+
+<p>Emmanuel Levinas'ın 1961'de yayımlanan <em>Totalité et infini</em> (<em>Bütünlük ve Sonsuzluk</em>) kitabında yüz (<em>le visage</em>) kavramı, tüm etik felsefenin çıkış noktasıdır. Yüz, Levinas'ta fiziksel bir betimleme &mdash; burun, göz, ağız &mdash; değildir. Yüz, Ötekinin benim kavrayışıma, sahiplenmeme, kuşatmama direnen <em>ifade</em>sidir.</p>
+
+<blockquote>
+<p>&ldquo;Yüz, kuşatılmayı reddetmesiyle mevcuttur. Bu anlamda kavranamaz, yani kuşatılamaz. Ne görsel ne dokunsal duyumda &mdash; çünkü görsel veya dokunsal duyumda Ben'in kimliği nesnenin alteritesini zaten kaplar &mdash; nesne tam da içerik haline gelir.&rdquo;</p>
+<p style="text-align:right; font-size:0.85rem; color:var(--bone-ghost);">&mdash; Levinas, <em>Totality and Infinity</em>, 1961, s. 194</p>
+</blockquote>
+
+<p>Levinas yüzü duyusal algıdan &mdash; görmekten, dokunmaktan &mdash; ayırır. Yüz <em>görülmez</em>, yüzle <em>karşılaşılır</em>. Görme bir kavrayış biçimidir; nesneyi zapteder, sahiplenir, bilgiye dönüştürür. Ama yüz bu zaptı aşar. Yüz ifade eder &mdash; ve bu ifade bilgi aktarımı değildir. İfade, Ötekinin benim güçlerimi aşan bir varlık olarak kendini dayatmasıdır.</p>
+
+<h3>&ldquo;Öldürmeyeceksin&rdquo;</h3>
+
+<p>Levinas'ın en ünlü formülasyonu budur: yüzle karşılaşmak etik bir komut almaktır. &ldquo;Bu sonsuzluk, cinayetten güçlü, bize zaten yüzünde direnir, yüzüdür, ilksel ifadedir, ilk sözdür: <em>öldürmeyeceksin</em>&rdquo; (Levinas, 1961/1979, s. 199). Yüz, savunmasız olduğu <em>için</em> komut verir. Çıplaklığı, yoksunluğu, korumasızlığı &mdash; tam da bu savunmasızlık beni sorumlu kılar. Cinayet fiziksel olarak mümkündür ama etik olarak imkânsızdır &mdash; çünkü yüz, benim gücüme direnen bir güç değil, gücümü sorgulatan bir <em>kırılganlık</em>tır.</p>
+
+<h3>Söylem ve Yüz</h3>
+
+<p>Levinas yüzü söylemden (<em>discours</em>) ayırmaz, birleştirir: &ldquo;Kavrayıştan daha iyi olan söylem, özsel olarak aşkın kalanla ilişki kurar&rdquo; (Levinas, 1961/1979, s. 195). Dil, birbirinden ayrılmış terimler arasında ilişki kurar. Öteki benim karşımda bir tema olarak belirir, &ldquo;söylenen&rdquo;in arkasına çekilir &mdash; sözcükler söylenir ama ağırlıkları ancak sessizlik tarafından kabul edilir. Bilgi olarak emilen Öteki bilgiye indirgenir. Ama söylem olarak karşılanan Öteki, beni sorgular.</p>
+
+<p>Bu nokta kritiktir: Levinas'ta söylem yüzle birlikte çalışır. Söylemin etik boyutu, yüzün varlığında açılır. Peki yüz olmadan söylem ne olur?</p>
+</section>
+
+<!-- ═══════════════════════ II. MERLEAU-PONTY ═══════════════════════ -->
+
+<!-- İllüstrasyon: İki el karşı karşıya uzanıyor ama birleşemiyor -->
+<svg class="illustration wide reveal" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Sol el -->
+  <path d="M30,80 C50,75 70,65 90,55 C105,48 118,42 130,38 C140,35 148,36 152,40" stroke="#7a9a9a" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+  <path d="M152,40 C155,44 156,50 154,56" stroke="#7a9a9a" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.4"/>
+  <!-- Parmak uçları sol -->
+  <circle cx="154" cy="40" r="2.5" fill="#5a7a7a" opacity="0.35"/>
+  <!-- Boşluk — noktalı çizgi -->
+  <line x1="162" y1="42" x2="238" y2="42" stroke="#5a7a7a" stroke-width="0.8" stroke-dasharray="2,6" opacity="0.2"/>
+  <!-- Sağ el (ayna) -->
+  <path d="M370,80 C350,75 330,65 310,55 C295,48 282,42 270,38 C260,35 252,36 248,40" stroke="#7a9a9a" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+  <path d="M248,40 C245,44 244,50 246,56" stroke="#7a9a9a" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.4"/>
+  <circle cx="246" cy="40" r="2.5" fill="#5a7a7a" opacity="0.35"/>
+</svg>
+
+<section class="reveal">
+<h2>II. Merleau-Ponty: Beden-Özne ve Algılayan Varlık</h2>
+
+<p>Maurice Merleau-Ponty'nin <em>Phénoménologie de la perception</em> (<em>Algının Fenomenolojisi</em>, 1945), bedeni felsefenin merkezine alır &mdash; ama Kartezyen bir nesne olarak değil, <em>algılayan özne</em> olarak. Merleau-Ponty'de beden, ruhtan ayrı bir makine değildir; beden, bilincin ta kendisidir. Salt bir nesne değil, bir öznedir &mdash; tüm zihinsel durumların ve edimlerin dayanağı, dünyayla ilişkinin taşıyıcısı.</p>
+
+<h3>Yönelimsellik ve Beden-Şema</h3>
+
+<p>Merleau-Ponty'de yönelimsellik (<em>intentionnalité</em>) zihinsel-içsel bir süreç değildir. Bilinç dünyaya <em>bedenle</em> yönelir. Beden-şema (<em>schéma corporel</em>), bedenin dünyada nasıl konumlandığının, neyi yapabileceğinin ve nelere uzanabileceğinin önceden-refleksif haritasıdır. Merleau-Ponty'nin deyimiyle dünya &ldquo;düşündüğüm şey değil, yaşadığım şey&rdquo;dir (<em>Algının Fenomenolojisi</em>, s. 213). Bu yaşama, bedenler aracılığıyla gerçekleşir.</p>
+
+<p>Bu çerçevede iletişim yalnızca bilgi aktarımı değildir &mdash; bedensel bir karşılaşmadır. Yüz yüze konuşmada iki beden-özne aynı mekânda bulunur, birbirinin bedensel ifadelerini algılar, birbirinin yönelimselliğini hisseder.</p>
+
+<h3>Bedensiz İletişimde Ne Kaybedilir?</h3>
+
+<p>Merleau-Ponty perspektifinden dijital metin tabanlı iletişim bir <em>bedensel kopma</em>dır. İki beden-özne artık aynı mekânda değildir. Birbirinin bedensel yönelimselliğini algılamaz. Bedenin dünyadaki konumlanışı &mdash; duruş, gerilim, gevşeme, yakınlaşma, uzaklaşma &mdash; tamamen silinir. Geriye yalnızca sözcükler kalır.</p>
+
+<p>Ama burada bir gerilim vardır. Merleau-Ponty bedeni yalnızca bir <em>araç</em> olarak değil, bilincin <em>kendisi</em> olarak konumlandırır. O halde bedensiz iletişim, bilinçsiz iletişim midir? Elbette değil &mdash; ama <em>farklı bir bilinç kipiyle</em> iletişimdir. Yazan kişi bedeniyle dünyaya yönelmeye devam eder &mdash; klavyeye dokunur, ekrana bakar, sandalyesinde oturur. Ama bu bedensel yönelim karşıdaki kişiye <em>iletilmez</em>. İletişim ortaklarının bedensellikleri birbirine erişemez.</p>
+
+<p>Bu durum Merleau-Ponty'nin &ldquo;ara-bedensellik&rdquo; (<em>intercorporéité</em>) kavramını doğrudan etkiler. Yüz yüze iletişimde iki beden birbirinin hareketlerini, gerilimlerini, ritmlerini algılar &mdash; bu algı bilinçli değildir, önceden-refleksiftir, bedensel bir rezonanstır. Dijital iletişimde bu rezonans sıfırlanır.</p>
+</section>
+
+<!-- ═══════════════════════ III. HEIDEGGER ═══════════════════════ -->
+
+<!-- İllüstrasyon: Boş çerçeve — içi yokluk -->
+<svg class="illustration reveal" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <rect x="40" y="40" width="120" height="120" fill="none" stroke="#5a7a7a" stroke-width="1" opacity="0.3" rx="2"/>
+  <rect x="55" y="55" width="90" height="90" fill="none" stroke="#5a7a7a" stroke-width="0.6" opacity="0.18" rx="1" stroke-dasharray="4,4"/>
+  <!-- Merkezdeki küçük nokta — yokluğun işareti -->
+  <circle cx="100" cy="100" r="2" fill="#5a7a7a" opacity="0.25"/>
+</svg>
+
+<section class="reveal">
+<h2>III. Heidegger: Bedenin Yokluğu ve Dasein</h2>
+
+<p>Martin Heidegger'in <em>Sein und Zeit</em>'ında (<em>Varlık ve Zaman</em>, 1927) beden belirgin bir sessizliğe gömülüdür. Bu sessizliği Harlaftis (2023) bir tez haline getirir: &ldquo;Beden yok ve belki de haklı olarak öyle.&rdquo;</p>
+
+<p>Heidegger'de temel kavram Dasein'dır &mdash; orada-olma, dünyada-olma. Dasein bir beden olarak değil, bir <em>varoluş</em> olarak dünyada bulunur. Dünyayı el-altında (<em>Zuhandenheit</em>) araç olarak deneyimler, araçları kullanır, dünyayla &ldquo;kaygı&rdquo; (<em>Sorge</em>) içinde ilişkilenir. Ama bu ilişkide beden tematik olarak görünmez. Çekiç kullanan elin bedeni fark edilmez &mdash; çekiç fark edilir, ya da çivinin gidişi fark edilir. Beden, Heidegger'in kavramıyla, &ldquo;el-altında&rdquo; kalan şeydir &mdash; araç gibi, işlev gördükçe görünmez olan.</p>
+
+<p>Harlaftis bunu şöyle formüle eder: &ldquo;Heidegger'in gündelik yaşam analizinde bedensel fikirler dışlanır, yaşayan bedeni Dasein'ın gündelikliğinde gizler. Ve bu yokluğun saf veya ortalama bir deneyimle &mdash; yani çoğunlukla beden gibi bir şeyin ortaya çıkmadığı bir deneyimle &mdash; uyumlu olduğunu savunuruz.&rdquo; Beden, en temel deneyimlerimizde <em>yok</em>tur &mdash; çünkü biz beden <em>olarak</em> değil, dünya-içinde-olma <em>olarak</em> var oluruz.</p>
+
+<h3>Yokluk Bir Keşif mi?</h3>
+
+<p>Harlaftis'in tezi provokatiftir: bedenin yokluğu bir eksiklik değil, varoluşun temel yapısının açığa çıkmasıdır. &ldquo;Bu yokluğu, hayat için yeni bir perspektif olasılığı olarak yorumlayabiliriz. Dünyayla katılımımızı güçlendirebiliriz&rdquo; diye yazar. Beden-yokluğu, dünyayla ilişkimizin gövdesiz &mdash; ama belki de daha özsel &mdash; biçimini açığa çıkarır.</p>
+
+<p>Bu perspektif, dijital iletişim için çarpıcı bir okuma sunar: metin tabanlı iletişimde bedenin silinmesi, Heidegger'ci anlamda bir <em>kayıp</em> değil, Dasein'ın zaten bedensiz olan varoluş yapısının <em>görünür hale gelmesi</em> olabilir. Yüz yüze iletişimde beden orada ama tematik olarak fark edilmez; dijital iletişimde beden fiziksel olarak yok ama varoluşsal olarak zaten hiç orada değildi.</p>
+</section>
+
+<!-- ═══════════════════════ IV. ÜÇ LENS ═══════════════════════ -->
+
+<!-- İllüstrasyon: Üç lens — üç farklı çerçeveden bakılan aynı nokta -->
+<svg class="illustration wide reveal" viewBox="0 0 360 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Levinas lensi: dolu daire -->
+  <circle cx="80" cy="50" r="28" fill="var(--visage-ghost)" stroke="#5a7a7a" stroke-width="1" opacity="0.5"/>
+  <text x="80" y="54" text-anchor="middle" fill="#7a9a9a" font-size="9" font-family="Georgia, serif" font-style="italic" opacity="0.6">etik</text>
+  <!-- Merleau-Ponty lensi: kontur daire -->
+  <circle cx="180" cy="50" r="28" fill="none" stroke="#5a7a7a" stroke-width="1.2" opacity="0.4"/>
+  <text x="180" y="54" text-anchor="middle" fill="#7a9a9a" font-size="9" font-family="Georgia, serif" font-style="italic" opacity="0.6">beden</text>
+  <!-- Heidegger lensi: noktalı daire -->
+  <circle cx="280" cy="50" r="28" fill="none" stroke="#5a7a7a" stroke-width="1" stroke-dasharray="3,4" opacity="0.3"/>
+  <text x="280" y="54" text-anchor="middle" fill="#7a9a9a" font-size="9" font-family="Georgia, serif" font-style="italic" opacity="0.6">yokluk</text>
+  <!-- Bağlantı çizgileri -->
+  <line x1="108" y1="50" x2="152" y2="50" stroke="#5a7a7a" stroke-width="0.5" opacity="0.2"/>
+  <line x1="208" y1="50" x2="252" y2="50" stroke="#5a7a7a" stroke-width="0.5" opacity="0.2"/>
+</svg>
+
+<section class="reveal">
+<h2>IV. Üç Fenomenolojik Lens, Bir Yokluk</h2>
+
+<p>Aynı fenomen &mdash; dijital iletişimde bedenin ve yüzün yokluğu &mdash; üç fenomenologda üç farklı anlam kazanır.</p>
+
+<h3>Levinas: Etik Felaket</h3>
+
+<p>Levinas perspektifinden dijital metin tabanlı iletişim etik bir krizdir. Yüz, etik karşılaşmanın koşuludur &mdash; yüz olmadan Öteki, benim kavrayışıma, temalarıma, kategorilerime indirgenir. Mesajlaşmada karşımdaki kişi bir <em>tema</em>ya dönüşür: &ldquo;bana kızan kişi&rdquo;, &ldquo;bilgi isteyen kişi&rdquo;, &ldquo;sıkıcı kişi.&rdquo; Yüzün direnci olmadığında, Ötekini kendi çerçeveme hapsetmem kolaylaşır.</p>
+
+<p>Bu durum, Walther'ın (1996) <em>hyperpersonal</em> modelindeki alıcı idealizasyonuyla doğrudan örtüşür. Levinas'ın terminolojisiyle: yüzün yokluğunda Öteki, benim <em>Aynı</em>ma (<em>le Même</em>) emilir. Karşımdaki kişiyi kendi projeksiyonlarımla doldururum. Ötekinin <em>ötekiliği</em> &mdash; beni aşan, kategorilerime sığmayan varlığı &mdash; silinir.</p>
+
+<p>Levinas açısından bu yalnızca bir iletişim sorunu değildir. Bu, <em>etiğin</em> çöküşüdür. Çünkü etik, benim gücümün sınırlandırılmasıyla başlar &mdash; ve bu sınırlandırmayı yüz yapar. Yüzsüz iletişimde güç sınırsızdır: engelleyebilirim, silebilirim, görmezden gelebilirim &mdash; ve hiçbirinin etik maliyetini yüzümde hissetmem.</p>
+
+<h3>Merleau-Ponty: Bedensel Kopma</h3>
+
+<p>Merleau-Ponty perspektifinden sorun etik değil, <em>algısal</em>dır. İletişim bedensel bir karşılaşmadır ve dijital ortam bu karşılaşmayı <em>yarılar</em>. İki beden-özne birbirinin bedenselliğine erişemez. Algının diyalektik yapısı &mdash; beden-öznenin dünyayla ve Ötekiyle karşılıklı açılması &mdash; kesilir. Gönderici bedenselliğini yaşar ama aktaramaz; alıcı göndericinin bedenselliğinden tamamen yoksundur. Geriye yalnızca bilişsel bir süreç kalır: sözcükleri oku, anlamı çıkar, yanıt yaz.</p>
+
+<h3>Heidegger: Görünür Olan Yokluk</h3>
+
+<p>Heidegger perspektifi en provokatif olanıdır. Beden zaten yoktur &mdash; gündelik varoluşta beden tematik olarak fark edilmez. Dijital iletişim bu yokluğu <em>görünür</em> kılar: yüz yüze konuşurken bedenin orada olduğunu unuturuz; mesajlaşırken bedenin orada olmadığını <em>fark ederiz</em>. İkisi arasındaki fark, yokluğun kendisinde değil, yokluğun <em>fark edilip edilmemesinde</em>dir.</p>
+
+<p>Dijital ortam bu yokluğu <em>herkes için eşitler</em>. Gillespie-Lynch ve arkadaşlarının (2014) bulgusu &mdash; otizm spektrumundaki bireylerin bilgisayar aracılı iletişimi aktif olarak tercih etmesi &mdash; Heidegger'ci perspektiften yeni bir anlam kazanır: bu bireyler, bedenin zaten yokluğu olan bir varoluş kipini, dijital ortamda herkes için geçerli hale geldiğinde rahatça yaşar.</p>
+</section>
+
+<!-- ═══════════════════════ V. SÖYLEM ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#5a7a7a" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#5a7a7a" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#5a7a7a" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>V. Söylem Yüzsüz Etik Taşır mı?</h2>
+
+<p>Levinas'ın çerçevesinde bir gerilim vardır. Bir yandan yüz, etik karşılaşmanın vazgeçilmez koşuludur. Öte yandan Levinas söyleme ayrıcalıklı bir konum verir: &ldquo;Dil, bir cinsin birliğini kıran terimler arasında ilişki kurar&hellip; Dil belki de tüm ilişkilerin gücünü kıran güç olarak tanımlanabilir&rdquo; (Levinas, 1961/1979, s. 195).</p>
+
+<p>Söylem, Levinas'ta yüzün <em>aracı</em> değildir &mdash; yüzle birlikte açılan bir boyuttur. Ötekinin yüzü ile karşılaşmak, aynı zamanda onun <em>konuşması</em>yla karşılaşmaktır. Ama bu birliktelik ayrılabilir mi?</p>
+
+<h3>Birinci Okuma: Kısırlık</h3>
+
+<p>Yüz olmadan söylem bir teknik işleme indirgenir &mdash; bilgi iletimi, görev koordinasyonu, sosyal ritüel. Ötekinin aşkınlığı söyleme sızmaz çünkü yüzün direnci yoktur. Engellemek bir düğmedir; görmezden gelmek bir seçenektir; yanlış anlamak bir alışkanlıktır. Yüzün &ldquo;öldürmeyeceksin&rdquo; komutu, ekranda sessizdir.</p>
+
+<h3>İkinci Okuma: Söylemin Kendi Etiği</h3>
+
+<p>Yazılı söylemde de bir aşkınlık deneyimi mümkündür &mdash; ama farklı bir kiple. Bir metin, yazarının niyetini aşar; sözcüklerin arasındaki sessizlik bir tür &ldquo;yüz&rdquo; işlevi görebilir. Edebiyat geleneği bunun kanıtıdır: hiç yüzünü görmediğimiz bir yazarın sözcükleri bizi derinden sarsabilir, sorumluluğa çağırabilir, gücümüzü sorgulayabilir. Kafka'nın yüzünü görmeden Gregor Samsa'nın dönüşümü karşısında etik bir sarsıntı yaşarız.</p>
+
+<p>Ama bu analoji sınırlıdır. Edebiyat, bilinçli olarak kurgulanmış bir söylemdir &mdash; yüzün yokluğunu telafi etmek üzere yapılandırılmıştır. Gündelik dijital iletişim böyle bir bilinçli kurguya sahip değildir. WhatsApp mesajları Kafka değildir.</p>
+
+<h3>Üçüncü Yol: Dayatmadan Davete</h3>
+
+<p>Belki de soru yanlış soruluyordur. &ldquo;Söylem yüzsüz etik taşır mı?&rdquo; yerine sormamız gereken: &ldquo;Alıcı, yüzsüz söylemde etik bir karşılaşma <em>deneyimleyebilir</em> mi?&rdquo;</p>
+
+<p>Bir mesajda, sözcüklerin ardındaki kişiyi &mdash; kırılganlığını, ihtiyacını, aşkınlığını &mdash; <em>düşünebilirim</em>. Bu düşünme otomatik değildir; bilinçli bir çabadır.</p>
+
+<div class="pull-quote reveal">
+Yüz yüzede sorumluluk <em>dayatılır</em>; dijital ortamda sorumluluk <em>seçilir</em>. Bu fark büyüktür ama mutlak değildir.
+</div>
+</section>
+
+<!-- ═══════════════════════ VI. KAYIP, ARINMA, ETİK ═══════════════════════ -->
+
+<section class="reveal">
+<h2>VI. Kayıp, Arınma ve Etik</h2>
+
+<h3>Kayıp: Etik Boyut</h3>
+
+<p>Sözsüz kanalın kapanması yalnızca pragmatik bir kayıp değildir &mdash; etik bir kayıptır. Levinas perspektifinden, yüzün silinmesi Ötekinin aşkınlığının silinmesidir. Karşımdaki kişi bir tema, bir kategori, bir profil fotoğrafı haline gelir. Onu kuşatabilirim, tanımlayabilirim, etiketleyebilirim &mdash; çünkü yüzü bana direnmez.</p>
+
+<p>Bu etik kayıp, internet üzerindeki şiddetin &mdash; trolleme, nefret söylemi, cyberbullying &mdash; fenomenolojik altyapısını açıklar. Yüzsüz ortamda Ötekini incitmek kolaydır çünkü Ötekinin kırılganlığı görünmez. Ekranda bir kullanıcı adı, bir avatar, en iyi ihtimalle bir profil fotoğrafı vardır &mdash; ama yüz yoktur. Levinas'ın &ldquo;öldürmeyeceksin&rdquo; komutu, çevrimiçi ortamda yapısal olarak zayıflamıştır.</p>
+
+<h3>Arınma: Varoluşsal Boyut</h3>
+
+<p>Heidegger'ci perspektiften aynı yokluk bir <em>arınma</em> olarak okunabilir. Beden gündelik varoluşta zaten yoktur; dijital ortam bu yokluğu <em>herkes için eşitler</em>. Sosyal performans baskısından &mdash; Goffman'ın benlik sunumundan &mdash; kurtulma, bedensel görünüşün yarattığı önyargılardan özgürleşme ve salt söyleme odaklanabilme imkânı doğar.</p>
+
+<h3>Çarpışma: Farkındalık Boyutu</h3>
+
+<p>Fenomenolojik analiz, çarpışmanın boyutunu derinleştirir. Sorun yalnızca &ldquo;birisi bilgi aktarıyor, diğeri sosyal sinyal arıyor&rdquo; değildir. Sorun, iki farklı <em>varoluş kipi</em>nin aynı platformda buluşmasıdır. Bir kişi dijital ortamı Heidegger'ci bir arınma olarak deneyimler; diğeri Levinasçı bir kayıp olarak deneyimler. <strong>İkisi de kendi deneyiminde tutarlıdır &mdash; ama birbirinin deneyimini göremez.</strong></p>
+
+<p>Mesele yalnızca farklı bilişsel stiller değildir &mdash; farklı <em>varoluş biçimleri</em>dir. Ve bu farklılık, aynı mesajlaşma penceresinde, aynı sözcüklerin önünde, iki insanın temelden farklı dünyalarda var olmasıyla sonuçlanır.</p>
+</section>
+
+<!-- ═══════════════════════ VII. YÜZÜN YERİNE NE GEÇER ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#5a7a7a" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#5a7a7a" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#5a7a7a" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>VII. Yüzün Yerine Ne Geçer?</h2>
+
+<p>Dijital iletişim Levinas'ın yüzünü ortadan kaldırır. Ama insanlar yüzsüz ortamda da etik ilişkiler kurar, sorumluluk duyar, Ötekinin kırılganlığını hisseder. Nasıl?</p>
+
+<p>Emotikonlar ve emojiler, sözsüz ipuçlarının nöral olarak yetersiz ikameleridir (Aldunate &amp; González-Ibáñez, 2017; Yuasa ve ark., 2006). Ama fenomenolojik açıdan bir işlev daha taşırlar: <em>bedenin izini</em> taşırlar. Bir gülücük emojisi, göndericinin <em>bir bedeni olduğunu</em> &mdash; gülebilen, üzülebilen, kırılabilen bir varlık olduğunu &mdash; hatırlatır. Bu hatırlatma zayıf ve dolaylıdır ama tamamen işlevsiz değildir.</p>
+
+<p>Profil fotoğrafları benzer bir işlev görür: Ötekinin bir yüzü olduğunu hatırlatır. Ama bu, Levinas'ın yüzü değildir &mdash; bu bir <em>imaj</em>dır, bir temsildir, yüzün yerine geçen ama yüzün direncini taşımayan bir simülakrdır. Profil fotoğrafına bakarak birini engellemek, yüzüne bakarak onu reddetmekten çok daha kolaydır.</p>
+
+<p>Belki de dijital ortamda Levinas'ın yüzüne en yakın deneyim, <em>anlatı</em>dır. Birisi kendi hikâyesini anlattığında &mdash; acısını, korkusunu, umudunu, kırılganlığını sözcüklere döktüğünde &mdash; alıcı bir tür yüzle karşılaşabilir. Ama bu karşılaşma otomatik değildir; alıcının anlatıya <em>açılması</em>, sözcüklerin ardındaki kişiyi <em>düşünmesi</em> gerekir. Yüz yüzede yüz <em>dayatır</em> &mdash; kaçınamazsınız, gözlerinizi kapatmadıkça yüz orada durmaya devam eder. Dijital ortamda anlatı <em>davet eder</em> &mdash; okuyabilirsiniz, atlayabilirsiniz, görmezden gelebilirsiniz.</p>
+
+<div class="pull-quote reveal">
+Etik karşılaşmanın dayatmadan davete dönüşmesi, dijital ortamın temel yapısal farkıdır.
+</div>
+</section>
+
+<!-- ═══════════════════════ SONUÇ ═══════════════════════ -->
+
+<section class="reveal">
+<h2>Sonuç</h2>
+
+<p>Bu çalışma bir sentez önermez &mdash; çünkü üç fenomenolojik perspektif birbirine indirgenemez. Levinas için yüzün yokluğu bir etik krizdir. Merleau-Ponty için bedenin yokluğu bir algısal kopmadır. Heidegger için bedenin yokluğu, zaten var olan bir yapının görünür hale gelmesidir. <strong>Üçü de doğrudur</strong> &mdash; ama üçü birden doğruysa, dijital iletişim aynı anda bir kriz, bir kopma ve bir keşiftir.</p>
+
+<p>Bu çokanlamlılık tesadüf değildir. Dijital ortam, yüz yüze iletişimde birlikte çalışan mekanizmaları &mdash; etik karşılaşma, bedensel rezonans, varoluşsal bulunma &mdash; birbirinden ayırır. Yüz yüzede bunlar bir bütün olarak deneyimlenir; dijital ortamda her biri ayrı ayrı <em>yok</em>tur ve bu yokluklar farklı sonuçlar doğurur.</p>
+
+<p>Belki de dijital iletişimin en derin etkisi, tam da bu ayrıştırma kapasitesidir. Yüz yüze iletişimde hiç sormadığımız bir soruyu sorar bize: iletişimde yüz ne işe yarar? Beden ne işe yarar? Bunlar olmadan da iletişim mümkün mü &mdash; ve mümkünse, bu başka bir şey midir?</p>
+
+<p>Levinas'ın cevabı nettir: yüz olmadan etik ilişki zayıflar. Merleau-Ponty'nin cevabı farklıdır: beden olmadan algı değişir ama ortadan kalkmaz. Heidegger'in cevabı en radikaldir: beden zaten hiç olmadı.</p>
+
+<p>Ve belki de en önemli soru, bu üç cevaptan hangisinin doğru olduğu değil, bir mesaj okuyan kişinin o an hangisinde yaşadığıdır. Çünkü aynı mesaj, Levinasçı bir alıcıda etik bir sarsıntı, Merleau-Pontycü bir alıcıda bedensel bir özlem, Heidegger'ci bir alıcıda ise hiçbir eksiklik üretmeyebilir.</p>
+
+<div class="pull-quote reveal" style="border-color: var(--visage); margin-top: 2rem;">
+Dijital iletişimin asıl görünmez boşluğu bu olabilir: aynı yokluğu farklı yaşayan insanların, birbirinin deneyimini hiç görmemesi.
+</div>
+</section>
+
+<!-- ═══════════════════════ KAYNAKÇA ═══════════════════════ -->
+
+<div class="kaynakca reveal">
+<h2>Kaynakça</h2>
+<p>Aldunate, N. &amp; González-Ibáñez, R. (2017). An integrated review of emoticons in computer-mediated communication. <em>Frontiers in Psychology</em>, 7, 2061.</p>
+<p>Cacioppo, S. &amp; Cacioppo, J.T. (2012). Decoding the invisible forces of social connections. <em>Frontiers in Integrative Neuroscience</em>, 6, 51.</p>
+<p>Daft, R.L. &amp; Lengel, R.H. (1986). Organizational information requirements, media richness and structural design. <em>Management Science</em>, 32(5), 554-571.</p>
+<p>Gillespie-Lynch, K. ve ark. (2014). Intersections between the autism spectrum and the internet. <em>Journal of Autism and Developmental Disorders</em>, 44(12), 3382-3395.</p>
+<p>Goffman, E. (1959). <em>The Presentation of Self in Everyday Life</em>. Anchor Books.</p>
+<p>Harlaftis, F. (2023). The body is absent and maybe rightly so: An analysis based on Heidegger's phenomenology. <em>Chadwick Prize Essay</em>. Royal Institute of Philosophy.</p>
+<p>Heidegger, M. (1927/1962). <em>Being and Time</em>. Çev. J. Macquarrie &amp; E. Robinson. Harper &amp; Row.</p>
+<p>Kiesler, S., Siegel, J. &amp; McGuire, T.W. (1984). Social psychological aspects of computer-mediated communication. <em>American Psychologist</em>, 39, 1123-1134.</p>
+<p>Levinas, E. (1961/1979). <em>Totality and Infinity: An Essay on Exteriority</em>. Çev. A. Lingis. Martinus Nijhoff.</p>
+<p>Merleau-Ponty, M. (1945/2012). <em>Phenomenology of Perception</em>. Çev. D.A. Landes. Routledge.</p>
+<p>Sproull, L. &amp; Kiesler, S. (1986). Reducing social context cues: Electronic mail in organizational communication. <em>Management Science</em>, 32(11), 1492-1512.</p>
+<p>Walther, J.B. (1996). Computer-mediated communication: Impersonal, interpersonal, and hyperpersonal interaction. <em>Communication Research</em>, 23(1), 3-43.</p>
+<p>Yuasa, M., Saito, K. &amp; Mukawa, N. (2006). Emoticons convey emotions without cognition of faces: An fMRI study. <em>CHI 2006</em>, Montréal, QC.</p>
+</div>
+
+<!-- ═══════════════════════ DİĞER YAZILAR ═══════════════════════ -->
+
+<div class="diger-yazilar reveal">
+<h2>Diğer Yazılar</h2>
+<ul>
+  <li><a href="/raporlar/aynen-oyle.html">Dil Çürüyorsa Düşünce de Çürür</a></li>
+  <li><a href="/raporlar/nefret-uzerine.html">Nefret Üzerine</a></li>
+  <li><a href="/raporlar/halusinasyon-kimin-sorunu.html">Yapay Zekâ Halüsinasyon Görmez</a></li>
+  <li><a href="/raporlar/yazidan-sese.html">Yazıdan Sese</a></li>
+  <li><a href="/raporlar/cay-masasi.html">Çay Masası</a></li>
+  <li><a href="/raporlar/iyi-yasamak.html">İyi Yaşamak</a></li>
+  <li><a href="/raporlar/mutlulugun-resmi.html">Mutluluğun Resmi</a></li>
+  <li><a href="/raporlar/arastirma-anayasasi.html">Araştırma Anayasası</a></li>
+  <li><a href="/raporlar/sturgeon-yasasi.html">Sturgeon Yasası</a></li>
+</ul>
+</div>
+
+<div class="footer">
+  <p><a href="/">halitcengizuzuner.com</a></p>
+</div>
+
+</main>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('seen'); obs.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
