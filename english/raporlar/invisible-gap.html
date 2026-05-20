@@ -327,6 +327,18 @@ li { margin-bottom: 0.5rem; }
 .home-link:hover {
     color: var(--bone-bright);
 }
+.dinle-kapisi { margin-top: 2.5rem; }
+.dinle-kapisi summary { font-size: 0.85rem; color: var(--bone-ghost); cursor: pointer; letter-spacing: 0.03em; list-style: none; transition: color 0.3s; }
+.dinle-kapisi summary::-webkit-details-marker { display: none; }
+.dinle-kapisi summary::marker { display: none; content: ''; }
+.dinle-kapisi summary::before { content: '▸ '; display: inline; transition: color 0.3s; }
+.dinle-kapisi[open] summary::before { content: '▾ '; }
+.dinle-kapisi summary:hover { color: var(--bone-dim); }
+.dinle-kapisi[open] summary { color: var(--bone-dim); }
+.dinle-icerik { padding: 0.8rem 0 0 0.5rem; font-size: 0.85rem; color: var(--bone-ghost); line-height: 1.7; }
+.dinle-icerik p { margin-bottom: 0.7rem; text-align: left; }
+.dinle-git { display: block; margin-top: 0.5rem; color: var(--bone-dim); font-size: 0.85rem; border-bottom: 1px solid var(--bone-ghost); transition: color 0.3s; }
+.dinle-git:hover { color: var(--bone-bright); }
 </style>
 </head>
 <body>
@@ -364,6 +376,14 @@ li { margin-bottom: 0.5rem; }
   <h1 class="title">The Invisible Gap in Written Communication</h1>
   <p class="subtitle">On the zeroing of nonverbal cues, the collapse of pragmatic inference, and the erosion of social cognition in digital environments</p>
   <p class="date">17 May 2026</p>
+    <details class="dinle-kapisi">
+        <summary>Listening text for this essay</summary>
+        <div class="dinle-icerik">
+            <p>Not an audio recording. The same ideas rewritten for the ear — different sentence rhythms, information flow, breathing points. Can be played with a text-to-speech tool.</p>
+            <a href="invisible-gap-listen.html" class="dinle-git">Go to listening text →</a>
+            <a href="invisible-gap-read.html" class="dinle-git" style="margin-top: 0.5em; display: inline-block;">Go to reading text →</a>
+        </div>
+    </details>
 </header>
 
 <div class="kavram-rehberi reveal">

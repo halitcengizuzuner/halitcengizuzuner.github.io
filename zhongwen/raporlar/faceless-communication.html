@@ -375,6 +375,18 @@ details.translation-note p { margin-top: 0.8rem; text-align: left; font-size: 0.
     color: var(--visage);
     font-style: italic;
 }
+.dinle-kapisi { margin-top: 2.5rem; }
+.dinle-kapisi summary { font-size: 0.85rem; color: var(--bone-ghost); cursor: pointer; letter-spacing: 0.03em; list-style: none; transition: color 0.3s; }
+.dinle-kapisi summary::-webkit-details-marker { display: none; }
+.dinle-kapisi summary::marker { display: none; content: ''; }
+.dinle-kapisi summary::before { content: '▸ '; display: inline; transition: color 0.3s; }
+.dinle-kapisi[open] summary::before { content: '▾ '; }
+.dinle-kapisi summary:hover { color: var(--bone-dim); }
+.dinle-kapisi[open] summary { color: var(--bone-dim); }
+.dinle-icerik { padding: 0.8rem 0 0 0.5rem; font-size: 0.85rem; color: var(--bone-ghost); line-height: 1.7; }
+.dinle-icerik p { margin-bottom: 0.7rem; text-align: left; }
+.dinle-git { display: block; margin-top: 0.5rem; color: var(--bone-dim); font-size: 0.85rem; border-bottom: 1px solid var(--bone-ghost); transition: color 0.3s; }
+.dinle-git:hover { color: var(--bone-bright); }
 </style>
 </head>
 <body>
@@ -427,6 +439,14 @@ details.translation-note p { margin-top: 0.8rem; text-align: left; font-size: 0.
   <h1 class="title">无面之交</h1>
   <p class="subtitle">数字世界中面容缺席的现象学</p>
   <p class="date">2026年5月</p>
+    <details class="dinle-kapisi">
+        <summary>本文的聆听版本</summary>
+        <div class="dinle-icerik">
+            <p>这不是录音。同样的思想为耳朵重新书写——不同的句子节奏、信息流和呼吸节点。可以用文本转语音工具聆听。</p>
+            <a href="faceless-communication-listen.html" class="dinle-git">前往聆听版 →</a>
+            <a href="faceless-communication-read.html" class="dinle-git" style="margin-top: 0.5em; display: inline-block;">前往阅读版 →</a>
+        </div>
+    </details>
 </header>
 
 <details class="translation-note">

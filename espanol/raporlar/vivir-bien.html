@@ -318,6 +318,18 @@ footer a:hover { color: var(--bone); }
 .home-link:hover {
     color: var(--bone);
 }
+.dinle-kapisi { margin-top: 2.5rem; }
+.dinle-kapisi summary { font-size: 0.85rem; color: var(--bone-ghost); cursor: pointer; letter-spacing: 0.03em; list-style: none; transition: color 0.3s; }
+.dinle-kapisi summary::-webkit-details-marker { display: none; }
+.dinle-kapisi summary::marker { display: none; content: ''; }
+.dinle-kapisi summary::before { content: '▸ '; display: inline; transition: color 0.3s; }
+.dinle-kapisi[open] summary::before { content: '▾ '; }
+.dinle-kapisi summary:hover { color: var(--bone-dim); }
+.dinle-kapisi[open] summary { color: var(--bone-dim); }
+.dinle-icerik { padding: 0.8rem 0 0 0.5rem; font-size: 0.85rem; color: var(--bone-ghost); line-height: 1.7; }
+.dinle-icerik p { margin-bottom: 0.7rem; text-align: left; }
+.dinle-git { display: block; margin-top: 0.5rem; color: var(--bone-dim); font-size: 0.85rem; border-bottom: 1px solid var(--bone-ghost); transition: color 0.3s; }
+.dinle-git:hover { color: var(--bone-bright); }
 </style>
 </head>
 <body>
@@ -339,6 +351,14 @@ footer a:hover { color: var(--bone); }
     <h1>Vivir bien</h1>
     <p class="subtitle">Çetin Altan</p>
     <p class="meta">Milliyet, 24 de septiembre de 2014 · Şeytanın Gör Dediği</p>
+    <details class="dinle-kapisi">
+        <summary>Versión de escucha de este texto</summary>
+        <div class="dinle-icerik">
+            <p>No es una grabación de audio. La misma idea reescrita para el oído — ritmos, flujo de información y pausas diferentes. Puede reproducirse con una herramienta de lectura por voz.</p>
+            <a href="vivir-bien-escuchar.html" class="dinle-git">Ir a la versión de escucha →</a>
+            <a href="vivir-bien-leer.html" class="dinle-git" style="margin-top: 0.5em; display: inline-block;">Ir a la versión de lectura →</a>
+        </div>
+    </details>
 </header>
 
 <main class="content">

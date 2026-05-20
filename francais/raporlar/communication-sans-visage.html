@@ -323,6 +323,18 @@ details.trad-note p {
 .home-link:hover {
     color: var(--bone-bright);
 }
+.dinle-kapisi { margin-top: 2.5rem; }
+.dinle-kapisi summary { font-size: 0.85rem; color: var(--bone-ghost); cursor: pointer; letter-spacing: 0.03em; list-style: none; transition: color 0.3s; }
+.dinle-kapisi summary::-webkit-details-marker { display: none; }
+.dinle-kapisi summary::marker { display: none; content: ''; }
+.dinle-kapisi summary::before { content: '▸ '; display: inline; transition: color 0.3s; }
+.dinle-kapisi[open] summary::before { content: '▾ '; }
+.dinle-kapisi summary:hover { color: var(--bone-dim); }
+.dinle-kapisi[open] summary { color: var(--bone-dim); }
+.dinle-icerik { padding: 0.8rem 0 0 0.5rem; font-size: 0.85rem; color: var(--bone-ghost); line-height: 1.7; }
+.dinle-icerik p { margin-bottom: 0.7rem; text-align: left; }
+.dinle-git { display: block; margin-top: 0.5rem; color: var(--bone-dim); font-size: 0.85rem; border-bottom: 1px solid var(--bone-ghost); transition: color 0.3s; }
+.dinle-git:hover { color: var(--bone-bright); }
 </style>
 </head>
 <body>
@@ -381,6 +393,14 @@ details.trad-note p {
   <h1 class="title">Communication sans visage</h1>
   <p class="subtitle">Ph&eacute;nom&eacute;nologie de l&rsquo;absence du visage dans l&rsquo;espace num&eacute;rique</p>
   <p class="date">Mai 2026</p>
+    <details class="dinle-kapisi">
+        <summary>Version d'écoute de ce texte</summary>
+        <div class="dinle-icerik">
+            <p>Pas un enregistrement audio. La même pensée réécrite pour l'oreille — rythmes, flux d'information et points de respiration différents. Peut être écouté avec un outil de lecture vocale.</p>
+            <a href="communication-sans-visage-ecouter.html" class="dinle-git">Accéder à la version d'écoute →</a>
+            <a href="communication-sans-visage-lire.html" class="dinle-git" style="margin-top: 0.5em; display: inline-block;">Accéder à la version de lecture →</a>
+        </div>
+    </details>
 </header>
 
 <details class="trad-note">

@@ -823,6 +823,18 @@
 .home-link:hover {
     color: var(--bone-bright);
 }
+.dinle-kapisi { margin-top: 2.5rem; }
+.dinle-kapisi summary { font-size: 0.85rem; color: var(--bone-ghost); cursor: pointer; letter-spacing: 0.03em; list-style: none; transition: color 0.3s; }
+.dinle-kapisi summary::-webkit-details-marker { display: none; }
+.dinle-kapisi summary::marker { display: none; content: ''; }
+.dinle-kapisi summary::before { content: '▸ '; display: inline; transition: color 0.3s; }
+.dinle-kapisi[open] summary::before { content: '▾ '; }
+.dinle-kapisi summary:hover { color: var(--bone-dim); }
+.dinle-kapisi[open] summary { color: var(--bone-dim); }
+.dinle-icerik { padding: 0.8rem 0 0 0.5rem; font-size: 0.85rem; color: var(--bone-ghost); line-height: 1.7; }
+.dinle-icerik p { margin-bottom: 0.7rem; text-align: left; }
+.dinle-git { display: block; margin-top: 0.5rem; color: var(--bone-dim); font-size: 0.85rem; border-bottom: 1px solid var(--bone-ghost); transition: color 0.3s; }
+.dinle-git:hover { color: var(--bone-bright); }
 </style>
 </head>
 <body>
@@ -858,6 +870,14 @@
   <p class="subtitle">Cuanto más se afila la cuchilla, más crece el abismo entre el maestro y el principiante. Lo mismo ocurre con la IA: a unos fortalece, a otros les arrebata hasta el último residuo de pensamiento.</p>
   <p class="author-line">Halit Cengiz Uzuner · Investigador independiente</p>
   <div class="scroll-hint"></div>
+    <details class="dinle-kapisi">
+        <summary>Versión de escucha de este texto</summary>
+        <div class="dinle-icerik">
+            <p>No es una grabación de audio. La misma idea reescrita para el oído — ritmos, flujo de información y pausas diferentes. Puede reproducirse con una herramienta de lectura por voz.</p>
+            <a href="quien-usa-realmente-la-ia-escuchar.html" class="dinle-git">Ir a la versión de escucha →</a>
+            <a href="quien-usa-realmente-la-ia-leer.html" class="dinle-git" style="margin-top: 0.5em; display: inline-block;">Ir a la versión de lectura →</a>
+        </div>
+    </details>
 </header>
 
 <div class="section-divider"></div>
