@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Who Really Uses AI? — listening version. The sharper the blade, the wider the gap.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://halitcengizuzuner.com/english/raporlar/who-really-uses-ai.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/yapay-zekayi-kim-kullaniyor-dinle.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/who-really-uses-ai-listen.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/yapay-zekayi-kim-kullaniyor-dinle.html">
+<link rel="icon" href="data:,">
+<title>Who Really Uses AI? — Listening Version</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --accent: #b08838;
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.15vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 2.2;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.listen-header {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 3rem;
+    max-width: 740px;
+}
+
+.listen-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--bone-bright);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.listen-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.listen-header .badge {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(176, 136, 56, 0.3);
+    padding: 0.3rem 0.8rem;
+}
+
+.listen-header .how-to {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+}
+
+.listen-header .how-to a {
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--bone-ghost);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.listen-header .how-to a:hover {
+    color: var(--bone);
+    border-color: var(--bone-dim);
+}
+
+.listen-header .meta {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+.listen-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.listen-content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+.section-break {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-break::after {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--bone-ghost);
+}
+
+.breath {
+    height: 1.5rem;
+}
+
+.listen-quote {
+    border-left: 2px solid var(--accent);
+    padding: 0.8rem 0 0.8rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+.listen-footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 4rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.listen-footer a {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.3s;
+}
+
+.listen-footer a:hover { color: var(--bone-dim); }
+
+@media (max-width: 640px) {
+    .listen-header { padding: 3rem 1.5rem 2rem; }
+    .listen-content { padding: 0 1.5rem 4rem; }
+    .listen-footer { padding: 2rem 1.5rem 3rem; }
+}
+
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+
+.home-nav {
+    text-align: center;
+    padding: 0.5rem 0 0;
+}
+.home-link {
+    color: var(--bone-dim);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: inline-block;
+    line-height: 1;
+}
+.home-link:hover {
+    color: var(--bone);
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="Language selection">
+    <a href="/raporlar/yapay-zekayi-kim-kullaniyor-dinle.html" class="lang-link">Turkce</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/english/raporlar/who-really-uses-ai-listen.html" class="lang-link lang-active">English</a>
+</nav>
+<div class="home-nav"><a href="/english/" class="home-link" aria-label="Home">&lceil;</a></div>
+<header class="listen-header">
+    <h1>Who Really Uses AI?</h1>
+    <p class="subtitle">The sharper the blade, the wider the gap between the master and the novice</p>
+    <span class="badge">listening version</span>
+    <p class="how-to">This text was prepared for listening. You can use your device's built-in reader or a text-to-speech tool like <a href="https://elevenreader.io/" target="_blank" rel="noopener">ElevenReader</a> to listen.</p>
+    <p class="meta">Listening version &mdash; May 2026</p>
+</header>
+
+<main class="listen-content">
+
+<p>Who Really Uses AI? By Halit Cengiz Uzuner. May two thousand twenty-six.</p>
+
+<div class="breath"></div>
+
+<p>In two thousand twenty-six, it seems like nobody is left who does not use AI. Companies market it, newspapers write about it, everyone on social media is talking about what they have done with AI. A lawyer has AI draft their case. A student has AI do their homework. A marketer has AI generate ad copy. Everyone uses it.</p>
+
+<p>But do they really?</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Let us think about an analogy. In the late nineteen nineties, the internet entered everyone's home. Everyone started saying I go on the internet. But what did that actually mean? For most people: open a browser, type something into a search engine, click the first result, read it, close it. Was that using the internet? Technically, yes.</p>
+
+<p>But the people who truly used the internet were doing something entirely different. They were reading source code, accessing databases, cross-referencing multiple sources, questioning where information came from.</p>
+
+<p>Both were using the same tool. The difference was not in the tool. The difference was in the mind of the person using it.</p>
+
+<div class="section-break"></div>
+
+<p>There is a chasm between opening a tool and actually using it. Typing a question into ChatGPT is not using AI. Just as typing a word into Google is not doing research.</p>
+
+<div class="breath"></div>
+
+<p>But nobody sees this chasm. Because the people on this side of it do not even know the other side exists. And nobody is telling them. Because telling them is not profitable.</p>
+
+<div class="section-break"></div>
+
+<p>It looks like a paradox. The more powerful the tool, the greater the gap between its users. Intuitively, you would expect the opposite. A powerful tool should lift everyone up. Level the field. But it does not. It never has.</p>
+
+<div class="breath"></div>
+
+<p>In the age when everyone used a stone blade, the gap between people was small. The tool limited everyone equally. No matter how talented you were, there was a ceiling to what you could do with stone. When the steel blade arrived, that ceiling vanished. And suddenly the gap between the butcher and the amateur exploded. Because the tool was no longer the constraint. The tool now reflected the capacity of the person holding it.</p>
+
+<div class="breath"></div>
+
+<p>The printing press. Fourteen forty. Everyone could print books. But it did not make everyone a writer. It made good writers visible and bad writers visibly bad.</p>
+
+<p>The internet. Nineteen ninety. Everyone became a publisher. Information pollution exploded, but genuine researchers became more powerful than ever. The internet democratised access to information. But it did not democratise the capacity to evaluate it.</p>
+
+<p>Google. Nineteen ninety-eight. Everyone uses the same search engine. But two people typing into the same box reach entirely different results. Same tool. Chasm between outcomes.</p>
+
+<p>ChatGPT. Two thousand twenty-two. One person says write me a resume. The other orchestrates multiple models with cross-validation to conduct research. Same tool. Chasm between outcomes. And that chasm grows wider every day.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>A powerful tool does not lift everyone. It raises the ceiling. When the ceiling rises, those close to the floor stay close to the floor. Those who can climb go even higher.</p>
+
+<div class="listen-quote">
+AI is not an equaliser. AI is a magnifying glass. It amplifies whatever is already there: capacity in those who can think, and the void in those who cannot.
+</div>
+
+<div class="section-break"></div>
+
+<p>In Google's early years, there was a hope. Everyone would have equal access to knowledge. That hope never materialised. Because over the years, Google taught people an extremely dangerous habit. Type something, look at the first result, say: okay, I have learned it.</p>
+
+<p>Now that same habit has migrated to ChatGPT. Someone types a question. A fluent paragraph comes back. And they say: I did my research, I have learned it. They neither researched nor learned. They read the statistical output of a language model and mistook it for their own thinking.</p>
+
+<div class="breath"></div>
+
+<p>This loop closes itself. The question is shallow. The answer is fluent. The person is satisfied. They stop searching. And because they stopped searching, the next question is equally shallow. Around and around.</p>
+
+<p>The cruelest feature of this loop is that to break it, you need to be outside it. To recognise your own shallowness, you need to know what depth looks like. But the shallow person is unaware depth even exists. Because in the shallows, the found-it feeling is already satisfying.</p>
+
+<div class="section-break"></div>
+
+<p>In the nineteen nineties, people watched the evening news and said: now I understand politics. The anchor explained, the viewer listened, and believed they were informed. At least there was an awareness. The person on the other side was someone else. The boundary was clear.</p>
+
+<div class="breath"></div>
+
+<p>With ChatGPT, that boundary blurred. Someone asks a question. The AI answers. When they read that answer, the brain codes it like this: I asked, it answered, so this is my research. But they neither asked a real question, nor researched, nor evaluated. Yet because the process took a question-and-answer format, the brain registered it as my own effort.</p>
+
+<p>This is more dangerous than the television anchor. Because with television, at least you knew you were passive. With ChatGPT, you believe you are active.</p>
+
+<div class="section-break"></div>
+
+<p>Let us ask a question. What do the companies that produce AI say about the fake courses, inflated titles, and unqualified instructors flooding the market?</p>
+
+<div class="breath"></div>
+
+<p>Zero. Not a single blog post. Not a single warning.</p>
+
+<div class="breath"></div>
+
+<p>Meanwhile, these same companies publish their own free training materials. Anthropic Academy, completely free. OpenAI's joint course with DeepLearning.AI, free. Google's prompt training, free. While people are selling ChatGPT courses for hundreds or thousands of dollars, the company that built the tool is giving away the same knowledge for nothing. But it will not say be careful.</p>
+
+<div class="breath"></div>
+
+<p>Why? Because even a bad course gets people using ChatGPT. Every course that gets people using ChatGPT signs up subscribers. Why would they cut that channel? Even a fake course graduate is a potential customer.</p>
+
+<div class="section-break"></div>
+
+<p>Sam Altman said this in October two thousand twenty-two. One month before ChatGPT launched.</p>
+
+<div class="breath"></div>
+
+<p>I do not think we will be talking about prompt engineering in five years. It will just be, you know, you speak in natural language, and the computer does what you want.</p>
+
+<div class="breath"></div>
+
+<p>On the technical formulas, he was right. The early models were fragile. Getting the right output required magic formulas. In two thousand twenty-six, models largely understand natural human speech.</p>
+
+<p>But beneath what Altman said lies a dangerous assumption. If the tool gets good enough, the gap between its users closes. This assumption is wrong. It has been wrong in every era of history.</p>
+
+<div class="breath"></div>
+
+<p>Because truly using AI is not about formulas. It is about knowing what to ask. Framing the question properly. Evaluating the answer. Knowing the model's limits. Orchestrating multiple models. These are thinking skills, not technical tricks. And they cannot be bought.</p>
+
+<div class="section-break"></div>
+
+<p>Here is the core thesis.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>AI empowers those who can think. It strips those who cannot think of their last remaining shred of independent thought.</p>
+
+<div class="breath"></div>
+
+<p>The person with thinking capacity uses AI as a tool. They ask, evaluate, verify, redirect, cross-reference. With each use, their capacity grows. AI makes them stronger.</p>
+
+<p>The person without thinking capacity uses AI as an authority. They ask, accept whatever comes, say I have learned it, and stop thinking. With each use, their capacity shrinks. AI makes them weaker.</p>
+
+<div class="breath"></div>
+
+<p>The gap between these two groups widens every day. Same tool. Opposite outcomes. Just as a sharp blade empowers the master and cuts the novice.</p>
+
+<div class="section-break"></div>
+
+<p>This essay is not an attack. It is a warning.</p>
+
+<div class="breath"></div>
+
+<p>AI really is a powerful tool. Perhaps the most powerful knowledge tool since the printing press. But like every powerful tool, it is harmful in the hands of someone who lacks the capacity to use it. And the most insidious form of that harm is the person not realising they are being harmed.</p>
+
+<div class="breath"></div>
+
+<p>Truly learning AI does not mean learning to type questions into a web interface. It means knowing what you are asking. Being able to evaluate the answer. Not becoming dependent on a single tool. Not outsourcing your responsibility to think. Being able to say: I do not know.</p>
+
+<div class="breath"></div>
+
+<p>A course costing thousands of dollars will not teach you this. A certificate will not give you this. Because this is not a tool-use skill. It is a way of thinking. And that way of thinking cannot be bought. It can only be built.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<div class="listen-quote">
+AI is not harmful. Using AI without thinking is harmful. And what will teach the difference between these two is not a course, not a certificate, not a university degree. The only thing that will teach this difference is taking ownership of your own responsibility to think.
+</div>
+
+</main>
+
+<footer class="listen-footer">
+    <a href="who-really-uses-ai.html">&larr; back to reading version</a>
+</footer>
+
+</body>
+</html>

@@ -42,7 +42,7 @@
   "headline": "书面沟通中的隐形鸿沟",
   "description": "数字文本交流中非言语线索的归零、语用推理的崩塌与认知风格差异的碰撞。",
   "datePublished": "2026-05-17",
-  "dateModified": "2026-05-17",
+  "dateModified": "2026-05-20",
   "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
   "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/zhongwen/raporlar/invisible-gap.html"},
@@ -326,6 +326,60 @@ li { margin-bottom: 0.5rem; }
 }
 .home-link:hover {
     color: var(--bone-bright);
+}
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid var(--bosluk-dim);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--bosluk);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--bosluk);
+    font-style: italic;
 }
 </style>
 </head>
@@ -705,6 +759,47 @@ li { margin-bottom: 0.5rem; }
 <p>Walther, J.B. &amp; D&rsquo;Addario, K.P. (2001). The impacts of emoticons on message interpretation in computer-mediated communication. <em>Social Science Computer Review</em>, 19(3), 324-347.</p>
 <p>Yuasa, M., Saito, K. &amp; Mukawa, N. (2006). Emoticons convey emotions without cognition of faces: An fMRI study. <em>CHI 2006</em>, Montréal, QC.</p>
 <p>Yus, F. (2016). <em>Cyberpragmatics: Internet-Mediated Communication in Context</em>. John Benjamins.</p>
+</div>
+
+<!-- ═══════════════════════ 转创注释 ═══════════════════════ -->
+
+<div class="transcreation-notes reveal">
+    <h3>转创注释</h3>
+
+    <details>
+        <summary>"隐形鸿沟" —— gorunmez bosluk</summary>
+        <div class="note-body">
+            土耳其语<em>gorunmez bosluk</em>直译是"看不见的空隙"——<em>bosluk</em>在土耳其语中既有物理空间的空隙义，也有哲学上的虚无感。英文版用<em>invisible gap</em>，偏向功能描述。中文选择"隐形鸿沟"而非"看不见的间隙"：鸿沟暗示两岸无法轻易跨越，比"间隙"更有重量。"隐形"比"看不见的"更精练——三个字替代五个字，听觉节奏也更好。损失：土耳其语<em>bosluk</em>中那种存在论意味上的空（虚无、缺失、空白）在"鸿沟"中消失了，因为鸿沟是实在的——它是一条裂缝，不是一片虚空。
+        </div>
+    </details>
+
+    <details>
+        <summary>"半壁江山已被遮蔽" —— iletiimin yarisi karartilmistir</summary>
+        <div class="note-body">
+            土耳其语原文<em>iletiimin yarisi karartilmistir</em>直译为"沟通的一半被遮黑了"。英文版用<em>half of communication has been blacked out</em>。中文选择了"半壁江山"这个四字成语——它本来形容国土丧失了一半，在战争和政治语境中使用，带有"不可挽回的丧失"的悲壮感。用在沟通语境中是一种刻意的错位：把日常交流的损失提升到领土丧失的严重程度。这种修辞策略在中文里比在土耳其语和英文里走得更远——原文是陈述，中文变成了警告。
+        </div>
+    </details>
+
+    <details>
+        <summary>"纯化" —— arindirma</summary>
+        <div class="note-body">
+            文章的核心翻转——非言语线索的缺失不仅是损失，在信息传递语境中也是一种净化——土耳其语用了<em>arindirma</em>（清洁、纯化、去除杂质）。英文版用<em>purification</em>。中文在"净化"和"纯化"之间选择了"纯化"：净化偏向道德/环保语域（净化空气、净化心灵），纯化偏向科学语域（纯化试剂、纯化信号）。由于这里描述的是信息通道的技术性简化，"纯化"更精确。但在结语处我们换用了"净化"——因为那里的语境已经超越技术，进入存在论层面。同一个土耳其语词，根据中文上下文的不同，被翻译成了两个不同的词。
+        </div>
+    </details>
+
+    <details>
+        <summary>"碰撞" —— carpisma</summary>
+        <div class="note-body">
+            土耳其语<em>carpisma</em>既可以是物理的碰撞（车祸），也可以是抽象的冲突（观点碰撞）。英文版用<em>collision</em>——偏物理。中文"碰撞"保留了双重含义，且在学术语境中（"文明的碰撞"、"观念的碰撞"）已有充分的使用传统。但中文里"碰撞"比土耳其语的<em>carpisma</em>更中性——<em>carpisma</em>暗示伤害，碰撞可以是创造性的。文章描述的恰恰是两种认知风格的碰撞不一定产生伤害，也可能产生理解——所以中性的"碰撞"反而比带有伤害暗示的原文更准确。这是少见的情况：译文比原文更精确。
+        </div>
+    </details>
+
+    <details>
+        <summary>"社交纽带" vs "信息传递" —— sosyal bag / bilgi aktarimi</summary>
+        <div class="note-body">
+            文章的双向框架——沟通要么服务于社交纽带，要么服务于信息传递——在土耳其语中用了<em>sosyal bag</em>（社会纽带）和<em>bilgi aktarimi</em>（信息转移）。英文版直译为<em>social bonding</em>和<em>information transfer</em>。中文"社交纽带"把土耳其语的"社会"窄化为"社交"——这是刻意的：中文里"社会纽带"过于宏大（社会结构层面），而文章讨论的是人际日常交流中的连结功能，"社交"更贴合。"信息传递"比"信息转移"更符合中文的自然搭配——"转移"在中文里暗示物理位移或注意力分散，"传递"则干净地指向信息从A到B的流动。
+        </div>
+    </details>
 </div>
 
 <!-- ═══════════════════════ 其他文章 ═══════════════════════ -->

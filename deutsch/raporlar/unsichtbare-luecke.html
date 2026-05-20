@@ -42,7 +42,7 @@
   "headline": "Die Unsichtbare Lücke in der Schriftlichen Kommunikation",
   "description": "Wenn nonverbale Signale auf null gesetzt werden, pragmatische Inferenz zusammenbricht und kognitive Stilunterschiede kollidieren — die Geschichte des verlorenen Kanals in der schriftlichen Kommunikation.",
   "datePublished": "2026-05-17",
-  "dateModified": "2026-05-17",
+  "dateModified": "2026-05-20",
   "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
   "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/deutsch/raporlar/unsichtbare-luecke.html"},
@@ -326,6 +326,60 @@ li { margin-bottom: 0.5rem; }
 }
 .home-link:hover {
     color: var(--bone-bright);
+}
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(122, 138, 154, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--bosluk);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--bosluk);
+    font-style: italic;
 }
 </style>
 </head>
@@ -710,6 +764,35 @@ Vielleicht geht es nicht darum, diese Lücke zu füllen. Vielleicht geht es daru
 </div>
 
 <!-- ═══════════════════════ WEITERE TEXTE ═══════════════════════ -->
+
+<div class="transcreation-notes reveal">
+    <h3>Anmerkungen zur Transcreation</h3>
+
+    <details>
+        <summary>&bdquo;Durchgesickert&ldquo; &mdash; sızan</summary>
+        <div class="note-body">Goffmans Unterscheidung <em>expression given</em> / <em>expression given off</em> wird im Türkischen mit <em>söylenen</em> (das Gesagte) und <em>sızan</em> (das Durchgesickerte) wiedergegeben. <em>Sızmak</em> bedeutet im Türkischen &bdquo;durchsickern&ldquo;, &bdquo;einsickern&ldquo;, &bdquo;auslaufen&ldquo; &mdash; ein Bild, das an Wasser denken lässt, das unkontrolliert durch eine Wand dringt. &bdquo;Durchgesickert&ldquo; fängt dieses Bild im Deutschen ein und behält die Konnotation des Unwillkürlichen, das sich der Kontrolle entzieht.</div>
+    </details>
+
+    <details>
+        <summary>&bdquo;Kodierungsasymmetrie&ldquo; &mdash; kodlama asimetrisi</summary>
+        <div class="note-body">Der Ausdruck <em>kodlama asimetrisi</em> ist im Türkischen ein Neologismus des Autors &mdash; er existiert in keinem Fachwörterbuch. Die deutsche Entsprechung &bdquo;Kodierungsasymmetrie&ldquo; klingt sofort nach Fachsprache, obwohl der Begriff auch hier neu geprägt ist. Das Deutsche hat den Vorteil, dass Komposita natürlich wirken; das Türkische muss zwei separate Fremdwörter nebeneinanderstellen, was die Neuprägung stärker hervortreten lässt.</div>
+    </details>
+
+    <details>
+        <summary>&bdquo;Läuterung&ldquo; vs. &bdquo;Verlust&ldquo; &mdash; arınma / kayıp</summary>
+        <div class="note-body">Die zentrale Gegenüberstellung <em>kayıp</em> (Verlust) und <em>arınma</em> (Reinigung, Läuterung) trägt im Türkischen eine religiöse Obertönung: <em>arınma</em> wird auch für spirituelle Reinigung, rituelle Waschung verwendet. &bdquo;Läuterung&ldquo; im Deutschen schwingt ähnlich &mdash; Fegefeuer, Katharsis, geläutertes Gold. Die Wahl war bewusst: Die Abwesenheit des Körpers nicht als Defizit, sondern als Destillation zu rahmen, verlangte ein Wort, das über &bdquo;Reinigung&ldquo; hinausgeht.</div>
+    </details>
+
+    <details>
+        <summary>&bdquo;Hypervigilanz&ldquo; &mdash; aşırı uyanıklık</summary>
+        <div class="note-body">Türkisch <em>aşırı uyanıklık</em> ist wörtlich &bdquo;übermäßige Wachheit&ldquo; &mdash; ein transparenter, beschreibender Ausdruck. Das Deutsche könnte &bdquo;Überwachheit&ldquo; sagen, bevorzugt aber den Fachbegriff &bdquo;Hypervigilanz&ldquo;, der dem neurowissenschaftlichen Register des Abschnitts entspricht. Das Türkische entschied sich dagegen: <em>hipervigilans</em> wäre für türkische Leser opak gewesen. Dieselbe Fachlichkeit, unterschiedlich verpackt.</div>
+    </details>
+
+    <details>
+        <summary>&bdquo;susmam lazımmış&ldquo; &mdash; Ich hätte schweigen sollen</summary>
+        <div class="note-body">Im Türkischen steht <em>susmam lazımmış</em> &mdash; eine Konstruktion mit der Partikel <em>-mış</em>, die eine nachträgliche Erkenntnis markiert: etwas, das man erst im Rückblick begriffen hat. Das Deutsche &bdquo;Ich hätte schweigen sollen&ldquo; gibt den Konjunktiv II wieder, verliert aber die spezifische türkische Nuance des &bdquo;offenbar war es so, ich habe es nur jetzt erst verstanden&ldquo;. Die Kursivierung im Text versucht, das Gewicht dieser nachträglichen Einsicht zu tragen.</div>
+    </details>
+</div>
 
 <div class="diger-yazilar reveal">
 <h2>Weitere Texte</h2>

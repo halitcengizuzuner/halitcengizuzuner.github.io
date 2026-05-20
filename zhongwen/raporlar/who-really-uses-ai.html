@@ -42,7 +42,7 @@
   "headline": "到底谁在真正使用人工智能？",
   "description": "刀越锋利，高手与生手之间的鸿沟越深。人工智能亦然——它让一些人如虎添翼，却夺走了另一些人仅存的思考能力。",
   "datePublished": "2026-05-11",
-  "dateModified": "2026-05-11",
+  "dateModified": "2026-05-20",
   "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
   "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/zhongwen/raporlar/who-really-uses-ai.html"},
@@ -823,6 +823,60 @@
 .home-link:hover {
     color: var(--bone-bright);
 }
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid var(--bicak-dim);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--bicak);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--bicak);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -1395,6 +1449,47 @@
     </div>
   </div>
 </section>
+
+<div style="max-width: 820px; margin: 0 auto; padding: 0 24px 40px;">
+<div class="transcreation-notes">
+    <h3>转创注释</h3>
+
+    <details>
+        <summary>"刀越锋利，剪刀张得越开" —— Bicak keskinlestikce makas acilir</summary>
+        <div class="note-body">
+            土耳其语<em>bicak keskinlestikce makas acilir</em>是文章的核心隐喻——刀（工具）越锋利，剪刀（差距）张得越大。这不是土耳其语谚语，而是作者的原创比喻。英文版直译为<em>the sharper the knife, the wider the scissors open</em>。中文保留了这个比喻的两个组件——刀和剪刀——但在后续行文中将"剪刀差"这一中文经济学术语自然引入：中国读者对"剪刀差"（本指工农产品价格差距）有即刻的认知图式，这让隐喻在中文里获得了一层土耳其语原文不具备的经济学回响。
+        </div>
+    </details>
+
+    <details>
+        <summary>"如虎添翼" —— guclendiriyor</summary>
+        <div class="note-body">
+            土耳其语<em>guclendiriyor</em>直译为"使之更强"——平实的动词。英文版用<em>empowers</em>。中文选择了"如虎添翼"这个成语：老虎本来就强，翅膀让它更不可阻挡。这比原文走得更远——原文只说"变强"，中文说"本就强大的变得飞起来了"。选择这个成语的理由：它完美传达了文章的核心论点——人工智能不是给弱者添翼，而是给已经是虎的人添翼。弱者拿到翅膀也飞不起来，因为问题不在翅膀。
+        </div>
+    </details>
+
+    <details>
+        <summary>"操蛋" / "彻底操蛋" —— bombok</summary>
+        <div class="note-body">
+            这篇文章的语域比其他报告更口语化、更直白。土耳其语原文在关键处使用了日常粗口和直白的讽刺。中文副标题"刀越锋利，高手与生手之间的鸿沟越深"中的"生手"是一个翻译决策：土耳其语<em>acemi</em>（新手、生手）在中文里有多种对应——"新手"太中性，"菜鸟"太网络化，"生手"保留了一种不带侮辱但也不粉饰的直白。这种直白贯穿全文：文章拒绝学术的客气，拒绝说"有待提高"——它说"浅薄"。
+        </div>
+    </details>
+
+    <details>
+        <summary>"放大镜" —— buyutec</summary>
+        <div class="note-body">
+            土耳其语<em>buyutec</em>（放大镜）是文章的第二核心隐喻——人工智能不是均衡器（<em>esitleyici</em>），而是放大镜。英文版用<em>magnifier</em>。中文"放大镜"在日常语域中比"magnifier"更具体、更有画面感——中国读者能立刻想到拿着放大镜看报纸的老人。这个画面感是收获。但中文"放大镜"也失去了一个维度：土耳其语<em>buyutec</em>和"使之更大"（<em>buyutmek</em>）共享词根，暗示放大是一种主动的行为——不是你选择放大什么，而是它放大你身上已有的一切。中文"放大镜"更像一个被动的光学器具。
+        </div>
+    </details>
+
+    <details>
+        <summary>"不要一头扎进人工智能" —— Yapay zekaya dalmayin</summary>
+        <div class="note-body">
+            土耳其语结语标题<em>yapay zekaya dalmayin</em>直译为"不要跳进人工智能里"——<em>dalmak</em>是跳水、潜入的动词，暗示盲目地一头扎进去。英文版用<em>don't dive into AI</em>。中文"不要一头扎进人工智能"保留了身体动作的画面：一个人不看水深就跳——可能撞到池底。"一头扎进"在中文口语中暗含鲁莽、不计后果。与土耳其语原文的语气几乎完全对称：两种语言都用了一个带有身体风险的动词来警告一种认知上的风险。
+        </div>
+    </details>
+</div>
+</div>
 
 <div class="other-reports">
   <h3>其他文章</h3>

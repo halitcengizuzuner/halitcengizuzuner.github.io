@@ -42,7 +42,7 @@
   "headline": "Gesichtslose Kommunikation",
   "description": "Phänomenologie der Gesichtslosigkeit in der digitalen Kommunikation — Levinas, Merleau-Ponty und Heidegger richten drei verschiedene Linsen auf dieselbe Leerstelle.",
   "datePublished": "2026-05-07",
-  "dateModified": "2026-05-07",
+  "dateModified": "2026-05-20",
   "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
   "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/deutsch/raporlar/gesichtslose-kommunikation.html"},
@@ -316,6 +316,60 @@ details p {
 }
 .home-link:hover {
     color: var(--bone-bright);
+}
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(90, 122, 122, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--visage);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--visage);
+    font-style: italic;
 }
 </style>
 </head>
@@ -659,6 +713,35 @@ Die eigentliche unsichtbare Leerstelle der digitalen Kommunikation könnte diese
 </div>
 
 <!-- ═══════════════════════ WEITERE TEXTE ═══════════════════════ -->
+
+<div class="transcreation-notes reveal">
+    <h3>Anmerkungen zur Transcreation</h3>
+
+    <details>
+        <summary>&bdquo;Antlitz&ldquo; &mdash; yüz</summary>
+        <div class="note-body">Das Türkische kennt nur ein Wort: <em>yüz</em> &mdash; es bedeutet gleichzeitig &bdquo;Gesicht&ldquo; und &bdquo;Oberfläche&ldquo;. Levinas&rsquo; französischer Fachbegriff <em>visage</em> wurde in der deutschen Philosophietradition als &bdquo;Antlitz&ldquo; etabliert &mdash; ein Wort, das im Deutschen etwas Feierliches, beinahe Sakrales trägt, das weder <em>yüz</em> noch <em>visage</em> besitzt. Das Türkische arbeitet mit der Alltagsbedeutung und lässt den philosophischen Gehalt durch den Kontext entstehen. Das Deutsche greift zu einem gehobenen Register, das den Bruch zwischen Alltagssprache und philosophischem Fachbegriff sofort markiert.</div>
+    </details>
+
+    <details>
+        <summary>&bdquo;Zwischenleiblichkeit&ldquo; &mdash; bedenler arası iletişim</summary>
+        <div class="note-body">Im Türkischen steht <em>bedenler arası iletişim</em> &mdash; wörtlich &bdquo;Kommunikation zwischen Körpern&ldquo;. Das Deutsche besitzt mit &bdquo;Zwischenleiblichkeit&ldquo; (Merleau-Pontys <em>intercorporéité</em>) einen einzigen zusammengesetzten Fachbegriff, der das gesamte Konzept verdichtet. Das Türkische braucht drei Wörter und bleibt beschreibend; das Deutsche packt die Bedeutung in ein Kompositum, das auf Anhieb philosophisch klingt &mdash; aber den Nichteingeweihten eher abschreckt als einlädt.</div>
+    </details>
+
+    <details>
+        <summary>&bdquo;sich auf&shy;drängen&ldquo; vs. &bdquo;einladen&ldquo; &mdash; dayatmak / davet etmek</summary>
+        <div class="note-body">Die zentrale Opposition des Textes &mdash; <em>dayatma</em> (Auferlegung) gegen <em>davet</em> (Einladung) &mdash; trägt im Türkischen eine politische Schärfe: <em>dayatmak</em> wird im Alltagstürkischen für Machtausübung, Zwang, staatliche Willkür verwendet. Im Deutschen ist &bdquo;auferlegen&ldquo; formeller, weniger alltäglich. Die Spannung zwischen den beiden Polen &mdash; das Gesicht drängt sich auf, die Erzählung lädt ein &mdash; wurde beibehalten, verliert aber im Deutschen einen Grad an Alltagshärte.</div>
+    </details>
+
+    <details>
+        <summary>&bdquo;Leerstelle&ldquo; &mdash; boşluk</summary>
+        <div class="note-body">Türkisch <em>boşluk</em> ist gleichzeitig &bdquo;Leere&ldquo;, &bdquo;Lücke&ldquo;, &bdquo;Hohlraum&ldquo; und &bdquo;Vakuum&ldquo;. Das Deutsche differenziert: &bdquo;Leerstelle&ldquo; wurde gewählt, weil es die Abwesenheit von etwas markiert, das eigentlich da sein sollte &mdash; ein unbesetzter Platz, nicht bloße Leere. In der Schlusspassage erscheint &bdquo;unsichtbare Leerstelle&ldquo; als Übertragung von <em>görünmez boşluk</em> &mdash; wobei &bdquo;Leerstelle&ldquo; im Deutschen auch ein typographischer Begriff ist (der unbedruckte Raum), was eine unbeabsichtigte Nebenbedeutung erzeugt: ein leeres Feld auf dem Bildschirm.</div>
+    </details>
+
+    <details>
+        <summary>&bdquo;Dasein&ldquo; und Heidegger im Deutschen</summary>
+        <div class="note-body">Im Türkischen muss Heideggers Terminologie übersetzt werden: <em>varoluş</em> für Existenz, <em>araçsallık</em> für Zuhandenheit. Im Deutschen braucht Heidegger keine Übersetzung &mdash; seine Begriffe sind deutsche Wörter: &bdquo;Dasein&ldquo;, &bdquo;Zuhandenheit&ldquo;, &bdquo;Vorhandenheit&ldquo;. Das erzeugt eine eigentümliche Nähe: Der deutsche Leser erkennt die Wörter, aber ihre philosophische Aufladung bleibt fremd. Im Türkischen sind die Begriffe von vornherein als Fachsprache markiert; im Deutschen tarnen sie sich als Alltagssprache.</div>
+    </details>
+</div>
 
 <div class="diger-yazilar reveal">
 <h2>Weitere Texte</h2>

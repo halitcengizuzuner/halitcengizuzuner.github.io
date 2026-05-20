@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="到底谁在真正使用人工智能？——聆听叙述。刀越锋利，鸿沟越深。">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://halitcengizuzuner.com/zhongwen/raporlar/who-really-uses-ai.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/yapay-zekayi-kim-kullaniyor-dinle.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/who-really-uses-ai-listen.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/who-really-uses-ai-listen.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/qui-utilise-vraiment-lia-ecouter.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/wer-nutzt-ki-wirklich-hoeren.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/quien-usa-realmente-la-ia-escuchar.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/yapay-zekayi-kim-kullaniyor-dinle.html">
+<link rel="icon" href="data:,">
+<title>到底谁在真正使用人工智能？ —— 聆听叙述</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --accent: #b08838;
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.15vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 2.2;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.listen-header {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 3rem;
+    max-width: 740px;
+}
+
+.listen-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--bone-bright);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.listen-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.listen-header .badge {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(176, 136, 56, 0.3);
+    padding: 0.3rem 0.8rem;
+}
+
+.listen-header .how-to {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+}
+
+.listen-header .how-to a {
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--bone-ghost);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.listen-header .how-to a:hover {
+    color: var(--bone);
+    border-color: var(--bone-dim);
+}
+
+.listen-header .meta {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+.listen-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.listen-content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+.section-break {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-break::after {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--bone-ghost);
+}
+
+.breath {
+    height: 1.5rem;
+}
+
+.listen-quote {
+    border-left: 2px solid var(--accent);
+    padding: 0.8rem 0 0.8rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+.listen-footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 4rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.listen-footer a {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.3s;
+}
+
+.listen-footer a:hover { color: var(--bone-dim); }
+
+@media (max-width: 640px) {
+    .listen-header { padding: 3rem 1.5rem 2rem; }
+    .listen-content { padding: 0 1.5rem 4rem; }
+    .listen-footer { padding: 2rem 1.5rem 3rem; }
+}
+
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+
+.home-nav {
+    text-align: center;
+    padding: 0.5rem 0 0;
+}
+.home-link {
+    color: var(--bone-dim);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: inline-block;
+    line-height: 1;
+}
+.home-link:hover {
+    color: var(--bone);
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="语言选择">
+    <a href="/raporlar/yapay-zekayi-kim-kullaniyor-dinle.html" class="lang-link">Turkce</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/english/raporlar/who-really-uses-ai-listen.html" class="lang-link">English</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/zhongwen/raporlar/who-really-uses-ai-listen.html" class="lang-link lang-active">中文</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/francais/raporlar/qui-utilise-vraiment-lia-ecouter.html" class="lang-link">Francais</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/deutsch/raporlar/wer-nutzt-ki-wirklich-hoeren.html" class="lang-link">Deutsch</a>
+    <span class="lang-sep">&middot;</span>
+    <a href="/espanol/raporlar/quien-usa-realmente-la-ia-escuchar.html" class="lang-link">Espanol</a>
+</nav>
+<div class="home-nav"><a href="/zhongwen/" class="home-link" aria-label="Home">&lceil;</a></div>
+<header class="listen-header">
+    <h1>到底谁在真正使用人工智能？</h1>
+    <p class="subtitle">刀越锋利，高手与生手之间的鸿沟越深</p>
+    <span class="badge">聆听叙述</span>
+    <p class="how-to">本文为聆听而准备。您可以使用设备自带的朗读功能，或像 <a href="https://elevenreader.io/" target="_blank" rel="noopener">ElevenReader</a> 这样的文字转语音工具来聆听。</p>
+    <p class="meta">聆听版 &mdash; 2026年5月</p>
+</header>
+
+<main class="listen-content">
+
+<p>到底谁在真正使用人工智能？</p>
+
+<div class="breath"></div>
+
+<p>2026年，似乎已经没有人不用人工智能了。一位律师让它代写诉状，一位学生让它代做作业，一位营销人员让它生成广告文案。人人都在用。但他们真的在"用"吗？</p>
+
+<div class="breath"></div>
+
+<p>打个比方。九十年代末，互联网走进千家万户。人人开始说"我上网了"。但那时候"上网"对大多数人来说无非是：打开浏览器，输入一个词，点第一条结果，读一读，关掉。真正使用互联网的人做的是完全不同的事——阅读源代码，访问数据库，交叉验证信息。</p>
+
+<p>两类人用的是同一个工具。差别不在工具上。差别在于使用者脑子里装的东西。</p>
+
+<div class="listen-quote">
+打开一个工具和使用一个工具之间，隔着一道鸿沟。在ChatGPT里输入一个问题，并不等于在使用人工智能——正如在Google里敲一个词，并不等于在做研究。
+</div>
+
+<div class="section-break"></div>
+
+<p>刀越锋利，剪刀张得越开。</p>
+
+<div class="breath"></div>
+
+<p>这看似悖论：工具越强大，使用者之间的差距越大。人人使用石刀的年代，差距很小。工具把每个人限制在同一水平。钢刀出现后，上限消失了。工具不再构成限制——工具开始映射使用者自身的能力。</p>
+
+<div class="breath"></div>
+
+<p>同样的规律反复上演。1440年，印刷术。人人能印书了。结果：更多垃圾被印出来，但好作者也第一次触及了大众。1990年，互联网。人人成了出版者。信息污染爆发，但真正做研究的人变得前所未有地强大。1998年，Google。同一个搜索框，截然不同的结果。2022年，ChatGPT。同一种人工智能，鸿沟每天在加深。</p>
+
+<div class="breath"></div>
+
+<p>人们假设强大工具会把所有人往上拉。但强大工具不是把所有人往上拉——它抬高了天花板。贴着地面的人依然贴在地面。能往上攀的人攀得更高。</p>
+
+<div class="listen-quote">
+人工智能不是均衡器。人工智能是放大镜。它放大一切：有思考能力之人的能力，没有思考能力之人的空白。
+</div>
+
+<div class="section-break"></div>
+
+<p>"找到了"的错觉。</p>
+
+<div class="breath"></div>
+
+<p>Google教会了人们一个极其危险的习惯：输入一个词，看第一条结果，说"好了，我知道了"。现在这习惯搬到了ChatGPT上。一个人输入问题，得到流畅文字，说"我研究过了"。但他既没有研究，也没有学到任何东西。他只是阅读了一个语言模型的统计输出，并把它当成了自己的思考。</p>
+
+<div class="breath"></div>
+
+<p>这个循环自我封闭。浅薄的问题，流畅的回答，满足感，停止搜索，留在浅层。要打破循环，你必须先站在循环之外。要意识到自己的浅薄，你必须先知道"深"是什么。但浅薄之人对深度的存在一无所知。</p>
+
+<p>知道自己不知道是一种能力。不知道自己不知道，是一种自我喂养的盲目。</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>而如今滋养这种盲目最有力的工具，正是人工智能。因为Google的输出至少看起来干涩。ChatGPT的输出流畅、工整、自信满满。即使回答很差，它看起来也很好。</p>
+
+<div class="section-break"></div>
+
+<p>电视主播的进化。</p>
+
+<div class="breath"></div>
+
+<p>九十年代，人们看完晚间新闻说"我现在懂政治了"。主播讲，观众听，观众自以为获得了知识。但至少有一种自觉：对面坐的是另一个人。界限分明。</p>
+
+<p>在ChatGPT上，这条界限模糊了。你提问，它回答。大脑的编码方式是："我提的问，它回答了，所以这是我的研究。"但你既没有真正提问，也没有评判，更没有核实。</p>
+
+<p>这比电视主播更危险。看电视时，你至少知道自己是被动的。在ChatGPT上，你以为自己是主动的。</p>
+
+<div class="section-break"></div>
+
+<p>人工智能公司为何沉默？</p>
+
+<div class="breath"></div>
+
+<p>OpenAI、Anthropic、Google DeepMind——对市场上的虚假课程和不合格讲师，说了什么？</p>
+
+<p>零。连一篇博文都没有。连一句"市场上有人在骗你们，请小心"都没有。</p>
+
+<p>与此同时，它们在做什么？发布自己的免费教学材料。Anthropic Academy完全免费。OpenAI联合课程免费。当有人以数千元的价格兜售ChatGPT课程时，制造这个工具的公司正在免费提供同样的知识。但它没有说"请小心"。</p>
+
+<div class="breath"></div>
+
+<p>为什么？因为即使是糟糕的课程，终归让人使用了ChatGPT。每一门课程都在注册新用户。质量管控会拖慢增长。劣质教育比没有教育更有利可图。</p>
+
+<div class="listen-quote">
+这些公司发布安全报告，宣布伦理原则，撰写"负责任的人工智能"宣言——却对自家产品的用户被宰割默不作声。
+</div>
+
+<div class="section-break"></div>
+
+<p>核心论点。人工智能是有害的——但不是你以为的那样。</p>
+
+<div class="breath"></div>
+
+<p>"它会抢走工作"、"它会毁灭人类"——这些都是噪音。真正的危害安静得多，而且已经开始了。</p>
+
+<p>人工智能在增强有思考能力之人的力量。同时，它正在夺走没有思考能力之人手中仅存的碎片。</p>
+
+<div class="breath"></div>
+
+<p>有思考能力的人把它当工具。提问、评判、核实、引导、交叉验证。每次使用都多学一点。人工智能在增强他。</p>
+
+<p>没有思考能力的人把它当权威。提问，照收，说"我学到了"，停止思考。每次使用都变得更懒一点。人工智能在削弱他。</p>
+
+<p>这两个群体之间的剪刀差每天都在扩大。同一个工具，相反的结果。锋利的刀让高手如虎添翼，却割伤了生手的手。</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>这篇文章不是攻击。这是一个警告。</p>
+
+<p>真正学会人工智能，不等于学会在一个网页界面里输入问题。它意味着：知道自己在问什么。能够评判回答。不依赖单一工具。不转让思考的责任。能够说"我不知道"。</p>
+
+<p>一门课程教不了这些。一张证书给不了这些。因为这不是工具使用技能——而是一种思维方式。</p>
+
+<div class="listen-quote">
+人工智能并不有害。不经思考地使用人工智能才有害。而能教会你这两者之间区别的，既不是一门课程，也不是一张证书，更不是一纸大学文凭。唯一能教会你的，是你自己承担起思考的责任。
+</div>
+
+</main>
+
+<footer class="listen-footer">
+    <a href="who-really-uses-ai.html">&larr; 返回阅读版</a>
+    <span style="margin: 0 1rem; color: var(--bone-ghost);">&middot;</span>
+    <a href="/zhongwen/">halitcengizuzuner.com</a>
+</footer>
+
+</body>
+</html>

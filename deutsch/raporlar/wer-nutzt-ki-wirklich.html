@@ -42,7 +42,7 @@
   "headline": "Wer nutzt KI wirklich?",
   "description": "Je schärfer die Klinge, desto größer die Kluft zwischen Meister und Anfänger. Mit KI ist es genauso — sie stärkt die einen und nimmt den anderen den letzten Rest an eigenständigem Denken.",
   "datePublished": "2026-05-11",
-  "dateModified": "2026-05-11",
+  "dateModified": "2026-05-20",
   "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
   "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/deutsch/raporlar/wer-nutzt-ki-wirklich.html"},
@@ -823,6 +823,61 @@
 .home-link:hover {
     color: var(--bone-bright);
 }
+
+.transcreation-notes {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+}
+
+.transcreation-notes h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(176, 136, 56, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--bicak);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--bicak);
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -1395,6 +1450,35 @@
     </div>
   </div>
 </section>
+
+<div class="transcreation-notes">
+    <h3>Anmerkungen zur Transcreation</h3>
+
+    <details>
+        <summary>&bdquo;Bıçak keskinleştikçe makas açılır&ldquo; &mdash; Die Klingen-Metapher</summary>
+        <div class="note-body">Der türkische Titel des zweiten Abschnitts lautet wörtlich: <em>Bıçak keskinleştikçe makas açılır</em> &mdash; &bdquo;Je schärfer das Messer, desto weiter öffnet sich die Schere.&ldquo; Im Türkischen verschmilzt das Bild zweier Werkzeuge (Messer und Schere) zu einer einzigen Formel. Im Deutschen wurde &bdquo;Klinge&ldquo; gewählt statt &bdquo;Messer&ldquo;, weil &bdquo;Klinge&ldquo; gleichzeitig Schärfe und Gefahr transportiert, und &bdquo;Schere&ldquo; wurde zu &bdquo;Kluft&ldquo; &mdash; im Deutschen ist &bdquo;die Schere öffnet sich&ldquo; als Redewendung bekannt, aber &bdquo;Kluft&ldquo; trifft den Ton des Textes besser: eine Kluft ist unüberwindbar, eine offene Schere könnte sich wieder schließen.</div>
+    </details>
+
+    <details>
+        <summary>&bdquo;Buldum&ldquo;-Yanılgısı &mdash; Die &bdquo;Gefunden&ldquo;-Illusion</summary>
+        <div class="note-body">Türkisch <em>buldum</em> ist das Perfekt von <em>bulmak</em> (finden) &mdash; &bdquo;ich habe gefunden&ldquo;, aber umgangssprachlich auch &bdquo;ich hab&rsquo;s&ldquo;, &bdquo;hab&rsquo;s kapiert&ldquo;. Die &bdquo;Gefunden&ldquo;-Illusion versucht, diese Doppelbedeutung einzufangen: das Finden als kognitiven Abschluss, als vorzeitige Zufriedenheit. Im Deutschen fehlt die umgangssprachliche Verdichtung; &bdquo;Gefunden&ldquo; klingt nüchterner als das triumphierende türkische <em>buldum!</em></div>
+    </details>
+
+    <details>
+        <summary>&bdquo;kullanan adamın kafasında&ldquo; &mdash; im Kopf des Benutzers</summary>
+        <div class="note-body">Der Türkische Schlüsselsatz <em>fark kullanan adamın kafasındaydı</em> ist umgangssprachlich direkt: &bdquo;Der Unterschied lag im Kopf des Typen, der es benutzte.&ldquo; <em>Adam</em> ist im Türkischen gleichzeitig &bdquo;Mann&ldquo;, &bdquo;Mensch&ldquo; und umgangssprachlich &bdquo;Typ&ldquo; &mdash; eine Alltagsbezeichnung ohne Gender-Neutralität. Im Deutschen wurde &bdquo;Benutzer&ldquo; gewählt, weil &bdquo;Typ&ldquo; oder &bdquo;Kerl&ldquo; den essayistischen Ton gesprengt hätte. Was verloren geht: die Direktheit und die Alltagshärte des Originals.</div>
+    </details>
+
+    <details>
+        <summary>&bdquo;Büyüteç&ldquo; &mdash; Vergrößerungsglas</summary>
+        <div class="note-body">Türkisch <em>büyüteç</em> ist ein einziges Wort: Vergrößerungsglas, Lupe. Im Deutschen braucht man ein Kompositum aus vier Silben. Die Kernthese des Textes &mdash; <em>yapay zekâ büyüteç</em> (&bdquo;KI ist ein Vergrößerungsglas&ldquo;) &mdash; hat im Türkischen eine schlagende Kürze, die im Deutschen unvermeidlich an Gewicht verliert. &bdquo;Lupe&ldquo; wäre kürzer gewesen, trägt aber eine Konnotation des Kleinen, Detaillierten; &bdquo;Vergrößerungsglas&ldquo; ist sperriger, aber neutraler und damit näher am Original.</div>
+    </details>
+
+    <details>
+        <summary>Registerwechsel: Umgangssprache und Essay</summary>
+        <div class="note-body">Der türkische Originaltext pendelt bewusst zwischen umgangssprachlicher Schärfe und analytischer Distanz. Sätze wie <em>adam &bdquo;araştırdım ve öğrendim&ldquo; diyor</em> (&bdquo;der Typ sagt &lsquo;ich habe recherchiert und gelernt&rsquo;&ldquo;) stehen neben Passagen, die wie ein akademischer Befund formuliert sind. Im Deutschen ist dieser Pendelschlag schwieriger: die Umgangssprache wirkt in einem Essay schneller deplatziert. Die deutsche Fassung hat den Tonfall leicht in Richtung gehobener Mündlichkeit verschoben &mdash; direkt, aber weniger rau als das Türkische.</div>
+    </details>
+</div>
 
 <div class="other-reports">
   <h3>Weitere Texte</h3>
