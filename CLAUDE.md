@@ -30,6 +30,10 @@
   - Çay Masası: --cay (#b89060) — çay amberi
   - Nefret Üzerine: --accent (#c4785a) — yanık toprak (kendi font/CSS sistemi: Cormorant Garamond + Inter)
   - Yazıdan Sese: --yanki (#7068a0) — yankı indigo
+  - Yüzsüz İletişim: --visage (#5a7a7a) — koyu teal
+  - Görünmez Boşluk: --bosluk (#7a8a9a) — soğuk gri mavi
+  - Yapay Zekâyı Kim Kullanıyor: --bicak (#b08838) — bıçak amberi
+  - Anlamak: --anlam (#708050) — zeytin yeşili
 - Grain overlay: fractalNoise SVG, mix-blend-mode overlay (opaklık rapor bazında farklı)
 - Responsive: clamp() ile akışkan tipografi
 - Raporlar: /raporlar/ dizininde

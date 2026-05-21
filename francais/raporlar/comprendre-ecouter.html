@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Comprendre — version d'ecoute. L'enseignement en langue etrangere, la pensee et l'anatomie d'une illusion.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://halitcengizuzuner.com/francais/raporlar/comprendre.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/anlamak.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/comprendre-ecouter.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/anlamak.html">
+<link rel="icon" href="data:,">
+<title>Comprendre — Version d'ecoute</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --accent: #708050;
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.15vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 2.2;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.listen-header {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 3rem;
+    max-width: 740px;
+}
+
+.listen-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--bone-bright);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.listen-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.listen-header .badge {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(112, 128, 80, 0.3);
+    padding: 0.3rem 0.8rem;
+}
+
+.listen-header .how-to {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+}
+
+.listen-header .how-to a {
+    color: var(--bone-dim);
+    border-bottom: 1px solid var(--bone-ghost);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.listen-header .how-to a:hover {
+    color: var(--bone);
+    border-color: var(--bone-dim);
+}
+
+.listen-header .meta {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+.listen-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.listen-content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+.section-break {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-break::after {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--bone-ghost);
+}
+
+.breath {
+    height: 1.5rem;
+}
+
+.listen-quote {
+    border-left: 2px solid var(--accent);
+    padding: 0.8rem 0 0.8rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.7;
+}
+
+.listen-footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 4rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.listen-footer a {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.3s;
+}
+
+.listen-footer a:hover { color: var(--bone-dim); }
+
+@media (max-width: 640px) {
+    .listen-header { padding: 3rem 1.5rem 2rem; }
+    .listen-content { padding: 0 1.5rem 4rem; }
+    .listen-footer { padding: 2rem 1.5rem 3rem; }
+}
+
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #708050; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+
+.home-nav {
+    text-align: center;
+    padding: 0.5rem 0 0;
+}
+.home-link {
+    color: var(--bone-dim);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: inline-block;
+    line-height: 1;
+}
+.home-link:hover {
+    color: var(--bone);
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="Langue">
+    <a href="/francais/raporlar/comprendre-ecouter.html" class="lang-link lang-active">Francais</a>
+</nav>
+<div class="home-nav"><a href="/francais/" class="home-link" aria-label="Home">&#8962;</a></div>
+<header class="listen-header">
+    <h1>Comprendre</h1>
+    <p class="subtitle">L'enseignement en langue etrangere, la pensee et l'anatomie d'une illusion</p>
+    <span class="badge">version d'ecoute</span>
+    <p class="how-to">Ce texte a ete prepare pour l'ecoute. Vous pouvez l'ecouter avec le lecteur integre de votre appareil ou un outil comme <a href="https://elevenreader.io/" target="_blank" rel="noopener">ElevenReader</a>.</p>
+    <p class="meta">Version d'ecoute — Mai 2026</p>
+</header>
+
+<main class="listen-content">
+
+<p>Comprendre. L'enseignement en langue etrangere, la pensee et l'anatomie d'une illusion. Halit Cengiz Uzuner. Mai deux mille vingt-six.</p>
+
+<div class="breath"></div>
+
+<p>Quand nous disons je comprends, que voulons-nous dire ? Avons-nous decode les mots d'une phrase ? Avons-nous saisi ce que notre interlocuteur cherchait a exprimer ? Avons-nous capte le non-dit, l'implicite, l'emotion derriere le ton ?</p>
+
+<div class="breath"></div>
+
+<p>Tout cela est comprendre. Mais rien de tout cela n'est la meme chose.</p>
+
+<div class="section-break"></div>
+
+<p>La comprehension a des strates. Au premier niveau, on decode les mots. I see egal je vois. C'est le niveau le plus elementaire. Au deuxieme, on saisit ce qui n'est pas dit. I see dans la bouche d'un scientifique peut signifier je comprends ou je remarque. Au troisieme, on capte la nuance culturelle. I see prononce par un diplomate britannique peut etre de l'ironie, du doute, un refus courtois. Au quatrieme, on accede a la vision du monde de l'autre, a ce qu'il insinue sans le formuler.</p>
+
+<div class="breath"></div>
+
+<p>Les locuteurs de langue seconde restent le plus souvent au premier niveau. Certains atteignent le deuxieme. Tres peu le troisieme. Le quatrieme, meme en langue maternelle, tout le monde n'y accede pas.</p>
+
+<div class="breath"></div>
+
+<p>Et le veritable probleme est peut-etre celui-ci. Les gens disent je comprends alors qu'ils sont au premier niveau, et ne questionnent pas ce qui se trouve au-dela. Le concept meme de comprendre est traite avec une telle superficialite qu'il en devient incomprehensible.</p>
+
+<div class="section-break"></div>
+
+<p>En deux mille douze, Boaz Keysar et ses collegues de l'Universite de Chicago ont publie une decouverte frappante. On l'appelle l'effet de la langue etrangere.</p>
+
+<div class="breath"></div>
+
+<p>Imaginez. Une epidemie menace de tuer six cents personnes. On vous propose deux programmes. Le premier sauve deux cents personnes a coup sur. Le deuxieme a un tiers de chance de sauver tout le monde et deux tiers de n'en sauver aucun. La plupart des gens choisissent le premier. Le gain certain.</p>
+
+<div class="breath"></div>
+
+<p>Maintenant, le meme scenario avec d'autres mots. Avec le premier programme, quatre cents personnes meurent a coup sur. Avec le deuxieme, un tiers de chance que personne ne meure, deux tiers que tous meurent. Cette fois, les gens choisissent le deuxieme. Ils refusent la perte certaine.</p>
+
+<div class="breath"></div>
+
+<p>Les deux cadrages disent mathematiquement la meme chose. Mais en langue maternelle, les gens decidaient differemment, parce que les mots sauver et mourir portent un poids emotionnel different.</p>
+
+<div class="breath"></div>
+
+<p>La decouverte de Keysar. En langue etrangere, cette asymetrie disparaissait. Les mots sauver et mourir perdaient leur charge emotionnelle. Le sens est le meme. Le poids est different.</p>
+
+<div class="breath"></div>
+
+<p>La langue maternelle est chargee depuis l'enfance d'experiences emotionnelles. C'est la langue du premier amour, des reprimandes maternelles, des peurs enfantines. Le mot mort en langue maternelle n'est pas qu'un concept. C'est l'echo des funerailles, des proches perdus, des terreurs de l'enfance. En langue etrangere, le meme mot reste une entree de dictionnaire.</p>
+
+<div class="listen-quote">
+Penser en langue etrangere est qualitativement different de penser en langue maternelle. Meme personne, meme probleme, deux langues differentes, deux decisions differentes.
+</div>
+
+<div class="section-break"></div>
+
+<p>Dans quelle langue penses-tu ? Ce n'est pas une question abstraite. Jean-Marc Dewaele a etudie mille quatre cent cinquante-quatre adultes plurilingues. Le discours interieur general reste principalement en langue maternelle. Le discours interieur emotionnel, la colere, la joie, la tristesse, la peur, tout se vit en premiere langue. Et le calcul mental se fait systematiquement dans la premiere langue, meme chez des bilingues avances. Sept fois huit, la reponse vient dans la voix de la premiere langue.</p>
+
+<div class="breath"></div>
+
+<p>Jim Cummins a distingue deux formes de competence linguistique. La premiere, BICS, c'est la conversation quotidienne. Elle s'acquiert en un a trois ans. La seconde, CALP, c'est la pensee abstraite, l'argumentation, l'analyse. Elle exige cinq a dix ans. Le modele de la classe preparatoire confere essentiellement une competence BICS. L'etudiant parait fluide, mais l'universite exige le CALP. Entre les deux, un gouffre.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Et ce gouffre engendre une illusion. L'etudiant parait savoir l'anglais. Le professeur et le systeme se comportent en consequence. Mais en realite il decode les mots sans acceder a la profondeur de la pensee.</p>
+
+<div class="section-break"></div>
+
+<p>Il y a ici un paradoxe. Une competence linguistique d'apparence solide peut en realite reduire le taux de comprehension.</p>
+
+<div class="breath"></div>
+
+<p>Si vous ne connaissez pas la langue, vous savez que vous ne comprenez pas. Vous consultez un traducteur, vous verifiez par d'autres canaux. L'ignorance vous rend prudent.</p>
+
+<div class="breath"></div>
+
+<p>Si vous avez une competence d'apparence mais superficielle, vous croyez comprendre. Vous decodez les mots, vous vous dites oui, j'ai compris. Mais la nuance, l'ironie, la couche culturelle, l'implicite, tout cela vous echappe. Et vous ne savez pas que cela vous echappe.</p>
+
+<div class="listen-quote">
+Ils voient ce qui est faux. Ils ne voient pas ce qui manque. Parce qu'ils ne savent pas ce qui devrait etre la.
+</div>
+
+<div class="section-break"></div>
+
+<p>Pourquoi les universites enseignent-elles en anglais ? La reponse n'a rien a voir avec la qualite de l'enseignement. Attirer des etudiants internationaux, monter dans les classements, projeter une image internationale. L'enseignement en anglais n'est pas choisi pour que l'etudiant pense mieux, mais pour que l'universite paraisse mieux.</p>
+
+<div class="breath"></div>
+
+<p>Le chiffre le plus frappant. Au cours des quatre annees d'etudes dans les universites enseignant en anglais, la progression moyenne a l'IELTS est de zerovirgulacinq point. Un cours de langue intensif produit la meme progression en dix semaines. Quatre ans egal dix semaines.</p>
+
+<div class="breath"></div>
+
+<p>Et le systeme reconnait la barriere qu'il pretend ne pas voir. Des universites americaines accordent une heure supplementaire par examen aux etudiants dont l'anglais n'est pas la langue maternelle. L'examen ACT donne jusqu'a cinquante pour cent de temps supplementaire. Le systeme dit d'un cote que l'enseignement en anglais fonctionne et de l'autre accorde du temps supplementaire aux examens, parce qu'il sait que cela ne fonctionne pas.</p>
+
+<div class="section-break"></div>
+
+<p>L'impact n'est pas le meme pour tous. Pour le profil moyen, le systeme fonctionne. Un anglais de niveau BICS est acquis, le CV est rempli, l'avantage de carriere est obtenu. Personne ne demande a quelle profondeur comprends-tu.</p>
+
+<div class="breath"></div>
+
+<p>Pour le profil qui pense en profondeur, le systeme peut etre prejudiciable. Un esprit capable de construire des arguments complexes en langue maternelle retombe au niveau BICS en langue etrangere. La capacite de reflexion n'est pas faible. C'est la langue qui interdit de l'exercer.</p>
+
+<div class="breath"></div>
+
+<p>Une etude randomisee en Suede. Meme cours, meme examen. Un groupe en suedois, l'autre en anglais. Le groupe en suedois a repondu correctement a soixante-treize pour cent de questions en plus. Et les etudiants du groupe anglais qui se jugeaient eux-memes competents en anglais ont quand meme obtenu des resultats inferieurs de quarante et un pour cent.</p>
+
+<div class="listen-quote">
+L'energie cognitive est une ressource finie. Si elle va au decodage linguistique, elle ne va pas a la comprehension. Si elle va a la traduction, elle ne va pas a la pensee originale. Les quarante et un pour cent de Balter sont la facture concrete de cette allocation.
+</div>
+
+<div class="section-break"></div>
+
+<p>Chaque langue est une fenetre sur le monde. Le russe possede deux mots fondamentaux pour le bleu, sinij et goluboj, la ou l'anglais n'en a qu'un. Les russophones discriminent plus vite les couleurs qui traversent cette frontiere linguistique.</p>
+
+<div class="breath"></div>
+
+<p>Les anglophones disposent le temps de gauche a droite. Les arabophones de droite a gauche. Les locuteurs du mandarin de haut en bas. Le peuple Kuuk Thaayorre en Australie dispose le temps d'est en ouest, suivant la course du soleil, quelle que soit l'orientation dans laquelle on les asseoit.</p>
+
+<div class="breath"></div>
+
+<p>Le turc possede un trait rare. Les marqueurs evidentiels. L'obligation grammaticale de coder la source de l'information. Ali geldi, je l'ai vu, j'etais la. Ali gelmis, parait-il, quelqu'un me l'a dit. En anglais, Ali came couvre les deux cas. En turc, on ne peut pas ne pas preciser.</p>
+
+<div class="breath"></div>
+
+<p>Chaque langue possede ses propres mots intraduisibles. Le turc gonul, ce centre interieur ou se rencontrent l'emotion, l'intention et l'attachement. Le huzun, cet etat d'ame noir partage par des millions. Le keyif, ce contentement silencieux qui nait de l'existence meme. La saudade portugaise. Le mono no aware japonais. La Schadenfreude allemande. Le hygge danois.</p>
+
+<div class="breath"></div>
+
+<p>Ces richesses sont reelles. Mais elles ne signifient pas qu'il faut etre forme dans cette langue pour penser. La fenetre de chaque langue montre le monde de cette langue. Mais penser, saisir, analyser, synthetiser, ne se fait pas en regardant par la fenetre. Cela se fait a l'interieur de la maison. Et cette maison est la langue maternelle.</p>
+
+<div class="section-break"></div>
+
+<p>Le savoir parvient a l'homme par trois canaux traditionnels. La traduction de livres est statique. Le meme texte pour tous. L'enseignant est vivant mais limite. Le meme cours pour trente eleves. L'intelligence artificielle interactive est categoriquement differente. Elle peut situer le savoir dans le monde de chaque utilisateur.</p>
+
+<div class="breath"></div>
+
+<p>Mais l'IA ne comprend pas le savoir. Celui qui comprend, qui pense, qui relie les concepts, c'est encore l'esprit humain. L'IA leve l'obstacle, la barriere linguistique. Elle ameliore les conditions de la comprehension. Mais la comprehension elle-meme reste un acte humain.</p>
+
+<div class="breath"></div>
+
+<p>Deux choses ont change. L'acces au savoir ne requiert plus l'anglais. La facon de rencontrer le savoir depasse la traduction standard. Une chose n'a pas change. Les humains pensent, saisissent, formulent toujours en langue maternelle.</p>
+
+<div class="breath"></div>
+<div class="breath"></div>
+
+<p>Ne pas savoir une langue n'est pas un handicap. C'est un etat de conscience. Celui qui sait qu'il ne comprend pas developpe des mecanismes compensatoires. Celui qui croit comprendre ne developpe rien.</p>
+
+<div class="breath"></div>
+
+<p>Nous devons utiliser le mot comprendre avec plus de soin. Decoder un mot n'est pas comprendre. Traduire une phrase n'est pas comprendre. Suivre une conversation n'est pas comprendre. Comprendre, c'est voir le monde derriere une pensee. Et c'est une aptitude difficile dans quelque langue que ce soit.</p>
+
+<div class="breath"></div>
+
+<p>Peut-etre le probleme n'est-il pas dans l'enseignement en anglais. Peut-etre le probleme est-il que nous ne comprenons pas le concept de comprendre.</p>
+
+<div class="listen-quote">
+Les questions comptent plus que les reponses.
+</div>
+
+</main>
+
+<footer class="listen-footer">
+    <a href="comprendre.html">&larr; retour a la version lecture</a>
+</footer>
+
+</body>
+</html>
