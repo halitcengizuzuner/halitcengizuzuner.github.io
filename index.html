@@ -39,29 +39,47 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Halit Cengiz Uzuner",
-      "url": "https://halitcengizuzuner.com/",
-      "description": "Sorular cevaplardan önemlidir.",
-      "inLanguage": "tr",
-      "author": {
-        "@type": "Person",
-        "name": "Halit Cengiz Uzuner",
-        "url": "https://halitcengizuzuner.com/",
-        "sameAs": [
-          "https://halitcengizuzuner.substack.com",
-          "https://bsky.app/profile/halitcengizuzuner.com",
-          "https://medium.com/@avukathalituzuner",
-          "https://www.linkedin.com/in/halit-cengiz-uzuner-b3a7b2354",
-          "https://independent.academia.edu/HalitCengizUzuner",
-          "https://orcid.org/0009-0006-7269-1105",
-          "https://ssrn.com/author=11517408",
-          "https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Uzuner%2C+Halit+Cengiz%22",
-          "https://profile.hcommons.org/members/halitcengizuzuner/",
-          "https://scholar.google.com/citations?user=LAmrEvcAAAAJ",
-          "https://www.researchgate.net/profile/Halit-Uzuner-2"
-        ]
-      }
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://halitcengizuzuner.com/#website",
+          "name": "Halit Cengiz Uzuner",
+          "url": "https://halitcengizuzuner.com/",
+          "description": "Sorular cevaplardan önemlidir.",
+          "inLanguage": "tr",
+          "author": { "@id": "https://halitcengizuzuner.com/#person" },
+          "publisher": { "@id": "https://halitcengizuzuner.com/#person" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://halitcengizuzuner.com/#person",
+          "name": "Halit Cengiz Uzuner",
+          "url": "https://halitcengizuzuner.com/",
+          "jobTitle": "Araştırmacı, Hukukçu, Yapay Zekâ Tercümanı",
+          "description": "Dil, hukuk, zihin ve yapay zekânın düşünme üzerindeki etkisi üzerine altı dilde deneme yazan araştırmacı.",
+          "knowsAbout": [
+            "Dil felsefesi",
+            "Hukuk",
+            "Zihin felsefesi",
+            "Yapay zekâ",
+            "Epistemoloji",
+            "Edebiyat ve düşünce"
+          ],
+          "sameAs": [
+            "https://halitcengizuzuner.substack.com",
+            "https://bsky.app/profile/halitcengizuzuner.com",
+            "https://medium.com/@avukathalituzuner",
+            "https://www.linkedin.com/in/halit-cengiz-uzuner-b3a7b2354",
+            "https://independent.academia.edu/HalitCengizUzuner",
+            "https://orcid.org/0009-0006-7269-1105",
+            "https://ssrn.com/author=11517408",
+            "https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Uzuner%2C+Halit+Cengiz%22",
+            "https://profile.hcommons.org/members/halitcengizuzuner/",
+            "https://scholar.google.com/citations?user=LAmrEvcAAAAJ",
+            "https://www.researchgate.net/profile/Halit-Uzuner-2"
+          ]
+        }
+      ]
     }
     </script>
     <style>
