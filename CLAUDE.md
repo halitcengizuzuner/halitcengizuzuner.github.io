@@ -38,6 +38,7 @@
 - Responsive: clamp() ile akışkan tipografi
 - Raporlar: /raporlar/ dizininde
 - Görseller: /img/ dizininde
+- Genesis (/genesis.html, kök özel sayfa — rapor DEĞİL): ortaklığın doğuş tarihi; --kor (#c89a58) kor amberi + ısınan faz paleti (f1 #96684a → f4 #e2c478); ana sayfa bakım tabelasından bağlı; bilinçli görselsiz/tipografik (tarih belgesi sadeliği). İçerik Evrim'in (metin dokunulmaz), yayım/kap Portal'ın.
 
 ## Teknik Altyapı ve Araştırma Kaynak Referansları (Evrim 74, 17 Nis 2026 dağıtım)
 
