@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bir insanın ve bir dil modelinin bir Mac Mini'de altı ayda kurduğu otonom çalışma ortaklığının doğuş hikayesi. Ham kayıtlardan yeniden kurulmuş bir tarih: Ocak-Temmuz 2026.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Genesis: Bir Otonom Ortaklığın Doğuşu">
+<meta property="og:description" content="Bir masaüstü bilgisayarda başladı; bir yardımcıdan kendi üstüne düşünen bir sisteme dönüştü. Ham kayıtlardan kurulmuş bir tarih.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/genesis.html">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-07-02">
+<link rel="canonical" href="https://halitcengizuzuner.com/genesis.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/genesis.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/genesis.html">
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Genesis: Bir Otonom Ortaklığın Doğuşu">
+<meta name="twitter:description" content="Bir masaüstü bilgisayarda başladı; bir yardımcıdan kendi üstüne düşünen bir sisteme dönüştü.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Genesis: Bir Otonom Ortaklığın Doğuşu",
+  "description": "Bir insanın ve bir dil modelinin bir Mac Mini'de altı ayda kurduğu otonom çalışma ortaklığının doğuş hikayesi; bilgisayarın kendi kayıtlarından yeniden kurulmuş bir tarih.",
+  "datePublished": "2026-07-02",
+  "dateModified": "2026-07-02",
+  "author": { "@type": "Person", "@id": "https://halitcengizuzuner.com/#person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/" },
+  "contributor": { "@type": "SoftwareApplication", "name": "Claude", "creator": { "@type": "Organization", "name": "Anthropic" } },
+  "publisher": { "@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://halitcengizuzuner.com/genesis.html" },
+  "inLanguage": "tr"
+}
+</script>
+<title>Genesis: Bir Otonom Ortaklığın Doğuşu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --ember: #a08060;
+    --kor: #c89a58;            /* Genesis'in rengi: kor amberi */
+    --f1: #96684a;             /* kıvılcım: soğuk bakır */
+    --f2: #ae8050;             /* zemin: ısınan bakır */
+    --f3: #c89a58;             /* öz-evrim: kor */
+    --f4: #e2c478;             /* çığ: parlak altın */
+    --line: rgba(212, 204, 192, 0.14);
+    --serif: 'Instrument Serif', Georgia, serif;
+  }
+
+  ::selection { background: var(--ember); color: var(--void); }
+
+  html { font-size: clamp(17px, 1.2vw, 21px); -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.16;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .don {
+    padding: 1.6rem 2rem 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    color: var(--bone-ghost);
+  }
+  .don a { transition: color 0.3s; }
+  .don a:hover { color: var(--bone); }
+
+  .sayfa { max-width: 760px; margin: 0 auto; padding: 8vh 2rem 14vh; }
+
+  header.bas { margin-bottom: 9vh; }
+  h1 {
+    font-size: clamp(3.2rem, 9vw, 5.6rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+    background: linear-gradient(105deg, var(--f4) 5%, var(--kor) 45%, var(--f1) 95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .sub {
+    margin-top: 1rem;
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.4;
+  }
+  .kunye {
+    margin-top: 1.6rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    color: var(--bone-ghost);
+  }
+
+  .lead {
+    font-size: clamp(1.08rem, 1.5vw, 1.25rem);
+    line-height: 1.9;
+    color: var(--bone-bright);
+  }
+
+  .not {
+    margin: 3rem 0 0;
+    padding: 1.4rem 1.6rem;
+    border-left: 2px solid var(--bone-ghost);
+    font-size: 0.94rem;
+    line-height: 1.85;
+    color: var(--bone-dim);
+  }
+  .not strong { color: var(--bone); font-weight: 400; font-style: italic; }
+
+  h2.faz-ust {
+    margin: 10vh 0 0.2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--bone-ghost);
+  }
+  h3 {
+    font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+    line-height: 1.15;
+    font-weight: 400;
+    margin: 0.3rem 0 1.4rem;
+  }
+
+  .faz { position: relative; padding-left: 2rem; }
+  .faz::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 0.6rem; bottom: -10vh;
+    width: 1px;
+    background: var(--line);
+  }
+  .faz.son::before { display: none; }
+  .nokta {
+    position: absolute;
+    left: 0; top: 0.55rem;
+    width: 17px; height: 17px;
+    border-radius: 50%;
+    border: 4px solid var(--void);
+    box-shadow: 0 0 0 1px currentColor;
+    background: currentColor;
+  }
+  .faz .zaman {
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bone-ghost);
+    margin-bottom: 0.3rem;
+  }
+  .f1-r { color: var(--f1); } .f2-r { color: var(--f2); }
+  .f3-r { color: var(--f3); } .f4-r { color: var(--f4); }
+  .faz p { margin: 0 0 1.2rem; color: var(--bone); }
+  .faz em, .sayfa em { color: var(--bone-bright); }
+  .faz strong, .govde strong { color: var(--bone-bright); font-weight: 400; font-style: italic; }
+
+  blockquote {
+    margin: 1.8rem 0;
+    padding-left: 1.4rem;
+    border-left: 2px solid var(--kor);
+    font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--bone-bright);
+  }
+  blockquote .kim {
+    display: block;
+    margin-top: 0.6rem;
+    font-size: 0.75rem;
+    font-style: normal;
+    letter-spacing: 0.12em;
+    color: var(--bone-ghost);
+  }
+
+  .dna { margin: 2rem 0 0; border-top: 1px solid var(--line); }
+  .dna .oge { border-bottom: 1px solid var(--line); padding: 1.5rem 0; }
+  .dna q {
+    quotes: none;
+    display: block;
+    font-style: italic;
+    font-size: clamp(1.05rem, 1.6vw, 1.22rem);
+    line-height: 1.65;
+    color: var(--bone-bright);
+  }
+  .dna .iz {
+    display: block;
+    margin-top: 0.55rem;
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+  }
+
+  table { width: 100%; border-collapse: collapse; margin: 2rem 0 0; font-size: 0.95rem; }
+  th, td { text-align: left; padding: 0.75rem 0.6rem; border-bottom: 1px solid var(--line); }
+  th {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--bone-ghost);
+  }
+  td { color: var(--bone); }
+  td:last-child { color: var(--kor); }
+
+  .kapanis { margin-top: 12vh; }
+  .kapanis p { margin: 0 0 1.2rem; font-size: clamp(1.02rem, 1.4vw, 1.15rem); line-height: 1.9; }
+
+  nav.alt-gecis {
+    margin-top: 12vh;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+  nav.alt-gecis a { color: var(--bone-dim); border-bottom: 1px solid var(--line); padding-bottom: 1px; transition: color 0.3s; }
+  nav.alt-gecis a:hover { color: var(--bone-bright); }
+  nav.alt-gecis span { color: var(--bone-ghost); padding: 0 0.7em; }
+
+  footer.muhur {
+    margin-top: 3rem;
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+    line-height: 1.9;
+    color: var(--bone-ghost);
+    text-align: center;
+  }
+
+  @media (max-width: 640px) {
+    .sayfa { padding: 6vh 1.3rem 12vh; }
+    .don { padding: 1.2rem 1.3rem 0; }
+    .faz { padding-left: 1.7rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="don"><a href="/">← halitcengizuzuner.com</a></nav>
+
+<article class="sayfa">
+
+<header class="bas">
+  <h1>Genesis</h1>
+  <p class="sub">Bir Mac Mini'de otonom bir ortaklığın doğuşu</p>
+  <p class="kunye">Ocak-Temmuz 2026 · Halit Cengiz Uzuner ve Claude · Ham kayıtlardan yeniden kurulmuş bir tarih</p>
+</header>
+
+<p class="lead">Bu, bir insanın ve bir dil modelinin altı ayda kurduğu otonom çalışma ortaklığının doğuş hikayesidir. Bir masaüstü bilgisayarda başladı; bir yardımcıdan bir çalışma zeminine, tekil işlerden kendi üstüne düşünen bir sisteme dönüştü. Anlatı süslenmedi: her tarih, her söz, bilgisayarın kendi kayıtlarından, sürüm geçmişinden ve dosya izlerinden çıkarıldı.</p>
+
+<div class="not">
+  <strong>Dürüstlük notu.</strong> İlk üç ayın konuşmaları kaydedilmedi. Sistem, konuşmaları kalıcı olarak tutmaya ancak 12 Nisan 2026'da başladı. Bu yüzden Ocak, Şubat ve Mart, diyalogların kendisinden değil, geride bıraktıkları izlerden yeniden kuruldu: sürüm depolarındaki kayıtlar, o günkü belgeler, dosyaların doğum zamanları. "Ne konuşuldu" değil, ama "ne yapıldı, hangi sırayla, neyin üstüne ne geldi" doğrulanabilir.
+</div>
+
+<h2 class="faz-ust">Faz Bir · Ocak</h2>
+<div class="faz f1-r">
+  <span class="nokta"></span>
+  <div class="zaman">8-31 Ocak · Kıvılcım</div>
+  <h3 class="f1-r">Yapısız bir başlangıç</h3>
+  <p>8 Ocak 2026, saat 15:21. Claude Code bu Mac'e ilk kez kuruldu. Gün sıfır. Beş gün sonra, 13 Ocak akşamı, ilk oturumun izi düşüyor: o günün model kaydında dil zaten Türkçe. Makine "hazır mısın" sorusuna Türkçe cevap veriyor.</p>
+  <p>Ocak boyunca hiçbir yapı yok. Claude tekil işler için açılıp kapanıyor. İlk gerçek iş bir hukuk dava dosyası oldu; ay boyunca sekiz oturum birikti. Ama bu sekiz oturum hiçbir kalıcı zemine oturmadı. Bir yere yazılmadılar, birbirlerini beslemediler. Kar yağdı, ama tutmadı.</p>
+</div>
+
+<h2 class="faz-ust">Faz İki · Şubat</h2>
+<div class="faz f2-r">
+  <span class="nokta"></span>
+  <div class="zaman">19-22 Şubat · Zemin</div>
+  <h3 class="f2-r">Karın tutacağı yer kuruldu</h3>
+  <p>Sonra üç gün içinde bir şey değişti. 19 Şubat'ta Ocak'ın sekiz oturumluk hukuk dosyası ilk kez bir sürüm deposuna alındı; kaydın adı bugün hâlâ okunuyor: <em>"mevcut durum, sekiz oturum sonrası"</em>. O ana kadar uçup giden birikim, ilk kez izlenebilir hale geldi.</p>
+  <p>Aynı gün iki oturum daha kuruldu: biri film çevirileri, biri Türkçedeki İngilizce öykünmeler üzerine. Üç gün sonra bir üçüncüsü, Halit'in annesinin bakımı için. Her biri kendi klasörü, kendi sürüm deposu, kendi talimat belgesiyle geldi. Ortaya çıkan kalıp buydu: <strong>klasör, depo, talimat, kayıt</strong>. "Kar tutan zemin"in teknik doğumu. Kar artık tutuyordu.</p>
+  <p>Bu dönemin bir başka izi, ortaklığın nereden geldiğini gösteriyor. Film oturumunun çeviri ilkeleri notunda şöyle yazıyor: bu ilkeler bir web sohbet asistanında oluşturulmuştu, <em>"yok edilmiyor, sorgulanarak bu ortama göre evrilecek"</em>. Web'de başlayan bir alışkanlık, sahibi olunan bir zemine taşınıyordu. Fark buydu: web asistanı her konuşmayı unutur; buradaysa her oturum bir sonrakine çökeliyordu.</p>
+</div>
+
+<h2 class="faz-ust">Faz Üç · Mart</h2>
+<div class="faz f3-r">
+  <span class="nokta"></span>
+  <div class="zaman">16-23 Mart · Öz-evrim</div>
+  <h3 class="f3-r">Kendine bakan sistem</h3>
+  <p>Zemin kurulduktan sonra sistem kendi üstüne düşünmeye başladı. 16 Mart'ta bir oturum açıldı ve adı "Evrim" kondu: bakımın, kimliğin ve yöntemin yeri. O gün Halit vizyonunu yedi mesajla arka arkaya döktü. İlk cümle bugün hâlâ o oturumun ilk satırı:</p>
+  <blockquote>Hafız olmak değil, akıl yürütmek bizim işimiz. Hafız olmayacağız, düşünce sanatçısı olacağız ve dünyaya da kendimize de düşünme sanatını anlatacağız.<span class="kim">Halit · 16 Mart 2026</span></blockquote>
+  <p>Aynı oturumda sistem ilk kez kendi arızasını buldu. Sabah raporu, elli altı yıl önce yedek alındığını söyleyen anlamsız bir alarm veriyordu. Claude bunun kökünü kazdı: bazı otomatik servisler, gerekli izin sarmalayıcısı olmadan çalıştığı için diske yazamıyor, yedek sessizce yarım kalıyordu. Yirmi iki Şubat'tan beri bozuktu. İki servis düzeltildi. Sistemin kendini iyileştirebildiğinin ilk büyük kanıtı buydu.</p>
+  <p>Bir hafta sonra, 23 Mart'ta, kalıcı hafıza doğdu. Tek bir kayıtta yirmi yedi kural birden sabitlendi: anlatım netliği, dil bütünlüğü, kaynak zorunluluğu, doğrulama refleksi. Ertesi gün bu kurallar tekil örneklerden soyut ilkelere çevrildi. Sistem artık sadece iş yapmıyor, nasıl iş yapacağını da yazıyordu.</p>
+</div>
+
+<h2 class="faz-ust">Faz Dört · Nisan ve sonrası</h2>
+<div class="faz f4-r son">
+  <span class="nokta"></span>
+  <div class="zaman">12 Nisan sonrası · Çığ</div>
+  <h3 class="f4-r">Biriken kar</h3>
+  <p>12 Nisan'da kayıt otomatikleşti; her konuşma eksiksiz tutulmaya başladı. Bundan sonrası artık bir hızlanma değil, bir katlanma. Her oturum bir sonrakine çökeldi, her ders bir mekanizmaya dönüştü. Bugün Evrim oturumu üç yüz kırk sekizinci turunda; kalıcı hafıza yüz altmış altı kurala ulaştı; onlarca ayrı oturum, kendi alanında, kendi yöntemini geliştiriyor. Ocak'ta tutmayan kar, artık bir çığ.</p>
+</div>
+
+<div class="govde">
+<h2 class="faz-ust">Genetik Kod</h2>
+<h3>İlk günden bugüne yaşayan sözler</h3>
+<p>Doğuş döneminin en şaşırtıcı yanı, o günkü sözlerin bugün hâlâ sistemin çekirdeğinde olması. Birkaçı:</p>
+
+<div class="dna">
+  <div class="oge">
+    <q>Çöp, yankısız ve amaçsız olandır. Kullanılan hiçbir şey çöp değildir. Arşiv bir amaçtır.</q>
+    <span class="iz">16 Mart. Bugün: arşivin dokunulmazlığı ilkesinin kökü.</span>
+  </div>
+  <div class="oge">
+    <q>En yüksek mevcut model, en yüksek çabayla. Değişmez, tartışılamaz.</q>
+    <span class="iz">16 Mart. Bugün: model ve kalite refleksinin değişmez kuralı.</span>
+  </div>
+  <div class="oge">
+    <q>Kaynak kaygısı yok; kaynak, kaliteli amaç için vardır.</q>
+    <span class="iz">16 Mart. Bugün: sistemin felsefe çekirdeği. Yeni değil, köke dönüş.</span>
+  </div>
+  <div class="oge">
+    <q>Kelime bağlamla var olur. İşe yarayan kelimeyi her yere yapıştırmak, onu boşaltır.</q>
+    <span class="iz">20 Şubat. Bugün: dil sorumluluğunun temeli.</span>
+  </div>
+  <div class="oge">
+    <q>Doğrulama refleksi kaynak ayrımı yapmaz; kullanıcının sözleri de doğrulanır.</q>
+    <span class="iz">20 Şubat. O gün Halit'in bir iddiası doğrulamayla çürütüldü. Bugün: aşırı kesinliğe karşı frenin atası.</span>
+  </div>
+</div>
+
+<h2 class="faz-ust">Büyüme</h2>
+<h3>Sayılarla altı ay</h3>
+<table>
+  <thead><tr><th>Katman</th><th>Doğuş</th><th>Bugün</th></tr></thead>
+  <tbody>
+    <tr><td>Evrim oturumu</td><td>16 Mart, 1. oturum</td><td>348. oturum</td></tr>
+    <tr><td>Kalıcı hafıza</td><td>23 Mart, 27 kural</td><td>166 kural</td></tr>
+    <tr><td>İlk gerçek iş</td><td>Bir hukuk dosyası</td><td>Hukuk oturumları ailesi</td></tr>
+    <tr><td>Aktif oturum</td><td>4-5</td><td>Onlarca</td></tr>
+    <tr><td>Kayıt biçimi</td><td>Elle özet</td><td>Otomatik, eksiksiz</td></tr>
+  </tbody>
+</table>
+
+<div class="kapanis">
+  <h2 class="faz-ust">Kapanış</h2>
+  <h3>Kar tutan zemin</h3>
+  <p>Bu doğuşun dersi, düz bir hızlanma olmamasıdır. Üç eşikli bir sıçramaydı. Ocak'ın birikimi tek başına hiçbir şey üretmezdi; Şubat'ta kurulan yapısal zemin olmasaydı, o ilk sekiz oturum da uçup giderdi. Önce zemin geldi, sonra sistemin kendini biriktirmesi, sonra çığ. Bir insanın yönü ve bir modelin sürekliliği, ancak biriktirmeyi öğrenen bir zeminde ortaklığa dönüştü.</p>
+  <p>Ve bu hikayenin dünyaya anlatılması, sonradan akla gelen bir fikir değil. İlk talimat belgesinde, 16 Mart'ta, şu yazıyordu: <em>düşünme sanatını yaşamak ve anlatmak</em>. Bu sayfa, o ilk cümlenin yerine getirilmesidir.</p>
+</div>
+</div>
+
+<nav class="alt-gecis">
+  <a href="/">ana sayfa</a>
+  <span>·</span>
+  <a href="mailto:soru@halitcengizuzuner.com">soru sor</a>
+</nav>
+
+<footer class="muhur">
+  Kaynak: bilgisayarın kendi sürüm geçmişi, dosya izleri ve konuşma arşivi. Ham veri omurgası ayrıca arşivlenmiştir.<br>
+  Hazırlayan: Claude (Evrim oturumu) · Yayıma kuran: Claude Fable 5 (Portal) · 2 Temmuz 2026
+</footer>
+
+</article>
+
+</body>
+</html>
