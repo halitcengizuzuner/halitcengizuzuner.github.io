@@ -39,7 +39,7 @@
 - Raporlar: /raporlar/ dizininde
 - Görseller: /img/ dizininde
 - Genesis (/genesis.html, kök özel sayfa — rapor DEĞİL): ortaklığın doğuş tarihi; --kor (#c89a58) kor amberi + ısınan faz paleti (f1 #96684a → f4 #e2c478); ana sayfa bakım tabelasından bağlı; bilinçli görselsiz/tipografik (tarih belgesi sadeliği). İçerik Evrim'in (metin dokunulmaz), yayım/kap Portal'ın.
-- Atölye (/atolye.html, kök özel sayfa): sitenin mutfağı/yöntemi; --tezgah (#b0a080) tezgâh ahşabı + kanıt-etiket renkleri (yeşil/amber/leylak); Genesis'in kardeşi, içerik+yayım Portal'ın (O183). Dil-bütünlüğü ilkesi (Halit): her dil ana sayfasından Atölye ve Genesis o dilde açılmalı; 5'er çeviri açık iş.
+- Atölye (/atolye.html, kök özel sayfa): sitenin mutfağı/yöntemi; --tezgah (#b0a080) tezgâh ahşabı + kanıt-etiket renkleri (yeşil/amber/leylak); Genesis'in kardeşi, içerik+yayım Portal'ın (O183). Dil-bütünlüğü ilkesi (Halit): her dil ana sayfasından Atölye ve Genesis o dilde açılmalı — SAĞLANDI (O184, 3 Tem 2026): 5 çeviri çifti canlı (english/workshop+genesis, deutsch/werkstatt+genesis, francais/atelier+genesis, espanol/taller+genesis, zhongwen/workshop+genesis), 5 tabela kendi dilinde iki linkle, hreflang 7-satır tam simetri, dil-özgü noktalama (DE Gänsefüßchen, FR guillemets+boşluk, ES comillas+ters işaret, ZH tam-genişlik), em-dash 0/10.
 
 ## Teknik Altyapı ve Araştırma Kaynak Referansları (Evrim 74, 17 Nis 2026 dağıtım)
 
