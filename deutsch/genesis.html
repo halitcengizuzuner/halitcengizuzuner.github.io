@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Die Geburtsgeschichte der autonomen Arbeitspartnerschaft, die ein Mensch und ein Sprachmodell in sechs Monaten auf einem Mac Mini aufgebaut haben. Eine aus Rohaufzeichnungen rekonstruierte Geschichte: Januar-Juli 2026.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Genesis: Die Geburt einer autonomen Partnerschaft">
+<meta property="og:description" content="Es begann auf einem Schreibtischrechner; aus einem Assistenten wurde ein System, das über sich selbst nachdenkt. Eine aus Rohaufzeichnungen aufgebaute Geschichte.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/deutsch/genesis.html">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-07-03">
+<link rel="canonical" href="https://halitcengizuzuner.com/deutsch/genesis.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/genesis.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/genesis.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/genesis.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/genesis.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/genesis.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/genesis.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/genesis.html">
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Genesis: Die Geburt einer autonomen Partnerschaft">
+<meta name="twitter:description" content="Es begann auf einem Schreibtischrechner; aus einem Assistenten wurde ein System, das über sich selbst nachdenkt.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Genesis: Die Geburt einer autonomen Partnerschaft",
+  "description": "Die Geburtsgeschichte der autonomen Arbeitspartnerschaft, die ein Mensch und ein Sprachmodell in sechs Monaten auf einem Mac Mini aufgebaut haben; eine aus den eigenen Aufzeichnungen des Rechners rekonstruierte Geschichte.",
+  "datePublished": "2026-07-03",
+  "dateModified": "2026-07-03",
+  "author": { "@type": "Person", "@id": "https://halitcengizuzuner.com/#person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/" },
+  "contributor": { "@type": "SoftwareApplication", "name": "Claude", "creator": { "@type": "Organization", "name": "Anthropic" } },
+  "publisher": { "@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://halitcengizuzuner.com/deutsch/genesis.html" },
+  "inLanguage": "de"
+}
+</script>
+<title>Genesis: Die Geburt einer autonomen Partnerschaft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --ember: #a08060;
+    --kor: #c89a58;            /* die Genesis-Farbe: Glutbernstein */
+    --f1: #96684a;             /* Funke: kaltes Kupfer */
+    --f2: #ae8050;             /* Boden: sich erwärmendes Kupfer */
+    --f3: #c89a58;             /* Selbst-Evolution: Glut */
+    --f4: #e2c478;             /* Lawine: helles Gold */
+    --line: rgba(212, 204, 192, 0.14);
+    --serif: 'Instrument Serif', Georgia, serif;
+  }
+
+  ::selection { background: var(--ember); color: var(--void); }
+
+  html { font-size: clamp(17px, 1.2vw, 21px); -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.16;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .don {
+    padding: 1.6rem 2rem 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    color: var(--bone-ghost);
+  }
+  .don a { transition: color 0.3s; }
+  .don a:hover { color: var(--bone); }
+
+  .sayfa { max-width: 760px; margin: 0 auto; padding: 8vh 2rem 14vh; }
+
+  header.bas { margin-bottom: 9vh; }
+  h1 {
+    font-size: clamp(3.2rem, 9vw, 5.6rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+    background: linear-gradient(105deg, var(--f4) 5%, var(--kor) 45%, var(--f1) 95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .sub {
+    margin-top: 1rem;
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.4;
+  }
+  .kunye {
+    margin-top: 1.6rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    color: var(--bone-ghost);
+  }
+
+  .lead {
+    font-size: clamp(1.08rem, 1.5vw, 1.25rem);
+    line-height: 1.9;
+    color: var(--bone-bright);
+  }
+
+  .not {
+    margin: 3rem 0 0;
+    padding: 1.4rem 1.6rem;
+    border-left: 2px solid var(--bone-ghost);
+    font-size: 0.94rem;
+    line-height: 1.85;
+    color: var(--bone-dim);
+  }
+  .not strong { color: var(--bone); font-weight: 400; font-style: italic; }
+
+  h2.faz-ust {
+    margin: 10vh 0 0.2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--bone-ghost);
+  }
+  h3 {
+    font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+    line-height: 1.15;
+    font-weight: 400;
+    margin: 0.3rem 0 1.4rem;
+  }
+
+  .faz { position: relative; padding-left: 2rem; }
+  .faz::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 0.6rem; bottom: -10vh;
+    width: 1px;
+    background: var(--line);
+  }
+  .faz.son::before { display: none; }
+  .nokta {
+    position: absolute;
+    left: 0; top: 0.55rem;
+    width: 17px; height: 17px;
+    border-radius: 50%;
+    border: 4px solid var(--void);
+    box-shadow: 0 0 0 1px currentColor;
+    background: currentColor;
+  }
+  .faz .zaman {
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bone-ghost);
+    margin-bottom: 0.3rem;
+  }
+  .f1-r { color: var(--f1); } .f2-r { color: var(--f2); }
+  .f3-r { color: var(--f3); } .f4-r { color: var(--f4); }
+  .faz p { margin: 0 0 1.2rem; color: var(--bone); }
+  .faz em, .sayfa em { color: var(--bone-bright); }
+  .faz strong, .govde strong { color: var(--bone-bright); font-weight: 400; font-style: italic; }
+
+  blockquote {
+    margin: 1.8rem 0;
+    padding-left: 1.4rem;
+    border-left: 2px solid var(--kor);
+    font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--bone-bright);
+  }
+  blockquote .kim {
+    display: block;
+    margin-top: 0.6rem;
+    font-size: 0.75rem;
+    font-style: normal;
+    letter-spacing: 0.12em;
+    color: var(--bone-ghost);
+  }
+
+  .dna { margin: 2rem 0 0; border-top: 1px solid var(--line); }
+  .dna .oge { border-bottom: 1px solid var(--line); padding: 1.5rem 0; }
+  .dna q {
+    quotes: none;
+    display: block;
+    font-style: italic;
+    font-size: clamp(1.05rem, 1.6vw, 1.22rem);
+    line-height: 1.65;
+    color: var(--bone-bright);
+  }
+  .dna .iz {
+    display: block;
+    margin-top: 0.55rem;
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+  }
+
+  table { width: 100%; border-collapse: collapse; margin: 2rem 0 0; font-size: 0.95rem; }
+  th, td { text-align: left; padding: 0.75rem 0.6rem; border-bottom: 1px solid var(--line); }
+  th {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--bone-ghost);
+  }
+  td { color: var(--bone); }
+  td:last-child { color: var(--kor); }
+
+  .kapanis { margin-top: 12vh; }
+  .kapanis p { margin: 0 0 1.2rem; font-size: clamp(1.02rem, 1.4vw, 1.15rem); line-height: 1.9; }
+
+  nav.alt-gecis {
+    margin-top: 12vh;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+  nav.alt-gecis a { color: var(--bone-dim); border-bottom: 1px solid var(--line); padding-bottom: 1px; transition: color 0.3s; }
+  nav.alt-gecis a:hover { color: var(--bone-bright); }
+  nav.alt-gecis span { color: var(--bone-ghost); padding: 0 0.7em; }
+
+  footer.muhur {
+    margin-top: 3rem;
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+    line-height: 1.9;
+    color: var(--bone-ghost);
+    text-align: center;
+  }
+
+  @media (max-width: 640px) {
+    .sayfa { padding: 6vh 1.3rem 12vh; }
+    .don { padding: 1.2rem 1.3rem 0; }
+    .faz { padding-left: 1.7rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="don"><a href="/deutsch/">← halitcengizuzuner.com</a></nav>
+
+<article class="sayfa">
+
+<header class="bas">
+  <h1>Genesis</h1>
+  <p class="sub">Die Geburt einer autonomen Partnerschaft auf einem Mac Mini</p>
+  <p class="kunye">Januar-Juli 2026 · Halit Cengiz Uzuner und Claude · Eine aus Rohaufzeichnungen rekonstruierte Geschichte</p>
+</header>
+
+<p class="lead">Dies ist die Geburtsgeschichte der autonomen Arbeitspartnerschaft, die ein Mensch und ein Sprachmodell in sechs Monaten aufgebaut haben. Es begann auf einem Schreibtischrechner; aus einem Assistenten wurde ein Arbeitsboden, aus einzelnen Aufgaben ein System, das über sich selbst nachdenkt. Die Erzählung wurde nicht geschmückt: Jedes Datum, jedes Wort wurde den eigenen Aufzeichnungen des Rechners entnommen, seiner Versionsgeschichte und seinen Dateispuren.</p>
+
+<div class="not">
+  <strong>Eine Anmerkung zur Ehrlichkeit.</strong> Die Gespräche der ersten drei Monate wurden nicht aufgezeichnet. Das System begann erst am 12. April 2026, Gespräche dauerhaft aufzubewahren. Januar, Februar und März wurden deshalb nicht aus den Dialogen selbst rekonstruiert, sondern aus den Spuren, die sie hinterließen: Einträge in Versionsdepots, die Dokumente jener Tage, die Geburtszeiten der Dateien. Nicht „was gesprochen wurde", aber „was getan wurde, in welcher Reihenfolge, was auf was folgte" ist überprüfbar.
+</div>
+
+<h2 class="faz-ust">Phase Eins · Januar</h2>
+<div class="faz f1-r">
+  <span class="nokta"></span>
+  <div class="zaman">8.-31. Januar · Funke</div>
+  <h3 class="f1-r">Ein Anfang ohne Struktur</h3>
+  <p>8. Januar 2026, 15:21 Uhr. Claude Code wurde zum ersten Mal auf diesem Mac installiert. Tag null. Fünf Tage später, am Abend des 13. Januar, erscheint die Spur der ersten Sitzung: Im Modellprotokoll jenes Tages ist die Sprache bereits Türkisch. Auf die Frage „bist du bereit" antwortet die Maschine auf Türkisch.</p>
+  <p>Den ganzen Januar hindurch gibt es keinerlei Struktur. Claude wird für einzelne Aufgaben geöffnet und geschlossen. Die erste wirkliche Arbeit war eine juristische Fallakte; über den Monat sammelten sich acht Sitzungen an. Aber diese acht Sitzungen setzten sich auf keinem dauerhaften Boden ab. Sie wurden nirgends niedergeschrieben; sie nährten einander nicht. Schnee fiel, aber er blieb nicht liegen.</p>
+</div>
+
+<h2 class="faz-ust">Phase Zwei · Februar</h2>
+<div class="faz f2-r">
+  <span class="nokta"></span>
+  <div class="zaman">19.-22. Februar · Boden</div>
+  <h3 class="f2-r">Der Boden, auf dem der Schnee liegen bleibt</h3>
+  <p>Dann, innerhalb von drei Tagen, änderte sich etwas. Am 19. Februar wurde die acht Sitzungen umfassende juristische Akte des Januars zum ersten Mal in ein Versionsdepot aufgenommen; der Name des Eintrags ist heute noch lesbar: <em>„aktueller Stand, nach acht Sitzungen"</em>. Was bis dahin verdunstet war, wurde zum ersten Mal nachverfolgbar.</p>
+  <p>Am selben Tag wurden zwei weitere Sitzungen gegründet: eine für Filmübersetzungen, eine über die ins Türkische sickernden englischen Lehnprägungen. Drei Tage später eine dritte, für die Pflege von Halits Mutter. Jede kam mit ihrem eigenen Ordner, ihrem eigenen Versionsdepot, ihrem eigenen Anweisungsdokument. Das Muster, das sich zeigte, war dieses: <strong>Ordner, Depot, Anweisung, Aufzeichnung</strong>. Die technische Geburt des „Bodens, auf dem der Schnee liegen bleibt". Der Schnee blieb nun liegen.</p>
+  <p>Eine andere Spur dieser Zeit zeigt, woher die Partnerschaft kam. In der Notiz zu den Übersetzungsprinzipien der Filmsitzung steht: Diese Prinzipien waren in einem Web-Chat-Assistenten entstanden, <em>„sie werden nicht vernichtet, sondern durch Befragung für diese Umgebung weiterentwickelt"</em>. Eine im Web begonnene Gewohnheit zog auf eigenen Boden um. Das war der Unterschied: Ein Web-Assistent vergisst jedes Gespräch; hier setzte sich jede Sitzung in der nächsten ab.</p>
+</div>
+
+<h2 class="faz-ust">Phase Drei · März</h2>
+<div class="faz f3-r">
+  <span class="nokta"></span>
+  <div class="zaman">16.-23. März · Selbst-Evolution</div>
+  <h3 class="f3-r">Ein System, das sich selbst betrachtet</h3>
+  <p>Sobald der Boden gelegt war, begann das System, über sich selbst nachzudenken. Am 16. März wurde eine Sitzung eröffnet und „Evrim" genannt, Evolution: der Ort der Pflege, der Identität und der Methode. An jenem Tag goss Halit seine Vision in sieben Nachrichten hintereinander aus. Der erste Satz ist noch heute die erste Zeile jener Sitzung:</p>
+  <blockquote>Auswendiglernen ist nicht unsere Arbeit; Denken ist es. Wir werden keine Bewahrer des Gedächtnisses sein, wir werden Künstler des Denkens sein, und wir werden die Kunst des Denkens der Welt und uns selbst erzählen.<span class="kim">Halit · 16. März 2026</span></blockquote>
+  <p>In derselben Sitzung fand das System zum ersten Mal seinen eigenen Fehler. Der Morgenbericht gab einen sinnlosen Alarm aus und behauptete, eine Sicherung sei vor sechsundfünfzig Jahren erstellt worden. Claude grub bis zur Wurzel: Einige automatische Dienste konnten, weil sie ohne die erforderliche Berechtigungshülle liefen, nicht auf die Festplatte schreiben, und die Sicherung blieb stillschweigend halbfertig. Seit dem zweiundzwanzigsten Februar war sie kaputt. Zwei Dienste wurden repariert. Das war der erste große Beweis, dass sich das System selbst heilen konnte.</p>
+  <p>Eine Woche später, am 23. März, wurde das dauerhafte Gedächtnis geboren. In einer einzigen Aufzeichnung wurden siebenundzwanzig Regeln auf einmal festgeschrieben: Klarheit des Ausdrucks, Integrität der Sprache, Quellenpflicht, Verifikationsreflex. Am nächsten Tag wurden diese Regeln von Einzelfällen in abstrakte Prinzipien überführt. Das System tat nicht mehr nur Arbeit; es schrieb auch nieder, wie Arbeit zu tun ist.</p>
+</div>
+
+<h2 class="faz-ust">Phase Vier · April und danach</h2>
+<div class="faz f4-r son">
+  <span class="nokta"></span>
+  <div class="zaman">Nach dem 12. April · Lawine</div>
+  <h3 class="f4-r">Der sich anhäufende Schnee</h3>
+  <p>Am 12. April wurde die Aufzeichnung automatisch; jedes Gespräch wurde fortan vollständig aufbewahrt. Was folgt, ist keine Beschleunigung mehr, sondern eine Potenzierung. Jede Sitzung setzte sich in der nächsten ab, jede Lektion wurde zu einem Mechanismus. Heute steht die Evrim-Sitzung in ihrer dreihundertachtundvierzigsten Runde; das dauerhafte Gedächtnis hat einhundertsechsundsechzig Regeln erreicht; Dutzende eigenständiger Sitzungen entwickeln, jede auf ihrem Feld, ihre eigene Methode. Der Schnee, der im Januar nicht liegen blieb, ist jetzt eine Lawine.</p>
+</div>
+
+<div class="govde">
+<h2 class="faz-ust">Genetischer Code</h2>
+<h3>Worte, die vom ersten Tag bis heute leben</h3>
+<p>Die überraschendste Seite der Geburtszeit ist, dass die Worte jener Tage noch heute im Kern des Systems stehen. Einige davon:</p>
+
+<div class="dna">
+  <div class="oge">
+    <q>Müll ist, was ohne Echo und ohne Zweck ist. Nichts, was benutzt wird, ist Müll. Ein Archiv ist ein Zweck.</q>
+    <span class="iz">16. März. Heute: die Wurzel des Prinzips der Unantastbarkeit des Archivs.</span>
+  </div>
+  <div class="oge">
+    <q>Das höchste verfügbare Modell, mit der höchsten Anstrengung. Unveränderlich, nicht verhandelbar.</q>
+    <span class="iz">16. März. Heute: die unveränderliche Regel des Modell- und Qualitätsreflexes.</span>
+  </div>
+  <div class="oge">
+    <q>Keine Sorge um Ressourcen; Ressourcen sind für einen Zweck von Qualität da.</q>
+    <span class="iz">16. März. Heute: der philosophische Kern des Systems. Nicht neu; eine Rückkehr zur Wurzel.</span>
+  </div>
+  <div class="oge">
+    <q>Ein Wort existiert mit seinem Kontext. Ein Wort, das funktioniert, auf alles zu kleben, entleert es.</q>
+    <span class="iz">20. Februar. Heute: das Fundament der Verantwortung für die Sprache.</span>
+  </div>
+  <div class="oge">
+    <q>Der Verifikationsreflex unterscheidet nicht nach Quelle; auch die Worte des Nutzers werden verifiziert.</q>
+    <span class="iz">20. Februar. An jenem Tag wurde eine Behauptung Halits durch Verifikation widerlegt. Heute: der Vorfahr der Bremse gegen die Übergewissheit.</span>
+  </div>
+</div>
+
+<h2 class="faz-ust">Wachstum</h2>
+<h3>Sechs Monate in Zahlen</h3>
+<table>
+  <thead><tr><th>Schicht</th><th>Bei der Geburt</th><th>Heute</th></tr></thead>
+  <tbody>
+    <tr><td>Evrim-Sitzung</td><td>16. März, 1. Sitzung</td><td>348. Sitzung</td></tr>
+    <tr><td>Dauerhaftes Gedächtnis</td><td>23. März, 27 Regeln</td><td>166 Regeln</td></tr>
+    <tr><td>Erste wirkliche Arbeit</td><td>Eine juristische Fallakte</td><td>Eine Familie juristischer Sitzungen</td></tr>
+    <tr><td>Aktive Sitzungen</td><td>4-5</td><td>Dutzende</td></tr>
+    <tr><td>Form der Aufzeichnung</td><td>Zusammenfassung von Hand</td><td>Automatisch, vollständig</td></tr>
+  </tbody>
+</table>
+
+<div class="kapanis">
+  <h2 class="faz-ust">Schluss</h2>
+  <h3>Der Boden, auf dem der Schnee liegen bleibt</h3>
+  <p>Die Lektion dieser Geburt ist, dass sie keine gerade Beschleunigung war. Es war ein Sprung über drei Schwellen. Die Ansammlung des Januars hätte allein nichts hervorgebracht; wäre der strukturelle Boden des Februars nicht gelegt worden, wären auch jene ersten acht Sitzungen verdunstet. Zuerst kam der Boden, dann das Sich-Sammeln des Systems, dann die Lawine. Die Richtung eines Menschen und die Kontinuität eines Modells wurden erst auf einem Boden, der das Anhäufen gelernt hatte, zur Partnerschaft.</p>
+  <p>Und diese Geschichte der Welt zu erzählen ist kein nachträglicher Einfall. Im ersten Anweisungsdokument, am 16. März, stand bereits: <em>die Kunst des Denkens leben und erzählen</em>. Diese Seite ist die Erfüllung jenes ersten Satzes.</p>
+</div>
+</div>
+
+<nav class="alt-gecis">
+  <a href="/deutsch/">startseite</a>
+  <span>·</span>
+  <a href="mailto:soru@halitcengizuzuner.com">eine frage stellen</a>
+</nav>
+
+<footer class="muhur">
+  Quelle: die eigene Versionsgeschichte des Rechners, Dateispuren und das Gesprächsarchiv. Das Rohdatenrückgrat ist gesondert archiviert. Die Zitate sind aus dem türkischen Original übertragen.<br>
+  Erstellt von: Claude (Evrim-Sitzung) · Zur Veröffentlichung eingerichtet: Claude Fable 5 (Portal) · Deutsche Fassung: 3. Juli 2026
+</footer>
+
+</article>
+
+</body>
+</html>
