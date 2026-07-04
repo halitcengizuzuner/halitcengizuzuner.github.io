@@ -1,940 +1,151 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
-<meta name="description" content="Anlamak — Yabancı Dilde Eğitim, Düşünce ve Bir Yanılgının Anatomisi — dinleme versiyonu. Kulağa göre yeniden yazılmış metin.">
+<meta name="description" content="Anlamak: Yabancı Dilde Eğitim, Düşünce ve Bir Yanılgının Anatomisi yazısının dinleme sürümü. Yazılı metnin kulağa göre yeniden yazılmış hâli.">
 <link rel="canonical" href="https://halitcengizuzuner.com/raporlar/anlamak.html">
 <link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/anlamak-dinle.html">
 <link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/anlamak-dinle.html">
 <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
-<title>Anlamak — Dinle</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<title>Anlamak · Dinle</title>
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-:root {
-    --void: #060604;
-    --bone: #d4ccc0;
-    --bone-bright: #ece4d8;
-    --bone-dim: rgba(212, 204, 192, 0.58);
-    --bone-ghost: rgba(212, 204, 192, 0.28);
-    --anlam: #708050;
-    --anlam-bright: #90a070;
-    --serif: 'Instrument Serif', Georgia, serif;
-}
-::selection { background: var(--anlam); color: var(--void); }
-html { font-size: clamp(17px, 1.2vw, 20px); scroll-behavior: smooth; }
-body {
-    background: var(--void);
-    color: var(--bone);
-    font-family: var(--serif);
-    font-weight: 400;
-    line-height: 2.2;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-}
-body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    pointer-events: none;
-    opacity: 0.10;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 180px 180px;
-    mix-blend-mode: overlay;
-}
-a { color: inherit; text-decoration: none; }
-.report-header {
-    min-height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 4rem 2.5rem 6rem;
-    max-width: 700px;
-}
-.report-header h1 {
-    font-size: clamp(2.6rem, 6vw, 4.2rem);
-    color: var(--anlam-bright);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    font-weight: 400;
-    font-style: italic;
-}
-.report-header .subtitle {
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    color: var(--bone-dim);
-    margin-top: 1.5rem;
-    line-height: 1.5;
-}
-.report-header .meta {
-    margin-top: 2rem;
-    font-size: 0.8rem;
-    color: var(--anlam);
-    letter-spacing: 0.06em;
-}
-.content {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 0 2.5rem 6rem;
-}
-p { margin-bottom: 1.8rem; color: var(--bone); }
-strong { color: var(--bone-bright); }
-.pause { height: 3rem; }
-footer {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 2rem 2.5rem 4rem;
-    font-size: 0.8rem;
-    color: var(--bone-ghost);
-}
-footer a { color: var(--bone-ghost); border-bottom: 1px solid var(--bone-ghost); }
-footer a:hover { color: var(--anlam-bright); }
-@media (max-width: 600px) {
-    .report-header { padding: 3rem 1.5rem 4rem; }
-    .content { padding: 0 1.5rem 4rem; }
-}
+  :root {
+    --fon: #000000; --metin: #d4ccc0;
+    --baslik: #90a070; --vurgu: #708050; --vurgu-yumusak: #84946a;
+    --serif: 'Instrument Serif', Georgia, "Times New Roman", serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--fon); }
+  body {
+    color: var(--metin); font-family: var(--serif);
+    font-size: 20px; line-height: 1.9; font-weight: 400;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  .sayfa { max-width: 720px; margin: 0 auto; padding: 6vh 1.4em 12vh; }
+  h1 {
+    color: var(--baslik); font-weight: 400; letter-spacing: 0.005em;
+    font-size: 2.7em; line-height: 1.12; margin: 0 0 0.3em;
+  }
+  .altbaslik {
+    font-style: italic; color: var(--vurgu-yumusak);
+    font-size: 1.3em; line-height: 1.4; margin: 0 0 1.7em; opacity: 0.95;
+  }
+  p { margin: 0 0 1.25em; }
+  p.ilk::first-letter {
+    float: left; font-size: 3.1em; line-height: 0.8;
+    padding: 0.04em 0.12em 0 0; color: var(--baslik); font-weight: 400;
+  }
+  .nefes {
+    text-align: center; color: var(--vurgu); opacity: 0.5;
+    margin: 2.9em 0; font-size: 1.05em; letter-spacing: 0.1em; user-select: none;
+  }
+  .kapi { color: var(--baslik); }
+  ::selection { background: var(--vurgu); color: var(--fon); }
+  .etiket {
+    color: var(--vurgu-yumusak); font-family: -apple-system, system-ui, sans-serif;
+    font-size: 0.72em; letter-spacing: 0.18em; text-transform: uppercase;
+    opacity: 0.78; margin: 0 0 2.6em; border-bottom: 1px solid rgba(112,128,80,0.3);
+    padding-bottom: 0.9em;
+  }
+  nav.alt-gecis {
+    margin-top: 4.5em; padding-top: 1.5em;
+    border-top: 1px solid rgba(112,128,80,0.22);
+    font-family: -apple-system, system-ui, sans-serif;
+    font-size: 0.76em; letter-spacing: 0.05em; text-align: center;
+  }
+  nav.alt-gecis a { color: var(--vurgu-yumusak); opacity: 0.78; text-decoration: none;
+    border-bottom: 1px solid rgba(112,128,80,0.32); padding-bottom: 1px; }
+  nav.alt-gecis a:hover { opacity: 1; }
+  nav.alt-gecis span { color: var(--vurgu); opacity: 0.4; padding: 0 0.7em; }
 </style>
 </head>
 <body>
-
-<div class="report-header">
+  <article class="sayfa">
     <h1>Anlamak</h1>
-    <p class="subtitle">Yabancı dilde eğitim, düşünce ve bir yanılgının anatomisi</p>
-    <p class="meta">Dinleme sürümü · ses kaydı değil, kulağa göre yeniden yazılmış metin · Mayıs 2026</p>
-</div>
-
-<div class="content">
-
-<p><strong>"Anlamak" ne demek?</strong></p>
-
-<div class="pause"></div>
-
-<p>"Anlıyorum" dediğimizde ne demek istiyoruz? Bir cümlenin kelimelerini çözümledik mi? Konuşanın ne demeye çalıştığını kavradık mı? Söylenmeyeni, ima edileni, ses tonunun arkasındaki duyguyu, kültürel referansın taşıdığı yüzyıllık birikimi yakaladık mı?</p>
-
-<p>Bunların hepsi "anlamak" ama hiçbiri aynı şey değil.</p>
-
-<div class="pause"></div>
-
-<p>Pragmatik dilbilim anlama eylemini katmanlara ayırır.</p>
-
-<p>Birinci katman, kelime çözümleme. Kelimelerin sözlük anlamını çözme. "I see" eşittir "görüyorum." Bu en temel düzey ve ikinci dilde bile hızla edinilir.</p>
-
-<p>İkinci katman, çıkarımsal anlama. Söylenmeyeni çıkarma. "I see" bir bilim insanının ağzından çıktığında "anlıyorum" veya "fark ettim" anlamına gelebilir. Bu, kelime bilgisinin ötesinde bağlam okuma gerektirir.</p>
-
-<p>Üçüncü katman, bağlamsal anlama. Kültürel ve durumsal nüansı yakalama. "I see" bir İngiliz diplomatın dudağından dökülüyorsa ironi olabilir, şüphe olabilir, nazik bir ret olabilir. Bunu anlamak için o kültürün kodlarını bilmek gerekir.</p>
-
-<p>Dördüncü katman, derin anlama. Konuşanın dünya görüşüne, motivasyonuna, ima ettiği ama dile getirmediği şeye erişme. Bir metnin söylediğiyle söylemediğini birlikte okuma. Bir argümanın yapısını görebilme, tutarsızlığı hissedebilme, altındaki varsayımları sorgulayabilme.</p>
-
-<div class="pause"></div>
-
-<p>İkinci dil konuşucuları çoğunlukla birinci katmanda kalır. İkinciye geçebilenler vardır. Üçüncüye çok az kişi ulaşır. Dördüncü katman — anadilinde bile herkes ulaşamaz.</p>
-
-<p>Ve belki de asıl sorun şudur: insanlar birinci katmandayken "anlıyorum" derler ve ötesini sorgulamazlar. <strong>"Anlamak" kavramının kendisi o kadar sığ ele alınıyor ki, anlaşılamıyor.</strong></p>
-
-<div class="pause"></div>
-
-<p>Ama bu katmanlamanın başka bir boyutu daha var. "I see" örneğinin kendisi bunu açığa çıkarıyor: İngilizce'de anlamak görme metaforuyla kurulmuş. "I see what you mean," "that's clear," "she shed light on the issue," "he was in the dark." George Lakoff ve Mark Johnson'ın 1980'de ortaya koyduğu kavramsal metafor kuramının belgelediği bu yapıda, bilmek eşittir görmektir. Bu metafor o kadar derine işlemiştir ki İngilizce konuşanlar onu metafor olarak bile fark etmez. Türkçe'de ise anlamanın birincil metaforu farklıdır: "kavramak" — el ile tutmak. "Konuyu kavradım," "meseleyi yakaladım," "fikri tuttum." Türkçe'de anlamak dokunma ve tutma üzerinden kurulmuş; İngilizce'de görme ve ışık üzerinden. Aynı zihinsel süreç, iki farklı bedensel deneyimle haritalanmış.</p>
-
-<p>Bu fark kozmetik değil — düşünmenin bedensel köklerini gösteriyor. Ve bu makalenin ilerleyen bölümlerinde göstereceği gibi, her dilin kendi metafor sistemi, kendi kavram dünyası ve kendi "penceresi" var. Bu konunun kendi başına bir kıtası var — bu makale o kıtanın kıyısına kadar gidiyor ama kıyıda duruyor; yola devam eden bir sonraki çalışmada.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Terminoloji bilmek anlamak değil.</strong></p>
-
-<div class="pause"></div>
-
-<p>Bu ayrım her alanda geçerli. Yazılım mühendisliğinde "function," "class," "inheritance" terimlerini bilmek İngilizce gerektirir. Ama "bu fonksiyon neden böyle tasarlanmış?", "bu mimari kararın arkasındaki düşünce ne?", "bu hatanın kök nedeni ne?" — bunlar terim değil, kavrama. Ve kavrama anadilde gerçekleşiyor.</p>
-
-<p>Hukukta bu daha da keskin. "Haksız fiil," "iyiniyet," "muvazaa," "kadastro" — bu kavramlar yüzyıllar boyunca belirli bir hukuk düzeni içinde evrilmiş, o toplumun adalet anlayışını, ticaret pratiklerini, mülkiyet ilişkilerini yoğunlaştırmış yapılardır. Amerikan Karşılaştırmalı Hukuk Derneği'nin ifadesiyle, "hukuki dil, kültüre bağımlılığı diğer tüm uzmanlık dillerini aşan bir dildir." Bir kavramı başka bir dile çevirdiğinizde kelimeyi aktarırsınız, altındaki kurumsal ve kültürel birikimi aktaramazsınız.</p>
-
-<p>Türkçe hukukun "vicdan" kavramı bunu somutlaştırıyor. Vicdan, Arapça wijdān'dan gelir ama Türkçe'de yüzyıllar içinde farklı bir anlam yoğunluğu kazanmıştır. "Vicdani kanaat," "vicdanın sesi," "vicdan azabı" — bunlar İngilizce'ye "conscience" olarak çevrilebilir ama conscience bireysel bir ahlaki pusuladır. Türkçe vicdan ise hem bireysel hem toplumsal bir boyut taşır: bir hakimin vicdani kanaati salt bireysel değil, toplumsal adalet duygusunu da içerir. Bu kavramı İngilizce'ye çevirdiğinizde kelimenin yapısını aktarırsınız ama altındaki kültürel ağırlığı aktaramazsınız — tıpkı "muvazaa"nın "simulation" çevirisiyle ancak sözlük düzeyinde yakalanabilmesi gibi.</p>
-
-<p>Tıpta anatomik terimler evrenseldir — femur her yerde femurdur. Ama klinik muhakeme, hasta iletişimi, etik karar dile bağlıdır. Suudi Arabistan'da İngilizce eğitim alan tıp öğrencilerinin yalnızca yüzde yirmi sekizi Arapça'da hasta anamnezi almada — yani hastanın şikâyet ve öyküsünü sözlü olarak sorgulamada — kendini güvenli hissediyor. Bu veri 2019 tarihli bir Dünya Sağlık Örgütü raporundan geliyor.</p>
-
-<p>Her alanda aynı yapı tekrar ediyor: <strong>terminoloji uluslararası olabilir, anlatım ve kavrama anadildedir.</strong> Bu ayrımı görmezden gelen her eğitim sistemi, birinci katmanı dördüncü katman sanıyor — terimleri öğretti diye kavramı öğrettiğini düşünüyor.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>İkinci dilde düşünmek: ne diyor bilim?</strong></p>
-
-<div class="pause"></div>
-
-<p><strong>Beyin yabancı dilde farklı çalışıyor.</strong></p>
-
-<div class="pause"></div>
-
-<p>2012'de Chicago Üniversitesi'nden Boaz Keysar ve arkadaşları, bilişsel psikolojinin en çarpıcı bulgularından birini yayımladı. Buna "Yabancı Dil Etkisi" deniyor.</p>
-
-<p>Deneyin senaryosu şu: bir salgın 600 kişiyi öldürecek. İki program sunuluyor.</p>
-
-<p>Birinci çerçeve kazanç diliyle kurulmuş: "A programı 200 kişiyi kesin kurtarır. B programı üçte bir olasılıkla 600 kişinin tamamını kurtarır, üçte iki olasılıkla kimseyi kurtaramaz." İnsanlar A'yı seçer — kesin kazancı alır, riske girmez.</p>
-
-<p>İkinci çerçeve kayıp diliyle kurulmuş: aynı senaryo, farklı kelimeler. "A programında 400 kişi kesin ölür. B programında üçte bir olasılıkla kimse ölmez, üçte iki olasılıkla 600 kişi ölür." Bu sefer insanlar B'yi seçer — kesin kaybı reddeder, risk alır.</p>
-
-<p>İki çerçeve matematiksel olarak aynı şeyi söylüyor. Ama anadilinde insanlar farklı karar veriyor — çünkü "kurtarmak" ve "ölmek" kelimeleri farklı duygusal ağırlık taşıyor. Bu, Kahneman ve Tversky'nin Nobel ödüllü çerçeveleme etkisi.</p>
-
-<div class="pause"></div>
-
-<p>Keysar'ın keşfi: yabancı dilde bu asimetri kayboldu. İnsanlar her iki çerçevede de aynı kararı verdi — tutarlı, sistematik, duygusal çerçeveye kapılmadan. "Kurtarmak" ve "ölmek" kelimeleri yabancı dilde duygusal ağırlıklarını yitirdi. Sözcükler aynı, taşıdıkları yük farklı.</p>
-
-<p>Mekanizma: yabancı dil "daha büyük bilişsel ve duygusal mesafe" sağlıyor. Anadil çocukluktan itibaren duygusal deneyimlerle yüklüdür — ilk aşkın dili, annenin azarının dili, çocukluk korkularının dili. "Ölüm" kelimesi anadilinde sadece bir kavram değildir; cenaze törenlerinin, kayıp yakınlarının, çocukluk korkularının sesidir. Yabancı dilde ise aynı kelime — "death" — bir sözlük girdisi olarak kalır. Anlam aynı, ağırlık farklı.</p>
-
-<div class="pause"></div>
-
-<p>Bu ne demek? Yabancı dilde düşünmek, anadilinde düşünmekten niteliksel olarak farklı. Aynı insan, aynı problem, iki farklı dil — iki farklı karar. Ve ilk bakışta yabancı dildeki karar "daha rasyonel" görünüyor — ama bu rasyonellik, duygusal derinliğin kaybının ürünü. Duygusal bağlam her zaman "yanlılık" değildir; bazen bilgi taşır. Bir hakimin "öldürme" kelimesini hiç sarsılmadan telaffuz etmesi rasyonellik mi, yoksa adalet duygusunun körelmesinin işareti mi?</p>
-
-<p>Hayakawa ve Keysar 2018'de bunu daha ileri götürdü: yabancı dil kullanmak zihinsel imgelemeyi bile zayıflatıyor. İnsanlar yabancı dilde bir sahneyi hayal ettiklerinde, zihinsel resim daha az canlı. Hayal kurmak bile anadilde daha derin.</p>
-
-<p>Ve nörobilimsel kanıt da var. Szczypek ve arkadaşları 2026'da Polonyalı-İngiliz iki dillilerde olay-ilişkili beyin potansiyellerini ölçtü. Bulgu: ikinci dilde ahlaki ihlallere verilen beyin tepkisi birinci dile göre azalmış. Beyin, yabancı dilde ahlaki bir ihlali "daha yüzeysel" işliyor — kelimeyi anlıyor ama altındaki anlam ağına tam erişemiyor.</p>
-
-<p>Circi ve arkadaşlarının 2021 tarihli meta-analizi 17 çalışma ve 47 deneyi kapsıyor. Bulgu: yabancı dil etkisi tutarlı biçimde tekrarlanıyor ve birbirine uzak dillerde — örneğin Türkçe-İngilizce gibi — etki daha güçlü.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>İç konuşma: hangi dilde düşünüyorsun?</strong></p>
-
-<div class="pause"></div>
-
-<p>"İngilizce düşünebiliyor musun?" sorusu soyut bir soru gibi görünür. Ama bilişsel bilimde somut bir karşılığı var: iç konuşma. Zihninizdeki o ses — planlama yaparken, karar verirken, kendinizle tartışırken duyduğunuz ses — hangi dilde konuşuyor?</p>
-
-<p>Jean-Marc Dewaele, 2015'te 1.454 yetişkin çok dillinin katıldığı geniş çaplı bir çalışma yaptı. Sonuçları şöyle özetleyebiliriz: Genel iç konuşmada anadil baskın. İnsanlar düşünürken ağırlıklı olarak ilk öğrendikleri dilde düşünüyor. Duygusal iç konuşmada anadil neredeyse tek dil: kızgınlık, sevinç, üzüntü, korku — hepsi ilk dilde yaşanıyor. İkinci dilde iç konuşma, ancak uzun süreli o dilde yaşamla — yani kültürleşmeyle — artıyor.</p>
-
-<p>Hammer, 2019'da 149 yüksek eğitimli, ikinci dilde yetkin, kültürleşmiş iki dilli inceledi. Bulgu: iş ve akademik düşünmede ikinci dil kullanılabiliyor ama duygu, rüya ve otomatik tepkiler anadilde kalıyor. Ve tam geçiş hiçbir zaman tamamlanmıyor — iç konuşma iki dil arasında gidip geliyor.</p>
-
-<p>Ardila ve Rosselli'nin 2017 tarihli bulgusu ise çarpıcı bir detay ekliyor: iki dilli insanlar zihinsel hesaplamayı hep ilk öğrendikleri dilde yapıyor. İleri düzey ikinci dil yetkinliğinde bile, 7 çarpı 8'in cevabı ilk dilin sesinden geliyor.</p>
-
-<p>Resnik, 2021'de şu sonuca varıyor: iç konuşmanın dil değiştirmesi yıllar süren bir süreç ve çoğu kişide hiç tamamlanmıyor. Birkaç yıllık üniversite eğitimi otomatik iç konuşmayı değiştirmeye yetmiyor.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>İki farklı "bilmek."</strong></p>
-
-<div class="pause"></div>
-
-<p>Jim Cummins 1979'da dil eğitiminin en etkili kavramsal ayrımını ortaya koydu.</p>
-
-<p>Birincisi, BICS — Temel Kişiler Arası İletişim Becerileri: Gündelik konuşma, selamlaşma, basit iletişim. Bir ila üç yılda edinilir.</p>
-
-<p>İkincisi, CALP — Bilişsel Akademik Dil Yetkinliği: Soyut düşünme, karmaşık kavramları ifade etme, argüman kurma, analiz, sentez. Beş ila on yıl gerektirir.</p>
-
-<p>Bu ayrım neden kritik? Çünkü Türkiye'deki hazırlık sınıfı modeli ağırlıklı olarak BICS düzeyinde yeterlilik kazandırıyor. Bir yılda öğrenciler günlük konuşma becerisini ediniyor, "akıcı" görünüyor — ama üniversite eğitimi CALP düzeyinde yeterlilik gerektiriyor. Arada dört ila dokuz yıllık bir uçurum var. Ama CALP bile son durak değil. CALP, akademik dilde soyut düşünebilme eşiğidir — terimleri doğru kullanabilme, argüman kurabilme, analiz yapabilme. Oysa terimlerin arkasındaki yolu yürümek başka bir şeydir. "Haksız fiil"i tanımlamak CALP'tır. Ama haksız fiili tanımlayan kişi, haksız fiili bilmiyor demektir aynı zamanda — çünkü tanım, kavramın kendisi değildir. Tanım, öğrenciye ulaşmak için çizilmiş bir kestirme yoldur; kavram o tanımdan çok daha büyüktür. Haksız fiil bir tanımda değil, bir olayda hayat bulur. O kavramı gerçek bir uyuşmazlıkta uygulamak, o kavrama giden yolu yürümüş olmayı gerektirir — yüzlerce davayı, yüzyıllık hukuki evrimi, toplumsal adalet duygusunun inceliklerini içselleştirmiş olmayı. Bu, bir süreyle ölçülebilecek bir beceri değil, yaşanmışlıkla oluşan bir derinlik. Tanım bir haritadır — haritayla yönünü ve gideceğin yeri bulursun ama yolu yaşayamazsın. Beyin kendi anadilinde bile bu yolu tam yürümekte zorlanır. Kalkıp ona "şimdi bir de yabancı dilde yürü" demek, haritayı yol sanmaktır.</p>
-
-<p>Ve bu uçurum bir yanılgı yaratıyor: öğrenci "İngilizce biliyor" gibi görünüyor, öğretmen de, sistem de buna göre davranıyor — ama aslında kelimeleri çözümlüyor, düşüncenin derinliğine erişemiyor. Sistem BICS'i CALP sanıyor; CALP'a ulaşanlar bile terimlerin arkasındaki dünyaya ulaştıklarını sanıyor. Her katmanda aynı yanılgı: bulunulan yer son durak gibi görünüyor. Khatib ve Taie, 2016'da bunu doğrudan belgeliyorlar: BICS'in hızlı edinimi, yanlış bir yeterlilik algısı yaratıyor ve bu yanılgı yüzünden öğrenciye verilmesi gereken destek kesiliyor.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Yeterlilik yanılgısı.</strong></p>
-
-<div class="pause"></div>
-
-<p><strong>Yetkinlik sanılan sığlık.</strong></p>
-
-<div class="pause"></div>
-
-<p>Burada paradoksal bir durum var: yetkin görünen dil bilgisi, anlama oranını düşürebilir.</p>
-
-<p>Bu kulağa saçma geliyor. Bir şeyi bilmek, hiç bilmemekten kötü nasıl olabilir? Ama burada "az bilen"den söz etmiyoruz. Sığlık, lise İngilizcesinde kalan birinin sığlığı değil — yabancı dilde eğitim almış, sertifika sahibi, dizileri altyazısız izleyen, kendini o dilde yetkin sanan insanın sığlığıdır. Ve tehlikeyi yaratan tam da bu yetkinlik algısıdır. Mekanizma şöyle:</p>
-
-<p>Dil bilmiyorsan: Anlamadığını biliyorsun. Çevirmen arıyorsun, bağlam okuyorsun, uzman soruyorsun, başka kanallardan doğruluyorsun. Dil bilmemek seni temkinli yapıyor. İngilizce bilmeyen birinin yanlış bir çeviriyi mantık, bağlam ve anlam tutarlılığıyla yakalaması mümkün — çünkü anlamadığının farkında olan kişi telafi mekanizmaları geliştirir.</p>
-
-<p>Yetkin görünen ama sığ biliyorsan: Anladığını sanıyorsun. Kelimeleri çözümlüyorsun, cümlenin sözel anlamını yakalıyorsun, "tamam, anladım" diyorsun. Ama nüansı, ironiyi, kültürel katmanı, ima edileni kaçırıyorsun — ve kaçırdığını bilmiyorsun. Yetkinlik algısı, yanlış güven üretiyor.</p>
-
-<div class="pause"></div>
-
-<p>Bilişsel psikolojide bu "yeterlilik yanılgısı" olarak belgelenmiştir. Bjork ve Bjork'un gösterdiği şey: bir şeyi tanımak ile onu gerçekten bilmek arasında fark var ve insanlar ikisini sürekli karıştırıyor. Tanıdıkları şeyi bildiklerini sanıyorlar.</p>
-
-<p>Bardovi-Harlig ve Dörnyei'nin 1998 tarihli klasik çalışması bu yanılgının dil alanındaki karşılığını gösteriyor: ikinci dil öğrencileri dilbilgisel hatalara karşı hassas ama pragmatik hatalara karşı neredeyse kör. Yani bir cümledeki dilbilgisi yanlışını hemen fark ederler, ama bir ricada aşırı doğrudan olmanın ne kadar kaba göründüğünü fark edemezler. <strong>Yanlış olanı görüyorlar, eksik olanı görmüyorlar</strong> — çünkü neyin eksik olduğunu bilmiyorlar.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Pragmatik uçurum.</strong></p>
-
-<div class="pause"></div>
-
-<p>Lee ve Lee, 2022'de ikinci dil konuşucularının işitsel iğnelemeyi anlamada anadil konuşucularından belirgin biçimde geride kaldığını gösterdi. Ton ve bağlam ipuçları ikinci dil konuşucuları için daha az etkili.</p>
-
-<p>Chang, 2010'da yüksek yetkinlikteki Çinli İngilizce öğrencilerinin özür dilme stratejilerini inceledi. Dilbilgisi düzelmiş ama pragmatik stratejiler hâlâ anadil transferi taşıyordu. Bir C1 konuşucu dilbilgisel olarak kusursuz bir özür cümlesi kurabilir ama o özrün kültürel ağırlığını, zamanlamasını, dozunu yanlış ayarlayabilir.</p>
-
-<p>Cieślicka'nın 2015 ve 2017 tarihli bulgusu meselenin mekaniğini gösteriyor: anadil konuşucuları deyimleri bütünsel olarak işliyor — yani "kick the bucket" ifadesini duyduklarında doğrudan "ölmek" anlamına atlıyorlar. İkinci dil konuşucuları ise parçalayarak işliyor — önce "tekmeleme" ve "kova" kelimelerini çözümlüyor, sonra bunun bir deyim olduğunu fark ediyor, sonra anlamı çıkarıyor. Aynı kelimeleri "anlıyorlar" ama aynı şeyi yaşamıyorlar.</p>
-
-<p>Karpava, 2025'te bu uçurumun yapısal nedenini açıklıyor: anadil konuşucuları pragmatik yetkinliği bilinçaltından edinir — çocukluktan itibaren binlerce sosyal etkileşimle. İkinci dil konuşucuları ise pragmatik yetkinliği bilinçli olarak öğrenmek zorunda. Ve bu öğrenme, eğitimle değil yaşamla gerçekleşiyor.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Türkçe-İngilizce özel bulgu.</strong></p>
-
-<div class="pause"></div>
-
-<p>Sıtkı, Ikier ve Şener, 2024'te doğrudan Türkçe-İngilizce iki dilliler üzerinde çalıştı. Bulgu: ikinci dilde yanlış bellek anadile göre daha düşük. Mekanizma: ikinci dilde sözcük deposu ile anlamsal sistem arasındaki bağlantı daha zayıf.</p>
-
-<p>Bu ne demek? İkinci dilde bir kelimeyi biliyorsun ama o kelimenin taşıdığı çağrışım ağını, duygusal yükünü, kültürel katmanlarını bilmiyorsun. "Anlamak" anadilde zengin bir semantik ağ aktivasyonu — ikinci dilde dar bir kanal. Aynı kelime, iki farklı derinlik.</p>
-
-<p><strong>İkinci dilde anlama "dekodlama"dır; anadilde anlama "yaşama"dır.</strong></p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Sistem ne yapıyor?</strong></p>
-
-<div class="pause"></div>
-
-<p><strong>Üniversiteler neden İngilizce eğitim veriyor?</strong></p>
-
-<div class="pause"></div>
-
-<p>Bu sorunun cevabı, eğitim kalitesiyle ilgili değil.</p>
-
-<p>British Council'ın 2017 tarihli kapsamlı araştırması açık: üniversitelerin İngilizce eğitime geçme nedenleri şöyle sıralanıyor. Uluslararası öğrenci çekme, yani gelir. Küresel sıralamalarda yükselme. "Uluslararası" imaj oluşturma. Uluslararası akademisyen çekme.</p>
-
-<p>British Council bunu şöyle özetliyor: "Yükseköğretimde İngilizce eğitim kararı, yeni bir dil öğretimi yaklaşımını deneme isteğinden çok, kurumun beklentilerini yükseltmeye yönelik bir yönetim kararıdır."</p>
-
-<p>Yani İngilizce eğitim, öğrencinin daha iyi düşünmesi için değil, üniversitenin daha iyi görünmesi için seçiliyor.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>4 yıl eşittir 10 hafta.</strong></p>
-
-<div class="pause"></div>
-
-<p>Aynı British Council araştırmasının en çarpıcı verisi şu: İngilizce eğitim veren üniversitelerde 4 yıllık eğitim boyunca öğrencilerin ortalama IELTS artışı 0,5 puan. Yoğun bir dil kursu aynı artışı 10 haftada sağlıyor.</p>
-
-<p>4 yıl eşittir 10 hafta.</p>
-
-<p>Bu veri tek başına şu soruyu sormaya yetiyor: eğer amaç İngilizce öğretmekse, neden 4 yılı bu işe harcıyorsunuz? Cevap: amaç İngilizce öğretmek değil.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Sistem bariyeri kabul ediyor.</strong></p>
-
-<div class="pause"></div>
-
-<p>İşte asıl çelişki burada. Aynı sistem bir yandan İngilizce eğitimi savunurken, öte yandan dil bariyerinin varlığını kabul eden düzenlemeler yapıyor.</p>
-
-<p>Sınav uygulamalarına bakalım. ABD üniversiteleri, anadili İngilizce olmayan öğrencilere sınav başına 1 saat ek süre veriyor, toplamda 5 saati geçmemek üzere. Bu American University'nin politikasından geliyor. ACT sınavında anadili İngilizce olmayanlara yüzde elliye kadar ek süre veriliyor. Gerekçe şöyle yazılmış: "dil işleme bariyerleri, düşük okuma kavrama ve kelimeleri anadile çevirme süresi." Microsoft ve Pearson Vue sertifika sınavlarında anadili İngilizce olmayanlara 30 dakika ek süre veriliyor. Üniversiteler uluslararası öğrenciler için ayrı kabul kanalı, ders yükü azaltma, dil hazırlık kursları düzenliyor — tamamı standart uygulama.</p>
-
-<p>Boise State Üniversitesi'nin kendi politika belgesindeki itiraf dikkat çekici: "İkinci dilde yazma ve okuma, anadilden önemli ölçüde daha uzun sürer ve sınav performansı, konu bilgisinden çok dil işleme süresini yansıtabilir."</p>
-
-<p>Sistem bir yandan "İngilizce eğitim çalışıyor" diyor, öte yandan sınavda ek süre veriyor — çünkü çalışmadığını biliyor. Ama modeli sorgulamıyor. Çünkü motivasyon öğrencinin öğrenmesi değil, kurumun işlemesi.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Bilimin dil bariyerinin maliyeti.</strong></p>
-
-<div class="pause"></div>
-
-<p>Tatsuya Amano ve arkadaşlarının Nature'da 2023'te yayımlanan araştırması, bu çelişkinin bilim dünyasındaki karşılığını ölçüyor. Verileri tek tek paylaşayım. Anadili İngilizce olmayan bilim insanları, bir İngilizce makaleyi okumak için anadili İngilizce olanlardan yaklaşık 2 kat daha uzun süre harcıyor. Bir doktora öğrencisi için bu, yılda 19 ek çalışma günü demek — sadece makale okumak için. Dergiler, anadili İngilizce olmayan yazarların makalelerini dil kalitesi nedeniyle 2,6 kat daha fazla reddediyor. Akıcı İngilizce konuşmayanlardan 12,5 kat daha fazla revizyon isteniyor. 736 bilimsel dergiden sadece 2 tanesi — Nature ve Nature Plants — makalelerin salt dil kalitesi nedeniyle reddedilmeyeceğini açıkça belirtiyor.</p>
-
-<p>Nature'ın 2025 tarihli devam makalesindeki cümle meseleyi özetliyor: "Akıcı İngilizce konuşamamak, çoğu zaman daha düşük kalitede bilim insanı olarak görülmek anlamına geliyor."</p>
-
-<p>Ortada bir dilsizlik vergisi var — dünyanın geri kalanının omuzlarına yüklenmiş, bilimin üzerine konulmuş, görünmez ama acımasız bir vergi. Ölçülen şey bilim değil, dil. Değerlendirilen şey düşünce değil, performans.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>"Başarı" tanımı sığ.</strong></p>
-
-<div class="pause"></div>
-
-<p>Bütün bu düzenlemeler — ek süre, dil desteği, uyarlanmış sınavlar — bir şeyi açığa çıkarıyor: sistem "başarıyı" sığ ölçüyor.</p>
-
-<p>Not aldı eşittir anladı. Mezun oldu eşittir yetkin. Sınava girdi eşittir değerlendirdi.</p>
-
-<p>Ama kimse sormuyor: ne kadar derin anladı? Sınavda ek süre alan öğrenci aynı soruyu cevapladı ama aynı derinlikte mi cevapladı? Anadilinde o soruyu nasıl cevaplardı? Yabancı dilde kestirip attığı nüans hangisi? Kuramayacağı ama kurmak istediği argüman hangisi?</p>
-
-<p>Bu sorular ölçülmüyor. Ölçülmeyen şey görünmez. Ve görünmeyen şey "yok" sayılıyor.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Hukuk istisnası yanılgısı.</strong></p>
-
-<div class="pause"></div>
-
-<p>Türkiye'deki devlet üniversitesi hukuk fakültelerinin tamamına yakını Türkçe eğitim veriyor. Boğaziçi Üniversitesi 2022'de hukuk fakültesi açtığında — her bölümü İngilizce olan bir üniversitede — hukuku Türkçe açtı. Kendi sitesinde gerekçeyi açıkça yazıyor: "Dünyadaki genel uygulamaya da paralel olarak ülkemizde yüzde yüz yabancı dilde hukuk eğitimi veren bir üniversite mevcut değildir."</p>
-
-<p>Bu bir Türkiye istisnası değil. Dünya tablosuna bakalım. Almanya'da hukuk eğitimi Almanca, C1 düzeyinde Almanca zorunlu, devlet sınavı tamamıyla Almanca. Fransa'da hukuk eğitimi Fransızca, Paris 1 Sorbonne dahil, B2 Fransızca zorunlu. Japonya'da Japonca, İngilizce yalnızca yüksek lisans düzeyinde. Güney Kore'de Korece, Korece yeterlilik belgesi zorunlu. Çin'de Mandarin, yabancı dilde hukuk programı yok. Brezilya'da Portekizce, meslek sınavı Portekizce.</p>
-
-<p>Hollanda'nın Maastricht Üniversitesi tamamen İngilizce bir hukuk lisans programı sunuyor — teknik olarak bir istisna. Ama kritik bir ayrıntıyla: bu program ulusal Hollanda hukukunu değil karşılaştırmalı Avrupa hukukunu öğretiyor ve mezunlarına doğrudan avukatlık yetkisi vermiyor.</p>
-
-<div class="pause"></div>
-
-<p>Avrupa Birliği'nin kendisi bu gerçeğin en büyük ölçekli kanıtı. AB, çıkardığı her mevzuatı 24 resmi dilde hazırlamak zorunda — 552 olası çeviri kombinasyonu. Ve 24 dildeki versiyonların hukuki statüsü eşit. Almanca metin Fransızca metinden "daha geçerli" değil. Buna rağmen AB Adalet Divanı, farklı dil versiyonları arasındaki anlam farklılıkları nedeniyle düzenli olarak yorum davalarıyla karşılaşıyor. Dünyanın en gelişmiş çok-uluslu hukuki yapısı bile hukuki metni tek dile indirgeyemiyor.</p>
-
-<p>Peki bu sadece hukukun sorunu mu? Hayır.</p>
-
-<p>Tıp eğitiminde bile — evrensel bir bilim olması beklenen alanda — 189 ülkedeki 2.900'den fazla tıp fakültesinin yüzde 55,6'sı, yani 105 ülke, anadilde eğitim veriyor. Hamad'ın 2023 tarihli verisine göre Avrupa'da bu oran yüzde 97,4. Japonya'da üniversite mühendislik eğitiminin yüzde 95'inden fazlası Japonca. Tokyo ve Kyoto üniversiteleri dahil. Japonya bu eğitimle yılda 419.000 patent başvurusu yapıyor — Dünya Fikri Mülkiyet Örgütü'nün 2024 verilerine göre dünyada üçüncü sırada.</p>
-
-<p><strong>Hukuk istisna değil, kuralın en görünür hali.</strong> Düşünce-yoğun her alan — hukuk, tıp, felsefe, mühendislik — dile bağlıdır. Hukuk bu bağımlılığı en açık biçimde gösteriyor çünkü hukuki kavramlar doğası gereği yereldir: başka bir hukuk düzenine eşdeğer biçimde çevrilemez. Ama mekanizma aynı: terminoloji uluslararası olabilir, kavrama ve muhakeme anadildedir.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Kimin kaybı?</strong></p>
-
-<div class="pause"></div>
-
-<p><strong>İki profil, iki sonuç.</strong></p>
-
-<div class="pause"></div>
-
-<p>Yabancı dilde eğitimin etkisi herkeste aynı değil. İki farklı profilde iki farklı sonuç ortaya çıkıyor.</p>
-
-<p>Ortalama profil için sistem "çalışıyor." BICS düzeyinde İngilizce ediniliyor, özgeçmişe "İngilizce — ileri" yazılıyor, iş görüşmesinde birkaç cümle kuruluyor, kariyer avantajı sağlanıyor. Kimse "ne kadar derin anlıyorsun?" diye sormuyor çünkü sistem zaten sığ ölçüyor. Not, diploma, sertifika — hepsi tamam. Marjinal bir yükseliş var ve bu yükseliş yeterli sayılıyor.</p>
-
-<p>Derin düşünen profil için sistem zararlı olabilir. Ve bu zararın üç mekanizması var.</p>
-
-<div class="pause"></div>
-
-<p>Birincisi, düşünce bastırması. Düşünme kapasitesi yüksek bir insan anadilinde karmaşık argüman kurabiliyor, nüanslı ifade edebiliyor, metafor üretebiliyor, ince ayrımlar çizebiliyor. Yabancı dile geçtiğinde bunların hepsi BICS düzeyine iniyor. Zheng ve Choi'nin 2024'teki çalışmasında Çin'deki bir mühendislik hocasının sözü bunu somutlaştırıyor: "Bilgiyi anlıyorum. Ama İngilizce doğaçlama yapamıyorum." Bir sonraki hoca ilk yılını tek kelimeyle özetledi: panik.</p>
-
-<p>Bu insanların düşünme kapasitesi düşük değil — dil, kapasitelerini kullanmalarını engelliyor.</p>
-
-<div class="pause"></div>
-
-<p>İkincisi, enerji kaybı. CALP düzeyine ulaşmak 5 ila 10 yıl. Türkiye'deki bir mühendislik öğrencisi tahmini olarak şu zaman dilimleriyle karşılaşıyor: hazırlık sınıfında yaklaşık 1.000 saat İngilizce eğitimi, 4 yıllık lisans boyunca İngilizce ile boğuşmaya tahminen 2.000 ila 3.000 ek saat. Bu 3.000 ila 4.000 saatlik bir fırsat maliyeti. Ve o yıllar boyunca anadilindeki CALP da gelişmiyor — çünkü dikkat, enerji ve zaman yabancı dile gidiyor. Sonuç: iki dilde de orta düzey.</p>
-
-<div class="pause"></div>
-
-<p>Üçüncüsü, potansiyel budanması. Civan ve Coşkun, 2016'da Türkiye'deki üniversitelerde eğitim dilinin akademik başarıya etkisini araştırdı. Giriş puanları kontrol edildiğinde İngilizce eğitim veren programlardaki öğrencilerin başarısı Türkçe eğitim verenlerden daha düşük çıktı. Güçlü girdi, zayıf çıktı.</p>
-
-<p>Bu, sığ profil için fark yaratmıyor çünkü kayıp görünmüyor. Ama derin profil için kayıp büyük — çünkü potansiyel büyüktü. Ve bu kayıp hiçbir zaman ölçülmüyor: anadilinde o öğrenci ne olabilirdi, ne üretebilirdi, ne söyleyebilirdi — bunun cevabı yok.</p>
-
-<div class="pause"></div>
-
-<p>Bälter ve arkadaşlarının İsveç'teki 2024 tarihli randomize kontrollü çalışması bunu sayılarla gösteriyor. Aynı ders, aynı sınav — bir gruba İsveççe, diğerine İngilizce verildi. İsveççe sınav alan grup, İngilizce gruba göre yüzde 73 daha fazla soruyu doğru yanıtladı. Yani İngilizce gruptaki öğrenci 10 sorudan 4'ünü biliyorsa, anadilindeki öğrenci 7'sini biliyordu — aynı dersi alan, aynı şeyleri öğrenen iki grup.</p>
-
-<p>Ve en çarpıcı detay: İngilizce grubundan kendini İngilizce'de yeterli gören öğrenciler ayrıca incelendi. Bunlar "İngilizce biliyorum" diyen, kendine güvenen öğrenciler. Onlar bile anadilinde sınav alanlardan yüzde 41 daha kötü performans gösterdi. Yeterlilik yanılgısının sayısal karşılığı: "biliyorum" diyorsun ama yüzde 41 kaybediyorsun — ve kaybettiğinin farkında değilsin.</p>
-
-<div class="pause"></div>
-
-<p>Sweller'ın 2022 tarihli bilişsel yük kuramı mekanizmayı açıklıyor: ikinci dilde öğrenmenin dezavantajları avantajlarını aşabiliyor. Beyin sınırlı kaynaklarını dil işleme ve içerik işleme arasında bölmek zorunda kalıyor — ve birinden birini feda ediyor.</p>
-
-<p>Bu noktada bir gerçeği hatırlamak gerekiyor: bilişsel enerji sonlu bir kaynaktır. Ne kadar zeki, ne kadar çalışkan, ne kadar motivasyonlu olursan ol — beynin aynı anda işleyebildiği bilgi miktarı sınırlı. Glikoz tüketimi, dikkat kapasitesi, çalışma belleği — hepsi tavan değerlere sahip. Bu, insanın biyolojik bir sınırı. Ve sonlu bir kaynağın nasıl tahsis edildiği, stratejik bir karardır. Enerji, dil çözümlemeye giderse kavramaya gitmez. Sentaksa giderse analize gitmez. Çeviriye giderse özgün düşünceye gitmez. Bälter'in yüzde 41'i bu tahsis kararının somut faturasıdır — ve bu faturayı ödeyenlerin büyük çoğunluğu, ödediğinin farkında bile değil.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Sahadan: anlam derinliği ölçümü.</strong></p>
-
-<div class="pause"></div>
-
-<p>Bu araştırma kapsamında uluslararası panellerde İngilizce konuşan farklı profillerdeki insanlar sistematik olarak incelendi. Davos 2025 Ekonomik Forum, Geneva İnsan Hakları Zirvesi, yapay zekâ güvenliği panelleri — onlarca saatlik kayıt. Soru basit: konuşmacılar ne kadar derin anlam ifade edebiliyor?</p>
-
-<p>Ortaya çıkan tablo, eğitim dilinden bağımsız bir değişkeni işaret ediyor. Tabloyu sözel olarak aktarayım.</p>
-
-<p>Singapur Cumhurbaşkanı Tharman Shanmugaratnam. Anadili Tamil ve Malay. İngilizce düzeyi çok yüksek. Anlam derinliği çok yüksek — tarihsel çerçeve, kavramsal mimari, empati.</p>
-
-<p>Turing ödüllü Yoshua Bengio. Anadili Fransızca. İngilizce'si belirgin aksanlı. Anlam derinliği çok yüksek — çok katmanlı metaforlar, kavramsal mimari.</p>
-
-<p>IMF Başkanı Kristalina Georgieva. Anadili Bulgarca. İngilizce düzeyi yüksek. Anlam derinliği yüksek — kültürel gözlem, veri artı kişisel anekdot.</p>
-
-<p>Avrupa Merkez Bankası Başkanı Christine Lagarde. Anadili Fransızca. İngilizce'si çok akıcı. Anlam derinliği orta-yüksek — cilalı ama sunumsal, spontanlık az.</p>
-
-<p>Gazeteci Nevşin Mengü. Anadili Türkçe. İngilizce'si akıcı. Anlam derinliği orta — terminoloji doğru ama kavramsal çerçeve ödünç alınmış.</p>
-
-<p>BlackRock CEO'su Larry Fink. Anadili İngilizce. Anlam derinliği orta — Wall Street klişeleri, özgün içgörü az.</p>
-
-<p>Dışişleri Bakanı Hakan Fidan. Anadili Türkçe. İngilizce'si Georgetown yüksek lisans düzeyinde. Anlam derinliği orta-düşük — temel bilgi sıralama, basit nedensellik.</p>
-
-<div class="pause"></div>
-
-<p>İki çarpıcı karşılaştırma:</p>
-
-<p>Bengio ve Lagarde aynı anadili paylaşıyor: Fransızca. Lagarde'ın İngilizcesi daha akıcı, daha cilalı, daha az aksanlı. Ama Bengio'nun anlam derinliği belirgin biçimde daha yüksek. Yapay zekâ tartışmalarında "sisli dağ yolu" metaforu, "bebek kaplan" analojisi, "insanlığın geleceğiyle zar atma" çerçevesi — bunlar kavramsal mimari, klişe değil. Aynı dil, farklı derinlik. Farkı belirleyen akıcılık değil, düşünme kapasitesi.</p>
-
-<p>Mengü ise Türkiye'nin İngilizce eğitim sisteminin en başarılı çıktılarından biri. TED Koleji, Bilkent Siyaset Bilimi, uluslararası gazetecilik deneyimi. Geneva İnsan Hakları Zirvesi'nde İngilizce konuşması akıcıydı, terminolojisi doğruydu: "rekabetçi otoriter rejimler," "kişilik kültü," "denge ve denetim." Ama bir kavramı kendi perspektifinden yeniden kavramsallaştırmadı — etiketleri yapıştırdı, açmadı. Tarihsel referans neredeyse yoktu. Michael McFaul'u "eski Savunma Bakanı" olarak tanımladı — McFaul ABD'nin Rusya Büyükelçisi ve Stanford profesörü. Ödünç aldığı fikirleri tam sindirmediğinin bir göstergesi.</p>
-
-<p>Ve Fink — anadili İngilizce olan BlackRock CEO'su — tabloda altıncı sırada. Anlam derinliği anadil avantajıyla açıklanamıyor.</p>
-
-<p>Bu gözlemler istatistiksel kanıt değil, sistematik gözlem. Ama tezle tutarlı: <strong>anlam derinliği ne dile ne akıcılığa bağlı — düşünme kapasitesine bağlı.</strong> Dil, düşünceyi taşıyan araç. Araç ne kadar iyi olursa olsun, taşıyacak düşünce yoksa boş kalıyor.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>"Bilemem" dürüstlüğü.</strong></p>
-
-<div class="pause"></div>
-
-<p>Yabancı dilde eğitimin derin düşünen insanların potansiyelini kesinlikle yok ettiği söylenemez. Bu bir hipotez — güçlü bir hipotez, ama kanıtlanmış bir yargı değil.</p>
-
-<p>Mevcut veriler şuna işaret ediyor: yabancı dilde eğitim, düşünme kapasitesi düşük bireyleri marjinal olarak yükseltirken, düşünme kapasitesi yüksek bireylerin potansiyelini budayabiliyor. Sistem birinci grubun "başarısını" ölçüyor, ikinci grubun kaybını görmüyor — çünkü kaybı ölçecek bir metrik yok.</p>
-
-<p>Bu kaybın büyüklüğü bilinmiyor. Ama varlığına dair güçlü işaretler var.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Her dil bir dünya.</strong></p>
-
-<div class="pause"></div>
-
-<p><strong>Dil bir penceredir.</strong></p>
-
-<div class="pause"></div>
-
-<p>Buraya kadar anlatılan her şey — yabancı dil etkisi, iç konuşma, yeterlilik yanılgısı, sistemin çelişkileri — tek bir soru etrafında dönüyor: dil düşünceyi nasıl etkiliyor? Ama bu sorunun bir de ters yüzü var: dil dünyayı nasıl gösteriyor? Bu bölümün her satırı kendi başına bir araştırma konusu. Burada yalnızca yol işaretlerini koyuyoruz — yolun kendisi çok daha uzun.</p>
-
-<p>1930'larda dilbilimciler Edward Sapir ve Benjamin Lee Whorf, radikal bir hipotez ortaya attı: konuştuğumuz dil, düşünme biçimimizi belirler. Bu hipotezin "güçlü" versiyonu — dilin düşünceyi tamamen belirlediği — büyük ölçüde çürütüldü. İnsanlar dil olmadan da düşünebilir; bebekler dil öncesinde problem çözer; sağır bireyler işaret dili olmadan da karmaşık muhakeme yapar.</p>
-
-<p>Ama "zayıf" versiyon — dilin düşünceyi etkilediği, algıyı yönlendirdiği, dikkat kalıplarını şekillendirdiği — son yirmi yılda güçlü deneysel kanıtlarla desteklendi. Ve bu kanıtlar, her dilin gerçekten farklı bir dünya penceresi açtığını gösteriyor.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Mavinin iki adı.</strong></p>
-
-<div class="pause"></div>
-
-<p>İngilizce'de mavi tonları için kelimeler var: navy, azure, cobalt, teal, indigo. Ama bunların hepsi "blue"nun alt kategorileri — ana terim hep "blue." Rusça'da ise durum farklı: siniy, yani koyu mavi, ve goluboy, yani açık mavi, iki ayrı temel renk terimidir — "blue"nun tonları değil, kırmızı ve turuncu kadar birbirinden bağımsız renkler.</p>
-
-<p>2007'de Jonathan Winawer ve arkadaşları bu farkın algıyı etkileyip etkilemediğini test etti. Deneyde katılımcılara üç mavi kare gösterildi ve hangisinin diğerinden farklı olduğu soruldu. Sonuç: Rusça konuşanlar, iki renk farklı kategorilere düştüğünde — biri siniy, diğeri goluboy — daha hızlı ayırt etti. Aynı fiziksel renk farkı, aynı kategori içinde kaldığında bu hız avantajı kayboldu.</p>
-
-<p>Dahası: bu avantaj, katılımcılara sözel bir görev verildiğinde — kelime tekrarlama — ortadan kalktı. Ama mekânsal bir görev verildiğinde — ritim tutma — kaldı. Yani etki gerçekten dil işleme üzerinden çalışıyor.</p>
-
-<p>Aynı gökyüzü, aynı dalga boyu, aynı retina. Ama Rusça konuşan biri İngilizce konuşandan farklı görüyor — çünkü dili, renk uzayını farklı böldüğü yerde dikkatini yoğunlaştırıyor.</p>
-
-<div class="pause"></div>
-
-<p>Ve bu etki İngilizce'ye özgü değil. Emre Özgen ve Ian Davies'in 1998 tarihli araştırması Türkçe'de 12 temel renk terimi tespit etti — İngilizce'nin 11'ine karşılık. On ikinci terim: lacivert. İlginç olan şu: katılımcıların çoğu lacivert'i "mavi'nin bir türü" olarak tanımlıyor — ama algısal düzeyde lacivert bağımsız bir kategori olarak işliyor. Türkçe konuşanlar, İngilizce konuşanlara kıyasla mavi tonlarını iki ayrı gruba ayırmada anlamlı ölçüde daha başarılı. Metalinguistik yargı — yani dil hakkında söylediğimiz — ile dilin fiili çalışma biçimi farklı şeyler. İnsanlar "lacivert mavi'nin bir türüdür" diyor ama beyinleri onları iki ayrı renk olarak işliyor.</p>
-
-<p>Bu metalinguistik-algısal ayrılık, makalenin temel sorusuna da ayna tutuyor: insanlar "İngilizce biliyorum" diyor ama bilişsel süreçleri bunu doğrulamıyor. Yüzey yargısı ile fiili çalışma biçimi her yerde ayrılıyor.</p>
-
-<p>Üç dil, üç farklı mavi haritası: İngilizce tek bir "blue" altında topluyor; Türkçe mavi ve lacivert'i ayırıyor ama bunu açıkça kabul etmiyor; Rusça siniy ve goluboy'u kırmızı ile turuncu kadar bağımsız sayıyor. Her dilin güçlü olduğu yer farklı — ve hiçbirinin haritası "doğru" değil; her biri gerçekliğin farklı bir dilimini keskinleştiriyor.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Rengin arkasındaki hayat.</strong></p>
-
-<div class="pause"></div>
-
-<p>Ama bu farklılıklar nereden geliyor? Rusça neden maviyi ikiye böldü de İngilizce bölmedi? Türkçe neden lacivert'i ayrıştırdı da pembeyi — ki Namibya'nın Himba halkı gibi, pembe ile kırmızıyı aynı terimle karşılayan topluluklar var — neden doğal karşıladı?</p>
-
-<p>Cevap, dilin soyut bir sistemden ibaret olmadığını hatırlatıyor: <strong>dil, yaşanmışlığın çökeltisidir.</strong></p>
-
-<p>Rusça'nın siniy ve goluboy ayrımı Eski Slavca'ya dayanıyor. Slavların yaşam alanında gökyüzünün açık mavisi — güvercin rengi, goluboy, голубь'den — ile su derinliğinin koyu mavisi — siniy, parıltı ve derinlik çağrışımlı — farklı deneyimlerdi. Farklı deneyim farklı kelime üretti; farklı kelime algıyı keskinleştirdi; keskinleşen algı deneyimi yeniden şekillendirdi. Bir döngü.</p>
-
-<p>Bu döngü başka bir yerde çok daha görünür biçimde işliyor: İslam ve yeşil. Çölde yeşil nadir. Nadir olan hayat demek — su, vaha, gölge, canlılık. Bu yaşanmışlık dile girdi: Arapça'da cennet — Jannah — kelimesi bahçe demek. Kuran'da cennet tasvirleri yeşil bahçeler, akan sular, gölge veren ağaçlar üzerine kurulu. Yeşil, yaşanmışlıktan dile, dilden kutsallığa, kutsallıktan algıya taşındı. Bugün yeşil renk İslam dünyasında otomatik olarak bir kutsiyet çağrışımı taşır — bu çağrışım biyolojik değil, yaşanmışlığın dil üzerinden kristalleşmiş hali.</p>
-
-<p>Karşı örnek bunu doğruluyor: Amazon yağmur ormanlarında yeşil her yerde. Nadir değil, sıradan. Aynı mekanizma burada çalışıyor ama farklı sonuç üretiyor — yeşile kutsiyet yüklenmez çünkü yeşil hayatın istisnası değil, kendisi.</p>
-
-<p>Ve tarihsel bir detay bu döngünün ne kadar derin işlediğini gösteriyor: İslam öncesi Arapça'da akhḍar, yani yeşil, siyaha yakın tanımlanıyordu. İslam sonrası aynı kelime bambaşka bir anlam yoğunluğu kazandı. Yaşanmışlık dili dönüştürdü; dil algıyı dönüştürdü; algı yaşanmışlığı yeniden şekillendirdi.</p>
-
-<p>Bu döngünün farkında olmak, dillerin "rastgele" farklı olduğu yanılgısını kırar. Her dilin haritası, o dilin konuşucularının binlerce yıllık yaşanmışlığının izini taşıyor. Rusça maviyi ikiye böldüyse, bir Slav köylüsü gökyüzü ile nehir suyunu her gün iki ayrı deneyim olarak yaşadığı için böldü. Türkçe lacivert'i ayırdıysa, Anadolu'da koyu mavi ile açık mavinin farklı hayatlara — gece ile gündüze, deniz derinliği ile gökyüzüne — işaret ettiği için ayırdı.</p>
-
-<p>Hiçbir dil dünyayı "olduğu gibi" bölmüyor. Her dil dünyayı, o dili konuşanların yaşadığı gibi bölüyor.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Zamanın yönü.</strong></p>
-
-<div class="pause"></div>
-
-<p>Zaman nasıl akar? Soldan sağa mı? Yukarıdan aşağıya mı? Doğudan batıya mı?</p>
-
-<p>Cevap: konuştuğun dile bağlı.</p>
-
-<p>İngilizce konuşanlar zamanı soldan sağa düzenler — dünü sola, yarını sağa koyar. Arapça konuşanlar sağdan sola düzenler — yazma yönünü takip eder.</p>
-
-<p>Mandarin Çincesi'nde zaman metaforları ağırlıklı olarak dikey: "yukarıdaki ay" eşittir geçen ay, "aşağıdaki ay" eşittir gelecek ay. Lera Boroditsky 2001'de gösterdi ki Mandarin konuşanlar dikey zaman düzenlemesinde İngilizce konuşanlardan daha hızlı.</p>
-
-<p>Ama en çarpıcı örnek Avustralya'nın Kuuk Thaayorre halkından geliyor. Bu dilde sol-sağ, ön-arka gibi göreli yön ifadeleri yok. Her şey mutlak yönlerle — kuzey, güney, doğu, batı — ifade ediliyor. "Güney ayağındaki karınca" deniyor, "sol ayağındaki karınca" değil. Kuuk Thaayorre konuşucuları her an pusula gibi yön bilincine sahip — çünkü dilleri bunu zorunlu kılıyor.</p>
-
-<p>Boroditsky ve Gaby 2010'da bu insanlara kartlar verdi — bir insanın yaşlanma süreci, bir muz yenme sahnesi, bir timsahın büyümesi. Sıralamalarını istediler. Hangi yöne oturtulurlarsa oturtulsunlar, kartları doğudan batıya dizdiler — güneşin gökyüzündeki yolunu takip ederek. Güneye bakan birinde soldan sağa, kuzeye bakan birinde sağdan sola, doğuya bakan birinde vücuda doğru.</p>
-
-<p>Aynı evren. Aynı zaman. Üç farklı harita — çünkü üç farklı dil, üç farklı pencere.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Bilginin kaynağını kodlamak: Türkçe'nin epistemik avantajı.</strong></p>
-
-<div class="pause"></div>
-
-<p>Türkçe'nin dünya dillerinde nadir bulunan bir özelliği var: evidansiyel işaretçiler — yani bilginin kaynağını dilbilgisel olarak kodlama zorunluluğu.</p>
-
-<p>Bir örnek:</p>
-
-<p>"Ali geldi." — Gördüm. Oradaydım. Doğrudan tanık oldum.</p>
-
-<p>"Ali gelmiş." — Duydum. Birisi söyledi. Ya da geldiğine dair izler gördüm — ayakkabıları kapıda — ama kendisini görmedim.</p>
-
-<p>İngilizce'de bu ayrım zorunlu değil. "Ali came" her iki durumu da kapsar. Bilginin kaynağını belirtmek istiyorsanız ekstra kelimeler eklemeniz gerekir: "I saw Ali come" veya "I heard that Ali came." İfade edilebilir ama dil zorlamıyor — söylememe seçeneğiniz var. Türkçe'de ise bu bilgi fiilin çekimine gömülü — söylemeden edemezsiniz.</p>
-
-<div class="pause"></div>
-
-<p>Ayhan Aksu-Koç ve arkadaşlarının onlarca yıllık araştırma programı, bu dilbilgisel zorunluluğun bilişsel etkilerini ortaya koyuyor. Bulgular şöyle: Türk çocukları evidansiyel işaretçileri 2 yaşından itibaren kullanmaya başlıyor — ama tutarlı biçimde doğrudan deneyim ile dolaylı bilgi arasında ayrım yapabilmeleri 4 yaşı buluyor. Bu süreç, epistemik farkındalığın gelişimiyle paralel ilerliyor: "ben bunu nereden biliyorum?" sorusunu sorabilme becerisi. Aksu-Koç, Ögel-Balaban ve Alp'in bulgusu çarpıcı: evidansiyel işaretçilere maruz kalmanın, çocuklarda "yanlış inanç görevleri"nde başarıyı artırıyor olabileceğine dair kanıtlar var. Yani Türkçe'nin dilbilgisi, "başkasının bildiği şey benim bildiğimden farklı olabilir" kavramını daha erken ve daha güçlü bir biçimde inşa ediyor olabilir.</p>
-
-<p>Bu ne demek? Türkçe konuşan bir çocuk, her cümle kurduğunda bilgisinin kaynağını sınıflandırmak zorunda. Gördü mü, duydu mu, çıkardı mı? Bu zorunluluk, epistemik — yani bilginin doğasına ilişkin — düşünme alışkanlığını dilin içine yerleştiriyor.</p>
-
-<p>İngilizce konuşan bir çocuğun böyle bir zorunluluğu yok. "Ali came" der ve geçer. Bilginin kaynağı sormaya, sorgulamaya, fark etmeye bırakılmıştır — ama dilbilgisel olarak zorlanmaz.</p>
-
-<p>Bu, Türkçe'nin İngilizce'den "daha iyi" bir dil olduğu anlamına gelmiyor. Farklı bir pencere açtığı anlamına geliyor — bilgi kaynağının görünür olduğu bir pencere.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Sayısız bir dünya.</strong></p>
-
-<div class="pause"></div>
-
-<p>Amazon ormanlarının derinliklerinde yaşayan Pirahã halkının dili, dilbilimin en tartışmalı vakalarından birini oluşturuyor. Dilbilimci Daniel Everett, 30 yılı aşkın alan çalışmasının ardından şu tespiti yaptı: Pirahã dilinde sayı kelimesi yok. "Bir," "iki," "üç" yok — yalnızca "az" ve "çok" anlamına gelen belirsiz nicelik ifadeleri var.</p>
-
-<p>Pirahã halkı, tüccarlarla ticarette aldatılmaktan endişe duyarak Everett'ten sayı öğretmesini istedi. Sekiz ay boyunca her gün coşkuyla çalıştılar. Sonuç: öğrenemediler. Sekiz ayın sonunda Pirahã halkı derslerin işe yaramadığına karar verip bıraktı.</p>
-
-<p>Bu, zekâ eksikliği değil — dil ve kültürün birlikte oluşturduğu bir bilişsel çerçevenin sınırı. Everett bunu "deneyim dolaysızlığı ilkesi" olarak tanımlıyor: Pirahã kültürü, iletişimi doğrudan deneyimlenebilir konularla sınırlıyor. Soyut sayı kavramı bu çerçevenin dışında kalıyor.</p>
-
-<p>Bu vaka, dilin düşünceyi "belirlemediğini" ama güçlü biçimde çerçevelediğini gösteren en aşırı örneklerden biri. Bir dil, belirli bir kavramı kodlamıyorsa, o kavramla düşünmek zorlaşıyor — imkânsız değil ama çok zor.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Karakterlerin içindeki dünya görüşü.</strong></p>
-
-<div class="pause"></div>
-
-<p>Çince yazı sistemi, dilin dünya görüşünü nasıl taşıdığının belki de en görsel örneği. Her karakter, bir kavramın tarihsel ve kültürel yorumunu yazının içine kazımış.</p>
-
-<p>Hǎo — "iyi" demek. Karakterin yapısı: kadın ve çocuk yan yana. Kadın ve çocuğun yan yana olması eşittir iyi.</p>
-
-<p>Ān — "huzur, güvenlik" demek. Yapısı: çatı altındaki kadın. Çatı altındaki kadın eşittir huzur.</p>
-
-<p>Jiān — "hile, zina, kötülük" demek. Yapısı: üç kadın yan yana eşittir kötülük. 1989 baskısı Cihai sözlüğünde kadın radikali taşıyan 275 karakter var. Erkek radikali? Yok.</p>
-
-<p>Bu yapılar bin yıllık ataerkil bir toplumsal düzeni yazının DNA'sına işlemiş. Çince öğrenmek, sadece bir alfabe ve dilbilgisi öğrenmek değil — o karakterlerin taşıdığı tarihsel dünya görüşüne de girmektir. "Huzur"un "çatı altındaki kadın" olarak kodlandığı bir dilde, huzur kavramının kendisi farklı bir kültürel yük taşıyor.</p>
-
-<p>Zhou'nun 2025 tarihli araştırması, modern Çinli feministlerin bu karakter yapılarını nasıl sorunsallaştırdığını ve dil reformu önerilerini inceliyor. Karakterler sadece iletişim aracı değil — içerdikleri toplumsal varsayımlar, dili konuşan herkesin bilinçaltına işliyor.</p>
-
-<p>Li'nin 2016 tarihli çalışması ise dikkatli bir denge kuruyor: bu yapıları anahatlarıyla "Çince cinsiyetçi bir dildir" demek yerine, karakterlerin tarihsel bağlamını anlamak ve modern yorumlarla birlikte okumak gerektiğini savunuyor.</p>
-
-<p>Her iki pozisyon da aynı noktaya işaret ediyor: <strong>dil tarafsız bir araç değil, bir dünya görüşü taşıyıcısıdır.</strong> Çince karakterleri "öğrenmek" o dünya görüşünün içine girmektir.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Türkçe'nin gizli felsefesi.</strong></p>
-
-<div class="pause"></div>
-
-<p>Her dilin çevrilemeyen kelimeleri var. Ama Türkçe'nin çevrilemezleri, özellikle duygu ve ilişki alanında yoğunlaşıyor — ve her biri, başka bir dilde ancak bir paragrafla açıklanabilecek bir dünyayı tek bir kelimede taşıyor.</p>
-
-<p>Gönül. İngilizce'de "heart" denir ama gönül kalp değil. Gönül, duygunun, niyetin ve bağlılığın buluştuğu iç merkez. "Gönlüm razı değil" — kalbim değil, mantığım değil, bir yerleri reddediyor ama tam olarak neresi olduğunu söyleyemiyorum. "Gönül koymak" — kırgınlık ama öfke değil, daha sessiz, daha derin bir şey. İngilizce'de bunu karşılayan tek kelime yok çünkü İngilizce duygu haritası bu bölgeyi farklı çizgilerle bölmüş.</p>
-
-<p>Hüzün. Orhan Pamuk bunu İstanbul: Hatıralar ve Şehir kitabında dünyaya tanıttı. Melankoli? Hayır — melankoli bireysel, hüzün kolektif. Pamuk'un formülasyonuyla: "Bir kişinin değil, milyonların paylaştığı siyah ruh hali." İstanbul'un geçmişine, Osmanlı'nın çöküşüne, yitirilen ihtişama duyulan kolektif bir kayıp hissi — ama umutsuz değil; Sufi felsefesinde hüzün, insanın Tanrı'dan uzaklığını hissedip o uzaklığın acısında bir güzellik bulması. Arapça'da beş kez Kuran'da geçer ve "derin ruhsal kayıp ama aynı zamanda yaşama tutunmanın bir yolu" anlamını taşır.</p>
-
-<p>Keyif. İngilizce "pleasure"? Hayır — pleasure'ın bir nesnesi var, bir şeyden alınan zevk. Keyif'in nesnesi yok. Keyif, var olmanın kendisinden gelen sessiz bir hoşluk. "Kahve keyfi" — kahve bir vesile ama keyif kahveden gelmiyor; durmaktan, zamanın geçmesine izin vermekten, bir şey üretme baskısının olmamasından geliyor. İngilizce'de "leisure," "relaxation," "rest" — her biri bir şeyden toparlanmayı ima ediyor. Keyif hiçbir şeyden toparlanmıyor. Kendi başına var oluyor.</p>
-
-<p>Merak. İngilizce "curiosity"? Kısmen. Ama Türkçe'de merak aynı zamanda "endişe" demek. "Seni merak ettim" eşittir "seni çok merak ediyorum" olabilir, "senin için kaygılanıyorum" da olabilir. Merak hem bilme arzusu hem endişe — Türkçe, bu iki duyguyu akraba olarak görüyor. İngilizce'de "curiosity" ve "worry" arasında akrabalık yok.</p>
-
-<p>Gurbet. "Gurbette yaşamak" — İngilizce'ye "living abroad" diye çevrilir ama gurbet "abroad" değil. Gurbet, memleketten kopmanın mekânsal uzaklığı ile ruhsal kopukluğun birleşimi. Gurbetçi sadece uzakta olan değil, uzaklığı içinde taşıyan. "Diaspora" yakındır ama diaspora politik, gurbet varoluşsal.</p>
-
-<p>Hasret. "Longing"? "Yearning"? Hiçbiri hasretin ağırlığını taşımıyor. Hasret, özlemin kronikleşmiş, ağırlaşmış, neredeyse fizikselleşmiş hali. Özlem daha anlık ve kişisel, hasret daha uzun ve derin. Türkçe, özlem ile hasret arasında bir yoğunluk gradyanı çiziyor — İngilizce'de bu gradyan yok.</p>
-
-<p>Emek. "Labor"? "Effort"? İkisi de emek'i karşılamıyor. Emek hem çalışma hem özveri hem sevgi. "Emek vermek" — sadece çalışmak değil, kendinden bir şey katmak. "Emeğine sağlık" — eline sağlık değil, varlığına sağlık.</p>
-
-<div class="pause"></div>
-
-<p>Bu kavramlar sadece "çevrilemeyen güzel kelimeler" değil — düşüncenin çözünürlüğüyle ilgili. İngilizce "understand" der — tek kelime, her derinlikte aynı. Türkçe'de: anlamak, kavramak, idrak etmek, sezmek, fark etmek, çözmek — her biri farklı bir zihinsel işlemi işaret eder. "Kavramak" el ile tutmadır, "sezmek" sezgiseldir, "idrak etmek" bilişsel bir sıçramadır. İngilizce hepsine "understand" der ve geçer.</p>
-
-<p>Aynı şey duyguda da geçerli. İngilizce'de adore, cherish, be fond of gibi fiiller var ama günlük dilde love hepsinin yerini tutuyor. Türkçe: sevmek, aşık olmak, tutulmak, gönül vermek, bağlanmak, düşkün olmak — her biri farklı bir ilişki tonunu taşır. Ve Türkçe'de pizza ile insana aynı fiil kullanılmaz — sevebilirsin ama âşık olamazsın bir nesneye. İngilizce'de "I love pizza" ile "I love you" aynı fiili kullanıyor — bu esneklik mi, yoksa duygunun sulanması mı?</p>
-
-<p>Bir dil, bir deneyimi kaç kelimeyle ayırt ediyorsa, o deneyim hakkında o kadar hassas düşünebilir. İngilizce'nin aynı kelimeyi on farklı bağlama yüklemesi, kelime hazinesinin genişliği gibi görünür ama bedeli var: anlam bulanıklaşır. Türkçe tam tersini yapar — her duruma kendi kelimesini üretir. Bu lüks değil, düşüncenin çözünürlüğüdür.</p>
-
-<div class="pause"></div>
-
-<p>Bu kelimeler Türkçe'nin "daha iyi" bir dil olduğunu göstermiyor. Her dilin kendi çevrilemezleri var.</p>
-
-<p>Portekizce'nin saudade'si — geçmişe duyulan derin özlem ama geleceğe de uzanan bir boyutuyla; "geleceğin saudade'si" kavramı, henüz yaşanmamış şeylere bile özlem duymayı ifade ediyor.</p>
-
-<p>Japonca'nın mono no aware'si — geçiciliğin güzelliğine duyulan hüzünlü hassasiyet; kiraz çiçeklerinin düşüşünü izlerken hissedilen o duygu; kalıcılık değil geçicilik güzel.</p>
-
-<p>Japonca'nın wabi-sabi'si — kusurluluğun, eksikliğin, geçiciliğin içindeki güzellik; çatlak bir çay kasesindeki estetik.</p>
-
-<p>Japonca'nın komorebi'si — yaprakların arasından süzülen güneş ışığının yerde oluşturduğu dans eden benek deseni. Tek kelime.</p>
-
-<p>Fince'nin sisu'su — irade gücü, dayanıklılık ve cesaretin birleşimi; "sıkıyı görünce ortaya çıkan ikinci nefes" ama bunun hepsinden fazlası.</p>
-
-<p>Almanca'nın Schadenfreude'si — başkasının talihsizliğinden duyulan zevk; İngilizce'de bu duygunun adı yok, kelime doğrudan Almanca'dan alındı.</p>
-
-<p>Danca'nın hygge'si — samimi sıcaklık, rahatlık ve birliktelik duygusu; bir mumun ışığında arkadaşlarla çay içmek hygge'dir ama tarifi yapılamaz.</p>
-
-<p>Her biri, o dilin konuşucularının dikkatini belirli bir deneyim alanına yoğunlaştıran bir kavramsal araç. O kelime olmadan o deneyim yaşanmaz demek değil — ama o kelimeyle o deneyim adlandırılır, paylaşılır, kuşaktan kuşağa aktarılır, etrafında bir kültür oluşur.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Her dil bir pencere — ama düşünmek için tek bir eve ihtiyacın var.</strong></p>
-
-<div class="pause"></div>
-
-<p>Buraya kadar gösterilen örnekler bir gerçeği ortaya koyuyor: her dil, evreni farklı bir açıdan gören bir penceredir. Rusça renk uzayını farklı bölüyor. Kuuk Thaayorre zamanı farklı yönlendiriyor. Türkçe bilginin kaynağını görünür kılıyor. Çince tarihi karakterlerin içine kazıyor. Japonca geçiciliğin güzelliğini tek kelimeye sığdırıyor. Portekizce geleceğe bile özlem duyabiliyor.</p>
-
-<p>Bu zenginlikler gerçek. O dünyalara tam olarak girmek için o dili bilmek gerekir — çünkü çeviri, kelimenin yapısını aktarır ama altındaki deneyim ağını aktaramaz. "Saudade"nin ne olduğunu İngilizce açıklayabilirsiniz ama Portekizce'de saudade'yi hissedebilmek farklı bir deneyimdir. "Komorebi"nin tanımını okuyabilirsiniz ama Japonca'da komorebi kelimesini duyduğunuzda zihnin anında o görüntüyü, o ışık oyununu, o geçicilik hissini çağırması — o, yaşanmış bir dil deneyimidir.</p>
-
-<p>Peki bu, düşünmek için o dilde eğitim almanız gerektiği anlamına mı geliyor?</p>
-
-<p>Hayır. Ve tam da bu noktada, bu makalenin tezi en net biçimini alıyor.</p>
-
-<p>Her dilin penceresi, o dilin dünyasını gösterir. Ama düşünmek — kavramak, analiz etmek, sentezlemek, üretmek — bunlar pencereden bakarak değil, evin içinde yapılır. Ve o ev, anadildir.</p>
-
-<p>Japonca'nın wabi-sabi'sini anlamak için Japonca bilmek güzel bir şeydir. Ama mühendislik, hukuk, tıp, felsefe — herhangi bir alanda derin düşünmek için İngilizce bilmek gerekli değil. Bilgiye erişmek gerekir — ve bu erişim artık dile bağımlı olmaktan çıkıyor. Ama düşünmenin kendisi, iç konuşmanın gerçekleştiği, kavramların oluştuğu, argümanların kurulduğu o iç mekân — anadildir.</p>
-
-<p>Dillerin zenginliği, İngilizce eğitim lehine bir argüman değil. Aksine: her dilin benzersiz kavramsal dünyası, anadilde düşünmenin neden vazgeçilmez olduğunun kanıtıdır. Türkçe'nin evidansiyel işaretçileri, Türkçe'de düşünen birinin bilgi kaynağını otomatik olarak sorgulamasını sağlıyor — bu bilişsel avantajı, İngilizce eğitime geçerek kaybetmek, pencere açarken evi yıkmaktır.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Yapay zekâ ve yeni denklem.</strong></p>
-
-<div class="pause"></div>
-
-<p><strong>Üç kanal, üç sınır.</strong></p>
-
-<div class="pause"></div>
-
-<p>Bilgi insana üç geleneksel kanaldan ulaşır. Her birinin yapısal bir sınırı var.</p>
-
-<p>Kitap çevirisi statiktir. Bir çevirmen, bir metni bir kez çevirir — ve o andan itibaren o metin herkese aynıdır. Okuyucunun kim olduğunu, neyi bilip neyi bilmediğini, hangi kavramsal çerçeveyle düşündüğünü bilmez. Üstelik çevirmenin kendisi de bu makalenin gösterdiği sınırlarla çevrilidir: kaynak metnin birinci ve ikinci katmanını aktarabilir ama üçüncü ve dördüncü katmanı — kültürel nüansı, felsefi arka planı, yazarın ima ettiği ama söylemediği şeyi — çoğu zaman aktaramaz. Bir kavramın yapısını çevirirsiniz ama altındaki kültürel tortu gümrükten geçmez. Ve çevirmen "herkesi düşünüp" çevirir — herkese aynı standartla, aynı derinlikte, aynı çerçevede bilgi akışı sunar. Bir hukukçuya da bir mühendise de aynı çeviriyi verir; çünkü başka bir yolu yoktur.</p>
-
-<p>Öğretmen canlıdır ama sınırlıdır. Eğer İngilizce ders anlatıyorsa — ne kadar yetkin olursa olsun — kendi bilişsel kapasitesinin bir kısmını dil işlemeye harcıyor. Bu makalenin gösterdiği mekanizma öğretmen için de geçerli: yabancı dilde ders anlatan öğretmenin doğaçlama gücü, kavramsal esnekliği, duygusal derinliği azalıyor. Zheng ve Choi'nin belgelediği "panik" — yabancı dilde ders anlatmanın ilk yılı — buzdağının görünen kısmı. Ve 30 kişilik sınıfta öğretmen çevirmenle aynı yapısal sorunu yaşar: herkese aynı dersi verir. Özel ders verse bile — tek bir öğrenciye odaklansa bile — o öğrencinin kavramsal dünyasını gerçekten göremez. Tahmin eder, gözlemler, adapte olmaya çalışır — ama insan belleği, dikkati ve zamanı sonludur.</p>
-
-<p>Benjamin Bloom'un 1984 tarihli "2 sigma problemi" bu sınırı ölçüyor: özel ders alan öğrenci, sınıfta ders alan öğrenciden 2 standart sapma üstün performans gösteriyor. Fark gerçek — ama herkese özel öğretmen sağlanamaz. Kırk yıl boyunca bu problem çözümsüz kaldı.</p>
-
-<p>Etkileşimli yapay zekâ bu iki kanaldan kategorik olarak farklıdır. Fark ölçekle değil, yapıyla ilgili.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Çevirmek değil, taşımak.</strong></p>
-
-<div class="pause"></div>
-
-<p>Bu makalenin yazılış süreci, kendi tezinin canlı bir kanıtı. Makaledeki akademik kaynakların çoğu İngilizce. Onlara erişmek, analiz etmek ve argümana entegre etmek için kullanılan araç: yapay zekâ. Bu, beş yıl önce mümkün değildi.</p>
-
-<p>Ama yapay zekânın burada yaptığı şeyi "çeviri" olarak tanımlamak, birinci katmanda kalmaktır.</p>
-
-<p>Bir çevirmen "death" kelimesini "ölüm"e çevirir — kelimeyi aktarır. Etkileşimli yapay zekâ ise farklı bir şey yapıyor. Kullanıcının ne aradığını, hangi bağlamda sorduğunu, hangi kavramsal çerçeveyle düşündüğünü hesaba katarak bilgiyi kullanıcının dünyasına yerleştiriyor. Kelimenin karşılığını değil, anlamın kendisini — kullanıcının kendi kavram ağına, kendi metafor sistemine, kendi deneyim katmanlarına uygun biçimde — taşıyor. Bir hukukçuya Keysar deneyini hukuki muhakeme çerçevesinde sunar; bir mühendise aynı deneyi bilişsel yük kuramı üzerinden açar; bir ebeveyne pratik sonuçlarını gösterir. Aynı bilgi, farklı dünyalara farklı kapılardan girer.</p>
-
-<p>Bu süreçte bilgi değişmiyor. Keysar deneyi aynı deneydir, Bälter verileri aynı verilerdir. Değişen şey bilginin kendisi değil — bilgiyle buluşma koşulları. Ve burada kritik bir ayrım var: bilgi kişiselleşmiyor; anlama süreci kişiselleşiyor. Çevirmen herkese aynı metni sunar — herkese aynı standart. Etkileşimli yapay zekâ her kullanıcıyla doğrudan, bağlama dayalı bir iletişim içinde çalışır ve o kullanıcının sorularına, bilgi düzeyine, düşünme biçimine göre farklı derinliklerden sunabilir.</p>
-
-<p>Bloom'un 2 sigma problemi tam da bu noktada yeniden gündeme geliyor. Özel öğretmenin yarattığı fark gerçekti ama ölçeklenemezdi. Etkileşimli yapay zekâ bu yapısal sınırı kaldırıyor: her kullanıcıyla birebir etkileşim, sınırsız sabır, sürekli bağlam takibi. Bir öğretmenin aynı çapta bir kişiselleştirme yapabilmesi için tek bir öğrenciye odaklanması, onu yıllarca tanıması ve kendi bilişsel kapasitesini o tek kişiye adaması gerekir — ve o zaman bile insan kapasitesinin sınırları devrededir.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Sınırlar ve dürüst ayrımlar.</strong></p>
-
-<div class="pause"></div>
-
-<p>Bu, yapay zekânın "her şeyi çözdüğü" anlamına gelmiyor. İki ciddi sınırı var.</p>
-
-<p>Birincisi: yapay zekâ bilgiyi anlamıyor. Anlayan, düşünen, kavramları birbirine bağlayan hâlâ insan zihnidir. Yapay zekânın yaptığı, anlama sürecinin önündeki engeli — dil bariyerini — kaldırmak ve anlama koşullarını iyileştirmektir. Elzerman, 2025'te "bilişsel boşaltma" riskine dikkat çekiyor: yapay zekâ düşünmeyi üstlendiğinde insanlar kendi analitik becerilerine daha az dayanıyor. Derakhshan ve Taghizadeh, 2025'te yapay zekânın üst düzey düşünme becerilerini zayıflatabileceğini gösterdi. Yapay zekâ bilgiyi taşıyabilir ama düşünmeyi taşıyamaz — düşünmeyi yapan hâlâ insandır ve bu insanın düşünme kapasitesini koruması gerekir.</p>
-
-<p>İkincisi: yapay zekâ bilgiyi taşırken hangi katmanda taşıdığı hâlâ tartışmalı. Chua ve arkadaşlarının 2024 tarihli çok dilli büyük dil modellerini inceleyen çalışması uyarıcı: bu modeller yüzeysel düzeyde diller arası yetkinlik gösteriyor ama derin bilgi transferinde ciddi bariyerlerle karşılaşıyor. İngilizce dışındaki dillerde performans belirgin biçimde düşüyor. Ray'ın 2025 tarihli bulgusu daha da ilginç: aynı soru farklı dillerde yapay zekâya sorulduğunda, farklı çerçeveleme ve vurgularla yanıtlanıyor. Dilsel görecelik hipotezi yapay zekâ üretimli içeriği bile ölçülebilir biçimde etkiliyor — yani makineler bile bu makalenin temel ayrımıyla karşılaşıyor.</p>
-
-<p>Stanford HAI'nin 2025 tarihli raporu gerçekçi bir uyarı ekliyor: yapay zekâ İngilizce konuşan 1,52 milyar insan için iyi çalışıyor ama düşük kaynaklı diller için performansı düşük. Veri eşitsizliği, yapay zekâ devriminde bile dil bariyerini sürdürüyor.</p>
-
-<p>Birinci ve ikinci katman — kelime çözümleme ve çıkarımsal anlama — yapay zekânın güçlü olduğu alan. Üçüncü katman — kültürel nüans — gelişiyor ama eksikleri var. Dördüncü katman — derin anlama, felsefi varsayımlara erişme — bu katmana yapay zekâ ne kadar ulaşabiliyor, sorusu açıktır. Ve bu açık soru, bir sonraki çalışmanın merkezinde duruyor.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Paradigma değişimi: dünün haklılığı, bugünün sorusu.</strong></p>
-
-<div class="pause"></div>
-
-<p>Bir önceki neslin argümanı haklıydı. 1970'lerde, 1980'lerde, 1990'larda yabancı dil bilmemek gerçekten bilgiden kopukluktu. Bilgiye erişimin tek yolu o dildeki kitabı, makaleyi, gazeteyi okumaktı. Çeviri yavaştı, pahalıydı, sınırlıydı. Türkçe akademik kaynak azdı. O dönemin kanalları — kitap çevirisi ve öğretmen — gerçekten de tek yoldu. O dönemde "yabancı dil bilmeden bilgiye erişemezsin" demek bir gerçekliğe dayanıyordu.</p>
-
-<p>Ama kimse şu soruyu sormuyor: o dönemin koşulları artık geçerli mi?</p>
-
-<p>İki şey değişti, bir şey değişmedi.</p>
-
-<div class="pause"></div>
-
-<p>Değişen birincisi: bilgiye erişim. Frey ve Llanos-Paredes'in 2025 tarihli Oxford çalışması, 695 ABD yerel işgücü piyasasını inceleyerek makine çevirisinin yaygınlaşmasının yabancı dil becerisi talebini fiilen düşürdüğünü belgeliyor. Shadiev ve Huang'ın 2020 tarihli deneyi bunu eğitim bağlamında doğruluyor: yabancı dildeki derslere anadile çevrilmiş transkripsiyon desteği verildiğinde, özellikle dil yeterliliği düşük öğrencilerde başarı anlamlı biçimde arttı. Bilişsel yük azalıyor çünkü beyin enerjisini çeviri yerine düşünmeye ayırabiliyor.</p>
-
-<p>Değişen ikincisi: bilgiyle buluşma biçimi. Eski kanallar — kitap çevirisi ve öğretmen — bilgiyi standart biçimde sunuyordu: herkese aynı metin, herkese aynı ders. Etkileşimli yapay zekâ, bilgiyi kullanıcının dünyasına göre sunabiliyor. Bu, erişimin ötesinde bir değişim — ve bu değişimin boyutları henüz tam olarak anlaşılmamış.</p>
-
-<p>Değişmeyen: düşünmenin dile bağımlılığı. İnsanlar hâlâ anadillerinde düşünüyor, kavıyor, formüle ediyor. Bu makale boyunca gösterilen tüm veriler — Keysar'ın yabancı dil etkisi, Dewaele'ın iç konuşma çalışması, Bälter'in randomize deneyi — hepsi bu değişmeyen gerçeğe işaret ediyor. Ve altıncı bölümde gösterilen diller arası farklılıklar — Türkçe'nin evidansiyel işaretçileri, Rusça'nın renk algısını şekillendirmesi, Kuuk Thaayorre'nin zaman yönlendirmesi — hepsi şunu pekiştiriyor: dil sadece iletişim aracı değil, düşünme altyapısıdır. O altyapıyı değiştirmek, ev değiştirmek gibidir — pencere değiştirmek değil.</p>
-
-<div class="pause"></div>
-
-<p>O halde: eğer bilgiye erişim artık İngilizce gerektirmiyorsa, ve bilgiyle buluşma biçimi artık standart çevirinin ötesine geçmişse, düşünmeyi İngilizce'ye taşımanın — yani İngilizce eğitimin — gerekçesi ne kaldı?</p>
-
-<p>Daha keskin formülasyonla: bilgiye erişim ve bilgiyi anlama koşulları, İngilizce'den çok daha geniş kapsamlı bir araçla sağlanabiliyorsa, eğitim dilini İngilizce yapmanın gerekçesi yeniden sorgulanmak zorunda. Ve yapay zekâ bütün dünyanın kütüphanelerini herkesin anadilinde, herkesin dünyasına göre önüne koyabiliyorsa, globalliğin İngilizce'den geçtiği varsayımının kendisi yanlış olabilir.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>İki model, iki mimari.</strong></p>
-
-<div class="pause"></div>
-
-<p>Ortaya çıkan tablo iki farklı bilgi aktarım mimarisini karşı karşıya getiriyor.</p>
-
-<p>İngilizce eğitim modeli: Hem bilgiye erişimi hem düşünmeyi yabancı dile taşıyor — ikisini birden. Beyin enerjisini çeviri ile düşünme arasında bölüyor ve Bälter'in gösterdiği gibi bu bölüşümde düşünme tarafı yüzde 41'e kadar kaybedebiliyor. Bilgi standart biçimde, standart derinlikte, herkese aynı şekilde sunuluyor. Ve enerji tahsisi kararı öğrenciye bırakılmıyor — sistem bu kararı onun adına veriyor.</p>
-
-<p>Yapay zekâ destekli anadil modeli: Bu ikisini ayırıyor — erişim sorununu yapay zekâ çözüyor, düşünme anadilinde kalıyor. Beyin enerjisinin tamamı kavramaya, analize, senteze ayrılabiliyor — çünkü çeviri yükünü makine üstleniyor. Ve bu makine, bir çevirmenden veya öğretmenden farklı olarak, kullanıcının dünyasına göre adapte oluyor. Bilişsel enerji sonlu bir kaynaksa — ki öyle — onu nereye harcadığın belirleyici. Bu model, o sonlu kaynağı düşünmeye yönlendiriyor; öteki, çeviriye.</p>
-
-<p>İngilizce bilmeyen bir araştırmacının yapay zekâ aracılığıyla İngilizce akademik kaynaklara erişip, anadilinde analiz yapabilmesi — bu makalenin kendisi bu modelin canlı bir uygulaması. Bu olgunun sistematik olarak araştırılmamış olması — Türkiye özelinde belgelenmiş bir çalışma bulunamadı — bir boşluk. Bu boşluğun kendisi bir veri: kimse sormamış.</p>
-
-<p>Bu soruyu kimse sormamış olması, belki de bu makalenin asıl konusu. Ve bu sorunun cevabı — bilginin hapsedildiği dilden gerçekten kurtarılıp kurtarılamayacağı, ve kurtarıldığında dördüncü katmana kadar mı taşınabileceği yoksa ilk iki katmanda mı kalacağı — bir sonraki çalışmanın konusu.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>İngilizce'nin gerçek yeri.</strong></p>
-
-<div class="pause"></div>
-
-<p><strong>Dünyanın dili.</strong></p>
-
-<div class="pause"></div>
-
-<p>Bu makale İngilizce'ye karşı bir manifesto değil. İngilizce'nin küresel iletişim dili olma gerçeğini yok sayamayız — bilim dili, iş dili, diplomasi dili, internet dili. Akademik yayınların büyük çoğunluğu İngilizce. Uluslararası toplantılar İngilizce. Yazılım dokümantasyonu İngilizce. Bu gerçek.</p>
-
-<p>Ama altıncı bölümde gösterildiği gibi, İngilizce de diğer diller gibi kendi penceresi olan bir dildir. "I see" eşittir "anlıyorum" metafor sistemi, bilgiyi görme üzerinden kurmanın İngilizce'ye özgü bir düşünce alışkanlığıdır. Schadenfreude kelimesinin İngilizce'de olmaması, İngilizce konuşanların o duyguyu yaşamadığı anlamına gelmez — ama ona ad koymadıkları, onu kültürel olarak tanımadıkları anlamına gelir. İngilizce de dahil hiçbir dil, tüm pencereleri aynı anda açamaz.</p>
-
-<p>Bu gerçek, farklı bir soru sormamızı engellemez: İngilizce'yi ne için kullanıyoruz?</p>
-
-<div class="pause"></div>
-
-<p>İletişim dili olarak İngilizce: Gerekli, tartışmasız. İki farklı anadili konuşan insanın buluşma noktası olarak İngilizce, dünya için vazgeçilmez. Buna kimsenin itirazı yok.</p>
-
-<p>Bilgiye erişim dili olarak İngilizce: Giderek daha az gerekli. Yapay zekâ bu bariyeri hızla kaldırıyor. Beş yıl önce bir Türk araştırmacının İngilizce bir makaleye erişmesi için ya İngilizce bilmesi ya da çevirmen bulması gerekiyordu. Bugün dakikalar içinde okuyabiliyor.</p>
-
-<p>Düşünme dili olarak İngilizce: İşte burada durmak lazım. Bu makalenin tüm argümanı bu noktada toplanıyor. İngilizce'de düşünebilme oranı, tüm ampirik verilerin gösterdiğine göre, son derece düşük. C1-C2 düzeyinde bile iç konuşma ağırlıklı olarak anadilde, duygusal işleme anadilde, zihinsel imgeleme anadilde, otomatik tepkiler anadilde. İkinci dilde "düşünmek" çoğu insan için anadilinde düşünüp ikinci dile çevirmek anlamına geliyor — düşünmenin kendisi anadilden çıkmıyor.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>İletişim eşittir değil anlama eşittir değil düşünme.</strong></p>
-
-<div class="pause"></div>
-
-<p>Bu üç kavram sürekli birbirine karıştırılıyor.</p>
-
-<p>İletişim kurabiliyorum eşittir kelimelerimi anlatabiliyorum. Bu BICS düzeyinde yeterli.</p>
-
-<p>Anlıyorum eşittir söylenmek isteneni kavrayabiliyorum. Bu pragmatik yetkinlik ve kültürel derinlik gerektiriyor — eğitimle değil yaşamla ediniliyor.</p>
-
-<p>Düşünebiliyorum eşittir o dilde argüman kurabiliyor, karşı pozisyon geliştiriyor, yaratıcı çözüm üretiyorum. Bu anadil düzeyine yakın bir yetkinlik gerektiriyor — çoğu insan için erişilmez.</p>
-
-<p>Türkiye'deki İngilizce eğitim tartışmasının sorunu, bu üç düzeyin hepsine "İngilizce bilmek" denmesi. Bir İngilizce hazırlık sınıfı mezunu "İngilizce biliyorum" diyor. Bir C1 sertifikası olan kişi "İngilizce biliyorum" diyor. Ve Shakespeare'i İngilizce'de yorumlayabilen bir edebiyat profesörü de "İngilizce biliyorum" diyor. Üçü aynı kelimeyi kullanıyor ama üçünün "bilmek"i tamamen farklı şeyler.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Teze itirazlar.</strong></p>
-
-<div class="pause"></div>
-
-<p><strong>Birinci itiraz: "İngilizce eğitim alanlar yine de daha başarılı."</strong></p>
-
-<p>Gözlem doğru. Ama nedensellik yanlış. Boğaziçi İktisat'a giren öğrenci Türkiye'de ilk 657 kişiden biri. İstanbul Üniversitesi Türkçe İktisat'a giren 115.803. sırada. Aradaki fark 175 kat. Bu iki mezunu karşılaştırıp "İngilizce eğitim fark yaratıyor" demek, olimpiyat sporcusuyla mahalle takımı oyuncusunu karşılaştırıp "antrenman programı fark yaratıyor" demekle aynı şey. Farkı yaratan salona giren insanın zaten kim olduğu.</p>
-
-<p>Civan ve Coşkun, 2016'da bunu doğrudan gösterdi: giriş puanları kontrol edildiğinde İngilizce eğitimin avantajı kayboluyor veya tersine dönüyor.</p>
-
-<div class="pause"></div>
-
-<p><strong>İkinci itiraz: "İki dillilik bilişsel avantaj sağlıyor."</strong></p>
-
-<p>Nichols ve arkadaşlarının 2020 tarihli 11.000 kişilik popülasyon çalışması: iki dilliliğin genel bilişsel avantaj sağladığına dair kanıt bulunamadı. Masullo, Dentella ve Leivada'nın 2024 tarihli sistematik incelemesi: iki dilli avantajlı etkilerin yüzde 73'ü sosyolinguistik faktörlerden kaynaklanıyor. Gerçek bilişsel etki, sosyoekonomik durum kontrol edildiğinde büyük ölçüde kayboluyor.</p>
-
-<div class="pause"></div>
-
-<p><strong>Üçüncü itiraz: "Sorun eğitimin kalitesinde, dilde değil."</strong></p>
-
-<p>Bu en güçlü karşı argüman. Büyük ölçüde katılıyorum. İngilizce eğitimin düzgün uygulanması durumunda sonuçlar farklı olabilir. Ama eğer sistemin çoğunluğu için işlemiyorsa — ve veriler bunu gösteriyorsa — o zaman "uygulama sorunu" savunması, sistemin kendisini sorgulamaktan kaçınmanın bir yolu haline gelir.</p>
-
-<div class="pause"></div>
-
-<p><strong>Dördüncü itiraz: "İngilizce eğitim kariyer avantajı sağlıyor."</strong></p>
-
-<p>Sağlıyor. Ama bu avantajın ne kadarı gerçek yetkinlikten, ne kadarı "etiket"ten kaynaklanıyor? Boğaziçi diploması bir kariyer avantajıdır — ama bu avantaj İngilizce eğitimden mi, yoksa Boğaziçi'nin markasından ve oraya giriş puanının yüksekliğinden mi? Seçilim etkisi burada da devrede.</p>
-
-<div class="pause"></div>
-
-<p><strong>Beşinci itiraz: "Yapay zekâ henüz dil bariyerini tam olarak kaldıramıyor."</strong></p>
-
-<p>Doğru. Özellikle derin bilgi transferinde bariyerler var. Edebi çeviri, nüanslı hukuki metin, kültürel bağlam — bu alanlarda yapay zekâ hâlâ yetersiz. Ama bu, yapay zekânın "hiçbir işe yaramadığı" anlamına gelmiyor. Bilgi erişimi açısından devrim niteliğinde bir değişim yaşanıyor ve bu değişim hızlanıyor.</p>
-
-<div class="pause"></div>
-
-<p><strong>Altıncı itiraz: "Her dilin kendi penceresi varsa, İngilizce'nin penceresini de öğrenmek gerekmez mi?"</strong></p>
-
-<p>Bu güçlü bir itiraz. Cevap: evet, İngilizce'nin penceresinden bakmak güzel bir şeydir — tıpkı Japonca'nın, Çince'nin, Portekizce'nin penceresinden bakmak gibi. Ama bu pencerelerin hiçbiri düşünmek için zorunlu değil. İngilizce öğrenmek bir zenginliktir — İngilizce eğitim almak ise düşünme altyapısını o pencereye taşımaktır. Pencereden bakmak ile evi taşımak arasında fark var.</p>
-
-<p>Ve eğer amaç pencereleri çoğaltmaksa, neden sadece İngilizce? Neden Japonca, Çince, Almanca değil? Cevap açık: motivasyon pencere çoğaltmak değil, "küresel vatandaş" etiketi. Sistem, İngilizce'nin pencere değerinden çok marka değerini satıyor.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Doğru formülasyon.</strong></p>
-
-<div class="pause"></div>
-
-<p>Bu makale "İngilizce eğitim kötüdür" demiyor. "İngilizce öğrenmeyin" demiyor. Bir dili sevdiği için, yaşamak için, o dilin dünyasına girmek için öğrenen insan istisnadır — ve bu istisnaya kimsenin itirazı yok. O insan dili araç olarak değil, bir düşünme biçimi ve bir sanat olarak edinir; o, bu makalenin muhatabı değildir. Bu makalenin muhatabı yüzde doksan dokuzdur — dili araç olarak öğrenmek zorunda bırakılan, ama o aracın kendilerine ne kazandırıp ne kaybettirdiğini bilmeyen büyük çoğunluk.</p>
-
-<p>Söylenen şu:</p>
-
-<p>Türkiye'deki İngilizce eğitim sistemi, vaat ettiğini teslim etmiyor. Vaat: "İngilizce düşünebilen, küresel vatandaş." Teslim: kelimeleri çözümleyebilen ama derinliğe erişemeyen, yeterlilik yanılgısı içinde kaybolan, düşünme potansiyeli budanmış bireyler — ve üniversite sıralamalarında birkaç basamak yükselen kurumlar.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Dil bilmemek bir handikap değil.</strong></p>
-
-<div class="pause"></div>
-
-<p>Dil bilmemek bir handikap değil, bir farkındalık durumudur. Anlamadığını bilen kişi telafi mekanizmaları geliştirir — çeviriye başvurur, uzman sorar, bağlam okur, mantık kurar, doğrular. Anladığını sanan kişi hiçbir şey geliştirmez.</p>
-
-<p>Yetkinlik sanılan sığlığın en büyük maliyeti, bilgi kaybı değil — bilgi kaybının görünmez hale gelmesidir. Ve bilişsel enerji sonlu bir kaynaksa, onu nereye harcadığın belirleyici. Ulaşılamaz bir yetkinlik için harcanan enerji, düşünmeye harcanmayan enerjidir — ve bu enerji geri gelmez.</p>
-
-<div class="pause"></div>
-
-<p>"Anlamak" kelimesini daha dikkatli kullanmamız gerekiyor. Bir kelimeyi çözümlemek anlamak değil. Bir cümleyi tercüme etmek anlamak değil. Bir konuşmayı takip etmek anlamak değil. Anlamak, bir düşüncenin arkasındaki dünyayı görmektir — ve bu, herhangi bir dilde bile zor olan bir beceridir.</p>
-
-<p>İkinci dilde düşünme oranı, tüm ampirik verilerin gösterdiğine göre, son derece düşüktür. C1-C2 düzeyinde bile insanlar ağırlıklı olarak anadillerinde düşünüyor, hissediyor, hayal kuruyor, hesap yapıyor. İngilizce eğitim bu gerçeği değiştirmiyor — sadece gizliyor.</p>
-
-<div class="pause"></div>
-
-<p>Belki sorun İngilizce eğitimde değil. Belki sorun, "anlamak" kavramını anlamamamızda.</p>
-
-<p>Bu makale, o sorunun haritasını çıkardı. Bir sonraki, bilgiyi hapsedildiği dilden kurtarmanın ne demek olduğunu — çevirmenin herkese aynı sunduğu bilginin, etkileşimli yapay zekâ aracılığıyla kişinin kendi kavramsal dünyasına gerçekten taşınıp taşınamayacağını — soracak. Ve bu taşıma işlemi birinci katmanda mı kalıyor, yoksa dördüncü katmana kadar ulaşabiliyor mu — bunu test edecek.</p>
-
-<div class="pause"></div>
-<div class="pause"></div>
-
-<p><strong>Sorular cevaplardan önemlidir.</strong></p>
-
-<div class="pause"></div>
-
-<p>Halit Cengiz Uzuner. Bağımsız Araştırmacı. halitcengizuzuner.com</p>
-
-</div>
-
-<footer>
-    <p><a href="anlamak.html">&larr; Okunacak versiyon: anlamak.html</a></p>
-    <p><a href="/">halitcengizuzuner.com</a></p>
-</footer>
-
+    <p class="altbaslik">Yabancı Dilde Eğitim, Düşünce ve Bir Yanılgının Anatomisi</p>
+    <p class="etiket">Dinleme sürümü · ses kaydı değil, kulağa göre yeniden yazılmış metin</p>
+      <p class="ilk">Anlıyorum dediğimizde ne demek istiyoruz? Bir cümlenin kelimelerini çözdük mü? Konuşanın ne demeye çalıştığını mı yakaladık? Yoksa söylenmeyeni, ima edileni, ses tonunun arkasındaki duyguyu, bir kültürel göndermenin taşıdığı yüzyıllık birikimi mi?</p>
+      <p>Bunların hepsi anlamak. Ama hiçbiri aynı şey değil.</p>
+      <p>Anlamanın katmanları var. En altta kelime çözme duruyor: sözlük anlamını bulmak. İngilizce konuşan biri “anladım” demek için “görüyorum” anlamına gelen bir kalıp kullanır. Bu en kolay düzey, ikinci dilde bile hızla edinilir. Bir üst katman, söylenmeyeni çıkarmak: aynı kalıp bir bilim insanının ağzından çıkınca “anladım, fark ettim” olur. Daha üstte kültürel nüans var: aynı söz bir İngiliz diplomatın dudağından dökülürse ironi olabilir, kibar bir ret olabilir; bunu sezmek için o kültürün kodlarını taşımak gerekir. En üstte ise derin anlama: konuşanın dünya görüşüne, söylediğiyle söylemediğini birlikte okumaya, altındaki varsayımı sorgulamaya kadar uzanan katman.</p>
+      <p>İkinci dili konuşanlar çoğunlukla en alt katmanda kalır. Bir üste geçebilen vardır. Üçüncüye çok az kişi ulaşır. En üst katmana ise insan kendi anadilinde bile her zaman ulaşamaz.</p>
+      <p>Belki asıl sorun şu: insanlar daha ilk katmandayken “anlıyorum” der ve ötesini hiç sormaz. “Anlamak” kavramının kendisi o kadar sığ ele alınıyor ki, anlaşılamıyor.</p>
+      <p>Şu örneğin kendisi başka bir şeyi de açığa çıkarıyor. İngilizce'de anlamak görmeyle kurulmuş. “Anlıyorum” demek için “görüyorum” diyorlar; bir konu aydınlanır, biri karanlıkta kalır. Dilbilimciler George Lakoff ve Mark Johnson bunu belgeledi: o dilde bilmek, görmektir. Bu eğretileme o kadar derine işlemiş ki, İngilizce konuşan onu eğretileme olarak bile fark etmez. Türkçe'de ise anlamanın kökü başka: kavramak, yani el ile tutmak. “Konuyu kavradım”, “meseleyi yakaladım”, “fikri tuttum.” Türkçe anlamayı dokunma ve tutma üzerine kurmuş, İngilizce görme ve ışık üzerine. Aynı zihinsel iş, iki ayrı bedensel deneyime bağlanmış.</p>
+      <p>Bu fark süs değil; düşünmenin bedende kök saldığını gösteriyor. Her dilin kendi eğretileme sistemi, kendi kavram dünyası, kendi penceresi var. Bunun tek başına bir kıtası var; bu yazı o kıtanın kıyısına kadar gidip orada duruyor, yolu bir sonraki çalışmaya bırakarak.</p>
+      <p>Aynı ayrım her alanda geçerli. Yazılımda “fonksiyon”, “sınıf”, “kalıtım” terimlerini bilmek İngilizce ister. Ama “bu yapı neden böyle kurulmuş, bu kararın arkasındaki düşünce ne, bu hatanın kök nedeni ne” demek terim değil, kavrama işidir; ve kavrama anadilde olur. Hukukta bu daha da keskin. “Haksız fiil”, “iyiniyet”, “muvazaa”, “kadastro” gibi kavramlar yüzyıllar boyunca belirli bir hukuk düzeni içinde evrilmiş, bir toplumun adalet anlayışını, ticaret alışkanlığını, mülkiyet ilişkisini içine yoğunlaştırmış yapılardır. Terim uluslararası olabilir; ama o terimin arkasındaki dünya, yerlidir.</p>
+      <div class="nefes" aria-hidden="true">&#183;&#8195;&#183;&#8195;&#183;</div>
+      <p>Peki bilim ne diyor? Yabancı dilde düşünmek, gerçekten anadilde düşünmekten farklı mı?</p>
+      <p>Farklı. Üstelik ölçülmüş bir fark. Boaz Keysar ve ekibi şunu gösterdi: insanlar bir ahlaki ikilemle ya da bir bahisle yabancı dilde yüzleştiğinde, anadillerinde verdiklerinden başka kararlar veriyor. Yabancı dil araya bir mesafe koyuyor. Çünkü anadil çocukluktan beri duyguyla yüklüdür: ilk aşkın dili, annenin azarının dili, çocukluk korkularının dili. “Ölüm” kelimesi anadilde yalnız bir kavram değildir; cenazelerin, kayıpların, gece korkularının sesidir. Yabancı dilde aynı kelime yalnızca bir sözlük girdisi olarak kalır. Anlam aynı, ağırlık farklı.</p>
+      <p>İlk bakışta yabancı dildeki karar “daha soğukkanlı, daha akılcı” görünür. Ama bu akılcılık, duygusal derinliğin kaybından doğuyor. Oysa duygu her zaman bir yanlılık değildir; bazen bilgi taşır. Bir hakimin “öldürme” kelimesini hiç sarsılmadan telaffuz etmesi akılcılık mı, yoksa adalet duygusunun körelmesi mi? Araştırmalar daha da ileri gidiyor: yabancı dilde insan bir sahneyi hayal ederken zihnindeki resim bile daha sönük çıkıyor. Hayal kurmak bile anadilde daha canlı. Beyin ölçümleri de aynı yöne işaret ediyor; yabancı dilde bir ahlaki ihlale verilen tepki, anadildekine göre daha yüzeyde kalıyor. Beyin kelimeyi anlıyor ama altındaki anlam ağına tam giremiyor. Bu etki ise, birbirinden uzak dillerde, Türkçe ile İngilizce gibi, daha da güçlü.</p>
+      <p>Bir soru bunu somutluyor: “İngilizce düşünebiliyor musun?” Soyut görünür ama bilişsel bilimde çok somut bir karşılığı var: iç konuşma. Zihninizdeki o ses, plan yaparken, karar verirken, kendinizle tartışırken duyduğunuz ses, hangi dilde konuşuyor? Binden fazla çok dilli insanla yapılan geniş bir çalışma şunu buldu: insanlar düşünürken ağırlıklı olarak ilk öğrendikleri dilde düşünüyor. Duyguya gelince, kızgınlık, sevinç, korku, neredeyse tek dilde yaşanıyor: anadilde. İleri düzeyde ikinci dil bilenler bile zihinden hesap yaparken hep ilk dile dönüyor; yedi kere sekizin cevabı ilk dilin sesinden geliyor. İç konuşmanın dil değiştirmesi yıllar süren bir süreç ve çoğu insanda hiç tamamlanmıyor. Birkaç yıllık üniversite eğitimi bunu değiştirmeye yetmiyor.</p>
+      <p>Burada eğitimcilerin en işe yarar ayrımı devreye giriyor. Dil eğitimci Jim Cummins, iki ayrı “bilmek” tanımladı. Biri günlük konuşma dili: selamlaşma, sohbet, basit iletişim; bir iki yılda ediniliyor. Öteki akademik düşünme dili: soyut kavramları ifade etme, argüman kurma, çözümleme, sentez; bu beş ila on yıl istiyor. Türkiye'deki hazırlık sınıfı modeli çoğunlukla birincisini, günlük dili kazandırıyor. Öğrenci bir yılda akıcı görünüyor, ama üniversite ikincisini, akademik düşünme dilini gerektiriyor. Arada dört ila dokuz yıllık bir uçurum var.</p>
+      <p>Ama akademik düşünme dili bile son durak değil. O eşik, terimleri doğru kullanabilmektir; oysa terimin arkasındaki yolu yürümek başka şey. “Haksız fiil”i tanımlamak bir şeydir; haksız fiili bilmek, onu gerçek bir uyuşmazlıkta uygulayabilmek, yüzlerce davayı, yüzyıllık hukuki evrimi, adalet duygusunun inceliğini içselleştirmiş olmaktır. Tanım bir haritadır; haritayla yönünü bulursun ama yolu yürümüş olmazsın. Beyin kendi anadilinde bile bu yolu zor yürür. Kalkıp ona “şimdi bir de yabancı dilde yürü” demek, haritayı yol sanmaktır. Buradan da bir yanılgı doğuyor: öğrenci “İngilizce biliyor” görünüyor, sistem de öyle davranıyor, ama aslında kelimeleri çözüyor, düşüncenin derinine inemiyor. Günlük dili akademik dil sanıyoruz; akademik dile ulaşan da terimlerin arkasındaki dünyaya ulaştığını sanıyor. Her katmanda aynı yanılgı: bulunduğun yer son durak gibi görünüyor.</p>
+      <div class="nefes" aria-hidden="true">&#183;&#8195;&#183;&#8195;&#183;</div>
+      <p>İşte buradan paradoksal bir sonuç çıkıyor: yetkin görünen dil bilgisi, anlamayı düşürebilir.</p>
+      <p>Kulağa saçma geliyor. Bir şeyi bilmek, hiç bilmemekten nasıl kötü olsun? Ama burada “az bilen”den söz etmiyoruz. Söz ettiğimiz sığlık, lise İngilizcesinde kalmış birinin sığlığı değil; yabancı dilde eğitim almış, sertifikalı, dizileri altyazısız izleyen, kendini o dilde yetkin sanan insanın sığlığı. Tehlikeyi yaratan da tam bu yetkinlik duygusu.</p>
+      <p>Mekanizma şöyle. Dil bilmiyorsan, anlamadığını biliyorsun. Çevirmen ararsın, bağlamı okursun, uzmana danışırsın, başka kanaldan doğrularsın. Dil bilmemek seni temkinli yapar; anlamadığını bilen kişi telafi yolları geliştirir. Ama yetkin görünüp sığ biliyorsan, anladığını sanırsın. Kelimeleri çözer, cümlenin sözel anlamını yakalar, “tamam, anladım” dersin. Nüansı, ironiyi, ima edileni kaçırırsın ve kaçırdığını bilmezsin. Yetkinlik duygusu, yanlış bir güven üretir.</p>
+      <p>Bilişsel psikolojide bunun bir adı var: yeterlilik yanılgısı. Bir şeyi tanımakla onu gerçekten bilmek ayrı şeylerdir, ama insan ikisini sürekli karıştırır; tanıdığı şeyi bildiğini sanır. Dil alanında bu çok net görülüyor: ikinci dil öğrencileri bir dilbilgisi hatasını hemen fark eder, ama bir ricayı fazla sert kurmanın ne kadar kaba düştüğünü göremez. Yanlış olanı görür, eksik olanı görmez; çünkü neyin eksik olduğunu bilmez.</p>
+      <p>Bu uçurum konuşmada da açılıyor. Araştırmalar, ikinci dili konuşanların iğnelemeyi, alttan alta söyleneni anadili konuşanlar kadar yakalayamadığını gösteriyor; ton ve bağlam ipuçları onlar için daha sönük. İleri düzeyde, sertifikalı bir konuşucu dilbilgisi açısından kusursuz bir özür kurabilir, ama o özrün kültürel ağırlığını, zamanlamasını, dozunu kaçırabilir. Mekaniği şurada: anadili konuşan bir deyimi bütün olarak işler; İngilizce'de “tekmeyi vurmak” gibi okunan, aslında “ölmek” anlamına gelen bir deyimi duyunca doğrudan anlama atlar. İkinci dili konuşan ise parçalayarak işler: önce kelimeleri çözer, sonra bunun bir deyim olduğunu fark eder, sonra anlamı çıkarır. Aynı kelimeleri anlıyorlar ama aynı şeyi yaşamıyorlar. Çünkü anadili konuşan bu inceliği bilinçaltından, çocukluğundan beri binlerce karşılaşmayla edinmiştir; ikinci dili konuşan onu bilinçli olarak öğrenmek zorundadır ve bu öğrenme eğitimle değil yaşamla olur.</p>
+      <p>Türkçe ile İngilizce üzerine yapılmış bir çalışma bunun beyindeki izini buldu: ikinci dilde sözcüğün taşıdığı çağrışım ağı daha zayıf bağlanıyor. Kelimeyi biliyorsun ama onun duygusal yükünü, kültürel katmanını taşımıyorsun. Anadilde anlama, geniş bir çağrışım ağının aydınlanması; ikinci dilde dar bir kanal. Tek cümleyle: ikinci dilde anlamak, çözmektir; anadilde anlamak, yaşamaktır.</p>
+      <div class="nefes" aria-hidden="true">&#183;&#8195;&#183;&#8195;&#183;</div>
+      <p>Peki sistem ne yapıyor? Üniversiteler neden İngilizce eğitim veriyor? Cevap, eğitimin kalitesiyle ilgili değil. British Council'ın kapsamlı araştırması açık konuşuyor: kararın gerçek nedenleri uluslararası öğrenci çekmek, küresel sıralamalarda yükselmek, “uluslararası” bir imaj kurmak, yabancı akademisyen çekmek. British Council bunu tek cümlede özetliyor: yükseköğretimde İngilizce eğitim kararı, bir öğretim tercihinden çok, kurumun kendini daha iyi göstermesine yönelik bir yönetim kararıdır. Yani İngilizce eğitim, öğrenci daha iyi düşünsün diye değil, üniversite daha iyi görünsün diye seçiliyor.</p>
+      <p>Aynı araştırmanın en çarpıcı verisi şu: İngilizce eğitim veren üniversitelerde dört yıllık eğitim boyunca öğrencinin İngilizce seviyesi ortalama yarım puan artıyor. Yoğun bir dil kursu aynı artışı on haftada veriyor. Dört yıl, on hafta. Bu tek başına şu soruyu sordurur: amaç İngilizce öğretmekse, neden dört yıl bu işe harcanıyor? Cevap: amaç İngilizce öğretmek değil.</p>
+      <p>İşin çelişkisi şurada. Aynı sistem bir yandan İngilizce eğitimi savunurken, öte yandan dil engelinin varlığını kabul eden düzenlemeler yapıyor. Amerikan üniversiteleri anadili İngilizce olmayan öğrenciye sınavda ek süre tanıyor. Standart sınavlar yüzde elliye varan ek süre veriyor, gerekçesi açıkça “dil işleme engeli, daha yavaş okuma, kelimeleri anadile çevirme süresi” diye yazılıyor. Bir üniversitenin kendi belgesindeki itiraf çarpıcı: ikinci dilde okumak ve yazmak anadilden çok daha uzun sürer ve sınav sonucu konuyu bilmekten çok dili işleme hızını yansıtabilir. Sistem bir yandan “İngilizce eğitim çalışıyor” diyor, öte yandan sınavda ek süre veriyor; çünkü çalışmadığını biliyor. Ama modeli sorgulamıyor.</p>
+      <p>Bu engelin bir de bilim dünyasındaki faturası var. Nature'da yayımlanan bir araştırma ölçtü: anadili İngilizce olmayan bir bilim insanı, bir makaleyi okumak için neredeyse iki kat fazla zaman harcıyor; bir doktora öğrencisi için bu, yılda on dokuz fazla çalışma günü, sadece okumak için. Dergiler, anadili İngilizce olmayan yazarların makalelerini dil yüzünden iki buçuk kat daha fazla reddediyor, akıcı yazmayanlardan on iki kat fazla düzeltme istiyor. Nature'ın kendi sayfalarındaki cümle meseleyi özetliyor: akıcı İngilizce konuşamamak, çoğu zaman daha düşük kalitede bilim insanı sayılmak demek. Ortada görünmez ama acımasız bir vergi var, dünyanın geri kalanının omzuna yüklenmiş. Ölçülen şey bilim değil, dil.</p>
+      <p>Bütün bu düzenlemeler, ek süreler, dil destekleri, bir şeyi açığa çıkarıyor: sistem başarıyı sığ ölçüyor. Not aldı, demek anladı. Mezun oldu, demek yetkin. Ama kimse sormuyor: ne kadar derin anladı? Ek süre alan öğrenci aynı soruyu cevapladı, ama aynı derinlikte mi? Anadilinde nasıl cevaplardı? Kestirip attığı nüans hangisiydi, kuramadığı argüman neydi? Bunlar ölçülmüyor. Ölçülmeyen görünmüyor; görünmeyen yok sayılıyor.</p>
+      <p>Bir de “hukuk istisnadır” sanılır, ama değil. Türkiye'de devlet hukuk fakültelerinin neredeyse tamamı Türkçe eğitim veriyor. Her bölümü İngilizce olan bir üniversite bile hukuk fakültesi açtığında onu Türkçe açtı, gerekçesini açıkça yazarak: dünyada da yüzde yüz yabancı dilde hukuk eğitimi veren bir üniversite yok. Dünya tablosu bunu doğruluyor: Almanya'da hukuk Almanca, Fransa'da Fransızca, Japonya'da Japonca, Kore'de Korece, Çin'de Mandarin, Brezilya'da Portekizce. Hiçbiri hukuku yabancı dilde okutmuyor. Avrupa Birliği'nin kendisi bu gerçeğin en büyük kanıtı: çıkardığı her yasayı yirmi dört resmi dilde, hepsi eşit hukuki değerde hazırlamak zorunda; buna rağmen diller arasındaki anlam farkları yüzünden sürekli yorum davalarıyla uğraşıyor. Dünyanın en gelişmiş çok uluslu hukuk yapısı bile metni tek dile indiremiyor.</p>
+      <p>Bu yalnız hukukun sorunu da değil. Evrensel olması beklenen tıpta bile, dünyadaki tıp fakültelerinin yarıdan fazlası anadilde eğitim veriyor; Avrupa'da bu oran neredeyse tamamı. Japonya mühendisliği büyük ölçüde Japonca okutuyor, Tokyo ve Kyoto dahil ve yılda dört yüz on dokuz bin patent başvurusuyla dünya üçüncüsü. Hukuk istisna değil, kuralın en görünür hali. Düşünce-yoğun her alan, hukuk, tıp, felsefe, mühendislik, dile bağlıdır. Terim uluslararası olabilir; kavrama ve muhakeme anadildedir.</p>
+      <div class="nefes" aria-hidden="true">&#183;&#8195;&#183;&#8195;&#183;</div>
+      <p>Peki bu sistemin faturasını kim ödüyor? İlginç olan şu: herkes değil. İki ayrı profil, iki ayrı sonuç çıkıyor.</p>
+      <p>Ortalama profil için sistem “çalışıyor” gibidir. Günlük düzeyde İngilizce ediniliyor, özgeçmişe “İngilizce, ileri” yazılıyor, görüşmede birkaç cümle kuruluyor, bir kariyer avantajı doğuyor. Kimse “ne kadar derin anlıyorsun?” diye sormuyor, çünkü sistem zaten sığ ölçüyor. Marjinal bir yükseliş var ve bu yeterli sayılıyor.</p>
+      <p>Ama derin düşünen profil için sistem zararlı olabiliyor, üç ayrı yoldan. Birincisi, düşünce bastırması. Anadilinde karmaşık argüman kuran, nüanslı konuşan, eğretileme üreten bir zihin, yabancı dile geçince hepsini günlük düzeye indiriyor. Bir mühendislik hocasının sözü bunu özetliyor: “Bilgiyi anlıyorum. Ama İngilizce doğaçlama yapamıyorum.” Bir başkası ilk yılını tek kelimeyle anlatmış: panik. Bu insanların düşünme kapasitesi düşük değil; dil, o kapasiteyi kullanmalarını engelliyor. İkincisi, enerji kaybı. Akademik düzeye ulaşmak yıllar alır; o yıllar yabancı dille boğuşmaya giderken anadildeki derinlik de gelişmiyor, çünkü dikkat ve zaman başka yere akıyor. Sonuç: iki dilde de orta düzey. Üçüncüsü, potansiyel budanması. Türkiye'de yapılan bir araştırma, giriş puanları eşitlendiğinde İngilizce okuyan öğrencilerin Türkçe okuyanlardan daha düşük başarı gösterdiğini buldu. Güçlü girdi, zayıf çıktı.</p>
+      <p>İsveç'te yapılan bir deney bunu sayıya döküyor. Aynı ders, aynı sınav; bir gruba İsveççe, ötekine İngilizce verildi. İsveççe sınav olan grup, İngilizce gruba göre yüzde yetmiş üç daha fazla soruyu doğru yanıtladı. Yani İngilizce gruptaki öğrenci on sorudan dördünü biliyorsa, anadilindeki öğrenci yedisini biliyordu, aynı dersi alan, aynı şeyi öğrenen iki grup. En çarpıcısı şu: İngilizce grupta kendini İngilizce'de yeterli gören, kendine güvenen öğrenciler ayrıca incelendi. Onlar bile anadilinde sınav olanlardan yüzde kırk bir daha kötü performans gösterdi. Yeterlilik yanılgısının sayıya dökülmüş hali: “biliyorum” diyorsun ama yüzde kırk bir kaybediyorsun ve kaybettiğinin farkında değilsin.</p>
+      <p>Mekanizma basit bir gerçeğe dayanıyor: bilişsel enerji sonlu bir kaynaktır. Ne kadar zeki ya da çalışkan olursan ol, beynin aynı anda işleyebildiği miktar sınırlı. Enerji dil çözmeye giderse kavramaya gitmez; çeviriye giderse özgün düşünceye gitmez. O yüzde kırk bir, bu enerji tahsisinin somut faturası ve faturayı ödeyenlerin çoğu ödediğinin farkında bile değil.</p>
+      <p>Bunu bir de sahada izledim. Bu araştırma kapsamında uluslararası panellerde, ekonomi forumlarında, insan hakları zirvelerinde İngilizce konuşan farklı profilleri saatlerce izledim; tek bir soruyla: bu insan ne kadar derin anlam taşıyabiliyor? Çıkan tablo, eğitim dilinden bağımsız bir şeyi gösterdi. Turing ödüllü Yoshua Bengio ile Avrupa Merkez Bankası'nın başındaki Christine Lagarde aynı anadili paylaşıyor, Fransızca. Lagarde'ın İngilizcesi daha akıcı, daha cilalı, daha az aksanlı. Ama Bengio'nun anlam derinliği belirgin biçimde daha yüksek; “sisli dağ yolu” eğretilemesi, “bebek kaplan” benzetmesi, insanlığın geleceğiyle zar atma çerçevesi, bunlar kavramsal mimari, klişe değil. Aynı dil, farklı derinlik; farkı yaratan akıcılık değil, düşünme kapasitesi. Öte yandan Türk gazeteci Nevşin Mengü, sistemin en başarılı çıktılarından biri: akıcı İngilizce, doğru terimler, “rekabetçi otoriter rejim”, “denge ve denetim”. Ama bir kavramı kendi penceresinden yeniden kurmuyor, etiketleri yapıştırıp geçiyor; hatta bir ismi yanlış tanıtıyor, fikirleri tam sindirmediğini gösterircesine. Listenin altlarında ise, anadili İngilizce olan bir Wall Street patronu duruyor, derinliği orta. Anlam derinliği ne dile bağlı, ne akıcılığa; düşünme kapasitesine bağlı. Dil, düşünceyi taşıyan araç; araç ne kadar iyi olursa olsun, taşıyacak düşünce yoksa boş kalıyor.</p>
+      <p>Yine de dürüst olmak gerek. Yabancı dilde eğitimin derin düşünenlerin potansiyelini kesinlikle yok ettiği söylenemez; bu güçlü bir hipotez, ama kanıtlanmış bir yargı değil. Veriler şuna işaret ediyor: yabancı dilde eğitim, düşünme kapasitesi düşük olanı biraz yükseltirken, yüksek olanın potansiyelini budayabiliyor. Sistem birincinin başarısını ölçüyor, ikincinin kaybını görmüyor, çünkü o kaybı ölçecek bir araç yok. Kaybın büyüklüğü bilinmiyor; ama varlığına dair güçlü işaretler var.</p>
+      <div class="nefes" aria-hidden="true">&#183;&#8195;&#183;&#8195;&#183;</div>
+      <p>Şimdiye kadar tek bir soru etrafında döndük: dil düşünceyi nasıl etkiliyor? Ama sorunun bir de ters yüzü var: dil dünyayı nasıl gösteriyor? Buranın her satırı kendi başına bir araştırma konusu; biz yalnız yol işaretlerini koyuyoruz.</p>
+      <p>Geçen yüzyılın başında dilbilimciler Edward Sapir ve Benjamin Lee Whorf radikal bir fikir attı ortaya: konuştuğumuz dil, düşünme biçimimizi belirler. Bunun “güçlü” hali, dilin düşünceyi tümüyle belirlediği, büyük ölçüde çürütüldü; insan dil olmadan da düşünebiliyor. Ama “zayıf” hali, dilin düşünceyi etkilediği, algıyı yönlendirdiği, son yirmi yılın deneyleriyle güçlü biçimde desteklendi. Her dil, gerçekten farklı bir dünya penceresi açıyor.</p>
+      <p>En somut örnek renkte. İngilizce'de gökyüzünün açık mavisi de denizin koyu mavisi de tek kelimedir; İngilizce ikisine de aynı adı verir. Rusça'da ise durum başka; açık mavi ile koyu mavi iki ayrı temel renktir, tıpkı kırmızı ile turuncu kadar bağımsız. Bir deney bunun algıyı değiştirip değiştirmediğini sınadı: insanlara üç mavi kare gösterdiler, hangisi farklı diye sordular. Rusça konuşanlar, iki renk ayrı kategorilere düştüğünde daha hızlı ayırt etti. Aynı fiziksel fark, aynı kategori içinde kalınca bu hız avantajı kayboluyordu. Dahası, insanlara aynı anda bir kelime tekrarlatınca avantaj siliniyor, ama ritim tutturunca kalıyordu; yani etki gerçekten dil üzerinden çalışıyor. Aynı gökyüzü, aynı dalga boyu, aynı göz. Ama Rusça konuşan, İngilizce konuşandan başka görüyor, çünkü dili renk uzayını böldüğü yerde dikkatini yoğunlaştırıyor.</p>
+      <p>Bu Türkçe için de geçerli. Bir araştırma, Türkçe'nin on iki temel renk terimi taşıdığını buldu, İngilizce'nin on birine karşılık; on ikinci terim lacivert. İlginç olan şu: insanların çoğu lacivert'i “mavinin bir tonu” sanıyor, ama beyinleri onu ayrı bir renk olarak işliyor. Türkçe konuşanlar mavi tonlarını iki gruba ayırmada belirgin biçimde daha başarılı. Yani dil hakkında söylediğimizle, dilin fiilen çalışma biçimi ayrı şeyler. “Lacivert mavinin bir türüdür” diyoruz ama beynimiz onları iki ayrı renk olarak ayırıyor. Bu ayrılık makalenin asıl sorusuna da ayna tutuyor: insanlar “İngilizce biliyorum” diyor ama bilişsel süreçleri bunu doğrulamıyor. Yüzeydeki yargı ile fiili işleyiş her yerde birbirinden ayrılıyor.</p>
+      <p>Peki bu farklar nereden geliyor? Cevap, dilin soyut bir sistem olmadığını hatırlatıyor: dil, yaşanmışlığın çökeltisidir. Rusça'nın iki mavisi Slavların hayatından geliyor; gökyüzünün açık mavisi ile su derinliğinin koyu mavisi onlar için farklı deneyimlerdi, farklı deneyim farklı kelime üretti, farklı kelime algıyı keskinleştirdi. Aynı döngü başka yerde daha da görünür: İslam ve yeşil. Çölde yeşil nadirdir ve nadir olan hayat demektir, su, vaha, gölge. Bu yaşanmışlık dile girmiş; Arapça'da cennet kelimesi bahçe demek ve Kuran'daki cennet tasvirleri yeşil bahçeler, akan sular üzerine kurulu. Yeşil, yaşanmışlıktan dile, dilden kutsallığa taşınmış. Karşı örnek bunu doğruluyor: Amazon ormanında yeşil her yerde, nadir değil; orada yeşile kutsallık yüklenmiyor, çünkü yeşil hayatın istisnası değil, kendisi. Hiçbir dil dünyayı “olduğu gibi” bölmüyor; her dil dünyayı, o dili konuşanların yaşadığı gibi bölüyor.</p>
+      <div class="nefes" aria-hidden="true">&#183;&#8195;&#183;&#8195;&#183;</div>
+      <p>Aynı şey zamanda da geçerli. Zaman nasıl akar, soldan sağa mı, yukarıdan aşağıya mı? Cevap, konuştuğun dile bağlı. İngilizce konuşan dünü sola, yarını sağa koyar. Arapça konuşan tersine dizer, yazı yönünü izleyerek. Mandarin Çincesi zamanı çoğu kez dikey düşünür: geçen ay “yukarıdaki ay”, gelecek ay “aşağıdaki ay”. Ama en çarpıcı örnek Avustralya'daki bir yerli halktan geliyor. Onların dilinde sol-sağ, ön-arka yok; her şey mutlak yönle söyleniyor: “güney ayağındaki karınca”, “sol ayağındaki” değil. Bu halk her an pusula gibi yön biliyor, çünkü dili bunu zorunlu kılıyor. Onlara zamanı diz dediğinizde, hangi yöne otururlarsa otursunlar kartları hep doğudan batıya, güneşin yolunu izleyerek diziyorlar. Aynı evren, aynı zaman; üç ayrı harita, çünkü üç ayrı pencere.</p>
+      <p>Türkçe'nin bu noktada nadir bir özelliği var: bilginin kaynağını dilbilgisinin içine gömmek. “Ali geldi” dersem, gördüm demektir, oradaydım, tanık oldum. “Ali gelmiş” dersem, duydum demektir, ya da izini gördüm ama kendisini görmedim. İngilizce'de bu ayrım zorunlu değil; aynı cümle ikisini de kapsar, kaynağı belirtmek istersen ekstra kelime eklersin, ama dil seni zorlamaz. Türkçe'de bu bilgi fiilin içine işlemiş, söylemeden edemezsin. Türkçe konuşan bir çocuk her cümlede bilgisinin kaynağını sınıflamak zorunda: gördü mü, duydu mu, çıkardı mı? Onlarca yıllık araştırma, bu zorunluluğun “ben bunu nereden biliyorum?” sorusunu daha erken kurduğunu, hatta “başkasının bildiği benimkinden farklı olabilir” kavramını daha güçlü inşa ettiğini gösteriyor. Bu, Türkçe'nin İngilizce'den “daha iyi” olduğu anlamına gelmiyor; bilginin kaynağının görünür olduğu, başka bir pencere açtığı anlamına geliyor.</p>
+      <p>Bazen de bir dil, bir kavramı hiç açmaz. Amazon'un derinliğinde yaşayan bir halkın dilinde sayı yok; “bir, iki, üç” yok, yalnız “az” ve “çok” var. Bu halk, ticarette aldatılmaktan korkup sayı öğrenmek istemiş; sekiz ay boyunca her gün çalışmışlar, ama öğrenememişler. Bu zekâ eksikliği değil; dilin ve kültürün birlikte çizdiği bir çerçevenin sınırı. Bir dil bir kavramı kodlamıyorsa, o kavramla düşünmek imkânsız değil ama çok zor.</p>
+      <p>Çince yazı ise dilin dünya görüşünü nasıl taşıdığının belki en görsel örneği; her karakter bir kavramın tarihsel yorumunu içine kazımış. “İyi” anlamına gelen işaret, kadın ile çocuğun yan yana gelmesinden oluşuyor. “Huzur, güvenlik” işareti, bir çatının altındaki kadın. “Kötülük, hile” ise üç kadının yan yana dizilmesi. Eski bir sözlükte kadın kökünden türeyen iki yüz yetmiş beş karakter var; erkek kökünden türeyen, yok. Bu yapılar bin yıllık bir toplumsal düzeni yazının genlerine işlemiş. Çince öğrenmek, yalnız bir alfabe öğrenmek değil, o karakterlerin taşıdığı tarihsel dünya görüşüne de girmektir. Dil tarafsız bir araç değil, bir dünya görüşü taşıyıcısı.</p>
+      <div class="nefes" aria-hidden="true">&#183;&#8195;&#183;&#8195;&#183;</div>
+      <p>Her dilin çevrilemeyen kelimeleri var ve Türkçe'ninkiler özellikle duygu ile ilişki alanında yoğunlaşıyor; her biri, başka bir dilde ancak bir paragrafla anlatılabilecek bir dünyayı tek kelimede taşıyor. Gönül, kalp değildir; duygunun, niyetin, bağlılığın buluştuğu iç merkez. “Gönlüm razı değil”, kalbim değil, mantığım değil, bir yerim reddediyor ama neresi olduğunu söyleyemiyorum. Hüzün, melankoli değildir; melankoli bireyseldir, hüzün ortaktır, milyonların paylaştığı bir ruh hali, Orhan Pamuk'un dünyaya tanıttığı o kolektif kayıp duygusu. Keyif, bir şeyden alınan zevk değildir; var olmanın kendisinden gelen sessiz bir hoşluk, kahveden değil, durmaktan, zamanın geçmesine izin vermekten gelen. Merak hem bilme arzusu hem kaygı; “seni merak ettim” ikisini birden taşır, Türkçe bu iki duyguyu akraba görür. Gurbet yalnız uzakta olmak değil, uzaklığı içinde taşımaktır. Hasret, özlemin kronikleşmiş, neredeyse fizikselleşmiş hali. Emek, yalnız çalışma değil, kendinden bir şey katmak; “emeğine sağlık”, eline sağlık değil, varlığına sağlık.</p>
+      <p>Bu kelimeler “güzel ama çevrilemez” sözcükler değil; düşüncenin çözünürlüğüyle ilgili. İngilizce tek kelime kullanır, her derinlikte aynı kelimeyi. Türkçe ise ayırır: anlamak, kavramak, idrak etmek, sezmek, fark etmek, çözmek; her biri başka bir zihinsel işi gösterir. Aynısı duyguda da var: İngilizce günlük dilde hepsine tek kelime der; Türkçe sevmek, âşık olmak, tutulmak, gönül vermek, bağlanmak, düşkün olmak diye ayırır. Türkçe'de pizzaya da insana da aynı fiil kullanılmaz; sevebilirsin ama bir nesneye âşık olamazsın. İngilizce'de “pizzayı seviyorum” ile “seni seviyorum” aynı fiili paylaşır; bu esneklik mi, yoksa duygunun sulanması mı? Bir dil bir deneyimi kaç kelimeyle ayırıyorsa, o deneyim hakkında o kadar ince düşünebilir.</p>
+      <p>Bu Türkçe'nin üstünlüğü değil; her dilin kendi çevrilemezleri var. Portekizce'nin saudade'si, geçmişe özlem ama geleceğe de uzanan; henüz yaşanmamışa bile özlem duyabiliyor. Japonca'nın mono no aware'si, geçiciliğin güzelliğine duyulan hüzünlü hassasiyet; kiraz çiçeğinin düşüşünü izlerken. Japonca'nın komorebi'si, yaprakların arasından süzülen ışığın yerde kurduğu o dans eden desen, tek kelime. Almanca'nın Schadenfreude'si, başkasının talihsizliğinden duyulan gizli zevk; İngilizce'de bu duygunun adı bile yok, kelimeyi Almanca'dan ödünç almışlar. Danca'nın hygge'si, bir mumun ışığında dostlarla çay içmenin o sıcak, tarifsiz huzuru. Her biri, o dili konuşanların dikkatini belirli bir deneyime yoğunlaştıran bir araç; o kelimeyle o deneyim adlandırılıyor, paylaşılıyor, kuşaktan kuşağa aktarılıyor.</p>
+      <p>Şimdi bütün bunlar bizi tek bir yere getiriyor. Her dil, evreni başka bir açıdan gören bir pencere. Rusça rengi başka bölüyor, o Avustralya dili zamanı başka yönlendiriyor, Türkçe bilginin kaynağını görünür kılıyor, Japonca geçiciliği tek kelimeye sığdırıyor. Bu zenginlikler gerçek ve o dünyalara tam girmek için o dili bilmek gerekir; çünkü çeviri kelimenin yapısını taşır ama altındaki deneyim ağını taşıyamaz. Peki bu, düşünmek için o dilde eğitim almak gerektiği anlamına mı geliyor? Hayır. Tam burada makalenin tezi en net halini alıyor. Her dilin penceresi, o dilin dünyasını gösterir; ama düşünmek, kavramak, çözümlemek, üretmek, pencereden bakarak değil, evin içinde yapılır. O ev de anadildir. Bir dilin penceresinden bakmak güzeldir; ama herhangi bir alanda derin düşünmek için yabancı dil gerekli değildir. Dillerin zenginliği, İngilizce eğitim lehine bir kanıt değil; tam tersine, anadilde düşünmenin neden vazgeçilmez olduğunun kanıtı. Pencere açarken evi yıkmak olmaz.</p>
+      <div class="nefes" aria-hidden="true">&#183;&#8195;&#183;&#8195;&#183;</div>
+      <p>Bütün bunlar bizi bugünün yeni denklemine getiriyor. Bilgi insana geleneksel olarak üç kanaldan ulaşır ve her birinin yapısal bir sınırı vardır. İlki kitap çevirisi ve o statiktir: çevirmen metni bir kez çevirir, o andan sonra herkese aynıdır. Okuyanın kim olduğunu, neyi bilip bilmediğini tanımaz; üstelik çevirmenin kendisi de bu yazının anlattığı sınırlarla çevrilidir, ilk iki katmanı taşır ama kültürel tortuyu çoğu zaman gümrükten geçiremez. Bir hukukçuya da bir mühendise de aynı çeviriyi verir, çünkü başka yolu yoktur. İkincisi öğretmen ve o canlıdır ama sınırlıdır: yabancı dilde ders anlatıyorsa, kendi zihinsel kapasitesinin bir kısmını dile harcar, doğaçlama gücü ve kavramsal esnekliği azalır. Otuz kişilik sınıfta çevirmenle aynı sorunu yaşar, herkese aynı dersi verir; tek öğrenciye odaklansa bile onun kavram dünyasını gerçekten göremez, çünkü insan belleği, dikkati ve zamanı sonludur. Eğitim bilimci Benjamin Bloom bu sınırı kırk yıl önce ölçtü: özel ders alan öğrenci, sınıfta ders alandan iki standart sapma üstün performans gösteriyor. Fark gerçek; ama herkese özel öğretmen verilemez. Kırk yıl bu problem çözümsüz kaldı.</p>
+      <p>Etkileşimli yapay zekâ işte bu iki kanaldan kategorik olarak farklı. Fark ölçekte değil, yapıda. Bir çevirmen bir kelimeyi karşılığına çevirir, yalnızca kelimeyi aktarır. Yapay zekâ ise farklı bir şey yapıyor: kullanıcının ne aradığını, hangi bağlamda sorduğunu, hangi çerçeveyle düşündüğünü hesaba katıp bilgiyi onun dünyasına yerleştiriyor. Kelimenin karşılığını değil, anlamın kendisini, kullanıcının kendi kavram ağına uygun biçimde taşıyor. Bir hukukçuya bir deneyi hukuki muhakeme içinde sunar, bir mühendise aynı deneyi başka bir kapıdan açar, bir anne babaya pratik sonucunu gösterir. Bilgi değişmiyor; değişen, bilgiyle buluşma koşulları. Dikkat: bilgi kişiselleşmiyor, anlama süreci kişiselleşiyor. Bloom'un kırk yıllık problemi tam burada yeniden gündeme geliyor; özel öğretmenin yarattığı fark gerçekti ama ölçeklenemiyordu. Yapay zekâ bu yapısal sınırı kaldırıyor: herkesle birebir, sınırsız sabırla, sürekli bağlam takibiyle.</p>
+      <p>Bunu söylerken iki sınırı dürüstçe koymak gerek. Birincisi: yapay zekâ bilgiyi anlamıyor. Anlayan, kavramları bağlayan hâlâ insan zihni. Yapay zekânın yaptığı, anlamanın önündeki dil engelini kaldırmak; düşünmeyi taşıyamaz, düşünen hâlâ insandır ve bu insanın düşünme kapasitesini koruması gerekir. Hatta bir uyarı var: yapay zekâ düşünmeyi üstlendiğinde insan kendi çözümleme kasını daha az çalıştırabiliyor; araç, kullananın zihnini köreltmemeli. İkincisi: yapay zekânın bilgiyi hangi katmanda taşıdığı hâlâ tartışmalı. Modeller yüzeyde diller arası geçiş yapıyor ama derin bilgi aktarımında zorlanıyor, İngilizce dışındaki dillerde performans düşüyor; hatta aynı soru farklı dillerde sorulduğunda farklı çerçevelenebiliyor, yani dilin düşünceyi şekillendirmesi makinelerde bile görünüyor. İlk iki katman, kelime çözme ve çıkarım, yapay zekânın güçlü olduğu alan. Kültürel nüans gelişiyor ama eksik. En derin katmana, felsefi varsayıma erişmeye yapay zekâ ne kadar ulaşabiliyor, işte bu soru açık ve bir sonraki çalışmanın tam merkezinde duruyor.</p>
+      <p>Bir de tarihe dürüst bakmak lazım. Önceki neslin argümanı haklıydı. Yetmişlerde, seksenlerde, doksanlarda yabancı dil bilmemek gerçekten bilgiden kopmaktı; bilgiye ulaşmanın tek yolu o dildeki kitabı okumaktı, çeviri yavaştı, pahalıydı, Türkçe kaynak azdı. O zaman “yabancı dil bilmeden bilgiye erişemezsin” demek bir gerçeğe dayanıyordu. Ama kimse şunu sormuyor: o günün koşulları bugün hâlâ geçerli mi? İki şey değişti, bir şey değişmedi. Değişen birincisi, bilgiye erişim: makine çevirisi yaygınlaşınca yabancı dil becerisine olan talep bile fiilen düşmeye başladı ve derslere anadile çeviri desteği eklendiğinde özellikle dili zayıf öğrencilerin başarısı belirgin biçimde arttı, çünkü beyin enerjisini çeviriye değil düşünmeye ayırabildi. Değişen ikincisi, bilgiyle buluşma biçimi: eski kanallar herkese aynı metni veriyordu, yapay zekâ ise herkesin dünyasına göre sunabiliyor. Değişmeyen ise düşünmenin dile bağımlılığı: insan hâlâ anadilinde düşünüyor, kavrıyor, formüle ediyor. O halde soru keskinleşiyor: eğer bilgiye erişim artık İngilizce gerektirmiyorsa ve bilgiyle buluşma artık standart çevirinin ötesine geçmişse, düşünmeyi İngilizce'ye taşımanın, yani İngilizce eğitimin, gerekçesi ne kaldı?</p>
+      <p>Sonunda karşımıza iki ayrı mimari çıkıyor. İngilizce eğitim modeli hem erişimi hem düşünmeyi yabancı dile taşır; beyin enerjisini çeviri ile düşünme arasında böler ve o İsveç deneyinin gösterdiği gibi düşünme tarafı yüzde kırk bire kadar kaybedebilir. Enerji tahsisi kararını öğrenciye bırakmaz, sistem onun adına verir. Yapay zekâ destekli anadil modeli ise bu ikisini ayırır: erişim sorununu makine çözer, düşünme anadilde kalır ve beynin tüm enerjisi kavramaya ayrılabilir. Bilişsel enerji sonlu bir kaynaksa, onu nereye harcadığın belirleyici; bu model onu düşünmeye yönlendirir, öteki çeviriye. İngilizce bilmeyen bir araştırmacının yapay zekâ aracılığıyla İngilizce kaynaklara erişip anadilinde çözümleme yapması, işte bu yazının kendisi bu modelin canlı bir örneği. Bunu kimsenin sistemli araştırmamış olması ise başlı başına bir veri: kimse sormamış.</p>
+      <div class="nefes" aria-hidden="true">&#183;&#8195;&#183;&#8195;&#183;</div>
+      <p>Burada bir yanlış anlaşılmayı kapatmak gerek. Bu yazı İngilizce'ye karşı bir bildiri değil. İngilizce'nin küresel iletişim dili olduğu yadsınamaz: bilim dili, iş dili, diplomasi dili, internetin dili. Ama İngilizce de, tıpkı ötekiler gibi, kendi penceresi olan bir dil. “Anlamak” için “görüyorum” demesi, ona özgü bir düşünce alışkanlığı. Adı olmayan duygular var İngilizce'de, başka dillerden ödünç aldıkları. Hiçbir dil, İngilizce dahil, tüm pencereleri aynı anda açamaz.</p>
+      <p>O yüzden asıl soru şu: İngilizce'yi ne için kullanıyoruz? İletişim için İngilizce gerekli, tartışmasız; iki ayrı anadili konuşanın buluşma noktası olarak dünya için vazgeçilmez. Bilgiye erişim için İngilizce giderek daha az gerekli; yapay zekâ bu engeli hızla kaldırıyor, beş yıl önce çevirmen gerektiren bir makaleye bugün dakikalar içinde ulaşılıyor. Ama düşünme dili olarak İngilizce, işte burada durmak lazım. Bütün argüman bu noktada toplanıyor. İleri düzeyde bile iç konuşma anadilde, duygu anadilde, hayal anadilde. İkinci dilde “düşünmek” çoğu insan için, anadilinde düşünüp ikinci dile çevirmek demek; düşünmenin kendisi anadilden çıkmıyor.</p>
+      <p>Aslında üç kavram sürekli birbirine karışıyor: iletişim, anlama ve düşünme. İletişim kurabilmek, kendini anlatabilmektir, günlük düzeyde yeter. Anlamak, söylenmek isteneni kavramaktır, bu yaşamla edinilen bir derinlik ister. Düşünebilmek ise o dilde argüman kurabilmek, karşı pozisyon geliştirebilmek, yeni çözüm üretebilmektir, ki bu neredeyse anadil düzeyi ister ve çoğu insan için erişilmezdir. Türkiye'deki tartışmanın sorunu, bu üç düzeyin hepsine birden “İngilizce bilmek” denmesi. Hazırlık mezunu da “İngilizce biliyorum” diyor, sertifikalı da, Shakespeare'i yorumlayan edebiyat profesörü de. Üçü aynı kelimeyi kullanıyor, ama üçünün “bilmek”i bambaşka şeyler.</p>
+      <div class="nefes" aria-hidden="true">&#183;&#8195;&#183;&#8195;&#183;</div>
+      <p>Bu teze itirazlar var ve her birini dürüstçe karşılamak gerekiyor. Bir itiraz şöyle: “İngilizce eğitim alanlar yine de daha başarılı.” Gözlem doğru, ama nedensellik yanlış. İngilizce iktisat okumaya giren öğrenci ülkede ilk altı yüz elli yedi kişiden biri; Türkçe iktisat okuyan ise yüz on beş bininci sırada. Aradaki fark yüz yetmiş beş kat. Bu iki mezunu karşılaştırıp “İngilizce eğitim fark yaratıyor” demek, olimpiyat sporcusuyla mahalle takımı oyuncusunu karşılaştırıp “antrenman programı fark yaratıyor” demek gibidir. Farkı yaratan, salona giren insanın zaten kim olduğu; nitekim giriş puanları eşitlendiğinde İngilizce eğitimin avantajı kayboluyor, hatta tersine dönüyor.</p>
+      <p>Başka bir itiraz: “İki dillilik bilişsel avantaj sağlıyor.” On bir bin kişilik bir çalışma, iki dilliliğin genel bir bilişsel avantaj sağladığına dair kanıt bulamadı; sistematik bir inceleme ise bu etkilerin büyük kısmının aslında sosyoekonomik koşullardan geldiğini gösterdi. Gerçek bilişsel etki, koşullar eşitlenince büyük ölçüde kayboluyor.</p>
+      <p>En güçlü itiraz şu: “Sorun eğitimin kalitesinde, dilde değil.” Buna büyük ölçüde katılıyorum. İngilizce eğitim düzgün uygulanırsa sonuç başka olabilir. Ama sistemin çoğunluğu için işlemiyorsa ve veriler bunu gösteriyorsa, “uygulama sorunu” savunması sistemin kendisini sorgulamaktan kaçmanın bir yolu haline geliyor. Bir itiraz da kariyer üzerine: “İngilizce eğitim kariyer avantajı sağlıyor.” Sağlıyor; ama bu avantajın ne kadarı gerçek yetkinlikten, ne kadarı etiketten? Markalı bir diploma avantajdır, ama bu avantaj dilden mi, yoksa o okulun adından ve giriş puanının yüksekliğinden mi geliyor?</p>
+      <p>Bir itiraz yapay zekâya: “Henüz dil engelini tam kaldıramıyor.” Doğru, özellikle derin aktarımda, edebî çeviride, nüanslı hukuki metinde hâlâ yetersiz. Ama bu, hiçbir işe yaramadığı anlamına gelmiyor; erişimde devrim niteliğinde bir değişim yaşanıyor ve hızlanıyor. Son olarak, en ince itiraz: “Her dilin penceresi varsa, İngilizce'ninkini de öğrenmek gerekmez mi?” Evet, İngilizce'nin penceresinden bakmak güzeldir, tıpkı Japonca'nın ya da Çince'nin penceresinden bakmak gibi. Ama bu pencerelerin hiçbiri düşünmek için zorunlu değil. İngilizce öğrenmek bir zenginliktir; İngilizce eğitim almak ise düşünme altyapısını o pencereye taşımaktır. Pencereden bakmakla evi taşımak ayrı şeyler. Hem, amaç pencere çoğaltmaksa, neden yalnız İngilizce, neden Japonca ya da Almanca değil? Cevap açık: motivasyon pencere çoğaltmak değil, “küresel vatandaş” etiketi.</p>
+      <p>O yüzden doğru formülasyon önemli. Bu yazı “İngilizce eğitim kötüdür” demiyor, “İngilizce öğrenmeyin” hiç demiyor. Bir dili sevdiği için, o dilin dünyasına girmek için öğrenen insan istisnadır ve ona kimsenin itirazı yok; o, dili araç olarak değil bir sanat olarak edinir. Bu yazının muhatabı o değil; muhatabı, dili araç olarak öğrenmek zorunda bırakılan ama o aracın kendisine ne kazandırıp ne kaybettirdiğini bilmeyen büyük çoğunluk. Söylenen şu: Türkiye'deki İngilizce eğitim sistemi vaat ettiğini teslim etmiyor. Vaat, “İngilizce düşünebilen küresel vatandaş”tı. Teslim edilen ise, kelimeleri çözebilen ama derinliğe erişemeyen, yeterlilik yanılgısı içinde kaybolmuş, düşünme potansiyeli budanmış bireyler ve sıralamada birkaç basamak yükselen kurumlar.</p>
+      <div class="nefes" aria-hidden="true">&#183;&#8195;&#183;&#8195;&#183;</div>
+      <p>Sonunda şuraya varıyoruz: dil bilmemek bir handikap değil, bir farkındalık durumudur. Anlamadığını bilen kişi telafi yolları geliştirir, çeviriye başvurur, uzmana sorar, bağlam okur, doğrular. Anladığını sanan kişi hiçbir şey geliştirmez. Yetkin sanılan sığlığın en büyük maliyeti de bilgi kaybı değil, o kaybın görünmez hale gelmesidir.</p>
+      <p>O yüzden “anlamak” kelimesini daha dikkatli kullanmamız gerekiyor. Bir kelimeyi çözmek anlamak değil. Bir cümleyi çevirmek anlamak değil. Bir konuşmayı takip etmek anlamak değil. Anlamak, bir düşüncenin arkasındaki dünyayı görmektir; ve bu, herhangi bir dilde bile zor bir beceridir. Belki de sorun İngilizce eğitimde değil. Belki sorun, “anlamak” kavramını anlamamızda.</p>
+      <p>Bu yazı, o sorunun haritasını çıkardı. Bir sonraki, bilgiyi hapsedildiği dilden kurtarmanın ne demek olduğunu soracak: çevirmenin herkese aynı sunduğu bilgi, yapay zekâ aracılığıyla kişinin kendi kavram dünyasına gerçekten taşınabiliyor mu, yoksa ilk katmanda mı kalıyor? Bunu test edecek.</p>
+      <p><span class="kapi">Sorular cevaplardan önemlidir.</span></p>
+    <nav class="alt-gecis" aria-label="Site gezinme"><a href="anlamak.html">Okuma sürümü</a><span aria-hidden="true">·</span><a href="/">halitcengizuzuner.com</a></nav>
+  </article>
 </body>
 </html>

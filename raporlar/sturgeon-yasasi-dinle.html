@@ -1,583 +1,117 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Sturgeon Yasası — dinleme anlatımı. Her Şeyin Yüzde Doksanı Çöptür.">
-<meta name="author" content="Halit Cengiz Uzuner">
 <meta name="robots" content="noindex">
+<meta name="description" content="Sturgeon Yasası makalesinin dinleme sürümü. Sesli okunmak üzere, kulağın metni olarak yeniden yazılmış metin.">
 <link rel="canonical" href="https://halitcengizuzuner.com/raporlar/sturgeon-yasasi.html">
 <link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/sturgeon-yasasi-dinle.html">
 <link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/sturgeon-yasasi-dinle.html">
 <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
-<title>Sturgeon Yasası — Dinleme Anlatımı</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<title>Sturgeon Yasası · Dinle</title>
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root {
-    --void: #060604;
-    --bone: #d4ccc0;
-    --bone-bright: #ece4d8;
-    --bone-dim: rgba(212, 204, 192, 0.58);
-    --bone-ghost: rgba(212, 204, 192, 0.28);
-    --accent: #b87050;
-    --serif: 'Instrument Serif', Georgia, serif;
-}
-
-::selection {
-    background: var(--accent);
-    color: var(--void);
-}
-
-html {
-    font-size: clamp(17px, 1.15vw, 20px);
-    scroll-behavior: smooth;
-}
-
-body {
-    background: var(--void);
-    color: var(--bone);
-    font-family: var(--serif);
-    font-weight: 400;
-    line-height: 1.85;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-}
-
-body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    pointer-events: none;
-    opacity: 0.25;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 180px 180px;
-    mix-blend-mode: overlay;
-}
-
-a { color: inherit; text-decoration: none; }
-
-/* ========== HEADER ========== */
-.listen-header {
-    min-height: 55vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 4rem 2.5rem 3rem;
-    max-width: 740px;
-}
-
-.listen-header h1 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    color: var(--bone-bright);
-    line-height: 0.95;
-    letter-spacing: -0.04em;
-    font-weight: 400;
-}
-
-.listen-header .subtitle {
-    font-size: clamp(1.1rem, 2vw, 1.35rem);
-    color: var(--bone-dim);
-    margin-top: 1rem;
-    font-style: italic;
-}
-
-.listen-header .badge {
-    display: inline-block;
-    margin-top: 2rem;
-    font-size: 0.72rem;
-    color: var(--accent);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    border: 1px solid rgba(184, 112, 80, 0.3);
-    padding: 0.3rem 0.8rem;
-}
-
-.listen-header .how-to {
-    margin-top: 1.5rem;
-    font-size: 0.82rem;
-    color: var(--bone-dim);
-    line-height: 1.6;
-}
-
-.listen-header .how-to a {
-    color: var(--bone-dim);
-    border-bottom: 1px solid var(--bone-ghost);
-    transition: color 0.3s, border-color 0.3s;
-}
-
-.listen-header .how-to a:hover {
-    color: var(--bone);
-    border-color: var(--bone-dim);
-}
-
-.listen-header .meta {
-    margin-top: 1rem;
-    font-size: 0.8rem;
-    color: var(--bone-ghost);
-    letter-spacing: 0.06em;
-}
-
-/* ========== CONTENT ========== */
-.listen-content {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 0 2.5rem 6rem;
-}
-
-.listen-content p {
-    margin-bottom: 1rem;
-    color: var(--bone);
-}
-
-/* ========== SECTION BREAK ========== */
-.section-break {
-    height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.section-break::after {
-    content: '';
-    width: 2rem;
-    height: 1px;
-    background: var(--bone-ghost);
-}
-
-/* ========== BREATH (short pause) ========== */
-.breath {
-    height: 1.5rem;
-}
-
-/* ========== SECTION TITLE ========== */
-.section-title {
-    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
-    color: var(--bone-bright);
-    font-weight: 400;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-}
-
-/* ========== BLOCKQUOTE ========== */
-.listen-quote {
-    border-left: 2px solid var(--accent);
-    padding: 0.8rem 0 0.8rem 1.5rem;
-    margin: 1.5rem 0;
-    font-style: italic;
-    color: var(--bone-dim);
-    line-height: 1.7;
-}
-
-/* ========== NOTE BOX ========== */
-.listen-note {
-    border: 1px solid var(--bone-ghost);
-    padding: 1.2rem 1.5rem;
-    margin: 2rem 0;
-    font-size: 0.9rem;
-    color: var(--bone-dim);
-    line-height: 1.7;
-}
-
-.listen-note a {
-    color: var(--accent);
-    border-bottom: 1px solid rgba(184, 112, 80, 0.3);
-    transition: border-color 0.3s;
-}
-
-.listen-note a:hover {
-    border-color: var(--accent);
-}
-
-/* ========== FOOTER ========== */
-.listen-footer {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 3rem 2.5rem 4rem;
-    border-top: 1px solid var(--bone-ghost);
-}
-
-.listen-footer a {
-    font-size: 0.8rem;
-    color: var(--bone-ghost);
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    transition: color 0.3s;
-}
-
-.listen-footer a:hover { color: var(--bone-dim); }
-
-/* ========== RESPONSIVE ========== */
-@media (max-width: 640px) {
-    .listen-header { padding: 3rem 1.5rem 2rem; }
-    .listen-content { padding: 0 1.5rem 4rem; }
-    .listen-footer { padding: 2rem 1.5rem 3rem; }
-}
-
-/* ===== LANGUAGE BAR ===== */
-.lang-bar {
-    position: relative; z-index: 10;
-    padding: 1.4rem 2.5rem 0;
-    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
-    font-size: clamp(0.85rem, 1vw, 0.98rem);
-    letter-spacing: 0.02em;
-    text-align: center;
-    color: var(--bone-dim);
-}
-.lang-link {
-    color: var(--bone-dim);
-    transition: color 0.35s ease;
-    padding: 0 0.15em;
-    text-decoration: none;
-}
-.lang-link:hover { color: #a08060; }
-.lang-link.lang-active { color: var(--bone-bright); }
-.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
-@media (max-width: 640px) {
-    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
-}
-
-/* ===== HOME LINK ===== */
-.home-nav {
-    text-align: center;
-    padding: 0.5rem 0 0;
-}
-.home-link {
-    color: var(--bone-dim);
-    font-size: 1.1rem;
-    text-decoration: none;
-    transition: color 0.3s;
-    display: inline-block;
-    line-height: 1;
-}
-.home-link:hover {
-    color: var(--bone);
-}
+  :root {
+    --fon: #000000; --metin: #edddd3;
+    --baslik: #d89a7c; --vurgu: #b87050;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--fon); }
+  body {
+    color: var(--metin);
+    font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    font-size: 19px; line-height: 1.9;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  .sayfa { max-width: 720px; margin: 0 auto; padding: 6vh 1.4em 12vh; }
+  h1 {
+    color: var(--baslik); font-weight: 600; letter-spacing: 0.01em;
+    font-size: 2.0em; line-height: 1.2; margin: 0 0 0.7em;
+  }
+  p { margin: 0 0 1.25em; }
+  p.ilk { color: var(--vurgu); }
+  p.ilk::first-letter {
+    float: left; font-size: 3.2em; line-height: 0.78;
+    padding: 0.02em 0.14em 0 0; color: var(--baslik); font-weight: 600;
+  }
+  .nefes {
+    text-align: center; color: var(--vurgu); opacity: 0.36;
+    margin: 2.9em 0; font-size: 1.05em; letter-spacing: 0.1em;
+    user-select: none;
+  }
+  .kapi { color: var(--baslik); }
+  ::selection { background: var(--vurgu); color: var(--fon); }
+  .etiket {
+    color: var(--vurgu); font-family: -apple-system, system-ui, sans-serif;
+    font-size: 0.72em; letter-spacing: 0.18em; text-transform: uppercase;
+    opacity: 0.75; margin: 0 0 2.4em; border-bottom: 1px solid #b8705040;
+    padding-bottom: 0.9em;
+  }
+  nav.alt-gecis {
+    margin-top: 4.5em; padding-top: 1.5em;
+    border-top: 1px solid #b870502e;
+    font-family: -apple-system, system-ui, sans-serif;
+    font-size: 0.76em; letter-spacing: 0.05em; text-align: center;
+  }
+  nav.alt-gecis a { color: var(--vurgu); opacity: 0.7; text-decoration: none;
+    border-bottom: 1px solid #b8705047; padding-bottom: 1px; }
+  nav.alt-gecis a:hover { opacity: 1; }
+  nav.alt-gecis span { color: var(--vurgu); opacity: 0.35; padding: 0 0.7em; }
 </style>
 </head>
 <body>
-<div class="home-nav"><a href="/" class="home-link" aria-label="Home">⌂</a></div>
-<header class="listen-header">
+  <article class="sayfa">
     <h1>Sturgeon Yasası</h1>
-    <p class="subtitle">"Her şeyin yüzde doksanı çöptür."</p>
-    <span class="badge">dinleme anlatımı</span>
-    <p class="how-to">Bu bir ses kaydı değil; kulağa göre yeniden yazılmış metin. Cihazınızın yerleşik okuyucusuyla veya <a href="https://elevenreader.io/" target="_blank" rel="noopener">ElevenReader</a> gibi bir metin-ses aracıyla dinleyebilirsiniz.</p>
-    <p class="meta">Şubat 2026</p>
-</header>
-
-<main class="listen-content">
-
-<!-- ==================== GİRİŞ ==================== -->
-
-<p>Sturgeon Yasası. Her şeyin yüzde doksanı çöptür. Vasatlığın evrensel dağılımı üzerine veri destekli bir düşünce. Şubat 2026.</p>
-
-<div class="breath"></div>
-
-<p>Bu metnin yapısını kısaca anlatayım ki yolculuğu birlikte yapalım. On bölümden oluşuyor. İlk ikisi yasanın kökeni — kim söyledi, neden söyledi. Üçüncüsü argümanın mantık yapısı. Dördüncüsü en kapsamlı bölüm — gerçekten her şeyin yüzde doksanı çöp mü, on bir farklı alandan verilerle bakıyoruz. Beşincisi ilişkili kavramlar — Pareto, güç yasası, Gresham, Dunning-Kruger, Taleb. Altıncısı karşı argümanlar ve sınırlılıklar. Yedincisi derin içgörü. Sekizincisi sonuç. Ve son bölüm lisans.</p>
-
-<p>Başlayalım.</p>
-
-<!-- ==================== BÖLÜM 1 ==================== -->
-<div class="section-break"></div>
-
-<p class="section-title">Birinci bölüm. Kaynak: Theodore Sturgeon.</p>
-
-<p>Theodore Sturgeon, 1918 doğumlu, 1985'te ölmüş Amerikan bilimkurgu yazarı. Dört yüzü aşkın eleştiri, yüz yirmiden fazla kısa hikâye, on bir roman yazmış. 1953'te More Than Human romanıyla International Fantasy Award kazandı. Star Trek'in orijinal serisine senaryo yazdı.</p>
-
-<p>Samuel R. Delany onun hakkında şöyle diyor: "1940'lardan 1960'lara kadar en etkili bilimkurgu yazarıydı."</p>
-
-<p>Ama onu döneminin diğer yazarlarından ayıran şey sadece üretkenliği değil. Sturgeon, bilimkurgu yazarları arasında ayrıksıydı. Yalnızlık, aşk, cinsellik, hermafroditizm, eşcinsellik gibi konuları işleyen neredeyse tek isimdi. Kahramanları tipik olarak baskılanmış gençlerdi.</p>
-
-<p>2000 yılında Science Fiction and Fantasy Hall of Fame'e alındı.</p>
-
-<!-- ==================== BÖLÜM 2 ==================== -->
-<div class="section-break"></div>
-
-<p class="section-title">İkinci bölüm. Yasa nasıl doğdu.</p>
-
-<p>Önce bağlamı anlatayım — çünkü bağlam olmadan yasanın ne kadar cesur bir hamle olduğu anlaşılmaz. 1950'lerde bilimkurgu, "Buck Rogers masalları" olarak küçümseniyordu. Eleştirmenler türün en kötü örneklerini seçip "bilimkurgunun yüzde doksanı çöp" diyerek türü toptan reddediyordu.</p>
-
-<div class="breath"></div>
-
-<p>Ve Sturgeon ne yaptı? Savunmaya geçmek yerine kabul etti. Eylül 1953, Philadelphia WorldCon konferansı. James Gunn'ın aktarımıyla şöyle demiş:</p>
-
-<div class="listen-quote">
-"İnsanlar polisiye romandan söz ettiğinde The Maltese Falcon'ı ve The Big Sleep'i anarlar. Western'den söz ettiklerinde The Way West'i ve Shane'i anarlar. Ama bilimkurgudan söz ettiklerinde 'şu Buck Rogers masalları' derler ve 'bilimkurgunun yüzde doksanı çöptür' derler. Haklılar. Bilimkurgunun yüzde doksanı çöptür. Ama her şeyin yüzde doksanı çöptür. Önemli olan çöp olmayan yüzde ondur. Ve bilimkurgunun çöp olmayan yüzde onu, herhangi bir yerde yazılmakta olan herhangi bir şeyin en iyisi kadar iyi ya da daha iyidir."
-</div>
-
-<div class="breath"></div>
-
-<p>Bunu yazılı olarak ilk kez Mart 1958'de Venture Science Fiction dergisinde yayımladı. Şöyle yazdı:</p>
-
-<div class="listen-quote">
-"Sturgeon'ın Vahyi'ni tekrarlıyorum; yirmi yıl boyunca bilimkurguyu, alanın en kötü örneklerini cephane olarak kullanan insanlara karşı bıktırıcı bir savunma sonunda benden sıkılarak çıkmıştır."
-</div>
-
-<p>Ve devam ediyor: "Vahiy: Her şeyin yüzde doksanı çöptür."</p>
-
-<div class="breath"></div>
-
-<p>Bakın burada önemli bir ayrım var. Aslında iki ayrı formül var. Birincisi herkesin bildiği, "Sturgeon'ın Vahyi" denen formül: "Her şeyin yüzde doksanı çöptür." İkincisi ise asıl "Sturgeon Yasası" denen formül: "Hiçbir şey her zaman mutlak değildir." İngilizcesi: "Nothing is always absolutely so." İkincisi birincisinin üst ilkesi — yani yüzde doksan bile mutlak değil.</p>
-
-<!-- ==================== BÖLÜM 3 ==================== -->
-<div class="section-break"></div>
-
-<p class="section-title">Üçüncü bölüm. Argüman yapısı.</p>
-
-<p>Sturgeon'ın savunması dört adımlı bir mantık zinciri. Ve dikkat edin, yapısı çok zarif.</p>
-
-<p>Birinci adım: Kabul. Bilimkurgunun yüzde doksanı çöptür — doğrudan kabul, inkâr yok.</p>
-
-<p>İkinci adım: Genelleme. Her şeyin yüzde doksanı çöptür — bilimkurgu bu konuda özel değil.</p>
-
-<p>Üçüncü adım: Sonuç. O halde bir türü en kötü örnekleriyle yargılamak mantık hatası.</p>
-
-<p>Dördüncü adım: İddia. Tür, en iyi örnekleriyle değerlendirilmeli.</p>
-
-<p>Burada şunun altını çizeyim: bu bir savunma argümanı. Bilimkurguyu yüceltmiyor, saldırının gerekçesini yıkıyor.</p>
-
-<!-- ==================== BÖLÜM 4 ==================== -->
-<div class="section-break"></div>
-
-<p class="section-title">Dördüncü bölüm. Ampirik testler — yüzde doksan gerçek mi?</p>
-
-<p>Ve şimdi metnin en kapsamlı bölümüne geliyoruz.</p>
-
-<p>Yüzde doksan rakamı aslında retorik — "büyük çoğunluk" demek için kullanılmış, kesin bir ölçüm değil. Ama veriler bunu destekliyor mu? On bir farklı alana bakacağız.</p>
-
-<div class="breath"></div>
-
-<p>İlk alan: akademik yayıncılık.</p>
-
-<p>Burada altı farklı veri var ve hepsi dikkat çekici. Thomson Web of Science'ın 2014 tarihli verisine göre, insani bilimlerde — felsefe, tarih, edebiyat gibi alanlarda — makalelerin yüzde seksen ikisi hiç alıntılanmıyor. Doğa bilimlerinde bu oran yüzde yirmi yediye düşüyor. Tıpta ise yüzde on ikiye.</p>
-
-<p>Ama alıntılanmama tek ölçüt değil. Bakın şu verilere: Open Science Collaboration'ın 2015 tarihli çalışmasına göre, psikoloji çalışmalarının yüzde altmış dördü tekrar edildiğinde doğrulanamıyor. Kanser araştırmalarında bu oran yüzde seksen dokuza çıkıyor — Begley ve Ellis'in 2012 tarihli Nature makalesi. Ve Chalmers ile Glasziou'nun 2009 tarihli Lancet makalesine göre, araştırma fonlarının yüzde seksen beşi israf olarak değerlendiriliyor.</p>
-
-<div class="breath"></div>
-
-<p>İkinci alan: müzik.</p>
-
-<p>Spotify'ın 2023 Luminate raporuna göre, platformda yüz seksen dört milyon parça var. Bakın bu rakama: bunların yüzde yirmi dört virgül sekizi — yaklaşık kırk beş buçuk milyon parça — sıfır dinleme almış. Hiç. Tek bir kez bile çalınmamış. Bin dinlemenin altında kalanları da sayarsak oran yüzde seksen altı virgül ikiye çıkıyor. On milyon sanatçının yarısı ömür boyu yüzden az toplam dinleme almış.</p>
-
-<div class="breath"></div>
-
-<p>Üçüncü alan: patentler.</p>
-
-<p>Alınan patentlerin yaklaşık yüzde doksan beşi hiçbir zaman ticari başarı elde edemiyor. Dünya genelinde patentlerin yalnızca yüzde beşi lisanslanır veya ticarileşir.</p>
-
-<div class="breath"></div>
-
-<p>Dördüncü alan: girişimler.</p>
-
-<p>ABD İş İstatistikleri Bürosu'nun 2024 verisine göre, girişimlerin yüzde altmış beşi on yıl içinde kapanıyor. Blockchain girişimlerinde başarısızlık oranı yüzde doksan beşe çıkıyor.</p>
-
-<div class="breath"></div>
-
-<p>Beşinci alan: kitap yayıncılığı.</p>
-
-<p>Dünyada yılda yaklaşık üç milyon kitap yayımlanıyor. Dikkat çekici olan şu: bunların yüzde yetmiş dokuzu yüzden az kopya satıyor. İki bin kopyanın altında satanları da sayarsak oran yüzde doksana çıkıyor. Ve New York Times Bestseller listesine girme oranı — yüzde sıfır virgül sıfır sekiz.</p>
-
-<div class="breath"></div>
-
-<p>Altıncı alan: film.</p>
-
-<p>Stephen Follows'un film kârlılık analizine göre, tüm filmlerin yüzde elli dokuzu zarar ediyor. 2004'te filmlerin sadece yüzde kırk altısı kâr ediyordu. Bu oran zaman içinde dalgalanıyor.</p>
-
-<div class="breath"></div>
-
-<p>Yedinci alan: yazılım.</p>
-
-<p>Stripe'ın 2018 raporuna göre, yazılım geliştiricilerin haftalık çalışma süresinin yüzde kırk ikisi teknik borçla geçiyor. ABD genelinde teknik borcun tahmini maliyeti iki trilyon dört yüz on milyar dolar.</p>
-
-<div class="breath"></div>
-
-<p>Sekizinci alan: tıp.</p>
-
-<p>Tanı hatası oranı yüzde on ile on beş arasında. Yoğun bakımda ve ölüm vakalarında bu oran yüzde yirmi üçe çıkıyor. Hekimlerin yüzde ellisi ayda en az bir hata bildiriyor.</p>
-
-<div class="breath"></div>
-
-<p>Dokuzuncu alan: uygulamalar.</p>
-
-<p>Kullanıcıların uygulama zamanının yüzde seksenini yalnızca üç uygulamada geçirdiği göz önüne alınırsa, geri kalan düzinelerce uygulama neredeyse hiç açılmıyor. Comscore'un 2017 verisi bu. iOS'ta otuz gün sonra tutma oranı yüzde üç virgül yedi — Statista, 2023. Yani telefonunuza indirdiğiniz uygulamaların yüzde doksan altı virgül üçü otuz gün içinde terk ediliyor.</p>
-
-<div class="breath"></div>
-
-<p>Şimdi bütün bu verileri bir araya getirelim.</p>
-
-<p>Akademik makaleler: insani bilimlerde yüzde seksen iki alıntılanmıyor. Müzik: yüzde seksen altı virgül iki bin dinlemenin altında. Patentler: yaklaşık yüzde doksan beş ticarileşmiyor. Blockchain girişimleri: yüzde doksan beş başarısız. Kitaplar: yüzde doksan iki binden az kopya satıyor. Film: yüzde elli dokuz zarar ediyor. Yazılım: yüzde kırk iki haftalık teknik borç. Tıp: yüzde on-on beş tanı hatası. iOS uygulamaları: yüzde doksan altı virgül üç otuz gün içinde kaybediliyor. Kanser araştırmaları: yüzde seksen dokuz doğrulanamıyor. Araştırma fonları: yüzde seksen beş israf.</p>
-
-<p>Bunun değerlendirmesi şu: yüzde doksan rakamı kesin bir ölçüm değil, bir büyüklük sırası. Ama verilerin büyük çoğunluğu bu büyüklük sırasını destekliyor. Kalite dağılımı hemen her alanda asimetrik ve ağır kuyruklu.</p>
-
-<!-- ==================== BÖLÜM 5 ==================== -->
-<div class="section-break"></div>
-
-<p class="section-title">Beşinci bölüm. Yankılar — ilişkili kavramlar.</p>
-
-<p>Sturgeon bu gözlemi tek başına yapmadı. Farklı alanlarda, farklı isimler benzer örüntüleri fark etti. Altı kavrama bakacağız.</p>
-
-<div class="breath"></div>
-
-<p>İlk yankı: Pareto İlkesi — yüzde seksen bölü yirmi kuralı.</p>
-
-<p>Vilfredo Pareto, 1896'da İtalya'da toprağın yüzde sekseninin nüfusun yüzde yirmisine ait olduğunu gözlemledi. Joseph Juran bunu kalite kontrolüne uyarladı: "Sorunların yüzde sekseni nedenlerin yüzde yirmisinden gelir."</p>
-
-<p>Sturgeon ve Pareto arasındaki ilişki şu: ikisi de aynı olguyu farklı açılardan gözlemliyorlar. Pareto değerin yoğunlaşmasını, Sturgeon çöp oranını ölçer. İkisi de normal dağılımın geçerli olmadığını gösterir.</p>
-
-<div class="breath"></div>
-
-<p>İkinci yankı: güç yasası dağılımları.</p>
-
-<p>Kalite normal dağılmaz, güç yasası izler. Az sayıda ürün orantısız etki yaratır. Bu dağılımda medyan, ortalamadan çok düşüktür — yani çoğunluk "ortalamanın altında"dır.</p>
-
-<div class="breath"></div>
-
-<p>Üçüncü yankı: Gresham Yasası — kötü iyiyi kovar.</p>
-
-<p>Parasal kökeni on altıncı yüzyıla dayanıyor. Sir Thomas Gresham'a atfedilir. Düşük değerli para piyasaya girdiğinde, yüksek değerli para dolaşımdan çekilir.</p>
-
-<p>Bunun modern uygulamaları şöyle: Clickbait kaliteli gazeteciliği kovar. Ucuz moda sürdürülebilir üreticileri bitirir. Algoritmik içerik özgün içeriği görünmez kılar.</p>
-
-<p>Ve işte burada kritik ayrım devreye giriyor. Sturgeon kalite dağılımının doğal olduğunu söyler. Gresham ise kalite düşüşünün kurumsal dinamiklerden kaynaklandığını iddia eder — kötü, iyiyi aktif olarak siliyor. Sturgeon betimler, Gresham mekanizma gösterir.</p>
-
-<div class="breath"></div>
-
-<p>Dördüncü yankı: Dunning-Kruger etkisi.</p>
-
-<p>Kruger ve Dunning'in 1999 tarihli çalışmasında, alt çeyreklik performans gösteren katılımcılar kendilerini altmış ikinci yüzdelikte tahmin etti. Gerçek performansları ise on ikinci yüzdelikte.</p>
-
-<p>Bu Sturgeon'la şöyle bağlanıyor: yüzde doksanı üreten kişiler çoğu kez çöp ürettiklerinin farkında değil. Dunning-Kruger, Sturgeon'ın yüzde doksanının neden bu kadar dirençli olduğunu açıklıyor — üretici kendi ürününü değerli sanıyor.</p>
-
-<div class="breath"></div>
-
-<p>Beşinci yankı: Taleb'in sinyal ve gürültü analizi.</p>
-
-<p>Nassim Nicholas Taleb'in Fooled by Randomness ve The Black Swan eserlerindeki analize göre, gözlem sıklığı arttıkça gürültü oranı patlıyor. Bunu somutlaştırayım — ve bu rakamlar gerçekten dikkat çekici: yıllık gözlemde sinyal yüzde elli, gürültü yüzde elli — yarı yarıya. Ama günlük gözleme geçtiğinde sinyal yüzde beşe düşüyor, gürültü yüzde doksan beşe çıkıyor. Saatlik gözlemde ise sinyal yüzde sıfır virgül beş, gürültü yüzde doksan dokuz virgül beş. Ne kadar sık bakarsan o kadar çok gürültü görürsün. Sturgeon'ın yüzde doksanı, Taleb'in "gürültüsü" ile eşdeğer: çoğunluk sinyal değil, gürültü.</p>
-
-<div class="breath"></div>
-
-<p>Altıncı ve son yankı: Sturgeon'dan önce.</p>
-
-<p>Bu gözlem yeni değil. Milattan önce yaklaşık beşinci yüzyılda Herakleitos "Çoğunluk kötüdür" demiş. Sturgeon'ın ruhu 2500 yıl önce Efes'te dolanıyordu. Milattan önce 405'te Aristophanes, Kurbağalar komedyasında edebiyatın büyük bölümünü "çöpür iş" olarak tanımladı. Ve 1953'te Theodore Sturgeon, bu gözlemi sistematik bir savunma argümanına dönüştürüp isim koyan ilk kişi oldu.</p>
-
-<!-- ==================== BÖLÜM 6 ==================== -->
-<div class="section-break"></div>
-
-<p class="section-title">Altıncı bölüm. Karşı argümanlar ve sınırlılıklar.</p>
-
-<p>Şimdi madalyonun öbür yüzüne bakalım. Altı karşı argüman var.</p>
-
-<div class="breath"></div>
-
-<p>Birinci karşı argüman: yüzde doksan rakamı keyfî.</p>
-
-<p>Evet, retorik. "Büyük çoğunluk" demek için kullanılmış. Ama büyüklük sırası tutarlı — veriler yüzde altmış ile doksan yedi arasında dağılıyor. Yani "çoğunluk vasattır" gözlemi geçerli.</p>
-
-<div class="breath"></div>
-
-<p>İkinci karşı argüman: hayatta kalma yanlılığı.</p>
-
-<p>Bugünden geriye baktığımızda eski dönemler daha "kaliteli" görünür. Bunun üç sebebi var.</p>
-
-<p>Birincisi zaman filtresi: zamanın elediği çöp görünmez olur, geri kalan yüzde on "dönem" olur.</p>
-
-<p>İkincisi nostalji filtresi: kişisel deneyimle seçilmiş örnekler tümü temsil etmez.</p>
-
-<p>Üçüncüsü ithalat filtresi: başka kültürlerden yalnızca en iyiler gelir.</p>
-
-<div class="breath"></div>
-
-<p>Üçüncü karşı argüman: alan bağımlılığı.</p>
-
-<p>Burada önemli bir örüntü var. Giriş engeli yüksek alanlarda oran düşer — tıpta tanı hatası yüzde on-on beş. Giriş engeli düşük alanlarda ise artar — mobil uygulama kullanıcılarının yüzde doksan altısı otuz gün içinde uygulamayı terk ediyor. Dijitalleşme giriş engelini düşürdüğü her yerde çöp oranını artırıyor.</p>
-
-<div class="breath"></div>
-
-<p>Dördüncü karşı argüman: "çöp"ü kim belirler?</p>
-
-<p>Kalite öznel. Farklı kalite eksenleri var — ticari başarı, eleştirel beğeni, sürdürülebilir etki, teknik yetkinlik. Bir alanda "çöp" olan, başka eksende değerli olabilir.</p>
-
-<div class="breath"></div>
-
-<p>Beşinci karşı argüman: oran zamanla değişiyor mu?</p>
-
-<p>Tom Nichols, The Death of Expertise kitabında şöyle diyor: "Yüzde doksan düşük kalıyor olabilir."</p>
-
-<p>Dijitalleşme üretim engelini düşürdü, çöp hacmi patladı. Oran aynı kalsa bile mutlak sayı katlandı.</p>
-
-<div class="breath"></div>
-
-<p>Altıncı ve son karşı argüman: yüzde doksan zorunlu mu?</p>
-
-<p>İnovasyon literatürü şöyle diyor: başarısızlık bilgi üretir. Denemeden başarı gelmez, denemelerin çoğu başarısız olur.</p>
-
-<p>Ve burada şunun altını kalın çizgiyle çizeyim — bu metnin belki de en önemli cümlesi: Yüzde doksanı ortadan kaldırırsan, yüzde on da ortadan kalkar — çünkü yüzde on, yüzde doksanın içinden çıkıyor. Evrimsel benzetme: mutasyonların yüzde doksan dokuzu zararlı veya nötr, ama havuzu ortadan kaldırırsan adaptasyon durur. Yüzde doksan çöp değil, deneme alanı.</p>
-
-<!-- ==================== BÖLÜM 7 ==================== -->
-<div class="section-break"></div>
-
-<p class="section-title">Yedinci bölüm. Derin içgörü — çöp oranı alanın gücünü azaltmaz.</p>
-
-<div class="breath"></div>
-
-<p>Çöp havuzundan değeri çıkartan dört mekanizma var.</p>
-
-<p>Birincisi editöryal filtreler: hakem değerlendirmesi, küratör seçimi, editöryal standartlar.</p>
-
-<p>İkincisi piyasa filtreleri: tüketici tercihi, rekabet, fiyat sinyali.</p>
-
-<p>Üçüncüsü zaman filtresi: kalıcı etki bırakma, nesiller boyunca sürme.</p>
-
-<p>Dördüncüsü topluluk filtreleri: uzman konsensüsü, kanon oluşumu, kolektif bellek.</p>
-
-<div class="breath"></div>
-
-<p>Ve şimdi bütün bu parçaları birleştirdiğimizde ortaya çıkan resme bakalım. Gresham ile Taleb'in gürültü analizi birleştirildiğinde gerçek risk ortaya çıkıyor.</p>
-
-<p>Algoritmik öneriler yüzde doksanı ödüllendirdiğinde, yüzde on var ama bulunamaz hale geliyor. Sorun çöp oranı değil — o doğal. Sorun seçilim mekanizmalarının bozulması. Clickbait algoritması kaliteyi değil etkileşimi ölçer, ve etkileşim genellikle kaliteyle ters orantılı. Filtre kırıldığında Sturgeon'ın doğal yüzde doksanı, Gresham'ın aktif kovma mekanizmasına dönüşür.</p>
-
-<!-- ==================== BÖLÜM 8 ==================== -->
-<div class="section-break"></div>
-
-<p class="section-title">Sekizinci bölüm. Sonuç.</p>
-
-<p>Sturgeon Yasası ne teselli ne sinizm. Bir gözlem aritmetiği.</p>
-
-<p>Üç temel çıktı var.</p>
-
-<p>Birincisi: çoğunluk her yerde vasattır. Bu alarm değil, arka plan. Alarm verilecek an, vasatlığın iyiyi kovmaya başladığı an — Gresham'ın devreye girdiği an. Akademik yayıncılıkta yüzde seksen iki alıntılanmayan makale, müzikteki yüzde seksen altı dinlenmeyen parça — bunlar patolojik değil, doğal. Alarm: bu yüzde seksen altının algoritmik olarak yüzde on dördün önüne geçmesi.</p>
-
-<p>İkincisi: yüzde doksanın çöp olması, yüzde onun gücünü azaltmaz. Hukuk sistemindeki davaların çoğu önemsizdir ama içtihat yaratan kararların gücü bundan etkilenmez. Tıpta tanı hatası yüzde on-on beştir ama doğru tanının hayat kurtarma gücü bundan azalmaz. Psikoloji çalışmalarının yüzde altmış dördü doğrulanamaz ama doğrulanan yüzde otuz altının insani bilgiye katkısı bundan düşülmez.</p>
-
-<p>Ve üçüncüsü — ve bu yasanın en az tartışılmış ama belki de en önemli boyutu: yüzde doksanın varlığı, yüzde onu bulmayı zorlaştırır. Bu pratik sorun.</p>
-
-<p>Daniel Dennett'ın serbest aktarımıyla bitirelim: "Çöpe yuhalamakla vakit kaybetmeyin. İyinin peşine düşün ya da bulaşmayın."</p>
-
-<!-- ==================== KAYNAKÇA NOTU ==================== -->
-<div class="section-break"></div>
-
-<div class="listen-note">
-Bu çalışmanın tam kaynakçası <a href="sturgeon-yasasi.html">yazılı versiyonda</a> yer almaktadır.
-</div>
-
-<!-- ==================== LİSANS ==================== -->
-<div class="section-break"></div>
-
-<p class="section-title">Son bölüm. Lisans.</p>
-
-<p>Bu çalışma kamuya açıktır. Hak sahipliği talebi yoktur. Kullanın, paylaşın, dönüştürün. Akademik hakemli yayın değildir. İnsan ve yapay zeka birlikte yazdı. Hatalar içerebilir.</p>
-
-</main>
-
-<footer class="listen-footer">
-    <a href="sturgeon-yasasi.html">← geri</a>
-</footer>
-
+    <p class="etiket">Dinleme sürümü · ses kaydı değil, kulağa göre yeniden yazılmış metin</p>
+      <p class="ilk">Her şeyin yüzde doksanı çöptür. Kaba bir cümle. Neredeyse bir hakaret. Ama bunu söyleyen adam, onu bir savunma olarak söylemişti. Hem de sevdiği şeyi korumak için.</p>
+      <p>Adı Theodore Sturgeon. Üretken bir yazardı: dört yüzden fazla eleştiri, yüzü aşkın öykü, on bir roman. En bilinen romanıyla büyük bir ödül kazandı, Star Trek&#x27;in ilk dizisine senaryo yazdı. Ama onu asıl farklı kılan bunlar değildi. Bilimkurgunun en dar, en çekingen yıllarında, yalnızlığı, cinselliği, dışlanmışları doğrudan işleyen neredeyse tek isimdi. Kahramanları hep kenara itilmiş gençlerdi. Bir başka büyük yazar onu kendi döneminin en etkili bilimkurgu kalemi sayar.</p>
+      <p>İşte bu üretkenlikle bu aykırılık arasındaki gerilim önemli. Çünkü Sturgeon&#x27;ın en ünlü cümlesi tam da oradan doğdu. Kendi türünü savunurken, farkında olmadan bütün bir kalite felsefesi kurdu.</p>
+      <div class="nefes" aria-hidden="true">·&#8195;·&#8195;·</div>
+      <p>O yıllarda bilimkurgu ciddiye alınmıyordu. &quot;Çocuk masalları&quot; diye küçümseniyordu. Eleştirmenler türün en kötü örneklerini seçip bütün alanı toptan çöpe atıyordu. Dergiler ucuz kağıda basılıyor, kapaklar uzay canavarlarıyla doluyordu. Okumuş insan içinse tek bir yargı yetiyordu: bilimkurgunun yüzde doksanı çöptür.</p>
+      <p>Sturgeon bu saldırıya ilk kez bir bilimkurgu kongresinde karşılık verdi. Şöyle dedi:</p>
+      <p>İnsanlar polisiye romandan söz ederken akıllarına başyapıtlar gelir. Western deyince en iyilerini anarlar. Ama bilimkurgu deyince, &quot;şu çocuk masalları&quot; derler, &quot;yüzde doksanı çöptür&quot; derler. Haklılar da. Bilimkurgunun yüzde doksanı gerçekten çöptür. Ama her şeyin yüzde doksanı çöptür. Önemli olan, çöp olmayan yüzde ondur. Bilimkurgunun o yüzde onu ise, dünyanın herhangi bir yerinde yazılan en iyi şey kadar iyidir.</p>
+      <p>Beş yıl sonra bu sözü yazıya da döktü. Bir dergi köşesinde, yorgun ama kararlı bir sesle: yıllardır bu türü, onun en kötü örneklerini silah olarak kullanan insanlara karşı savunuyorum, dedi. Sonunda bıktım. Şu çıktı benden: her şeyin yüzde doksanı çöptür.</p>
+      <p>Burada ince bir ayrım var. Sturgeon aslında iki ayrı söz söyledi. Birincisi şu: her şeyin yüzde doksanı çöptür. İkincisi daha sakin: hiçbir şey her zaman mutlak değildir. İkincisi de birincisini kendi içinden sınırlar. Yani yüzde doksan bile mutlak değil. Yasa, kendi sınırını kendi içinde taşıyor.</p>
+      <div class="nefes" aria-hidden="true">·&#8195;·&#8195;·</div>
+      <p>Sturgeon&#x27;ın hamlesinin gücü, yapısında gizli. Karşı tarafın silahını elinden almıyor. O silahı alıp herkesin üstüne çeviriyor, sonra da silahın anlamsız olduğunu gösteriyor.</p>
+      <p>Dört adımda yapıyor bunu. Önce kabul ediyor: evet, bilimkurgunun yüzde doksanı çöp, inkâr yok. Sonra genelliyor: ama her şeyin yüzde doksanı çöp, bilimkurgu bu konuda özel değil. Sonra hatayı gösteriyor: bir türü en kötü örnekleriyle yargılamak bir mantık hatası. En sonunda da sonucu koyuyor: bir tür, en iyi örnekleriyle değerlendirilir.</p>
+      <p>Bu bir savunma. Ama tuhaf bir savunma. Savunduğu şeyi göklere çıkarmıyor. Saldırının dayandığı mantığı yıkıyor. Bir avukatın &quot;müvekkilim masumdur&quot; demek yerine, &quot;bu delil herkes için geçerli, o yüzden delil bile sayılmaz&quot; demesi gibi.</p>
+      <p>Peki bu güzel mantık ne kadar doğru? Güzel sözden çıkıp gerçek sayılara bakalım. Sahiden her şeyin yüzde doksanı çöp mü?</p>
+      <div class="nefes" aria-hidden="true">·&#8195;·&#8195;·</div>
+      <p>Yüzde doksan, Sturgeon&#x27;ın ağzında bir ölçüm değildi. &quot;Büyük çoğunluk&quot; demenin kestirme yoluydu. Ama bu sezginin bir karşılığı var mı? Birçok alana tek tek bakılabilir. Asıl önemli olansa tek tek rakamlar değil, alanlar arasında beliren örüntü.</p>
+      <p>Akademiyle başlayalım. Kalite kontrolünün en katı olduğu yer burası: hakem değerlendirmesi, editör süzgeci, kurum itibarı. Buna rağmen, insani bilimlerde yayımlanan makalelerin beşte dördünden fazlası hayatı boyunca bir kez bile alıntılanmıyor. Doğa bilimlerinde oran düşüyor, tıpta daha da. Ama daha derin bir sorun var. Psikoloji deneylerinin üçte ikisi, tekrarlandığında aynı sonucu vermiyor. Kanser araştırmalarında bu oran neredeyse tamamına çıkıyor. Yani en kontrollü alan bile Sturgeon&#x27;ın oranının dışına çıkamıyor.</p>
+      <p>Müziğe bakalım. Bugün Spotify&#x27;da yüz seksen dört milyon parça var. Bunların dörtte biri, yani kırk beş milyon parça, hayatı boyunca bir kez bile dinlenmemiş. On milyon sanatçının yarısı, ömrü boyunca yüzden az dinleme almış. Ama burada &quot;çöp&quot; yok aslında, &quot;görünmezlik&quot; var. Üretmenin engeli sıfıra inince, üretilen her şeyin büyük bölümü hiçbir kulağa ulaşamıyor. Yasa burada bir kalite yargısı olmaktan çıkıp bir bulunabilirlik sorununa dönüşüyor.</p>
+      <p>Aynı örüntü her yerde. Kurulan işletmelerin üçte ikisi on yıl içinde kapanıyor. Patentlerin neredeyse tamamı hiçbir zaman ürüne dönüşmüyor. Yılda yaklaşık üç milyon kitap yayımlanıyor, onda dokuzu iki binden az satıyor. Ama dikkat: bu yüksek başarısızlık bir hastalık değil. Girişim de patent de birer deneme alanı, denemelerin çoğu doğası gereği tutmaz.</p>
+      <p>Filmlerin yarıdan fazlası zarar ediyor. Yazılımcıların haftasının neredeyse yarısı eski hataları onarmaya gidiyor. Tıpta tanı hatası yüzde on ile on beş arasında. Bu da en düşük uç, çünkü oraya girmenin engeli en yüksek. Telefon uygulamalarında ise en yüksek uç görünüyor: indirilen uygulamaların yüzde doksan altısı bir ay içinde terk ediliyor.</p>
+      <p>Tablo netleşiyor. Yüzde doksan kesin bir ölçüm değil, kabaca bir büyüklük. Örüntü de hep aynı: bir işe girmenin engeli yükseldikçe oran düşüyor, engel kalktıkça tırmanıyor. Ama hiçbir alan bu eğilimin tamamen dışına çıkamıyor. Sturgeon bu tabloyu hiç görmedi. Yine de sezgisi doğru yerdeydi.</p>
+      <div class="nefes" aria-hidden="true">·&#8195;·&#8195;·</div>
+      <p>Üstelik Sturgeon yalnız değil. Farklı yüzyıllarda, farklı düşünürler aynı dağılımın farklı bir yüzünü gördü. Bunları liste gibi sıralamak yerine, aralarındaki konuşmayı dinlemek daha iyi. Çünkü her biri ötekinin bıraktığı boşluğu dolduruyor.</p>
+      <p>İlki bir iktisatçı, Pareto. On dokuzuncu yüzyılın sonunda İtalya&#x27;da toprağın büyük bölümünün küçük bir azınlığın elinde olduğunu fark etti. Sonra bir başka düşünür bunu kaliteye taşıdı: sorunların çoğu, nedenlerin azından gelir. Pareto değerin nerede toplandığına bakar, Sturgeon ise çöpün ne kadar yaygın olduğuna. Aynı madalyonun iki yüzü. İkisi de şunu söylüyor: kalite dağılımı düz değil, çarpık. Küçük bir azınlık orantısız etki yaratıyor, büyük çoğunluk ortalamanın altında kalıyor.</p>
+      <p>Ama Pareto da Sturgeon da dağılımı yalnızca betimliyor, nedenini söylemiyor. İşte burada iki psikoloğun, Dunning ile Kruger&#x27;ın bulgusu devreye giriyor. Buldukları şu: en kötü performansı gösterenler, kendilerini ortalamanın çok üstünde sanıyor. Yani Sturgeon&#x27;ın yüzde doksanını üretenler, çoğu zaman çöp ürettiklerinin farkında bile değil. O yüzde doksan bu yüzden bu kadar dirençli, bu kadar kendinden emin. Demek dağılım yalnızca bir doğa yasası değil. Bir algı körlüğüyle de besleniyor.</p>
+      <p>Üçüncü bir katman daha var. On altıncı yüzyıldan bir maliyeci, Gresham, şunu gözlemlemişti: kötü para piyasaya girince, iyi para dolaşımdan çekilir. Sturgeon dağılımın doğal olduğunu söyler, Gresham ise bu doğal dağılımın aktif bir kovmaya dönüşebildiğini gösterir. Tıklama tuzağı, nitelikli gazeteciliği kovar. Ucuz moda, sağlam üreticiyi piyasadan siler. Sturgeon der ki çöp çoktur. Gresham ekler: çok olan, azı siler.</p>
+      <p>Son düşünür bir zaman boyutu ekliyor: Taleb. Onun gözlemi şu: bir şeye ne kadar sık, ne kadar yakından bakarsan, gürültü o kadar baskın çıkar. Sturgeon&#x27;ın yüzde doksanı ile Taleb&#x27;in gürültüsü aynı yeri gösteriyor. Çoğunluk sinyal değil, gürültüdür. Dijital çağ da hem üretimi hem de bakışı katladığı için, bu etkiyi büsbütün büyüttü.</p>
+      <p>Bu dördü bir araya gelince, Sturgeon&#x27;ın tek cümlesi koca bir ekosisteme dönüşüyor. Dağılım doğaldır, bunu Pareto söyler. Üreticiler kendi çöplerini göremez, bunu Dunning ile Kruger gösterir. Kötü, iyiyi aktif olarak kovar, bunu Gresham anlatır. Son olarak gürültü zaman içinde büyür, bunu da Taleb ekler. Sturgeon yasanın adını koydu, ötekiler nasıl çalıştığını gösterdi.</p>
+      <p>Aslına bakarsanız bu gözlem Sturgeon&#x27;dan çok daha eski. &quot;Çoğunluk kötüdür&quot; sezgisi, iki bin beş yüz yıl önce Efes&#x27;te, Herakleitos&#x27;un satırlarında dolaşıyordu. Aristophanes de bir komedyasında, kendi çağının edebiyatının büyük bölümünü değersiz buluyordu. Ama bu dağınık gözlemi alıp sistemli bir savunmaya çeviren, ona bir ad veren ilk kişi Sturgeon oldu.</p>
+      <div class="nefes" aria-hidden="true">·&#8195;·&#8195;·</div>
+      <p>Bu kavram ağı yasanın gücünü gösteriyor. Ama sınırlarını da saklamıyor. Sturgeon zaten yüzde doksanın mutlak olmadığını, kendi ikinci sözüyle itiraf etmişti. Sınırlara bakmak da en az güce bakmak kadar öğretici.</p>
+      <p>Birincisi şu: yüzde doksan abartılı bir söz. &quot;Büyük çoğunluk&quot; demek için seçilmiş bir rakam. Ama kaba bir büyüklük olarak tutarlı. Çünkü gerçek veriler yüzde kırk ile yüzde doksan altı arasına yayılıyor, çoğunluğu da altmışla doksan beş arasında. Yani bir söz oyunu olarak doğmasına rağmen, gerçek verilerle destekleniyor.</p>
+      <p>İkincisi, zamanın görünmez süzgeci. Bugünden geriye baktığımızda, eski dönemler hep daha kaliteli görünür. Çünkü zaman kötü olanı eler, geriye kalan yüzde on &quot;o dönem&quot; diye anılır. Nostalji, seçtiği birkaç örneği bütünün tamamı sanır. Başka kültürlerden de yalnız en iyiler bize ulaşır. Üç süzgeç de aynı yöne çalışır: geçmişin çöpünü görünmez kılar, bugünün çöpünü olduğundan büyük gösterir.</p>
+      <p>Üçüncüsü, giriş engeli her şeyi değiştirir. Engel yüksekse oran düşer, alçaksa tırmanır. Dijitalleşme, engeli düşürdüğü her yerde çöp oranını artırdı. Ama burada dikkatli olmak gerek. Üretim engelinin düşmesi, üretilen şeyin kalitesini düşürmüyor. Yalnızca havuzu büyütüyor. Oransal olarak çöp artıyor olabilir, ama mutlak olarak değerli üretim de artıyor.</p>
+      <p>Dördüncüsü, en zoru: kalite, kimin kalitesi? Ticari başarı mı, eleştirel beğeni mi, kalıcı etki mi, teknik ustalık mı? Bir eksende çöp olan, başka bir eksende değerli olabilir. Hiç alıntılanmamış bir makale, bir ülkenin politikasını değiştirmiş olabilir. Yüz kez bile dinlenmemiş bir şarkı, birkaç insanın hayatında dönüm noktası olabilir.</p>
+      <p>En incesi de sona kalıyor. Diyelim ki o çöpü tamamen ortadan kaldırmak istiyorsun. Kaldıramazsın. Çünkü yüzde on, yüzde doksanın tam içinden çıkıyor. Tıpkı evrimdeki mutasyonlar gibi. Neredeyse hepsi zararlı ya da işe yaramaz. Ama o havuzu yok edersen, uyum da durur, yeni hiçbir şey doğmaz. Demek Sturgeon&#x27;ın yüzde doksanı çöp değil, bir deneme alanı. Deneme alanı olmadan da buluş olmuyor.</p>
+      <p>İşte bu paradoks, sorunun asıl nerede olduğunu gösteriyor. Sorun çöpün oranı değil. O doğal, hep öyleydi. Asıl sorun, süzgeçler kırıldığında çöpün iyiyi örtmesi.</p>
+      <div class="nefes" aria-hidden="true">·&#8195;·&#8195;·</div>
+      <p>Çöp havuzundan değeri çekip çıkaran dört süzgeç, tarih boyunca çalıştı. Hakem ve editör. Tüketicinin tercihi ve piyasanın rekabeti. Zamanın kalıcılık eleği. Bir de uzmanların uzlaşısı ve ortak bellek. Hepsi kusurluydu, ama hepsi işliyordu. Sturgeon&#x27;ın doğal yüzde doksanını yönetilebilir kılan da buydu.</p>
+      <p>Asıl tehlike, az önceki dört düşünürü yeniden bir araya getirince beliriyor. Bir algoritma yüzde doksanı ödüllendirmeye başladığında, yüzde on hâlâ oradadır, ama artık bulunamaz. Sorun yine çöp oranı değil. Süzgecin kendisinin bozulması. Çünkü algoritma kaliteyi değil, tıklamayı ölçüyor. Tıklama da çoğu zaman kaliteyle ters yönde çalışıyor. Üretici tarafında Dunning ile Kruger&#x27;ın körlüğü, platform tarafında Gresham&#x27;ın kovması, zaman içinde Taleb&#x27;in gürültüsü. Süzgeç kırılınca, Sturgeon&#x27;ın o masum, doğal yüzde doksanı, Gresham&#x27;ın aktif kovma makinesine dönüşüyor.</p>
+      <div class="nefes" aria-hidden="true">·&#8195;·&#8195;·</div>
+      <p>Peki geriye ne kalıyor? Sturgeon Yasası ne bir teselli, ne de bir karamsarlık. Yalnızca bir gözlem aritmetiği.</p>
+      <p>Çoğunluk her yerde vasattır. Bu bir alarm değil, arka plandaki uğultu. Alarm verilecek an, vasatlığın iyiyi kovmaya başladığı andır. Akademideki alıntılanmayan makaleler, müzikteki dinlenmeyen parçalar, hepsi doğal. Asıl mesele, o dinlenmeyenlerin bir algoritma eliyle, dinlenmesi gerekenin önüne geçmesi.</p>
+      <p>Çünkü yüzde doksanın çöp olması, yüzde onun gücünü azaltmıyor. Davaların çoğu önemsizdir, ama içtihat yaratan bir kararın gücü bundan etkilenmez. Tanıların bir kısmı yanlıştır, ama doğru bir tanının hayat kurtarma gücü bundan düşmez. Çalışmaların çoğu doğrulanamaz, ama doğrulanan azınlığın insan bilgisine kattığı şey bundan eksilmez.</p>
+      <p>Şu da var: yüzde doksanın varlığı, yüzde onu bulmayı zorlaştırıyor. Yasanın en az konuşulan, ama belki en önemli yanı bu. Süzgeçler algoritmayla bozuldukça da, bu mesele her geçen gün daha can alıcı hale geliyor.</p>
+      <p>Bir not da düşelim, yazının kendi konusuna sadık kalsın diye. Bu metni bir insan ile bir yapay zeka birlikte kurdu. Hata da içerebilir. Ama bu zaten Sturgeon&#x27;ın ikinci sözünü doğruluyor: hiçbir şey her zaman mutlak değildir.</p>
+      <div class="nefes" aria-hidden="true">·&#8195;·&#8195;·</div>
+      <p>Geriye sade bir tavsiye kalıyor. Bir düşünürün dediği gibi: çöpe yuhalamakla vakit kaybetme. <span class="kapi">İyinin peşine düş. Ya da hiç bulaşma.</span></p>
+    <nav class="alt-gecis" aria-label="Site gezinme"><a href="sturgeon-yasasi.html">Okuma sürümü</a><span aria-hidden="true">·</span><a href="/">halitcengizuzuner.com</a></nav>
+  </article>
 </body>
 </html>
