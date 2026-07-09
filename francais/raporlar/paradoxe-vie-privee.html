@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Le paradoxe de la vie privée est-il un mythe ? Sécurité et vie privée sont des axes distincts ; on cède de l'information précisément là où l'on se croit protégé. Sur la faille entre déclaration et architecture. Halit Cengiz Uzuner.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Dire qu'on a peur n'est pas être protégé">
+<meta property="og:description" content="On cède de l'information précisément là où l'on se croit protégé. Sécurité et vie privée ne sont pas la même chose.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/francais/raporlar/paradoxe-vie-privee.html">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-07-09">
+<link rel="canonical" href="https://halitcengizuzuner.com/francais/raporlar/paradoxe-vie-privee.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/raporlar/mahremiyet-paradoksu.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/privacy-paradox.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/privacy-paradox.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/paradoxe-vie-privee.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/privatsphaere-paradox.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/paradoja-privacidad.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/raporlar/mahremiyet-paradoksu.html">
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dire qu'on a peur n'est pas être protégé">
+<meta name="twitter:description" content="On cède de l'information précisément là où l'on se croit protégé.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Dire qu'on a peur n'est pas être protégé",
+  "description": "Le paradoxe de la vie privée est-il un mythe ? Sécurité et vie privée sont des axes distincts ; on cède des données précisément là où l'on se croit protégé. La faille entre déclaration et architecture.",
+  "datePublished": "2026-07-09",
+  "dateModified": "2026-07-09",
+  "author": {"@type": "Person", "@id": "https://halitcengizuzuner.com/#person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/francais/raporlar/paradoxe-vie-privee.html"},
+  "inLanguage": "fr"
+}
+</script>
+<title>Dire qu'on a peur n'est pas être protégé</title>
+<style>
+*{box-sizing:border-box;}
+:root{--fon:#000000;--metin:#e3d4b6;--baslik:#f1e3c6;--vurgu:#c8a870;--soluk:#b9a678;}
+html,body{margin:0;padding:0;}
+body{background:var(--fon);color:var(--metin);font-family:Georgia,'Iowan Old Style','Times New Roman',serif;font-size:19px;line-height:1.8;-webkit-text-size-adjust:100%;word-wrap:break-word;overflow-wrap:break-word;}
+.wrap{max-width:720px;margin:0 auto;padding:54px 34px 90px;}
+h1{color:var(--baslik);font-size:2.05em;line-height:1.2;letter-spacing:.2px;margin:.12em 0 .1em;font-weight:600;}
+h1+h3{color:var(--soluk);font-weight:normal;font-style:italic;font-size:1.1em;margin:.1em 0 1.3em;border:none;padding:0;opacity:.96;}
+h2{color:var(--baslik);font-size:1.3em;line-height:1.3;margin:2.2em 0 .7em;border-top:1px solid #2c2316;padding-top:1.3em;font-weight:600;}
+h3{color:var(--vurgu);font-size:1.07em;font-weight:600;font-style:normal;margin:1.75em 0 .5em;}
+p{margin:0 0 1.1em;}
+a{color:var(--vurgu);text-decoration:none;border-bottom:1px solid #5c441f;}
+strong{color:var(--baslik);}
+em{color:var(--soluk);}
+blockquote{border-left:3px solid var(--vurgu);background:#130e07;padding:.7em 1.15em;margin:1.4em 0;color:var(--soluk);border-radius:5px;}
+blockquote strong{color:var(--baslik);}
+blockquote p:last-child{margin-bottom:0;}
+hr{border:none;border-top:1px solid rgba(200,168,112,.28);margin:2.3em 0;}
+code{color:var(--vurgu);font-family:'SF Mono',Menlo,monospace;font-size:.9em;}
+ul{padding-left:1.3em;}
+li{margin:.36em 0;}
+em{color:var(--soluk);}
+.dinle-not{color:var(--soluk);font-size:.95em;margin-top:.6em;}
+.dinle-git{display:inline-block;margin-top:.3em;color:var(--vurgu);border-bottom:1px solid var(--vurgu);font-style:italic;}
+.hero-mobile{display:none;}
+@media(max-width:600px){.wrap{padding:34px 22px 72px;}.hero-desktop{display:none!important;}.hero-mobile{display:block!important;}h1{font-size:1.72em;}body{font-size:18px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<figure class="hero" style="margin:0 0 2.3em;padding:0;">
+<svg class="hero-desktop" style="width:100%;height:auto;display:block;border-radius:4px;" viewBox="0 0 1240 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Une unique façade de sécurité tissée de panneaux verticaux jointifs, paraissant close et solide ; le long de son bord supérieur une lumière de confiance vive. Dans la zone centre-droite les panneaux se sont retirés, et par l'ouverture l'intérieur chaud et profond de derrière devient visible. L'ouverture derrière une surface que l'on croyait close." xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0"/></filter>
+<linearGradient id="cold" x1="0" y1="0" x2="0.15" y2="1"><stop offset="0%" stop-color="#9db0be"/><stop offset="100%" stop-color="#3d4d59"/></linearGradient>
+<linearGradient id="warm" x1="0" y1="0" x2="0.2" y2="1"><stop offset="0%" stop-color="#f0b954"/><stop offset="52%" stop-color="#9a5f23"/><stop offset="100%" stop-color="#41280f"/></linearGradient>
+</defs>
+<defs><linearGradient id="depth" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0b954"/><stop offset="18%" stop-color="#f0b954"/><stop offset="100%" stop-color="#41280f"/></linearGradient><clipPath id="fac"><rect x="178" y="116" width="812" height="328"/></clipPath></defs>
+<rect width="1240" height="560" fill="#000000"/>
+<rect x="178" y="116" width="812" height="328" fill="#1a232b"/>
+<rect x="595.0" y="116" width="199.0" height="328" fill="url(#depth)"/>
+<line x1="595.0" y1="157.0" x2="794.0" y2="157.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.24"/>
+<line x1="595.0" y1="198.0" x2="794.0" y2="198.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.22"/>
+<line x1="595.0" y1="239.0" x2="794.0" y2="239.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.20"/>
+<line x1="595.0" y1="280.0" x2="794.0" y2="280.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.18"/>
+<line x1="595.0" y1="321.0" x2="794.0" y2="321.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.16"/>
+<line x1="595.0" y1="362.0" x2="794.0" y2="362.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.14"/>
+<line x1="595.0" y1="403.0" x2="794.0" y2="403.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.12"/>
+<rect x="595.0" y="116" width="199.0" height="18.8" fill="#000000" opacity="0.10"/>
+<line x1="595.0" y1="116.0" x2="794.0" y2="116.0" stroke="#6f8597" stroke-width="1.1" stroke-opacity="0.6" stroke-dasharray="5 5"/>
+<g clip-path="url(#fac)">
+<rect x="178.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="178.0" y1="117.0" x2="203.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="203.0" y1="116.0" x2="203.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="206.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="206.0" y1="117.0" x2="231.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="231.0" y1="116.0" x2="231.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="234.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="234.0" y1="117.0" x2="259.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="259.0" y1="116.0" x2="259.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="262.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="262.0" y1="117.0" x2="287.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="287.0" y1="116.0" x2="287.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="290.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="290.0" y1="117.0" x2="315.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="315.0" y1="116.0" x2="315.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="318.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="318.0" y1="117.0" x2="343.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="343.0" y1="116.0" x2="343.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="346.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="346.0" y1="117.0" x2="371.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="371.0" y1="116.0" x2="371.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="374.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="374.0" y1="117.0" x2="399.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="399.0" y1="116.0" x2="399.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="402.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="402.0" y1="117.0" x2="427.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="427.0" y1="116.0" x2="427.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="430.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="430.0" y1="117.0" x2="455.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="455.0" y1="116.0" x2="455.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="458.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="458.0" y1="117.0" x2="483.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="483.0" y1="116.0" x2="483.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="486.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="486.0" y1="117.0" x2="511.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="511.0" y1="116.0" x2="511.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="514.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="514.0" y1="117.0" x2="539.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="539.0" y1="116.0" x2="539.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="542.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="542.0" y1="117.0" x2="567.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="567.0" y1="116.0" x2="567.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="570.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="570.0" y1="117.0" x2="595.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="595.0" y1="116.0" x2="595.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="598.0" y="150.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="598.0" y1="151.0" x2="623.0" y2="151.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="623.0" y1="150.0" x2="623.0" y2="478.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="598.0" y1="152.4" x2="623.0" y2="152.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="626.0" y="158.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="626.0" y1="159.0" x2="651.0" y2="159.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="651.0" y1="158.0" x2="651.0" y2="486.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="626.0" y1="160.4" x2="651.0" y2="160.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="654.0" y="154.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="654.0" y1="155.0" x2="679.0" y2="155.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="679.0" y1="154.0" x2="679.0" y2="482.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="654.0" y1="156.4" x2="679.0" y2="156.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="682.0" y="163.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="682.0" y1="164.0" x2="707.0" y2="164.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="707.0" y1="163.0" x2="707.0" y2="491.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="682.0" y1="165.4" x2="707.0" y2="165.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="710.0" y="156.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="710.0" y1="157.0" x2="735.0" y2="157.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="735.0" y1="156.0" x2="735.0" y2="484.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="710.0" y1="158.4" x2="735.0" y2="158.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="738.0" y="160.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="738.0" y1="161.0" x2="763.0" y2="161.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="763.0" y1="160.0" x2="763.0" y2="488.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="738.0" y1="162.4" x2="763.0" y2="162.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="766.0" y="152.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="766.0" y1="153.0" x2="791.0" y2="153.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="791.0" y1="152.0" x2="791.0" y2="480.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="766.0" y1="154.4" x2="791.0" y2="154.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="794.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="794.0" y1="117.0" x2="819.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="819.0" y1="116.0" x2="819.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="822.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="822.0" y1="117.0" x2="847.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="847.0" y1="116.0" x2="847.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="850.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="850.0" y1="117.0" x2="875.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="875.0" y1="116.0" x2="875.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="878.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="878.0" y1="117.0" x2="903.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="903.0" y1="116.0" x2="903.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="906.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="906.0" y1="117.0" x2="931.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="931.0" y1="116.0" x2="931.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="934.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="934.0" y1="117.0" x2="959.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="959.0" y1="116.0" x2="959.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="962.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="962.0" y1="117.0" x2="987.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="987.0" y1="116.0" x2="987.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+</g>
+<circle cx="610.5" cy="150.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="638.5" cy="158.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="666.5" cy="154.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="694.5" cy="163.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="722.5" cy="156.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="750.5" cy="160.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="778.5" cy="152.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<rect width="1240" height="560" filter="url(#grain)" opacity="0.045"/>
+</svg>
+<svg class="hero-mobile" style="width:100%;height:auto;display:none;border-radius:4px;" viewBox="0 0 720 680" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Une unique façade de sécurité tissée de panneaux verticaux jointifs, paraissant close et solide ; le long de son bord supérieur une lumière de confiance vive. Dans la zone centre-droite les panneaux se sont retirés, et par l'ouverture l'intérieur chaud et profond de derrière devient visible. L'ouverture derrière une surface que l'on croyait close." xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="m_grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0"/></filter>
+<linearGradient id="m_cold" x1="0" y1="0" x2="0.15" y2="1"><stop offset="0%" stop-color="#9db0be"/><stop offset="100%" stop-color="#3d4d59"/></linearGradient>
+<linearGradient id="m_warm" x1="0" y1="0" x2="0.2" y2="1"><stop offset="0%" stop-color="#f0b954"/><stop offset="52%" stop-color="#9a5f23"/><stop offset="100%" stop-color="#41280f"/></linearGradient>
+</defs>
+<defs><linearGradient id="m_depth" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0b954"/><stop offset="18%" stop-color="#f0b954"/><stop offset="100%" stop-color="#41280f"/></linearGradient><clipPath id="m_fac"><rect x="66" y="130" width="588" height="440"/></clipPath></defs>
+<rect width="720" height="680" fill="#000000"/>
+<rect x="66" y="130" width="588" height="440" fill="#1a232b"/>
+<rect x="315.0" y="130" width="210.0" height="440" fill="url(#m_depth)"/>
+<line x1="315.0" y1="185.0" x2="525.0" y2="185.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.24"/>
+<line x1="315.0" y1="240.0" x2="525.0" y2="240.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.22"/>
+<line x1="315.0" y1="295.0" x2="525.0" y2="295.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.20"/>
+<line x1="315.0" y1="350.0" x2="525.0" y2="350.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.18"/>
+<line x1="315.0" y1="405.0" x2="525.0" y2="405.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.16"/>
+<line x1="315.0" y1="460.0" x2="525.0" y2="460.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.14"/>
+<line x1="315.0" y1="515.0" x2="525.0" y2="515.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.12"/>
+<rect x="315.0" y="130" width="210.0" height="23.2" fill="#000000" opacity="0.10"/>
+<line x1="315.0" y1="130.0" x2="525.0" y2="130.0" stroke="#6f8597" stroke-width="1.1" stroke-opacity="0.6" stroke-dasharray="5 5"/>
+<g clip-path="url(#m_fac)">
+<rect x="66.0" y="130.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="66.0" y1="131.0" x2="102.0" y2="131.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="102.0" y1="130.0" x2="102.0" y2="570.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="108.0" y="130.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="108.0" y1="131.0" x2="144.0" y2="131.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="144.0" y1="130.0" x2="144.0" y2="570.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="150.0" y="130.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="150.0" y1="131.0" x2="186.0" y2="131.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="186.0" y1="130.0" x2="186.0" y2="570.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="192.0" y="130.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="192.0" y1="131.0" x2="228.0" y2="131.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="228.0" y1="130.0" x2="228.0" y2="570.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="234.0" y="130.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="234.0" y1="131.0" x2="270.0" y2="131.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="270.0" y1="130.0" x2="270.0" y2="570.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="276.0" y="130.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="276.0" y1="131.0" x2="312.0" y2="131.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="312.0" y1="130.0" x2="312.0" y2="570.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="318.0" y="176.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="318.0" y1="177.0" x2="354.0" y2="177.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="354.0" y1="176.0" x2="354.0" y2="616.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="318.0" y1="178.4" x2="354.0" y2="178.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="360.0" y="186.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="360.0" y1="187.0" x2="396.0" y2="187.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="396.0" y1="186.0" x2="396.0" y2="626.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="360.0" y1="188.4" x2="396.0" y2="188.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="402.0" y="180.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="402.0" y1="181.0" x2="438.0" y2="181.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="438.0" y1="180.0" x2="438.0" y2="620.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="402.0" y1="182.4" x2="438.0" y2="182.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="444.0" y="188.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="444.0" y1="189.0" x2="480.0" y2="189.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="480.0" y1="188.0" x2="480.0" y2="628.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="444.0" y1="190.4" x2="480.0" y2="190.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="486.0" y="178.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="486.0" y1="179.0" x2="522.0" y2="179.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="522.0" y1="178.0" x2="522.0" y2="618.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="486.0" y1="180.4" x2="522.0" y2="180.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="528.0" y="130.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="528.0" y1="131.0" x2="564.0" y2="131.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="564.0" y1="130.0" x2="564.0" y2="570.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="570.0" y="130.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="570.0" y1="131.0" x2="606.0" y2="131.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="606.0" y1="130.0" x2="606.0" y2="570.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="612.0" y="130.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="612.0" y1="131.0" x2="648.0" y2="131.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="648.0" y1="130.0" x2="648.0" y2="570.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+</g>
+<circle cx="336.0" cy="176.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="378.0" cy="186.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="420.0" cy="180.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="462.0" cy="188.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="504.0" cy="178.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<rect width="720" height="680" filter="url(#m_grain)" opacity="0.045"/>
+</svg>
+</figure>
+<h1 id="dire-quon-a-peur-nest-pas-être-protégé">Dire qu’on a peur n’est
+pas être protégé</h1>
+<h3
+id="le-paradoxe-de-la-vie-privée-est-il-un-mythe-sur-la-faille-entre-ce-que-nous-déclarons-et-larchitecture-où-nous-vivons">Le
+paradoxe de la vie privée est-il un mythe ? Sur la faille entre ce que
+nous déclarons et l’architecture où nous vivons</h3>
+<hr />
+<h2 id="résumé">Résumé</h2>
+<p>Les gens disent accorder une grande valeur à leur vie privée, mais
+dans leurs comportements ils cèdent leurs données personnelles pour de
+petites contreparties, parfois pour rien du tout. Ce décalage est connu
+sous le nom de « paradoxe de la vie privée ». La littérature s’est
+scindée en deux camps opposés : d’un côté, ceux qui soutiennent que le
+comportement révèle la vraie préférence, que la vie privée est donc de
+faible valeur et que la réglementation devrait être assouplie ; de
+l’autre, ceux qui soutiennent que le comportement est faussé par des
+biais cognitifs, la manipulation et l’ignorance, et que la distorsion
+doit donc être corrigée. Daniel Solove (2021) prend une troisième
+position, radicale : le paradoxe est un mythe, car le comportement est
+une <em>décision de risque</em> dans un contexte donné, tandis qu’une
+attitude est un <em>jugement de valeur général</em> ; ce sont deux
+choses différentes, et leur divergence n’est pas une contradiction.</p>
+<p>Cet essai part de là où Solove a raison, mais ne s’arrête pas où il
+s’arrête. Nous mettons d’abord en lumière une distinction que la
+littérature a largement négligée : <strong>vie privée et sécurité ne
+sont pas la même chose.</strong> La vie privée est la question de
+<em>qui</em> voit l’information, et dans quel contexte ; la sécurité est
+la question de savoir si l’information est protégée contre une saisie
+non autorisée. La littérature sur le paradoxe de la vie privée cadre le
+phénomène essentiellement sur l’axe de la <em>vie privée</em>. Or un
+type de cas particulier, l’utilisateur qui exprime haut et fort des
+préoccupations de sécurité mais garde son document sensible dans un
+grand nuage commercial et mène sa communication via une plateforme qui,
+même lorsque le contenu est chiffré, traite commercialement toute la
+carte de la relation, parle le langage de la <em>sécurité</em> et ne
+s’inscrit pas nettement dans le cadre du « risque rationnel contextuel »
+de Solove. Ici, la contradiction n’est pas entre l’attitude et le
+comportement ; la contradiction est entre le <strong>modèle de menace
+déclaré et l’architecture de menace réelle</strong>. Plus encore, la
+personne confond deux axes : elle prend la réputation de
+<em>sécurité</em> d’une grande marque pour une garantie de <em>vie
+privée</em>. À la fin, le discours « la sécurité est tout pour moi » se
+mue en un rituel performatif et <strong>prend la place de l’expérience
+réelle d’être protégé</strong> : la personne se <em>sent</em> protégée
+parce qu’elle l’a déclaré. Nous nourrissons cette lecture des résultats
+d’Acquisti et de ses collègues (2015) sur le paradoxe du contrôle et sur
+la malléabilité, et tentons de montrer que le comportement n’est pas un
+défaut de caractère mais une issue prévisible d’une cognition normale à
+l’intérieur d’une architecture de l’information défectueuse.</p>
+<hr />
+<h2 id="introduction-celui-qui-dit-et-celui-qui-fait">1. Introduction :
+celui qui dit et celui qui fait</h2>
+<p>Imaginez une scène courante. Une personne accorde une grande valeur à
+sa vie privée : elle dit que ses données doivent être protégées, elle
+explique qu’il n’y a pas de confiance sans sécurité, elle insiste sur le
+fait qu’il faut aborder le monde numérique avec prudence. Notez que le
+langage qu’elle emploie est, de bout en bout, un langage de
+<em>sécurité</em> : secret, protection, mot de passe, danger
+d’intrusion. Puis la même personne téléverse un document sensible
+contenant des données d’identité et une signature vers un compte de
+stockage en nuage commercial ordinaire. Elle mène sa correspondance
+quotidienne via une grande plateforme qui, même lorsque le contenu est
+chiffré, enregistre avec qui elle parle, quand et à quelle fréquence, et
+lie cette carte des relations à l’économie publicitaire. D’une
+alternative qui collecte bien moins de ses données, elle se tient à
+distance, disant « je ne la connais pas » ou « on ne peut pas lui faire
+confiance ».</p>
+<p>La scène paraît incohérente. La première réaction est facile et
+souvent formulée : « Cette personne ne sait pas ce qu’elle dit ; ce
+qu’elle dit contredit ce qu’elle fait. » Cet essai commence par cette
+première réaction, mais la traite comme une question et non comme une
+conclusion. Car cette scène n’est pas l’exception, elle est la règle.
+Des millions de gens, des millions de fois, se comportent exactement
+ainsi. Quand un phénomène est aussi répandu, l’expliquer comme un défaut
+personnel est scientifiquement faible. Ce qui est répandu renvoie à une
+structure qui demande à être expliquée.</p>
+<p>Notre question est celle-ci : pourquoi un être humain ne protège-t-il
+pas ce dont il dit se soucier ? Et, plus tranchante : pourquoi, sans le
+protéger, se <em>sent</em>-il protégé ? Cette seconde question est le
+lieu où naît la véritable contribution de cet essai.</p>
+<hr />
+<h2
+id="le-paradoxe-de-la-vie-privée-définition-et-une-distinction-préalable">2.
+Le paradoxe de la vie privée : définition et une distinction
+préalable</h2>
+<p>Le phénomène est observé depuis près d’un demi-siècle. Dans l’une des
+premières expériences, des gens interagissant avec un robot d’achat
+anthropomorphe partagèrent, en contradiction flagrante avec la
+préoccupation de vie privée qu’ils avaient déclarée, « assez
+d’informations pour qu’un profil assez révélateur d’eux-mêmes soit
+constitué en une seule session d’achat » (Spiekermann et al., 2001, cité
+dans Solove, 2021). Dans les années qui suivirent, des dizaines d’études
+répétèrent le même schéma : les gens donnent leur date de naissance et
+leur revenu mensuel pour une remise d’un euro ; ils vendent leur
+historique de navigation pour huit dollars ; et bien qu’un service de
+courrier électronique gratuit analyse le contenu, ils ne veulent pas
+payer plus de quinze dollars par an pour une alternative qui ne le fait
+pas (Solove, 2021).</p>
+<h3 id="vie-privée-et-sécurité-deux-axes-distincts">Vie privée et
+sécurité : deux axes distincts</h3>
+<p>Avant d’aller plus loin, il faut séparer deux concepts souvent
+employés l’un pour l’autre mais en réalité distincts, car le cas au cœur
+de cet essai repose précisément sur cette distinction.</p>
+<p><strong>La sécurité</strong> est la protection de l’information
+contre l’accès, la saisie et l’altération non autorisés. Le cadre
+classique de la sécurité de l’information rassemble cela sous trois
+rubriques : la confidentialité (seul l’autorisé peut atteindre
+l’information), l’intégrité (l’information ne peut être modifiée sans
+permission) et la disponibilité (l’information est à portée quand on en
+a besoin). La question de la sécurité est : <em>un attaquant peut-il
+voler, intercepter ou altérer ces données ?</em> Sa violation est
+concrète : prise de contrôle de compte, fuite, cassage de mot de passe,
+attaque de l’homme du milieu.</p>
+<p><strong>La vie privée</strong> est une autre question : <em>qui voit
+ces données, dans quel contexte et à quelle fin ?</em> La vie privée est
+violée lorsque l’information est arrachée à son propre contexte et
+déversée dans un autre. Une donnée peut être techniquement protégée sans
+faille, inaccessible à tout attaquant ; mais si l’entreprise qui fournit
+le service l’analyse elle-même, la profile, l’ouvre à des tiers ou la
+remet à l’État sur une demande légale, alors la sécurité est élevée et
+la vie privée basse.</p>
+<p>Les deux axes varient indépendamment l’un de l’autre. Un grand
+service de nuage commercial peut être extrêmement sûr contre les
+attaquants (infrastructure solide, stockage chiffré, vérification en
+deux étapes) et pourtant faible sur la vie privée, car le propriétaire
+du service atteint les données. Une application de messagerie peut
+relever la sécurité en chiffrant les contenus de bout en bout, et rester
+pourtant faible sur la vie privée si elle collecte et traite
+commercialement qui parle à qui, quand et à quelle fréquence
+(c’est-à-dire les métadonnées). En revanche, une application qui chiffre
+les contenus de bout en bout et minimise la collecte de métadonnées
+relève les deux axes à la fois. Cette distinction d’apparence simple est
+la clé qui, à la Section 6, ouvrira le cœur du cas.</p>
+<p>Il faut aussi signaler ici un piège terminologique : la sous-rubrique
+de la sécurité nommée « confidentialité » (soit la prévention de l’accès
+non autorisé) et le sens courant de la vie privée comme « garder quelque
+chose secret » vont sous le même mot et sont pourtant des choses
+différentes. L’avertissement de Solove, que nous verrons plus bas, selon
+lequel « la vie privée n’est pas le secret », vise précisément cette
+confusion. Cet entrelacement des concepts n’est pas qu’un problème de
+langue ; comme nous le verrons bientôt, il est aussi la source de la
+vraie confusion dans la tête des gens.</p>
+<p>Le grand corps de la littérature sur le paradoxe de la vie privée
+construit le phénomène sur l’axe de la <em>vie privée</em> : à
+<em>qui</em> les gens ouvrent-ils leurs données, acceptent-ils d’être
+profilés pour la publicité, partagent-ils de manière sélective. Le cas
+de cet essai, lui, place au centre un utilisateur qui parle le langage
+de la <em>sécurité</em>. La tension entre les deux est la veine
+originale de ce travail.</p>
+<h3 id="deux-camps">Deux camps</h3>
+<p>Les réponses au décalage du paradoxe de la vie privée se rassemblent
+en deux camps.</p>
+<p><strong>Premier camp : l’argument de l’évaluation par le
+comportement.</strong> Le comportement est une mesure plus fiable que la
+déclaration. Dans le langage de l’économie, les attitudes comptent comme
+« préférence déclarée » et le comportement comme « préférence révélée »
+; la préférence révélée est la vraie. Puisque les gens échangent leurs
+données à bas prix, c’est qu’ils accordent peu de valeur à la vie
+privée. Conclusion : la réglementation de la vie privée surévalue la vie
+privée et devrait être allégée (des auteurs comme Cooper, Ben-Shahar,
+Goldman ; cité dans Solove, 2021).</p>
+<p><strong>Second camp : l’argument de la distorsion du
+comportement.</strong> Le comportement ne reflète pas la vraie
+préférence, car il est faussé. Les biais cognitifs, les effets de
+cadrage, la conception d’interface manipulatrice (dark patterns),
+l’ignorance et l’inertie faussent les choix des gens. Conclusion : la
+réglementation devrait réduire ces effets déformants, afin que les gens
+puissent faire des choix conformes à leurs vraies préférences.</p>
+<p>Ce qui est intéressant, c’est ceci : la plupart de ceux qui défendent
+le second camp sont les auteurs des études mêmes qui ont mis au jour le
+paradoxe. Ce sont des chercheurs que leurs propres résultats ont mis mal
+à l’aise, qui les ont qualifiés de « troublants » et « dérangeants » et
+ont tenté d’expliquer le comportement (Solove, 2021). C’est précisément
+ici que se posent les trois jambes de la colonne conceptuelle de cet
+essai : d’abord la forme la plus forte du second camp (Acquisti), puis
+la position qui rejette les deux camps (Solove), et enfin la faille que
+ni l’un ni l’autre ne voit.</p>
+<hr />
+<h2
+id="la-première-explication-le-comportement-dit-la-vérité-et-pourquoi-elle-est-insuffisante">3.
+La première explication : « le comportement dit la vérité », et pourquoi
+elle est insuffisante</h2>
+<p>L’argument de l’évaluation par le comportement est intuitivement
+séduisant : regarde non ce qu’un être humain dit mais ce qu’il fait.
+Mais il porte une erreur logique, et Solove montre cette erreur le plus
+clairement. Du fait qu’une personne donne à un magasin donné, à un
+moment donné, une donnée donnée pour un dollar, il ne s’ensuit pas que
+cette personne « évalue la vie privée à un dollar ». La seule chose qui
+s’ensuit, c’est que, dans cette transaction spécifique, elle a jugé le
+risque faible. L’argument saute d’une observation étroite à une
+généralisation large. Pour voir pourquoi le saut est invalide, il faut
+d’abord comprendre à quel point le comportement est instable ; et cela
+nous mène au second camp.</p>
+<hr />
+<h2
+id="la-deuxième-explication-le-comportement-est-faussé-les-trois-thèmes-dacquisti">4.
+La deuxième explication : le comportement est faussé, les trois thèmes
+d’Acquisti</h2>
+<p>Acquisti, Brandimarte et Loewenstein (2015), dans leur ample revue
+dans <em>Science</em>, organisent le comportement de vie privée autour
+de trois thèmes interconnectés. Ces trois thèmes expliquent le paradoxe
+sans le rabaisser en « irrationalité ».</p>
+<p><strong>L’incertitude.</strong> L’être humain est incertain à deux
+niveaux : tant sur les conséquences de son partage que sur ses propres
+préférences. Selon la formule frappante des auteurs, quant aux
+conséquences de la vie privée et à leurs propres sentiments, les gens
+sont souvent « en pleine mer » (<em>at sea</em>) et cherchent des
+indices pour orienter leur comportement (Acquisti et al., 2015).
+L’information est asymétrique : quand, par qui et avec quelle
+conséquence les données sont collectées est le plus souvent invisible.
+Plus encore, l’être humain ne connaît même pas sa propre préférence ; la
+vie privée n’est pas une exception à la règle selon laquelle « les gens
+n’ont que des idées mal définies de combien ils apprécient un bien, un
+service ou d’autres personnes ».</p>
+<p><strong>La dépendance au contexte.</strong> La même personne peut
+être indifférente à la vie privée dans une situation et excessivement
+anxieuse dans une autre. Parce qu’un être humain empêtré dans
+l’incertitude s’accroche aux indices, le comportement lui aussi change
+selon le contexte. La célèbre typologie de Westin du « fondamentaliste,
+pragmatiste et indifférent de la vie privée » n’est pas un ensemble de
+types de personnalité fixes ; selon les mots des auteurs, « nous sommes
+tous, selon le moment et le lieu, des pragmatistes, des fondamentalistes
+ou des indifférents de la vie privée » (Acquisti et al., 2015).</p>
+<p><strong>La malléabilité.</strong> Voici le thème le plus crucial pour
+notre essai. Tandis que l’être humain ignore les facteurs qui façonnent
+sa propre préoccupation, les institutions dont le bien-être dépend de la
+divulgation d’autrui sont expertes de ces facteurs. Les réglages par
+défaut, la conception d’interface, le sentiment de contrôle : ceux-ci
+peuvent activer ou étouffer la préoccupation de vie privée. Une phrase
+que les auteurs posent dès le début est le germe de notre thèse : sur
+les réseaux sociaux, « fournir plus de contrôle peut créer une illusion
+de sécurité et encourager davantage de partage » (Acquisti et al.,
+2015).</p>
+<p>Ces trois thèmes se déversent en résultats concrets et dérangeants
+:</p>
+<ul>
+<li><p><strong>Le paradoxe du contrôle.</strong> Quand on donne à une
+personne plus de contrôle explicite sur ses données, elle partage
+<em>davantage</em> ; l’exact opposé du but apparent du contrôle. Le
+sentiment de contrôle abaisse la défense sans changer le risque réel
+(Brandimarte, Acquisti &amp; Loewenstein, 2013, cité dans Acquisti et
+al., 2015).</p></li>
+<li><p><strong>Le sophisme de la politique.</strong> Dans une enquête,
+<strong>62 pour cent</strong> des participants ont interprété à tort la
+simple existence de la politique de confidentialité d’un site comme
+signifiant que « ce site ne peut pas partager ses données sans
+permission ». Autrement dit, la simple présence d’une politique le plus
+souvent jamais lue produit, sans fondement, le sentiment d’« être
+protégé » (Acquisti et al., 2015 ; le même résultat est aussi rapporté
+chez Solove sur la base de Turow et al., 2009).</p></li>
+<li><p><strong>Le mauvais indice, la mauvaise confiance.</strong> Dans
+une expérience en ligne, des gens ont divulgué plus d’informations
+personnelles, voire auto-incriminantes, sur un site au design amateur et
+bâclé comme « How Bad R U » que sur un site à l’interface formelle et
+professionnelle. Or le site à l’interface formelle avait été jugé bien
+plus <em>sûr</em> par d’autres participants (Acquisti et al., 2015). Les
+gens lisent le signal de sécurité de travers de manière systématique :
+ils peuvent prendre le sûr pour dangereux et le dangereux pour
+sûr.</p></li>
+</ul>
+<p>Gardez ce dernier résultat à l’esprit. En laboratoire, il est la
+preuve qu’un être humain place la menace réelle au mauvais endroit, et
+il ouvre directement sur la faille de l’essai.</p>
+<p>Les trois thèmes d’Acquisti représentent-ils tout le champ ? La
+réponse la plus ordonnée à cette question vient des revues qui balaient
+systématiquement l’intitulé « paradoxe de la vie privée ». Gerber,
+Gerber et Volkamer (2018), dans une revue où ils ont tamisé 181 études
+pertinentes et en ont examiné trente-huit quantitativement, divisent en
+huit familles les approches que la littérature a produites pour
+expliquer le paradoxe : le calcul coût-bénéfice (privacy calculus), la
+rationalité limitée et les biais de décision (le cœur des thèmes
+d’Acquisti), le manque d’expérience personnelle et de savoir technique,
+l’influence sociale, l’équilibre risque-confiance, le modèle de décision
+quantique, l’illusion de contrôle et enfin l’affirmation que le paradoxe
+pourrait être un « artefact méthodologique ». Cet inventaire situe le
+cadre conceptuel d’Acquisti dans une carte plus large : l’incertitude,
+la dépendance au contexte et la malléabilité sont des motifs que le
+champ redécouvre encore et encore sous des noms différents.</p>
+<p>Le côté le plus frappant de la revue est sa pesée empirique. Quand on
+aligne les tailles d’effet de dizaines d’études, le prédicteur le plus
+fort et le plus stable se révèle être le calcul coût-bénéfice : le gain
+concret que les gens attendent du partage est la variable qui prédit le
+mieux tant l’intention de partager que le partage effectif (Gerber et
+al., 2018). En revanche, la preuve des modèles qui expliquent le
+paradoxe par le seul « biais cognitif » est plus faible qu’attendu ; et
+les facteurs démographiques sont presque négligeables. Ce résultat porte
+deux implications pour notre essai. Premièrement, lire le comportement
+comme un « tas irrationnel de biais » est une lecture plus hardie que ce
+que les données soutiennent ; un être humain fait largement, quoique de
+façon imparfaite, un calcul de bénéfice. Deuxièmement, et plus important
+: ce résultat ouvre la porte de la section suivante : si le comportement
+est essentiellement une décision bénéfice-risque enfouie dans le
+contexte, alors le comparer à un jugement de « valeur » général et
+proclamer une « contradiction » pourrait être une comparaison mal posée
+dès le départ.</p>
+<h3 id="la-mécanique-de-la-manipulation-cinq-biais-et-dark-patterns">La
+mécanique de la manipulation : cinq biais et dark patterns</h3>
+<p>Le thème de la « malléabilité » d’Acquisti ouvre une porte mais reste
+abstrait : quels biais, quel design ? Ari Ezra Waldman (2020) prend le
+même phénomène exactement à ce niveau concret. Il soutient que le modèle
+de l’acteur rationnel, soit l’hypothèse qu’un être humain, une fois
+informé, prendra la décision de divulgation la mieux adaptée à son
+propre intérêt, s’effondre non seulement en pratique mais en principe,
+car des barrières cognitives répandues faussent la décision de
+divulgation. Waldman énumère les cinq plus courantes.</p>
+<p><strong>L’ancrage (anchoring).</strong> Attachement disproportionné,
+au moment de la décision, à la première information vue. Dans une
+expérience que Waldman rapporte, des participants à qui on montra
+d’abord des selfies de plus en plus révélateurs divulguèrent ensuite
+davantage sur eux-mêmes ; les images vues ont ancré leur sentiment de «
+ce qu’il est approprié de partager » (Chang et al., 2016, cité dans
+Waldman, 2020).</p>
+<p><strong>Le cadrage (framing).</strong> La bonne ou mauvaise
+présentation de la même option change la décision. Les entreprises
+technologiques cadrent la collecte de données dans un langage orienteur
+: « si vous n’autorisez pas les cookies, la fonctionnalité sera réduite
+» ou « activer la collecte de données apporte de nouvelles commodités »
+(Waldman, 2020). Le côté positif est mis en avant, le coût rendu
+invisible.</p>
+<p><strong>L’actualisation hyperbolique (hyperbolic
+discounting).</strong> Surestimer la conséquence immédiate et
+sous-estimer la future. Le bénéfice de la divulgation (commodité, accès,
+interaction sociale) vient tout de suite, tandis que son risque est
+souvent ressenti bien plus tard ; c’est pourquoi l’être humain est plus
+enclin à partager maintenant. Dans une étude, des utilisateurs ont
+accepté de céder plus d’informations personnelles pour un billet de
+cinéma un peu moins cher, même lorsqu’une option respectueuse de la vie
+privée était disponible au même prix (Jentzsch et al., 2012, cité dans
+Waldman, 2020).</p>
+<p><strong>Le trop-choix (overchoice).</strong> Trop de choix paralyse
+l’être humain. En matière de vie privée, le problème n’est pas
+l’existence d’options mais le nombre de choix qu’un être humain est
+contraint de faire ; les applications mobiles demandent parfois plus de
+deux cents autorisations (Hartzog, 2018 ; Olmstead &amp; Atkinson, 2015,
+cité dans Waldman, 2020).</p>
+<p><strong>La métacognition.</strong> Un être humain lit la difficulté
+d’une décision tantôt comme un signal d’« importance », tantôt d’«
+impossibilité ». Quand protéger la vie privée paraît difficile, beaucoup
+de gens le prennent pour un signe d’impossibilité, renoncent avec
+nihilisme et laissent la décision au réglage par défaut (Mourey, 2019,
+cité dans Waldman, 2020). Cela donne un socle cognitif à la «
+résignation » de Solove, que nous verrons bientôt.</p>
+<p>Ces biais n’opèrent pas d’eux-mêmes ; le design en fait des armes.
+Waldman appelle « dark patterns » les astuces de conception qui
+orientent un utilisateur vers des actions qu’il ne ferait pas autrement,
+et rapporte la définition établie du champ : les dark patterns sont «
+des choix de conception d’interface qui profitent à un service en ligne
+en contraignant, orientant ou trompant les utilisateurs pour qu’ils
+prennent des décisions que, s’ils étaient pleinement informés et
+capables de choisir des alternatives, ils ne prendraient peut-être pas »
+(Mathur et al., 2019, cité dans Waldman, 2020 ; angl. : « interface
+design choices that benefit an online service by coercing, steering, or
+deceiving users into making decisions that, if fully informed and
+capable of selecting alternatives, they might not make »). Waldman
+compare la puissance du design à la dextérité d’un magicien : le
+magicien « donne aux gens l’illusion d’un libre choix tout en agençant
+le menu de sorte que, quoi qu’ils choisissent, c’est lui qui gagne »
+(Harris, 2016, cité dans Waldman, 2020).</p>
+<p>La conclusion à laquelle parvient Waldman recouvre exactement la
+colonne de cet essai. Pour lui, le prétendu paradoxe « ne reflète pas le
+désintérêt des utilisateurs pour la vie privée ; il reflète plutôt le
+fait que les utilisateurs répondent de manière prévisible aux façons
+dont les plateformes exploitent le design pour tirer parti de nos
+limites cognitives » (Waldman, 2020 ; angl. : « Any supposed paradox
+does not reflect users’ disinterest in privacy; rather, it reflects
+users responding in predictable ways to the ways in which platforms
+leverage design to take advantage of our cognitive limitations »). Le
+régime de l’acteur rationnel, dans cette lecture, n’est pas
+accidentellement mais par conception « conçu pour échouer » (Richards
+&amp; Hartzog, 2019, cité dans Waldman, 2020).</p>
+<hr />
+<h2 id="la-troisième-explication-il-ny-a-pas-de-paradoxe-solove">5. La
+troisième explication : il n’y a pas de paradoxe, Solove</h2>
+<p>Solove (2021) prend une position qui dépasse les deux camps : le
+paradoxe n’est pas un paradoxe, car il n’y a pas deux choses qui
+devraient concorder. Ce qui est intéressant, c’est que cette intuition
+n’est pas isolée. La huitième explication de la revue systématique que
+nous avons mentionnée à la Section 4 suggère elle aussi qu’au moins une
+partie du paradoxe pourrait être un « artefact méthodologique » :
+l’attitude est souvent mesurée sur une échelle continue (à quel point
+cela t’importe-t-il ?), le comportement sur un critère binaire (as-tu
+gardé ce profil public ?) ; mesurer deux choses différentes avec des
+instruments différents et s’étonner ensuite qu’elles ne concordent pas,
+c’est peut-être prendre une erreur de mesure pour un phénomène (Dienlin
+&amp; Trepte, 2015, cité dans Gerber et al., 2018). Gerber et ses
+collègues laissent cette possibilité comme une hypothèse prudente ;
+Solove porte la même intuition à l’extrême sur les plans conceptuel et
+juridique.</p>
+<p><strong>Le risque n’est pas la valeur.</strong> Le comportement dans
+les études sur le paradoxe ne porte pas sur la valeur de la vie privée ;
+il porte sur le <em>risque</em> dans un contexte donné. Le risque est le
+potentiel de préjudice ; la valeur est l’importance générale attribuée à
+une chose. Quand une personne cède le titre de son livre pour une remise
+d’un dollar, il n’en découle qu’une seule chose : « À cet instant, à ce
+magasin, pour cette donnée, elle a jugé le risque assez faible pour
+accepter la récompense d’un dollar. » Solove le montre par un « petit
+quiz » et dit que la bonne réponse est « aucune d’elles ».</p>
+<p><strong>Valoriser sa propre vie privée est différent de valoriser la
+vie privée.</strong> Une personne peut ne pas choisir la vie privée pour
+elle-même et pourtant trouver la vie privée précieuse. L’analogie de
+Solove est claire : un être humain peut valoriser le droit de vote en
+général sans voter lui-même ; ne pas voter ne signifie pas qu’il ne
+valorise pas le droit de vote.</p>
+<p><strong>La vie privée n’est pas le secret.</strong> Partager des
+données n’est pas renoncer à toute vie privée. Les gens ne veulent pas
+cacher leurs informations à tout le monde ; ils veulent partager de
+manière <em>sélective</em> et faire en sorte qu’elles ne soient pas
+utilisées de façon nuisible. À l’ère de l’information, ne partager
+aucune donnée n’est possible qu’en « vivant dans une cabane au fond des
+bois » ; partager ne signifie pas ne pas valoriser la vie privée. (Cette
+troisième distinction est le pendant, chez Solove, du piège
+terminologique que nous avons ouvert à la Section 2 : la vie privée
+n’est pas « tout garder secret ».)</p>
+<p><strong>L’autogestion ne passe pas à l’échelle.</strong> Voici le
+coup politique de Solove. La réglementation en vigueur tente de protéger
+la vie privée par l’« autogestion de la vie privée » : lis les
+politiques, refuse (opt out), change les réglages. Mais ce projet est
+énorme, complexe et sans fin. Lire tous les avis de confidentialité
+pertinents prendrait à une personne environ 201 heures par an (McDonald
+&amp; Cranor, 2008, cité dans Solove, 2021). Avec des milliers
+d’institutions, refuser des milliers de fois revient à « vider l’océan
+avec une tasse ». Même un être humain pleinement rationnel n’y parvient
+pas.</p>
+<p><strong>La résignation est rationnelle.</strong> Face à cette
+impossibilité, <strong>la résignation est une réponse
+rationnelle</strong>. Solove avoue que même lui, en tant qu’expert de la
+vie privée, a renoncé. Le contrôle offert est une illusion, une «
+occupation factice » (busy work) ; on donne aux gens plus de boutons,
+d’interrupteurs et de cases, mais ce n’est pas une protection réelle. Et
+un cercle vicieux tourne : l’être humain exprime sa préoccupation, on
+lui donne l’autogestion, il échoue au projet impossible, il est déçu et
+se résigne, mais la préoccupation demeure ; le cercle se répète. Le
+blâme est jeté sur l’individu, et l’individu se blâme même lui-même.</p>
+<p><strong>La solution : réguler l’architecture.</strong> La
+réglementation de la vie privée doit donc cesser de faire de l’individu
+un gestionnaire et réguler plutôt l’<strong>architecture</strong> qui
+structure la façon dont l’information est utilisée, stockée et
+transférée. La vie privée n’est pas un bien acheté et vendu sur le
+marché mais un élément constitutif d’une société libre ; selon les mots
+de Tufekci (2008/2018), elle est « un bien public, comme l’air pur ou
+l’eau potable, qui ne peut être régulé en se fiant à la sagesse de
+millions de choix individuels ».</p>
+<p>Ce qui est remarquable, c’est ceci : Acquisti et Solove se rejoignent
+ici. Acquisti aussi conclut que « les approches politiques qui reposent
+exclusivement sur l’information ou l’autonomisation de l’individu ne
+procureront guère une protection adéquate ; que la transparence et le
+contrôle, employés seuls, sont radicalement insuffisants et peuvent même
+se retourner » (Acquisti et al., 2015). Deux sources parviennent, par
+des chemins différents, à la même porte : ne pas blâmer l’individu,
+réguler l’architecture.</p>
+<hr />
+<h2 id="la-faille-entre-déclaration-et-architecture">6. La faille :
+entre déclaration et architecture</h2>
+<p>Jusqu’ici, la littérature nous a donné un sol ferme. Nous commençons
+maintenant là où elle finit.</p>
+<p>Revenons à la scène de l’Introduction. L’utilisateur qui exprime des
+préoccupations de sécurité mais met son document sensible dans un nuage
+général, mène sa communication via une grande plateforme qui traite
+commercialement ses métadonnées, et dit « je ne la connais pas » à une
+alternative qui collecte moins de données. Le cadre de Solove explique
+<em>une partie</em> de cette scène : « la sécurité importe » (une
+attitude générale) et « le document est dans le nuage » (une décision de
+risque contextuelle) sont des axes différents, il est donc erroné de
+chercher une contradiction entre eux. Juste. Mais le cadre de Solove ne
+peut expliquer le <em>cœur</em> de la scène. Car le point critique ici
+n’est pas la distinction « attitude générale contre risque spécifique ».
+Le point critique est celui-ci : <strong>la personne, tout en parlant le
+langage de la sécurité, cède précisément sur l’axe de la vie privée ce
+qu’elle veut protéger.</strong> Dans le modèle de Solove, le
+comportement est une évaluation de risque contextuelle mais
+<em>juste</em>. Ici, en revanche, l’évaluation de risque elle-même a
+dévié de son axe : la personne se fixe sur la menace de sécurité et ne
+voit pas du tout la menace de vie privée.</p>
+<p>Ce qui explique cette déviation n’est pas Solove mais Acquisti. La
+lentille qui le voit le mieux est la distinction entre vie privée et
+sécurité que nous avons établie à la Section 2. L’utilisateur du cas
+parle le langage de la <em>sécurité</em>, mais confond deux choses
+distinctes.</p>
+<p><strong>Premièrement, la confusion des axes.</strong> Quand la
+personne choisit un grand nuage commercial ou une grande plateforme de
+messagerie, elle fait en réalité un raisonnement de sécurité intuitif :
+« Cette entreprise est énorme, son infrastructure est solide, son
+service est chiffré, elle me protège d’un attaquant. » Ce raisonnement,
+sur le seul axe de la sécurité, est largement <em>juste</em> ; le
+contenu peut effectivement être protégé contre l’accès non autorisé.
+L’erreur est de prendre cette garantie de sécurité pour une garantie de
+<em>vie privée</em>. Car cette entreprise géante elle-même atteint les
+données, ou leurs métadonnées ; le « tiers » qu’elle redoute est déjà à
+l’intérieur. Parce que la personne voit la réputation de sécurité de la
+marque, elle ne voit pas du tout le risque de vie privée. Elle prend
+deux axes pour un seul ; avoir raison sur l’un la conduit à être aveugle
+sur l’autre. Le piège terminologique de la Section 2 prend ici chair et
+os : ce qu’elle croit « sûr » l’est vraiment, mais n’est pas « privé » ;
+et la personne ne sent pas du tout cette différence.</p>
+<p>Cela ne rend pas la personne irrationnelle ; un point doit être
+énoncé clairement ici, car il peut sembler entrer en conflit avec le
+résultat empirique de la Section 4. Comme l’ont montré Gerber et ses
+collègues, un être humain fait largement un calcul bénéfice-risque. La
+confusion des axes n’abolit pas ce calcul ; elle y injecte un mauvais
+intrant de risque. Parce que la personne tient le risque de vie privée
+pour presque nul, même un calcul qui fonctionne bien parvient au mauvais
+résultat. L’erreur n’est pas dans le raisonnement lui-même mais dans la
+carte de risque qui entre dans le raisonnement. C’est pourquoi le même
+comportement peut être à la fois rationnel (cohérent avec la carte
+donnée) et faux (la carte ne reflète pas la réalité) ; les deux ne se
+contredisent pas. Le résultat de Gerber selon lequel « le prédicteur le
+plus fort est le calcul coût-bénéfice » et notre constat que « la
+personne se trompe » se réconcilient précisément sur cette distinction :
+l’erreur n’est pas dans le calcul mais dans les données qui lui sont
+fournies.</p>
+<p>Cette distinction a un pendant concret. Une application de messagerie
+répandue sécurise le contenu en le chiffrant de bout en bout, tout en
+collectant les métadonnées qui montrent qui s’est connecté avec qui,
+quand et à quelle fréquence, et en les liant à l’économie publicitaire ;
+le contenu est protégé, la carte des relations ne l’est pas. Au même
+service il existe une alternative qui chiffre elle aussi le contenu de
+bout en bout mais minimise la collecte de métadonnées. Les deux
+applications sont fortes sur l’axe de la sécurité ; là où elles
+divergent, c’est l’axe de la vie privée. La personne choisit souvent la
+plus familière, la plus grande, la plus abondamment publicisée comme «
+sûre » et ne remarque pas du tout le point où les deux axes divergent.
+La familiarité n’est pas une garantie de vie privée ; mais elle en donne
+le sentiment.</p>
+<p><strong>Deuxièmement, la mauvaise carte de menace.</strong> Quand une
+personne qualifie un service de « non fiable » ou un autre de « fiable
+», elle met en œuvre un modèle de menace ; mais ce modèle est souvent
+bâti non à partir de l’architecture réelle des données mais du confort
+de la familiarité, de la taille de la marque et de signaux de ouï-dire.
+Le familier et le grand sont tenus pour sûrs ; le peu connu, pour non
+fiable. Or la mesure dans laquelle un service protège vos données ne se
+décide pas à sa familiarité mais à qui voit les données et à ce qu’il en
+fait. C’est le pendant quotidien exact de l’expérience « How Bad R U »
+de la Section 4 : un être humain lit de travers le signal de sécurité et
+confond sa source (familiarité, professionnalisme visuel) avec la
+protection réelle. C’est la conséquence directe des thèmes de
+l’incertitude (un être humain ne connaît pas son propre risque, il est «
+en pleine mer ») et de la malléabilité (de mauvais indices tournent la
+préoccupation dans la mauvaise direction).</p>
+<p>Ces deux erreurs ne naissent pas d’elles-mêmes dans la tête de
+l’individu ; elles sont produites par le design. La confusion des axes a
+un appui dans la littérature : Waldman (2020) montre que la confiance
+est elle-même la cible du design et un outil de manipulation. Selon son
+constat, « les sites web signalent la confiance par un design
+professionnel tout en cachant leurs pratiques invasives de collecte de
+données dans des politiques de confidentialité impénétrables » (Waldman,
+2020 ; angl. : « Websites cue trust through professional design while
+hiding their invasive data collection practices in inscrutable privacy
+policies »). Autrement dit, qu’une personne lise la grande marque
+professionnelle comme un signe de confiance n’est pas une naïveté
+individuelle mais un effet que le design cherche à produire. La
+confusion des axes est la forme cristallisée, sur l’axe de la vie privée
+et de la sécurité, de ce que Waldman appelle « la manipulation de la
+confiance » : la personne prend le sentiment de sécurité qu’irradie une
+interface professionnelle pour une garantie de vie privée quant à qui
+atteint les données.</p>
+<p>De là, nous proposons la première moitié de la thèse :</p>
+<blockquote>
+<p><strong>La contradiction n’est pas entre l’attitude et le
+comportement (Solove a raison) ; la contradiction est entre le modèle de
+menace déclaré et l’architecture de menace réelle.</strong> Une personne
+déclare une carte de menace, mais cette carte ne coïncide pas avec la
+géographie du flux de données réel. Plus encore, une racine de la
+distorsion de la carte est l’incapacité de séparer la vie privée de la
+sécurité : la personne tient la décision juste prise sur l’axe de la
+sécurité pour valable aussi sur l’axe de la vie privée. Elle place sa
+défense non contre la menace réelle mais contre une menace imaginaire ;
+et ainsi elle reste sans défense précisément là où elle se croit
+protégée.</p>
+</blockquote>
+<p>La seconde moitié de la thèse est plus profonde et porte la veine
+véritablement originale. La personne du cas n’a pas seulement tracé une
+mauvaise carte ; en <em>déclarant à voix haute</em> cette carte, elle se
+produit une fonction. La phrase « la sécurité est tout pour moi » n’est
+pas une description mais un acte. À mesure que la personne le dit, le
+dire lui donne le <em>sentiment</em> de protection. À la place d’un acte
+de protection réel (choisir un service qui ne collecte pas de
+métadonnées, garder les données en sûreté), un <em>discours</em> de
+protection prend le relais. Nous nommons cela ainsi :</p>
+<blockquote>
+<p><strong>Le discours prend la place de l’expérience (déclaration
+performative).</strong> La personne déclare être protégée, et la
+déclaration prend la place de l’expérience réelle d’être protégé. Parce
+qu’elle l’a déclaré, elle se sent protégée. Ce sentiment est une couche
+au-dessus du paradoxe du contrôle d’Acquisti : là, le <em>contrôle</em>
+donné à la personne abaissait la défense ; ici, le <em>discours</em> que
+la personne produit abaisse la défense. Dans les deux, le mécanisme est
+le même : le sentiment de sécurité prend la place de la sécurité
+elle-même et, assez paradoxalement, réduit la protection.</p>
+</blockquote>
+<p>La différence entre la « résignation » de Solove et ce « faux confort
+» est importante. L’être résigné de Solove est <em>passif</em> : il
+pressent qu’il ne peut pas être protégé, il renonce, mais il le sait.
+L’être humain d’ici, en revanche, <em>croit être protégé</em> : il ne
+pressent pas qu’il ne peut pas être protégé ; au contraire, sa propre
+déclaration lui a donné cette croyance. La résignation est une
+impuissance aux yeux ouverts ; le faux confort est une ouverture voilée
+par le sentiment de protection. La différence entre les deux n’est pas
+un crime mais une différence d’état cognitif ; et cette différence
+expliquera, à la Section 8, pourquoi la solution ne peut pas être « plus
+de déclaration ».</p>
+<p>Il faut poser ici une limite honnête. La « déclaration performative »
+n’est pas un résultat directement mesuré mais une proposition dérivée
+par analogie du mécanisme expérimentalement prouvé du paradoxe du
+contrôle. Que le sentiment de contrôle abaisse la défense a été mesuré
+(Brandimarte et al., 2013) ; que l’acte de déclarer produise de même un
+« sentiment de protection » et abaisse la défense n’a pas encore été
+testé, et c’est une hypothèse ouverte au test. C’est l’affirmation la
+plus fragile et en même temps la plus testable de l’essai ; nous la
+marquons non comme un fait prouvé mais comme ce qu’elle est, une
+proposition.</p>
+<hr />
+<h2
+id="non-une-pathologie-la-naturalité-cognitive-dun-phénomène-répandu">7.
+Non une pathologie : la naturalité cognitive d’un phénomène répandu</h2>
+<p>Nous pouvons maintenant revenir à cette première réaction de
+l’Introduction : « Cette personne ne sait pas ce qu’elle dit ; elle est
+incohérente. »</p>
+<p>Ce jugement est <strong>faux</strong>, et pourquoi il est faux est
+désormais clair. Le comportement du cas n’est pas une incohérence ni un
+défaut mais une issue prévisible de la cognition humaine normale.
+L’incertitude est universelle (Acquisti) : un être humain ne connaît
+souvent ni son propre risque ni sa propre préférence. La dépendance au
+contexte est universelle : la même personne est prudente à un endroit,
+ouverte à un autre. Le fait de mal lire un indice a été produit encore
+et encore en laboratoire : les gens peuvent prendre le sûr pour
+dangereux et le dangereux pour sûr. Et pour confondre vie privée et
+sécurité, un être humain n’a même pas besoin d’être négligent ; les deux
+concepts sont véritablement entrelacés dans la langue et l’expérience,
+et vont sous les mêmes mots. L’autogestion ne passe véritablement pas à
+l’échelle (Solove) ; la résignation est véritablement rationnelle. Si un
+comportement se répète chez des millions de gens et que son mécanisme
+peut s’expliquer cognitivement, alors le tenir pour une faiblesse
+personnelle est à la fois scientifiquement erroné et méthodologiquement
+improductif. Jeter le blâme sur l’individu est le dernier maillon de ce
+cercle vicieux que Solove a démasqué : d’abord on donne à l’être humain
+une tâche impossible, puis, parce qu’il y échoue, on dit « c’est donc
+qu’il s’en moque ».</p>
+<p>Mais le phénomène se joue-t-il entièrement hors de la personne ? Non
+; mais le sens de cela n’est pas un crime, mais un mécanisme. Le
+véritable déterminant est l’architecture qui pousse sans cesse l’être
+humain à donner le mauvais signal, à faire confiance à la grande marque
+qu’il connaît, à abaisser sa défense avec le sentiment de contrôle. Les
+réglages par défaut, les dark patterns, la fausse garantie produite par
+le badge « nous avons une politique », la façon dont les grandes marques
+mettent en avant leur réputation de sécurité (robustesse, chiffrement,
+certificats) tout en rendant invisible le coût de vie privée (leur
+propre accès aux données ou à leurs métadonnées) : tout cela sont des
+effets produits par le design. Même la confusion des axes ne naît pas
+d’elle-même, elle est nourrie. L’individu joue sur une scène montée pour
+lui ; le soulagement que donne la déclaration performative est lui aussi
+une partie de cette scène, car l’architecture ne peut offrir à l’être
+humain non la réalité de la protection mais seulement son sentiment, par
+des instruments (plus de boutons, plus de texte de politique, plus de «
+contrôle »).</p>
+<p>Ainsi le jugement naïf de l’Introduction se renverse. Ce qui demande
+à être expliqué n’est pas pourquoi la personne se comporte « de façon
+instable » ; ce qui demande à être expliqué, c’est comment une cognition
+qui fonctionne bien se trompe de façon prévisible à l’intérieur d’une
+architecture de l’information mal bâtie. Ce n’est pas une pathologie
+mais un résultat de la cognition ordinaire façonnée par le design. Et
+c’est pourquoi le centre de gravité de la responsabilité se déplace de
+l’individu vers l’architecture ; la proposition politique de la section
+suivante naît directement d’ici.</p>
+<hr />
+<h2 id="conclusion">8. Conclusion</h2>
+<p>Le paradoxe de la vie privée, en son sens classique, est vraiment un
+mythe. Solove a raison : l’attitude et le comportement sont des choses
+différentes, et leur divergence n’est pas une contradiction. Plus
+encore, ce faux paradoxe est souvent utilisé comme une arme pour saper
+la réglementation de la vie privée. Mais la réfutation du mythe ne
+signifie pas qu’il ne reste rien à expliquer. Sous le faux paradoxe gît
+une faille réelle : la faille entre le modèle de menace qu’un être
+humain <em>déclare</em> et l’architecture de menace réelle où il
+<em>vit</em>. Deux choses ouvrent cette faille. L’une est la confusion
+de la vie privée avec la sécurité : la personne tient la décision juste
+prise sur un axe (la sécurité) pour valable aussi sur l’autre (la vie
+privée), et cède ainsi de l’information précisément là où elle fait
+confiance. L’autre est la façon dont le discours de la protection prend
+la place de l’expérience de la protection : déclarer prend la place de
+protéger.</p>
+<p>Ce diagnostic a deux conséquences. Au niveau politique, la direction
+indiquée tant par Acquisti que par Solove est juste : « autonomiser »
+davantage l’individu, lui donner plus de boutons et de texte de
+politique, ne fonctionne pas et se retourne même en nourrissant le faux
+confort. Le fardeau de la protection doit être levé du dos de l’individu
+et chargé sur l’architecture de l’économie des données. Waldman (2020)
+propose dans cette direction un mécanisme juridique concret : les
+entreprises qui collectent des données devraient, à l’image de la
+responsabilité qu’un avocat, un médecin ou un conseiller financier porte
+envers nous, être considérées comme des « fiduciaires de l’information »
+de nos données, et entrer sous des devoirs de diligence, de
+confidentialité et de loyauté. Le devoir de loyauté interdit à
+l’entreprise de faire du profit en nous utilisant à notre propre
+détriment ; dans ce cadre, contraindre à la divulgation par des dark
+patterns est juridiquement interdit. Ainsi trois sources (Acquisti,
+Solove, Waldman) parviennent par des chemins différents à la même porte
+: le fardeau est levé de l’individu et chargé sur l’architecture qui
+détient les données et sur l’entreprise qui la bâtit.</p>
+<p>Mais quelque chose reste à dire au niveau de l’individu aussi, et
+c’est là que la littérature se tait : l’antidote au faux confort n’est
+pas plus de déclaration mais le fait de voir deux choses. Premièrement,
+« sûr » et « privé » ne sont pas la même chose ; la protection des
+données contre un attaquant ne signifie pas leur protection contre
+l’entreprise qui les détient. Deuxièmement, entre « je dis que cela
+m’importe » et « je suis protégé » il y a une distance. Voir ces deux
+distinctions ne comble pas la distance d’elle-même ; mais cela la rend
+au moins visible. Et la rendre visible est le premier pas non pour
+blâmer l’individu mais pour corriger l’architecture : quand un être
+humain peut distinguer le protégé du non-protégé, il peut commencer à
+adresser la bonne question au bon endroit, c’est-à-dire à l’architecture
+qui bâtit le service.</p>
+<p>Dire qu’on a peur n’est pas être protégé. Voir la différence entre
+les deux est la seule proposition, et assez difficile, de cet essai.</p>
+<hr />
+<h2 id="bibliographie">Bibliographie</h2>
+<p><em>(APA 7. Les sources primaires lues sont données avec la notice
+bibliographique complète ; les sources secondaires sont indiquées par
+l’abréviation « cité dans », car leurs textes intégraux n’ont pas été
+directement consultés dans ce travail. Les citations directes ont été
+tirées du texte brut des sources primaires et confirmées par
+comparaison.)</em></p>
+<ul>
+<li>Acquisti, A., Brandimarte, L., &amp; Loewenstein, G. (2015). Privacy
+and human behavior in the age of information. <em>Science,
+347</em>(6221), 509-514. https://doi.org/10.1126/science.aaa1465
+<em>(texte intégral lu ; bibliographie Samsung)</em></li>
+<li>Solove, D. J. (2021). The myth of the privacy paradox. <em>George
+Washington Law Review, 89</em>(1), 1-51. <em>(texte intégral lu ;
+bibliographie Samsung)</em></li>
+<li>Gerber, N., Gerber, P., &amp; Volkamer, M. (2018). Explaining the
+privacy paradox: A systematic review of literature investigating privacy
+attitude and behavior. <em>Computers &amp; Security, 77</em>, 226-261.
+https://doi.org/10.1016/j.cose.2018.04.002 <em>(texte intégral lu ;
+bibliographie Samsung)</em></li>
+<li>Waldman, A. E. (2020). Cognitive biases, dark patterns, and the
+‘privacy paradox’. <em>Current Opinion in Psychology, 31</em>, 105-109.
+https://doi.org/10.1016/j.copsyc.2019.08.025 <em>(texte intégral lu ;
+bibliographie Samsung)</em></li>
+<li>Brandimarte, L., Acquisti, A., &amp; Loewenstein, G. (2013).
+Misplaced confidences: Privacy and the control paradox. <em>Social
+Psychological and Personality Science, 4</em>(3), 340-347. <em>(cité
+dans Acquisti et al., 2015)</em></li>
+<li>Mathur, A., Acar, G., Friedman, M., Lucherini, E., Mayer, J.,
+Chetty, M., &amp; Narayanan, A. (2019). Dark patterns at scale: Findings
+from a crawl of 11K shopping websites. <em>Proceedings of the ACM on
+Human-Computer Interaction, 3</em>(CSCW), 1-32. <em>(cité dans Waldman,
+2020)</em></li>
+<li>Harris, T. (2016). How technology is hijacking your mind.
+<em>Medium.</em> <em>(cité dans Waldman, 2020)</em></li>
+<li>Richards, N., &amp; Hartzog, W. (2019). The pathologies of consent.
+<em>(cité dans Waldman, 2020)</em></li>
+<li>McDonald, A. M., &amp; Cranor, L. F. (2008). The cost of reading
+privacy policies. <em>I/S: A Journal of Law and Policy for the
+Information Society, 4</em>(3), 543-568. <em>(cité dans Solove,
+2021)</em></li>
+<li>Turow, J., King, J., Hoofnagle, C. J., Bleakley, A., &amp; Hennessy,
+M. (2009). <em>Americans reject tailored advertising.</em> <em>(cité
+dans Solove, 2021 ; une source du résultat des 62 pour cent)</em></li>
+<li>Hoofnagle, C. J., &amp; Urban, J. M. (2014). Alan Westin’s privacy
+homo economicus. <em>Wake Forest Law Review, 49</em>, 261-321. <em>(cité
+dans Acquisti et al., 2015 ; une source du résultat des 62 pour
+cent)</em></li>
+<li>Tufekci, Z. (2008). Can you see me now? Audience and disclosure
+regulation in online social network sites. <em>Bulletin of Science,
+Technology &amp; Society, 28</em>(1), 20-36. <em>(cité dans Solove,
+2021)</em></li>
+<li>Spiekermann, S., Grossklags, J., &amp; Berendt, B. (2001). E-privacy
+in 2nd generation e-commerce. <em>(cité dans Solove, 2021)</em></li>
+</ul>
+<h3
+id="socle-conceptuel-et-factuel-non-une-citation-mais-un-cadre">Socle
+conceptuel et factuel (non une citation, mais un cadre)</h3>
+<ul>
+<li><strong>La distinction entre vie privée et sécurité</strong> repose
+sur le cadre établi de la sécurité de l’information (la triade
+confidentialité-intégrité-disponibilité, avec la vie privée comme
+objectif de protection distinct) ; c’est une distinction généralement
+admise au niveau encyclopédique. La contribution originale de cet essai
+n’est pas d’<em>inventer</em> la distinction mais de la porter dans le
+cas du paradoxe de la vie privée et de nommer le mécanisme de la «
+confusion des axes ». Sur le chemin de la publication, l’ajout d’une
+source primaire qui établit directement la distinction (par exemple le
+cadre de l’intégrité contextuelle, Nissenbaum 2004, 2009) sera
+envisagé.</li>
+<li><strong>Le socle factuel de l’exemple de messagerie :</strong>
+qu’une application de messagerie répandue chiffre le contenu de bout en
+bout par défaut (le protocole Signal), tout en collectant les
+métadonnées qui montrent qui s’est connecté avec qui, quand et à quelle
+fréquence, et en les liant à l’économie publicitaire ; qu’une autre
+application répandue stocke ses conversations par défaut sous une forme
+déchiffrable côté serveur et ne laisse le chiffrement de bout en bout
+qu’à un mode activé manuellement ; qu’une troisième application offre à
+la fois le chiffrement de bout en bout et la minimisation des
+métadonnées ; ces trois cas sont utilisés dans l’essai sans nommer de
+marques précises, comme des exemples factuels appuyés sur une
+documentation technique actuelle et publiquement accessible (WhatsApp
+Security Whitepaper ; Telegram End-to-End Encryption FAQ,
+core.telegram.org ; documentation technique de Signal). Le but n’est pas
+de louer ou de condamner un produit mais de montrer que la situation «
+forte sur l’axe de la sécurité, faible sur l’axe de la vie privée »
+existe dans le monde réel.</li>
+</ul>
+</div>
+</body>
+</html>
