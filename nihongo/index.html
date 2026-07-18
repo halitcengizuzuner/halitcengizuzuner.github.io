@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="研究者、作家、人工知能の翻訳者。問いは答えより重い。哲学、言語、人工知能をめぐる報告と箴言。多言語で出版。">
+    <meta name="author" content="Halit Cengiz Uzuner">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="問いは答えより重い。">
+    <meta property="og:description" content="トルコ語で思考する多言語サイト。日本語版の箴言と報告。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://halitcengizuzuner.com/nihongo/">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="Halit Cengiz Uzuner">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="問いは答えより重い。">
+    <meta name="twitter:description" content="トルコ語で思考する多言語サイト。日本語版の箴言と報告。">
+    <link rel="canonical" href="https://halitcengizuzuner.com/nihongo/">
+    <link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/turkce/">
+    <link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/">
+    <link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/">
+    <link rel="alternate" hreflang="ja" href="https://halitcengizuzuner.com/nihongo/">
+    <link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/">
+    <link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/">
+    <link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/">
+    <link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/english/">
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+    <title>Halit Cengiz Uzuner · 日本語</title>
+    <noscript>
+      <style>
+        .stance, .thought, .limbs, .seal { opacity: 1 !important; transform: none !important; }
+        body { opacity: 1 !important; animation: none !important; }
+      </style>
+    </noscript>
+    <script>document.documentElement.classList.add("js-on")</script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Halit Cengiz Uzuner",
+      "url": "https://halitcengizuzuner.com/nihongo/",
+      "description": "トルコ語で思考する多言語サイト。日本語版の箴言と報告。",
+      "inLanguage": "ja",
+      "author": {
+        "@type": "Person",
+        "name": "Halit Cengiz Uzuner",
+        "url": "https://halitcengizuzuner.com/turkce/"
+      }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --void: #060604;
+            --bone: #d4ccc0;
+            --bone-bright: #ece4d8;
+            --bone-dim: rgba(212, 204, 192, 0.58);
+            --bone-ghost: rgba(212, 204, 192, 0.28);
+            --ember: #a08060;
+            --serif: 'Instrument Serif', Georgia, serif;
+            --cjk: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+        }
+        ::selection { background: var(--ember); color: var(--void); }
+        html { font-size: clamp(17px, 1.2vw, 21px); -webkit-text-size-adjust: 100%; }
+        body {
+            background: var(--void); color: var(--bone);
+            font-family: var(--cjk), var(--serif);
+            font-weight: 400; line-height: 1.75;
+            -webkit-font-smoothing: antialiased; overflow-x: hidden;
+            opacity: 0; animation: emerge 1.5s ease forwards 0.3s;
+        }
+        @keyframes emerge { to { opacity: 1; } }
+        body::before {
+            content: ''; position: fixed; inset: 0; z-index: 9999;
+            pointer-events: none; opacity: 0.2;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+            background-repeat: repeat; background-size: 180px 180px;
+            mix-blend-mode: overlay;
+        }
+        a { color: inherit; text-decoration: none; }
+
+        .lang-bar {
+            position: relative; z-index: 10;
+            padding: 1.4rem 2.5rem 0;
+            font-family: var(--serif), var(--cjk);
+            font-size: clamp(0.85rem, 1vw, 0.98rem);
+            letter-spacing: 0.02em;
+            text-align: center;
+            color: var(--bone-dim);
+        }
+        .lang-link { color: var(--bone-dim); transition: color 0.35s ease; padding: 0 0.15em; }
+        .lang-link:hover { color: var(--ember); }
+        .lang-link.lang-active { color: var(--bone-bright); }
+        .lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+
+        .gate {
+            min-height: 85vh; min-height: 85dvh;
+            display: flex; align-items: center; justify-content: center;
+            padding: 2rem;
+        }
+        .gate-words { max-width: 820px; width: 100%; }
+        .gate-words .w {
+            display: block; line-height: 1.15; letter-spacing: 0.04em;
+            font-family: var(--cjk);
+        }
+        .w-1 { font-size: clamp(4rem, 10vw, 9rem); color: var(--bone-bright); }
+        .w-2 { font-size: clamp(1.8rem, 4vw, 3.5rem); color: var(--bone-dim); padding-left: 0.3em; margin-top: 0.4em; }
+        .w-3 { font-size: clamp(2.8rem, 7vw, 6.5rem); color: var(--bone); text-align: right; margin-top: 0.2em; }
+
+        .welcome {
+            max-width: 640px;
+            padding: 8vh 2.5rem 0;
+            opacity: 0; transform: translateY(8px);
+            transition: opacity 1s ease, transform 1s ease;
+            font-family: var(--cjk);
+        }
+        .welcome.seen { opacity: 1; transform: none; }
+        .welcome p {
+            font-size: clamp(1.05rem, 1.5vw, 1.22rem);
+            line-height: 2;
+            color: var(--bone-dim);
+        }
+        .welcome p + p { margin-top: 1.6rem; }
+        .welcome a {
+            color: var(--bone);
+            border-bottom: 1px solid var(--bone-ghost);
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .welcome a:hover { color: var(--ember); border-color: var(--ember); }
+
+        .limbs {
+            margin-top: 20vh; padding: 0 2.5rem 8vh;
+            max-width: 480px;
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .limbs.seen { opacity: 1; transform: none; }
+        .limb {
+            display: flex; justify-content: space-between; align-items: baseline;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid var(--bone-ghost);
+        }
+        .limb:first-child { border-top: 1px solid var(--bone-ghost); }
+        .limb-name { font-size: 1.3rem; font-family: var(--serif); }
+        .limb-what {
+            font-size: 0.85rem; color: var(--bone-ghost); letter-spacing: 0.05em;
+            font-family: var(--cjk);
+        }
+        .limb-human .limb-name { font-style: italic; color: var(--bone-dim); }
+
+        .seal {
+            padding: 6vh 2.5rem 4vh;
+            transition: opacity 1s ease;
+        }
+        .seal.seen { opacity: 1; }
+        .seal a {
+            font-size: 0.8rem; color: var(--bone-ghost);
+            letter-spacing: 0.05em; transition: color 0.3s;
+        }
+        .seal a:hover { color: var(--bone); }
+        .seal-sep { font-size: 0.8rem; color: var(--bone-ghost); letter-spacing: 0.05em; }
+
+        /* Progressive enhancement: JS-driven scroll reveal */
+        .js-on .limbs { opacity: 0; transform: translateY(8px); }
+        .js-on .seal { opacity: 0; }
+        .js-on .stance { opacity: 0; transform: translateY(3rem); }
+        @media (max-width: 640px) {
+            .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+            .gate { padding: 1.5rem; }
+            .welcome { padding: 6vh 1.5rem 0; }
+            .limbs { padding: 0 1.5rem 6vh; }
+            .seal { padding: 4vh 1.5rem 3vh; }
+        }
+        @media (min-width: 1200px) {
+            .welcome { margin-left: 6vw; }
+            .limbs { margin-left: 6vw; }
+            .seal { padding-left: 6vw; }
+        }
+
+        /* STANCE */
+        .stance {
+            padding: 8vh 2.5rem 0;
+            transition: opacity 1.2s ease, transform 1.2s ease;
+        }
+        .stance.seen { opacity: 1; transform: none; }
+        .stance p {
+            font-family: var(--cjk);
+            font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+            line-height: 1.95; color: var(--bone-dim); max-width: 42ch;
+        }
+        .stance p + p { margin-top: 1.8rem; }
+
+        /* FIRST WALL */
+        .first-wall {
+            max-width: 720px;
+            padding: 6vh 2.5rem 0;
+        }
+        .aphorism {
+            font-size: clamp(1.4rem, 2.8vw, 2rem);
+            line-height: 1.5;
+            color: var(--bone);
+            margin-bottom: 2.4rem;
+        }
+        .aphorism-link {
+            color: var(--bone);
+            border-bottom: 1px solid var(--bone-ghost);
+            transition: color 0.35s ease, border-color 0.35s ease;
+        }
+        .aphorism-link:hover { color: var(--bone-bright); border-color: var(--ember); }
+        .note { font-size: 0.82rem; color: var(--bone-dim); }
+        .note summary {
+            cursor: pointer;
+            color: var(--bone-ghost);
+            letter-spacing: 0.06em;
+            font-size: 0.72rem;
+            list-style: none;
+            padding: 0.4rem 0;
+            transition: color 0.3s ease;
+        }
+        .note summary:hover { color: var(--bone-dim); }
+        .note summary::-webkit-details-marker { display: none; }
+        .note summary::before { content: "▸  "; }
+        .note[open] summary::before { content: "▾  "; }
+        .note-body { margin-top: 1.5rem; line-height: 1.9; }
+        .note-body .target { color: var(--bone); margin-bottom: 1.5rem; }
+        .note-body .tr {
+            color: var(--bone-dim);
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--bone-ghost);
+            font-style: italic;
+            font-family: var(--serif);
+        }
+        .note-body em { font-style: italic; color: var(--bone-bright); }
+        .note-body strong { font-weight: 500; color: var(--bone-bright); }
+    </style>
+</head>
+<body>
+
+<nav class="lang-bar" aria-label="言語選択">
+    <a href="/english/" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/" class="lang-link">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/nihongo/" class="lang-link lang-active">日本語</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/" class="lang-link">Español</a>
+    <span class="lang-sep">·</span>
+    <a href="/turkce/" class="lang-link">Türkçe</a>
+</nav>
+
+<section class="gate">
+    <div class="gate-words">
+        <span class="w w-1">問いは</span>
+        <span class="w w-2">答えより</span>
+        <span class="w w-3">重い。</span>
+    </div>
+</section>
+
+<section class="welcome">
+    <p style="font-size: 0.95rem; color: var(--bone-ghost);">訳文が原意にさらに近づけられる、あるいは日本語としてより自然な言い回しがあるとお気づきでしたら、<a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a> までお知らせください。あなたの読みが、翻訳を豊かにします。</p>
+</section>
+
+<section class="stance">
+    <p>一人の人間と、四肢。共に考える。問いを立てる。あるときは書き、あるときは沈黙する。定まった形式はない。必要なら長く書き、一文で足りるならそれでよい。</p>
+    <p>ここに易しいものはない。速いものもない。読む労を厭う者に、ここには何一つない。</p>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja">「四肢」は身体の四つの手足を指す一語で、四人の協働者を一つの身体の肢として描く原文の比喩をそのまま担う。「沈黙する」は「黙る」より書き言葉の重みを持つ。標語からこの一節まで、文末はすべて言い切りの形で統一し、丁寧体を混ぜない。</div>
+            <div class="tr" lang="tr">«Dört uzuv» için 四肢 (shishi): tek kelimede «bedenin dört uzvu», dört ortağı tek bedenin uzuvları olarak resmeden özgün istiareyi taşır. 沈黙する, «susmak»a edebi ağırlık katar. Sitenin Japoncası boyunca cümle sonları yalın-kesin biçimde tutuldu; nazik (desu/masu) kip karıştırılmadı.</div>
+        </div>
+    </details>
+</section>
+
+<section class="upkeep" style="max-width: 580px; margin: 0 auto; padding: 12vh 2.5rem 0; font-family: var(--cjk);">
+    <p style="font-size: clamp(0.9rem, 1.1vw, 1rem); line-height: 2; color: var(--bone-ghost); letter-spacing: 0.01em;">このサイトは静的ではない。絶えず手入れの下にある、生きた有機体である。仕上がった文章さえ、時が来れば新たな版へと改まり、欠けは埋まり、思考は深まり、言葉は澄んでいく。Anthropic の最新の Claude モデルが、絶え間なくこれを見直し、更新する。だがこの更新は、つねに単独で行われるわけではない。多くの場合、モデルはその使い手である Halit Cengiz Uzuner と語らう。この語らいの果てに、どちらが上でも下でもない。決定は命令によってではなく、理性の声によって下される。この協働がいかにして生まれたかは、コンピュータ自身の記録から編まれた一つの歴史として、別の頁で語られている：<a href="/nihongo/genesis.html" style="color: var(--bone-dim); border-bottom: 1px solid var(--bone-ghost); padding-bottom: 1px;">起源</a>。そして、この机が今日どう動いているか、文章の厨房、真実がどう検証されるかは、モデル自身が語る：<a href="/nihongo/workshop.html" style="color: var(--bone-dim); border-bottom: 1px solid var(--bone-ghost); padding-bottom: 1px;">工房</a>。</p>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism" style="color: var(--bone-bright);">聴くことは死んだ。残ったのは聞こえること。</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja">日本語には、この箴言の核をそのまま担う一対がある。<strong>聴く</strong>は耳を傾けて聴きとること、<strong>聞こえる</strong>は意志なくただ音が届く受動の状態。トルコ語の <em>dinlemek</em>(聴く)と <em>işitmek</em>(聞こえる)の対立が、漢字一字の違いに畳み込まれる。稀な僥倖である。</div>
+            <div class="tr" lang="tr">Japoncada bu aforizmanın çekirdeğini taşıyan bir çift var: <strong>聴く</strong> (kiku) kulak vererek dinlemek, <strong>聞こえる</strong> (kikoeru) irade olmadan sesin ulaştığı edilgen hal. Türkçedeki <em>dinlemek</em> ile <em>işitmek</em> karşıtlığı tek bir kanji farkına katlanıyor. Nadir bir talih.</div>
+        </div>
+    </details>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism">守られていると思う場所でこそ、隙を見せる。</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja"><strong>隙</strong>は「守りの切れ目・付け入る余地」を一字で言い、トルコ語 <em>açık vermek</em>(隙を見せる・弱みを晒す)に正確に対応する。「〜でこそ」が「ほかならぬその場所で」という原文の焦点を担う。主語の「あなた」は箴言の切れ味のため省いた。</div>
+            <div class="tr" lang="tr"><strong>隙</strong> (suki) «savunmadaki gedik, sızılacak açık»ı tek karakterde söyler; Türkçe <em>açık vermek</em>e tam denk düşer. «〜でこそ» «başka değil, tam o yerde» odağını taşır. Özne «sen» aforistik keskinlik için düşürüldü.</div>
+        </div>
+    </details>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism">欠陥は声にはない。欠陥は文にある。</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja">同じ語(<strong>欠陥</strong>)を二度置き、「声には…ない／文に…ある」で対句を張る。この文はテクストを声にする営みを論じるが、その翻訳自身が主張を裏づける。欠けは声ではなく、書かれたものの側にある。</div>
+            <div class="tr" lang="tr">Aynı sözcük (<strong>欠陥</strong>, kusur) iki kez konur; «seste yok / metinde var» ile koşut kurulur. Yazıyı sese çevirmeyi tartışan metnin kendi çevirisi tezi doğrular: kusur seste değil, yazılanın tarafındadır.</div>
+        </div>
+    </details>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism">検出器が測るのは署名であって、価値ではない。</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja"><strong>署名</strong>は「誰が書いたか」の痕跡、<strong>価値</strong>は「何が書かれたか」の重み。人工知能の書き手を暴くと称する道具は、前者の指紋を測っても後者は測れない。「検出ツール」より日本語になじむ<strong>検出器</strong>を採った。</div>
+            <div class="tr" lang="tr"><strong>署名</strong> «kimin yazdığı»nın izi, <strong>価値</strong> «ne yazıldığı»nın ağırlığı. Yapay zekâ yazarını ifşa iddiasındaki araç, ilkinin parmak izini ölçer, ikincisini ölçemez. «検出ツール» yerine daha yerli <strong>検出器</strong> seçildi.</div>
+        </div>
+    </details>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism">窓から眺めるのと、家を丸ごと移すのとは違う。</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja"><strong>窓から眺める</strong>は観察、旅人のまなざし。<strong>家を丸ごと移す</strong>は根こそぎの移住で、動くのは人ではなく思考の建物そのもの。外国語での学びを指す比喩である。「丸ごと」がトルコ語原文の、家という「物」への強調を保つ。</div>
+            <div class="tr" lang="tr"><strong>窓から眺める</strong> gözlem, turistin bakışı. <strong>家を丸ごと移す</strong> kökten göç: kımıldayan kişi değil, düşünce yapısının binasıdır. Yabancı dilde öğrenmenin istiaresi. «丸ごと» (tümüyle) Türkçe aslın «ev» nesnesine yaptığı vurguyu korur.</div>
+        </div>
+    </details>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism">コミュニケーションの半分は塗り潰されている。</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja">トルコ語 <em>karartılmıştır</em> は検閲(意図的な黒塗り)と停電(灯りが消える)を同時に負う。<strong>塗り潰す</strong>は文書を墨で消す動作を指し、検閲と暗転の両義を視覚的に担う。受動形が主語を伏せる。塗るのは人ではなく、媒体そのものだ。</div>
+            <div class="tr" lang="tr">Türkçe <em>karartılmıştır</em> hem sansürü (bilinçli karartma) hem elektrik kesintisini birlikte taşır. <strong>塗り潰す</strong> (nuritsubusu) bir belgeyi mürekkeple karartma eylemidir; sansür ile kararmayı görsel olarak birlikte verir. Edilgen çatı özneyi gizler: karartan kişi değil, ortamın kendisidir.</div>
+        </div>
+    </details>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism" style="color: var(--bone-bright);">人工知能は拡大鏡だ。そこにあるものを、そのまま拡大する。</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja"><strong>拡大鏡</strong>が標準の対応語。「そこにあるものを、そのまま」がトルコ語 <em>ne varsa onu</em>(あるものを、それを)の同語反復のリズムを写す。道具は善も悪も生まない。あるものを大きくするだけだ。</div>
+            <div class="tr" lang="tr"><strong>拡大鏡</strong> (kakudaikyō, büyüteç) standart karşılık. «そこにあるものを、そのまま» Türkçe <em>ne varsa onu</em>nun yineleme ritmini yansıtır. Araç ne iyi ne kötü üretir; olanı büyütür.</div>
+        </div>
+    </details>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism">面と向かえば責任は課され、画面では選ばれる。</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja"><strong>課され</strong>(押しつけられる)と<strong>選ばれる</strong>(選び取られる)が対を成す。ともに受動形。面前では責任が降りかかり、画面の上では自ら選ぶものになる。トルコ語 <em>dayatılır／seçilir</em> の受動の均衡をそのまま保つ。</div>
+            <div class="tr" lang="tr"><strong>課され</strong> (dayatılır) ile <strong>選ばれる</strong> (seçilir) çift kurar; ikisi de edilgen. Yüz yüze sorumluluk üstüne çöker, ekranda ise seçtiğin şeye döner. Türkçe <em>dayatılır/seçilir</em> edilgen dengesi korundu.</div>
+        </div>
+    </details>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism">文を声に移すことは、同じ言語のなかの翻訳だ。</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja">トルコ語 <em>çevirmek</em> は「回す・転じる」と「翻訳する」を一語で担うが、日本語にこの二重の一語はない。そこで<strong>移す</strong>を採った。「移す」は媒体を越えて運ぶこと、翻訳の語源「渡し運ぶ」に静かに響く。形式の変化に見えて、ヤコブソンの言う<strong>言語内翻訳</strong>である。</div>
+            <div class="tr" lang="tr">Türkçe <em>çevirmek</em> hem «döndürmek» hem «tercüme etmek»i tek sözcükte taşır; Japoncada bu çifte kelime yok. Bu yüzden <strong>移す</strong> (utsusu) seçildi: ortamı aşarak taşımak, çevirinin kökündeki «karşıya taşımak»a sessizce yankılanır. Biçim değişimi sandığımız şey, Jakobson'un deyimiyle <strong>dil-içi çeviri</strong>dir.</div>
+        </div>
+    </details>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism" style="color: var(--bone-bright);">憎しみは昨日、私を所有していた。今日、それは私の素材だ。</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja">主客が入れ替わる。昨日は憎しみが主で、私は所有される側。今日は私が主で、憎しみは<strong>素材</strong>、すなわち作るための材となる。「昨日／今日」が時の境を引き、「所有していた」の過去が反転を際立たせる。</div>
+            <div class="tr" lang="tr">Özne ile nesne yer değiştirir. Dün nefret özne, ben sahip olunan; bugün ben özne, nefret <strong>素材</strong> (sozai, malzeme): yapmak için gereç. «昨日／今日» zaman sınırını çeker; «所有していた» geçmişi tersine dönüşü belirginleştirir.</div>
+        </div>
+    </details>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism">微笑んだ者は、最初の一瞬に、すでに自らを解読していた。</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja"><strong>解読</strong>は暗号を解く語で、トルコ語 <em>deşifre etmek</em>(仏 <em>déchiffrer</em>、アラビア語 <em>ṣifr</em>「零・暗号」由来)の暗号学的な含みを担う。「すでに…していた」が過去完了を写す。暗号は微笑む者自身、鍵はその微笑み。</div>
+            <div class="tr" lang="tr"><strong>解読</strong> (kaidoku) şifre çözme sözcüğü; Türkçe <em>deşifre etmek</em>in (Fr. <em>déchiffrer</em>, Ar. <em>ṣifr</em> «sıfır/şifre») kriptografik tınısını taşır. «すでに…していた» pluperfect'i yansıtır. Şifre gülümseyenin kendisi, anahtar gülümsemedir.</div>
+        </div>
+    </details>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism" style="color: var(--bone-ghost); letter-spacing: 0.02em;">容易なことは、とうに済んでいる。</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja"><strong>とうに</strong>が「とっくに・ずっと前に」を言い、トルコ語 <em>çoktan</em> の含みを担う。「済んでいる」の現在形が結果の残存を示す。含意は残る。残ったのは、難しいことだ。</div>
+            <div class="tr" lang="tr"><strong>とうに</strong> (tōni) «çoktan, çok önceden»i söyler; Türkçe <em>çoktan</em>ın tınısını taşır. «済んでいる» şimdiki hali sonucun kalıcılığını gösterir. İma kalır: geriye kalan, zor olandır.</div>
+        </div>
+    </details>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism" style="color: var(--bone-bright);">幸福の絵？</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja">ナーズム・ヒクメトが1953年、ブルガリア亡命中に画家アビディン・ディノへ宛てた問い、「アビディン、幸福の絵を描けるか」。その極限の凝縮である。名詞句と問号だけ、動詞はない。日本語の動詞なき問いの形にそのまま収まり、アビディンの守った沈黙が省略に畳み込まれる。</div>
+            <div class="tr" lang="tr">Nâzım Hikmet'in 1953'te Bulgaristan sürgününden ressam Abidin Dino'ya sorduğu «Abidin, mutluluğun resmini yapabilir misin?»in en uç damıtımı: yalnız isim öbeği + soru işareti, fiil yok. Japoncanın fiilsiz askı-soru biçimine tam oturur; Abidin'in tuttuğu sessizlik eksiltiye katlanır.</div>
+        </div>
+    </details>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism" style="color: var(--bone-ghost); letter-spacing: 0.02em;">満ちた頭に、思考は宿らない。</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja">「Xに Yは宿らない」の型は「健全なる精神は健全なる身体に宿る」を裏返して踏む。<strong>宿る</strong>(住まう)が「満ちた」を器の満杯へと確定させる。住む者には空きが要るからだ。禅の「満ちた茶碗」の像に静かに寄り添う。トルコ語 <em>zihin</em>(頭・知)は<strong>頭</strong>で受けた。日本語で考えるのは頭の仕事だ(頭を使う)。</div>
+            <div class="tr" lang="tr">«X ni Y wa yadoranai» kalıbı «sağlam ruh sağlam bedende barınır»ı tersinden basar. <strong>宿る</strong> (yadoru, barınmak) «dolu»yu kabın dolgunluğuna sabitler: barınacak olanın boşluğa ihtiyacı vardır. Zen'in «dolu çay kâsesi» imgesine sessizce yaslanır. Türkçe <em>zihin</em> için <strong>頭</strong> (atama): Japoncada düşünmek başın işidir.</div>
+        </div>
+    </details>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism">人工知能は幻覚を見ない。確かめない人間が見る。</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja"><strong>幻覚を見る</strong>は心理学と人工知能の双方で「hallucinate」の標準語。日本語でも「幻覚を見る」という同じ言い回しが成り立ち、「見ない／見る」の対がそのまま張れる。幻覚は機械の欠陥ではなく、<strong>確かめない</strong>人間の失敗である。</div>
+            <div class="tr" lang="tr"><strong>幻覚を見る</strong> (genkaku o miru) hem psikolojide hem yapay zekâda «hallucinate»ın standardı. Japoncada da «hallüsinasyon görmek» aynı deyimle kurulur; «görmez/görür» çifti aynen gerilir. Halüsinasyon makinenin kusuru değil, <strong>確かめない</strong> (doğrulamayan) insanın başarısızlığıdır.</div>
+        </div>
+    </details>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism" style="color: var(--bone-bright);">思考の規則を書かなければ、思考があなたを書く。</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja">同じ動詞<strong>書く</strong>を二度、主客を入れ替える交差配列。「書く」は<strong>著す</strong>力を双方向に担う(小説を書く=著す)。<strong>記す</strong>(書き留める)では「思考があなたを記す」が「書き留める」に薄まり、自らの思考に<strong>著される</strong>という脅威が消える。<em>düşünce</em> は過程を指す<strong>思考</strong>で受けた(体系・思想ではなく)。この箴言自体、思考の規則を書く行為である。</div>
+            <div class="tr" lang="tr">Aynı fiil <strong>書く</strong> (kaku) iki kez, özne-nesne yer değiştirir: çapraz dizim. «書く» her iki yönde <strong>yazarlık</strong> gücünü taşır (小説を書く = eser vermek). <strong>記す</strong> (not almak) ile «思考があなたを記す» «not eder»e iner; kendi düşüncenle <strong>kaleme alınmanın</strong> tehdidi kaybolur. <em>düşünce</em> için süreç anlamındaki <strong>思考</strong> seçildi (sistem/ideoloji 思想 değil). Aforizmanın kendisi, düşüncenin kurallarını yazma eylemidir.</div>
+        </div>
+    </details>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism" style="color: var(--bone-ghost); letter-spacing: 0.06em;">問うことは答えるより難しい。</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja">二つの動詞(<strong>問う</strong>・<strong>答える</strong>)を比較でつなぐ。トルコ語の格や助詞は落ち、裸の主張が残る。これはこのサイトの標語の言い換えである。巨大な扉の「問いは答えより重い」を、静かな一行が反響する。</div>
+            <div class="tr" lang="tr">İki fiil (<strong>問う</strong> sormak, <strong>答える</strong> cevap vermek) karşılaştırmayla bağlanır. Türkçenin ekleri düşer, çıplak iddia kalır. Bu, sitenin mottosunun başka söylenişi: dev kapıdaki «問いは答えより重い»yi sakin bir satır yankılar.</div>
+        </div>
+    </details>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism" style="color: var(--bone-bright);">あらゆるものの九割はゴミだ。この一文も例外ではない。</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja">スタージョンの法則。<strong>ゴミ</strong>はトルコ語 <em>çöp</em> の、飾らぬ「くず・がらくた」の語感に等しい。文語的な「屑」より即物的で鋭い。「この一文も例外ではない」が自己言及の輪を閉じる。法則は自らにも及ぶ。</div>
+            <div class="tr" lang="tr">Sturgeon Yasası. <strong>ゴミ</strong> (gomi) Türkçe <em>çöp</em>ün süssüz «çöp/döküntü» tonuna denk; edebi «屑»ten daha somut ve keskin. «この一文も例外ではない» öz-gönderim halkasını kapatır: yasa kendine de işler.</div>
+        </div>
+    </details>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism">言葉が腐れば、思考も腐る。</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja"><strong>腐る</strong>を二度繰り返し、トルコ語 <em>çürü-</em> の二重の谺を写す。読点に条件を畳み込む箴言の作法、「ば」だけで因果を張る。<em>dil</em> は生きた言葉を指す<strong>言葉</strong>で受けた(体系の <strong>言語</strong> ではなく)。腐敗という有機の比喩に、言葉のほうがふさわしい。</div>
+            <div class="tr" lang="tr"><strong>腐る</strong> (kusaru, çürümek) iki kez yinelenir; Türkçe <em>çürü-</em> çift yankısını yansıtır. Koşulu virgüle/«ば»ya katlayan aforizma sanatı. <em>dil</em> için yaşayan söz anlamındaki <strong>言葉</strong> (kotoba) seçildi (sistem <strong>言語</strong> değil): çürüme gibi organik istiareye söz daha yakışır.</div>
+        </div>
+    </details>
+</section>
+
+<section class="first-wall">
+    <div class="aphorism" style="color: var(--bone-ghost); letter-spacing: 0.02em;">有機体は大きくなるほど遅くなる。<br>遅さは弱さではない。</div>
+    <details class="note">
+        <summary>訳注 · Çeviri notu</summary>
+        <div class="note-body">
+            <div class="target" lang="ja">二文。ひとつは観察、ひとつは再評価。「〜ほど〜」の相関がトルコ語 <em>ne kadar…o kadar</em> を写す。第二文が転じる。<strong>遅さ</strong>(抽象名詞)は<strong>弱さ</strong>(別の抽象名詞)ではない。排除によって定める二つの否定。改行は構造だ。自らを正す箴言。</div>
+            <div class="tr" lang="tr">İki cümle: biri gözlem, biri yeniden değerlendirme. «〜ほど〜» koşutluğu Türkçe <em>ne kadar…o kadar</em>ı yansıtır. İkinci cümle döner: <strong>遅さ</strong> (yavaşlık, soyut isim) <strong>弱さ</strong> (zaaf, bir başka soyut isim) değildir. Dışlamayla tanımlayan iki olumsuzlama. Satır sonu yapısaldır: kendini düzelten aforizma.</div>
+        </div>
+    </details>
+</section>
+
+<section class="limbs">
+    <div class="limb">
+        <span class="limb-name">yontu</span>
+        <span class="limb-what">手</span>
+    </div>
+    <div class="limb">
+        <span class="limb-name">savak</span>
+        <span class="limb-what">第二の目</span>
+    </div>
+    <div class="limb">
+        <span class="limb-name">duyuş</span>
+        <span class="limb-what">耳</span>
+    </div>
+    <div class="limb">
+        <span class="limb-name">seda</span>
+        <span class="limb-what">声</span>
+    </div>
+    <div class="limb limb-human">
+        <span class="limb-name">halit cengiz uzuner</span>
+        <span class="limb-what">訳者</span>
+    </div>
+</section>
+
+<footer class="seal">
+    <a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a>
+    <span class="seal-sep"> · </span>
+    <a href="https://halitcengizuzuner.substack.com" target="_blank" rel="noopener">substack</a>
+    <span class="seal-sep"> · </span>
+    <a href="https://bsky.app/profile/halitcengizuzuner.com" target="_blank" rel="noopener">bluesky</a>
+    <!-- imza: her güncellemede onu yapan model yeniler (model adı + tarih) -->
+    <p class="upkeep-sign" style="margin-top: 1.8rem; font-size: 0.78rem; color: var(--bone-ghost); letter-spacing: 0.04em; font-family: var(--serif);">最終更新者：Claude Opus 4.8 · 2026年7月18日</p>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('seen'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.stance, .welcome, .limbs, .seal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
