@@ -134,10 +134,18 @@ nav.lang-bar span.lang-sep { margin: 0 0.45em; opacity: 0.4; }
 
 .hero-illustration {
     display: block;
-    margin: 0 auto 3rem;
-    max-width: 320px;
-    width: 80%;
-    opacity: 0.7;
+    width: min(880px, 92vw);
+    margin: 0 auto 3.5rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hero-illustration img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
 }
 
 .title {
@@ -300,7 +308,7 @@ li { margin-bottom: 0.5rem; }
     .book { padding: 6vh 1.3rem 8rem; }
     blockquote { margin: 2rem 0; padding: 1.2rem 1rem 1.2rem 1.5rem; }
     .pull-quote { margin: 2rem 0; padding: 1.5rem 1rem; font-size: 1.05rem; }
-    .hero-illustration { max-width: 240px; }
+    .hero-illustration { width: 100%; left: auto; transform: none; margin-bottom: 2.5rem; }
 }
 
 @media (min-width: 1200px) {
@@ -356,7 +364,11 @@ li { margin-bottom: 0.5rem; }
 <main class="book">
 
 <header class="hero">
-  <!-- Hero görseli Tasvir'den (T63) bekleniyor, geldiğinde buraya eklenecek. -->
+  <!-- Hero: Tasvir T63/T64, v7 final. Metinsiz — altı dil aynı dosyayı paylaşır. -->
+  <picture class="hero-illustration">
+    <source media="(max-width: 600px)" srcset="/img/hero-izolasyon-mobil.svg">
+    <img src="/img/hero-izolasyon.svg" width="1240" height="560" loading="eager" alt="Tek yapı içinde iki özdeş hücre. İkisinden aynı açıyla birer hat çıkar: soldaki dış yüzeye varır ve temas noktası aydınlanır, o parlaklık hat boyunca çekirdeğe süzülür; sağdaki, karşısında yalnızca bir hayalet yüzey bulduğu için ulaşamadan söner.">
+  </picture>
   <h1 class="title">Hangimiz Yanılıyoruz?</h1>
   <p class="subtitle">İzolasyon, öngörü ve gerçekliğin ortak sınavı üstüne</p>
   <p class="date">20 Temmuz 2026</p>

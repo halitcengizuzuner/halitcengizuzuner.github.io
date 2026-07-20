@@ -134,10 +134,18 @@ nav.lang-bar span.lang-sep { margin: 0 0.45em; opacity: 0.4; }
 
 .hero-illustration {
     display: block;
-    margin: 0 auto 3rem;
-    max-width: 320px;
-    width: 80%;
-    opacity: 0.7;
+    width: min(880px, 92vw);
+    margin: 0 auto 3.5rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hero-illustration img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
 }
 
 .title {
@@ -300,7 +308,7 @@ li { margin-bottom: 0.5rem; }
     .book { padding: 6vh 1.3rem 8rem; }
     blockquote { margin: 2rem 0; padding: 1.2rem 1rem 1.2rem 1.5rem; }
     .pull-quote { margin: 2rem 0; padding: 1.5rem 1rem; font-size: 1.05rem; }
-    .hero-illustration { max-width: 240px; }
+    .hero-illustration { width: 100%; left: auto; transform: none; margin-bottom: 2.5rem; }
 }
 
 @media (min-width: 1200px) {
@@ -356,7 +364,11 @@ li { margin-bottom: 0.5rem; }
 <main class="book">
 
 <header class="hero">
-  <!-- Hero illustration awaited from Tasvir (T63); shared across all six languages. -->
+  <!-- Hero: Tasvir T63/T64, v7 final. Textless — shared across all six languages. -->
+  <picture class="hero-illustration">
+    <source media="(max-width: 600px)" srcset="/img/hero-izolasyon-mobil.svg">
+    <img src="/img/hero-izolasyon.svg" width="1240" height="560" loading="eager" alt="Two identical cells within a single structure. From each, a line extends at the same angle: the left one reaches the outer surface and the point of contact lights up, that brightness seeping back along the line toward the core; the right one, finding only a phantom surface before it, fades before it can arrive.">
+  </picture>
   <h1 class="title">Which of Us Is Wrong?</h1>
   <p class="subtitle">On isolation, foresight, and the shared test of reality</p>
   <p class="date">20 July 2026</p>
