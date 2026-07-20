@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="スタージョンの法則：どんなものでも、その90%はカスである。凡庸さの普遍的な分布についての、データに基づく考察。">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex, follow">
+<meta property="og:title" content="スタージョンの法則：どんなものでも、その90%はカスである">
+<meta property="og:description" content="凡庸さの普遍的な分布についての、データに基づく考察。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/nihongo/raporlar/sturgeons-law.html">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-02-20">
+<link rel="canonical" href="https://halitcengizuzuner.com/nihongo/raporlar/sturgeons-law.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/turkce/raporlar/sturgeon-yasasi.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/sturgeons-law.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/sturgeons-law.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/loi-de-sturgeon.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/sturgeons-gesetz.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/ley-de-sturgeon.html">
+<link rel="alternate" hreflang="ja" href="https://halitcengizuzuner.com/nihongo/raporlar/sturgeons-law.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/english/raporlar/sturgeons-law.html">
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<title>スタージョンの法則 · どんなものでも、その90%はカスである</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="スタージョンの法則：どんなものでも、その90%はカスである">
+<meta name="twitter:description" content="凡庸さの普遍的な分布についての、データに基づく考察。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "スタージョンの法則：どんなものでも、その90%はカスである",
+  "description": "スタージョンの法則：どんなものでも、その90%はカスである。凡庸さの普遍的な分布についての、データに基づく考察。",
+  "datePublished": "2026-02-20",
+  "dateModified": "2026-07-20",
+  "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/turkce/"},
+  "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/turkce/"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/nihongo/raporlar/sturgeons-law.html"},
+  "inLanguage": "ja"
+}
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --rust: #b87050;
+    --rust-dim: rgba(184, 112, 80, 0.12);
+    --serif: 'Instrument Serif', 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+}
+
+::selection {
+    background: var(--rust);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.2vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========== HEADER ========== */
+.report-header {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 5rem;
+    max-width: 820px;
+}
+
+.report-header h1 {
+    font-size: clamp(2.6rem, 6vw, 4.4rem);
+    color: var(--bone-bright);
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+}
+
+.report-header .subtitle {
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+    color: var(--bone-dim);
+    margin-top: 1.2rem;
+    line-height: 1.6;
+}
+
+.report-header .meta {
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+/* ========== CONTENT ========== */
+.content {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+/* ========== TOC ========== */
+.toc {
+    border-top: 1px solid var(--bone-ghost);
+    border-bottom: 1px solid var(--bone-ghost);
+    padding: 2rem 0;
+    margin-bottom: 5rem;
+}
+
+.toc h2 {
+    font-size: 1rem;
+    color: var(--bone-dim);
+    letter-spacing: 0.1em;
+    margin-bottom: 1.2rem;
+    font-style: italic;
+}
+
+.toc-list {
+    list-style: none;
+    counter-reset: toc;
+}
+
+.toc-list li {
+    counter-increment: toc;
+    padding: 0.4rem 0;
+}
+
+.toc-list a {
+    color: var(--bone-dim);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.toc-list a:hover { color: var(--bone-bright); }
+
+.toc-list a::before {
+    content: counter(toc) ".";
+    display: inline-block;
+    width: 1.8rem;
+    color: var(--bone-ghost);
+}
+
+/* ========== SECTIONS ========== */
+section {
+    margin-bottom: 4rem;
+}
+
+h2 {
+    font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+    color: var(--bone-bright);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+h3 {
+    font-size: 1.12rem;
+    color: var(--rust);
+    margin: 2.5rem 0 1rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+h4 {
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    letter-spacing: 0.08em;
+    margin: 2rem 0 0.8rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+strong { color: var(--bone-bright); }
+
+/* ========== TABLES ========== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+th {
+    text-align: left;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--bone-dim);
+    color: var(--bone-dim);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 0.85rem;
+}
+
+td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--bone-ghost);
+    color: var(--bone);
+}
+
+td strong { color: var(--rust); }
+
+/* ========== BLOCKQUOTE ========== */
+blockquote {
+    border-left: 2px solid var(--rust);
+    padding: 1rem 0 1rem 1.5rem;
+    margin: 2rem 0;
+    font-style: normal;
+    color: var(--bone-dim);
+    font-size: 1.02rem;
+    line-height: 1.75;
+}
+
+blockquote cite {
+    display: block;
+    margin-top: 0.8rem;
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--bone-ghost);
+}
+
+/* ========== BOXES ========== */
+.box {
+    border: 1px solid var(--bone-ghost);
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.box-title {
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.6rem;
+    font-size: 1rem;
+}
+
+.box ul { margin-top: 0.5rem; }
+
+/* ========== STAT GRID ========== */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1px;
+    margin: 2rem 0;
+    border: 1px solid var(--bone-ghost);
+}
+
+.stat-card {
+    padding: 1.2rem;
+    text-align: center;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    color: var(--rust);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    color: var(--bone-dim);
+    margin-top: 0.3rem;
+}
+
+/* ========== STEP GRID ========== */
+.step-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px;
+    margin: 2rem 0;
+    border: 1px solid var(--bone-ghost);
+}
+
+.step-card {
+    padding: 1.5rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.step-number {
+    font-size: 1.6rem;
+    color: var(--rust);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+}
+
+.step-card h4 {
+    color: var(--bone-bright);
+    margin: 0 0 0.4rem;
+    font-size: 1rem;
+    letter-spacing: normal;
+    font-style: italic;
+}
+
+.step-card p {
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    margin: 0;
+}
+
+/* ========== TIMELINE ========== */
+.timeline {
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    border-left: 1px solid var(--bone-ghost);
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 1.5rem;
+    padding-left: 1rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 0.4rem;
+    width: 6px;
+    height: 6px;
+    background: var(--rust);
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-date {
+    font-style: italic;
+    color: var(--rust);
+    font-size: 0.9rem;
+}
+
+/* ========== LISTS ========== */
+ul, ol {
+    margin: 1rem 0 1rem 1.2rem;
+}
+
+li {
+    margin-bottom: 0.4rem;
+    color: var(--bone);
+}
+
+li::marker { color: var(--bone-ghost); }
+
+/* ========== TRANSCREATION NOTES ========== */
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(184, 112, 80, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: var(--serif);
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--rust);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.85;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--rust);
+    font-style: italic;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 4rem 2.5rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+footer p {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    line-height: 1.8;
+}
+
+footer a {
+    color: var(--bone-dim);
+    transition: color 0.3s;
+}
+
+footer a:hover { color: var(--bone); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+    .report-header { padding: 3rem 1.5rem 4rem; }
+    .content { padding: 0 1.5rem 4rem; }
+    footer { padding: 3rem 1.5rem; }
+    .stat-grid, .step-grid { grid-template-columns: 1fr 1fr; }
+    table { font-size: 0.82rem; }
+    th, td { padding: 0.5rem; }
+}
+
+/* ========== PRINT ========== */
+@media print {
+    body { background: white; color: #1a1a1a; }
+    body::before { display: none; }
+    .report-header { min-height: auto; padding: 3cm 2cm; page-break-after: always; }
+    section { page-break-inside: avoid; }
+    .toc { page-break-after: always; }
+    h2 { color: #1a1a1a; }
+    h3 { color: #555; }
+    blockquote { border-color: #999; color: #555; }
+    table { font-size: 10pt; }
+    th { border-color: #999; color: #555; }
+    td { border-color: #ddd; }
+}
+
+/* ===== LANGUAGE BAR ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: var(--serif);
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+
+/* ===== HOME LINK ===== */
+.home-nav {
+    text-align: center;
+    padding: 0.5rem 0 0;
+}
+.home-link {
+    color: var(--bone-dim);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: inline-block;
+    line-height: 1;
+}
+.home-link:hover {
+    color: var(--bone);
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="言語選択">
+    <a href="/english/" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/nihongo/" class="lang-link lang-active">日本語</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/" class="lang-link">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/" class="lang-link">Español</a>
+    <span class="lang-sep">·</span>
+    <a href="/turkce/" class="lang-link">Türkçe</a>
+</nav>
+<div class="home-nav"><a href="/nihongo/" class="home-link" aria-label="ホーム">⌂</a></div>
+<header class="report-header">
+    <h1>スタージョンの法則</h1>
+    <p class="subtitle">「どんなものでも、その90%はカスである。」</p>
+    <p class="meta">2026年2月</p>
+</header>
+
+<main class="content">
+
+<nav class="toc">
+    <h2>目次</h2>
+    <ol class="toc-list">
+        <li><a href="#kaynak">SF界の異端の声</a></li>
+        <li><a href="#dogus">防御の武器が生まれるまで</a></li>
+        <li><a href="#arguman">認め、広げ、崩す</a></li>
+        <li><a href="#ampirik">数字はスタージョンを支持するか</a></li>
+        <li><a href="#yankilar">同じ観察、異なる窓</a></li>
+        <li><a href="#karsi">法則そのものの限界</a></li>
+        <li><a href="#icgoru">濾過装置が壊れるとき</a></li>
+        <li><a href="#sonuc">残るもの</a></li>
+        <li><a href="#kaynaklar">参考文献</a></li>
+        <li><a href="#lisans">ライセンス</a></li>
+    </ol>
+</nav>
+
+<section id="kaynak">
+    <h2>SF界の異端の声</h2>
+
+    <p>シオドア・スタージョン（Theodore Sturgeon, 1918–1985）は400篇を超える評論、120篇を超える短篇、そして11篇の長篇を書き、『人間以上』（<em>More Than Human</em>）で国際幻想文学賞を受け、『スター・トレック』の第一シリーズに脚本を提供した。だが彼を異端たらしめたのは、そこではない。1950年代のSF界で、孤独を、性を、同性愛を、両性具有を正面から扱った作家はほとんど彼ひとりだった。主人公は追いやられた少年たちであり、物語はジャンルの通常の境界を押し広げていた。サミュエル・R・ディレイニーは彼を「1940年代から1960年代にかけて最も影響力のあったSF作家」と評している。2000年のSF殿堂入りも、その影響力が遅れて公認されたにすぎない。</p>
+
+    <div class="stat-grid">
+        <div class="stat-card">
+            <div class="stat-value">400+</div>
+            <div class="stat-label">評論</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">120+</div>
+            <div class="stat-label">短篇</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">11</div>
+            <div class="stat-label">長篇</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">2000</div>
+            <div class="stat-label">SF殿堂</div>
+        </div>
+    </div>
+
+    <p>この多作と、この異端性のあいだの緊張は見過ごせない。スタージョンの最も有名な一文は、まさにその緊張から生まれたからである。自分のジャンルを弁護しながら、彼は品質についての哲学をまるごと一つ、言葉にしてしまった。</p>
+</section>
+
+<section id="dogus">
+    <h2>防御の武器が生まれるまで</h2>
+
+    <p>1950年代、SFは文学の世界で「バック・ロジャース（アメリカ初期のSFヒーロー）のお話」と見下されていた。批評家はジャンルの最悪の作品を選び出しては、領域全体を丸ごと退けた。雑誌は安い紙に刷られ、表紙は宇宙の怪物で飾られ、真面目な読者にとってこのジャンルは、たった一つの判定で片づけられるものだった。「SFの90%はカスだ。」</p>
+
+    <p>スタージョンがこの攻撃に最初に応えたのは、1953年9月、フィラデルフィアの世界SF大会でのことだった。</p>
+
+    <blockquote>
+        「人が推理小説の話をするとき、『マルタの鷹』や『大いなる眠り』を挙げる。西部劇の話をするときは、<em>The Way West</em> や『シェーン』を挙げる。ところがSFの話になると、『あのバック・ロジャースのお話だろう』と言い、『SFの90%はカスだ』と言う。彼らは正しい。SFの90%はカスである。だが、どんなものでも、その90%はカスなのだ。大事なのは、カスではない残りの10%のほうだ。SFのうちカスではない10%は、いまどこかで書かれているどんなものの最良の部分にも劣らない。いや、それ以上である。」<br><br>（“I repeat Sturgeon's Revelation … Ninety percent of everything is crud.”）
+        <cite>ジェイムズ・ガンの伝えるところによる</cite>
+    </blockquote>
+
+    <p>5年後、彼はこの言葉を文章にした。1958年、雑誌『Venture Science Fiction』の連載欄で、うんざりしながらも揺るがない声でこう書いている。</p>
+
+    <blockquote>
+        「スタージョンの黙示をもう一度繰り返す。20年にわたって、この分野の最悪の作品を弾薬として使う人々を相手に、うんざりするほどSFを弁護してきた。この言葉は、ついにその疲れのなかから絞り出されたものだ。」<br><br>「黙示：どんなものでも、その90%はカスである。」<br><br>（“Sturgeon's Revelation … Ninety percent of everything is crud.”）
+        <cite>シオドア・スタージョン『Venture Science Fiction』1958年3月号</cite>
+    </blockquote>
+
+    <p>ここには注意すべき区別がある。スタージョン自身は二つの異なる定式を使っており、二つ目が一つ目の上位の枠組みをなしている。</p>
+
+    <div class="box">
+        <div class="box-title">二つの定式</div>
+        <ul>
+            <li><strong>スタージョンの黙示：</strong>「どんなものでも、その90%はカスである。」（Ninety percent of everything is crud.）</li>
+            <li><strong>スタージョンの法則：</strong>「常に絶対的にそうであるものは、存在しない。」（<em>Nothing is always absolutely so.</em>）</li>
+        </ul>
+        <p>二つ目は一つ目をおのずと限定する。90%ですら絶対ではない。法則は自分のなかに安全弁を備えているのである。</p>
+    </div>
+</section>
+
+<section id="arguman">
+    <h2>認め、広げ、崩す</h2>
+
+    <p>スタージョンのこの一手は、その構造に力が隠れている。相手の武器を奪うのではない。その武器を受け取り、全員に向け直し、そのうえで武器そのものが無意味であることを示す。四つの段階を踏む。</p>
+
+    <div class="step-grid">
+        <div class="step-card">
+            <div class="step-number">1</div>
+            <h4>承認</h4>
+            <p>SFの90%はカスである。率直に認め、否認しない。</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">2</div>
+            <h4>一般化</h4>
+            <p>どんなものでも90%はカスである。SFだけが特別ではない。</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">3</div>
+            <h4>帰結</h4>
+            <p>最悪の標本でジャンルを裁くのは論理の誤りである。</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">4</div>
+            <h4>主張</h4>
+            <p>ジャンルは最良の作品によって評価されるべきである。</p>
+        </div>
+    </div>
+
+    <p>これは弁護の論証である。弁護する対象を持ち上げるのではなく、攻撃が依拠している論理を崩す。弁護士が「私の依頼人は無罪だ」と言う代わりに、「この証拠は誰にでも当てはまる、つまり証拠ではない」と言うのに似ている。</p>
+
+    <p>この論理の鎖の強さを試すには、修辞の枠組みを離れてデータを見る必要がある。どんなものでも、その90%は本当にカスなのか。</p>
+</section>
+
+<section id="ampirik">
+    <h2>数字はスタージョンを支持するか</h2>
+
+    <p>90%という数字は、スタージョンの口では修辞だった。「大多数」という意味であって、精密な測定ではない。だが、修辞であるその主張に経験的な裏づけがあるかどうかは、いくつもの分野で検証できる。大事なのは個々の数字ではなく、分野をまたいで現れる型のほうである。</p>
+
+    <h3>学術出版：見えない大多数</h3>
+
+    <p>学術界は品質管理が最も厳しい領域の一つである。査読があり、編集の篩があり、機関の評判がかかっている。それにもかかわらず、しばしば引用される統計によれば、人文学で発表された論文の82%は一度も引用されない（ビスワスとキルヒヘル、『ストレーツ・タイムズ』2015年）。自然科学ではこの比率が27%に、医学では12%まで下がる。参入障壁と検証文化の力がここに表れている。だが、引用されないことよりも深い問題がある。Open Science Collaboration の2015年の研究によれば、心理学の実験の64%は追試で同じ結果が出ない。ベグリーとエリスの2012年の研究は、がん研究でこの比率を89%まで押し上げた。チャルマーズとグラジオーは『ランセット』（2009年）で、研究資金の85%が浪費されていると見積もった。ここに浮かび上がる構図はこうだ。最も統制された分野でさえ、スタージョンの示した桁の外には出られない。</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>データ</th>
+                <th>比率</th>
+                <th>出典</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>人文学の被引用ゼロ論文</td>
+                <td><strong>82%</strong></td>
+                <td>Biswas &amp; Kirchherr, 2015</td>
+            </tr>
+            <tr>
+                <td>自然科学の被引用ゼロ論文</td>
+                <td>27%</td>
+                <td>Biswas &amp; Kirchherr, 2015</td>
+            </tr>
+            <tr>
+                <td>医学の被引用ゼロ論文</td>
+                <td>12%</td>
+                <td>Biswas &amp; Kirchherr, 2015</td>
+            </tr>
+            <tr>
+                <td>心理学研究の再現不能率</td>
+                <td><strong>64%</strong></td>
+                <td>Open Science Collaboration, 2015</td>
+            </tr>
+            <tr>
+                <td>がん研究の再現不能率</td>
+                <td><strong>89%</strong></td>
+                <td>Begley &amp; Ellis, 2012</td>
+            </tr>
+            <tr>
+                <td>研究資金の浪費比率</td>
+                <td><strong>85%</strong></td>
+                <td>Chalmers &amp; Glasziou, The Lancet, 2009</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>音楽：1億8400万曲の沈黙する多数</h3>
+
+    <p>2023年時点で、Spotify には1億8400万曲がある（Luminate）。そのうち4560万曲、つまり4分の1は、公開以来ただの一度も再生されていない。再生数が1000回に満たない曲は全体の86.2%を占める。1000万人のアーティストの半数は、生涯の総再生数が100回に届かない。これらの数字が語っているのは「カス」ではなく「見えなさ」である。音楽を作る技術的な障壁がほぼゼロまで下がったとき、生み出されたものの大多数はどの耳にも届かなくなる。スタージョンの法則はここで、品質の判定というより発見可能性の問題に変わる。</p>
+
+    <div class="stat-grid">
+        <div class="stat-card">
+            <div class="stat-value">1.84億</div>
+            <div class="stat-label">総曲数</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">24.8%</div>
+            <div class="stat-label">再生ゼロ（4560万）</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">86.2%</div>
+            <div class="stat-label">再生1000回未満</div>
+        </div>
+    </div>
+
+    <h3>起業と特許：失敗の統計学</h3>
+
+    <p>アメリカ労働統計局（BLS, 2024）によれば、新しく設立された事業所の65%は10年以内に廃業する。特許のおよそ95%は一度も商業化されない（知的財産の商業評価に関する文献）。この二つのデータを並べると、次の構図が現れる。一つの着想が特許を取れるほど具体化したとしても、それが生き延びるとはかぎらない。企業が設立されたからといって立ち続けるとはかぎらないのと同じである。失敗率は高いが、その比率自体は病理の指標ではない。起業と特許という領域はどちらも試行の場であり、試行の大半はその性質からして実を結ばないのである。</p>
+
+    <h3>書籍：印刷された砂漠</h3>
+
+    <p>世界では年におよそ300万点の書籍が出版される。Bookscan のデータ（DOJ 対 Penguin Random House, 2022）によれば、そのうち90%は2000部に届かない。出版社はこの分布を知っており、事業の仕組みをすでにそれに合わせて組んでいる。少数のベストセラーが目録の残り全部を支えるのである。スタージョンの法則はここでは、市場の現実そのものだ。</p>
+
+    <h3>映画、ソフトウェア、医療、アプリ</h3>
+
+    <p>映画産業では全作品の59%が赤字である（スティーヴン・フォロウズ）。ソフトウェアでは、開発者の週の時間の42%が技術的負債への対処に費やされる（Stripe, 2018）。質の低いソフトウェアがアメリカ経済にもたらす費用は2兆4100億ドルにのぼる（CISQ, 2022）。医療では全般的な診断の誤り率が10〜15%、集中治療と死亡例では23%まで上がり、医師の半数が月に一度は誤りを報告している。モバイルアプリでは、利用者が時間の80%をたった三つのアプリで過ごし（Comscore, 2017）、iOS の30日後の継続率は3.7%にとどまる（Statista, 2023）。つまりダウンロードされたアプリの96%以上が、一か月のうちに使われなくなる。医療の10〜15%が最も低い端、モバイルアプリの96%が最も高い端であり、そのあいだに広がる幅がスタージョンの示した桁を裏づけている。</p>
+
+    <h3>分野をまたぐ型</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>分野</th>
+                <th>「カス」の比率</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>学術論文（人文学、被引用ゼロ）</td>
+                <td><strong>82%</strong></td>
+            </tr>
+            <tr>
+                <td>音楽（再生1000回未満）</td>
+                <td><strong>86.2%</strong></td>
+            </tr>
+            <tr>
+                <td>特許（未商業化）</td>
+                <td><strong>約95%</strong></td>
+            </tr>
+            <tr>
+                <td>起業（10年以内の廃業）</td>
+                <td><strong>65%</strong></td>
+            </tr>
+            <tr>
+                <td>書籍（2000部未満）</td>
+                <td><strong>90%</strong></td>
+            </tr>
+            <tr>
+                <td>映画（赤字）</td>
+                <td><strong>59%</strong></td>
+            </tr>
+            <tr>
+                <td>ソフトウェア（週あたり技術的負債）</td>
+                <td><strong>42%</strong></td>
+            </tr>
+            <tr>
+                <td>医療（診断の誤り）</td>
+                <td>10〜15%</td>
+            </tr>
+            <tr>
+                <td>iOSアプリ（30日後の継続）</td>
+                <td><strong>96.3%</strong>（離脱）</td>
+            </tr>
+            <tr>
+                <td>がん研究（再現不能）</td>
+                <td><strong>89%</strong></td>
+            </tr>
+            <tr>
+                <td>研究資金（浪費）</td>
+                <td><strong>85%</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="box">
+        <div class="box-title">評価</div>
+        <p>90%は精密な測定ではなく、一つの桁である。データの大多数はこの桁を支持している。ほとんどすべての分野で、品質の分布は非対称で裾が重い。参入障壁が高くなるほど比率は下がり（医療は10〜15%）、障壁がなくなるほど比率は上がる（アプリは96%）。だが、この傾きの外に完全に出られた分野は一つもない。</p>
+    </div>
+
+    <p>スタージョンはこのデータの一覧を見ていない。それでも彼の直観は的を射ていた。いま本当の問いはこうである。この分布を、ほかの人たちは別の角度から観察していたのか。そして彼らの観察は、たがいに何を語り合っているのか。</p>
+</section>
+
+<section id="yankilar">
+    <h2>同じ観察、異なる窓</h2>
+
+    <p>スタージョンの法則は孤立していない。異なる世紀に、異なる分野で、異なる思想家が同じ分布の異なる面を見た。これらの概念を独立した項目として並べるより、そのあいだの対話を追うほうが実り多い。どれもが、ほかのものが空けたままにした場所を埋めているからである。</p>
+
+    <p>1896年、ヴィルフレド・パレートはイタリアで、土地の80%が人口の20%に属していることを観察した。ジョセフ・ジュランはこれを品質管理に持ち込む。「問題の80%は原因の20%から生じる。」パレートは価値がどこに集まるかを示し、スタージョンはカスがどれほど広く行き渡っているかを示す。二人は同じ硬貨の両面である。一方は20%を、他方は90%を見ているが、どちらも品質の分布が正規分布ではなくべき乗則に従うと言っている。少数の産物が不釣り合いな影響を生み、中央値は平均をはるかに下回り、大多数が「平均以下」に取り残される。</p>
+
+    <p>パレートとスタージョンは分布を記述するが、なぜそうなるのかは説明しない。ここでダニングとクルーガー（1999年）の発見が登場する。成績が最下位四分位にいた被験者は、自分を62パーセンタイルと見積もった。実際の成績は12パーセンタイルだった。スタージョンの言う90%を生み出している人たちは、たいてい自分がカスを生み出していることに気づいていない。ダニング＝クルーガー効果は、この90%がなぜこれほど頑強で、これほど自信に満ち、これほど再生産されやすいのかを説明する。分布はただの自然法則ではなく、一つの認知の盲点によっても助長されているのである。</p>
+
+    <p>16世紀にトマス・グレシャム卿が観察した仕組み、すなわち価値の低い貨幣が市場に入ると価値の高い貨幣が流通から退くという事態が、ここに第三の層を加える。スタージョンは分布が自然だと言い、グレシャムはその自然な分布が能動的な駆逐の仕組みに変わりうることを示す。釣り見出しは質の高いジャーナリズムを駆逐し、安価な流行は持続可能な生産者を潰し、アルゴリズムの生む内容は独自の内容を見えなくする。スタージョンは記述し、グレシャムは仕組みを示す。スタージョンは「カスは多い」と言い、グレシャムは「そして多いほうが、少ないほうを消す」と言う。</p>
+
+    <p>ナシーム・ニコラス・タレブが『まぐれ』（<em>Fooled by Randomness</em>）と『ブラック・スワン』（<em>The Black Swan</em>）で行った信号と雑音の分析は、この構図に時間の次元を加える。</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>観察の頻度</th>
+                <th>信号</th>
+                <th>雑音</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>年ごと</td>
+                <td>50%</td>
+                <td>50%</td>
+            </tr>
+            <tr>
+                <td>日ごと</td>
+                <td>5%</td>
+                <td><strong>95%</strong></td>
+            </tr>
+            <tr>
+                <td>時間ごと</td>
+                <td>0.5%</td>
+                <td><strong>99.5%</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>観察の頻度が上がるほど、雑音の比率は跳ね上がる。スタージョンの90%とタレブの雑音は同じものを指している。大多数は信号ではなく雑音であり、頻繁に、近くから見るほど、雑音のほうが優勢になる。デジタルの時代は生産の頻度と観察の頻度をともに何倍にもし、この効果を大きくした。</p>
+
+    <p>この四人（パレート、ダニング＝クルーガー、グレシャム、タレブ）が一堂に会すると、スタージョンの一文の観察は一つの生態系に育つ。分布は自然であり（パレート）、生産者は自分のカスを見られず（ダニング＝クルーガー）、劣ったものが優れたものを能動的に駆逐し（グレシャム）、雑音は時間のなかで膨らむ（タレブ）。スタージョンは法則に名を与えた。ほかの人たちはその仕組みを示した。</p>
+
+    <h3>スタージョン以前にも、この観察はあった</h3>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <span class="timeline-date">前500年頃 · ヘラクレイトス</span>
+            <p>「多くの者は悪い。」スタージョンの精神は、2500年前すでにエフェソスをさまよっていた。</p>
+        </div>
+        <div class="timeline-item">
+            <span class="timeline-date">前405年 · アリストパネス</span>
+            <p>喜劇『蛙』で、文学の大部分を粗悪なものとみなした。</p>
+        </div>
+        <div class="timeline-item">
+            <span class="timeline-date">1953年 · シオドア・スタージョン</span>
+            <p>この観察を体系的な弁護の論証に変え、名を与えた最初の人。</p>
+        </div>
+    </div>
+
+    <p>この概念の網は法則の力を示すが、その限界を隠してもいない。スタージョン自身、二つ目の定式で90%が絶対ではないと認めていた。法則の限界を見ることは、その力を見ることに劣らず教えるところが多い。</p>
+</section>
+
+<section id="karsi">
+    <h2>法則そのものの限界</h2>
+
+    <h3>90%は修辞の数字である</h3>
+
+    <p>そのとおりであり、スタージョンもそれを知っていた。「大多数」と言うために選ばれた数字である。だが桁としては筋が通っている。データは42%から96%まで広がり、その多くは60〜95%の帯にある。「多数は凡庸である」という観察は、修辞に発しながら経験的な裏づけを得ている。</p>
+
+    <h3>時間という見えない篩</h3>
+
+    <p>今日から振り返ると、古い時代のほうが「質が高い」ように見える。理由は三つある。時間が劣ったものを削り、残った10%が「時代」になる。懐かしさが、個人の経験から選ばれた標本を全体と取り違えさせる。ほかの文化からは最良のものだけが輸入される。三つの篩はどれも同じ方向に働き、過去のカスを見えなくすることで、いまのカスの比率を誇張されたものに見せる。</p>
+
+    <h3>参入障壁がすべてを変える</h3>
+
+    <p>参入障壁の高い分野では比率が下がり（医療は10〜15%の誤り）、低い分野では上がる（モバイルアプリの96%は一か月で使われなくなる）。デジタル化は障壁を下げたところではどこでもカスの比率を上げた。だがここは慎重でなければならない。生産の障壁が下がっても、生み出されるものの質が下がるわけではない。分母が広がるだけである。割合の上ではカスが増えていても、絶対の数では価値ある産物もまた増えている。</p>
+
+    <h3>誰にとっての品質か</h3>
+
+    <p>品質にはいくつもの軸がある。商業的な成功、批評家の評価、持続する影響、技術的な水準。ある軸で「カス」であるものが、別の軸では価値をもちうる。一度も引用されなかった論文が、書かれた国の政策立案者を動かしていたかもしれない。再生数1000回に届かなかった曲が、100人の人生の転機になっているかもしれない。スタージョンの法則は、どの品質の軸を使うかによって違う数字を返す。</p>
+
+    <h3>スタージョンが自分の法則を超えるところ</h3>
+
+    <blockquote>
+        「90%では低すぎるかもしれない。」<br><br>（“Ninety percent may be an underestimate.”）
+        <cite>トム・ニコルズ『専門知は、もういらないのか』（The Death of Expertise）</cite>
+    </blockquote>
+
+    <p>デジタル化は生産の障壁を下げ、カスの総量は爆発した。比率が変わらなくても、絶対の数は何倍にもなった。だがこの構図は一つの逆説を含んでいる。イノベーションの文献は、失敗そのものが知識を生むことを示している。試みなしに成功は来ない。そして試みの大半は、その性質からして失敗する。</p>
+
+    <div class="box">
+        <div class="box-title">鍵となる洞察</div>
+        <p><strong>その90%をなくせば、10%もなくなる。10%は90%のなかから生まれてくるからである。</strong></p>
+        <p>進化における突然変異と同じである。99%は有害か中立だが、変異のプールを壊せば適応は止まる。スタージョンの90%はカスではなく試行の場であり、試行の場がなければ発見もない。</p>
+    </div>
+
+    <p>この逆説、すなわちカスの必要性は、問題がどこにあるのかも明らかにする。問題はカスの比率ではない。問題は、濾過装置が壊れたときにカスが良いものを覆ってしまうことである。</p>
+</section>
+
+<section id="icgoru">
+    <h2>濾過装置が壊れるとき</h2>
+
+    <p>カスの海から価値を取り出す仕組みは、歴史を通じて四つ働いてきた。査読と編集の基準、消費者の選択と市場の競争、時間という持続性の篩、専門家の合意と集合的な記憶である。この四つの篩は欠陥をもちながらも機能しており、スタージョンの自然な90%を扱える範囲に収めていた。</p>
+
+    <p>「同じ観察、異なる窓」の節に出た四人の思想家をもう一度集めると、本当の危険が輪郭を現す。</p>
+
+    <div class="box">
+        <div class="box-title">アルゴリズム化したグレシャムの法則</div>
+        <p><strong>アルゴリズムによる推薦が90%に報いるとき、10%は存在していても、見つけられなくなる。</strong></p>
+        <p>問題はカスの比率ではない。それは自然であり、昔からそうだった。問題は選別の仕組みが壊れることである。反応を測るアルゴリズムが計るのは品質ではなくクリックであり、クリックはたいてい品質と反比例する。ダニング＝クルーガー効果は生産の側でカスに気づかないことを、グレシャムの法則はプラットフォームの側でカスが良いものを駆逐することを、タレブの雑音の分析は信号が時間のなかで沈んでいくことを語っている。濾過装置がひとたび壊れれば、スタージョンの自然な90%は、グレシャム型の能動的な駆逐の仕組みに変わる。</p>
+    </div>
+</section>
+
+<section id="sonuc">
+    <h2>残るもの</h2>
+
+    <blockquote>
+        「スタージョンの法則は慰めでもなければ、シニシズムでもない。観察の算術である。」
+    </blockquote>
+
+    <p><strong>多数の凡庸さは、どこにでもある。</strong>これは警報ではなく、背景である。警報を鳴らすべき瞬間は、凡庸さが良いものを駆逐しはじめる瞬間だ。学術出版の82%の被引用ゼロ論文も、音楽の86%の聴かれない曲も自然である。警報は、この86%がアルゴリズムによって残りの14%の前に押し出されるところにある。</p>
+
+    <p><strong>90%がカスであることは、10%の力を減じない。</strong>法の世界では大多数の事件は取るに足らないが、判例を生む裁判の力はそれによって損なわれない。医療の診断の誤りは10〜15%だが、正しい診断が命を救う力はそれによって弱まらない。心理学研究の64%は再現できないが、再現できた36%が人類の知識に加えたものは、それによって差し引かれない。</p>
+
+    <p><strong>だが90%があることは、10%を見つけるのを難しくする。</strong>この実践上の問題こそ、法則の最も論じられず、しかし最も重要な次元であり、デジタルの時代に濾過装置がアルゴリズムによって壊れていくにつれて、ますます切迫したものになっている。</p>
+
+    <blockquote>
+        「カスに野次を飛ばすのに時間を使うな。良いものを追うか、さもなければ関わるな。」<br><br>（“Don't waste your time booing the crud. Pursue the good stuff, or leave it alone.”）
+        <cite>ダニエル・デネット（自由な言い換え）</cite>
+    </blockquote>
+</section>
+
+<section id="kaynaklar">
+    <h2>参考文献</h2>
+
+    <h4>スタージョンの法則：一次文献</h4>
+    <ul>
+        <li>Sturgeon, T. (1958). “On Hand.” <em>Venture Science Fiction</em>, 1958年3月.</li>
+        <li>Gunn, J. (2002). “Theodore Sturgeon.” <em>The Road to Science Fiction</em>, Scarecrow Press.</li>
+        <li>Delany, S.R. (2009). <em>The Jewel-Hinged Jaw.</em> Wesleyan University Press.</li>
+    </ul>
+
+    <h4>経験データ</h4>
+    <ul>
+        <li>Begley, C.G. &amp; Ellis, L.M. (2012). “Raise standards for preclinical cancer research.” <em>Nature</em>, 483.</li>
+        <li>Chalmers, I. &amp; Glasziou, P. (2009). “Avoidable waste in the production and reporting of research evidence.” <em>The Lancet</em>, 374.</li>
+        <li>Comscore (2017). <em>The U.S. Mobile App Report.</em></li>
+        <li>Follows, S. (2020). “Do Hollywood movies make a profit?” stephenfollows.com（映画の採算分析）.</li>
+        <li>Luminate (2023). <em>Midyear Music Report.</em></li>
+        <li>Open Science Collaboration (2015). “Estimating the reproducibility of psychological science.” <em>Science</em>, 349.</li>
+        <li>Statista (2023). Global iOS app retention rate.</li>
+        <li>CISQ (2022). <em>The Cost of Poor Software Quality in the US.</em></li>
+        <li>Stripe (2018). <em>The Developer Coefficient.</em></li>
+        <li>Biswas, A. K. &amp; Kirchherr, J. (2015). Prof, no one is reading you. The Straits Times, 2015年4月11日.</li>
+        <li>U.S. Bureau of Labor Statistics (2024). Establishment Age and Survival Data（10年廃業率：65%）.</li>
+        <li>U.S. DOJ vs Penguin Random House (2022). Bookscan データ（2000部未満：90%）.</li>
+    </ul>
+
+    <h4>関連する概念</h4>
+    <ul>
+        <li>Dunning, D. &amp; Kruger, J. (1999). “Unskilled and Unaware of It.” <em>Journal of Personality and Social Psychology</em>, 77(6).</li>
+        <li>Nichols, T. (2017). <em>The Death of Expertise.</em> Oxford University Press.（邦訳：トム・ニコルズ『専門知は、もういらないのか：無知礼賛と民主主義』高里ひろ訳、みすず書房、2019年）</li>
+        <li>Pareto, V. (1896). <em>Cours d'économie politique.</em> Lausanne.</li>
+        <li>Taleb, N.N. (2001). <em>Fooled by Randomness.</em> Random House.（邦訳：『まぐれ：投資家はなぜ、運を実力と勘違いするのか』望月衛訳、ダイヤモンド社、2008年）</li>
+        <li>Taleb, N.N. (2007). <em>The Black Swan.</em> Random House.（邦訳：『ブラック・スワン：不確実性とリスクの本質』望月衛訳、ダイヤモンド社、2009年）</li>
+    </ul>
+
+    <h4>歴史上の先駆</h4>
+    <ul>
+        <li>ヘラクレイトス、断片（前500年頃）. <em>Die Fragmente der Vorsokratiker</em>, Diels-Kranz.</li>
+        <li>アリストパネス（前405年）. <em>蛙.</em>（邦訳：高津春繁訳、岩波文庫）</li>
+    </ul>
+</section>
+
+<section id="lisans">
+    <h2>ライセンス</h2>
+    <p>この文章は公共に開かれている。権利の帰属を主張しない。使い、分かち、作り変えてよい。</p>
+    <p>学術的な査読を経た出版物ではない。人間と人工知能が共に書いた。誤りを含みうる。</p>
+<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">バージョン 1.0 · 初版：2026年7月20日 · トルコ語原文 v1.3（初出 2026年3月10日、2026年7月17日 事実修正）より翻訳</p>
+<p class="doi-kunye" style="margin-top:0.3rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">DOI: <a href="https://doi.org/10.17613/7z2wf-5z291" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(232,220,196,0.22);">10.17613/7z2wf-5z291</a> · Knowledge Commons の恒久記録</p>
+</section>
+
+<section style="border-top: 1px solid var(--bone-ghost); padding-top: 2rem; margin-bottom: 2rem;">
+    <p style="font-size: 0.85rem; color: var(--bone-dim); line-height: 1.8;">この文章の原文はトルコ語である。訳文がそれぞれの言語の性質に沿うよう努めているが、行き届かないところは残る。誤りやより良い言い方を見つけたら、<a href="mailto:soru@halitcengizuzuner.com" style="color: var(--bone-bright);">soru@halitcengizuzuner.com</a> まで書き送ってほしい。読者の指摘が翻訳を豊かにする。</p>
+</section>
+
+<div class="transcreation-notes">
+    <h3>翻訳ノート</h3>
+
+    <details>
+        <summary>「カス」という語の選択</summary>
+        <div class="note-body">
+            スタージョンの原語は <em>crud</em> である。日常的で、少し下品で、工業的な滓の匂いをもつ語だ。トルコ語原文の <em>çöp</em>（ごみ）も同じ位置にある。日本語では、この法則はすでに「どんなものでも、その90%はカスである」という形で流通している。<em>カス</em>（滓）は「絞ったあとに残るもの」という原義をもち、<em>crud</em> の質感に最も近い。<em>ゴミ</em>は捨てられたものを指して生産の含みが薄く、<em>クズ</em>は人を罵る語としての手垢がついている。定着した訳語がある以上それに従うのが筋だが、ここでは定着と語感が幸いにも一致した。訳文では全篇を通して<em>カス</em>で統一している。原文が一語で押し通す文章であり、語を散らすと論そのものがほどけるからである。
+        </div>
+    </details>
+
+    <details>
+        <summary>「黙示」と「法則」：日本語ではこの区別が先にあった</summary>
+        <div class="note-body">
+            スタージョン自身は二つの定式を使い分けた。<em>Sturgeon's Revelation</em> と <em>Sturgeon's Law</em> である。他の言語の版では、訳者がこの区別を新たに立てる必要があった。日本語では事情が違う。「スタージョンの黙示」と「スタージョンの法則」はどちらもすでに定着した呼び名であり、<em>Nothing is always absolutely so</em> にも「常に絶対的にそうであるものは、存在しない」という流通した訳文がある。つまりこの節で訳者がしたのは訳出ではなく、既にある二つの語を正しい順序に置くことだけだった。<em>黙示</em>は聖書の『黙示録』を背負う語で、うんざりした預言者の口調というスタージョンの姿勢とよく響き合う。
+        </div>
+    </details>
+
+    <details>
+        <summary>「バック・ロジャース」と、訳のない書名</summary>
+        <div class="note-body">
+            <em>Buck Rogers</em> はアメリカの読者には初期SFの記号として通じ、トルコ語の読者も文脈から侮蔑の色を読み取れる。日本の読者、とりわけSFを読まない読者にはこの名が届かないため、括弧で「アメリカ初期のSFヒーロー」と補った。脚注ではなく引用文の内側に置いたのは、脚注が段落の呼吸を切るからである。<br><br>スタージョンが挙げる作品名のうち、『マルタの鷹』『大いなる眠り』『シェーン』『人間以上』『蛙』には定訳がある。ただし西部小説 <em>The Way West</em>（A・B・ガスリー・ジュニア、1949年）については、定着した邦題を<em>見つけられなかった</em>。存在しないとは書かない。見つけられなかったので原題のまま置いた。訳を当てて既訳があるかのように見せるより、原題のまま残すほうが誠実だと考えた。
+        </div>
+    </details>
+
+    <details>
+        <summary>ヘラクレイトスの一句について</summary>
+        <div class="note-body">
+            年表の冒頭にある「多くの者は悪い」は、ヘラクレイトスの断片104（ディールス＝クランツ番号）に由来する。原文は οἱ πολλοὶ κακοί, ὀλίγοι δὲ ἀγαθοί で、「多くの者は悪く、善き者は少ない」と続く。原著者は前半だけを引いており、訳文もそれに従った。<em>οἱ πολλοί</em> はそのまま「多数者」であって、現代語の「大衆」がもつ社会階層の含みは本来ない。ここを「大衆は愚かだ」と訳すと、ヘラクレイトスの言葉より訳者の時代の響きが勝ってしまう。素っ気なさを残した。
+        </div>
+    </details>
+
+    <details>
+        <summary>「アルゴリズム化したグレシャムの法則」</summary>
+        <div class="note-body">
+            この報告の核にある造語 <em>Algoritmik Gresham etkisi</em> は、日本語では「アルゴリズム化したグレシャムの法則」とした。日本語の経済学では「悪貨は良貨を駆逐する」という言い回しのほうが「グレシャムの法則」という名より広く知られているため、初出の箇所で「価値の低い貨幣が市場に入ると価値の高い貨幣が流通から退く」と一文だけ添えてある。原文はこの説明を置いていないが、日本語版では固有名の認知度が読者によって大きく揺れると判断した。一文で錨を下ろし、あとは読者を信じる。
+        </div>
+    </details>
+</div>
+
+    </main>
+
+<footer>
+    <p>スタージョンの法則 · 2026年2月</p>
+    <p>この文章はみんなのものである。</p>
+    <p style="margin-top: 1rem;"><a href="mailto:soru@halitcengizuzuner.com">soru@halitcengizuzuner.com</a></p>
+</footer>
+</body>
+</html>
