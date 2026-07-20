@@ -728,7 +728,7 @@ th { color: var(--anlam-bright); font-weight: 400; }
 if (document.documentElement.classList.contains('js-on')) {
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('seen'); obs.unobserve(e.target); } });
-  }, { threshold: 0, rootMargin: '0px 0px -60px 0px', rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 }
 </script>
