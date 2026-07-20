@@ -34,6 +34,7 @@
   - Görünmez Boşluk: --bosluk (#7a8a9a) — soğuk gri mavi
   - Yapay Zekâyı Kim Kullanıyor: --bicak (#b08838) — bıçak amberi
   - Anlamak: --anlam (#708050) — zeytin yeşili
+  - Hangimiz Yanılıyoruz: --tas (#a4907a) — sıcak kireç ve taş (Dinle türetti, merkez imgeden: manastır ile hapishane aynı taştan yapılmış; oku ile dinle sürümü paleti ortak kullanır)
 - Grain overlay: fractalNoise SVG, mix-blend-mode overlay (opaklık rapor bazında farklı)
 - Responsive: clamp() ile akışkan tipografi
 - Raporlar: /raporlar/ dizininde
