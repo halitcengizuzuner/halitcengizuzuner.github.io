@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="デジタルのテキスト対話における非言語的手がかりの消失、語用論的推論の崩れ、そして認知スタイルの衝突。書かれた環境で失われるチャンネルの物語。">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex, follow">
+<meta property="og:title" content="書かれた対話の見えない溝">
+<meta property="og:description" content="コミュニケーションの半分は暗がりに置かれている。非言語的手がかりの消失、語用論的推論の崩れ、認知スタイルの衝突について。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/nihongo/raporlar/invisible-gap.html">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-05-17">
+<link rel="canonical" href="https://halitcengizuzuner.com/nihongo/raporlar/invisible-gap.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/turkce/raporlar/gorunmez-bosluk.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/invisible-gap.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/invisible-gap.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/ecart-invisible.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/unsichtbare-luecke.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/brecha-invisible.html">
+<link rel="alternate" hreflang="ja" href="https://halitcengizuzuner.com/nihongo/raporlar/invisible-gap.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/english/raporlar/invisible-gap.html">
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<title>書かれた対話の見えない溝</title>
+<noscript>
+  <style>.reveal { opacity: 1 !important; transform: none !important; } body { opacity: 1 !important; animation: none !important; }
+</style>
+</noscript>
+<script>document.documentElement.classList.add('js-on')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="書かれた対話の見えない溝">
+<meta name="twitter:description" content="コミュニケーションの半分は暗がりに置かれている。非言語的手がかりの消失と認知スタイルの衝突について。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "書かれた対話の見えない溝",
+  "description": "デジタルのテキスト対話における非言語的手がかりの消失、語用論的推論の崩れ、そして認知スタイルの衝突。",
+  "datePublished": "2026-05-17",
+  "dateModified": "2026-07-20",
+  "author": {
+    "@type": "Person",
+    "@id": "https://halitcengizuzuner.com/#person",
+    "name": "Halit Cengiz Uzuner",
+    "url": "https://halitcengizuzuner.com/turkce/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Halit Cengiz Uzuner",
+    "url": "https://halitcengizuzuner.com/turkce/"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://halitcengizuzuner.com/nihongo/raporlar/invisible-gap.html"
+  },
+  "inLanguage": "ja",
+  "sameAs": [
+    "https://substack.com/@halitcengizuzuner",
+    "https://bsky.app/profile/halitcengizuzuner.com",
+    "https://www.wikidata.org/wiki/Q140388810",
+    "https://medium.com/@avukathalituzuner"
+  ]
+}
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --bosluk: #7a8a9a;
+    --bosluk-bright: #9aaaba;
+    --bosluk-dim: rgba(122, 138, 154, 0.35);
+    --bosluk-ghost: rgba(122, 138, 154, 0.15);
+    --serif: 'Instrument Serif', 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+}
+
+::selection { background: var(--bosluk); color: var(--void); }
+html { font-size: clamp(17px, 1.2vw, 20px); scroll-behavior: smooth; }
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.10;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--bosluk-bright); }
+
+nav.lang-bar {
+    text-align: center;
+    padding: 1.2rem 1rem 0;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    color: var(--bone-ghost);
+}
+nav.lang-bar a { color: var(--bone-ghost); transition: color 0.2s; }
+nav.lang-bar a:hover { color: var(--bosluk-bright); }
+nav.lang-bar .active { color: var(--bone-bright); }
+nav.lang-bar span.sep { margin: 0 0.45em; opacity: 0.4; }
+
+.book {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 8vh 2.5rem 10rem;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 6vh;
+}
+
+.hero-illustration {
+    display: block;
+    margin: 0 auto 3rem;
+    max-width: 320px;
+    width: 80%;
+    opacity: 0.7;
+}
+
+.title {
+    font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 0.03em;
+    color: var(--bosluk-bright);
+    line-height: 1.1;
+    margin-bottom: 0.5em;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    color: var(--bone-ghost);
+    font-style: italic;
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto 1.5rem;
+}
+
+.date {
+    font-size: 0.75rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+}
+
+h2 {
+    color: var(--bosluk);
+    font-size: clamp(1.5rem, 3vw, 1.8rem);
+    font-weight: 400;
+    font-style: italic;
+    margin-top: 5rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+}
+
+h3 {
+    color: var(--bosluk-bright);
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-style: italic;
+    margin-top: 2.5rem;
+    margin-bottom: 0.8rem;
+}
+
+h4 {
+    color: var(--bosluk);
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: italic;
+    margin-top: 2rem;
+    margin-bottom: 0.6rem;
+}
+
+p { margin-bottom: 1.3rem; text-align: justify; line-break: strict; }
+em { color: var(--bone-bright); }
+strong { color: var(--bosluk-bright); font-weight: 600; }
+
+.section-divider {
+    display: block;
+    margin: 4rem auto;
+    text-align: center;
+    opacity: 0.3;
+}
+.section-divider svg { max-width: 200px; width: 50%; }
+
+blockquote {
+    position: relative;
+    margin: 2.5rem -1rem;
+    padding: 1.8rem 2rem 1.8rem 2.5rem;
+    border: none;
+    background: linear-gradient(135deg, var(--bosluk-ghost), transparent 70%);
+    border-radius: 2px;
+    font-style: italic;
+    color: var(--bone-dim);
+    line-height: 1.8;
+}
+blockquote::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--bosluk);
+    opacity: 0.6;
+    border-radius: 2px;
+}
+blockquote p { margin-bottom: 0.5rem; text-align: left; }
+
+.pull-quote {
+    margin: 3rem -2rem;
+    padding: 2rem 2.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--bosluk-bright);
+    line-height: 1.7;
+    border-top: 1px solid var(--bosluk-dim);
+    border-bottom: 1px solid var(--bosluk-dim);
+}
+
+.illustration {
+    display: block;
+    margin: 3rem auto;
+    max-width: 280px;
+    width: 70%;
+    opacity: 0.6;
+}
+.illustration.wide { max-width: 400px; width: 90%; }
+
+ol, ul { margin-bottom: 1.3rem; padding-left: 1.5rem; }
+li { margin-bottom: 0.5rem; }
+
+.kavram-rehberi {
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    background: var(--bosluk-ghost);
+    border-left: 3px solid var(--bosluk-dim);
+    border-radius: 2px;
+}
+.kavram-rehberi h3 { margin-top: 0; font-size: 0.95rem; color: var(--bosluk); }
+.kavram-rehberi ul { list-style: none; padding: 0; margin: 0; }
+.kavram-rehberi li { margin-bottom: 0.6rem; font-size: 0.9rem; color: var(--bone-dim); line-height: 1.6; }
+.kavram-rehberi li strong { color: var(--bosluk-bright); font-size: 0.85rem; letter-spacing: 0.05em; }
+
+.kaynakca {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--bosluk-ghost);
+}
+.kaynakca h2 { margin-top: 0; font-size: 1.2rem; }
+.kaynakca p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--bone-dim);
+    margin-bottom: 0.4rem;
+    text-align: left;
+}
+
+.diger-yazilar {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--bosluk-ghost);
+}
+.diger-yazilar h2 { margin-top: 0; font-size: 1.1rem; color: var(--bone-dim); }
+.diger-yazilar ul { list-style: none; padding: 0; }
+.diger-yazilar li { margin-bottom: 0.3rem; }
+.diger-yazilar a {
+    color: var(--bone-ghost);
+    font-size: 0.9rem;
+    transition: color 0.2s;
+    border-bottom: 1px solid transparent;
+}
+.diger-yazilar a:hover { color: var(--bosluk-bright); border-bottom-color: var(--bosluk-dim); }
+
+.footer {
+    margin-top: 4rem;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.15em;
+}
+.footer a { border-bottom: 1px solid var(--bone-ghost); }
+.footer a:hover { color: var(--bosluk-bright); border-bottom-color: var(--bosluk-bright); }
+
+.reveal { transition: opacity 0.8s ease, transform 0.8s ease; }
+.js-on .reveal { opacity: 0; transform: translateY(18px); }
+.reveal.seen { opacity: 1; transform: none; }
+
+@media (max-width: 600px) {
+    .book { padding: 6vh 1.3rem 8rem; }
+    blockquote { margin: 2rem 0; padding: 1.2rem 1rem 1.2rem 1.5rem; }
+    .pull-quote { margin: 2rem 0; padding: 1.5rem 1rem; font-size: 1.05rem; }
+    .hero-illustration { max-width: 240px; }
+    .kavram-rehberi { margin: 2rem 0; padding: 1.2rem 1.2rem; }
+}
+
+@media (min-width: 1200px) {
+    .book { max-width: 680px; }
+}
+
+.home-nav {
+    text-align: center;
+    padding: 0.5rem 0 0;
+}
+.home-link {
+    color: var(--bone-dim);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: inline-block;
+    line-height: 1;
+}
+.home-link:hover {
+    color: var(--bone-bright);
+}
+.dinle-kapisi { margin-top: 2.5rem; }
+.dinle-kapisi summary { font-size: 0.85rem; color: var(--bone-ghost); cursor: pointer; letter-spacing: 0.03em; list-style: none; transition: color 0.3s; }
+.dinle-kapisi summary::-webkit-details-marker { display: none; }
+.dinle-kapisi summary::marker { display: none; content: ''; }
+.dinle-kapisi summary::before { content: '▸ '; display: inline; transition: color 0.3s; }
+.dinle-kapisi[open] summary::before { content: '▾ '; }
+.dinle-kapisi summary:hover { color: var(--bone-dim); }
+.dinle-kapisi[open] summary { color: var(--bone-dim); }
+.dinle-icerik { padding: 0.8rem 0 0 0.5rem; font-size: 0.85rem; color: var(--bone-ghost); line-height: 1.7; }
+.dinle-icerik p { margin-bottom: 0.7rem; text-align: left; }
+.dinle-git { display: block; margin-top: 0.5rem; color: var(--bone-dim); font-size: 0.85rem; border-bottom: 1px solid var(--bone-ghost); transition: color 0.3s; }
+.dinle-git:hover { color: var(--bone-bright); }
+
+.transcreation-notes {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--bosluk-ghost);
+}
+.transcreation-notes h3 {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid var(--bosluk-dim);
+    padding-left: 1rem;
+}
+.transcreation-notes summary {
+    font-family: var(--serif);
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--bosluk);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+.transcreation-notes details[open] summary::before { transform: rotate(90deg); }
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.85;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+.transcreation-notes .note-body em { color: var(--bosluk-bright); font-style: italic; }
+</style>
+</head>
+<body>
+
+<nav class="lang-bar">
+    <a href="/english/" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/" class="lang-link">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/nihongo/" class="lang-link lang-active">日本語</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/" class="lang-link">Español</a>
+    <span class="lang-sep">·</span>
+    <a href="/turkce/" class="lang-link">Türkçe</a>
+</nav>
+<div class="home-nav"><a href="/nihongo/" class="home-link" aria-label="ホーム">⌂</a></div>
+
+<main class="book">
+
+<header class="hero">
+  <!-- 挿画：二つのチャンネル。左は震える多チャンネルの波、右は一本の平らな線 -->
+  <svg class="hero-illustration" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- 左：対面、多チャンネル（声・表情・身振り） -->
+    <text x="100" y="20" text-anchor="middle" fill="#7a8a9a" font-size="11" font-family="Georgia, serif" opacity="0.5">yüz yüze</text>
+    <path d="M30,70 Q50,40 70,70 Q90,100 110,70 Q130,40 150,70 Q170,100 190,70" stroke="#7a8a9a" stroke-width="1.2" fill="none" opacity="0.5"/>
+    <path d="M30,90 Q60,65 90,90 Q120,115 150,90 Q180,65 190,90" stroke="#7a8a9a" stroke-width="0.8" fill="none" opacity="0.3"/>
+    <path d="M30,110 Q70,85 110,110 Q150,135 190,110" stroke="#7a8a9a" stroke-width="0.6" fill="none" opacity="0.2"/>
+    <!-- 中央の断ち切れ -->
+    <line x1="200" y1="40" x2="200" y2="140" stroke="#7a8a9a" stroke-width="0.5" stroke-dasharray="3,6" opacity="0.3"/>
+    <!-- 右：書き言葉、単一チャンネル -->
+    <text x="300" y="20" text-anchor="middle" fill="#7a8a9a" font-size="11" font-family="Georgia, serif" opacity="0.5">yazılı</text>
+    <line x1="210" y1="90" x2="370" y2="90" stroke="#7a8a9a" stroke-width="1.2" opacity="0.4"/>
+    <!-- 失われたチャンネル（破線） -->
+    <line x1="210" y1="70" x2="370" y2="70" stroke="#7a8a9a" stroke-width="0.6" stroke-dasharray="2,8" opacity="0.12"/>
+    <line x1="210" y1="110" x2="370" y2="110" stroke="#7a8a9a" stroke-width="0.6" stroke-dasharray="2,8" opacity="0.12"/>
+    <!-- 下部のラベル -->
+    <text x="200" y="170" text-anchor="middle" fill="#7a8a9a" font-size="10" font-family="Georgia, serif" opacity="0.3">iki kanal &rarr; tek kanal</text>
+  </svg>
+  <h1 class="title">書かれた対話の見えない溝</h1>
+  <p class="subtitle">非言語的な手がかり、語用論的な推論、そしてデジタル環境における社会的認知の崩れについて</p>
+  <p class="date">2026年5月17日</p>
+</header>
+
+<div class="kavram-rehberi reveal">
+<h3>概念ガイド</h3>
+<ul>
+<li><strong>CMC</strong>、コンピュータを介したコミュニケーション。電子メール、メッセージ、フォーラムなど、テキストにもとづくあらゆるデジタルの対話の形式。</li>
+<li><strong>NFC</strong>、認知欲求。複雑な情報を処理することからその人が得る満足の度合い。</li>
+<li><strong>BAP</strong>、自閉症広域表現型。臨床的な閾には届かないが、類似した認知特性を示すプロフィール。</li>
+<li><strong>TPJ</strong>、側頭頭頂接合部。他者の視点に立つ能力と関連する脳の部位。</li>
+<li><strong>ToM</strong>、心の理論。他者の心的状態を推論する能力。</li>
+</ul>
+</div>
+
+<!-- ═══════════════════════ 序 ═══════════════════════ -->
+
+<section class="reveal">
+
+<p>人間のコミュニケーションは多チャンネルのシステムである。対面の会話では、言葉だけが意味を担うのではない。声の調子、表情、身振り、視線、間の取り方、呼吸のリズムが同時に処理され、たがいに結びついてひとつの意味をかたちづくる。このチャンネルの多さは、進化の過程で数十万年かけて育った生物学的な基盤に支えられている。人間の脳は、生まれたその時から他のどんな視覚刺激よりも顔に似た配置を選び取り（Goren ら, 1975; Johnson ら, 1991）、相手の心的状態をミリ秒の単位で推し量るように組み上げられている。</p>
+
+<p>デジタルのテキスト対話は、この基盤を働かせない。メッセージアプリの一行にも、電子メールにも、フォーラムの書き込みにも、あるのは言葉だけである。表情はない。声の調子もない。身振りもない。進化の尺度でいえば、脳がまったく知らない環境である。多チャンネルのシステムが、一本のチャンネルに圧し縮められている。</p>
+
+<p>この構造上の制約だけでも十分に厄介である。しかしそこに二つの変数が加わる。認知スタイルの違いと、社会的な孤立が脳におよぼす影響である。この二つが問題の規模を掛け算で押し上げる。三つの変数が交わるところでは、書かれた対話における誤解の確率は、ありふれた水準をはるかに超える。</p>
+
+</section>
+
+<!-- ═══════════════════════ I. 二重構造 ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>I. コミュニケーションの二重構造：語られるものと漏れ出るもの</h2>
+
+<p>アーヴィング・ゴッフマンは、1959年に刊行された<em>『行為と演技：日常生活における自己呈示』</em>（The Presentation of Self in Everyday Life／石黒毅訳、誠信書房、1974年）で、対面のやりとりが持つ二つのチャンネルを見分けた。第一のチャンネルは <em>expression given</em>、意識して語られ、書かれ、示されるもの。言葉、文、論証である。第二のチャンネルは <em>expression given off</em>、意図せずに漏れ出るもの。声の調子、表情、身振り、間、視線。話し手の制御のそとに置かれながら、聞き手にはたえず読まれている信号である。</p>
+
+<p>この二重構造は贅沢ではない。コミュニケーションが働くための仕組みそのものである。ゴッフマンが描いた<em>意味の相互的な取り決め</em>は、二つのチャンネルが同期して動くことで成り立つ。相手は批判しているのか、冗談を言っているのか、恨み言なのか、喜びの表明なのか。この区別を大きく決めるのは第二のチャンネルである。言葉の字義どおりの意味は、しばしば足りない。ほんとうの意味は、言葉が<em>どのように</em>言われたかに宿る。</p>
+
+<p>Kiesler ら（1984）は、コンピュータを介したコミュニケーションでこの第二のチャンネルが欠けることの帰結を早い時期に記録した。情報フィードバックの不足、議論を調整する手がかりの不在、非言語的な参加の合図の消失である。こうした条件のもとで人は対面とは違ったふるまいをする。合意に至りにくく、自己認識も薄れる（Matheson &amp; Zanna, 1988）。</p>
+
+<p>Daft と Lengel（1986）はこれを<em>メディア・リッチネス</em>という概念で枠づけた。あるチャンネルの「豊かさ」は、多義性を縮減する能力ではかられる。対面はもっとも豊かな媒体である。表情、声の調子、身振りが多義性を減らす。テキストにもとづくCMCは、もっとも痩せた媒体のひとつである。</p>
+
+<div class="pull-quote reveal">
+書かれた環境では第二のチャンネルが完全に閉じる。残るのは一本だけである。言葉、句読点、そして返信までの時間。コミュニケーションの半分は暗がりに置かれている。
+</div>
+</section>
+
+<!-- ═══════════════════════ II. 語用論的推論 ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>II. 語用論的な推論が書き言葉で崩れるとき</h2>
+
+<p>ポール・グライスは、1975年に発表された論文「論理と会話」（Logic and Conversation。邦訳は『論理と会話』清塚邦彦訳、勁草書房、1998年に収録）で、会話の見えない規則を定式化した。協調の原理と四つの会話の格率、すなわち量（十分な情報を与えよ）、質（真であることを言え）、関係（関連せよ）、様態（明晰であれ）が、会話の秩序をつくる。</p>
+
+<p>しかし人はこの格率をたえず、しかも意図的に破る。グライスはこれを<em>会話的含意</em>（conversational implicature）と呼んだ。語られなかったことを理解する仕組みである。「いい天気ですね」と言いながら窓を開けてくれと言う。「興味深い」と言いながら賛成しないと言う。対面の会話では、この仕組みは二つの源から働く。言語的な文脈と、非言語的な手がかりである。誰かが「興味深い」と言ったとき、その声の調子から皮肉なのか称賛なのかが読み取られる。</p>
+
+<p>書かれた環境では、第二の源である非言語的な手がかりが零になる。含意の解読は、まるごと受け手の解釈にゆだねられる。その解釈は、受け手自身の認知スタイル、そのときの感情、そして関係の履歴によってかたちづくられる。</p>
+
+<p>Çiftlikli と Demirel（2022）は、会話的含意の仕組みの分類を示した。間接的な批判、話題の転換、間接的な助言、言語的アイロニー、間接的な拒絶、説明、そして間接的な依頼。そのいずれもが「語られたこと ≠ 意図されたこと」という裂け目の、異なるあらわれである。</p>
+
+<p>Francisco Yus の<em>サイバー語用論</em>（cyberpragmatics）という概念（2016）は、この問題をデジタル環境に固有の枠組みに置き直す。テキストにもとづく対話には、それ自身の語用論的な規則があり、その規則は対面の規則には還元できない。句点があるかないか、記号や仮名づかいの選び方、返信までの時間、絵文字の選択。これらは非言語的な手がかりの代わりを務めようとしながら、構造的に不十分なままの代用品である。</p>
+
+<blockquote class="reveal">
+<p>書かれた環境で、受け手は送り手の意図を解くだけの十分なデータを持たない。空白は自分の枠組みで埋められ、その枠組みが送り手の意図と重なる保証はどこにもない。</p>
+</blockquote>
+</section>
+
+<!-- ═══════════════════════ III. 認知スタイル ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>III. 認知スタイルの違いと、符号化の非対称</h2>
+
+<p>問題は環境だけにあるのではない。同じメッセージを、異なる認知スタイルは異なるしかたで符号化し、異なるしかたで解読する。</p>
+
+<h3>分析的な思考と、字義どおりの符号化</h3>
+
+<p>NFCは、個人が思考という活動そのものから得る内的な満足をはかる次元である（Cacioppo &amp; Petty, 1982）。NFCの高い人は複雑な情報を処理することを好み、曖昧さを減らそうとし、表面的な近道を避ける。コミュニケーションの場面では、この直截さにはひとつの帰結がある。言葉の<em>情報内容</em>に注意が向くのである。表現の字義どおりの意味を読み、その社会的な機能、地位、上下関係、外交的な心づかいを、二の次に置く。</p>
+
+<p>そういう人は言語をまず<em>情報の道具</em>として使う。情報を伝え、分析を共有し、事実を定める。言語の<em>社会的</em>な機能、関係の調整、印象の管理、衝突の回避は、前面に出てこない。これは欠落ではなく、別の符号化の体系である。しかし書かれた環境では、非言語的な手がかりがないために、二つの符号化の体系はたがいを解読できない。</p>
+
+<h3>自閉症広域表現型と、語用論的な言語</h3>
+
+<p>BAPは、自閉スペクトラムの臨床的な閾には届かないが、類似した認知特性を示す人びとを指す。Losh と Piven（2007）は、BAPにおいて語用論的な言語の能力が体系的に異なることを示した。Dindar ら（2023）はこれを広げた。閾下の自閉的な特性をもつ成人は、社会的・語用論的な推論において字義どおりの解釈に傾き、「語られたこと ≠ 意図されたこと」の裂け目を埋めることに難しさを示す。</p>
+
+<h3>非言語チャンネルの不在：喪失か、純化か</h3>
+
+<p>ここまで、非言語的な手がかりの不在は<em>喪失</em>として扱われてきた。CMC研究の主流もそうである。しかしこの見方は一方的である。コミュニケーションが何の<em>ために</em>使われ、<em>誰</em>によって経験されるのかを勘定に入れていない。</p>
+
+<h4>コミュニケーションの目的：社会的な絆か、情報の伝達か</h4>
+
+<p><strong>社会的な絆をつくり、保つこと。</strong> 挨拶、近況のやりとり、感情の支え、関係の調整。ここでは非言語的な手がかりの不在は<em>ほんとうの喪失である</em>。意図は伝わりにくくなり、共感の響き合いは弱まり、誤解の確率は上がる。</p>
+
+<p><strong>情報の伝達。</strong> 分析の共有、技術的な評価、研究の知見の提示。ここでは図が反転する。非言語的な手がかりは、情報の伝達にとっては本題の外にある。技術的な分析を共有するとき、声の調子は情報そのものに何も足さない。それどころか、情報を社会的な文脈で<em>濁らせる。</em>同じ情報が、笑顔で差し出されれば受け入れられ、渋い顔で差し出されれば退けられる。情報そのものは変わっていないのに。</p>
+
+<p><strong>混じり合った使い方。</strong> 現実のやりとりの多くはこの類に属する。一方が技術的な分析を共有しているとき、もう一方は同じメッセージを社会的な交流の枠組みで読む。衝突はたいていここで起こる。</p>
+
+<!-- 挿画：二つの枠組み -->
+<svg class="illustration wide reveal" viewBox="0 0 400 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <rect x="10" y="20" width="120" height="100" rx="4" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+  <text x="70" y="55" text-anchor="middle" fill="#7a8a9a" font-size="10" font-family="Georgia, serif" opacity="0.6">sosyal bağ</text>
+  <text x="70" y="75" text-anchor="middle" fill="#7a8a9a" font-size="9" font-family="Georgia, serif" opacity="0.3">kayıp</text>
+  <rect x="140" y="20" width="120" height="100" rx="4" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+  <text x="200" y="55" text-anchor="middle" fill="#7a8a9a" font-size="10" font-family="Georgia, serif" opacity="0.6">bilgi aktarımı</text>
+  <text x="200" y="75" text-anchor="middle" fill="#7a8a9a" font-size="9" font-family="Georgia, serif" opacity="0.3">arınma</text>
+  <rect x="270" y="20" width="120" height="100" rx="4" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+  <text x="330" y="55" text-anchor="middle" fill="#7a8a9a" font-size="10" font-family="Georgia, serif" opacity="0.6">hibrit</text>
+  <text x="330" y="75" text-anchor="middle" fill="#7a8a9a" font-size="9" font-family="Georgia, serif" opacity="0.3">çarpışma</text>
+  <line x1="130" y1="70" x2="140" y2="70" stroke="#7a8a9a" stroke-width="0.5" opacity="0.3"/>
+  <line x1="260" y1="70" x2="270" y2="70" stroke="#7a8a9a" stroke-width="0.5" opacity="0.3"/>
+</svg>
+
+<p>Gillespie-Lynch ら（2014）は、自閉スペクトラムにある人びとがコンピュータを介したコミュニケーションを積極的に選び、非言語的な手がかりの不在を利点として経験していることを示した。この選好は偶然ではない。対面のやりとりが要求する非言語信号の処理は、この人びとにとって重い認知的な負荷である。書かれた環境では、その負荷がまるごと消える。</p>
+
+<div class="pull-quote reveal">
+「非言語チャンネルの不在はコミュニケーションを貧しくする」という文は、コミュニケーションが社会的な絆のために使われている条件のもとでのみ正しい。同じ条件が、情報の伝達においては貧困化ではなく純化を生む。
+</div>
+</section>
+
+<!-- ═══════════════════════ IV. 孤立 ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>IV. 孤立が社会的な認知をつくり変える</h2>
+
+<p>Cacioppo と Cacioppo（2012）の広い総説は、社会的な孤立が脳と認知におよぼす影響を、連続体のモデルのなかに置いた。知覚された社会的孤立、つまり本人が<em>自分を</em>どれだけ孤独だと感じているかは、客観的な孤立よりも強く結果を決める要因である。</p>
+
+<h3>過剰警戒：鋭敏で、しかし偏った警報系</h3>
+
+<p>孤立した脳は、社会的な脅威に対して過剰に警戒している。Cacioppo と Hawkley（2009）は、孤独が社会的な情報の処理のしかたを体系的に変えることを示した。拒絶の合図への注意の高まり、否定的に解釈する傾き、社会的な世界を脅威として知覚すること。</p>
+
+<p>Lodder ら（2015）は決定的な細部を加えた。孤独な人は社会的な刺激をより多く<em>見ている</em>のではない。より異なるしかたで<em>解釈している</em>のである。過剰警戒は注意の段階ではなく、<strong>解釈の段階</strong>で働いている。書かれた対話にとって、帰結はまっすぐである。孤立した人が同じメッセージを読むとき、言葉を見るその目に違いはない。しかし言葉から引き出す意味が違う。</p>
+
+<h3>TPJの低下：他者の視点に立つ力が錆びること</h3>
+
+<p>Cacioppo と Cacioppo（2012）の脳画像の知見は、孤立した人において側頭頭頂接合部の活動が下がることを示した。TPJは、他者の視点に立つ能力と結びついた中心的な部位である。TPJの活動が下がるということは、相手が何を意図しているかを推し量る力が落ちるということである。</p>
+
+<p>この循環は自分で自分を養う。否定的な予期 &rarr; 否定的な解釈 &rarr; 相手の防御的な反応 &rarr; 予期の確証。</p>
+</section>
+
+<!-- ═══════════════════════ V. 顔文字 ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>V. 顔文字：神経のうえでは足りない代用品</h2>
+
+<p>顔文字と絵文字は、テキストにもとづく対話のなかで非言語的な手がかりの代わりを務めるために生まれた。Aldunate と González-Ibáñez（2017）の広い総説は、この代用の成功と限界の両方を示している。</p>
+
+<p><strong>成功したところ：</strong> 顔文字は社会的な存在感を高め、メッセージの曖昧さを解くことに寄与する。とりわけ皮肉かどうかの判定においては、句読点よりも有効である（Filik ら, 2015）。</p>
+
+<p><strong>限界：</strong> 神経科学の証拠は、顔文字が実際の表情と<em>同じ</em>脳の仕組みを使っていないことを示している。湯浅ら（2006）はfMRIの研究で、実際の顔が顔の認識と共感に関わる領域を活動させるのに対し、顔文字は記号と物体の処理に関わる領域を活動させることを見いだした。脳は顔文字を、感情の表出としてではなく、ひとつの<em>記号</em>として処理している。</p>
+
+<blockquote class="reveal">
+<p>Walther と D&rsquo;Addario（2001）の知見は印象的である。言語的な内容と顔文字が食い違うとき、<strong>言語的な内容がつねに勝つ。</strong>否定的な文に付け足された笑顔の絵文字は、その文を中和しない。文のほうが優勢のままである。</p>
+</blockquote>
+</section>
+
+<!-- ═══════════════════════ VI. ハイパーパーソナル ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>VI. ハイパーパーソナル化：Walther のパラドックス</h2>
+
+<p>Joseph B. Walther の社会的情報処理理論（1992）は、非言語的な手がかりの不在が、コンピュータを介したコミュニケーションを自動的に「冷たい」ものにするわけではないと論じる。人はこの環境でも関係を結ぶ。ただし、より遅い。社会的な情報を、非言語のチャンネルではなく言語に符号化しなければならないからである。</p>
+
+<p>Walther は1996年にこれを一歩進めた。<em>ハイパーパーソナル</em>（hyperpersonal）モデルである。CMCは、ときに対面よりも濃い印象と親密さを生むことがある。</p>
+
+<ol>
+<li><strong>送り手の選択性：</strong> 書かれた環境では、メッセージを整え、消し、書き直すことができる。送り手は自分を選び取って呈示する。</li>
+<li><strong>受け手の理想化：</strong> 欠けた情報を、受け手は想像力で補う。好ましい方向（理想化）へも、好ましくない方向（悪魔化）へも。</li>
+<li><strong>チャンネルの非同期性：</strong> 考え、整え、時機をはかる自由は、対面にはない利点をもたらす。しかし同時に、その場で訂正する仕組みも消してしまう。</li>
+</ol>
+
+<p>受け手の理想化と否定的な方向への読みの仕組みは、孤立の過剰警戒と結びつくと、二つの方向へ同時に引かれる。中道、つまりあるがままに見ることが、いちばん難しい。</p>
+</section>
+
+<!-- ═══════════════════════ VII. 交わり ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>VII. 三つの変数が交わるところ</h2>
+
+<p>ひとつずつ見れば、三つの変数はそれぞれ扱える問題である。<strong>非言語的な手がかりの不在</strong>は普遍的である。<strong>認知スタイルの違い</strong>は、ある文脈では利点である。<strong>孤立による過剰警戒</strong>は一時的である。しかし三つが同時に交わるとき、誤解の確率は足し算ではなく<strong>掛け算</strong>で上がる。</p>
+
+<ol>
+<li>書かれた環境が非言語的な手がかりを消す &rarr; 受け手は言葉だけを見るほかなくなる。</li>
+<li>分析的な心が言葉を字義どおりに符号化する &rarr; 読む側は社会的な機能を読み取ろうとする。</li>
+<li>孤立した脳がその読みを否定的な方向へ補う &rarr; 過剰警戒が働き、確証バイアスが動き、TPJの低下が視点を取ることを難しくする。</li>
+</ol>
+
+<!-- 挿画：三つの円の交わり -->
+<svg class="illustration wide reveal" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <circle cx="120" cy="90" r="60" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+  <circle cx="180" cy="90" r="60" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+  <circle cx="150" cy="145" r="60" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+  <text x="85" y="65" text-anchor="middle" fill="#7a8a9a" font-size="9" font-family="Georgia, serif" opacity="0.5">sözsüz</text>
+  <text x="85" y="77" text-anchor="middle" fill="#7a8a9a" font-size="9" font-family="Georgia, serif" opacity="0.5">yokluğu</text>
+  <text x="215" y="65" text-anchor="middle" fill="#7a8a9a" font-size="9" font-family="Georgia, serif" opacity="0.5">bilişsel</text>
+  <text x="215" y="77" text-anchor="middle" fill="#7a8a9a" font-size="9" font-family="Georgia, serif" opacity="0.5">fark</text>
+  <text x="150" y="185" text-anchor="middle" fill="#7a8a9a" font-size="9" font-family="Georgia, serif" opacity="0.5">izolasyon</text>
+  <circle cx="150" cy="105" r="4" fill="#7a8a9a" opacity="0.4"/>
+</svg>
+
+<p>この相互作用は双方向である。送り手が分析的な心で字義どおりに符号化しているあいだ、受け手もまた自分の枠組みから読む。受け手が足す意味、メッセージにはない当てこすり、恨み言、地位の駆け引きは、送り手の意図とまったく重ならないことがある。そして双方が、自分の読みこそ正しいと考えている。</p>
+
+<p>この循環は自分で自分を養う。誤解 &rarr; 防御的な反応 &rarr; 誤解の確証 &rarr; 引きこもり。ひとつひとつのコミュニケーションの事故が、次の事故の地ならしをする。</p>
+</section>
+
+<!-- ═══════════════════════ VIII. 知の喪失 ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>VIII. 失われる知の、社会的な代価</h2>
+
+<p>分析的に考える人は、コミュニケーションの事故のたびにひとつ教訓を引き出す。しかしその教訓はたいてい「もっとうまく伝える術を身につけよう」ではない。引き出される教訓はたいてい、<em>「黙っているべきだったのだ」</em>である。</p>
+
+<p>この引きこもりの反射は、個人の選択のように見える。しかしそれは構造的な知の喪失である。深い分析と構造を見る力をそなえた心が、社会的な摩擦のゆえに考えを共有することをやめるとき、その考えが届いたはずの人びとは、その寄与を欠いたままになる。</p>
+
+<div class="pull-quote reveal">
+社会の場は、知が何を語っているかよりも、それがどう差し出されたかを重んじる。知は裸のまま差し出され、社会的な事故が起こり、摩擦がふくらみ、そして知は忘れられる。
+</div>
+</section>
+
+<!-- ═══════════════════════ IX. 双方向の読み ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#7a8a9a" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>IX. 読みの問題は双方向である</h2>
+
+<p>読みの問題は双方向である。分析的に考える人は、相手の社会的な機微を読めない。相手もまた、分析的に考える人のまっすぐさを読めない。</p>
+
+<p>ただし、現実には非対称がある。分析的に考える人に社会的な符号化を身につけよと求めることは、思考の構造そのものを変えよと求めることである。神経のレベルに根を張った認知スタイルだからである。いっぽう、まっすぐな表現をまっすぐに読むことを学ぶこと、つまり「批判されている」という前提をいったん保留して「もしかすると本当にそのままの意味かもしれない」という可能性を考えてみることは、はるかに小さな認知の調整である。</p>
+</section>
+
+<!-- ═══════════════════════ 結び ═══════════════════════ -->
+
+<section class="reveal">
+<h2>結び</h2>
+
+<p>この考察は解決を差し出さない。問題は、解かれるべき問題ではないかもしれないからである。分析的な思考は障害ではない。字義どおりの符号化は欠落ではない。孤立ののちの過剰警戒も誤りではなく、ひとつの適応の仕組みである。</p>
+
+<p>しかし書かれた環境では、そのすべてに代価がある。その代価は見えない。送る側も見ず、受け取る側も見ない。メッセージは書かれ、メッセージは読まれ、双方が自分の枠組みこそ正しいと考える。</p>
+
+<div class="pull-quote reveal" style="border-color: var(--bosluk); margin-top: 2rem;">
+おそらく問題は、この溝を埋めることではない。おそらく問題は、この溝があると見ることである。そしておそらく、メッセージを読む人が、そこに自分の重荷を足すまえにひと呼吸おく、その一瞬こそ、この見えないものを見ることにもっとも近づく瞬間である。
+</div>
+</section>
+
+<!-- ═══════════════════════ 参考文献 ═══════════════════════ -->
+
+<div class="kaynakca reveal">
+<h2>参考文献</h2>
+<p>Aldunate, N. &amp; González-Ibáñez, R. (2017). An integrated review of emoticons in computer-mediated communication. <em>Frontiers in Psychology</em>, 7, 2061.</p>
+<p>Cacioppo, J.T. &amp; Petty, R.E. (1982). The need for cognition. <em>Journal of Personality and Social Psychology</em>, 42(1), 116-131.</p>
+<p>Cacioppo, J.T., Petty, R.E., Feinstein, J.A. &amp; Jarvis, W.B.G. (1996). Dispositional differences in cognitive motivation. <em>Psychological Bulletin</em>, 119(2), 197-253.</p>
+<p>Cacioppo, S. &amp; Cacioppo, J.T. (2012). Decoding the invisible forces of social connections. <em>Frontiers in Integrative Neuroscience</em>, 6, 51.</p>
+<p>Cacioppo, J.T. &amp; Hawkley, L.C. (2009). Perceived social isolation and cognition. <em>Trends in Cognitive Sciences</em>, 13(10), 447-454.</p>
+<p>Çiftlikli, S. &amp; Demirel, Ö. (2022). The relationships between students&rsquo; comprehension of conversational implicatures and their achievement in reading comprehension. <em>Frontiers in Psychology</em>, 13, 977129.</p>
+<p>Daft, R.L. &amp; Lengel, R.H. (1986). Organizational information requirements, media richness and structural design. <em>Management Science</em>, 32(5), 554-571.</p>
+<p>Dindar, K., Loukusa, S., Leinonen, E. ve ark. (2023). Autistic adults and adults with sub-clinical autistic traits differ from non-autistic adults in social-pragmatic inferencing. <em>Autism</em>, 27(5).</p>
+<p>Filik, R., Turcan, A., Thompson, D. ve ark. (2015). Sarcasm and emoticons: comprehension and emotional impact. <em>Quarterly Journal of Experimental Psychology</em>, 69, 2130-2146.</p>
+<p>Flax, J., Gwin, C., Wilson, S. ve ark. (2019). Social (pragmatic) communication disorder: Another name for the broad autism phenotype? <em>Autism</em>, 23(8).</p>
+<p>Geurts, B., Kissine, M. &amp; van Tiel, B. (2019). Pragmatic reasoning in autism. <em>Current Issues in the Philosophy of Practice</em>, 113-134.</p>
+<p>Gillespie-Lynch, K. ve ark. (2014). Intersections between the autism spectrum and the internet. <em>Journal of Autism and Developmental Disorders</em>, 44(12), 3382-3395.</p>
+<p>Goffman, E. (1959). <em>The Presentation of Self in Everyday Life</em>. Anchor Books.</p>
+<p>Goren, C.C., Sarty, M. &amp; Wu, P.Y.K. (1975). Visual following and pattern discrimination of face-like stimuli by newborn infants. <em>Pediatrics</em>, 56, 544-549.</p>
+<p>Grice, H.P. (1975). Logic and conversation. <em>Syntax and Semantics</em> 3: Speech Acts, 41-58.</p>
+<p>Huang, A.H., Yen, D.C. &amp; Zhang, X. (2008). Exploring the potential effects of emoticons. <em>Information &amp; Management</em>, 45, 466-473.</p>
+<p>Isernia, S. ve ark. (2019). Social mind and long-lasting disease. <em>Frontiers in Psychology</em>, 10, 218.</p>
+<p>Johnson, M.H., Dziurawiec, S., Ellis, H.D. &amp; Morton, J. (1991). Newborns&rsquo; preferential tracking of face-like stimuli. <em>Cognition</em>, 40, 1-19.</p>
+<p>Kiesler, S., Siegel, J. &amp; McGuire, T.W. (1984). Social psychological aspects of computer-mediated communication. <em>American Psychologist</em>, 39, 1123-1134.</p>
+<p>Lodder, G.M.A. ve ark. (2015). Loneliness and hypervigilance to social cues in females. <em>PLoS ONE</em>, 10(4), e0125141.</p>
+<p>Losh, M. &amp; Piven, J. (2007). Social-cognition and the broad autism phenotype. <em>Journal of Child Psychology and Psychiatry</em>, 48(1), 105-112.</p>
+<p>Matheson, K. &amp; Zanna, M.P. (1988). The impact of computer-mediated communication on self-awareness. <em>Computers in Human Behavior</em>, 4, 221-233.</p>
+<p>Morese, R. &amp; Palermo, S. (2022). Feelings of loneliness and isolation: Social brain and social cognition. <em>Frontiers in Aging Neuroscience</em>, 14, 896218.</p>
+<p>Walther, J.B. (1992). Interpersonal effects in computer-mediated interaction. <em>Communication Research</em>, 19(1), 52-90.</p>
+<p>Walther, J.B. (1996). Computer-mediated communication: Impersonal, interpersonal, and hyperpersonal interaction. <em>Communication Research</em>, 23(1), 3-43.</p>
+<p>Walther, J.B. &amp; D&rsquo;Addario, K.P. (2001). The impacts of emoticons on message interpretation in computer-mediated communication. <em>Social Science Computer Review</em>, 19(3), 324-347.</p>
+<p>Yuasa, M., Saito, K. &amp; Mukawa, N. (2006). Emoticons convey emotions without cognition of faces: An fMRI study. <em>CHI 2006</em>, Montréal, QC.</p>
+<p>Yus, F. (2016). <em>Cyberpragmatics: Internet-Mediated Communication in Context</em>. John Benjamins.</p>
+</div>
+
+
+<div class="footer">
+  <p><a href="/nihongo/">halitcengizuzuner.com</a></p>
+</div>
+
+<div class="transcreation-notes">
+    <h3>翻訳ノート</h3>
+
+    <details>
+        <summary>ゴッフマンの二つの「表出」を訳さなかった理由</summary>
+        <div class="note-body">
+            原文は <em>expression given</em> と <em>expression given off</em> を英語のまま置き、トルコ語で説明を添えている。日本語版でも英語を残した。<em>『行為と演技：日常生活における自己呈示』</em>（石黒毅訳、誠信書房、1974年）にこの対概念の定訳があるはずだが、訳者はそれを<em>確認できなかった</em>。存在しないとは書かない。見つけられなかったので、原語を残し、日本語の説明を添えるにとどめた。定訳を確かめずに訳語を当てれば、それは石黒訳の用語であるかのように読まれてしまう。書名そのものは国立国会図書館とCiNiiの書誌の表記に従った。
+        </div>
+    </details>
+
+    <details>
+        <summary>原文をひとつだけ訂正した箇所</summary>
+        <div class="note-body">
+            冒頭で原文は、新生児が「顔の<em>表情</em>」を他のどんな視覚刺激よりも選び取ると述べ、Goren ら（1975）と Johnson ら（1991）を引いている。しかしこの二つの研究が示したのは、<em>顔に似た配置</em>（図式的な顔、face-like stimuli）への選好であって、表情の弁別ではない。参考文献に並ぶ論文題目そのものがそう言っている。新生児が喜びと悲しみの表情を見分けるという主張は、この二つの研究からは出てこない。日本語版では「顔に似た配置」とした。原文にただ従えば、日本語の読者は誤った科学的主張を読むことになる。原文の他の言語版にも同じ箇所があり、著者側に報告した。
+        </div>
+    </details>
+
+    <details>
+        <summary>「大文字の使い方」をそのまま訳せない</summary>
+        <div class="note-body">
+            Yus のサイバー語用論を説明する段落で、原文は非言語的手がかりの代用品として「句点の有無、<em>大文字の使い方</em>、返信までの時間、絵文字の選択」を挙げている。日本語の表記体系に大文字はない。字義どおり訳せば、読者はそこで宙に浮く。日本語版では<em>記号や仮名づかいの選び方</em>とした。原文の論点、すなわち「本来は意味を担わないはずの表記上の選択が、書き手の態度の合図として読まれてしまう」ことは、日本語ではこの層で起きているからである。置き換えたのは例であって、主張ではない。
+        </div>
+    </details>
+
+    <details>
+        <summary>顔文字と絵文字：日本語では区別が先にある</summary>
+        <div class="note-body">
+            原文は「エモティコン」と「絵文字」をほぼ並べて用いる。日本語ではこの二つは別のものである。記号を組み合わせて顔をつくる<em>顔文字</em>と、絵として独立した<em>絵文字</em>は、成り立ちも歴史も異なる。第V章が拠っている研究、とりわけ湯浅ら（2006）のfMRI研究が刺激として用いたのは<em>顔文字</em>であり、Walther と D&rsquo;Addario（2001）や Filik ら（2015）も同様である。そこで章題と本文の術語は顔文字に統一し、原文が絵として独立した記号を指している箇所だけ絵文字とした。訳し分けないと、日本語の読者には別の実験を読んでいるように見えてしまう。
+        </div>
+    </details>
+
+    <details>
+        <summary>人名の表記について</summary>
+        <div class="note-body">
+            日本語に定着した表記をもつ著者、すなわちアーヴィング・ゴッフマンとポール・グライスはカタカナで記した。それ以外の研究者は原綴りのまま <em>Cacioppo ら（2012）</em> のように置いている。定訳のない人名をカタカナに移すと、実在しない定着表記を作り出してしまうためである。参考文献欄は原綴りのまま残した。日本人研究者については逆で、<em>湯浅ら（2006）</em> は漢字で記した。原著者は Yuasa と書いているが、日本語版でローマ字のまま置く理由がない。
+        </div>
+    </details>
+
+    <details>
+        <summary>専門用語の拠りどころ</summary>
+        <div class="note-body">
+            術語は日本語の学術文献に定着した形を用いた。<em>会話の格率</em>・<em>協調の原理</em>・<em>会話的含意</em>（グライス）、<em>メディア・リッチネス</em>（Daft &amp; Lengel）、<em>ハイパーパーソナル</em>・<em>社会的情報処理理論</em>（Walther）、<em>認知欲求</em>（Cacioppo &amp; Petty）、<em>自閉症広域表現型</em>（BAPQ-J の研究で用いられている語）、<em>側頭頭頂接合部</em>、<em>心の理論</em>。ただし hypervigilance には<em>過剰警戒</em>を当てた。<em>過覚醒</em>は DSM の hyperarousal の訳語として定着しており、別の概念だからである。メディア・リッチネスの定義では、原文の「曖昧さを減らす」を日本語の文献にならって<em>多義性を縮減する</em>とした。この理論の日本語圏での議論が、その語で積み上げられてきたからである。
+        </div>
+    </details>
+</div>
+
+<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">バージョン 1.0 · 初版：2026年7月20日 · トルコ語原文 v1.0（初出 2026年5月17日）より翻訳</p>
+<p class="doi-kunye" style="margin-top:0.3rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">DOI: <a href="https://doi.org/10.17613/57980-br729" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(232,220,196,0.22);">10.17613/57980-br729</a> · Knowledge Commons の恒久記録</p>
+</main>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('seen'); obs.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
