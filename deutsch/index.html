@@ -575,7 +575,7 @@
 <script>
 const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('seen'); });
-}, { threshold: 0.1 });
+}, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.stance, .welcome, .limbs, .seal').forEach(el => io.observe(el));
 </script>
 

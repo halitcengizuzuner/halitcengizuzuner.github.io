@@ -529,7 +529,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 entry.target.style.transform = 'translateY(0)';
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
     document.querySelectorAll('.chapter, .painting, .verse, footer').forEach(function(el) {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
