@@ -46,6 +46,17 @@ ROMEN = re.compile(r"^\s*([IVX]+)[\.\s]")
 # değil. Tanınmazsa "numaralı bölüm YOK" yanlış alarmı çıkar ve gerçek sinyali
 # gölgeler (Portal O304: yuzsuz-iletisim ZH iki tur boyunca yanlış ⚠ verdi).
 CJK_RAKAM = re.compile(r"^\s*([一二三四五六七八九十]+)\s*[、．.,\s]")
+# Arap rakamıyla numaralanan makaleler (O308: mahremiyet-paradoksu ailesi 6 dilde
+# "1. Giriş / 2. ..." kullanıyor). Romen/CJK aranıyordu, bu aile bu yüzden
+# "numarasız" sayılıp HİÇ taranmıyordu — 7 dilde canlı, en büyük makalelerden.
+#
+# ⚠ TARİH TUZAĞI, ölçülerek bulundu: `deutsch/bild-des-gluecks.html` başlığı
+# "3. Juni 1963" — Almanca tarih yazımı noktalıdır ve bu desene UYAR. Türkçesi
+# "3 Haziran 1963" (noktasız) uymuyordu, yani tuzak dile özgü doğuyor. Tek
+# başına regex yetmez; korunma makale düzeyindeki NUMARALI-ORAN eşiğidir
+# (aşağıda ORAN_ESIK): bir başlık numara sanılabilir, on başlığın sekizi
+# sanılamaz.
+ARAP_RAKAM = re.compile(r"^\s*(\d{1,2})\s*[\.\)]\s")
 _CJK_BIR = {"一": 1, "二": 2, "三": 3, "四": 4, "五": 5,
             "六": 6, "七": 7, "八": 8, "九": 9}
 _ROMEN_TABLO = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
@@ -63,16 +74,48 @@ def _cjk_romene(im: str):
 
 
 def bolum_no(baslik: str):
-    """h2 metninden bölüm numarasını romen olarak döndür (Latin veya CJK)."""
+    """h2 metninden bölüm numarasını romen olarak döndür (Romen, CJK veya Arap)."""
     m = ROMEN.match(baslik)
     if m:
         return m.group(1)
     m = CJK_RAKAM.match(baslik)
-    return _cjk_romene(m.group(1)) if m else None
+    if m:
+        return _cjk_romene(m.group(1))
+    m = ARAP_RAKAM.match(baslik)
+    if m:
+        n = int(m.group(1))
+        return _ROMEN_TABLO[n] if 0 < n < len(_ROMEN_TABLO) else None
+    return None
+
+
+# Bir makale "numaralı" sayılsın diye h2'lerinin bu oranı numaralı olmalı.
+# Tek başlığın numara sanılması kaçınılmaz (tarih, liste, yıl); belirleyici
+# olan çoğunluktur. mahremiyet ailesi 8/10 = 0.80 geçer; bild-des-gluecks
+# 1/10 = 0.10 geçmez ve numarasız kalır (doğru sonuç).
+ORAN_ESIK = 0.6
 # Latin diller Türkçeden UZUN olur (TR sondan eklemeli, kompakt).
 # EN/DE ölçüldü: 1.08-1.09. Bu eşiğin altı eksiklik şüphesidir.
 ESIK_ALT = 0.90
 CJK = {"zh", "ja"}
+
+# ── GÖVDE-GENELİ EKSENİN TABANI: DİL NORMU (O308) ────────────────────────────
+# Sabit eşik (0.90) bu eksende KÖRDÜR ve körlüğü ölçüldü: Latin çevirilerin
+# gerçek oran bandı 1.05-1.33 (site geneli medyan 1.19), çünkü Türkçe sondan
+# eklemeli ve kompakttır. Normal oranı 1.19 olan bir makalede %20 içerik kaybı
+# 0.95 verir — sabit eşiğin ÜSTÜNDE kalır, araç susar.
+#
+# Taban bu yüzden her dilin KENDİ site-geneli medyanıdır (de 1.21 · en 1.12 ·
+# es 1.18 · fr 1.22 · zh 0.41). Kazanç iki katlı:
+#   · duyarlılık: sabit eşik yalnız anlamak/ES'i görüyordu; dil normu aynı
+#     makaleyi DE/ES/FR/ZH dördünde birden gösterdi (bilinen kusur, O305-307).
+#   · CJK artık dışlanmıyor: zh kendi normuna göre ölçülüyor, ayrı eşik
+#     gerekmiyor. Öncesinde ZH bu eksende hiç ölçülemiyordu.
+#
+# ⚠ SINIR (O306'nın medyan dersinin aynısı, burada da geçerli): norm site
+# genelinden gelir. Bütün çeviriler sistematik olarak kısaysa norm onlarla
+# birlikte düşer ve eksen susar. Bu eksen AZINLIK sapmasını yakalar; toptan
+# kısaltmayı yakalayamaz. Yedeği yoktur, bilerek kabul edilmiştir.
+NORM_ESIK = 0.80
 
 
 # Sitede bilinen gövde kapsayıcıları. Sıra ÖNEMLİ: dar olan önce denenir,
@@ -117,10 +160,12 @@ def govde_bolumleri(yol: Path):
     if kap is None:
         return None, None
     out, cur = {}, None
+    h2_toplam = 0
     for el in kap.find_all(["h2", "h3", "p", "li", "blockquote"]):
         if not _sayimda(el):
             continue
         if el.name == "h2":
+            h2_toplam += 1
             cur = bolum_no(el.get_text(strip=True))
             if cur:
                 out[cur] = [0, 0]
@@ -129,6 +174,12 @@ def govde_bolumleri(yol: Path):
                 out[cur][0] += 1
             else:
                 out[cur][1] += len(el.get_text(" ", strip=True))
+    # NUMARALI-ORAN EŞİĞİ (O308): birkaç başlık tesadüfen numara desenine
+    # uyabilir (Almanca tarih "3. Juni 1963"). Azınlık eşleşmesiyle hizalama
+    # kurmak, hizalamanın kaymasından daha kötüdür — sahte bulgu üretir ve
+    # gerçek sinyali gölgeler. Çoğunluk yoksa makale numarasız sayılır.
+    if h2_toplam and len(out) / h2_toplam < ORAN_ESIK:
+        return {}, aile
     return out, aile
 
 
@@ -200,6 +251,130 @@ def alt_bolum_kutlesi(ref_alt, c_alt):
             if o < medyan * 0.72 and rp - cp >= 2]
 
 
+def _kapsayici_genis(s):
+    """h2 şartı ARAMAYAN kapsayıcı — üçüncü eksenin gövde ölçümü için.
+
+    `_kapsayici` h2 taşımayan kabı gövde saymaz, çünkü bölüm-bazlı eksenler
+    h2'siz sayfada zaten çalışamaz. Ama gövde-geneli kütle ölçümü h2
+    gerektirmez: `cay-masasi` ve `kulaga-yazmak` hiç h2 kullanmıyor ve altı
+    dilde canlı oldukları hâlde bugüne dek HİÇ ölçülmediler.
+
+    En çok metin taşıyan aile seçilir (nav/footer/header düşülerek) — dar
+    kaplar (yalnız başlık saran div) böylece elenir.
+    """
+    en_iyi, en_ad, en_kutle = None, None, 0
+    for etiket, sinif in AILELER:
+        b = s.find(etiket, class_=sinif) if sinif else s.find(etiket)
+        if b is None:
+            continue
+        k = len(b.get_text(" ", strip=True))
+        if k > en_kutle:
+            en_iyi, en_ad, en_kutle = b, f"{etiket}.{sinif or ''}", k
+    return en_iyi, en_ad
+
+
+# Çeviri notu bloklarının sınıf adları. Bu bölüm ÇEVİRİDE VAR, ASILDA YOK →
+# kütle karşılaştırmasında düşülmezse çeviriyi olduğundan uzun gösterir.
+CEVIRI_NOTU = ("transcreation", "ceviri-not", "translation-not")
+
+
+def _temiz_govde(yol: Path):
+    """(kapsayıcı, aile) — iskelet ve çeviri notları AYIKLANMIŞ hâlde."""
+    s = BeautifulSoup(yol.read_text(encoding="utf-8"), "lxml")
+    for t in s(["script", "style", "nav", "footer", "header"]):
+        t.decompose()
+    for n in s.find_all(class_=lambda c: c and any(
+            k in x for x in (c if isinstance(c, list) else [c])
+            for k in CEVIRI_NOTU)):
+        n.decompose()
+    return _kapsayici_genis(s)
+
+
+def govde_kutlesi(yol: Path):
+    """Gövdenin toplam karakter kütlesi — h2/numara GEREKTİRMEZ.
+
+    ÜÇÜNCÜ EKSENİN BİRİNCİ KATMANI (O308). Numaralı-bölüm ekseni 16 makalenin
+    yalnız 5'ini görebiliyordu; 9'u numarasız, 2'si h2'siz olduğu için 11
+    makale düşürülmüş içerik açısından HİÇ ölçülmemişti — aralarında 7 dilde
+    canlı olanlar var.
+
+    Bu en kaba eksendir ve bilinçli olarak öyle: bölüm hizalaması kurulamayan
+    yerde bile "çeviri asıldan belirgin kısa mı?" sorusu sorulabilir. O303'te
+    ölçülen taban geçerli: Latin diller Türkçeden UZUNDUR (EN/DE 1.08-1.09),
+    çünkü Türkçe sondan eklemeli ve kompakttır. Belirgin altı şüphedir.
+
+    ⚠ TAM METİN, p/li/blockquote DEĞİL — ilk sürümde yapı-bazlı saydım ve
+    ARAÇ YANLIŞ POZİTİF ÜRETTİ: `cay-masasi` diyalog biçiminde ve metninin
+    %93'ü paragraf etiketi dışında duruyor (TR tam metin 8821, paragraf
+    sayımı 629). Araç üç dilde "kütle 0.59×" dedi; gerçek oranlar 1.35-1.50,
+    yani çeviriler asıldan UZUN, eksiklik yok. Yapı-bazlı sayım yapının
+    kendisi değişince kör olur (O305: ölçüm aracının kusuru sağlam metni
+    bozuk gösterir).
+
+    ⚠ ÇEVİRİ NOTLARI DÜŞÜLÜR, ölçülmüş zorunluluk: notlar gövdenin %5-23'ünü
+    tutuyor (cay-masasi/zh %23, mutlulugun-resmi/zh %17). Düşülmezse %20
+    eksik bir çeviriyi %20'lik çeviri notu maskeler ve araç susar. Paragraf
+    bazında ölçtüğümde bu risk SIFIR görünmüştü — doğru ölçümdü ama yanlış
+    sorunun cevabıydı; notlar paragraf etiketi kullanmıyor.
+    """
+    kap, aile = _temiz_govde(yol)
+    if kap is None:
+        return 0, None
+    return len(kap.get_text(" ", strip=True)), aile
+
+
+def baslik_bolumleri(yol: Path):
+    """[(h2 başlığı, paragraf, karakter), ...] — SIRAYLA, numara aranmadan.
+
+    ÜÇÜNCÜ EKSENİN İKİNCİ KATMANI: numarasız ama h2'li makaleler (9 tane).
+    """
+    s = BeautifulSoup(yol.read_text(encoding="utf-8"), "lxml")
+    kap, _ = _kapsayici(s)
+    if kap is None:
+        return []
+    out, cur = [], None
+    for el in kap.find_all(["h2", "p", "li", "blockquote"]):
+        if not _sayimda(el):
+            continue
+        if el.name == "h2":
+            cur = [el.get_text(" ", strip=True)[:44], 0, 0]
+            out.append(cur)
+        elif cur is not None:
+            if el.name == "p":
+                cur[1] += 1
+            cur[2] += len(el.get_text(" ", strip=True))
+    return out
+
+
+def baslik_sirasi_kutlesi(ref, cev):
+    """Başlık SIRASIYLA hizala → kütlesi çöken bölümler.
+
+    ⚠ Hizalama yalnız h2 SAYILARI EŞİTKEN kurulur. Bu, O303 tuzak #2'nin
+    (indeks-bazlı hizalama yanlış-pozitif üretir) doğrudan uygulaması:
+    çevirilerde Kaynakça ayrı h2 olabilir, TR'de bölüm içinde durur; sayı
+    farklıyken indeksle hizalamak her bölümü bir kaydırır ve makalenin
+    TAMAMINI sahte bulgu olarak raporlar.
+
+    Sayı farklıysa bu eksen SUSAR — ama gövde-geneli eksen (govde_kutlesi)
+    yine konuşur, yani makale ölçümsüz kalmaz.
+
+    Eşik mantığı alt-bölüm ekseniyle aynı ve aynı gerekçeyle MEDYAN tabanlı:
+    her dil kendi ölçeğine normalize olur, CJK için ayrı eşik gerekmez.
+    """
+    if len(ref) != len(cev) or not ref:
+        return []
+    ciftler = [(rb, rp, cp, ck / rk)
+               for (rb, rp, rk), (_, cp, ck) in zip(ref, cev) if rk]
+    if not ciftler:
+        return []
+    oranlar = sorted(x[3] for x in ciftler)
+    medyan = oranlar[len(oranlar) // 2]
+    if medyan <= 0:
+        return []
+    return [(rb, rp, cp, o) for (rb, rp, cp, o) in ciftler
+            if o < medyan * 0.72 and rp - cp >= 2]
+
+
 def kardesler(yol: Path):
     """hreflang'dan kardeşler — canlı yapıdan, ikincil kayıttan değil (E459)."""
     s = BeautifulSoup(yol.read_text(encoding="utf-8"), "lxml")
@@ -209,7 +384,11 @@ def kardesler(yol: Path):
         if not hl or hl in ("x-default", "tr") or not href.startswith(SITE):
             continue
         p = KOK / href[len(SITE):]
-        if p.exists():
+        # is_file, exists DEĞİL (O308): bazı hreflang'ler DİZİNE işaret ediyordu
+        # (`.../english/` — makale yerine ana sayfa). exists() dizinde de True
+        # döner, sonra read_text IsADirectoryError ile çöker. Kusur onarıldı ama
+        # kapı kalıyor: hedef dosya değilse kardeş sayılmaz.
+        if p.is_file():
             out[hl] = p
     return out
 
@@ -286,6 +465,119 @@ def kalibre_alt_eksen():
         print(f"  {'✓' if ok else '✗'} [alt-eksen] {ad}: "
               f"{bulunan or '—'} (beklenen {beklenen or '—'})")
     return hepsi
+
+
+def kalibre_ucuncu_eksen():
+    """Üçüncü eksenin kalibrasyonu — dört ayak, ikisi GERÇEK girdiyle.
+
+    O306 dersi burada bağlayıcı: sentetik ayak mantığı sınar, aracın kendisini
+    değil. Numara tanıma ayağı bu yüzden gerçek sayfa başlıklarıyla çalışır —
+    tarih tuzağı ancak orada görünür.
+    """
+    hepsi = True
+
+    # (1) Arap rakamı tanıma + TARİH TUZAĞI. Tuzak ölçülerek bulundu, sentetik
+    # değil: Almanca tarih yazımı noktalıdır ve numara desenine uyar.
+    ornekler = [("1. Giriş: Söyleyen ile yapan", "I"),
+                ("2. Mahremiyet paradoksu", "II"),
+                ("3. Juni 1963", "III"),          # tarih — desene UYAR
+                ("1930 İki paşa torunu", None),   # yıl, noktasız — uymaz
+                ("Obje Sorunu", None)]
+    for baslik, beklenen in ornekler:
+        bulunan = bolum_no(baslik)
+        ok = bulunan == beklenen
+        hepsi &= ok
+        print(f"  {'✓' if ok else '✗'} [3. eksen] numara tanıma «{baslik[:26]}»: "
+              f"{bulunan or '—'} (beklenen {beklenen or '—'})")
+
+    # (2) ORAN EŞİĞİ tarih tuzağını gerçekten savuşturuyor mu? Tek başına
+    # regex yetmiyordu; koruma makale düzeyinde. Gerçek sayfayla sınanır.
+    dg = KOK / "deutsch/raporlar/bild-des-gluecks.html"
+    if dg.is_file():
+        b, _ = govde_bolumleri(dg)
+        ok = not b   # "3. Juni 1963" tek başına makaleyi numaralı yapmamalı
+        hepsi &= ok
+        print(f"  {'✓' if ok else '✗'} [3. eksen] oran eşiği (gerçek sayfa, "
+              f"tarih başlığı): {'numarasız sayıldı' if ok else 'TUZAĞA DÜŞTÜ'}")
+
+    # (3) Başlık-sırası ekseni: yakalıyor mu, susması gerekende susuyor mu.
+    ref = [("A", 10, 1000), ("B", 10, 1000), ("C", 10, 1000), ("D", 10, 1000)]
+    for ad, cev, beklenen in [
+        ("yakalama", [("a", 10, 1100), ("b", 10, 1100),
+                      ("c", 4, 300), ("d", 10, 1100)], ["A"]),
+        ("yanlış pozitif yok", [("a", 10, 1100), ("b", 9, 1050),
+                                ("c", 10, 1120), ("d", 10, 1100)], []),
+        # Sayı farklı → hizalama kurulamaz, SUSMALI (O303 tuzak #2).
+        ("sayı farklıysa susar", [("a", 10, 1100), ("c", 4, 300)], []),
+    ]:
+        bulunan = [x[0] for x in baslik_sirasi_kutlesi(ref, cev)]
+        # yakalama ayağında dönen başlık REFERANSIN başlığıdır (indeks 2 → "C")
+        bekle = ["C"] if beklenen == ["A"] else beklenen
+        ok = bulunan == bekle
+        hepsi &= ok
+        print(f"  {'✓' if ok else '✗'} [3. eksen] başlık-sırası {ad}: "
+              f"{bulunan or '—'} (beklenen {bekle or '—'})")
+    return hepsi
+
+
+def kalibre_govde_geneli():
+    """Gövde-geneli eksen GERÇEK sayfada çalışıyor mu (dördüncü ayak deseni).
+
+    Bugüne dek hiç ölçülmemiş bir makale seçilir, gövdesinin yarısı silinir;
+    oran belirgin düşmüyorsa zincir kopuktur.
+    """
+    tr = KOK / "turkce/raporlar/kulaga-yazmak.html"
+    if not tr.is_file():
+        print("  ○ [3. eksen] gövde-geneli: örnek sayfa yok — SINANAMADI")
+        return True
+    kar = kardesler(tr)
+    if not kar:
+        print("  ○ [3. eksen] gövde-geneli: kardeş yok — SINANAMADI")
+        return True
+    dil, cev = sorted(kar.items())[0]
+    ref_k, _ = govde_kutlesi(tr)
+    tam_k, _ = govde_kutlesi(cev)
+    if not ref_k or not tam_k:
+        print("  ○ [3. eksen] gövde-geneli: kütle ölçülemedi — SINANAMADI")
+        return True
+
+    s = BeautifulSoup(cev.read_text(encoding="utf-8"), "lxml")
+    kap, _ = _kapsayici_genis(s)
+    pler = [el for el in kap.find_all("p") if _sayimda(el)]
+    for p in pler[:len(pler) // 2]:
+        p.decompose()
+    tmp = KOK / "_kalibrasyon_govde_gecici.html"
+    tmp.write_text(str(s), encoding="utf-8")
+    bozuk_k, _ = govde_kutlesi(tmp)
+    tmp.unlink()
+
+    tam_o, bozuk_o = tam_k / ref_k, bozuk_k / ref_k
+    # Ölçüt ÜRETİMDEKİYLE aynı yapıda olmalı (ölçüm/norm < eşik), yoksa
+    # kalibrasyon başka bir mantığı sınar (O306). Burada sağlam hâlin oranı
+    # normun yerini tutar: aynı sayfa, tek değişken silinen içerik.
+    ok = (bozuk_o / tam_o) < NORM_ESIK
+    print(f"  {'✓' if ok else '✗'} [3. eksen] gövde-geneli (gerçek sayfa "
+          f"{tr.name}↔{dil}): oran {tam_o:.2f} → {bozuk_o:.2f} "
+          f"(norma göre {bozuk_o/tam_o:.2f}, eşik {NORM_ESIK}; "
+          f"{len(pler)//2}/{len(pler)} paragraf silindi)"
+          + ("" if ok else "  ← ZİNCİR KOPUK"))
+
+    # ÇEVİRİ NOTU DÜŞME AYAĞI — ölçülmüş risk (%5-23) kapıyla kapatıldı mı?
+    # Notu olan gerçek bir sayfada, ayıklanmış kütle ham kütleden KÜÇÜK olmalı.
+    notlu = KOK / "deutsch/raporlar/teetisch.html"
+    not_ok = True
+    if notlu.is_file():
+        ham = BeautifulSoup(notlu.read_text(encoding="utf-8"), "lxml")
+        for t in ham(["script", "style", "nav", "footer", "header"]):
+            t.decompose()
+        ham_k = len(_kapsayici_genis(ham)[0].get_text(" ", strip=True))
+        ayik_k, _ = govde_kutlesi(notlu)
+        not_ok = ayik_k < ham_k
+        print(f"  {'✓' if not_ok else '✗'} [3. eksen] çeviri notu düşülüyor "
+              f"(teetisch.html): {ham_k} → {ayik_k} "
+              f"(−%{100*(ham_k-ayik_k)/ham_k:.0f})"
+              + ("" if not_ok else "  ← NOT DÜŞÜLMÜYOR, maskeleme riski açık"))
+    return ok and not_ok
 
 
 def kalibre_gercek_sayfa(tr_yol):
@@ -382,7 +674,30 @@ def main():
     if gercek_ornek is not None and not kalibre_gercek_sayfa(gercek_ornek):
         print("✗ GERÇEK-SAYFA KALİBRASYONU BAŞARISIZ — tarama İPTAL.")
         sys.exit(1)
+    if not kalibre_ucuncu_eksen():
+        print("✗ ÜÇÜNCÜ EKSEN KALİBRASYONU BAŞARISIZ — tarama İPTAL.")
+        sys.exit(1)
+    if not kalibre_govde_geneli():
+        print("✗ GÖVDE-GENELİ KALİBRASYONU BAŞARISIZ — tarama İPTAL.")
+        sys.exit(1)
     print("✓ Kalibrasyon geçti.\n")
+
+    # ── BİRİNCİ GEÇİŞ: dil normlarını ölç (gövde-geneli eksenin tabanı) ──
+    # İki geçiş şart: taban site genelinden gelir, tek sayfaya bakarak
+    # kurulamaz. Norm hesabı bulgu üretmez, yalnız ölçek verir.
+    ham_oranlar = {}
+    for tr in sayfalar:
+        ref_gk, _ = govde_kutlesi(tr)
+        if not ref_gk:
+            continue
+        for dil, yol in sorted(kardesler(tr).items()):
+            c_gk, _ = govde_kutlesi(yol)
+            if c_gk:
+                ham_oranlar.setdefault(dil, []).append((tr.name, c_gk / ref_gk))
+    dil_normu = {}
+    for dil, kayitlar in ham_oranlar.items():
+        v = sorted(o for _, o in kayitlar)
+        dil_normu[dil] = v[len(v) // 2]
 
     supheli = 0
     # KAPSAM DIŞI KALANLAR — sonda ZORUNLU raporlanır (O306).
@@ -391,9 +706,40 @@ def main():
     # Sessiz kapsam kusuru gürültüden beterdir (O303): okur taranmayanı taranmış
     # sanır ve "temiz" raporu asılsız bir güven üretir.
     kapsam_disi = {"kapsayici": [], "numarasiz": [], "basliksiz": []}
+    ucuncu_tarandi = 0
     for tr in sayfalar:
         ref, _ = govde_bolumleri(tr)
         if not ref:
+            # ── ÜÇÜNCÜ EKSEN (O308): numara-bazlı hizalama kurulamayan
+            # makaleler artık ölçümsüz KALMIYOR. Kapsam dışı bildirimi
+            # duruyor (hangi eksende ölçülemediği bilgisi değerli), ama
+            # yanına ölçülebilen ne varsa o konuluyor.
+            satirlar = []
+            ref_gk, _aile = govde_kutlesi(tr)
+            ref_bas = baslik_bolumleri(tr)
+            for dil, yol in sorted(kardesler(tr).items()):
+                c_gk, _ = govde_kutlesi(yol)
+                if ref_gk and c_gk:
+                    oran = c_gk / ref_gk
+                    norm = dil_normu.get(dil)
+                    # CJK artık DIŞLANMIYOR: dil normu ölçeği kendisi çözüyor.
+                    if norm and oran / norm < NORM_ESIK:
+                        satirlar.append(
+                            f"    {dil}: gövde kütlesi {c_gk}/{ref_gk} = {oran:.2f}× "
+                            f"· {dil} normu {norm:.2f} → norma göre "
+                            f"{oran/norm:.2f} (gövde-geneli eksen)")
+                for baslik, rp, cp, o in baslik_sirasi_kutlesi(
+                        ref_bas, baslik_bolumleri(yol)):
+                    satirlar.append(
+                        f"    {dil}: «{baslik}» paragraf {rp}→{cp}, "
+                        f"kütle {o:.2f}× (başlık-sırası ekseni)")
+            if ref_gk:
+                ucuncu_tarandi += 1
+            if satirlar:
+                supheli += 1
+                print(f"■ {tr.name}  [TR gövde={ref_gk} · üçüncü eksen]")
+                print("\n".join(satirlar))
+
             s = BeautifulSoup(tr.read_text(encoding="utf-8"), "lxml")
             kap, _a = _kapsayici(s)
             # ÜÇ ayrı hâl, üçü ayrı şey söyler (O306 — ikisini birbirine
@@ -457,7 +803,10 @@ def main():
             print("\n".join(satirlar))
 
     tarandi = len(sayfalar) - sum(len(v) for v in kapsam_disi.values())
-    print(f"\n{tarandi}/{len(sayfalar)} TR makale TARANDI · {supheli} tanesinde eksiklik ŞÜPHESİ.")
+    print(f"\n{tarandi}/{len(sayfalar)} makale NUMARA ekseninde (h3 + alt bölüm) · "
+          f"{ucuncu_tarandi}/{len(sayfalar)} makale ÜÇÜNCÜ eksende (gövde + başlık sırası) "
+          f"→ toplam {tarandi + ucuncu_tarandi}/{len(sayfalar)} ölçüldü.")
+    print(f"{supheli} makalede eksiklik ŞÜPHESİ.")
     if kapsam_disi["kapsayici"]:
         print(f"\n⚠ ARACIN KÖRLÜĞÜ — kapsayıcı tanınmadı ({len(kapsam_disi['kapsayici'])}): "
               + ", ".join(kapsam_disi["kapsayici"])
@@ -465,15 +814,21 @@ def main():
     if kapsam_disi["numarasiz"]:
         print(f"\n○ KAPSAM SINIRI — numaralı bölüm yok ({len(kapsam_disi['numarasiz'])}): "
               + ", ".join(kapsam_disi["numarasiz"])
-              + "\n  Hizalama başlık numarasıyla yapılır; numarasız makale bu eksende"
-                "\n  ölçülemez (meşru sınır, kusur değil). Ayrı eksen ister.")
+              + "\n  Numara-bazlı hizalama kurulamaz (meşru sınır, kusur değil), ama"
+                "\n  bu makaleler ÖLÇÜMSÜZ DEĞİL: üçüncü eksen (gövde kütlesi +"
+                "\n  başlık sırası) yukarıda taradı. Kaçırdığı: bölüm içi ince kayıp.")
     if kapsam_disi["basliksiz"]:
         print(f"\n○ KAPSAM SINIRI — bölüm başlığı (h2) yok ({len(kapsam_disi['basliksiz'])}): "
               + ", ".join(kapsam_disi["basliksiz"])
-              + "\n  Makale h2 kullanmıyor; bölüm-bazlı karşılaştırma tanımsız.")
+              + "\n  Bölüm-bazlı karşılaştırma tanımsız; gövde-geneli eksenle ölçüldüler.")
     print("\nŞüphe bulgu değildir: çeviri notunda/künyede belgelenmiş kısaltma meşrudur;"
           "\nbelgelenmemiş olan üretim kusuru sayılır (O302)."
-          "\nİki eksen: h3 = alt bölüm VAR MI · alt-bölüm ekseni = İÇİ DOLU MU (O305).")
+          "\n\nÜÇ EKSEN, üçü ayrı soru sorar — hiçbiri ötekinin yedeği değildir:"
+          "\n  1. h3 sayısı      → alt bölüm VAR MI                    (O303)"
+          "\n  2. alt bölüm      → İÇİ DOLU MU                          (O305)"
+          "\n  3. gövde + başlık → numara yokken TOPLAM KÜTLE tutuyor mu (O308)"
+          "\nBirinci ikisi numara hizalaması ister; üçüncüsü istemez, o yüzden"
+          "\nkabadır: bölüm içi ince kaybı göremez, toptan kısalmayı görür.")
 
 
 if __name__ == "__main__":
