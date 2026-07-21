@@ -106,6 +106,72 @@ def govde_bolumleri(yol: Path):
     return out, aile
 
 
+def alt_bolumler(yol: Path):
+    """{romen: [(h3_başlığı, paragraf_sayısı, karakter), ...]}
+
+    İKİNCİ EKSEN (O305). Birinci eksen (govde_bolumleri) bir alt bölümün
+    VARLIĞINI sınar; bu, İÇİNİ sınar. Aradaki fark canlı bir kusurla ölçüldü:
+    `anlamak`/ES h3 sayısı 39/39 TAM görünüyordu, ama VI. bölümde 23 paragraf
+    eksikti — O303'ün onardığı üç alt bölüm doluydu, dokunulmayan altısı
+    yarı boştu. Başlık duruyor, altındaki metin yok: h3 ekseni buna kördür.
+    """
+    s = BeautifulSoup(yol.read_text(encoding="utf-8"), "lxml")
+    kap, _ = _kapsayici(s)
+    if kap is None:
+        return {}
+    out, cur, alt = {}, None, None
+    for el in kap.find_all(["h2", "h3", "p", "li", "blockquote"]):
+        if el.name == "h2":
+            cur = bolum_no(el.get_text(strip=True))
+            alt = None
+            if cur:
+                out[cur] = []
+        elif cur is None:
+            continue
+        elif el.name == "h3":
+            alt = [el.get_text(" ", strip=True)[:44], 0, 0]
+            out[cur].append(alt)
+        elif alt is not None:
+            if el.name == "p":
+                alt[1] += 1
+            alt[2] += len(el.get_text(" ", strip=True))
+    return out
+
+
+def alt_bolum_kutlesi(ref_alt, c_alt):
+    """Alt bölüm bazında kütle kaybı → [(bölüm, başlık, TR_p, dil_p, oran)].
+
+    İKİ TUZAK, ikisi de bu ekseni kurarken düşünüldü:
+
+    1. İNDEKS HİZALAMASI YALNIZ h3 SAYISI EŞİTKEN GÜVENLİ. Sayı farklıysa
+       zaten birinci eksen konuşuyor; orada indeksle hizalamak kaymış
+       eşleştirme üretir (tuzak #2'nin alt bölüm hâli).
+    2. AZ PARAGRAF ≠ EKSİK İÇERİK. Çeviri paragrafları birleştirebilir.
+       Ayırt eden: karakter oranı. Paragraf düşmüş ama karakter oranı o
+       makalenin MEDYANI kadarsa birleştirmedir, meşrudur. Medyan taban
+       alınır (genel ortalama değil): eksik alt bölümler azınlıkken medyan
+       sağlam kalır, ortalama onlarla birlikte çöker ve kusuru normalleştirir.
+       Medyan CJK/Latin ayrımını da kendiliğinden çözer — her dil kendi
+       ölçeğine göre normalize olur, sabit eşiğe gerek kalmaz.
+    """
+    ciftler = []
+    for b, ref_list in ref_alt.items():
+        c_list = c_alt.get(b, [])
+        if len(c_list) != len(ref_list) or not ref_list:
+            continue  # sayı farklı → birinci eksenin işi
+        for (rb, rp, rk), (_, cp, ck) in zip(ref_list, c_list):
+            if rk:
+                ciftler.append((b, rb, rp, cp, ck / rk))
+    if not ciftler:
+        return []
+    oranlar = sorted(x[4] for x in ciftler)
+    medyan = oranlar[len(oranlar) // 2]
+    if medyan <= 0:
+        return []
+    return [(b, rb, rp, cp, o) for (b, rb, rp, cp, o) in ciftler
+            if o < medyan * 0.72 and rp - cp >= 2]
+
+
 def kardesler(yol: Path):
     """hreflang'dan kardeşler — canlı yapıdan, ikincil kayıttan değil (E459)."""
     s = BeautifulSoup(yol.read_text(encoding="utf-8"), "lxml")
@@ -152,6 +218,40 @@ def kalibre_et(ornek: Path):
     return ok
 
 
+def kalibre_alt_eksen():
+    """İkinci eksenin kalibrasyonu — sentetik, üç ayaklı.
+
+    Kalibre edilmemiş tarayıcı sessizliğini "temiz" diye satar (O303: tek
+    dosyada kalibre edilen tarayıcı 16 makalenin 14'ünü atlayıp "geçti" dedi).
+    Üç ayak ayrı şeyi sınar: yakalıyor mu · susması gerekende susuyor mu ·
+    CJK ölçeğinde de çalışıyor mu.
+    """
+    ref = {"I": [("A", 10, 1000), ("B", 10, 1000), ("C", 10, 1000), ("D", 10, 1000)]}
+    testler = [
+        ("yakalama", ref,
+         {"I": [("a", 10, 1100), ("b", 10, 1100), ("c", 4, 300), ("d", 10, 1100)]},
+         ["C"]),
+        # Latin norm 1.1× — hiçbiri eksik değil, susmalı.
+        ("yanlış pozitif yok", ref,
+         {"I": [("a", 10, 1100), ("b", 9, 1050), ("c", 10, 1120), ("d", 10, 1100)]},
+         []),
+        # CJK ~0.26× — kütle Latin ölçüsünde "düşük" ama dilin normu bu.
+        # Sabit eşik burada yanlış alarm verirdi; medyan normalizasyonu
+        # yalnız gerçek sapmayı (C) yakalamalı.
+        ("CJK ölçeği", ref,
+         {"I": [("a", 10, 260), ("b", 10, 255), ("c", 3, 45), ("d", 10, 262)]},
+         ["C"]),
+    ]
+    hepsi = True
+    for ad, r, c, beklenen in testler:
+        bulunan = [x[1] for x in alt_bolum_kutlesi(r, c)]
+        ok = bulunan == beklenen
+        hepsi &= ok
+        print(f"  {'✓' if ok else '✗'} [alt-eksen] {ad}: "
+              f"{bulunan or '—'} (beklenen {beklenen or '—'})")
+    return hepsi
+
+
 def main():
     tam = "--tam" in sys.argv
     sayfalar = sorted(p for p in (KOK / "turkce/raporlar").glob("*.html")
@@ -167,6 +267,9 @@ def main():
             aileler[a] = p
     if not aileler or not all(kalibre_et(p) for p in aileler.values()):
         print("✗ KALİBRASYON BAŞARISIZ — tarama İPTAL.")
+        sys.exit(1)
+    if not kalibre_alt_eksen():
+        print("✗ ALT-EKSEN KALİBRASYONU BAŞARISIZ — tarama İPTAL.")
         sys.exit(1)
     print("✓ Kalibrasyon geçti.\n")
 
@@ -211,6 +314,15 @@ def main():
                     f"    {dil}: h3 {c_h3}/{ref_h3} (−{eksik_h3}) · "
                     f"karakter oranı {oran:.2f}"
                     + (f" · eksilen bölümler → {' '.join(bolum_farki)}" if bolum_farki else ""))
+        # ── İKİNCİ EKSEN: alt bölümün İÇİ (O305) ──────────────────
+        ref_alt = alt_bolumler(tr)
+        for dil, yol in sorted(kardesler(tr).items()):
+            kayip = alt_bolum_kutlesi(ref_alt, alt_bolumler(yol))
+            for b, baslik, rp, cp, o in kayip:
+                satirlar.append(
+                    f"    {dil}: {b}. bölüm · «{baslik}» "
+                    f"paragraf {rp}→{cp}, kütle {o:.2f}× (alt-bölüm ekseni)")
+
         if satirlar:
             supheli += 1
             print(f"■ {tr.name}  [TR h3={ref_h3} karakter={ref_kar}]")
@@ -218,7 +330,8 @@ def main():
 
     print(f"\n{len(sayfalar)} TR makale · {supheli} tanesinde eksiklik ŞÜPHESİ."
           "\nŞüphe bulgu değildir: çeviri notunda/künyede belgelenmiş kısaltma meşrudur;"
-          "\nbelgelenmemiş olan üretim kusuru sayılır (O302).")
+          "\nbelgelenmemiş olan üretim kusuru sayılır (O302)."
+          "\nİki eksen: h3 = alt bölüm VAR MI · alt-bölüm ekseni = İÇİ DOLU MU (O305).")
 
 
 if __name__ == "__main__":
