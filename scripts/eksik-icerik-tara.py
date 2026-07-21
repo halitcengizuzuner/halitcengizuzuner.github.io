@@ -42,6 +42,33 @@ from bs4 import BeautifulSoup
 KOK = Path(__file__).resolve().parent.parent
 SITE = "https://halitcengizuzuner.com/"
 ROMEN = re.compile(r"^\s*([IVX]+)[\.\s]")
+# CJK sürümler bölümleri Çince rakamla numaralar (一、二、三…), Roma rakamıyla
+# değil. Tanınmazsa "numaralı bölüm YOK" yanlış alarmı çıkar ve gerçek sinyali
+# gölgeler (Portal O304: yuzsuz-iletisim ZH iki tur boyunca yanlış ⚠ verdi).
+CJK_RAKAM = re.compile(r"^\s*([一二三四五六七八九十]+)\s*[、．.,\s]")
+_CJK_BIR = {"一": 1, "二": 2, "三": 3, "四": 4, "五": 5,
+            "六": 6, "七": 7, "八": 8, "九": 9}
+_ROMEN_TABLO = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
+                "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX"]
+
+
+def _cjk_romene(im: str):
+    """一 → I, 十二 → XII. Tanınmazsa None."""
+    if "十" in im:
+        on, _, birler = im.partition("十")
+        n = (_CJK_BIR.get(on, 1) if on else 1) * 10 + (_CJK_BIR.get(birler, 0) if birler else 0)
+    else:
+        n = _CJK_BIR.get(im, 0)
+    return _ROMEN_TABLO[n] if 0 < n < len(_ROMEN_TABLO) else None
+
+
+def bolum_no(baslik: str):
+    """h2 metninden bölüm numarasını romen olarak döndür (Latin veya CJK)."""
+    m = ROMEN.match(baslik)
+    if m:
+        return m.group(1)
+    m = CJK_RAKAM.match(baslik)
+    return _cjk_romene(m.group(1)) if m else None
 # Latin diller Türkçeden UZUN olur (TR sondan eklemeli, kompakt).
 # EN/DE ölçüldü: 1.08-1.09. Bu eşiğin altı eksiklik şüphesidir.
 ESIK_ALT = 0.90
@@ -68,8 +95,7 @@ def govde_bolumleri(yol: Path):
     out, cur = {}, None
     for el in kap.find_all(["h2", "h3", "p", "li", "blockquote"]):
         if el.name == "h2":
-            m = ROMEN.match(el.get_text(strip=True))
-            cur = m.group(1) if m else None
+            cur = bolum_no(el.get_text(strip=True))
             if cur:
                 out[cur] = [0, 0]
         elif cur:
@@ -107,7 +133,7 @@ def kalibre_et(ornek: Path):
     aday, sayiliyor = [], False
     for el in kap.find_all(["h2", "h3"]):
         if el.name == "h2":
-            sayiliyor = bool(ROMEN.match(el.get_text(strip=True)))
+            sayiliyor = bolum_no(el.get_text(strip=True)) is not None
         elif sayiliyor:
             aday.append(el)
     silinen = 0
