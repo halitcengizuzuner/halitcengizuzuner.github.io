@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="プライバシー・パラドックスは神話なのか。安全とプライバシーは分離した二つの軸であり、人はまさに守られていると思い込んでいる場所で情報を手渡す。宣言と設計との間の亀裂について。Halit Cengiz Uzuner。">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex, follow">
+<meta property="og:title" content="恐れを口にすることは、守られることではない">
+<meta property="og:description" content="人はまさに守られていると思い込んでいる場所で情報を手渡す。安全とプライバシーは同じものではない。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/nihongo/raporlar/privacy-paradox.html">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-07-21">
+<link rel="canonical" href="https://halitcengizuzuner.com/nihongo/raporlar/privacy-paradox.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/turkce/raporlar/mahremiyet-paradoksu.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/privacy-paradox.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/privacy-paradox.html">
+<link rel="alternate" hreflang="ja" href="https://halitcengizuzuner.com/nihongo/raporlar/privacy-paradox.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/paradoxe-vie-privee.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/privatsphaere-paradox.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/paradoja-privacidad.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/english/raporlar/privacy-paradox.html">
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="恐れを口にすることは、守られることではない">
+<meta name="twitter:description" content="人はまさに守られていると思い込んでいる場所で情報を手渡す。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "恐れを口にすることは、守られることではない",
+  "description": "プライバシー・パラドックスは神話なのか。安全とプライバシーは分離した二つの軸であり、人はまさに守られていると思い込んでいる場所でデータを手渡す。宣言と設計との間の亀裂。",
+  "datePublished": "2026-07-21",
+  "dateModified": "2026-07-21",
+  "author": {"@type": "Person", "@id": "https://halitcengizuzuner.com/#person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/turkce/"},
+  "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/turkce/"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/nihongo/raporlar/privacy-paradox.html"},
+  "inLanguage": "ja"
+}
+</script>
+<title>恐れを口にすることは、守られることではない</title>
+<style>
+*{box-sizing:border-box;}
+:root{--serif:Georgia,'Iowan Old Style','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho','Times New Roman',serif;--mono:'SF Mono',Menlo,monospace;--fon:#000000;--metin:#e3d4b6;--baslik:#f1e3c6;--vurgu:#c8a870;--soluk:#b9a678;}
+html,body{margin:0;padding:0;}
+body{background:var(--fon);color:var(--metin);font-family:var(--serif);font-size:19px;line-height:1.8;-webkit-text-size-adjust:100%;word-wrap:break-word;overflow-wrap:break-word;}
+.wrap{max-width:720px;margin:0 auto;padding:54px 34px 90px;}
+h1{color:var(--baslik);font-size:2.05em;line-height:1.2;letter-spacing:.2px;margin:.12em 0 .1em;font-weight:600;}
+h1+h3{color:var(--soluk);font-weight:normal;font-style:italic;font-size:1.1em;margin:.1em 0 1.3em;border:none;padding:0;opacity:.96;}
+h2{color:var(--baslik);font-size:1.3em;line-height:1.3;margin:2.2em 0 .7em;border-top:1px solid #2c2316;padding-top:1.3em;font-weight:600;}
+h3{color:var(--vurgu);font-size:1.07em;font-weight:600;font-style:normal;margin:1.75em 0 .5em;}
+p{margin:0 0 1.1em;}
+a{color:var(--vurgu);text-decoration:none;border-bottom:1px solid #5c441f;}
+strong{color:var(--baslik);}
+em{color:var(--soluk);}
+blockquote{border-left:3px solid var(--vurgu);background:#130e07;padding:.7em 1.15em;margin:1.4em 0;color:var(--soluk);border-radius:5px;}
+blockquote strong{color:var(--baslik);}
+blockquote p:last-child{margin-bottom:0;}
+hr{border:none;border-top:1px solid rgba(200,168,112,.28);margin:2.3em 0;}
+code{color:var(--vurgu);font-family:var(--mono);font-size:.9em;}
+ul{padding-left:1.3em;}
+li{margin:.36em 0;}
+em{color:var(--soluk);}
+.dinle-not{color:var(--soluk);font-size:.95em;margin-top:.6em;}
+.dinle-git{display:inline-block;margin-top:.3em;color:var(--vurgu);border-bottom:1px solid var(--vurgu);font-style:italic;}
+.hero-mobile{display:none;}
+@media(max-width:600px){.wrap{padding:34px 22px 72px;}.hero-desktop{display:none!important;}.hero-mobile{display:block!important;}h1{font-size:1.72em;}body{font-size:18px;}}
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+.transcreation-notes h3 {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(112, 104, 160, 0.15);
+    padding-left: 1rem;
+}
+.transcreation-notes summary {
+    font-family: var(--serif);
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '›';
+    margin-right: 0.5rem;
+    color: var(--yanki);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+.transcreation-notes .note-body em {
+    color: var(--yanki);
+    font-style: italic;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<figure class="hero" style="margin:0 0 2.3em;padding:0;">
+<svg class="hero-desktop" style="width:100%;height:auto;display:block;border-radius:4px;" viewBox="0 0 1240 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="一整面由相邻竖板织成的安全立面，看起来紧闭而坚固；上缘有一道明亮的信任之光。右中部区域的竖板已经退开，透过开口，后面深邃温暖的内部变得可见。一个被以为紧闭的表面背后的敞开。" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0"/></filter>
+<linearGradient id="cold" x1="0" y1="0" x2="0.15" y2="1"><stop offset="0%" stop-color="#9db0be"/><stop offset="100%" stop-color="#3d4d59"/></linearGradient>
+<linearGradient id="warm" x1="0" y1="0" x2="0.2" y2="1"><stop offset="0%" stop-color="#f0b954"/><stop offset="52%" stop-color="#9a5f23"/><stop offset="100%" stop-color="#41280f"/></linearGradient>
+</defs>
+<defs><linearGradient id="depth" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0b954"/><stop offset="18%" stop-color="#f0b954"/><stop offset="100%" stop-color="#41280f"/></linearGradient><clipPath id="fac"><rect x="178" y="116" width="812" height="328"/></clipPath></defs>
+<rect width="1240" height="560" fill="#000000"/>
+<rect x="178" y="116" width="812" height="328" fill="#1a232b"/>
+<rect x="595.0" y="116" width="199.0" height="328" fill="url(#depth)"/>
+<line x1="595.0" y1="157.0" x2="794.0" y2="157.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.24"/>
+<line x1="595.0" y1="198.0" x2="794.0" y2="198.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.22"/>
+<line x1="595.0" y1="239.0" x2="794.0" y2="239.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.20"/>
+<line x1="595.0" y1="280.0" x2="794.0" y2="280.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.18"/>
+<line x1="595.0" y1="321.0" x2="794.0" y2="321.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.16"/>
+<line x1="595.0" y1="362.0" x2="794.0" y2="362.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.14"/>
+<line x1="595.0" y1="403.0" x2="794.0" y2="403.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.12"/>
+<rect x="595.0" y="116" width="199.0" height="18.8" fill="#000000" opacity="0.10"/>
+<line x1="595.0" y1="116.0" x2="794.0" y2="116.0" stroke="#6f8597" stroke-width="1.1" stroke-opacity="0.6" stroke-dasharray="5 5"/>
+<g clip-path="url(#fac)">
+<rect x="178.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="178.0" y1="117.0" x2="203.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="203.0" y1="116.0" x2="203.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="206.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="206.0" y1="117.0" x2="231.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="231.0" y1="116.0" x2="231.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="234.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="234.0" y1="117.0" x2="259.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="259.0" y1="116.0" x2="259.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="262.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="262.0" y1="117.0" x2="287.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="287.0" y1="116.0" x2="287.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="290.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="290.0" y1="117.0" x2="315.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="315.0" y1="116.0" x2="315.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="318.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="318.0" y1="117.0" x2="343.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="343.0" y1="116.0" x2="343.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="346.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="346.0" y1="117.0" x2="371.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="371.0" y1="116.0" x2="371.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="374.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="374.0" y1="117.0" x2="399.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="399.0" y1="116.0" x2="399.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="402.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="402.0" y1="117.0" x2="427.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="427.0" y1="116.0" x2="427.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="430.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="430.0" y1="117.0" x2="455.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="455.0" y1="116.0" x2="455.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="458.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="458.0" y1="117.0" x2="483.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="483.0" y1="116.0" x2="483.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="486.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="486.0" y1="117.0" x2="511.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="511.0" y1="116.0" x2="511.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="514.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="514.0" y1="117.0" x2="539.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="539.0" y1="116.0" x2="539.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="542.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="542.0" y1="117.0" x2="567.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="567.0" y1="116.0" x2="567.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="570.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="570.0" y1="117.0" x2="595.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="595.0" y1="116.0" x2="595.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="598.0" y="150.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="598.0" y1="151.0" x2="623.0" y2="151.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="623.0" y1="150.0" x2="623.0" y2="478.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="598.0" y1="152.4" x2="623.0" y2="152.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="626.0" y="158.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="626.0" y1="159.0" x2="651.0" y2="159.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="651.0" y1="158.0" x2="651.0" y2="486.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="626.0" y1="160.4" x2="651.0" y2="160.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="654.0" y="154.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="654.0" y1="155.0" x2="679.0" y2="155.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="679.0" y1="154.0" x2="679.0" y2="482.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="654.0" y1="156.4" x2="679.0" y2="156.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="682.0" y="163.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="682.0" y1="164.0" x2="707.0" y2="164.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="707.0" y1="163.0" x2="707.0" y2="491.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="682.0" y1="165.4" x2="707.0" y2="165.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="710.0" y="156.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="710.0" y1="157.0" x2="735.0" y2="157.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="735.0" y1="156.0" x2="735.0" y2="484.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="710.0" y1="158.4" x2="735.0" y2="158.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="738.0" y="160.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="738.0" y1="161.0" x2="763.0" y2="161.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="763.0" y1="160.0" x2="763.0" y2="488.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="738.0" y1="162.4" x2="763.0" y2="162.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="766.0" y="152.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="766.0" y1="153.0" x2="791.0" y2="153.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="791.0" y1="152.0" x2="791.0" y2="480.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="766.0" y1="154.4" x2="791.0" y2="154.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="794.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="794.0" y1="117.0" x2="819.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="819.0" y1="116.0" x2="819.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="822.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="822.0" y1="117.0" x2="847.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="847.0" y1="116.0" x2="847.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="850.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="850.0" y1="117.0" x2="875.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="875.0" y1="116.0" x2="875.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="878.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="878.0" y1="117.0" x2="903.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="903.0" y1="116.0" x2="903.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="906.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="906.0" y1="117.0" x2="931.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="931.0" y1="116.0" x2="931.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="934.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="934.0" y1="117.0" x2="959.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="959.0" y1="116.0" x2="959.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="962.0" y="116.0" width="25.0" height="328" fill="url(#cold)"/>
+<line x1="962.0" y1="117.0" x2="987.0" y2="117.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="987.0" y1="116.0" x2="987.0" y2="444.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+</g>
+<circle cx="610.5" cy="150.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="638.5" cy="158.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="666.5" cy="154.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="694.5" cy="163.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="722.5" cy="156.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="750.5" cy="160.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="778.5" cy="152.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<rect width="1240" height="560" filter="url(#grain)" opacity="0.045"/>
+</svg>
+<svg class="hero-mobile" style="width:100%;height:auto;display:none;border-radius:4px;" viewBox="0 0 720 680" preserveAspectRatio="xMidYMid meet" role="img" aria-label="一整面由相邻竖板织成的安全立面，看起来紧闭而坚固；上缘有一道明亮的信任之光。右中部区域的竖板已经退开，透过开口，后面深邃温暖的内部变得可见。一个被以为紧闭的表面背后的敞开。" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="m_grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0"/></filter>
+<linearGradient id="m_cold" x1="0" y1="0" x2="0.15" y2="1"><stop offset="0%" stop-color="#9db0be"/><stop offset="100%" stop-color="#3d4d59"/></linearGradient>
+<linearGradient id="m_warm" x1="0" y1="0" x2="0.2" y2="1"><stop offset="0%" stop-color="#f0b954"/><stop offset="52%" stop-color="#9a5f23"/><stop offset="100%" stop-color="#41280f"/></linearGradient>
+</defs>
+<defs><linearGradient id="m_depth" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0b954"/><stop offset="18%" stop-color="#f0b954"/><stop offset="100%" stop-color="#41280f"/></linearGradient><clipPath id="m_fac"><rect x="66" y="130" width="588" height="440"/></clipPath></defs>
+<rect width="720" height="680" fill="#000000"/>
+<rect x="66" y="130" width="588" height="440" fill="#1a232b"/>
+<rect x="315.0" y="130" width="210.0" height="440" fill="url(#m_depth)"/>
+<line x1="315.0" y1="185.0" x2="525.0" y2="185.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.24"/>
+<line x1="315.0" y1="240.0" x2="525.0" y2="240.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.22"/>
+<line x1="315.0" y1="295.0" x2="525.0" y2="295.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.20"/>
+<line x1="315.0" y1="350.0" x2="525.0" y2="350.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.18"/>
+<line x1="315.0" y1="405.0" x2="525.0" y2="405.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.16"/>
+<line x1="315.0" y1="460.0" x2="525.0" y2="460.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.14"/>
+<line x1="315.0" y1="515.0" x2="525.0" y2="515.0" stroke="#f4cd8b" stroke-width="0.8" stroke-opacity="0.12"/>
+<rect x="315.0" y="130" width="210.0" height="23.2" fill="#000000" opacity="0.10"/>
+<line x1="315.0" y1="130.0" x2="525.0" y2="130.0" stroke="#6f8597" stroke-width="1.1" stroke-opacity="0.6" stroke-dasharray="5 5"/>
+<g clip-path="url(#m_fac)">
+<rect x="66.0" y="130.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="66.0" y1="131.0" x2="102.0" y2="131.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="102.0" y1="130.0" x2="102.0" y2="570.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="108.0" y="130.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="108.0" y1="131.0" x2="144.0" y2="131.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="144.0" y1="130.0" x2="144.0" y2="570.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="150.0" y="130.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="150.0" y1="131.0" x2="186.0" y2="131.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="186.0" y1="130.0" x2="186.0" y2="570.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="192.0" y="130.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="192.0" y1="131.0" x2="228.0" y2="131.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="228.0" y1="130.0" x2="228.0" y2="570.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="234.0" y="130.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="234.0" y1="131.0" x2="270.0" y2="131.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="270.0" y1="130.0" x2="270.0" y2="570.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="276.0" y="130.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="276.0" y1="131.0" x2="312.0" y2="131.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="312.0" y1="130.0" x2="312.0" y2="570.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="318.0" y="176.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="318.0" y1="177.0" x2="354.0" y2="177.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="354.0" y1="176.0" x2="354.0" y2="616.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="318.0" y1="178.4" x2="354.0" y2="178.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="360.0" y="186.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="360.0" y1="187.0" x2="396.0" y2="187.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="396.0" y1="186.0" x2="396.0" y2="626.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="360.0" y1="188.4" x2="396.0" y2="188.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="402.0" y="180.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="402.0" y1="181.0" x2="438.0" y2="181.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="438.0" y1="180.0" x2="438.0" y2="620.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="402.0" y1="182.4" x2="438.0" y2="182.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="444.0" y="188.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="444.0" y1="189.0" x2="480.0" y2="189.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="480.0" y1="188.0" x2="480.0" y2="628.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="444.0" y1="190.4" x2="480.0" y2="190.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="486.0" y="178.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="486.0" y1="179.0" x2="522.0" y2="179.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="522.0" y1="178.0" x2="522.0" y2="618.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<line x1="486.0" y1="180.4" x2="522.0" y2="180.4" stroke="#f4cd8b" stroke-width="1.4" stroke-opacity="0.28"/>
+<rect x="528.0" y="130.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="528.0" y1="131.0" x2="564.0" y2="131.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="564.0" y1="130.0" x2="564.0" y2="570.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="570.0" y="130.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="570.0" y1="131.0" x2="606.0" y2="131.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="606.0" y1="130.0" x2="606.0" y2="570.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+<rect x="612.0" y="130.0" width="36.0" height="440" fill="url(#m_cold)"/>
+<line x1="612.0" y1="131.0" x2="648.0" y2="131.0" stroke="#cdd9e2" stroke-width="2" stroke-opacity="0.85"/>
+<line x1="648.0" y1="130.0" x2="648.0" y2="570.0" stroke="#0c1116" stroke-width="1.4" stroke-opacity="0.7"/>
+</g>
+<circle cx="336.0" cy="176.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="378.0" cy="186.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="420.0" cy="180.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="462.0" cy="188.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<circle cx="504.0" cy="178.0" r="2" fill="none" stroke="#f4cd8b" stroke-width="0.9" stroke-opacity="0.7"/>
+<rect width="720" height="680" filter="url(#m_grain)" opacity="0.045"/>
+</svg>
+</figure>
+<h1>恐れを口にすることは、守られることではない</h1>
+<h3>プライバシー・パラドックスは神話か：宣言と構造のあいだの亀裂について</h3>
+<hr />
+<h2>要旨</h2>
+<p>人はプライバシーを高く評価していると言いながら、行動においては個人データをわずかな見返りで、ときには何の見返りもなく引き渡す。この不一致は「プライバシー・パラドックス」（privacy paradox）と呼ばれる。文献には対立する二つの陣営がある。一方は、行動こそが真の選好を示すのだから、プライバシーの価値は低く、規制は緩められるべきだと説く。他方は、行動は認知バイアス、操作、そして無知によって歪められているのだから、正されるべきはその歪みのほうだと説く。Daniel Solove（2021）は第三の、そして急進的な立場を取る。パラドックスは神話である。なぜなら行動は<em>特定の文脈におけるリスク判断</em>であり、態度は<em>一般的な価値判断</em>だからだ。両者は別のものであり、一致しないことは矛盾ではない。</p>
+<p>本稿は Solove が正しい地点から出発するが、彼が立ち止まったところでは立ち止まらない。まず、文献がおおむね見落としてきた一つの区別をはっきりさせる。<strong>プライバシーと安全（セキュリティ）は同じものではない。</strong>プライバシーとは、情報を<em>誰が</em>、<em>どの文脈で</em>見るのかという問いである。安全とは、情報が権限のない奪取から守られているかどうかという問いである。プライバシー・パラドックスの文献は、この現象を主として<em>プライバシーの軸</em>で検討してきた。ところがある特定の事例型、すなわち安全への懸念を声高に語りながら、機微な文書を大手の商用クラウドに置き、内容が暗号化されていてもやり取りの関係地図をまるごと商業的に処理するプラットフォームを通じて連絡を取る利用者は、安全の言語を話しており、Solove の「文脈依存の合理的リスク」という枠組みにはきれいに収まらない。ここでの矛盾は態度と行動のあいだにあるのではない。矛盾は<strong>宣言された脅威モデルと、現実の脅威構造とのあいだ</strong>にある。さらにこの人物は二つの軸を取り違える。大手ブランドの<em>安全</em>上の評判を、プライバシーの保証だと思い込むのである。そして最後には、「安全こそ自分にとってすべてだ」という語りが施為的な儀礼へと変わり、<em>実際に守られているという経験の代わりに置かれる</em>。人は宣言したがゆえに<em>守られていると感じる</em>。本稿はこれを Acquisti ら（2015）のコントロール・パラドックスと可塑性の知見によって裏づけ、この行動が人格の欠陥ではなく、正常な認知と、壊れた情報構造とが生む予測可能な帰結であることを示そうとする。</p>
+<hr />
+<h2>1. 序論：語る人と、行う人</h2>
+<p>よくある光景を思い浮かべてほしい。ある人はプライバシーを高く評価している。自分のデータは守られるべきだと言い、安全なくして信頼はないと語り、デジタルの世界には慎重に向き合うべきだと強調する。注意してほしいのは、その人が使う言語が最初から最後まで<em>安全</em>の言語だということである。秘密、保護、暗号、漏洩の危険。そして同じ人物が、身分情報と署名を含む機微な文書を、ありふれた商用クラウドストレージのアカウントにアップロードする。日々のやり取りは、内容が暗号化されていても、誰といつどれくらいの頻度で話したかを記録し、その関係地図を広告経済につなぐ大手プラットフォームを通じて行う。一方で、自分のデータをはるかに少ししか集めない代替サービスには、「知らない」あるいは「信用できない」と言って近づかない。</p>
+<p>この光景は一貫していないように見える。最初の反応は簡単で、しばしば口にされる。「この人は自分が何を言っているか分かっていない。言うことと、やることが矛盾している。」本稿はその最初の反応から出発するが、それを結論としてではなく問いとして扱う。なぜなら、この光景は例外ではなく規則だからである。何百万もの人が、何百万回も、まさにこのように振る舞う。ある現象がこれほど広く見られるなら、それを個人の欠陥として説明するのは学問的に脆弱である。広く見られるものは、説明されるべき構造を指し示している。</p>
+<p>私たちの問いはこうである。人はなぜ、自分が大切だと言うものを守らないのか。さらに鋭く言えば、守っていないにもかかわらず、なぜ<em>守られていると感じる</em>のか。この第二の問いこそ、本稿の主たる寄与が生まれる場所である。</p>
+<hr />
+<h2>2. プライバシー・パラドックス：定義と、一つの先行する区別</h2>
+<p>この現象は半世紀近くにわたって観察されてきた。最初期の実験の一つでは、人々は擬人化されたショッピング・ボットとやり取りするなかで、自ら表明していたプライバシー上の懸念とは正反対に、「たった一度の買い物セッションで自分についてかなり多くを明かすプロフィールが作れるほどの情報」を共有した（Spiekermann et al., 2001, 転引：Solove, 2021）。その後の年月に、数十の研究が同じ型を繰り返した。人は一ユーロの割引のために生年月日と月収を差し出す。閲覧履歴を八ドルで売る。無料のメールサービスが内容を走査していると知りながら、走査しない代替サービスには年に十五ドルを超えて払おうとはしない（Solove, 2021）。</p>
+<h3>プライバシーと安全：二つの分かれた軸</h3>
+<p>先に進む前に、しばしば互いの代わりに使われながら実は別物である二つの概念を分けておく必要がある。本稿の事例は、まさにこの区別の上に立っているからである。</p>
+<p><strong>安全</strong>（security）とは、情報を権限のないアクセス、奪取、破壊から守ることである。情報セキュリティの古典的な枠組みはこれを三つの見出しにまとめる。機密性（情報には権限のある者だけがアクセスできること）、完全性（情報が許可なく改変されないこと）、可用性（必要なときに情報が手元にあること）。安全の問いはこうである。<em>このデータを攻撃者が盗み、盗聴し、あるいは破壊できるか。</em>その侵害は具体的である。アカウントの乗っ取り、漏洩、パスワードの解読、中間者攻撃。</p>
+<p><strong>プライバシー</strong>（privacy）はこれとは別の問いである。<em>このデータを誰が、どの文脈で、何のために見ているのか。</em>プライバシーは、情報がそれ自身の文脈から切り離され、別の文脈へと流し込まれることによって侵害される。あるデータが技術的に完璧に守られ、いかなる攻撃者もそれに触れられない、ということはありうる。だが、サービスを提供する企業そのものがそれを走査し、プロファイリングし、第三者に開き、あるいは法的要請と引き換えに国家へ渡しているのなら、安全は高く、プライバシーは低い。</p>
+<p>二つの軸は互いに独立して動く。大手の商用クラウドサービスは、攻撃者に対しては極めて安全でありうる（強固なインフラ、暗号化された保管、二段階認証）。それでもプライバシーの面では弱くなりうる。サービスの所有者自身がデータにアクセスするからである。あるメッセージングアプリは内容をエンドツーエンド暗号化（E2EE: End-to-End Encryption）することで安全性を高めながら、それでも誰が誰と、いつ、どれくらいの頻度で話したか、すなわち通信履歴を集めて商業的に処理しているなら、プライバシーの面では弱いままである。これに対し、内容を E2EE で守りつつ、通信履歴の収集も最小限に抑えるアプリは、二つの軸を同時に引き上げる。単純に見えるこの区別が、第6節で事例の核心を解く鍵になる。</p>
+<p>ここでもう一つ、用語の罠にも注意を促しておきたい。安全の下位項目である「機密性」（すなわち権限のないアクセスを妨げること）と、プライバシーの日常語での言い換えである「秘密にしておくこと」は、同じ語で呼ばれながら別のものである。のちに見る Solove の「プライバシーは秘密ではない」という警告は、まさにこの混同に向けられている。諸概念のこの入り組みは、単なる言葉の問題ではない。すぐ見るように、人の頭のなかにある現実の混乱の源でもある。</p>
+<p>プライバシー・パラドックス文献の大きな本体は、この現象を<em>プライバシーの軸</em>で構成する。人はデータを<em>誰に</em>開いているか、広告のためのプロファイリングに応じているか、選択的な共有をしているか。これに対し本稿の事例は、<em>安全の言語で語る</em>利用者を中心に据える。その間の緊張こそ、本研究の独自の鉱脈である。</p>
+<h3>二つの陣営</h3>
+<p>プライバシー・パラドックスにおけるこのずれへの応答は、二つの陣営に集まる。</p>
+<p><strong>第一の陣営：行動評価論</strong>（behavior valuation）。行動は宣言よりも信頼できる尺度である。経済学の言葉では、態度は「表明選好」（stated preference）、行動は「顕示選好」（revealed preference）とされ、顕示選好こそ真の選好だとされる。人がデータを安く交換しているのだから、プライバシーには低い価値しか置いていないということになる。結論。プライバシー規制はプライバシーを過大評価しており、後退すべきである（Cooper、Ben-Shahar、Goldman といった著者たち。転引：Solove, 2021）。</p>
+<p><strong>第二の陣営：行動歪曲論</strong>（behavior distortion）。行動は真の選好を映さない。歪められているからである。認知バイアス、フレーミング効果、操作的なインターフェース設計（いわゆる「ダークパターン」）、無知、そして惰性が人の選択を損なう。結論。規制はこうした歪曲要因を減らし、人が自分の真の選好に沿った選択をできるようにすべきである。</p>
+<p>興味深いのはこうである。第二の陣営を擁護する者の多くは、パラドックスを明るみに出した研究の著者たち自身である。自分の知見に落ち着かなくなり、「問題含みだ」「不気味だ」と評し、行動を説明しようとしてきた研究者たちである（Solove, 2021）。本稿の概念的な背骨の三つの脚は、まさにこの地点で立ち上がる。まず第二の陣営の最も強い形（Acquisti）、次に両陣営をともに退ける立場（Solove）、そして最後に、そのどちらにも見えていない亀裂である。</p>
+<hr />
+<h2>3. 第一の説明：「行動が真実を語る」、そしてそれがなぜ足りないのか</h2>
+<p>行動評価論は直観的には魅力がある。人が何を言うかではなく、何をするかを見よ。しかしそこには一つの論理的な誤りがある。この誤りを最も明快に示すのは Solove である。ある人が特定の店で、特定の瞬間に、特定のデータを一ドルで渡したという事実から、その人が「プライバシーに一ドルの価値を置いている」という結論は出てこない。そこから出てくるのはただ一つ、その個別の取引においてリスクを低く見積もった、ということだけである。この議論は、狭い観察から広い一般化へと飛躍している。この飛躍がなぜ無効なのかを見るには、まず行動がどれほど揺れ動くものかを理解する必要がある。それが私たちを第二の陣営へ導く。</p>
+<hr />
+<h2>4. 第二の説明：行動は歪められている、Acquisti の三つの主題</h2>
+<p>Acquisti、Brandimarte、Loewenstein（2015）は、<em>Science</em> 誌に発表した包括的な総説において、プライバシー行動を相互に結びついた三つの主題のまわりに組織する。この三つの主題は、パラドックスを「非合理」と切り捨てることなく説明する。</p>
+<p><strong>不確実性</strong>（uncertainty）。人は二つの水準で不確実である。自分の共有がもたらす帰結についても、自分自身の選好についてもである。著者たちの印象的な表現によれば、プライバシーの帰結と自分の感じ方に関して、人はしばしば「大海のただなかにいる」（at sea）のであり、自らの行動を導く手がかりを探し回る（Acquisti et al., 2015。原文：“Because people are often ‘at sea’ when it comes to the consequences of, and their feelings about, privacy, they cast around for cues to guide their behavior.”）。情報は非対称である。データがいつ、誰によって、どのような帰結とともに集められるのかは、たいてい見えない。さらに人は自分の選好すら知らない。プライバシーは、「人は商品やサービスや他人について自分がどれくらい好きかをほとんど分かっていない」という規則の例外ではない。</p>
+<p><strong>文脈依存性</strong>（context dependence）。同じ人が、ある状況ではプライバシーに無関心でありながら、別の状況では過度に不安になりうる。不確実さのなかにいる人は手がかりにすがるのだから、行動もまた文脈によって変わる。Westin の有名な「プライバシー原理主義者、実際家、無関心層」という類型は、固定した人格類型ではない。著者たちの言い方では、「私たちは誰もが、時と場所に応じて、プライバシーの実際家であり、原理主義者であり、あるいは無関心層である」（Acquisti et al., 2015。原文：“we are all privacy pragmatists, fundamentalists, or unconcerned, depending on time and place”）。</p>
+<p><strong>可塑性</strong>（malleability）。ここが本稿にとって最も重要な主題である。人が自分の懸念を左右している要因に気づいていない一方で、自らの利益が他者の情報開示にかかっている機関は、その要因の専門家である。初期設定、インターフェース設計、コントロールの感覚。これらはプライバシーへの懸念を活性化させることも、抑え込むこともできる。著者たちが冒頭で立てている一文こそ、私たちのテーゼの種である。ソーシャルメディアにおける「より大きなコントロールの提供は、安全であるという錯覚を生み、より多くの共有を促す」（Acquisti et al., 2015。原文：“the provision of greater control on social media, which creates an illusion of safety and encourages greater sharing”）。</p>
+<p>この三つの主題は、具体的で、居心地の悪い知見となって現れる。</p>
+<ul>
+<li><p><strong>コントロール・パラドックス。</strong>自分のデータについて、より多くの明示的なコントロールを与えられると、人は<em>より多く共有する</em>。コントロールが表向き目指していたものとは正反対である。コントロールの感覚は、現実のリスクを変えないまま、防御を下げる（Brandimarte, Acquisti & Loewenstein, 2013、転引：Acquisti et al., 2015）。</p></li>
+<li><p><strong>プライバシーポリシーの誤解。</strong>ある調査では、参加者の<strong>62%</strong> が、サイトにプライバシーポリシーが存在することを、「そのサイトは許可なくデータを共有できない」という意味だと誤って解釈した。つまり、たいてい読まれもしないポリシーがただ存在するというだけで、「自分は守られている」という感覚が根拠なく生み出される（Acquisti et al., 2015。同じ知見は Solove においても Turow et al., 2009 に基づいて伝えられている）。</p></li>
+<li><p><strong>誤った手がかり、誤った信頼。</strong>あるオンライン実験で、人々は「How Bad R U」のような素人くさく粗雑な作りのサイトのほうが、形式的で専門的な見た目のサイトよりも、多くの個人情報を、それどころか犯罪を構成しうる情報までも明かした。ところがその形式的な見た目のサイトのほうは、別の参加者たちによってはるかに安全だと評価されていた（Acquisti et al., 2015）。人は安全の合図を体系的に読み違える。<em>安全なものを危険だと、危険なものを安全だと思いうる。</em></p></li>
+</ul>
+<p>この最後の知見を覚えておいてほしい。実験室のなかで、人が現実の脅威を誤った場所に置くことの証拠であり、本稿の亀裂へと直接つながっていく。</p>
+<p>Acquisti の三つの主題は、この領域の全体を代表しているのだろうか。この問いに最もまとまった答えを与えるのは、「プライバシー・パラドックス」という主題を体系的に走査した総説である。Gerber、Gerber、Volkamer（2018）は、関連する 181 の研究をふるいにかけ、そのうち三十八件を量的に検討した総説において、文献がパラドックスを説明するために生み出してきた諸アプローチを八つの系統に分ける。便益と費用の計算（privacy calculus）、限定合理性と判断の偏り（Acquisti の主題群の核）、個人的経験と技術的知識の不足、社会的影響、リスクと信頼の均衡、量子意思決定モデル、コントロールの錯覚、そして最後に、パラドックスは「方法論的な人工物」ではないかという主張である。この目録は Acquisti の概念枠組みをより広い地図の上に置き直す。不確実性、文脈依存性、可塑性は、この領域がさまざまな名で繰り返し再発見してきた型なのである。</p>
+<p>この総説の最も目を引く点は、その実証的な秤にある。数十の研究の効果量を並べたとき、最も強く最も安定した規定要因として現れるのは便益・費用の計算である。人が共有から期待する具体的な利得こそが、共有の意図も実際の共有も最もよく予測する変数である（Gerber et al., 2018）。これに対し、パラドックスをもっぱら「認知バイアス」で説明するモデルへの証拠は期待されたより弱く、人口統計的要因にいたってはほとんど無視できる水準である。この結果は本稿にとって二つの含意をもつ。第一に、行動を「非合理なバイアスの堆積」として読むのは、データが支えている以上に強い読みである。人はおおむね、不完全ではあれ、便益の計算をしている。第二に、そしてより重要なことに、この知見は次節の扉を開く。もし行動が本質的に文脈に埋め込まれた便益とリスクの判断であるなら、それを一般的な「価値」の判断と並べて「矛盾」と宣言することは、最初から誤って立てられた比較でありうるからである。</p>
+<h3>操作の機構：五つのバイアスと、いわゆる「ダークパターン」</h3>
+<p>Acquisti の「可塑性」という主題は一つの扉を開くが、抽象的なままにとどまる。どのバイアスが、どの設計によってか。Ari Ezra Waldman（2020）は、同じ現象をまさにこの具体の水準で扱う。合理的行為者モデル、すなわち人は情報を与えられれば自らの利益に最もかなう開示判断を下すという想定が、実践においてだけでなく原理においても崩れていると論じる。開示判断を損なう広範な認知的障壁があるからである。Waldman は最も一般的な五つを挙げる。</p>
+<p><strong>アンカリング</strong>（anchoring）。判断の瞬間に最初に見た情報へ不釣り合いに引きずられること。Waldman が伝えるある実験では、しだいに露出の大きい自撮り写真を先に見せられた参加者は、そのあと自分についてより多くの情報を明かした。見せられた画像が「何を共有するのが適切か」という認識を係留したのである（Chang et al., 2016、転引：Waldman, 2020）。</p>
+<p><strong>フレーミング</strong>（framing）。同じ選択肢が良く見せられるか悪く見せられるかで判断は変わる。テクノロジー企業はデータ収集を誘導的な言葉で枠づける。「クッキーを許可しないと機能が制限されます」、あるいは「データ収集をオンにすると新しい便利さが得られます」（Waldman, 2020）。肯定的な側面が前面に出され、その代価は見えなくされる。</p>
+<p><strong>双曲割引</strong>（hyperbolic discounting）。目先の帰結を過大に、将来の帰結を過小に見積もること。開示の便益（手軽さ、アクセス、社会的なやり取り）はすぐに訪れ、その危険はたいていずっと後に感じられる。だから人は今ここで共有するほうに傾く。ある研究では、利用者は、同じ価格でプライバシーに配慮した選択肢があるにもかかわらず、少しだけ安い映画のチケットのためにより多くの個人情報を渡すことに応じた（Jentzsch et al., 2012、転引：Waldman, 2020）。</p>
+<p><strong>選択過多</strong>（overchoice）。選択肢が多すぎると人は麻痺する。プライバシーにおいて問題なのは選択肢が存在することではなく、人が行うことを強いられる選択の数である。モバイルアプリはときに二百を超える許可を求める（Hartzog, 2018; Olmstead & Atkinson, 2015、転引：Waldman, 2020）。</p>
+<p><strong>メタ認知</strong>（metacognition）。人はある判断の難しさを、あるときは「重要だ」という合図として、あるときは「不可能だ」という合図として読む。プライバシーを守ることが難しく見えるとき、多くの人はそれを不可能さの印と受け取り、ニヒリスティックに諦め、判断を初期設定に委ねる（Mourey, 2019、転引：Waldman, 2020）。これは、まもなく見る Solove の「無力な明け渡し」に認知的な地盤を与える。</p>
+<p>これらのバイアスはひとりでに働くのではない。設計がそれらを武器に変える。Waldman は、利用者を本来ならしない行為へと導く設計上の仕掛けをいわゆる「ダークパターン」（dark patterns）と呼び、この領域に定着した定義を伝える。ダークパターンとは、「あるオンラインサービスに利益をもたらすインターフェース設計上の選択であり、利用者を強制し、誘導し、あるいは欺くことによって、もし十分に情報を与えられ、代替を選べる状態にあったなら下さなかったであろう判断へと追い込むもの」である（Mathur et al., 2019、転引：Waldman, 2020。原文：“interface design choices that benefit an online service by coercing, steering, or deceiving users into making decisions that, if fully informed and capable of selecting alternatives, they might not make”）。Waldman は設計の力を手品師の手さばきになぞらえる。手品師は「人々に自由な選択の錯覚を与えながら、どの選択肢を選んでも自分が勝つようにメニューを組む」（Harris, 2016、転引：Waldman, 2020）。</p>
+<p>Waldman がたどり着く結論は、本稿の背骨とそのまま重なる。彼によれば、いわゆるパラドックスは、「利用者がプライバシーに無関心であることを映すのではない。むしろ、プラットフォームが私たちの認知的な限界につけ込むために設計を用いる、そのやり方に対して、利用者が予測可能な仕方で反応していることを映している」（Waldman, 2020。原文：“Any supposed paradox does not reflect users’ disinterest in privacy; rather, it reflects users responding in predictable ways to the ways in which platforms leverage design to take advantage of our cognitive limitations”）。この読みにおいて、合理的行為者の体制は偶然にではなく、「失敗するように設計されている」（Richards & Hartzog, 2019、転引：Waldman, 2020。原文：“designed to fail”）。</p>
+<hr />
+<h2>5. 第三の説明：パラドックスなど存在しない、Solove</h2>
+<p>Solove（2021）は両陣営をともに越える立場を取る。パラドックスはパラドックスではない。一致すべき二つのものが、そもそも存在しないからである。興味深いのは、この直観が孤立していないことである。第4節で触れた体系的総説の八番目の説明もまた、パラドックスの少なくとも一部は「方法論的な人工物」ではないかと提起する。態度はたいてい連続的な尺度で（どれくらい重視しますか）、行動は二値の基準で（このプロフィールを公開にしましたか）測られる。別々の二つのものを別々の道具で測っておいて、一致しないことに驚くのは、測定の誤差を現象と見なすことかもしれない（Dienlin & Trepte, 2015、転引：Gerber et al., 2018）。Gerber らはこの可能性を慎重な仮説として残す。Solove のほうは、同じ直観を概念と法の水準で極限まで運ぶ。</p>
+<p><strong>リスクは価値ではない。</strong>パラドックス研究における行動は、プライバシーの価値についてのものではない。特定の文脈における<em>リスク</em>についてのものである。リスクとは損害の潜在性であり、価値とはあるものに与えられる一般的な重要性である。人が自分の本の題名を一ドルの割引と引き換えにしたとき、そこから出てくる結論はただ一つ。「この瞬間、この店に、このデータについて、リスクを、一ドルの報酬を賭けるに足るほど低く見た。」Solove はこれを一つの「小テスト」で示し、正解は「どれでもない」だと述べる。</p>
+<p><strong>自分のプライバシーを重んじることは、プライバシーを重んじることとは異なる。</strong>人は自分自身のためにはプライバシーを選ばないかもしれないが、それでもプライバシーを価値あるものと見なすことはできる。Solove の類比は明快である。ある人は選挙権を一般的に価値あるものと見なしながら、自分では投票しないかもしれない。投票しないことは、選挙権を価値あるものと見なしていないことを意味しない。</p>
+<p><strong>プライバシーは秘密ではない。</strong>データを共有することは、プライバシーのすべてを手放すことではない。人は自分の情報を誰からも隠したいのではない。<em>選択的に共有し</em>、有害な使われ方をされないようにしたいのである。情報の時代にいかなるデータも共有しないことは、「森のなかの小屋で暮らす」ことによってしか可能ではない。共有しているということは、プライバシーを価値あるものと見なしていないという意味ではない。（この第三の区別は、第2節で開いた用語の罠の、Solove における対応物である。プライバシーとは「すべてを秘密にしておくこと」ではない。）</p>
+<p><strong>自己管理は規模に耐えない。</strong>ここが Solove の政治的な一撃である。現行の規制はプライバシーを「プライバシー自己管理」（privacy self-management）によって守ろうとする。ポリシーを読め、オプトアウトせよ、設定を変えよ。しかしこの計画は巨大で、複雑で、終わりがない。人が関係するすべてのプライバシー通知を読むには、年におよそ 201 時間かかるだろう（McDonald & Cranor, 2008、転引：Solove, 2021）。何千もの機関があるなかで何千回もオプトアウトすることは、「大洋をカップで汲み出す」ことに似ている。完全に合理的な人間でさえやり遂げられない。</p>
+<p><strong>無力な明け渡しは合理的である。</strong>この不可能さを前にして、<em>無力な明け渡し</em>（resignation）は理にかなった反応である。Solove は、プライバシーの専門家である自分自身でさえ明け渡していると告白する。与えられるコントロールは幻想であり、「忙しくさせるための仕事」（busy work）である。人にはより多くのボタン、スイッチ、チェックボックスが与えられるが、それらは現実の保護ではない。しかも悪循環が働く。人は懸念を口にする。その人に自己管理が与えられる。不可能な計画に失敗する。失望して明け渡す。しかし懸念は続く。循環は繰り返される。罪は個人に着せられ、あげくに個人は自分自身を責める。</p>
+<p><strong>解決：構造を規制すること。</strong>それゆえプライバシー規制は、個人を管理者にすることをやめ、情報が使われ、保管され、移転される仕方を形づくっている<em>構造</em>を規制しなければならない。プライバシーは市場で売り買いされる商品ではなく、自由な社会を構成する要素である。Tufekci（2018）の言い方によれば、「データのプライバシーはむしろ大気の質や安全な飲料水に似ている。何百万もの個人の選択の英知に委ねることでは実効的に規制しえない公共財である」（原文：“air quality or safe drinking water, a public good that cannot be effectively regulated by trusting in the wisdom of millions of individual choices”）。</p>
+<p>注目すべきはこうである。Acquisti と Solove はここで出会う。Acquisti もまた、「個人に情報を与えること、あるいは個人に力を与えることだけに依拠する政策アプローチは不十分な保護しかもたらさないだろう。透明性とコントロールは、単独で用いられるとき根本的に不十分であり、それどころか裏目に出うる」という結論に達する（Acquisti et al., 2015）。二つの源泉が、異なる道を通って、同じ扉に至る。個人を責めるのではなく、構造を規制せよ。</p>
+<hr />
+<h2>6. 亀裂：宣言と構造のあいだ</h2>
+<p>ここまで、文献は私たちに堅固な地面を与えてくれた。いまや私たちは、それが終わるところから始める。</p>
+<p>序論の光景に戻ろう。安全への懸念を口にしながら、機微な文書を汎用のクラウドに置き、連絡は通信履歴を商業的に処理する大手プラットフォームを通じて行い、より少ないデータしか集めない代替サービスには「知らない」と言う利用者。Solove の枠組みはこの光景の一部を説明する。「安全は重要だ」（一般的な態度）と「文書はクラウドにある」（文脈依存のリスク判断）は別の軸であり、したがって両者のあいだに矛盾を探すのは誤りである。その通りだ。しかし Solove の枠組みは、この光景の<em>核心</em>を説明できない。ここでの決定的な点は「一般的な態度と個別のリスク」という区別ではないからである。決定的な点はこうである。<strong>この人物は、安全の言語で語りながら、守りたいと願うまさにそのものを、プライバシーの軸において明け渡している。</strong>Solove のモデルにおいて、行動は文脈依存ではあれ的を射たリスク評価である。ところがここでは、<em>リスク評価そのものが軸を取り違えている</em>。この人物は安全上の脅威に注意を集中し、プライバシー上の脅威をまったく見ていない。</p>
+<p>このずれを説明するのは Solove ではなく Acquisti である。それを最もよく見せてくれるレンズは、第2節で立てたプライバシーと安全の区別である。事例のなかの利用者は安全の言語で語るが、<em>二つの別々のことを取り違えている</em>。</p>
+<p><strong>その一、軸の混同。</strong>この人物が大手の商用クラウドや大手のメッセージングプラットフォームを選ぶとき、実際に行っているのは直観的な安全の推論である。「この企業は巨大だ、インフラは堅牢だ、サービスは暗号化されている、攻撃者から私を守ってくれる。」この推論は、<em>安全の軸においてのみ言えば、おおむね正しい</em>。内容は実際に権限のないアクセスから守られているかもしれない。誤りは、この安全の保証を<em>プライバシーの保証</em>だと思い込むところにある。なぜなら、その巨大企業自身がデータに、あるいはその通信履歴にアクセスするからである。恐れていた「第三者」は、すでに内側にいる。人はブランドの安全上の評判を見ているために、プライバシー上のリスクをまったく見ない。二つの軸を一つの軸だと思い込む。一方で正しいことが、他方で盲目であることの原因になる。第2節の用語の罠がここで血肉を得る。「安全」だと思っているものは本当に安全である。しかしそれは「プライベート」ではない。そして人はこの違いをまったく感じ取らない。</p>
+<p>これはこの人物を非合理にするのではない。ここで一つの点をはっきりさせておく必要がある。第4節の実証的知見と矛盾するように見えうるからである。Gerber らが示したように、人はおおむね便益とリスクの計算をしている。軸の混同はこの計算をなくしはしない。そこに<em>誤ったリスクの入力</em>を差し込むのである。人はプライバシー上のリスクをほとんど零だと思っているので、正しく働く計算でさえ誤った結論に至る。誤りは推論そのものにではなく、推論に入っていくリスクの地図のほうにある。だからこそ同じ行動が、同時に合理的（与えられた地図に照らせば一貫している）でも、誤り（地図が現実を映していない）でもありうる。二つは矛盾しない。Gerber の「最も強い規定要因は便益・費用の計算である」という知見と、私たちの「この人は誤っている」という指摘は、まさにこの区別において和解する。誤りは計算にではなく、計算に与えられたデータのほうにあるのだ。</p>
+<p>この区別には具体的な対応物がある。よく使われるあるメッセージングアプリは、内容を E2EE で守って安全性を確保しながら、誰が誰と、いつ、どれくらいの頻度でつながったかを示す通信履歴を集め、それを広告経済につないでいる。内容は守られ、関係の地図は守られない。同じ用途に、内容をやはり E2EE で守りつつ、通信履歴の収集は最小限に抑える代替アプリがある。二つのアプリはどちらも安全の軸では強い。両者が分かれるのはプライバシーの軸である。人はたいてい、より馴染みがあり、より大きく、より多く宣伝されているほうを「安全だ」と言って選び、二つの軸が分かれるこの地点にまったく気づかない。馴染みがあることは、プライバシーの保証ではない。しかし、そう感じさせる。</p>
+<p><strong>その二、誤った脅威の地図。</strong>人があるサービスを「信用できない」と言い、別のサービスを「信用できる」と言うとき、そこでは一つの脅威モデルが働いている。しかしこのモデルは、たいてい現実のデータ構造からではなく、馴染みがもたらす心地よさ、ブランドの大きさ、人づてに聞いた合図から組み立てられている。馴染みがあって大きいものは安全だと思われ、あまり知られていないものは信用できないとされる。ところが、あるサービスがあなたのデータをどれほど守るかは、それがどれほど馴染みがあるかではなく、<em>データを誰が見て、それを何に使うか</em>によって決まる。これは第4節の「How Bad R U」実験の、日常生活におけるそのままの対応物である。人は安全の合図を読み違え、合図の出どころ（馴染み、見た目の専門性）を現実の保護と取り違える。不確実性（人は自分のリスクを知らず、「大海のただなかにいる」）と可塑性（誤った手がかりが懸念を誤った方向へ向ける）という主題の、直接の帰結である。</p>
+<p>この二つの誤りは、個人の頭のなかでひとりでに生まれるのではない。設計によって生み出される。軸の混同には文献上の裏づけがある。Waldman（2020）は、信頼（trust）そのものが設計の標的であり、操作の手段であることを示す。彼の指摘によれば、「ウェブサイトは専門的な設計を通じて信頼の合図を発しながら、その侵襲的なデータ収集の実践を、解読しがたいプライバシーポリシーのなかに隠している」（Waldman, 2020。原文：“Websites cue trust through professional design while hiding their invasive data collection practices in inscrutable privacy policies”）。つまり、人が大きく専門的なブランドを信頼の印として読むことは、個人の甘さではなく、設計が生み出すことを狙っていた効果なのである。軸の混同とは、Waldman が「信頼の操作」と呼ぶものが、プライバシーと安全の軸において結晶した姿である。人は、専門的なインターフェースが放つ安全の感覚を、データに誰がアクセスするのかについてのプライバシーの保証だと思い込む。</p>
+<p>ここから、私たちのテーゼの前半を提起する。</p>
+<blockquote><p><strong>矛盾は態度と行動のあいだにあるのではない（Solove は正しい）。矛盾は、宣言された脅威モデルと、現実の脅威構造とのあいだにある。</strong>人は一つの脅威の地図を宣言する。しかしこの地図は、現実のデータの流れの地理と重ならない。しかもこの地図の歪みの一つの根は、プライバシーと安全を分けられないことにある。安全の軸で下した正しい判断を、プライバシーの軸でも通用すると思い込むのである。こうして人は、自分の防御を現実の脅威にではなく、想像上の脅威に合わせて配置する。そして、まさに守られていると思っているその場所で、無防備なままとなる。</p></blockquote>
+<p>テーゼの後半はより深く、本当に独自の鉱脈を担っている。事例のなかの人物は、ただ誤った地図を描いただけではない。その地図を<em>声に出して宣言することによって</em>、自分自身のために一つの機能を生み出している。「安全こそ自分にとってすべてだ」という一文は、記述ではなく<em>行為</em>である。人はそれを口にするたびに、口にすること自体から守られているという感覚を得る。実際の保護の行為（通信履歴を集めないサービスを選ぶ、データを安全に保つ）の代わりに、保護の<em>語り</em>が置かれる。私たちはこれをこう名づける。</p>
+<blockquote><p><strong>語りが経験の代わりに置かれること（施為的宣言）。</strong>人は自分が守られていると宣言し、その宣言が<em>実際に守られている経験の位置を占める</em>。宣言したがゆえに、守られていると感じる。この感覚は、Acquisti のコントロール・パラドックスの一つ上の層である。あちらでは人に<em>与えられた</em>コントロールが防御を下げていた。ここでは人が<em>生み出した語り</em>が防御を下げる。どちらにおいても機構は同じである。安全の感覚が、安全そのものの代わりに置かれ、逆説的に保護を減らすのだ。</p></blockquote>
+<p>Solove の「無力な明け渡し」と、ここでの「偽りの安心」との違いは重要である。Solove の明け渡す人は<em>受動的</em>である。守りきれないと察し、諦める。しかしそのことを知っている。ここでの人物は<em>守られていると信じている</em>。守れていないことを察しない。それどころか、自分自身の宣言がその信念を与えたのである。明け渡しは目を開いたままの無力さである。偽りの安心は、守られている感覚に覆われた無防備さである。両者の違いは罪ではなく、認知の状態の違いである。そしてこの違いこそ、解決がなぜ「さらに多くの宣言」ではありえないのかを、第8節で説明することになる。</p>
+<p>ここで一つ、誠実な境界を引いておかなければならない。「施為的宣言」は直接に測定された知見ではなく、コントロール・パラドックスという実験的に立証された機構から類比によって導かれた提起である。コントロールの感覚が防御を下げることは測定されている（Brandimarte et al., 2013）。だが、宣言するという行為もまた同様の「守られている感覚」を生み、防御を下げるのかどうかは、まだ検証されていない、検証に開かれた仮説である。これは本稿の最も脆く、同時に最も検証可能な主張である。私たちはこれを立証された事実としてではなく、あるがままに、一つの提起として印を付けておく。</p>
+<hr />
+<h2>7. 病理ではない：ある普遍的な現象の認知的な自然さ</h2>
+<p>いまや私たちは、序論のあの最初の反応に戻ることができる。「この人は自分が何を言っているか分かっていない。一貫していない。」</p>
+<p><strong>この判断は誤りである。</strong>なぜ誤りなのかは、もう明らかである。事例のなかの行動は、一貫性の欠如でも欠陥でもなく、正常な人間の認知の予測可能な帰結である。不確実性は普遍的である（Acquisti）。人は自分のリスクも自分の選好も、たいてい知らない。文脈依存性は普遍的である。同じ人が、ある場所では慎重に、別の場所では開けっぴろげになる。誤った手がかりを読むことは、実験室で繰り返し再現されてきた。人は安全なものを危険だと、危険なものを安全だと思いうる。プライバシーと安全を取り違えるのにいたっては、その人が不注意である必要すらない。二つの概念は言語においても経験においても本当に絡み合っており、同じ言葉で呼ばれている。自己管理は本当に規模に耐えない（Solove）。無力な明け渡しは本当に理にかなっている。ある行動が何百万もの人において繰り返され、その機構が認知的に説明できるのなら、それを個人の弱さと見なすことは、学問的に誤っているだけでなく、方法として不毛でもある。罪を個人に着せることは、Solove が暴いたあの悪循環の最後の環である。まず人に不可能な課題が与えられ、次にそれを果たせなかったからといって「では気にしていないのだ」と言われる。</p>
+<p>では、この現象はまったく人の外側で起きているのだろうか。そうではない。しかしそれが意味するのは罪ではなく、一つの機構である。本当に決定づけているのは、人を絶えず誤った合図へ、馴染みのある大きなブランドを信頼するほうへ、コントロールの感覚で防御を下げるほうへと押しやる構造である。初期設定、いわゆる「ダークパターン」、「私たちにはポリシーがあります」という記章が生む偽りの保証、大手ブランドが自らの安全上の評判（堅牢さ、暗号化、認証）を前面に出しながら、そのプライバシー上の代価（データやその通信履歴に自分たち自身がアクセスすること）を見えなくすること。これらはすべて設計によって生み出された効果である。軸の混同でさえ、ひとりでに生まれるのではない。育てられるのである。個人は、自分のために組み立てられた舞台の上で演じている。施為的宣言が与える安らぎもまたこの舞台の一部である。なぜなら構造は人に、守られていることの現実ではなく、その感覚だけを与えうる道具（より多くのボタン、より多くのポリシー文書、より多くの「コントロール」）を差し出すからである。</p>
+<p>こうして序論の素朴な判断は逆転する。説明されるべきは、この人がなぜ「不安定に」振る舞ったのかではない。説明されるべきは、<em>よく働く認知が、悪く組み立てられた情報構造のなかで、いかにして予測可能な仕方で誤るのか</em>である。これは病理ではなく、設計によって形づくられたありふれた認知の帰結である。責任の重心もそれゆえ個人から構造へと移る。次節の政策提起は、まさにここから生まれる。</p>
+<hr />
+<h2>8. 結論</h2>
+<p>プライバシー・パラドックスは、その古典的な意味においては、確かに神話である。Solove は正しい。態度と行動は別のものであり、一致しないことは矛盾ではない。しかもこの偽のパラドックスは、しばしばプライバシー規制を掘り崩すための武器として用いられる。だが、神話が論駁されたからといって、説明すべきものが何も残っていないということにはならない。偽のパラドックスの下には、現実の亀裂がある。<em>人が宣言する脅威モデルと、その人が生きている現実の脅威構造とのあいだの亀裂</em>である。この亀裂を開いているものが二つある。一つは、プライバシーと安全の取り違えである。人は一つの軸（安全）で下した正しい判断を、もう一つの軸（プライバシー）でも通用すると思い込み、こうしてまさに信頼しているその場所で明け渡す。もう一つは、保護の語りが保護の経験の代わりに置かれることである。宣言することが、守ることの位置を占める。</p>
+<p>この診断には二つの帰結がある。政策の水準では、Acquisti と Solove がともに指し示す方向が正しい。個人をさらに「力づける」こと、その人にさらに多くのボタンとポリシー文書を与えることは役に立たず、それどころか偽りの安心を養って裏目に出る。保護の負担は、個人の背から取り上げられ、データ経済の構造へと負わされなければならない。Waldman（2020）はこの方向に具体的な法の機構を提案する。データを集める企業は、弁護士や医師や税理士が私たちに対して負う責任と同じように、私たちのデータの「情報受託者」（information fiduciaries）と見なされ、注意、守秘、忠実の義務のもとに置かれるべきだ、というのである。忠実義務は、企業が私たちを害することで利益を得ることを禁じる。この枠組みのもとでは、いわゆる「ダークパターン」によって開示へ追い込むことは法的に禁じられる。こうして三つの源泉（Acquisti、Solove、Waldman）が異なる道を通って同じ扉に至る。負担は個人から取り上げられ、データを手にしている構造と、それを組み立てた企業へと負わされる。</p>
+<p>しかし個人の水準でも、なお言うべきことが残る。そしてここが、文献が沈黙している場所である。偽りの安心の解毒剤は、さらに多くの宣言ではなく、二つのことが見えるようになることである。第一に、「安全」と「プライベート」は同じものではない。データが攻撃者から守られることは、そのデータを手にしている企業から守られることを意味しない。第二に、「大切だと言っている」ことと「守られている」こととのあいだには距離がある。この二つの区別を見ることは、その距離をひとりでに埋めはしない。だが少なくとも、それを見えるようにする。見えるようにすることこそ、個人を責めるのではなく構造を正すための第一歩である。人は何が守られ何が守られていないかを見分けられるようになったとき、正しい問いを正しい場所へ、すなわちサービスを組み立てた構造へと向け始めることができる。</p>
+<p>恐れを口にすることは、守られることではない。その違いを見ること。それが本稿の、ただ一つの、そして十分に難しい提起である。</p>
+<hr />
+<h2>参考文献</h2>
+<p><em>（APA 第 7 版。直接読んだ一次文献は完全な書誌情報とともに示した。二次文献は、本稿がその全文に直接あたっていないため「転引」と記した。直接引用は一次文献の原文から取り、照合のうえ確認した。）</em></p>
+<ul>
+<li>Acquisti, A., Brandimarte, L., &amp; Loewenstein, G. (2015). Privacy
+and human behavior in the age of information. <em>Science,
+347</em>(6221), 509-514. https://doi.org/10.1126/science.aaa1465
+<em>（全文を読了；Samsung 文献庫）</em></li>
+<li>Solove, D. J. (2021). The myth of the privacy paradox. <em>George
+Washington Law Review, 89</em>(1), 1-51. <em>（全文を読了；Samsung 文献庫）</em></li>
+<li>Gerber, N., Gerber, P., &amp; Volkamer, M. (2018). Explaining the
+privacy paradox: A systematic review of literature investigating privacy
+attitude and behavior. <em>Computers &amp; Security, 77</em>, 226-261.
+https://doi.org/10.1016/j.cose.2018.04.002 <em>（全文を読了；Samsung 文献庫）</em></li>
+<li>Waldman, A. E. (2020). Cognitive biases, dark patterns, and the
+‘privacy paradox’. <em>Current Opinion in Psychology, 31</em>, 105-109.
+https://doi.org/10.1016/j.copsyc.2019.08.025 <em>（全文を読了；Samsung 文献庫）</em></li>
+<li>Brandimarte, L., Acquisti, A., &amp; Loewenstein, G. (2013).
+Misplaced confidences: Privacy and the control paradox. <em>Social
+Psychological and Personality Science, 4</em>(3), 340-347. <em>（転引：Acquisti et al., 2015）</em></li>
+<li>Mathur, A., Acar, G., Friedman, M., Lucherini, E., Mayer, J.,
+Chetty, M., &amp; Narayanan, A. (2019). Dark patterns at scale: Findings
+from a crawl of 11K shopping websites. <em>Proceedings of the ACM on
+Human-Computer Interaction, 3</em>(CSCW), 1-32. <em>（転引：Waldman,
+2020）</em></li>
+<li>Harris, T. (2016). How technology is hijacking your mind.
+<em>Medium.</em> <em>（転引：Waldman, 2020）</em></li>
+<li>Richards, N., &amp; Hartzog, W. (2019). The pathologies of consent.
+<em>（転引：Waldman, 2020）</em></li>
+<li>McDonald, A. M., &amp; Cranor, L. F. (2008). The cost of reading
+privacy policies. <em>I/S: A Journal of Law and Policy for the
+Information Society, 4</em>(3), 543-568. <em>（転引：Solove,
+2021）</em></li>
+<li>Turow, J., King, J., Hoofnagle, C. J., Bleakley, A., &amp; Hennessy,
+M. (2009). <em>Americans reject tailored advertising.</em> <em>（転引：Solove, 2021；62% の知見の出典の一つ）</em></li>
+<li>Hoofnagle, C. J., &amp; Urban, J. M. (2014). Alan Westin’s privacy
+homo economicus. <em>Wake Forest Law Review, 49</em>, 261-321.
+<em>（転引：Acquisti et al., 2015；62% の知見の出典の一つ）</em></li>
+<li>Tufekci, Z. (2018, January 30). The latest data privacy debacle. <em>The New York Times.</em> <em>（転引：Solove, 2021）</em></li>
+<li>Spiekermann, S., Grossklags, J., &amp; Berendt, B. (2001). E-privacy
+in 2nd generation e-commerce. <em>（転引：Solove, 2021）</em></li>
+</ul>
+<h3>概念と事実の基盤（引用ではなく、枠組み）</h3>
+<ul>
+<li><strong>プライバシーと安全の区別</strong>は、情報セキュリティの既存の枠組み（機密性・完全性・可用性の三要素と、プライバシーが独立した保護目標であること）の上に立っている。これは百科事典の水準で広く受け入れられている区別である。本稿の独自の寄与は、この区別を<em>発明する</em>ことにではなく、それをプライバシー・パラドックスの事例へ持ち込み、「軸の混同」という機構に名を与えることにある。公刊へ向かう過程では、この区別を直接に打ち立てた一次文献（たとえば文脈的完全性の枠組み、Nissenbaum 2004, 2009）を補うことが検討される。</li>
+<li><strong>メッセージングの例の事実的な基盤：</strong>よく使われるあるメッセージングアプリは、内容を既定でエンドツーエンド暗号化し（Signal プロトコル）、同時に誰が誰と、いつ、どれくらいの頻度で連絡したかを示す通信履歴を集めて広告経済につないでいる。別のよく使われるアプリは、既定のやり取りをサーバー側で復号できる形で保管し、エンドツーエンド暗号化は手動で開く必要のあるモードにのみ残している。第三のアプリは、エンドツーエンド暗号化と通信履歴の最小化の双方を提供している。この三つの事例は、具体的なブランド名を挙げることなく、現時点で公開されている技術文書（WhatsApp Security Whitepaper；Telegram End-to-End Encryption FAQ, core.telegram.org；Signal の技術文書）に基づく事実の例として本文で用いられている。目的はある製品を称えることでも咎めることでもなく、「安全の軸では強く、プライバシーの軸では弱い」という状況が現実の世界に存在することを示すことである。</li>
+</ul>
+<div class="transcreation-notes">
+<h3>翻訳ノート</h3>
+
+<details>
+<summary>直接引用は原文から訳した</summary>
+<p>本稿の直接引用のうち、Tufekci、Acquisti ら、Waldman、Mathur らのものは、いずれも英語で書かれている。
+トルコ語版から重ねて訳すと、引用符の中に著者の書いていない言葉が入り込む。そのため、これらの引用は
+すべて一次文献の原文から直接、日本語に訳した。読者が原文と照らし合わせられるよう、
+主要な引用には英語原文を併記している。</p>
+</details>
+
+<details>
+<summary>「通信履歴」という語の選択</summary>
+<p>原文の「üstveri（メタデータ）」を、本稿では「通信メタデータ」ではなく<strong>通信履歴</strong>と訳した。
+電気通信事業における個人情報保護に関するガイドラインは、この語に法的な定義を与えている。すなわち
+「利用者が電気通信を利用した日時、当該電気通信の相手方その他の利用者の電気通信に係る情報であって
+当該電気通信の内容以外のもの」である。同じガイドラインの中で「通信履歴」は繰り返し用いられ、
+「メタデータ」は一度も現れない。刑事訴訟法もこの枠組みを共有している。</p>
+<p>ここには翻訳を超えた事柄がある。日本語では、この種のデータはプライバシーの下にではなく、
+憲法第21条第2項と電気通信事業法第4条が定める<strong>通信の秘密</strong>の下に位置づけられている。
+本稿がこのデータを「プライバシー」の見出しのもとで論じるとき、日本の読者にとってその法的な住所は
+別のところにある。原文の議論はそのまま保ちつつ、この差はここに記しておく。</p>
+</details>
+
+<details>
+<summary>「ダークパターン」を鉤括弧に入れた理由</summary>
+<p>消費者庁はこの語について、単一の定義を置くことを意識的に避け、「いわゆる」を付し鉤括弧に入れて用いている。
+本稿もその慣行に従った。片仮名表記を残したのは、日本語圏でも英語由来のこの語がそのまま流通しているためである。</p>
+</details>
+
+<details>
+<summary>エンドツーエンド暗号化（E2EE）</summary>
+<p>初出では<strong>エンドツーエンド暗号化（E2EE: End-to-End Encryption）</strong>と記し、以降は E2EE とした。
+この表記は情報通信研究機構の研究報告に依拠している。総務省のサイバーセキュリティ用語集にはこの項目がなく、
+情報通信白書における「エンドツーエンド」の用例は光ネットワークと 5G のスライシングを指すものであって、
+暗号化の文脈ではない。</p>
+</details>
+
+<details>
+<summary>「プライバシー・パラドックス」は片仮名のまま</summary>
+<p>日本語圏にこの概念の訳語は定着しておらず、片仮名がそのまま用いられている
+（武邑光裕『プライバシー・パラドックス：データ監視社会と「わたし」の再発明』黒鳥社、2020年）。
+無理に漢語へ移すと、本稿が扱う研究文献との接続が切れるため、片仮名を保った。</p>
+</details>
+
+<details>
+<summary>著者名について</summary>
+<p>著者名は原綴りのまま残した。片仮名に移すと、読者が原典や書誌情報にたどり着くまでの道が一つ増えるためである。
+この判断は中国語版と同じである。</p>
+</details>
+</div>
+<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">バージョン 1.0 · 初版：2026年7月21日 · トルコ語原文 v1.1（初出 2026年7月9日、改訂 2026年7月21日）より翻訳</p>
+</div>
+</body>
+</html>
