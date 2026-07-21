@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="書かれたテクストを合成音声に変えることの科学と実践と限界。平均的な聴き手のデータに基づく報告が、自らの不足を検分する。">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex, follow">
+<meta property="og:title" content="文字から声へ">
+<meta property="og:description" content="テクストを声に変えることは翻訳である。同じ言語のなかで。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/nihongo/raporlar/from-text-to-voice.html">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-04-01">
+<link rel="canonical" href="https://halitcengizuzuner.com/nihongo/raporlar/from-text-to-voice.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/turkce/raporlar/yazidan-sese.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/from-text-to-voice.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/from-text-to-voice.html">
+<link rel="alternate" hreflang="ja" href="https://halitcengizuzuner.com/nihongo/raporlar/from-text-to-voice.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/du-texte-a-la-voix.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/vom-text-zur-stimme.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/del-texto-a-la-voz.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/english/raporlar/from-text-to-voice.html">
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<title>文字から声へ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="文字から声へ">
+<meta name="twitter:description" content="テクストを声に変えることは翻訳である。同じ言語のなかで。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "文字から声へ",
+  "description": "書かれたテクストを合成音声に変えることの科学と実践と限界。",
+  "datePublished": "2026-04-01",
+  "dateModified": "2026-04-26",
+  "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/turkce/"},
+  "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/turkce/"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/nihongo/raporlar/from-text-to-voice.html"},
+  "inLanguage": "ja",
+  "translationOfWork": {"@type": "Article", "inLanguage": "tr", "url": "https://halitcengizuzuner.com/turkce/raporlar/yazidan-sese.html"}
+}
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --yanki: #7068a0;
+    --yanki-dim: rgba(112, 104, 160, 0.15);
+    --yanki-ghost: rgba(112, 104, 160, 0.08);
+    --serif: 'Instrument Serif', 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+}
+
+::selection { background: var(--yanki); color: var(--void); }
+html { font-size: clamp(17px, 1.2vw, 20px); scroll-behavior: smooth; }
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 2.0;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.10;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.report-header {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2.5rem 8rem;
+    max-width: 700px;
+}
+
+.report-header h1 {
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    color: var(--bone-bright);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.report-header .subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: var(--bone-dim);
+    margin-top: 1.5rem;
+    line-height: 1.5;
+}
+
+.report-header .meta {
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.06em;
+}
+
+.content {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 2.5rem 6rem;
+}
+
+.chapter {
+    margin-bottom: 5rem;
+}
+
+.chapter-title {
+    font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+    color: var(--bone-bright);
+    margin-bottom: 2rem;
+    font-weight: 400;
+    line-height: 1.2;
+    font-style: italic;
+}
+
+p { margin-bottom: 1.5rem; color: var(--bone); }
+strong { color: var(--bone-bright); }
+em { color: var(--bone-dim); }
+
+.callout {
+    border-left: 2px solid var(--yanki);
+    padding: 1.5rem 0 1.5rem 2rem;
+    margin: 2.5rem 0;
+}
+
+.callout p {
+    font-size: 0.95rem;
+    color: var(--bone-dim);
+    margin-bottom: 1rem;
+}
+
+.callout p:last-child { margin-bottom: 0; }
+.callout strong { color: var(--bone); }
+
+.breath { height: 6vh; }
+
+.divider {
+    width: 40px;
+    height: 1px;
+    background: var(--bone-ghost);
+    margin: 4rem 0;
+}
+
+.source-tag {
+    font-size: 0.75rem;
+    color: var(--yanki);
+    vertical-align: super;
+    margin-left: 2px;
+    opacity: 0.8;
+}
+
+.kaynakca {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.kaynakca h2 {
+    font-size: 1.1rem;
+    color: var(--bone-dim);
+    margin-bottom: 2rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.kaynakca p {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+}
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid rgba(112, 104, 160, 0.15);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: var(--serif);
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '›';
+    margin-right: 0.5rem;
+    color: var(--yanki);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--yanki);
+    font-style: italic;
+}
+
+footer {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 4rem 2.5rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+footer p {
+    font-size: 0.8rem;
+    color: var(--bone-ghost);
+    line-height: 1.8;
+}
+
+footer a {
+    color: var(--bone-dim);
+    transition: color 0.3s;
+}
+
+footer a:hover { color: var(--bone); }
+
+@media (max-width: 640px) {
+    .report-header { padding: 3rem 1.5rem 4rem; }
+    .content { padding: 0 1.5rem 4rem; }
+    .callout { padding-left: 1.2rem; }
+    footer { padding: 3rem 1.5rem; }
+}
+
+@media (min-width: 1200px) {
+    .report-header { margin-left: 6vw; }
+    .content { margin-left: 6vw; margin-right: auto; }
+    footer { margin-left: 6vw; margin-right: auto; }
+}
+
+@media print {
+    body { background: white; color: #1a1a1a; }
+    body::before { display: none; }
+    .report-header { min-height: auto; padding: 3cm 2cm; page-break-after: always; }
+    .callout { border-color: #999; }
+}
+
+/* ========== DİNLEME KAPISI ========== */
+.dinle-kapisi {
+    margin-top: 2.5rem;
+}
+
+.dinle-kapisi summary {
+    font-size: 0.85rem;
+    color: var(--bone-ghost);
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    list-style: none;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi summary::-webkit-details-marker { display: none; }
+.dinle-kapisi summary::marker { display: none; content: ''; }
+
+.dinle-kapisi summary::before {
+    content: '▸ ';
+    display: inline;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi[open] summary::before {
+    content: '▾ ';
+}
+
+.dinle-kapisi summary:hover {
+    color: var(--bone-dim);
+}
+
+.dinle-kapisi[open] summary {
+    color: var(--bone-dim);
+    margin-bottom: 1.2rem;
+}
+
+.dinle-icerik {
+    padding: 1.5rem;
+    border: 1px solid var(--bone-ghost);
+    max-width: 480px;
+}
+
+.dinle-icerik p {
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.dinle-icerik p:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.dinle-icerik a {
+    color: var(--bone-bright);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--bone-ghost);
+    transition: color 0.3s, text-decoration-color 0.3s;
+}
+
+.dinle-icerik a:hover {
+    color: var(--bone-bright);
+    text-decoration-color: var(--bone-bright);
+}
+
+.dinle-git {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+}
+
+/* ===== LANGUAGE BAR ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: var(--serif);
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+
+/* ===== HOME LINK ===== */
+.home-nav {
+    text-align: center;
+    padding: 0.5rem 0 0;
+}
+.home-link {
+    color: var(--bone-dim);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: inline-block;
+    line-height: 1;
+}
+.home-link:hover {
+    color: var(--bone);
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="言語選択">
+    <a href="/english/" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/" class="lang-link">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/nihongo/" class="lang-link lang-active">日本語</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/" class="lang-link">Español</a>
+    <span class="lang-sep">·</span>
+    <a href="/turkce/" class="lang-link">Türkçe</a>
+</nav>
+<div class="home-nav"><a href="/nihongo/" class="home-link" aria-label="ホーム">⌂</a></div>
+<header class="report-header">
+    <h1>文字から声へ</h1>
+    <p class="subtitle">一つのテクストが二つの世界のあいだに立つ。目が読み、耳が聴く。その途中で何が失われるのか。</p>
+    <p class="meta">2026年4月 · 学術文献78点 · 研究ファイル12点</p>
+</header>
+<main class="content">
+<!-- ═══════ 序 ═══════ -->
+<div class="chapter">
+<p>テクストが書かれる。ページの上にとどまる。目が走り、引き返し、立ち止まり、読み直す。段落の半ばから始めてもよく、末尾から冒頭へ飛んでもよく、一つの文を三度噛んでから放り出してもよい。読むとはそういうことだ。時間はこちらのものである。</p>
+<p>やがて誰かがそのテクストを声に変える。もう時間はこちらのものではない。声は流れ、止められず、巻き戻せない。少なくとも容易には。文は過ぎたなら過ぎたのだ。理解されなかったとき、その損失は無音のまま残る。聴き手は自分が取り違えたことにすら気づかない。Ayasse ら（2021）がこれを示した。複雑な文を耳にすると、脳は完全な解析を行うかわりに、単語をサンプリングして意味を推測する方へ切り替える。<span class="source-tag">Ayasse 2021</span>取り違えは気づかれぬまま起こる。</p>
+<p>本報告はその移行を扱う。書かれたテクストが声になるとき何を失い、何を得るのか、そして合成音声がこの等式のどこに立つのか。ただし一つの断りから始めなければならない。ここに並ぶデータの大半は「平均的な聴き手」のために産み出されたものである。報告の終わりで、この制約を報告自身に向け直す。聴くという営みは、平均ではない経験だからだ。</p>
+</div>
+<div class="breath"></div>
+<!-- ═══════ 同じ言語の二つの姿 ═══════ -->
+<div class="chapter">
+<h2 class="chapter-title">同じ言語の二つの姿</h2>
+<p>話し言葉と書き言葉は同じ言語の二つの水路のように見えるが、Wallace Chafe は1982年、それが錯覚であることを示した。根本的な違いは二つある。第一は<strong>断片化と統合</strong>である。話し手は一つのイントネーション単位につき一つの新しい概念しか運べない。認知的な容量がそれを制限する。だから「そして……そして……そして……」と連なる短い単位が生まれる。書き手はこの制限から自由である。入れ子になった従属節、埋め込み構造、一文に複数の概念。第二の違いは<strong>関与と乖離</strong>である。話し手は聴き手を見て、その反応に合わせて調整し、身振りと表情で意味を運ぶ。書き手は読み手を知らず、テクストは単独で立たねばならない。<span class="source-tag">Chafe 1982</span></p>
+<p>ここまでは単純に見える。話し言葉は断片的で関与的、書き言葉は統合的で乖離的。しかし M.A.K. Halliday は1985年に鋭い訂正を加えた。<strong>話し言葉と書き言葉は、異なる仕方で複雑なのである。</strong>書き言葉は高い語彙密度を持つ。一つの節あたり平均で三から六の内容語、話し言葉では一・五から二。他方、話し言葉は高い文法的複雑さを持ち、節どうしが予期しない仕方で結ばれる。「書き言葉のほうが複雑だ」という思い込みは広く行きわたっているが誤りである。二つは異なる次元において複雑なのだ。<span class="source-tag">Halliday 1985</span></p>
+<p>Douglas Biber は1988年、六十七の言語的特徴を分析して議論をもう一歩進めた。もっとも識別力の高い次元は「関与的か情報的か」の次元である。電話での会話が＋三十五点を取るのに対し、学術論文は－十五点を取る。しかし、どの単一の次元も話し言葉を書き言葉から決定的に切り分けはしない。両者の関係は二項対立ではなく<strong>連続体</strong>である。準備された講演は書かれたテクストに近づき、私信は話し言葉に近づく。Elinor Ochs は1979年、決定要因は水路ではなく<strong>計画の度合い</strong>だと示していた。即興の伝言は計画されていない、学会発表は計画されている。どちらも「話し言葉」だが、同じ場所にはいない。<span class="source-tag">Biber 1988, Ochs 1979</span></p>
+<p>この連続体の見方は、Walter Ong が1982年に立てた「大いなる分断」の主張をも和らげる。Ong は一次的な声の文化に九つの思考特性を認めていた。累加的、集合的、反復的、保守的。だが Scribner と Cole は1981年、ヴァイ族を対象とした調査で、読み書き能力の認知的効果が予想よりはるかに小さいことを見いだした。話し言葉と書き言葉のあいだの距離は実在する。しかしその距離の大きさは、文化により、文脈により、個人により変わる。<span class="source-tag">Ong 1982, Scribner &amp; Cole 1981</span></p>
+</div>
+<div class="divider"></div>
+<!-- ═══════ 三つではなく四つ ═══════ -->
+<div class="chapter">
+<h2 class="chapter-title">三つではなく四つ</h2>
+<p>伝統的な区分は三つの範疇を認める。自然な会話、書くこと、音読である。自然な会話では産み手と受け手が向かい合い、やりとりは即時で、身体がある。書くことでは産み手と受け手が別の時間の別の場所にいて、やりとりはなく、身体もない。音読では人間あるいは機械がテクストを声にし、聴き手は受け取るが、やはりやりとりはない。</p>
+<p>しかし今日、<strong>第四の範疇</strong>が存在し、本報告の真の主題はそれである。<strong>音声化のためのテクスト</strong>。人が書き、機械が声にし、人が聴く。ただしその人はたいてい別のことをしながら聴いている。歩き、皿を洗い、車を運転しながら。やりとりはなく、身体もなく、そのうえ聴き手の注意は分割されている。この第四の範疇は、会話でも書きものでも音読でもない。三つの交点にありながら、どれにも収まらない領域である。</p>
+<p>その実際的な帰結はこうだ。Chafe、Halliday、Biber の知見の一部は直接あてはまる。語彙密度の差、自立したテクストという概念、情報を構造化する必要。しかし関与の次元、即時の調整、身体の言葉といった次元はあてはまらない。正しい問いは「話し言葉か書き言葉か」ではない。<strong>書かれたテクストを、合成音声を介して、漫遊する心に届けるために、どう組み直すか。</strong></p>
+</div>
+<div class="divider"></div>
+<!-- ═══════ テクストが声になるとき ═══════ -->
+<div class="chapter">
+<h2 class="chapter-title">テクストが声になるとき</h2>
+<p>Donald Rubin は2000年と2012年、「聴きやすさ」という概念を体系的に定義した。Flesch-Kincaid や Gunning Fog といった読みやすさの公式は書かれたテクストのために設計されており、聴くためのテクストには適用できない。Rubin の実験は明快である。同じ内容を二つの異なる文体で用意する。一方は口語基盤（能動態、人称代名詞、順接の文、具体的な例）、他方は文章語基盤（受動態、抽象概念、埋め込み従属節）。口語基盤のテクストのほうが有意に良く理解された。文章語の様式を聴きながら処理することは、とりわけ高くつく。<span class="source-tag">Rubin 2000, 2012</span></p>
+<p>文のレベルでもっとも具体的な知見は Kadayat と Eika から来た。二十一名の参加者が合成音声を通してさまざまな長さの文を聴き、理解度が最も高く認知負荷が最も低かったのは<strong>十六語から二十語の文</strong>だった。二十語を超える文は理解度を下げ、負荷を上げた。十語を下回ると今度は文脈が砕ける。短すぎる文もまた問題なのである。<span class="source-tag">Kadayat &amp; Eika 2020</span>ただしこの「黄金の幅」は平均的な聴き手にあてはまるものだ。個人差は大きい。報告の終わりでここに戻る。</p>
+<p>文の構造も効く。Constable らは2004年、fMRI で示した。目的格関係節（「男が愛している女」）は主格関係節（「女を愛している男」）よりはるかに高い脳活動を要する。左前頭葉も側頭葉も角回も、すべてより多く働く。<span class="source-tag">Constable 2004</span>Peelle らは2010年にこう付け加えた。発話速度と統語的複雑さは別々になら耐えられるが、重なると容量を超える。統語を単純にすることが第一の介入である。<span class="source-tag">Peelle 2010</span></p>
+<p>情報の並べ方については、脳に実時間の仕組みがある。Kaiser と Trueswell は2004年、視線計測で示した。聴き手は語が耳に届く前から新しい指示対象を探しはじめている。<strong>古い情報を前に、新しい情報を後に</strong>置くと、この予測の仕組みが働く。逆の順序はそれを壊す。<span class="source-tag">Kaiser &amp; Trueswell 2004</span>これは脳における既定の設定であり、個人による柔軟性はあるが、一般原則としては堅い。</p>
+<p>視覚的な要素の変換は別の問題である。Zong らは2022年、視覚障害のある参加者を対象に調査した。生の表データより、階層化された要約的な語りが好まれる。公式は単純だ。まず要約の一文、次に決定的な数値、そして全体の傾向。表とは沈黙した情報である。声はそれを順序を持つ語りに変えねばならない。<span class="source-tag">Zong 2022</span></p>
+<p>見出しは声のなかで別の働きをする。Lemarié らは2012年、見出しの七つの機能を定義した。聴くことにとって決定的なのは二つ、<strong>主題の同定</strong>（聴き手が関連する概念の枠組みを開く）と<strong>境界の標示</strong>（「この節はここで終わった」という合図）である。ただし見出しの予告と移行の合図は同じものではない。「さて第二の節に移ります」は定型的で空虚であり、「このことが私たちを別の問いへ連れていく」は有機的で結ばれている。Faber らは2018年に示した。出来事の変化が起こらないとき、語りが平坦に、変化なく流れるとき、心の漫遊は度を超す。話題の転換と新しい情報の合図は、注意を呼び戻す標識なのである。<span class="source-tag">Lemarié 2012, Faber 2018</span></p>
+<p>数字の変換も避けられない。ラジオ報道の七十年の経験は明快である。「1,987,452」は声のなかで「およそ二百万」になる。Jonathan Kern が NPR の編集の手引きに書いたとおり、「印刷されたテクストと音声の語りは同じ世界に住むが、地形が違う」。印刷された記事のラジオ版とは、引用を音の断片に差し替えることではない。根本からの組み直しである。<span class="source-tag">Kern 2008</span></p>
+</div>
+<div class="divider"></div>
+<!-- ═══════ 人の声、機械の声 ═══════ -->
+<div class="chapter">
+<h2 class="chapter-title">人の声、機械の声</h2>
+<p>合成音声で聴くことには追加の代償があるのか。Govender と King は2018年から2019年にかけ、瞳孔測定法と二重課題法で測った。<strong>すべての条件で合成音声は自然音声より高い認知負荷を生んだ。</strong>雑音のある環境では差はさらに開き、低品質の HMM から高品質の DNN まで、あらゆる合成器が自然音声の後塵を拝した。<span class="source-tag">Govender &amp; King 2018a, 2018b, 2019</span></p>
+<p>ただしこれらのデータの多くは現代のニューラル音声合成より前のものである。Ibelings らは2022年、DNN 基盤の合成器を日常的な文で試験した。1.2デシベルの語音聴取閾値の差が見いだされたが、これは異なる自然話者どうしの差と同じ幅にある。発話反応時間、すなわち聴取努力の指標には<strong>有意な差がない。</strong><span class="source-tag">Ibelings 2022</span>Craig と Schroeder は2017年から2019年、学習成果でも同じ図を見た。現代の音声合成エンジンは、学習転移の成績において人の声と統計的に区別できない水準の信頼性と学習実感を得た。<span class="source-tag">Craig &amp; Schroeder 2017, 2019</span></p>
+<p>正反対の知見もある。2024年に三十名の学生を対象に行われた眼球運動の研究では、人の録音が合成音声より有意に高い学習成果と注意の持続をもたらした。これは Craig と Schroeder と食い違う。差はおそらく文脈にある。短い情報伝達では合成音声で足りるが、長い形式の学習では韻律の優位がはっきりしてくる。</p>
+<p>韻律は実際に決定的な変数である。Pagnotta らは2025年に示した。肯定的な韻律で聴かれた短い記述では正答がより多く得られ、人の声が音声合成より高い正確さを生んだ。ただし Cogent Psychology に載った2025年の研究は別の次元を加えた。即時の再生では自然な人の声が他のすべての条件より良い記憶保持をもたらしたが、<strong>一週間後には条件間の差が消えていた。</strong>韻律の優位は時間に引き延ばされると溶けてしまう。<span class="source-tag">Pagnotta 2025</span></p>
+<p>Virginia Clinton-Lisell の2022年のメタ分析が大きな絵を描く。四十六の研究、四千六百八十七名の参加者。読むことと聴くことのあいだの<strong>全般的な理解の差は g = 0.07</strong>、統計的に意味がない。しかし調整変数が効く。自分の速度で読めることは有利（g = 0.13）、推論的な理解では読むことが明らかに有利（g = 0.36）、語彙的な理解では差がない（g = −0.01）。決定的な知見が一つある。正書法の透明な言語では、トルコ語はこれに近い、読むことと聴くことの差がゼロに近づく（g = 0.001）。<span class="source-tag">Clinton-Lisell 2022</span> · <a href="/nihongo/raporlar/invisible-gap.html">書かれた対話の見えない溝</a></p>
+<p>Yang らは2026年、およそ十二分の短い訓練の後に神経のレベルで分化が現れることを示した。脳は合成音声にすばやく同期するが、意識してそれと気づくことははるかに難しい。Segedin らは2019年、人が人間の話者に固有の音声的適応の仕組みを、音声合成の発話にも適用していることを示していた。耳は適応する。相手が人であれ機械であれ。<span class="source-tag">Yang 2026, Segedin 2019</span></p>
+</div>
+<div class="divider"></div>
+<!-- ═══════ 模倣が終わるとき ═══════ -->
+<div class="chapter">
+<h2 class="chapter-title">模倣が終わるとき</h2>
+<p>合成音声は二十年にわたって人の声を模倣しようとしてきた。いま別の問いが立てられている。模倣しなければならないのか。</p>
+<p>Diel と Lewis は2024年、合成音声が不気味の谷をうまく回避していることを示した。谷を引き起こすのは合成であることではなく、典型的な人の声から<strong>逸脱すること</strong>である。病的な声や歪んだ声のほうが、純粋な合成音声より強い不快を生んだ。これは合成音声がすでに独自の範疇として受け入れられていることを示す。聴き手はそれを「出来の悪い人の声」ではなく「別の何か」として位置づけている。<span class="source-tag">Diel &amp; Lewis 2024</span></p>
+<p>Nussbaum、Frühholz、Schweinberger は2025年、Trends in Cognitive Sciences 誌でさらに進んだ。「声の自然さ」という概念が科学的に未定義であることを示したのである。自然さには二種類ある。逸脱に基づくもの（人の声からどれだけ離れているか）と、人らしさに基づくもの（人にどれだけ似ているか）。この曖昧さは、合成音声が自らの自然さを定義しうる可能性を開く。<span class="source-tag">Nussbaum 2025</span></p>
+<p>Im らは2023年、予想と逆のことを見いだした。利用者は情報に基づく課題では<strong>合成音声のほうを選んだ。</strong>機能的な課題において合成音声はより滑らかに感じられ、より高い能力評価を受け、肯定的な態度を形づくった。Torre らは2018年に「一致効果」を定義していた。声が信頼できるものとして知覚され、その後の経験が首尾一貫していれば、信頼は強まる。合成音声の変わらない調子はこの一貫性を容易にする。毎回同じ品質、同じ律動、同じ信頼度で。<span class="source-tag">Im 2023, Torre 2018</span></p>
+<p>Le Maguer と Cowan は2021年、ACM で挑発を表題に掲げた。「人間らしい音声合成は易しい道である」。難しいが正しい道は、合成音声が自らの道を見つけることだ。DIS 2025 の「声の陳列棚」研究がもっとも具体的な例である。「人間を超えた発声性」という概念。参加者たちは合成音声を鯨のように声を出すものとして思い描いた。模倣ではなく探索である。<span class="source-tag">Le Maguer &amp; Cowan 2021, Cabinet of Voices 2025</span></p>
+<p>Lamas は2025年、Explorations in Media Ecology 誌でこの転換に名前を与えた。<strong>「合成的な声の文化」</strong>（synthetic orality）。合成音声は一次的な声の文化でもなく（身体を持たない）、二次的な声の文化でもなく（ラジオとは違う）、書きものでもない。第四の範疇である。McLuhan の視座から見れば、あらゆる媒体は自らの言語を生む。活版印刷は小説を生み、テレビは広告を生んだ。合成音声もまた自らの類を生みつつある。NotebookLM の AI ポッドキャストはその早い一例だ。<span class="source-tag">Lamas 2025</span></p>
+<p>ただしこの範型の転換はまだ完了していない。欠けているものは多い。体系的な「合成音声の範型」を立てる論考はなく、断片をつなぐ研究はまだ書かれていない。合成音声のための固有の尺度がない。「人らしさ」に代えて何を測るのかが定まっていない。長期的な聴き手の適応についての研究も足りない。そして現存する研究の大半は英語圏と西洋を中心としており、文化的な多様性が欠けている。</p>
+</div>
+<div class="divider"></div>
+<!-- ═══════ トルコ語の固有の位置 ═══════ -->
+<div class="chapter">
+<h2 class="chapter-title">トルコ語の固有の位置</h2>
+<p>トルコ語は膠着語であり、一つの語根に多数の接辞が連なりうるため、語形は理論上は無限である。これは合成音声にとって二つの具体的な問題を生む。第一は形態論的な問題だ。標準的な語彙目録の手法では足りない。<em>gelememişlerdenmiş</em>（「来ることができなかった者たちの一人だったらしい」）のような形をあらかじめ表に収めておくことはできないからである。Kösaner らは2024年、トルコ語の複雑な形態論に対処するために音素に基づく規則型の音声合成系を開発し、正しい発音のためには形態素解析が不可欠であることを示した。<span class="source-tag">Kösaner 2024</span>Liu らは2024年、形態論を意識した言語モデルの事前学習が、資源の乏しい膠着語において品質を上げることを見いだした。トルコ語に直接適用できる手法である。<span class="source-tag">Liu 2024</span></p>
+<p>第二は曖昧性である。同じ綴りが異なる読みを導きうる。Hakkani（2002）と Külekçi（2006）は、形態論的な曖昧性の解消がトルコ語の合成音声の品質にとって決定的であることを示した。テクストの改作においてこれは、曖昧な発音を生みかねない構造を見つけて直すことを意味する。</p>
+<p>しかしトルコ語には利点もある。Clinton-Lisell のメタ分析では、正書法の透明な言語、つまり書かれたとおりに読まれる言語において、読むことと聴くことの理解の差はゼロに近い。トルコ語は完全に透明ではないが、それに近い。ラテン文字で、おおむね音素的な綴りである。このことは、テクストの改作がトルコ語では英語におけるより小さい損失で済みうることを示唆する。<span class="source-tag">Clinton-Lisell 2022</span></p>
+</div>
+<div class="divider"></div>
+<!-- ═══════ 心の漫遊 ═══════ -->
+<div class="chapter">
+<h2 class="chapter-title">心の漫遊</h2>
+<p>大学の講義における心の漫遊の割合は三十三パーセントから四十三パーセントのあいだで測られている。<span class="source-tag">Szpunar 2013, Risko 2012</span>音声のみの条件がもっとも高い漫遊を生むことを、Kopp と D'Mello が2016年に示した。仕組みは単純である。音を処理することは相対的に少ない資源しか要求しない。余った容量が解き放たれ、注意が漫遊する。</p>
+<p>だがこれは全面的に悪いことではない。解き放たれた注意は別の結びつきを作らせ、書かれたものの上では見えなかった角度を見せることがある。問題は漫遊そのものではなく、戻ってこられないことである。Faber らの2018年の知見がここで働く。出来事の変化が起こらないとき、語りが平坦に、変化なく流れるとき、漫遊は度を超す。解決は流れを断ち切ることではなく、流れのなかに<strong>呼び戻しの標識</strong>を置くことだ。話題の転換、新しい情報の合図、思いがけない隠喩。聴き手の心は漫遊する。テクストはそれを呼び戻せなければならない。</p>
+</div>
+<div class="breath"></div>
+<div class="divider"></div>
+<div class="breath"></div>
+<!-- ═══════ 自己批判 ═══════ -->
+<div class="chapter">
+<h2 class="chapter-title">本報告の最大の欠落</h2>
+<p>ここまで述べてきたすべては一つの前提に寄りかかっている。<strong>「平均的な聴き手」</strong>なるものが存在する、という前提である。Kadayat と Eika には二十一名の参加者があり、Clinton-Lisell には四十六の研究があり、Govender には瞳孔測定のデータがある。どれも平均が取られ、信頼区間が計算され、一般原則が引き出される。これは科学的方法の要請であり、誤りではない。だが不十分である。</p>
+<p>不十分なのは、聴くことが深く個別的な経験だからだ。同じ文を二人が聴く。一人は捉え、もう一人は取り逃がす。そして取り逃がした側はそれに気づかない。Kadayat と Eika の「十六語から二十語という黄金の幅」という知見は、二十一人の平均である。だがその二十一人のなかには、四十語目でも一貫性を保てた人がおそらくいたし、十語目で見失った人もいた。平均はそのどちらをも代表していない。</p>
+<p>これは文の長さだけの問題ではない。認知的な輪郭のあらゆる次元で個人差は大きい。抽象化の能力、情報密度への耐性、流れの好み、美的な基準、音への感受性。ある聴き手は教育的な橋を必要とする（「ではこれを一つ例で説明してみよう」）。別の聴き手は同じ橋を埋め草と受け取り、注意を失う。ある聴き手は定型的な移行の合図（「第二の節に移ります」）から安心を得るが、別の聴き手はそれを煩わしく感じる。ある聴き手にとって合成音声の一貫性は利点であり、毎回同じ品質である。別の聴き手にとってそれは単調さである。</p>
+<p>学術研究の年代もまた制約である。本報告の文献のかなりの部分は2020年より前のもので、合成音声の技術はそれ以来根本から変わった。2018年の「高品質 DNN 合成器」は2026年の出発点にすら届かない。Govender の認知負荷の知見は今日のエンジンで再試験されるべきである。Craig と Schroeder の「差はない」という知見は、現行のエンジンでは「合成音声が有利」になるかもしれない。データはなお価値を持つが、その現在性を問うことは避けられない。</p>
+<div class="callout">
+<p>要するに、本報告は科学的なデータに寄りかかっているが、そのデータは「誰のためにも特化されていない」絵を描いている。一枚の地図を思い浮かべてほしい。国の全体の形は示すが、あなたの家の扉は示さない。自分の家を見つけるには街路のレベルまで降りる必要がある。聴くという経験における街路のレベルとは<strong>個別化</strong>である。</p>
+</div>
+</div>
+<div class="divider"></div>
+<!-- ═══════ 個別化 ═══════ -->
+<div class="chapter">
+<h2 class="chapter-title">地図の街路レベル</h2>
+<p>個別化は抽象的な概念ではない。具体的に何が変わるのかを示す必要がある。手元に一つの事例がある。三万行の会話記録が分析され、六つの認知的・言語的次元で輪郭が引き出され、本報告の七つの一般原則がその輪郭に合わせて較正された聴き手である。以下、その較正の結果のいくつかを匿名化して伝える。具体的な差を見るために。</p>
+<p><strong>文の長さ：</strong>本報告の一般原則は十六語から二十語と言う。しかし輪郭のデータは、この聴き手の自然な処理域が二十五語から四十五語であることを示している。三万行の記録のなかに「わからなかった」「簡単にして」という表現は皆無である。黄金の幅をこの聴き手に当てると<strong>思考が砕ける</strong>。文脈を一文で担っていた構造が二文に割られると、結びが切れてしまう。一般原則は正しいが、この聴き手にとっては有害である。</p>
+<p><strong>抽象化の能力：</strong>一般原則は「抽象的な概念は具体例で支えよ」と言う。この聴き手は抽象的な概念を理解するだけでなく、産み出している。自分の考案した概念を会話のなかで自然に使う。教育的な橋（「ではこれを簡単な例で説明してみよう」）はこの聴き手にとって埋め草である。説明を要する概念があるなら直接説明せよ。説明すると予告するな。</p>
+<p><strong>情報の密度：</strong>一般原則は「情報を薄めよ、一単位に一概念を」と言う。この聴き手の百六十のファイルのなかに、情報密度が過剰だという徴候は一つもない。不満はつねに欠落から、浅さから来る。情報が薄められるとこの聴き手にとっては損失が生じる。密度が下がるのではなく、意味が下がるのだ。</p>
+<p><strong>移行の好み：</strong>一般原則は「移行の合図を使え。さて第二の話題に移ります」と言う。この聴き手の思考の流れは螺旋状の深まりを示す。話題が互いから生まれてくるため、定型的な境界の標示は流れを断つ。「では第二の節に移ろう」ではなく、前の節の最後の思考から自然に出てくる移行が要る。</p>
+<p><strong>合成音声の好み：</strong>一般的な研究は合成音声が認知負荷を上げると言う。この聴き手は一貫性を頂点の性能より好み、音楽を聴くときでさえ効果より音源への忠実さを選ぶ。合成音声の尽きせぬ一貫性は、この聴き手にとって不利ではなく<strong>積極的な利点</strong>である。</p>
+<p>五つの例に五つの異なる逸れ。一般原則はどれも正しい。だが五つともこの聴き手には誤って当たっている。地図は正しく、街路が違う。これは一人の聴き手にすぎず、聴き手ごとに逸れの型は異なるだろう。</p>
+</div>
+<div class="divider"></div>
+<!-- ═══════ 人工知能はこれをどう行うか ═══════ -->
+<div class="chapter">
+<h2 class="chapter-title">人工知能はこれをどう行うか</h2>
+<p>右の較正を人間が行えるだろうか。行える。しかし規模を持てない。三万行の会話記録を読んで六つの次元で輪郭を引き、七つの原則を較正し、五つの新しい原則を導くには、言語学者の数週間の作業が要る。そして聴き手が変わるたびに一から始めねばならない。人工知能はこれを違う仕方で行う。大規模言語モデルはテクスト分析にとって自然な基盤であり、個別化のすべての段階を自動化しうる。</p>
+<p>過程はおおむね四つの段階で動く。<strong>第一段階、輪郭の抽出：</strong>聴き手の会話や書簡の記録が分析される。文の長さ、語の選択、抽象化の水準、話題転換の型、満足と不満の徴候、そのすべてが引き出される。これは古典的なテクストマイニングの課題だが、大規模言語モデルは文脈を理解できるため、表層的な統計の先へ行ける。「わからなかった」という表現の不在と「簡単にして」という表現の不在は同じことではない。モデルはこの差を捉える。</p>
+<p><strong>第二段階、較正：</strong>学術的な原則が輪郭と突き合わされる。各原則についての問いはこうだ。この聴き手に適用できるか、できないか、どう変えるべきか。モデルは学術的な知見を「平均」のための出発点として取り、輪郭のデータから逸れを算出する。Kadayat と Eika の十六語から二十語の幅は既定値として始まるが、輪郭が二十五語から四十五語を示すなら幅は更新される。</p>
+<p><strong>第三段階、テクストの改作：</strong>書かれたテクストが較正された原則に従って書き直される。文の構造、情報の順序、移行の合図、見出しの形、隠喩の密度、情報の密度、そのすべてが輪郭に合わせて調整される。この段階は大規模言語モデルがもっとも強い領域である。テクストの生成と変換。同じ原文が異なる輪郭のために異なる形へ変わりうる。一方は短い文と教育的な橋で、他方は長く流れる文と有機的な移行で。</p>
+<p><strong>第四段階、継続的な更新：</strong>輪郭は静的ではない。聴き手の好み、認知的な容量、関心は時とともに変わる。新しいやりとりのたびに輪郭が更新される。モデルは前の較正の結果を新しいデータと突き合わせ、逸れを直す。これは従来の A/B 試験とは違う。二つの選択肢のあいだの選択ではなく、絶え間ない微調整である。</p>
+<p>技術的にこの過程はいくつかの要素を要する。大きな文脈窓を持つ言語モデル（輪郭の抽出には数万行を読まねばならない）、構造化された出力の生成（輪郭の次元、較正の表）、長いテクストの生成（改作されたテクスト）、そして永続的な記憶（輪郭の更新）。今日のモデルはこのすべてを行える。制約は技術にではなく、応用にある。テクスト改作の基盤の大半はいまだ「読みやすさの水準」のような一次元の尺度に寄りかかっている。個別化された較正はまだ標準ではない。</p>
+<p>ここには倫理的な次元もある。三万行の会話記録を分析することは深い認知的な輪郭を引き出す。文の処理能力から美的な基準まで、抽象化の水準から感情的な反応の型まで。この情報は誤った手に渡れば操作の道具に変わりうる。個別化と操作を分ける線は意図ではなく<strong>透明性</strong>にある。聴き手は自分の輪郭が何であり、どう使われ、どの判断に効いているのかを知っていなければならない。Raghavan と Schneier は2025年、IEEE Spectrum 誌で合成音声を意図して機械的に響かせることを擁護した。合成音声が自らの素性を帯びることは価値の切り下げではなく一つの機能である。同じ論理は個別化にもあてはまる。「あなたのために調整されました」という情報は見えていなければならない。隠された調節ではなく、開かれた仕事でなければならない。<span class="source-tag">Raghavan &amp; Schneier 2025</span></p>
+</div>
+<div class="breath"></div>
+<!-- ═══════ 結び ═══════ -->
+<div class="chapter">
+<p>本報告は一つの翻訳の話をした。同じ言語のなかの翻訳である。書かれたテクストが声になるとき、文の構造が変わり、情報の順序が変わり、表が語りになり、見出しが合図になり、数字が丸められる。合成音声はこの変換に自らの次元を加える。認知負荷は上がるが、閉じつつある。韻律は欠けるが、一貫性が利点になる。模倣は終わりつつあるが、自らの範型はまだ生まれきっていない。</p>
+<p>報告が自らを問う場所はここである。これらの知見はすべて「平均的な聴き手」のためのものだ。しかし聴くことは平均ではない経験である。個別化は贅沢ではなく<strong>正確さの条件</strong>である。一般原則を個別の輪郭に較正せずに「正しい改作」を名乗ることは、不十分なままにとどまる。人工知能はこの較正に規模を与える。輪郭の抽出、原則の較正、テクストの改作、継続的な更新。技術は整っている。応用はまだ標準ではない。</p>
+<p>テクストを声に変えることは翻訳である。同じ言語のなかで。</p>
+</div>
+<!-- ═══════ 参考文献 ═══════ -->
+<div class="kaynakca">
+<h2>参考文献</h2>
+<p>Ayasse, N.D.; Hodson, A.J.; Wingfield, A. (2021). “Principle of Least Effort and Sentence Comprehension.” <em>Frontiers in Psychology.</em> PMID: 33796047</p>
+<p>Biber, D. (1988). <em>Variation across Speech and Writing.</em> Cambridge University Press.</p>
+<p>Cambre, J. ら (2020). “Choice of Voices.” <em>CHI 2020.</em></p>
+<p>Chafe, W. (1982, 1985). “Integration and Involvement in Speaking, Writing, and Oral Literature.” <em>Spoken and Written Language.</em></p>
+<p>Clinton-Lisell, V. (2022). “Listening Ears or Reading Eyes: A Meta-Analysis.” <em>Review of Educational Research.</em></p>
+<p>Constable, R.T. ら (2004). “Sentence Complexity and Input Modality Effects: fMRI.” <em>NeuroImage.</em> PMID: 15109993</p>
+<p>Craig, S.D.; Schroeder, N.L. (2017). “Reconsidering the Voice Effect.” <em>Computers &amp; Education, 114.</em></p>
+<p>Craig, S.D.; Schroeder, N.L. (2019). “Text-to-Speech Software and Learning.” <em>JECR, 57(6).</em></p>
+<p>Diel, A.; Lewis, M. (2024). “Vocal Uncanny Valley: Deviation Hypothesis.” <em>ScienceDirect.</em></p>
+<p>Faber, M. ら (2018). “Driven to Distraction: A Lack of Change Gives Rise to Mind Wandering.” <em>Cognition, 173.</em></p>
+<p>Govender, A.; King, S. (2018). “Using Pupillometry to Measure Cognitive Load of Synthetic Speech.” <em>Interspeech 2018.</em></p>
+<p>Govender, A.; Wagner, A.; King, S. (2019). “Pupil Dilation for Cognitive Load TTS.” <em>Interspeech 2019.</em></p>
+<p>Hakkani, D.Z. (2002). 形態論的曖昧性解消の研究、トルコ語音声合成。</p>
+<p>Halliday, M.A.K. (1985). <em>Spoken and Written Language.</em> Deakin University Press.</p>
+<p>Ibelings, S.; Brand, T.; Holube, I. (2022). “Speech Recognition and Listening Effort of Meaningful Sentences Using Synthetic Speech.” <em>Trends in Hearing 26.</em> PMC9549212.</p>
+<p>Im, H.; Sung, B.; Lee, G.; Kok, K.Q.X. (2023). “Let Voice Assistants Sound Like a Machine.” <em>Computers in Human Behavior.</em></p>
+<p>Kadayat, B.M.; Eika, E. (2020). 音声合成の聴取における文長の研究。［参加者21名、16〜20語の黄金の幅］</p>
+<p>Kaiser, E.; Trueswell, J.C. (2004). “Role of Discourse Context in Processing Flexible Word-Order Language.” <em>Cognition.</em> PMID: 15582623</p>
+<p>Kern, J. (2008). <em>Sound Reporting.</em> University of Chicago Press.</p>
+<p>Kopp, K.; D'Mello, S. (2016). 音声のみの条件と心の漫遊の研究。</p>
+<p>Kösaner, O.; Özgen, M.; Birant, C. (2024). “Developing a Rule-Based TTS System for Turkish.” <em>DEU Avesis.</em></p>
+<p>Külekçi, M.O. (2006). トルコ語音声合成の研究。</p>
+<p>Lamas, N.J. (2025). “AI, Language Processing and Synthetic Orality.” <em>Explorations in Media Ecology, 24(3).</em></p>
+<p>Le Maguer, S.; Cowan, B.R. (2021). “Synthesizing a Human-Like Voice Is the Easy Way.” <em>ACM CUI 2021.</em></p>
+<p>Lemarié, J. ら (2012). 見出しの七つの機能の研究。</p>
+<p>Liu, R. ら (2024). “TTS for Low-Resource Agglutinative Language with Morphology-Aware Pre-Training.” <em>IEEE.</em></p>
+<p>Nussbaum, C.; Frühholz, S.; Schweinberger, S.R. (2025). “Understanding Voice Naturalness.” <em>Trends in Cognitive Sciences, 29(5).</em></p>
+<p>Ochs, E. (1979). “Planned and Unplanned Discourse.”</p>
+<p>Ong, W.J. (1982). <em>Orality and Literacy.</em> Methuen.［邦訳『声の文化と文字の文化』桜井直文・林正寛・糟谷啓介訳、藤原書店、1991年］</p>
+<p>Pagnotta, M. ら (2025). “Prosody! When intonation helps.” <em>Educational Psychology.</em></p>
+<p>Peelle, J.E. ら (2010). “Neural Processing During Older Adults' Comprehension.” <em>Cerebral Cortex, 20(4).</em></p>
+<p>Raghavan, B.; Schneier, B. (2025). “AI Voices Should Sound Robotic Again.” <em>IEEE Spectrum.</em></p>
+<p>Risko, E.F. ら (2012). 心の漫遊と講義聴取の研究。</p>
+<p>Rogowsky, B.A.; Calhoun, B.M.; Tallal, P. (2016). “Does Modality Matter?” <em>SAGE Open.</em></p>
+<p>Rubin, D.L. (2012). “Listenability as a Tool for Advancing Health Literacy.” <em>J. Health Communication, 17(S3).</em> PMID: 23030569</p>
+<p>Rubin, D.L.; Hafer, T.; Arata, K. (2000). “Reading and Listening to Oral-Based vs Literate-Based Discourse.” <em>Communication Education, 49(2).</em></p>
+<p>Scribner, S.; Cole, M. (1981). <em>The Psychology of Literacy.</em> Harvard University Press.</p>
+<p>Segedin, B.F.; Cohn, M.; Zellou, G. (2019). “Perceptual Adaptation to Device and Human Voices.” <em>Interspeech 2019.</em></p>
+<p>Szpunar, K.K. ら (2013). 講義中の心の漫遊の研究。</p>
+<p>Torre, I.; Goslin, J.; White, L.; Zanatto, D. (2018). “Trust in Artificial Voices: A ‘Congruency Effect’ of First Impressions and Behavioural Experience.” <em>Technology, Mind, and Society (TechMindSociety ’18).</em></p>
+<p>Yang, J. ら (2026). “Short-Term Perceptual Training Modulates Neural Responses to Deepfake Speech.” <em>eNeuro.</em></p>
+<p>Zong, J. ら (2022). 視覚障害のある利用者を対象とした表の語りの研究。</p>
+</div>
+    </main>
+<footer>
+<p>Halit Cengiz Uzuner · <a href="/">halitcengizuzuner.com</a></p>
+<p>本報告に用いた学術文献の実物は保管されている。</p>
+<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">バージョン 1.0 · 初版：2026年7月21日 · トルコ語原文 v1.2（初出 2026年4月1日、改訂 2026年7月21日）より翻訳</p>
+<p class="doi-kunye" style="margin-top:0.3rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">DOI: <a href="https://doi.org/10.17613/kv880-ne873" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(232,220,196,0.22);">10.17613/kv880-ne873</a> · Knowledge Commons の恒久記録</p>
+</footer>
+<div style="max-width: 640px; margin: 0 auto; padding: 2rem 2.5rem;">
+  <p style="font-size: 0.8rem; color: rgba(212, 204, 192, 0.28); line-height: 1.8; font-style: italic;">この訳文に違和感のある箇所を見つけられたら、<strong>ぜひお知らせください</strong>。私たちの翻訳を豊かにしていただけます。</p>
+</div>
+<div class="transcreation-notes" style="max-width:580px;margin:0 auto;padding:0 2.5rem 2rem;">
+    <h3>翻訳ノート</h3>
+    <details>
+        <summary>表題について</summary>
+        <div class="note-body">
+            トルコ語の <em>Yazıdan Sese</em> における <em>yazı</em> は「書くこと」と「文字」の両方を指し、<em>ses</em> は「音」と「人の声」の両方を担う。日本語の「声」は <em>ses</em> のように「音一般」を含まないため、表題は「文字から声へ」とした。英語版の <em>From Text to Voice</em> が <em>voice</em> を選んだのと同じ判断である。本文中では、書かれた側を指すときに「テクスト」を用いた。原文の <em>metin</em> にあたる語で、「文章」と訳すと紙の上の完成品という含みが強くなり、声に変換される途上の素材という本文の見方から離れるためである。</div>
+    </details>
+    <details>
+        <summary>「不気味の谷」は訳語ではない</summary>
+        <div class="note-body">
+            原文は <em>uncanny valley</em> を英語のまま置き、括弧でトルコ語の説明を添えている。日本語ではこの手順が逆になる。この概念は森政弘が1970年に『エナジー』誌で提唱した「不気味の谷」であり、英語の <em>uncanny valley</em> のほうが訳語である（英訳の初出は Jasia Reichardt, <em>Robots: Fact, Fiction, and Prediction</em>, 1978）。したがってここでは英語を併記していない。日本語版の読者にとっては、これは外来の術語ではなく自国語の術語である。</div>
+    </details>
+    <details>
+        <summary>オングの術語</summary>
+        <div class="note-body">
+            <em>primary orality</em> と <em>secondary orality</em> は、既訳『声の文化と文字の文化』（桜井直文・林正寛・糟谷啓介訳、藤原書店、1991年）の「一次的な声の文化」「二次的な声の文化」に従った。トルコ語版はこれを <em>birincil sözlülük</em>／<em>ikincil sözlülük</em> と訳しており、語基は「口頭性」に近い。日本語で「口頭性」を採らなかったのは、既訳の術語が定着しており、読者が原典に戻る道を塞がないためである。同じ理由で Lamas の <em>synthetic orality</em> は「合成的な声の文化」とし、英語を併記した。これは新しい造語であって定訳ではない。<br><br>オングの <em>Great Divide</em> については、定着した日本語の術語を見つけられなかった。ここでは「大いなる分断」とした。存在しないとは書かない。</div>
+    </details>
+    <details>
+        <summary>「聴きやすさ」（listenability）</summary>
+        <div class="note-body">
+            トルコ語の <em>dinlenebilirlik</em> は「聴く」から作られた語で、<em>okunabilirlik</em>（読みやすさ）と対をなす。Rubin の <em>listenability</em> にあたる。日本語では対応する定訳を確認できなかったため「聴きやすさ」とし、初出で英語を併記した。「聴解しやすさ」も考えたが、第二言語習得の文脈が強く出るため採らなかった。</div>
+    </details>
+    <details>
+        <summary>心の漫遊</summary>
+        <div class="note-body">
+            トルコ語の <em>zihin dağılması</em>（心の散乱）は <em>mind wandering</em> にあたる。日本語では「マインドワンダリング」が学術的にはもっとも通用するが、本文では「心の漫遊」を用いた。この文章が学術論文ではなく随想であること、そして原文が「注意が逸れる」という否定的な含みだけでなく「別の結びつきを作る」という肯定的な面も扱っているため、片仮名の術語よりも像を結ぶ語を選んだ。</div>
+    </details>
+    <details>
+        <summary>トルコ語の章について</summary>
+        <div class="note-body">
+            「トルコ語の固有の位置」の章は、日本語の読者にとって二重の読み方を許す。トルコ語が膠着語であるという点で日本語も同じ側に立つ。接辞が連なり語形が理論上は無限であるという事情、形態素解析なしには正しい発音が定まらないという事情は、日本語の音声合成が抱えてきた問題とよく似ている。<br><br>しかし正書法については、二つの言語は反対の端にある。原文はトルコ語を「書かれたとおりに読まれる」言語の側に置き、Clinton-Lisell の知見（正書法の透明な言語では読解と聴解の差がゼロに近づく）を利点として引く。日本語は漢字仮名交じりであり、正書法深度の尺度では深い側に属する。同じ知見を日本語に当てると、結論は逆向きに働きうる。原文の主張はトルコ語についてのものであり、ここでは変更していない。読者がこの章を自国語に重ねて読むとき、重なるのは類型論であって正書法ではない、という点だけ書き添えておく。<br><br>本文中の <em>gelememişlerdenmiş</em> の例は原文にはない。トルコ語を知らない読者に「一つの語根に接辞が連なる」という事情を示すため、訳者が語義を添えた。</div>
+    </details>
+    <details>
+        <summary>翻訳の過程で見つかった原文の誤り</summary>
+        <div class="note-body">
+            関係節の例（Constable ら 2004 の箇所）は、トルコ語原文では二つとも主格関係節になっていた。「目的格関係節」として挙げられていた例が、実際には主辞が節の主語になる形だったためである。英語版・中国語版・ドイツ語版・フランス語版では各訳者が自国語で正しい対を立てており、誤りはトルコ語版だけに残っていた。日本語版では 目的格関係節を「男が愛している女」（主辞が節の目的語）、主格関係節を「女を愛している男」として立て、同じ機会にトルコ語原文も訂正した。<br><br>
+            あわせて参考文献の二件を一次資料から訂正した。Faber ら（2018）の掲載誌は <em>Psychological Science</em> ではなく <em>Cognition</em> 173、Torre ら（2018）の発表媒体は ACM CUI ではなく Technology, Mind, and Society（TechMindSociety ’18）である。ACM CUI の第一回開催は2019年であり、2018年の論文がそこに載ることはありえない。訂正は六言語すべてに反映した。</div>
+    </details>
+    <details>
+        <summary>数と単位</summary>
+        <div class="note-body">
+            原文は数をすべて語で書いている（<em>on altı ile yirmi</em>＝「十六から二十」）。これは本文自身が述べる原則、すなわち声に変換されるときに数字は語になるという原則を、テクスト自身が実践しているためである。日本語版もこれに従い、統計値（g = 0.07 など）と引用中の数値を除いて算用数字を避けた。「1,987,452」だけは、まさに変換前の姿として引かれているため原文のまま残した。</div>
+    </details>
+</div>
+
+</body>
+</html>
