@@ -423,7 +423,7 @@ footer a:hover { color: var(--bone); }
 <header class="report-header">
     <h1>从文字到声音</h1>
     <p class="subtitle">一篇文章横跨两个世界——眼睛在阅读，耳朵在聆听，中间丢失了什么？</p>
-    <p class="meta">2026年4月 · 78篇学术文献 · 12份研究文件</p>
+    <p class="meta">2026年4月 · 45篇学术文献 · 12份研究文件</p>
 </header>
 
 <main class="content">
@@ -481,7 +481,7 @@ footer a:hover { color: var(--bone); }
 
 <p>鲁宾（Donald Rubin）在2000年和2012年系统性地定义了“可听性”（listenability）这一概念。可读性公式——Flesch-Kincaid、Gunning Fog——是为书面文本设计的，不适用于聆听文本。鲁宾的实验结论清晰：当同一内容用两种不同的语言风格准备时——一种基于口语（主动语态、人称代词、顺序排列的句子、具体例子），另一种基于书面语（被动语态、抽象概念、嵌套从句）——基于口语的文本在理解上明显更优。以书面语模式处理听觉信息，代价尤为高昂。<span class="source-tag">Rubin 2000, 2012</span></p>
 
-<p>在句子层面，最具体的发现来自Kadayat和Eika：二十一名参与者通过合成语音聆听了不同长度的句子，最高理解度和最低认知负荷出现在<strong>十六到二十个词的句子</strong>中。超过二十个词的句子既降低了理解度又增加了负荷。十个词以下的句子则破碎了语境——过短的句子同样是问题。<span class="source-tag">Kadayat & Eika 2020</span>但这个“黄金区间”是对平均听众而言的；个体差异很大。我会在报告末尾回到这一点。</p>
+<p>在句子层面，最具体的发现来自Kadayat和Eika：二十一名参与者通过屏幕阅读器聆听了五篇不同长度的文本，最高理解度和最低认知负荷出现在<strong>十六到二十个词的句子</strong>中。超过二十个词的句子既降低了理解度又增加了负荷。十个词以下的句子则破碎了语境——过短的句子同样是问题。<span class="source-tag">Kadayat & Eika 2020</span>但这个“黄金区间”是对平均听众而言的；个体差异很大。我会在报告末尾回到这一点。</p>
 
 <p>句子结构同样重要。Constable及其同事2004年通过fMRI证明：宾语关系从句（“那个男人爱的女人”）比主语关系从句（“爱那个男人的女人”）需要远为更高的大脑激活——左前额叶、颞叶区域、角回全部更加活跃。<span class="source-tag">Constable 2004</span>Peelle及其同事2010年补充道：语速和句法复杂度各自可以被容忍，但两者叠加时容量便被超越。简化句法是首要干预手段。<span class="source-tag">Peelle 2010</span></p>
 
@@ -506,7 +506,7 @@ footer a:hover { color: var(--bone); }
 
 <p>但这些数据大多产生于现代神经网络TTS之前。Ibelings及其同事2022年用DNN合成器在日常句子上进行了测试：发现1.2分贝的SRT差异——这与不同自然说话者之间的差异处于同一范围。在言语反应时间这一聆听努力指标上，<strong>没有显著差异。</strong><span class="source-tag">Ibelings 2022</span>Craig和Schroeder在2017至2019年的学习成果研究中也发现了同样的格局：现代TTS引擎在迁移学习成果上获得了与人声在统计上不可区分的可信度和学习感知评价。<span class="source-tag">Craig & Schroeder 2017, 2019</span></p>
 
-<p>也存在完全相反的发现——2024年一项针对三十名学生的眼动研究中，人声录音相比合成语音产生了显著更高的学习表现和注意力黏附度。这与Craig和Schroeder的结论相矛盾。差异可能在于语境：在短期信息传递中合成语音足够，但在长篇学习中韵律优势变得突出。</p>
+<p>也存在完全相反的发现——2024年一项针对三十名学生的眼动研究中，人声录音相比合成语音产生了显著更高的学习表现和注意力黏附度。<span class="source-tag">Jing 2024</span>这与Craig和Schroeder的结论相矛盾。差异可能在于语境：在短期信息传递中合成语音足够，但在长篇学习中韵律优势变得突出。</p>
 
 <p>韵律确实是一个关键变量。Pagnotta及其同事2025年的研究表明：用积极韵律聆听的简短描述产生了更多正确回答，且人声比TTS产生了更高的准确率。但发表在Cogent Psychology上的一项2025年研究增添了不同的维度：<strong>在即时回忆中，自然人声相比所有其他条件都产生了更好的记忆保持；一周后，各条件之间的差异消失了。</strong>韵律优势在时间拉长后消融。<span class="source-tag">Pagnotta 2025</span></p>
 
@@ -548,7 +548,7 @@ footer a:hover { color: var(--bone); }
 
 <p>土耳其语是一种黏着语——一个词根可以附加大量后缀，词形在理论上是无限的。这为合成语音带来了两个具体问题。第一是形态学层面：标准词汇库方法不够用，因为像“gelememişlerdenmiş”（意为“据说他们是那些未能前来的人之中的”）这样的词形无法被预先编入词表。Kösaner及其同事2024年开发了一个基于音素的规则型TTS系统来处理土耳其语的复杂形态，证明了形态学分析对正确发音是必不可少的。<span class="source-tag">Kösaner 2024</span>Liu及其同事2024年发现，具有形态学意识的语言模型预训练能够提升低资源黏着语言的质量——这是一种可直接应用于土耳其语的方法。<span class="source-tag">Liu 2024</span></p>
 
-<p>第二是歧义：同一拼写可能导致不同的读法。Hakkani（2002）和Külekçi（2006）证明了形态学消歧对土耳其语合成语音质量至关重要。在文本改编中，这意味着需要识别并修正那些可能产生歧义发音的结构。</p>
+<p>第二是歧义：同一拼写可能导致不同的读法。Hakkani-Tür及其同事在2002年证明，土耳其语的形态歧义可以用统计方法消解；Külekçi在2006年将这一消歧应用于发音，证明了正确读音的选择对土耳其语合成语音质量至关重要。在文本改编中，这意味着需要识别并修正那些可能产生歧义发音的结构。</p>
 
 <p>但土耳其语也有一个优势。在Clinton-Lisell的元分析中，透明正字法语言——即书写与发音高度对应的语言——阅读与聆听之间的理解差异趋近于零。土耳其语并非完全透明，但非常接近：拉丁字母，大体上是音素文字。这提示我们，文本改编在土耳其语中可能比在英语中产生更少的损失。<span class="source-tag">Clinton-Lisell 2022</span></p>
 
@@ -663,40 +663,43 @@ footer a:hover { color: var(--bone); }
 <p>Constable, R.T. 等 (2004). “Sentence Complexity and Input Modality Effects: fMRI.” <em>NeuroImage.</em> PMID: 15109993</p>
 <p>Craig, S.D.; Schroeder, N.L. (2017). “Reconsidering the Voice Effect.” <em>Computers & Education, 114.</em></p>
 <p>Craig, S.D.; Schroeder, N.L. (2019). “Text-to-Speech Software and Learning.” <em>JECR, 57(6).</em></p>
-<p>Diel, A.; Lewis, M. (2024). “Vocal Uncanny Valley: Deviation Hypothesis.” <em>ScienceDirect.</em></p>
+<p>Diel, A.; Lewis, M. (2024). “Deviation from typical organic voices best explains a vocal uncanny valley.” <em>Computers in Human Behavior Reports</em>, 14, 100430.</p>
+<p>Dylman, A.S.; Glarén Diaz, D.; Blysa, A.; Jansson, B. (2025). “The effect of prosody on listening comprehension: Immediate and delayed recall.” <em>Cogent Psychology</em>, 12(1), 2576785.</p>
 <p>Faber, M. 等 (2018). “Driven to Distraction: A Lack of Change Gives Rise to Mind Wandering.” <em>Cognition, 173.</em></p>
-<p>Govender, A.; King, S. (2018). “Using Pupillometry to Measure Cognitive Load of Synthetic Speech.” <em>Interspeech 2018.</em></p>
-<p>Govender, A.; Wagner, A.; King, S. (2019). “Pupil Dilation for Cognitive Load TTS.” <em>Interspeech 2019.</em></p>
-<p>Ibelings, S.; Brand, T.; Holube, I. (2022). “Speech Recognition and Listening Effort of Meaningful Sentences Using Synthetic Speech.” Trends in Hearing 26. PMC9549212.</p>
-<p>Hakkani, D.Z. (2002). 形态学消歧研究——土耳其语TTS。</p>
+<p>Govender, A.; King, S. (2018a). “Using Pupillometry to Measure the Cognitive Load of Synthetic Speech.” <em>Interspeech 2018</em>, 2838-2842.</p>
+<p>Govender, A.; King, S. (2018b). “Measuring the Cognitive Load of Synthetic Speech Using a Dual Task Paradigm.” <em>Interspeech 2018</em>, 2843-2847.</p>
+<p>Govender, A.; Wagner, A.E.; King, S. (2019). “Using Pupil Dilation to Measure Cognitive Load When Listening to Text-to-Speech in Quiet and in Noise.” <em>Interspeech 2019</em>, 1551-1555.</p>
+<p>Hakkani-Tür, D.Z.; Oflazer, K.; Tür, G. (2002). “Statistical Morphological Disambiguation for Agglutinative Languages.” <em>Computers and the Humanities</em>, 36(4), 381-410.</p>
 <p>Halliday, M.A.K. (1985). <em>Spoken and Written Language.</em> Deakin University Press.</p>
+<p>Ibelings, S.; Brand, T.; Holube, I. (2022). “Speech Recognition and Listening Effort of Meaningful Sentences Using Synthetic Speech.” Trends in Hearing 26. PMC9549212.</p>
 <p>Im, H.; Sung, B.; Lee, G.; Kok, K.Q.X. (2023). “Let Voice Assistants Sound Like a Machine.” <em>Computers in Human Behavior.</em></p>
-<p>Kadayat, B.M.; Eika, E. (2020). TTS聆听中的句子长度研究。[21名参与者，16-20词黄金区间]</p>
+<p>Jing, B.; Wu, C.; Pi, Z.; Zhou, Y.; Zhang, Y.; Liu, H. (2024). “Cute Computer-Synthesized Voice Hinders Learning Performance in Instructional Videos.” <em>The Journal of Experimental Education</em> （网络首发）, 1-18.</p>
+<p>Kadayat, B.B.; Eika, E. (2020). “Impact of Sentence Length on the Readability of Web for Screen Reader Users.” <em>HCII 2020, Lecture Notes in Computer Science</em>, 261-271.</p>
 <p>Kaiser, E.; Trueswell, J.C. (2004). “Role of Discourse Context in Processing Flexible Word-Order Language.” <em>Cognition.</em> PMID: 15582623</p>
 <p>Kern, J. (2008). <em>Sound Reporting.</em> University of Chicago Press.</p>
-<p>Kopp, K.; D'Mello, S. (2016). 纯音频条件与走神研究。</p>
-<p>Kösaner, O.; Özgen, M.; Birant, C. (2024). “Developing a Rule-Based TTS System for Turkish.” DEU Avesis.</p>
-<p>Külekçi, M.O. (2006). 土耳其语TTS研究。</p>
+<p>Kopp, K.; D'Mello, S. (2016). “The Impact of Modality on Mind Wandering during Comprehension.” <em>Applied Cognitive Psychology</em>, 30(1), 29-40.</p>
+<p>Koşaner, Ö.; Özgen, M.; Birant, Ç.C. (2024). “Developing a Rule-Based Text-to-Speech System for Turkish.” <em>International Journal of Humanities Social Science and Management</em>, 4(4), 109-121.</p>
+<p>Külekçi, M.O. (2006). <em>Statistical morphological disambiguation with application to disambiguation of pronunciations in Turkish.</em> 博士论文，萨班哲大学。</p>
 <p>Lamas, N.J. (2025). “AI, Language Processing and Synthetic Orality.” <em>Explorations in Media Ecology, 24(3).</em></p>
 <p>Le Maguer, S.; Cowan, B.R. (2021). “Synthesizing a Human-Like Voice Is the Easy Way.” <em>ACM CUI 2021.</em></p>
-<p>Lemarié, J. 等 (2012). 标题七种功能研究。</p>
+<p>Lemarié, J.; Lorch, R.F., Jr.; Péry-Woodley, M.-P. (2012). “Understanding How Headings Influence Text Processing.” <em>Discours</em>, 10.</p>
 <p>Liu, R. 等 (2024). “TTS for Low-Resource Agglutinative Language with Morphology-Aware Pre-Training.” <em>IEEE.</em></p>
 <p>Nussbaum, C.; Frühholz, S.; Schweinberger, S.R. (2025). “Understanding Voice Naturalness.” <em>Trends in Cognitive Sciences, 29(5).</em></p>
-<p>Ochs, E. (1979). “Planned and Unplanned Discourse.”</p>
+<p>Ochs, E. (1979). “Planned and Unplanned Discourse.” T. Givón (编), <em>Syntax and Semantics, Vol. 12: Discourse and Syntax</em> 载于 (51-80). Academic Press.</p>
 <p>Ong, W.J. (1982). <em>Orality and Literacy.</em> Methuen.</p>
 <p>Pagnotta, M. 等 (2025). “Prosody! When intonation helps.” <em>Educational Psychology.</em></p>
 <p>Peelle, J.E. 等 (2010). “Neural Processing During Older Adults' Comprehension.” <em>Cerebral Cortex, 20(4).</em></p>
 <p>Raghavan, B.; Schneier, B. (2025). “AI Voices Should Sound Robotic Again.” <em>IEEE Spectrum.</em></p>
-<p>Risko, E.F. 等 (2012). 走神与课堂听讲研究。</p>
+<p>Risko, E.F.; Anderson, N.; Sarwal, A.; Engelhardt, M.; Kingstone, A. (2012). “Everyday Attention: Variation in Mind Wandering and Memory in a Lecture.” <em>Applied Cognitive Psychology</em>, 26(2), 234-242.</p>
 <p>Rogowsky, B.A.; Calhoun, B.M.; Tallal, P. (2016). “Does Modality Matter?” <em>SAGE Open.</em></p>
 <p>Rubin, D.L. (2012). “Listenability as a Tool for Advancing Health Literacy.” <em>J. Health Communication, 17(S3).</em> PMID: 23030569</p>
 <p>Rubin, D.L.; Hafer, T.; Arata, K. (2000). “Reading and Listening to Oral-Based vs Literate-Based Discourse.” <em>Communication Education, 49(2).</em></p>
 <p>Scribner, S.; Cole, M. (1981). <em>The Psychology of Literacy.</em> Harvard University Press.</p>
 <p>Segedin, B.F.; Cohn, M.; Zellou, G. (2019). “Perceptual Adaptation to Device and Human Voices.” <em>Interspeech 2019.</em></p>
-<p>Szpunar, K.K. 等 (2013). 课堂中的走神研究。</p>
+<p>Szpunar, K.K.; Khan, N.Y.; Schacter, D.L. (2013). “Interpolated memory tests reduce mind wandering and improve learning of online lectures.” <em>Proceedings of the National Academy of Sciences</em>, 110(16), 6313-6317.</p>
 <p>Torre, I.; Goslin, J.; White, L.; Zanatto, D. (2018). “Trust in Artificial Voices: A 'Congruency Effect' of First Impressions and Behavioural Experience.” <em>Technology, Mind, and Society (TechMindSociety '18).</em></p>
 <p>Yang, J. 等 (2026). “Short-Term Perceptual Training Modulates Neural Responses to Deepfake Speech.” <em>eNeuro.</em></p>
-<p>Zong, J. 等 (2022). 与视障用户的表格叙述研究。</p>
+<p>Zong, J.; Lee, C.; Lundgard, A.; Jang, J.; Hajas, D.; Satyanarayan, A. (2022). “Rich Screen Reader Experiences for Accessible Data Visualization.” <em>Computer Graphics Forum</em>, 41(3), 15-27.</p>
 </div>
 
 
@@ -709,7 +712,7 @@ footer a:hover { color: var(--bone); }
 <footer>
 <p>Halit Cengiz Uzuner · <a href="/">halitcengizuzuner.com</a></p>
 <p>本报告中学术文献的实体副本已存档。</p>
-<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">版本 1.2 · 首次发表：2026年4月1日 · 修订：2026年7月21日，参考文献著录更正</p>
+<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">版本 1.3 · 首次发表：2026年4月1日 · 修订：2026年7月21日，依据一手文献更正十三条参考文献著录，新增三条，更正了Kadayat与Eika研究的表述以及对Hakkani-Tür的归属</p>
 <p class="doi-kunye" style="margin-top:0.3rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">DOI: <a href="https://doi.org/10.17613/kv880-ne873" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(232,220,196,0.22);">10.17613/kv880-ne873</a> · Knowledge Commons 永久记录</p>
 </footer>
 

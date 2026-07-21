@@ -423,7 +423,7 @@ footer a:hover { color: var(--bone); }
 <header class="report-header">
     <h1>From Text to Voice</h1>
     <p class="subtitle">A text between two worlds – the eye reads, the ear listens, and something is lost in between.</p>
-    <p class="meta">April 2026 · 78 academic sources · 12 research files</p>
+    <p class="meta">April 2026 · 45 academic sources · 12 research files</p>
 </header>
 
 <main class="content">
@@ -481,7 +481,7 @@ footer a:hover { color: var(--bone); }
 
 <p>Donald Rubin systematically defined the concept of "listenability" in 2000 and 2012. Readability formulas – Flesch-Kincaid, Gunning Fog – were designed for written text and do not apply to listening text. Rubin's experiment is clear: when the same content was prepared in two different language styles – one oral-based (active voice, personal pronouns, sequential sentences, concrete examples), the other literate-based (passive voice, abstract concepts, embedded clauses) – the oral-based text was understood significantly better. Processing written-mode language while listening is especially costly.<span class="source-tag">Rubin 2000, 2012</span></p>
 
-<p>The most concrete finding at the sentence level came from Kadayat and Eika: twenty-one participants listened to sentences of varying lengths through a synthetic voice, and the highest comprehension with the lowest cognitive load was achieved at <strong>sixteen to twenty words per sentence</strong>. Sentences exceeding twenty words reduced comprehension and increased load. Below ten words, context fragmented – sentences that were too short also caused problems.<span class="source-tag">Kadayat & Eika 2020</span> But this "golden range" holds for the average listener; individual differences are large. I will return to this at the end of the report.</p>
+<p>The most concrete finding at the sentence level came from Kadayat and Eika: twenty-one participants listened to five texts of varying length through a screen reader, and the highest comprehension with the lowest cognitive load was achieved at <strong>sixteen to twenty words per sentence</strong>. Sentences exceeding twenty words reduced comprehension and increased load. Below ten words, context fragmented – sentences that were too short also caused problems.<span class="source-tag">Kadayat & Eika 2020</span> But this "golden range" holds for the average listener; individual differences are large. I will return to this at the end of the report.</p>
 
 <p>Sentence structure also matters. Constable and colleagues showed in 2004 with fMRI that object-relative clauses ("the woman who the man loved") required far higher brain activation than subject-relative clauses ("the man who loved the woman") – left frontal lobe, temporal region and angular gyrus all worked harder.<span class="source-tag">Constable 2004</span> Peelle and colleagues added in 2010 that speech rate and syntactic complexity can each be tolerated individually but together they overwhelm capacity. Simplifying syntax is the primary intervention.<span class="source-tag">Peelle 2010</span></p>
 
@@ -506,7 +506,7 @@ footer a:hover { color: var(--bone); }
 
 <p>But most of this data predates modern neural TTS. Ibelings and colleagues tested a DNN-based synthesizer on everyday sentences in 2022: the difference was 1.2 decibels in speech reception threshold – within the same range as the variation between different natural speakers. In verbal response times, a measure of listening effort, <strong>no significant difference was found.</strong><span class="source-tag">Ibelings 2022</span> Craig and Schroeder found the same pattern in learning outcomes between 2017 and 2019: a modern TTS engine achieved reliability and perceived learning statistically indistinguishable from human voice in transfer learning tasks.<span class="source-tag">Craig & Schroeder 2017, 2019</span></p>
 
-<p>Contradictory findings also exist – a 2024 eye-tracking study with thirty students found that human recordings produced significantly higher learning performance and attention engagement than synthesized voices. This conflicts with Craig and Schroeder. The difference likely lies in context: for short information transfer, synthetic voice is sufficient; in long-form learning, prosodic advantage becomes more pronounced.</p>
+<p>Contradictory findings also exist – a 2024 eye-tracking study with thirty students found that human recordings produced significantly higher learning performance and attention engagement than synthesized voices.<span class="source-tag">Jing 2024</span> This conflicts with Craig and Schroeder. The difference likely lies in context: for short information transfer, synthetic voice is sufficient; in long-form learning, prosodic advantage becomes more pronounced.</p>
 
 <p>Prosody is indeed a critical variable. Pagnotta and colleagues showed in 2025 that short descriptions listened to with positive prosody yielded more correct answers, and human voice produced higher accuracy than TTS. But a 2025 study published in Cogent Psychology added a different dimension: <strong>in immediate recall, natural human voice produced better memory retention than all other conditions; one week later, the difference between conditions disappeared.</strong> The prosodic advantage fades when spread over time.<span class="source-tag">Pagnotta 2025</span></p>
 
@@ -548,7 +548,7 @@ footer a:hover { color: var(--bone); }
 
 <p>Turkish is an agglutinative language – multiple suffixes attach to a single root, and word forms are theoretically infinite. This creates two concrete problems for synthetic voice. The first is morphological: standard vocabulary-based approaches fall short because a form like "gelememislerdensmis" (roughly: "apparently they were among those who could not come") cannot be pre-loaded into a lookup table. Kosaner and colleagues developed a phoneme-based rule-driven TTS system for Turkish in 2024, demonstrating that morphological analysis is essential for correct pronunciation.<span class="source-tag">Kösaner 2024</span> Liu and colleagues found in 2024 that morphology-aware language model pre-training improves quality in low-resource agglutinative languages – an approach directly applicable to Turkish.<span class="source-tag">Liu 2024</span></p>
 
-<p>The second problem is ambiguity: the same spelling can yield different readings. Hakkani in 2002 and Kulekci in 2006 showed that morphological disambiguation is critical for Turkish TTS quality. In text adaptation, this means identifying and resolving structures that could produce ambiguous pronunciation.</p>
+<p>The second problem is ambiguity: the same spelling can yield different readings. Hakkani-Tür and colleagues showed in 2002 that Turkish morphological ambiguity can be resolved by statistical methods; Külekçi applied this disambiguation to pronunciation in 2006 and showed that choosing the correct pronunciation is critical for Turkish synthetic speech quality. In text adaptation, this means identifying and resolving structures that could produce ambiguous pronunciation.</p>
 
 <p>But Turkish also has an advantage. In Clinton-Lisell's meta-analysis, languages with transparent orthographies – languages that are read as they are written – show a comprehension gap between reading and listening that approaches zero. Turkish is not perfectly transparent, but it is close: Latin alphabet, largely phonemic spelling. This suggests that text adaptation in Turkish may produce less loss than in English.<span class="source-tag">Clinton-Lisell 2022</span></p>
 
@@ -663,40 +663,43 @@ footer a:hover { color: var(--bone); }
 <p>Constable, R.T. et al. (2004). "Sentence Complexity and Input Modality Effects: fMRI." <em>NeuroImage.</em> PMID: 15109993</p>
 <p>Craig, S.D.; Schroeder, N.L. (2017). "Reconsidering the Voice Effect." <em>Computers & Education, 114.</em></p>
 <p>Craig, S.D.; Schroeder, N.L. (2019). "Text-to-Speech Software and Learning." <em>JECR, 57(6).</em></p>
-<p>Diel, A.; Lewis, M. (2024). "Vocal Uncanny Valley: Deviation Hypothesis." <em>ScienceDirect.</em></p>
+<p>Diel, A.; Lewis, M. (2024). "Deviation from typical organic voices best explains a vocal uncanny valley." <em>Computers in Human Behavior Reports</em>, 14, 100430.</p>
+<p>Dylman, A.S.; Glarén Diaz, D.; Blysa, A.; Jansson, B. (2025). "The effect of prosody on listening comprehension: Immediate and delayed recall." <em>Cogent Psychology</em>, 12(1), 2576785.</p>
 <p>Faber, M. et al. (2018). "Driven to Distraction: A Lack of Change Gives Rise to Mind Wandering." <em>Cognition, 173.</em></p>
-<p>Govender, A.; King, S. (2018). "Using Pupillometry to Measure Cognitive Load of Synthetic Speech." <em>Interspeech 2018.</em></p>
-<p>Govender, A.; Wagner, A.; King, S. (2019). "Pupil Dilation for Cognitive Load TTS." <em>Interspeech 2019.</em></p>
-<p>Ibelings, S.; Brand, T.; Holube, I. (2022). "Speech Recognition and Listening Effort of Meaningful Sentences Using Synthetic Speech." Trends in Hearing 26. PMC9549212.</p>
-<p>Hakkani, D.Z. (2002). Morphological disambiguation study – Turkish TTS.</p>
+<p>Govender, A.; King, S. (2018a). "Using Pupillometry to Measure the Cognitive Load of Synthetic Speech." <em>Interspeech 2018</em>, 2838-2842.</p>
+<p>Govender, A.; King, S. (2018b). "Measuring the Cognitive Load of Synthetic Speech Using a Dual Task Paradigm." <em>Interspeech 2018</em>, 2843-2847.</p>
+<p>Govender, A.; Wagner, A.E.; King, S. (2019). "Using Pupil Dilation to Measure Cognitive Load When Listening to Text-to-Speech in Quiet and in Noise." <em>Interspeech 2019</em>, 1551-1555.</p>
+<p>Hakkani-Tür, D.Z.; Oflazer, K.; Tür, G. (2002). "Statistical Morphological Disambiguation for Agglutinative Languages." <em>Computers and the Humanities</em>, 36(4), 381-410.</p>
 <p>Halliday, M.A.K. (1985). <em>Spoken and Written Language.</em> Deakin University Press.</p>
+<p>Ibelings, S.; Brand, T.; Holube, I. (2022). "Speech Recognition and Listening Effort of Meaningful Sentences Using Synthetic Speech." Trends in Hearing 26. PMC9549212.</p>
 <p>Im, H.; Sung, B.; Lee, G.; Kok, K.Q.X. (2023). "Let Voice Assistants Sound Like a Machine." <em>Computers in Human Behavior.</em></p>
-<p>Kadayat, B.M.; Eika, E. (2020). Sentence length in TTS listening study. [21 participants, 16-20 word golden range]</p>
+<p>Jing, B.; Wu, C.; Pi, Z.; Zhou, Y.; Zhang, Y.; Liu, H. (2024). "Cute Computer-Synthesized Voice Hinders Learning Performance in Instructional Videos." <em>The Journal of Experimental Education</em> (online first), 1-18.</p>
+<p>Kadayat, B.B.; Eika, E. (2020). "Impact of Sentence Length on the Readability of Web for Screen Reader Users." <em>HCII 2020, Lecture Notes in Computer Science</em>, 261-271.</p>
 <p>Kaiser, E.; Trueswell, J.C. (2004). "Role of Discourse Context in Processing Flexible Word-Order Language." <em>Cognition.</em> PMID: 15582623</p>
 <p>Kern, J. (2008). <em>Sound Reporting.</em> University of Chicago Press.</p>
-<p>Kopp, K.; D'Mello, S. (2016). Audio-only condition and mind wandering study.</p>
-<p>Kösaner, O.; Özgen, M.; Birant, C. (2024). "Developing a Rule-Based TTS System for Turkish." DEU Avesis.</p>
-<p>Külekçi, M.O. (2006). Turkish TTS study.</p>
+<p>Kopp, K.; D'Mello, S. (2016). "The Impact of Modality on Mind Wandering during Comprehension." <em>Applied Cognitive Psychology</em>, 30(1), 29-40.</p>
+<p>Koşaner, Ö.; Özgen, M.; Birant, Ç.C. (2024). "Developing a Rule-Based Text-to-Speech System for Turkish." <em>International Journal of Humanities Social Science and Management</em>, 4(4), 109-121.</p>
+<p>Külekçi, M.O. (2006). <em>Statistical morphological disambiguation with application to disambiguation of pronunciations in Turkish.</em> PhD thesis, Sabancı University.</p>
 <p>Lamas, N.J. (2025). "AI, Language Processing and Synthetic Orality." <em>Explorations in Media Ecology, 24(3).</em></p>
 <p>Le Maguer, S.; Cowan, B.R. (2021). "Synthesizing a Human-Like Voice Is the Easy Way." <em>ACM CUI 2021.</em></p>
-<p>Lemarié, J. et al. (2012). Seven functions of headings study.</p>
+<p>Lemarié, J.; Lorch, R.F., Jr.; Péry-Woodley, M.-P. (2012). "Understanding How Headings Influence Text Processing." <em>Discours</em>, 10.</p>
 <p>Liu, R. et al. (2024). "TTS for Low-Resource Agglutinative Language with Morphology-Aware Pre-Training." <em>IEEE.</em></p>
 <p>Nussbaum, C.; Frühholz, S.; Schweinberger, S.R. (2025). "Understanding Voice Naturalness." <em>Trends in Cognitive Sciences, 29(5).</em></p>
-<p>Ochs, E. (1979). "Planned and Unplanned Discourse."</p>
+<p>Ochs, E. (1979). "Planned and Unplanned Discourse." T. Givón (Ed.), <em>Syntax and Semantics, Vol. 12: Discourse and Syntax</em> in (51-80). Academic Press.</p>
 <p>Ong, W.J. (1982). <em>Orality and Literacy.</em> Methuen.</p>
 <p>Pagnotta, M. et al. (2025). "Prosody! When intonation helps." <em>Educational Psychology.</em></p>
 <p>Peelle, J.E. et al. (2010). "Neural Processing During Older Adults' Comprehension." <em>Cerebral Cortex, 20(4).</em></p>
 <p>Raghavan, B.; Schneier, B. (2025). "AI Voices Should Sound Robotic Again." <em>IEEE Spectrum.</em></p>
-<p>Risko, E.F. et al. (2012). Mind wandering and lecture listening study.</p>
+<p>Risko, E.F.; Anderson, N.; Sarwal, A.; Engelhardt, M.; Kingstone, A. (2012). "Everyday Attention: Variation in Mind Wandering and Memory in a Lecture." <em>Applied Cognitive Psychology</em>, 26(2), 234-242.</p>
 <p>Rogowsky, B.A.; Calhoun, B.M.; Tallal, P. (2016). "Does Modality Matter?" <em>SAGE Open.</em></p>
 <p>Rubin, D.L. (2012). "Listenability as a Tool for Advancing Health Literacy." <em>J. Health Communication, 17(S3).</em> PMID: 23030569</p>
 <p>Rubin, D.L.; Hafer, T.; Arata, K. (2000). "Reading and Listening to Oral-Based vs Literate-Based Discourse." <em>Communication Education, 49(2).</em></p>
 <p>Scribner, S.; Cole, M. (1981). <em>The Psychology of Literacy.</em> Harvard University Press.</p>
 <p>Segedin, B.F.; Cohn, M.; Zellou, G. (2019). "Perceptual Adaptation to Device and Human Voices." <em>Interspeech 2019.</em></p>
-<p>Szpunar, K.K. et al. (2013). Mind wandering during lectures study.</p>
+<p>Szpunar, K.K.; Khan, N.Y.; Schacter, D.L. (2013). "Interpolated memory tests reduce mind wandering and improve learning of online lectures." <em>Proceedings of the National Academy of Sciences</em>, 110(16), 6313-6317.</p>
 <p>Torre, I.; Goslin, J.; White, L.; Zanatto, D. (2018). "Trust in Artificial Voices: A 'Congruency Effect' of First Impressions and Behavioural Experience." <em>Technology, Mind, and Society (TechMindSociety '18).</em></p>
 <p>Yang, J. et al. (2026). "Short-Term Perceptual Training Modulates Neural Responses to Deepfake Speech." <em>eNeuro.</em></p>
-<p>Zong, J. et al. (2022). Table narration study with blind users.</p>
+<p>Zong, J.; Lee, C.; Lundgard, A.; Jang, J.; Hajas, D.; Satyanarayan, A. (2022). "Rich Screen Reader Experiences for Accessible Data Visualization." <em>Computer Graphics Forum</em>, 41(3), 15-27.</p>
 </div>
 
 
@@ -709,7 +712,7 @@ footer a:hover { color: var(--bone); }
 <footer>
 <p>Halit Cengiz Uzuner · <a href="/">halitcengizuzuner.com</a></p>
 <p>Physical copies of the academic sources in this report are archived.</p>
-<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">Version 1.2 · First published: 1 April 2026 · Revised: 21 July 2026, bibliographic corrections</p>
+<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">Version 1.3 · First published: 1 April 2026 · Revised: 21 July 2026, thirteen bibliographic entries corrected from primary sources, three entries added, the description of the Kadayat and Eika study and the attribution to Hakkani-Tür corrected</p>
 <p class="doi-kunye" style="margin-top:0.3rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">DOI: <a href="https://doi.org/10.17613/kv880-ne873" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(232,220,196,0.22);">10.17613/kv880-ne873</a> · Permanent record at Knowledge Commons</p>
 </footer>
 
