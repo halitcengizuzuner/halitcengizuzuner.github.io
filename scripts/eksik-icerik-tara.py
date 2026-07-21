@@ -75,15 +75,39 @@ ESIK_ALT = 0.90
 CJK = {"zh", "ja"}
 
 
+# Sitede bilinen gövde kapsayıcıları. Sıra ÖNEMLİ: dar olan önce denenir,
+# `main`/`article` en sonda kalır (onlar nav/footer'ı da içerebilir).
+#
+# O306: liste üç aileden sekize çıktı. Öncesinde tarayıcı 16 makalenin
+# 7'sinde kapsayıcı BULAMIYOR, bulamadığını da `--tam` verilmedikçe
+# SÖYLEMİYORDU — "16 TR makale · 1'inde şüphe" satırı hepsi taranmış gibi
+# okunuyordu. En pahalısı `bunu-kim-yazdi`ydı: 13 numaralı bölüm, yedi dil,
+# tam taranabilir bir makale, hiç bakılmadan geçiyordu.
+AILELER = [
+    ("main", "content"), ("main", "book"), ("div", "book"),
+    ("div", "wrap"), ("div", "content"), ("div", "container"),
+    ("article", None), ("main", None), ("body", None),
+]
+# Gövde sayımına girmeyen bölgeler: kapsayıcı geniş seçilirse (article/main)
+# site iskeleti sayıma sızar ve kütle oranını sahte şişirir.
+SAYIM_DISI = {"nav", "footer", "header"}
+
+
 def _kapsayici(s):
-    main = s.find("main", class_="content")
-    if main is not None:
-        return main, "main.content"
-    for etiket in ("main", "div"):
-        b = s.find(etiket, class_="book")
-        if b is not None:
-            return b, f"{etiket}.book"
+    for etiket, sinif in AILELER:
+        b = s.find(etiket, class_=sinif) if sinif else s.find(etiket)
+        # h2 taşımayan kap gövde değildir (ör. yalnız başlık saran div).
+        if b is not None and b.find("h2") is not None:
+            return b, f"{etiket}.{sinif}" if sinif else etiket
     return None, None
+
+
+def _sayimda(el):
+    """Eleman gövdeye mi ait? nav/footer/header içindekiler sayılmaz."""
+    for ata in el.parents:
+        if ata.name in SAYIM_DISI:
+            return False
+    return True
 
 
 def govde_bolumleri(yol: Path):
@@ -94,6 +118,8 @@ def govde_bolumleri(yol: Path):
         return None, None
     out, cur = {}, None
     for el in kap.find_all(["h2", "h3", "p", "li", "blockquote"]):
+        if not _sayimda(el):
+            continue
         if el.name == "h2":
             cur = bolum_no(el.get_text(strip=True))
             if cur:
@@ -121,6 +147,8 @@ def alt_bolumler(yol: Path):
         return {}
     out, cur, alt = {}, None, None
     for el in kap.find_all(["h2", "h3", "p", "li", "blockquote"]):
+        if not _sayimda(el):
+            continue
         if el.name == "h2":
             cur = bolum_no(el.get_text(strip=True))
             alt = None
@@ -202,6 +230,14 @@ def kalibre_et(ornek: Path):
             sayiliyor = bolum_no(el.get_text(strip=True)) is not None
         elif sayiliyor:
             aday.append(el)
+    # BOŞ KALİBRASYON GEÇMİŞ SAYILMAZ (O306). Silinecek h3 yoksa eski kod
+    # `(t-b) == silinen` → `0 == 0` ile "✓ geçti" diyordu: hiçbir şey sınamadan
+    # onay. Aynı desen aynı turda test betiğimde de çıktı (boş küme "yakaladı"
+    # raporladı) — sıfır, başarının değil ölçümsüzlüğün işaretidir.
+    if not aday:
+        print(f"  ○ [{aile}] {ornek.name}: numaralı bölümde h3 YOK — "
+              f"ikinci eksen bu ailede SINANAMADI (birinci eksen çalışır)")
+        return True
     silinen = 0
     for h3 in aday[:2]:
         h3.decompose()
@@ -252,6 +288,68 @@ def kalibre_alt_eksen():
     return hepsi
 
 
+def kalibre_gercek_sayfa(tr_yol):
+    """DÖRDÜNCÜ AYAK — sentetik değil, GERÇEK sayfayı bozarak sına (O306).
+
+    Öbür üç ayak `alt_bolum_kutlesi`'ni elle yazılmış dict'lerle sınar; HTML'den
+    veri üretimi zincirini (_kapsayici → _sayimda → alt_bolumler) hiç kullanmaz.
+    O zincir koptuğunda üç ayak da yeşil yanar ve tarayıcı sessizce körleşir —
+    O306'da tam bu oldu: 16 makalenin 12'si hiç taranmıyordu, kalibrasyon
+    "✓ geçti" diyordu.
+
+    Burada gerçek çeviri sayfasının bir alt bölümü boşaltılır; tarayıcı bunu
+    görmüyorsa zincir kopuktur.
+
+    ÖLÇÜLMÜŞ SINIR (O306): araç AZINLIK kusurunu yakalar. Aynı sayfada 27 alt
+    bölümün 27'si birden boşaltıldığında yalnız 17'si yakalandı — taban MEDYAN
+    olduğu için kusur çoğunluğa yayılınca medyan da düşer, eşik kusurla birlikte
+    kayar. Yani bu araç SİSTEMATİK kısaltmaya kördür; onu birinci eksen
+    (karakter oranı) yakalar. İki eksen bu yüzden birbirinin yedeği değildir.
+    """
+    kardes = next(iter(sorted(kardesler(tr_yol).items())), None)
+    if kardes is None:
+        print("  ○ [gerçek-sayfa] kardeş sayfa yok — SINANAMADI")
+        return True
+    dil, cev_yol = kardes
+    ref = alt_bolumler(tr_yol)
+    temiz = alt_bolumler(cev_yol)
+    taban = len(alt_bolum_kutlesi(ref, temiz))
+
+    s = BeautifulSoup(cev_yol.read_text(encoding="utf-8"), "lxml")
+    kap, _ = _kapsayici(s)
+    # En çok paragraflı alt bölümü boşalt (sinyal en güçlü orada).
+    gruplar, cur, alt = [], None, None
+    for el in kap.find_all(["h2", "h3", "p", "li", "blockquote"]):
+        if not _sayimda(el):
+            continue
+        if el.name == "h2":
+            cur, alt = bolum_no(el.get_text(strip=True)), None
+        elif cur is None:
+            continue
+        elif el.name == "h3":
+            alt = []
+            gruplar.append(alt)
+        elif alt is not None and el.name == "p":
+            alt.append(el)
+    hedef = max(gruplar, key=len, default=[])
+    if len(hedef) < 4:
+        print("  ○ [gerçek-sayfa] boşaltılacak alt bölüm yok — SINANAMADI")
+        return True
+    for p in hedef[:int(len(hedef) * 0.85) or 1]:
+        p.decompose()
+
+    tmp = KOK / "_kalibrasyon_gercek_gecici.html"
+    tmp.write_text(str(s), encoding="utf-8")
+    bozuk = len(alt_bolum_kutlesi(ref, alt_bolumler(tmp)))
+    tmp.unlink()
+
+    ok = bozuk > taban
+    print(f"  {'✓' if ok else '✗'} [gerçek-sayfa] {tr_yol.name}↔{dil}: "
+          f"alt bölüm boşaltıldı, bulgu {taban}→{bozuk}"
+          + ("" if ok else "  ← ZİNCİR KOPUK"))
+    return ok
+
+
 def main():
     tam = "--tam" in sys.argv
     sayfalar = sorted(p for p in (KOK / "turkce/raporlar").glob("*.html")
@@ -263,7 +361,14 @@ def main():
         b, a = govde_bolumleri(p)
         # Kalibrasyon örneği de kalibre seçilir: romen-rakamsız makale
         # (ör. aynen-oyle) örnek olursa kalibrasyon kendi kusurundan patlar.
-        if b and a and a not in aileler:
+        if not (b and a):
+            continue
+        if a not in aileler:
+            aileler[a] = p
+        elif sum(v[0] for v in govde_bolumleri(aileler[a])[0].values()) == 0 \
+                and sum(v[0] for v in b.values()) > 0:
+            # Ailenin kayıtlı örneği h3 taşımıyorsa ikinci eksen sınanamaz;
+            # h3 taşıyan kardeşi varsa örnek ONUNLA değiştirilir (O306).
             aileler[a] = p
     if not aileler or not all(kalibre_et(p) for p in aileler.values()):
         print("✗ KALİBRASYON BAŞARISIZ — tarama İPTAL.")
@@ -271,14 +376,37 @@ def main():
     if not kalibre_alt_eksen():
         print("✗ ALT-EKSEN KALİBRASYONU BAŞARISIZ — tarama İPTAL.")
         sys.exit(1)
+    # h3 taşıyan bir aile örneğiyle gerçek-sayfa ayağı (O306).
+    gercek_ornek = next((p for p in aileler.values()
+                         if sum(v[0] for v in govde_bolumleri(p)[0].values()) > 0), None)
+    if gercek_ornek is not None and not kalibre_gercek_sayfa(gercek_ornek):
+        print("✗ GERÇEK-SAYFA KALİBRASYONU BAŞARISIZ — tarama İPTAL.")
+        sys.exit(1)
     print("✓ Kalibrasyon geçti.\n")
 
     supheli = 0
+    # KAPSAM DIŞI KALANLAR — sonda ZORUNLU raporlanır (O306).
+    # Eskiden `--tam` bayrağına bağlıydı; bayraksız koşuda tarayıcı 16 makalenin
+    # 12'sini sessizce atlıyor, sonra "16 TR makale · 1'inde şüphe" diyordu.
+    # Sessiz kapsam kusuru gürültüden beterdir (O303): okur taranmayanı taranmış
+    # sanır ve "temiz" raporu asılsız bir güven üretir.
+    kapsam_disi = {"kapsayici": [], "numarasiz": [], "basliksiz": []}
     for tr in sayfalar:
         ref, _ = govde_bolumleri(tr)
         if not ref:
-            if tam:
-                print(f"· {tr.name}: numaralı bölüm yok — karşılaştırma dışı")
+            s = BeautifulSoup(tr.read_text(encoding="utf-8"), "lxml")
+            kap, _a = _kapsayici(s)
+            # ÜÇ ayrı hâl, üçü ayrı şey söyler (O306 — ikisini birbirine
+            # karıştırmak aracın kusurunu makalenin yapısı gibi gösterir):
+            #   · h2 hiç yok        → makale bölüm başlığı kullanmıyor (yapı farkı)
+            #   · h2 var, kap yok   → ARACIN körlüğü, AILELER genişletilmeli
+            #   · kap var, numarasız→ numara-bazlı hizalama kurulamaz (meşru sınır)
+            if not s.find_all("h2"):
+                kapsam_disi["basliksiz"].append(tr.name)
+            elif kap is None:
+                kapsam_disi["kapsayici"].append(tr.name)
+            else:
+                kapsam_disi["numarasiz"].append(tr.name)
             continue
         ref_h3 = ref_kar = 0  # yapısal bölümler düşülerek aşağıda hesaplanır
         # Her dilde AYNI olan sapma yapısal farktır, eksiklik değil.
@@ -328,8 +456,22 @@ def main():
             print(f"■ {tr.name}  [TR h3={ref_h3} karakter={ref_kar}]")
             print("\n".join(satirlar))
 
-    print(f"\n{len(sayfalar)} TR makale · {supheli} tanesinde eksiklik ŞÜPHESİ."
-          "\nŞüphe bulgu değildir: çeviri notunda/künyede belgelenmiş kısaltma meşrudur;"
+    tarandi = len(sayfalar) - sum(len(v) for v in kapsam_disi.values())
+    print(f"\n{tarandi}/{len(sayfalar)} TR makale TARANDI · {supheli} tanesinde eksiklik ŞÜPHESİ.")
+    if kapsam_disi["kapsayici"]:
+        print(f"\n⚠ ARACIN KÖRLÜĞÜ — kapsayıcı tanınmadı ({len(kapsam_disi['kapsayici'])}): "
+              + ", ".join(kapsam_disi["kapsayici"])
+              + "\n  Bu makaleler taranmadı. Yeni şablon ailesi → AILELER listesine eklenmeli.")
+    if kapsam_disi["numarasiz"]:
+        print(f"\n○ KAPSAM SINIRI — numaralı bölüm yok ({len(kapsam_disi['numarasiz'])}): "
+              + ", ".join(kapsam_disi["numarasiz"])
+              + "\n  Hizalama başlık numarasıyla yapılır; numarasız makale bu eksende"
+                "\n  ölçülemez (meşru sınır, kusur değil). Ayrı eksen ister.")
+    if kapsam_disi["basliksiz"]:
+        print(f"\n○ KAPSAM SINIRI — bölüm başlığı (h2) yok ({len(kapsam_disi['basliksiz'])}): "
+              + ", ".join(kapsam_disi["basliksiz"])
+              + "\n  Makale h2 kullanmıyor; bölüm-bazlı karşılaştırma tanımsız.")
+    print("\nŞüphe bulgu değildir: çeviri notunda/künyede belgelenmiş kısaltma meşrudur;"
           "\nbelgelenmemiş olan üretim kusuru sayılır (O302)."
           "\nİki eksen: h3 = alt bölüm VAR MI · alt-bölüm ekseni = İÇİ DOLU MU (O305).")
 
