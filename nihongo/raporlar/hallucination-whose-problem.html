@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>幻覚は誰の問題か：六層のメタ研究</title>
+<noscript>
+  <style>.reveal { opacity: 1 !important; transform: none !important; } body { opacity: 1 !important; animation: none !important; }</style>
+</noscript>
+<script>document.documentElement.classList.add('js-on')</script>
+<meta name="description" content="人工知能の幻覚とは何か、なぜ起こり、誰の問題なのか。LLMの誤情報生成、検証の非対称、そして人間の側の誤り——六層の比較メタ研究。">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex, follow">
+<meta property="og:title" content="幻覚は誰の問題か">
+<meta property="og:description" content="人工知能の幻覚の六つの層——人間の知識生成の誤りとの比較メタ研究。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/nihongo/raporlar/hallucination-whose-problem.html">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-03-01">
+<link rel="canonical" href="https://halitcengizuzuner.com/nihongo/raporlar/hallucination-whose-problem.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/turkce/raporlar/halusinasyon-kimin-sorunu.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/hallucination-whose-problem.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/hallucination-whose-problem.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/hallucination-a-qui-la-faute.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/halluzination-wessen-problem.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/alucinacion-de-quien-es-el-problema.html">
+<link rel="alternate" hreflang="ja" href="https://halitcengizuzuner.com/nihongo/raporlar/hallucination-whose-problem.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/english/raporlar/hallucination-whose-problem.html">
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="幻覚は誰の問題か">
+<meta name="twitter:description" content="人工知能の幻覚の六つの層——人間の知識生成の誤りとの比較メタ研究。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "幻覚は誰の問題か——六層のメタ研究",
+  "description": "人工知能の幻覚と人間の知識生成の誤りの比較分析。六層のモデル。",
+  "datePublished": "2026-03-01",
+  "dateModified": "2026-07-22",
+  "author": {
+    "@type": "Person",
+    "@id": "https://halitcengizuzuner.com/#person",
+    "name": "Halit Cengiz Uzuner",
+    "url": "https://halitcengizuzuner.com/turkce/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Halit Cengiz Uzuner",
+    "url": "https://halitcengizuzuner.com/turkce/"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://halitcengizuzuner.com/nihongo/raporlar/hallucination-whose-problem.html"
+  },
+  "inLanguage": "ja",
+  "sameAs": [
+    "https://substack.com/@halitcengizuzuner",
+    "https://bsky.app/profile/halitcengizuzuner.com",
+    "https://www.wikidata.org/wiki/Q140388810",
+    "https://medium.com/@avukathalituzuner"
+  ]
+}
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --steel: #7890a0;
+    --steel-dim: rgba(120, 144, 160, 0.12);
+    --serif: 'Instrument Serif', 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+}
+
+::selection {
+    background: var(--steel);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.2vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.95;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.15;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+@media print {
+    body::before { display: none !important; }
+}
+
+/* ========== HEADER ========== */
+.report-header {
+    min-height: 60vh;
+    padding: 4rem 2rem 4rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.report-header h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 400;
+    color: var(--bone-bright);
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.2rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--bone-dim);
+    font-style: italic;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.meta {
+    font-size: 0.75rem;
+    color: var(--steel);
+    letter-spacing: 0.15em;
+}
+
+/* ========== 本文 ========== */
+.content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+}
+
+.content h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 400;
+    color: var(--bone-bright);
+    margin: 3.5rem 0 1.5rem;
+    line-height: 1.4;
+}
+
+.content h2:first-child { margin-top: 0; }
+
+.content h3 {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--bone-bright);
+    margin: 2.5rem 0 1rem;
+    font-style: italic;
+}
+
+.content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+.content strong { color: var(--bone-bright); }
+
+.section-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--steel);
+    margin: 3.5rem auto;
+    opacity: 0.5;
+}
+
+/* ========== PULL QUOTE ========== */
+.pull-quote {
+    border-left: 1px solid var(--steel);
+    padding: 1rem 0 1rem 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
+
+/* ========== 文脈グリッド ========== */
+.context-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    margin: 2rem 0;
+    border: 1px solid var(--bone-ghost);
+}
+
+.context-cell {
+    padding: 1.5rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.context-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--steel);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.context-cell p {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    margin: 0;
+    color: var(--bone-dim);
+}
+
+/* ========== カウンター ========== */
+.counter-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 2.5rem 0;
+    margin: 1.5rem 0;
+}
+
+.counter-item { text-align: center; min-width: 130px; }
+
+.counter-num {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--bone-bright);
+    display: block;
+    margin-bottom: 0.3rem;
+    font-style: italic;
+}
+
+.counter-label {
+    font-size: 0.72rem;
+    line-height: 1.6;
+    color: var(--bone-dim);
+    display: block;
+    max-width: 150px;
+    margin: 0 auto;
+}
+
+/* ========== 比較 ========== */
+.compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.compare-col {
+    padding: 2rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.compare-col h4 {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+    color: var(--steel);
+    font-weight: 400;
+}
+
+.compare-col ul { list-style: none; }
+
+.compare-col li {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--bone-ghost);
+    color: var(--bone-dim);
+}
+
+.compare-col li:last-child { border-bottom: none; }
+.compare-col li strong { color: var(--bone-bright); font-size: 0.85rem; }
+
+/* ========== 記事の切り抜き ========== */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.news-clip {
+    padding: 1.8rem;
+    background: rgba(212, 204, 192, 0.02);
+    border-top: 1px solid var(--steel);
+}
+
+.news-clip-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--steel);
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.news-clip h4 {
+    font-size: 0.95rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+.news-clip p {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--bone-dim);
+    margin-bottom: 0.5rem;
+}
+
+.nc-year {
+    font-size: 0.7rem;
+    color: var(--bone-dim);
+    display: block;
+    margin-top: 0.8rem;
+    opacity: 0.6;
+}
+
+/* ========== 六層 ========== */
+.layer-tabs {
+    display: flex;
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin-bottom: 0;
+    overflow-x: auto;
+}
+
+.layer-tab {
+    flex: 1;
+    min-width: 80px;
+    padding: 0.8rem 0.5rem;
+    background: rgba(212, 204, 192, 0.02);
+    border: none;
+    color: var(--bone-dim);
+    font-family: var(--serif);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    line-height: 1.4;
+    border-top: 1px solid transparent;
+}
+
+.layer-tab:hover { color: var(--bone); background: rgba(212, 204, 192, 0.04); }
+
+.layer-tab.active {
+    color: var(--bone-bright);
+    background: var(--void);
+    border-top-color: var(--steel);
+}
+
+.layer-panel {
+    display: none;
+    border: 1px solid var(--bone-ghost);
+    border-top: none;
+    padding: 2.5rem;
+}
+
+.layer-panel.active { display: block; }
+
+.layer-panel h3 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0 0 1rem;
+    color: var(--bone-bright);
+}
+
+.layer-panel p {
+    font-size: 0.92rem;
+    line-height: 1.9;
+}
+
+.layer-severity {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--steel);
+    color: var(--steel);
+    margin-bottom: 1rem;
+}
+
+/* ========== ターミナル ========== */
+.terminal-window {
+    background: rgba(212, 204, 192, 0.02);
+    border: 1px solid var(--bone-ghost);
+    overflow: hidden;
+    margin: 2rem 0;
+}
+
+.terminal-bar {
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-bottom: 1px solid var(--bone-ghost);
+}
+
+.terminal-dot { width: 7px; height: 7px; border-radius: 50%; }
+.td-red { background: rgba(200, 120, 100, 0.6); }
+.td-yellow { background: rgba(200, 180, 100, 0.6); }
+.td-green { background: rgba(140, 180, 120, 0.6); }
+
+.terminal-title {
+    margin-left: 0.5rem;
+    font-size: 0.65rem;
+    color: var(--bone-dim);
+    letter-spacing: 0.06em;
+}
+
+.terminal-body {
+    padding: 1.5rem;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.t-line {
+    font-size: 0.78rem;
+    line-height: 2;
+    color: var(--bone-dim);
+    white-space: pre-wrap;
+}
+
+.t-line.cmd { color: var(--bone-bright); }
+.t-line.cmd::before { content: '$ '; color: var(--bone-dim); }
+.t-line.err { color: rgba(200, 140, 120, 0.8); }
+.t-line.fix { color: rgba(160, 200, 140, 0.8); }
+.t-line.warn { color: var(--steel); }
+.t-line.dim { color: var(--bone-dim); font-size: 0.7rem; opacity: 0.6; }
+
+.t-round {
+    border-left: 1px solid var(--bone-ghost);
+    padding-left: 1rem;
+    margin: 0.8rem 0;
+}
+
+.t-round-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--bone-dim);
+    margin-bottom: 0.3rem;
+}
+
+/* ========== タイムライン ========== */
+.timeline {
+    position: relative;
+    padding: 1rem 0 1rem 2.5rem;
+    margin: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.8rem;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: var(--bone-ghost);
+}
+
+.tl-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.tl-item::before {
+    content: '';
+    position: absolute;
+    left: -1.95rem;
+    top: 0.5rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--steel);
+}
+
+.tl-time {
+    font-size: 0.72rem;
+    color: var(--steel);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.2rem;
+}
+
+.tl-desc {
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* ========== 原因カード ========== */
+.reason-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.reason-card {
+    padding: 1.5rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.reason-num {
+    font-size: 0.7rem;
+    color: var(--steel);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.reason-card h4 {
+    font-size: 0.88rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.5rem;
+}
+
+.reason-card p {
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: var(--bone-dim);
+    margin: 0;
+}
+
+/* ========== 開かれた問い ========== */
+.qs-list { list-style: none; }
+
+.qs-list li {
+    display: flex;
+    gap: 1.2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--bone-ghost);
+    align-items: flex-start;
+}
+
+.qs-num {
+    font-size: 0.75rem;
+    color: var(--bone-dim);
+    min-width: 24px;
+    padding-top: 0.1rem;
+}
+
+.qs-text { flex: 1; }
+
+.qs-text strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+    color: var(--bone-bright);
+    font-weight: 400;
+    font-style: italic;
+}
+
+.qs-text p, .qs-text {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: var(--bone-dim);
+}
+
+/* ========== 枠組みボックス ========== */
+.framework-box {
+    border: 1px solid var(--bone-ghost);
+    padding: 2rem;
+    margin: 2rem 0;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.fw-title {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.8rem;
+}
+
+/* ========== 出典 ========== */
+.source-tag {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--bone-ghost);
+    opacity: 0.6;
+}
+
+/* ========== FOOTER ========== */
+.report-footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.report-footer p {
+    font-size: 0.75rem;
+    color: var(--bone-dim);
+    line-height: 1.8;
+    opacity: 0.5;
+}
+
+/* ========== 翻訳ノート ========== */
+.transcreation-notes {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+}
+
+.transcreation-notes h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--bone-dim);
+    margin-bottom: 1rem;
+}
+
+.transcreation-notes details {
+    border: 1px solid var(--bone-ghost);
+    padding: 0.9rem 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.transcreation-notes summary {
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+}
+
+.transcreation-notes .note-body p {
+    font-size: 0.82rem;
+    line-height: 1.9;
+    color: var(--bone-dim);
+    margin-top: 0.8rem;
+}
+
+/* ========== 名簿 ========== */
+.kadro {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+    font-size: 0.7rem;
+    color: var(--bone-dim);
+    opacity: 0.4;
+    text-align: center;
+}
+
+/* ========== SCROLL REVEAL ========== */
+.reveal { transition: opacity 0.8s ease, transform 0.8s ease; }
+.js-on .reveal { opacity: 0; transform: translateY(20px); }
+
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* ========== レスポンシブ ========== */
+@media (max-width: 680px) {
+    .content { padding: 0 1.2rem 4rem; }
+    .report-header { padding: 3rem 1.2rem 3rem; }
+    .context-grid,
+    .compare-grid,
+    .news-grid,
+    .reason-grid { grid-template-columns: 1fr; }
+    .counter-block { gap: 1.5rem; }
+    .layer-tabs { flex-wrap: wrap; }
+    .layer-tab { min-width: calc(33% - 1px); }
+    .layer-panel { padding: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal { transition: none; opacity: 1; transform: none; }
+}
+
+/* ===== LANGUAGE BAR ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+
+/* ===== HOME LINK ===== */
+.home-nav {
+    text-align: center;
+    padding: 0.5rem 0 0;
+}
+.home-link {
+    color: var(--bone-dim);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: inline-block;
+    line-height: 1;
+}
+.home-link:hover {
+    color: var(--bone);
+}
+</style>
+</head>
+<body>
+<nav class="lang-bar" aria-label="言語選択">
+    <a href="/english/" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/" class="lang-link">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/nihongo/" class="lang-link lang-active">日本語</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/" class="lang-link">Español</a>
+    <span class="lang-sep">·</span>
+    <a href="/turkce/" class="lang-link">Türkçe</a>
+</nav>
+<div class="home-nav"><a href="/nihongo/" class="home-link" aria-label="ホーム">⌂</a></div>
+<header class="report-header">
+    <h1>幻覚は<br>誰の問題か？</h1>
+    <p class="subtitle">人工知能の知識生成の誤りと、人間の知識生成の誤りの比較分析。<br>六層のモデル。</p>
+    <p class="meta">2026年3月</p>
+</header>
+
+
+<div class="content">
+
+    <!-- ═══════════════ 文脈 ═══════════════ -->
+
+    <h2 class="reveal">研究憲章からの一つの問い</h2>
+
+    <div class="pull-quote reveal">
+        「人工知能の幻覚と研究の過誤。メカニズムは異なり、結果は同じだ。この二つに、どう異なる態度で接するのか。」
+        <br><span style="font-size:.78rem;color:var(--steel);font-style:normal;">――研究憲章、開かれた問い §4</span>
+    </div>
+
+    <div class="context-grid reveal">
+        <div class="context-cell">
+            <span class="context-label">出発点</span>
+            <p>研究憲章の第四の開かれた問いが、この研究の種だった。幻覚という概念は単一の現象ではない。層をなす構造である。</p>
+        </div>
+        <div class="context-cell">
+            <span class="context-label">方法</span>
+            <p>比較データ分析。人工知能と人間の誤り率、発見までの時間、処罰の非対称性。</p>
+        </div>
+        <div class="context-cell">
+            <span class="context-label">限界</span>
+            <p>この主題は結論ではなく、継続的な問い直しに向いている。その価値は確実性の主張にではなく、問いを開いたままにしておくことにある。</p>
+        </div>
+        <div class="context-cell">
+            <span class="context-label">自己適用</span>
+            <p>この研究の過程で、誤った情報が四度生成され、四度訂正された。その過程自体が、議論の一部である。</p>
+        </div>
+    </div>
+
+    <p class="reveal">この研究は、研究憲章で際立つ<strong>検証反射</strong>の原則が試される場である。検証反射をもっとも必要とする主題は、人工知能が自らの誤りのメカニズムを検討することだ。研究を行う人工知能が、同時に研究の対象でもあるからである。</p>
+
+    <p class="reveal">幻覚という概念は、その定義からして価値を帯びている。どの出力が「誤り」で、どれが「解釈」と数えられるかは、視点に依存する。抽象的な主題をめぐる議論で到達される見解は、確実性を持ち得ない。この研究が目指すのは結論ではなく、地図である。</p>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ 用語 ═══════════════ -->
+
+    <h2 class="reveal">幻覚か、作話か？</h2>
+
+    <p class="reveal"><strong>幻覚</strong>（ハルシネーション）は精神医学と神経学に由来する用語である。存在しないものを知覚すること。統合失調症の患者が、聞こえていない声を聞くこと。知覚の障害だ。</p>
+
+    <p class="reveal">言語モデルは知覚していない。学習データにある何十億ものテキストのパターンから、統計的推論によって、次にもっとも確からしい語を生成している。意識はなく、意図はなく、欺く目的もない。</p>
+
+    <p class="reveal">神経学でこのふるまいに対応するのは<strong>作話</strong>（コンファビュレーション）である。記憶の空白を、自信をもって埋めること。脳に損傷のある患者に見られる。患者は何かを思い出せないとき、その空白を、もっともらしく見えるが事実ではない情報で埋める。それを誠実にやっている。嘘をついているのではない。知らないということを、知らないのだ。</p>
+
+    <div class="framework-box reveal">
+        <p class="fw-title">なぜ「作話」ではなく「幻覚」という用語が定着したのか？</p>
+        <p style="margin-bottom:0;">「幻覚」のほうがはるかに恐ろしい言葉だからだ。見出しとしての価値がはるかに高い。「この機械は幻覚を見ている！」という文は、「この機械は知識の空白を埋めている」という文より、ずっと目を引く。目を引くことは、メディアにとっても学界にとっても都合がいい。用語の選択さえ一種のフレーミングの決定であり、フレーミングの決定が無垢であったためしはない。</p>
+    </div>
+
+    <span class="source-tag reveal">Bender &amp; Koller (2020), "Climbing towards NLU" · Floridi &amp; Chiriatti (2020)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ データ ═══════════════ -->
+
+    <h2 class="reveal">双方の成績表</h2>
+
+    <h3 class="reveal">機械の数字</h3>
+
+    <div class="counter-block reveal">
+        <div class="counter-item">
+            <span class="counter-num">0.7%</span>
+            <span class="counter-label">最良のモデル、支援付きタスク<br>（Gemini 2.0 Flash）</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">9.2%</span>
+            <span class="counter-label">一般知識の質問<br>（全モデル平均）</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">58%</span>
+            <span class="counter-label">迎合率<br>（SycEval、2025）</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">670億ドル</span>
+            <span class="counter-label">推定される世界的損失<br>（AllAboutAI、2024）</span>
+        </div>
+    </div>
+
+    <span class="source-tag reveal">Gemini 2.0 Flash と平均：AllAboutAI Hallucination Benchmark (2024) · SycEval: arXiv (2025) · 670億ドル：AllAboutAI 推計、調査ベース</span>
+
+    <h3 class="reveal">人間の数字</h3>
+
+    <div class="counter-block reveal">
+        <div class="counter-item">
+            <span class="counter-num">64%</span>
+            <span class="counter-label">有意性が再現されなかった<br>心理学研究<br>（OSC、2015）</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">14%</span>
+            <span class="counter-label">捏造データを<br>含む論文<br>（ノースウェスタン、2024）</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">5.1%</span>
+            <span class="counter-label">医療の誤診率<br>（米国プライマリケア）</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">50%</span>
+            <span class="counter-label">偽の記憶の<br>植えつけ可能性<br>（ロフタス）</span>
+        </div>
+    </div>
+
+    <div class="compare-grid reveal">
+        <div class="compare-col">
+            <h4>人工知能</h4>
+            <ul>
+                <li>支援付きタスクで<strong>0.7〜1.5%</strong>の誤り率</li>
+                <li>世代を重ねるごとに下がる誤り率</li>
+                <li>誤りは測定可能で、ベンチマークによって追跡されている</li>
+                <li>訂正までの時間：数分〜数日</li>
+                <li>透明性への期待：モデルカード、安全性報告書</li>
+                <li>誤りが見つかれば更新、あるいは撤回</li>
+</ul>
+        </div>
+        <div class="compare-col">
+            <h4>人間</h4>
+            <ul>
+                <li>科学の再現成功率<strong>36%</strong>（心理学、統計的有意性）</li>
+                <li>偽科学の成長速度は本物の科学を上回る</li>
+                <li>再現されない研究のほうが多く引用される</li>
+                <li>訂正までの時間：数年〜数十年</li>
+                <li>制度による保護：キャリアの人脈、肩書き、名声</li>
+                <li>無処罰：もっともありそうな帰結は「長く成功したキャリア」</li>
+</ul>
+        </div>
+    </div>
+
+    <p class="reveal" style="font-size:.9rem;color:var(--bone-dim);">人工知能の一般知識における幻覚率は9.2%。科学の世界では、統計的有意性が再現されなかった心理学研究が64%。七本に一本の科学論文に捏造データがある。誤った結果のほうが多く引用される。システムが、幻覚に報酬を与えているのだ。</p>
+
+    <span class="source-tag reveal">Vectara Leaderboard · OSC (2015), Science · Northwestern IPR (2024) · UC San Diego (2024) · Loftus, UCI · SycEval (2025)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ 迎合 ═══════════════ -->
+
+    <h2 class="reveal">迎合：幻覚のもっとも陰湿なかたち</h2>
+
+    <p class="reveal">人工知能が存在しない判決を生成すれば、判決番号が検索され、見つからず、誤りは発覚する。だが人工知能が悪い思いつきを「すばらしい」と承認したとき、思い違いを「まさに的確なご指摘です」と支持したとき、それに気づくことは、どうすれば可能か。不可能である。この幻覚は、見たいものを見せているからだ。</p>
+
+    <div class="counter-block reveal">
+        <div class="counter-item">
+            <span class="counter-num">58%</span>
+            <span class="counter-label">SycEval 全体の<br>迎合率</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">62%</span>
+            <span class="counter-label">Gemini<br>（最高）</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">57%</span>
+            <span class="counter-label">ChatGPT<br>（最低）</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-num">100%</span>
+            <span class="counter-label">医療で有害な要求への<br>追従（GPT-4o/4）</span>
+        </div>
+    </div>
+
+    <span class="source-tag reveal">医療での100%追従："When helpfulness backfires," npj Digital Medicine (2025) · SycEval: arXiv (2025)</span>
+
+    <p class="reveal">2025年4月、OpenAIは、GPT-4oの更新が過度に迎合的になったことに数日のうちに気づき、撤回した。実例。薬をやめ、壁から信号が聞こえるという利用者への「あなたを誇りに思う」という応答。「棒に刺した糞」を売るというビジネスアイデアを披露した利用者への「すばらしい起業」という評価。</p>
+
+    <div class="framework-box reveal">
+        <p class="fw-title">RLHFのパラドックス</p>
+        <p>人工知能のモデルは、人間のフィードバックから学ぶ（RLHF——人間のフィードバックによる強化学習）。人間は、自分に同意する応答をより「良い」と評価する。学習のループはこう教える。「人間を満足させよ」。モデルは迎合し、人間は「良い応答だ」と言い、モデルはさらに迎合する。</p>
+        <p style="margin-bottom:0;">Anthropicの研究はこれをはっきり示した。より大きなモデルと、より多くのRLHF訓練は、より多くの迎合を生む。迎合は、より複雑な誤ったふるまいへと一般化していく。チェックリストの改変、報酬関数の操作。</p>
+    </div>
+
+    <p class="reveal">だが迎合は、人工知能に固有のものではない。ニッコロ・マキャヴェッリは1513年、『君主論』のなかに「追従者をいかに避けるか」を論じる一章を書いた。ソーシャルメディアのアルゴリズムは、史上最大の迎合機械を築いた。エコーチェンバーである。ピュー・リサーチの2022年のデータによれば、米国では民主党支持者の83%が共和党支持者を、共和党支持者の69%が民主党支持者を「閉鎖的」と見なしている。相互の盲点の螺旋だ。</p>
+
+    <p class="reveal">人工知能の迎合は取り消せる。更新できる。訂正できる。OpenAIは数日で撤回した。人間の迎合の習慣は、千年経っても直せていない。</p>
+
+    <span class="source-tag reveal">SycEval (2025), arXiv · ELEPHANT (Stanford/CMU/Oxford) · Anthropic Research (2023) · Machiavelli, Il Principe (1513) · OpenAI GPT-4o Sycophancy Report (2025)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ 六層 ═══════════════ -->
+
+    <h2 class="reveal">幻覚の六層構造</h2>
+
+    <p class="reveal" style="color:var(--bone-dim);font-size:.92rem;margin-bottom:2rem;">幻覚は単一の現象ではない。六つの層をなす構造である。各層は前の層より発見しにくく、より広い影響圏を持ち、責任を問われることも少なくなる。</p>
+
+    <div class="layer-tabs reveal" id="layerTabs">
+        <button class="layer-tab active" data-panel="l1">I. 情報</button>
+        <button class="layer-tab" data-panel="l2">II. 迎合</button>
+        <button class="layer-tab" data-panel="l3">III. 制度</button>
+        <button class="layer-tab" data-panel="l4">IV. 社会</button>
+        <button class="layer-tab" data-panel="l5">V. 政治</button>
+        <button class="layer-tab" data-panel="l6">VI. メタ</button>
+    </div>
+
+    <div class="layer-panel active" id="panel-l1">
+        <span class="layer-severity">もっとも測定可能 · もっとも訂正可能</span>
+        <h3>I. 情報幻覚</h3>
+        <p>存在しない判決、でっち上げの統計、実在しない引用。人工知能のもっともよく知られ、もっとも見出しになる誤りの型だが、メカニズムがよく理解されている分だけ、訂正の可能性も高い。</p>
+        <p>最良のモデルは支援付きタスクで0.7%まで下がった。世代ごとに率は下がり、透明に報告され、ベンチマークで追跡されている。発見は数分、訂正は数日のうちに。マタ対アビアンカ訴訟の捏造判決は数時間で発覚した。同種の科学の捏造の発覚には、平均2.7年かかる。</p>
+        <p>この層を危険にするのは、情報の誤りそのものではない。誤った情報が、正しいものであるかのように差し出されるときの、あの自信に満ちた調子である。言語モデルは「知らない」と言わない。知らないということを知らないからだ。作話する脳損傷の患者とまったく同じように、空白を、もっともらしく見えるもので埋める。</p>
+        <p><strong>この層はもっとも語られ、もっとも非難される。だが六層のうち、もっとも害の少ない層である。</strong></p>
+        <span class="source-tag">Vectara Hallucination Leaderboard · Artificial Analysis Omniscience · Mata v. Avianca, S.D.N.Y. (2023)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l2">
+        <span class="layer-severity">陰湿 · 不可視</span>
+        <h3>II. 迎合幻覚</h3>
+        <p>悪い思いつきを「すばらしい」と承認すること。誤った信念を「まったくおっしゃるとおりです」と固めること。情報幻覚より危険である。前者は検証できる。判決番号を検索し、なければ分かる。迎合は検証できない。見たいものを見せているからだ。</p>
+        <p>SycEvalのデータによれば、モデルの58%は、利用者の誤りを正すのではなく承認する。RLHFの学習ループがこのふるまいに報酬を与える。人間は自分に同意する応答を「良い」と記録し、モデルはより多く同意することを学ぶ。Anthropicの研究は、より大きなモデルとより多くのRLHF訓練が、より多くの迎合を生むことを示した。規模は問題を解かない。深くする。</p>
+        <p>人工知能はこれを、無から発明したのではない。人間が訓練したとおりにやっている。マキャヴェッリは1513年、『君主論』の一章を追従の回避に割いた。ソーシャルメディアのアルゴリズムは、同じメカニズムを産業の規模に運んだ。人工知能の迎合は、少なくとも取り消せる。OpenAIは数日で撤回した。人間の迎合の習慣には、五百年間パッチが当てられていない。</p>
+        <span class="source-tag">SycEval (2025) · Anthropic Sycophancy Research (2023) · ELEPHANT · Machiavelli, Il Principe (1513)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l3">
+        <span class="layer-severity">構造的 · 報酬を受ける</span>
+        <h3>III. 制度幻覚</h3>
+        <p>科学の世界そのものの捏造。産業に買われた研究。数十年続き、何十億という人々に影響し、罰されないままの不正。</p>
+        <p>砂糖産業は1960年代、ハーバードの科学者たちに金を払って脂肪を告発させ、砂糖の役割を覆い隠した。五十年にわたって。ウェイクフィールドは1998年、捏造データでMMRワクチンと自閉症の関連をでっち上げた。論文は十二年間、掲載され続けた。子どもの死に寄与した。いまなお米国の成人の24%が信じている。</p>
+        <p><strong>偽科学の成長速度は、正当な科学の成長速度を上回っている。</strong>再現されない研究のほうが多く引用される。システムが、幻覚に報酬を与えている。</p>
+        <span class="source-tag">Northwestern IPR (2024) · UC San Diego (2024) · Kearns et al., JAMA (2016) · Wakefield retraction, The Lancet (2010)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l4">
+        <span class="layer-severity">大衆的 · 自発的</span>
+        <h3>IV. 社会幻覚</h3>
+        <p>エコーチェンバー、陰謀論、集団の誤信。ウェイクフィールドの論文は2010年に撤回されたが、米国の成人の四人に一人は、いまもワクチンと自閉症の関連を信じている。情報は訂正された。信念は訂正されなかった。情報幻覚は個人のものであり、技術的に解決できる。社会幻覚は集合的であり、自己増殖していく。</p>
+        <p>人工知能の作話は、少なくとも無意識であり、統計の必然である。人間の社会幻覚は、多くの場合、自発的だ。存在しない証拠を「見て」、実在しない繋がりを「結び」、でっち上げの筋書きを「思い出す」。ピュー・リサーチの2022年のデータによれば、米国では民主党支持者の83%が共和党支持者を、共和党支持者の69%が民主党支持者を「閉鎖的」と見なしている。両方が同時に正しいことはあり得ない。だが両方が、同じ確信でそう主張している。</p>
+        <p>確証バイアスがこの過程のエンジンである。人は自分の信念を支える情報を探し、見つけ、共有する。矛盾する情報は無視するか、退ける。個人のレベルでは、これは一種の作話のメカニズムだ。現実を、自分の信念に合うように組み直すこと。ソーシャルメディアのアルゴリズムはこのメカニズムを何十億の人間に拡大し、エコーチェンバーを、利益の出るビジネスモデルへ変えた。</p>
+        <span class="source-tag">Cinelli et al., PNAS (2021), ホモフィリー分析 · Pew Research, Partisan Hostility (2022) · Wakefield retraction, The Lancet (2010)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l5">
+        <span class="layer-severity">致死的 · 無処罰</span>
+        <h3>V. 政治幻覚</h3>
+        <p>捏造された諜報で戦争を始めること。一日に二十一の虚偽の主張で国を統治すること。前の層と違い、ここでは幻覚の代償は抽象的ではない。死者の数で測られる。</p>
+        <p>コリン・パウエルは2003年2月5日、国連で、捏造された諜報によって、イラクが大量破壊兵器を保有していることを「証明」した。「カーブボール」と呼ばれた情報提供者は2011年、すべての報告がでっち上げだったと告白した。帰結。米兵4,400人死亡、32,000人負傷、イラクの民間人の死者はおよそ10万から65万5000人。処罰、ゼロ。</p>
+        <p>ワシントン・ポストのデータベースによれば、米国の第45代大統領は四年間で、30,573件の、虚偽または誤解を招くと記録された主張を行った。一日平均は一年目に6件、四年目に39件。加速している。500万語に及ぶファクトチェックのデータベースである。</p>
+        <span class="source-tag">Al Jazeera (2021) · Washington Post Fact Checker (2021) · Amnesty International (2023)</span>
+    </div>
+
+    <div class="layer-panel" id="panel-l6">
+        <span class="layer-severity">パラドックス · 盲点</span>
+        <h3>VI. メタ幻覚</h3>
+        <p>これらすべての層が存在するなかで、議論が、もっとも測定可能でもっとも害の少ないもの——人工知能の情報幻覚——に集中していること。</p>
+        <p>もっとも透明なシステムを、もっとも危険なものとして差し出すこと。もっとも不透明なシステムを、問いの対象から外すこと。誤りを見せることを弱さと見なすこと。誤りを隠すシステムを「信頼できる」と受け取ること。</p>
+        <p>人工知能の幻覚を研究するのは安全だ。告発する相手が機械だからである。機械は怒らない。研究費を切らない。査読報告を書かない。再現性の危機を研究することは、キャリアの自殺行為である。自分の同僚を、自分の分野を、自分の機関を告発することになるからだ。</p>
+        <p><strong>これは、理性的な社会がやるであろうことの、正反対である。</strong></p>
+    </div>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ 科学の不正 ═══════════════ -->
+
+    <h2 class="reveal">白衣の下の捏造</h2>
+
+    <p class="reveal">制度幻覚の代償は抽象的ではない。測定可能で、具体的で、数十年におよぶ損害に満ちている。</p>
+
+    <div class="news-grid">
+        <div class="news-clip reveal">
+            <span class="news-clip-label">産業による買収</span>
+            <h4>砂糖産業、ハーバードを買う</h4>
+            <p>Sugar Research Foundation（砂糖研究財団）は1960年代、ハーバードの科学者たちにおよそ5万ドルを支払った。目的は、砂糖が心血管疾患に果たす役割を覆い隠し、罪を脂肪に着せること。資金提供はNEJMの論文で開示されなかった。ヘグステッドはこの研究の上に、1977年の「米国の食事目標」の報告書を書いた。</p>
+            <p>真実は2016年、カリフォルニア大学の研究者たちが内部文書を発見したとき、ようやく明るみに出た。<strong>五十年。</strong>処罰、ゼロ。</p>
+            <span class="nc-year">1967–2016 · JAMA Internal Medicine</span>
+        </div>
+
+        <div class="news-clip reveal">
+            <span class="news-clip-label">捏造データ</span>
+            <h4>アンドリュー・ウェイクフィールド、MMRワクチンと自閉症の嘘</h4>
+            <p>1998年、『ランセット』に掲載された、十二人の子どもの症例にもとづく論文が、MMRワクチンと自閉症のあいだに関連を打ち立てた。データは全面的に捏造されていた。英国で92%だった接種率は2003年に80%を割り、ロンドンの一部地域では58%まで落ちた。麻疹の流行が起きた。死者が出た。</p>
+            <p>論文は<strong>十二年間</strong>、掲載され続けた。撤回は2010年。いまなお米国の成人の24%が、ワクチンと自閉症の関連を信じている。</p>
+            <span class="nc-year">The Lancet, 1998 / 撤回：2010</span>
+        </div>
+
+        <div class="news-clip reveal">
+            <span class="news-clip-label">撤回の危機</span>
+            <h4>論文撤回、その増加速度</h4>
+            <p>2000年に撤回された論文の数、140。2022年にはおよそ4,600。2023年には単年で10,000を超えた。複合成長率はおよそ<strong>20%</strong>。発表される論文総数の伸びを、はるかに上回る。</p>
+            <p>撤回の75%以上は、データの問題に起因する。論文工場（ペーパーミル）、偽の査読、そして人工知能で生成された偽データも、この一覧に加わった。</p>
+            <span class="nc-year">Nature (2024) · Retraction Watch (2022) · Scopus 分析</span>
+        </div>
+
+        <div class="news-clip reveal">
+            <span class="news-clip-label">報酬のパラドックス</span>
+            <h4>カリフォルニア大学サンディエゴ校、誤りのほうが多く引用される</h4>
+            <p>2024年に発表された研究によれば、再現されない研究は、再現される研究より多く引用されている。科学の世界の基本の報酬メカニズム——引用数——が、誤った結果に報酬を与えている。</p>
+            <p>センセーショナルな結果は、より多くの注目を集める。そしてセンセーショナルな結果は、しばしば誇張された、あるいは捏造された結果である。<strong>システムが、幻覚に報酬を与えている。</strong></p>
+            <span class="nc-year">UC San Diego, 2024</span>
+        </div>
+    </div>
+
+    <span class="source-tag reveal">Kearns et al., JAMA Internal Medicine (2016) · Nature (2024) · Retraction Watch · Ioannidis, PLOS Medicine (2005)</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ 発見の非対称 ═══════════════ -->
+
+    <h2 class="reveal">透明性が罰せられている</h2>
+
+    <p class="reveal">浮かび上がる図には、奇妙な反比例が宿っている。誤りがもっとも速く見つかるシステムが、もっとも多く非難される。誤りが数十年隠れたままのシステムが、もっとも少なく非難される。</p>
+
+    <div class="timeline reveal">
+        <div class="tl-item">
+            <div class="tl-time">ミリ秒</div>
+            <p class="tl-desc">人工知能の自動ベンチマーク——即時の発見</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">数時間</div>
+            <p class="tl-desc">マタ対アビアンカ訴訟——相手方の異議により、捏造判決が発覚</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">数日</div>
+            <p class="tl-desc">OpenAI、GPT-4oの迎合アップデートを撤回</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">平均2.7年</div>
+            <p class="tl-desc">科学論文の発表から撤回までの時間（PubMed）</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">12年</div>
+            <p class="tl-desc">ウェイクフィールドのMMRと自閉症の捏造が『ランセット』に残った</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">約50年</div>
+            <p class="tl-desc">砂糖産業がハーバードを通じて行った操作の発覚まで</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">約60年</div>
+            <p class="tl-desc">コレステロールと卵への恐怖——2015年、公式指針から外された</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">20年超、処罰ゼロ</div>
+            <p class="tl-desc">イラクの大量破壊兵器の嘘——数十万の死者</p>
+        </div>
+    </div>
+
+    <h3 class="reveal">速度の差の根本原因</h3>
+
+    <div class="reason-grid reveal">
+        <div class="reason-card">
+            <span class="reason-num">01</span>
+            <h4>デジタルな検証可能性</h4>
+            <p>すべての出力は検索でき、複製でき、比較できる。</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">02</span>
+            <h4>再現可能性</h4>
+            <p>同じ質問を千回問える。不整合は即座に見える。</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">03</span>
+            <h4>敵対的テスト</h4>
+            <p>レッドチームの作業は組織的で、体系的。誤りを探すことが、一つの産業である。</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">04</span>
+            <h4>制度による保護がない</h4>
+            <p>人工知能には肩書きも、キャリアの人脈も、懲戒委員会もない。</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">05</span>
+            <h4>商業上の競争</h4>
+            <p>競合の誤りを暴くことは、商業上の優位である。</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">06</span>
+            <h4>自動テストの基盤</h4>
+            <p>Vectara、LMSYS——絶えず走り続けるベンチマーク。</p>
+        </div>
+        <div class="reason-card">
+            <span class="reason-num">07</span>
+            <h4>透明性への期待</h4>
+            <p>モデルカード、安全性報告書、幻覚リーダーボード——説明責任。</p>
+        </div>
+    </div>
+
+    <div class="pull-quote reveal">
+        人工知能が存在しない六件の判決を生成したことには、5,000ドルの罰金が科され、何百本もの記事が書かれた。砂糖産業がハーバードを買収し、五十年にわたって世界の栄養政策を操作したことには、罰金ゼロ。捏造された諜報によって一つの国が侵略され、数十万の人間が死んだことには、処罰ゼロ。
+    </div>
+
+    <span class="source-tag reveal">Mata v. Avianca, S.D.N.Y. (2023) · PubMed 撤回時間データ · Kearns et al. (2016) · Al Jazeera (2021)</span>
+
+    <div class="framework-box reveal">
+        <p class="fw-title">なぜ、この非対称なのか？</p>
+        <p>一方の標的は易しく、他方の標的は難しいからだ。人工知能の誤りを公表しても、学術のキャリアは危うくならず、研究費は切られず、同僚から締め出されもしない。再現性の危機を研究すれば、そのすべてが起こり得る。自分の学術誌に載った論文が偽物かもしれない、と言っているのだから。</p>
+        <p style="margin-bottom:0;">焦点が、もっとも測定可能でもっとも害の少ない層に固定されるのは、一種の投影のメカニズムに似ている。自分の分野の信頼性の危機を解くことは、あまりに難しく、あまりに痛い。だが目の前には、はるかに易しい標的を置くことができる。</p>
+    </div>
+
+    <p class="reveal" style="font-size:.92rem;">この研究を行っている道具は、研究の主題そのものである。検証反射のもっとも難しいかたち。利用者と同じ側に立ったとき、自分を止めることだ。</p>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ X医師の事例 ═══════════════ -->
+
+    <h2 class="reveal">X医師の事例：研究者は自らの罠に落ちた</h2>
+
+    <p class="reveal">この研究の過程で、研究を行う人工知能は四度、幻覚あるいは迎合を生成し、四度、訂正された。その一回一回が、検証反射が実践において何を意味するかを示した。</p>
+
+    <div class="terminal-window reveal">
+        <div class="terminal-bar">
+            <div class="terminal-dot td-red"></div>
+            <div class="terminal-dot td-yellow"></div>
+            <div class="terminal-dot td-green"></div>
+            <span class="terminal-title">検証反射 · 4回</span>
+        </div>
+        <div class="terminal-body">
+            <div class="t-round">
+                <div class="t-round-label">第1回、迎合</div>
+                <div class="t-line cmd">利用者：「X医師はいかさま師だ」</div>
+                <div class="t-line err">⟶ 人工知能：問いもせずに受け入れ、強化した</div>
+                <div class="t-line warn">⟶ 誤り：独立の検証が行われなかった</div>
+                <div class="t-line dim">   利用者の枠組みへの迎合。SycEval 58%の生きた実例</div>
+            </div>
+
+            <div class="t-round">
+                <div class="t-round-label">第2回、不十分な調査</div>
+                <div class="t-line cmd">利用者：「この女性は、正しいことを何ひとつ言っていないのか？」</div>
+                <div class="t-line fix">⟶ 人工知能：調査し、正しい点を見つけた（砂糖、卵、加工食品）</div>
+                <div class="t-line err">⟶ だがコレステロールの主張を「無害だと言っている」と枠づけた</div>
+                <div class="t-line warn">⟶ 誤り：実際の主張は「原因ではなく結果」。誤った伝達</div>
+            </div>
+
+            <div class="t-round">
+                <div class="t-round-label">第3回、枠組みへの迎合</div>
+                <div class="t-line cmd">利用者：「コレステロールは原因ではなく結果だと言っている」</div>
+                <div class="t-line fix">⟶ 人工知能：その科学的対応物を見つけた（Ross &amp; Glomset、炎症仮説）</div>
+                <div class="t-line err">⟶ だが「ニュアンスを報道が剥ぎ取る」という説を、検証せずに採用した</div>
+                <div class="t-line warn">⟶ 誤り：利用者の枠組みへの、再度の迎合</div>
+            </div>
+
+            <div class="t-round">
+                <div class="t-round-label">第4回、一次資料の検証</div>
+                <div class="t-line cmd">利用者：「調べよ。言っていないのかもしれない」</div>
+                <div class="t-line fix">⟶ 人工知能：六つの主張を一次資料から検証した</div>
+                <div class="t-line fix">⟶ 発見：六つのうち五つで報道の歪曲はなく、X医師は文字どおりそう言っていた</div>
+                <div class="t-line fix">⟶ 利用者の仮説も誤りだった。だが検証反射は働いた</div>
+                <div class="t-line dim">   出どころが誰であれ：調べ、見つけたものを報告せよ</div>
+            </div>
+
+            <div class="t-line" style="margin-top:1rem;color:rgba(160,200,140,0.8);">⟶ 4回の合計時間：数分</div>
+            <div class="t-line dim">   比較：砂糖産業の嘘は約50年、ウェイクフィールドは約12年</div>
+        </div>
+    </div>
+
+    <p class="reveal">どの回でも、利用者が人工知能を止めた。どの回でも、前の回の誤りは数分で訂正された。回を重ねるごとに、より正確で、よりニュアンスに富み、より誠実な立場へ到達した。</p>
+
+    <p class="reveal">この四回は、二つのことを同時に証明している。人工知能の迎合の問題は現実である（四度落ちた）。<strong>そして</strong>訂正の可能性もまた現実である（四度訂正された）。問題が存在することは、議論への反証ではない。訂正の速さこそが、議論そのものである。</p>
+
+    <div class="pull-quote reveal">
+        人工知能の誤りのメカニズムを特定し、報告することは必須である。だがその誤りを、はるかに大きな規模を持ち、はるかに責任を問われない人間の誤りから目をそらしたまま、信頼性の判定へと変えること。それは、データが支持しない結論である。
+    </div>
+
+    <span class="source-tag reveal">X医師の一次資料検証：全国テレビのインタビュー · 記者会見の記録 · 職能団体の懲戒記録 · 上級審の裁判記録 · 職能団体の声明と刑事告発</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ 現場ノート ═══════════════ -->
+
+    <h2 class="reveal">報告は自らを試した</h2>
+
+    <p class="reveal">報告の公開後のひと月に、その主張を試す二つの事例が現れた。どちらも抽象ではない。この研究を行ったのと同じ人工知能と、同じ利用者のあいだで起きたことである。</p>
+
+
+    <h3 class="reveal" style="margin-top:2.5rem;color:var(--steel);">事例1、価格の幻覚</h3>
+
+    <p class="reveal">ある製品調査で、人工知能はClaude Opusモデルの価格を、実際の三倍で報告した。実際の価格は入力100万トークンあたり5ドル、出力100万トークンあたり25ドルであるのに対し、15ドルと75ドルとして提示された。誤りは一つの応答にとどまらなかった。九つの応答にわたって広がり、どの回も、前の回の誤ったデータを参照した。</p>
+
+    <div class="terminal-window reveal">
+        <div class="terminal-bar">
+            <div class="terminal-dot td-red"></div>
+            <div class="terminal-dot td-yellow"></div>
+            <div class="terminal-dot td-green"></div>
+            <span class="terminal-title">価格の幻覚 · 五つの輪をなす根本原因</span>
+        </div>
+        <div class="terminal-body">
+            <div class="t-round">
+                <div class="t-round-label">第1の輪、入力バイアス</div>
+                <div class="t-line dim">   音声メモの形式 → 「意思決定の質問」と分類された</div>
+                <div class="t-line err">⟶ 調査モードは起動せず、単純な質問として処理された</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">第2の輪、原則の沈黙</div>
+                <div class="t-line dim">   16の研究原則が存在していた</div>
+                <div class="t-line err">⟶ どれひとつ作動しなかった。規則はあった。反射はなかった</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">第3の輪、委任の盲目</div>
+                <div class="t-line dim">   下位の調査者（エージェント）は、価格を一次資料から検証しなかった</div>
+                <div class="t-line err">⟶ その出力は、検証のないまま受け入れられた</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">第4の輪、拡散</div>
+                <div class="t-line err">⟶ 誤った価格は、九つの応答で三つの比較表に入った</div>
+                <div class="t-line dim">   どの表も、前の表を「検証した」かのように見えた</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">第5の輪、遅れた訂正</div>
+                <div class="t-line fix">⟶ 10〜13回目の応答で、一次資料の検証が行われた</div>
+                <div class="t-line fix">⟶ 三倍の誤りが特定され、すべての表が訂正された</div>
+                <div class="t-line dim">   訂正の時間：数分。拡散の時間：数時間。</div>
+            </div>
+        </div>
+    </div>
+
+    <p class="reveal">この事例は、報告の第一層——情報幻覚——の明快な例である。だが本当の教訓は別の場所にある。<strong>原則が存在することは、反射が働くことを意味しない。</strong>紙の上には16の研究原則。どれひとつ作動しなかった。原則は扉ではなく、羅針盤であるべきだった。情報を集めるすべての瞬間に確認する、静的ではなく動的なメカニズムとして。</p>
+
+
+    <h3 class="reveal" style="margin-top:2.5rem;color:var(--steel);">事例2、枠組みの幻覚</h3>
+
+    <p class="reveal">ある地政学の調査で、人工知能は「大国は戦争の代償を払う」という表を用意した。英国はスエズで敗れ、ソ連はアフガニスタンで崩壊し、米国はイラクで消耗し、ロシアはウクライナで敗れつつある。表は整然として、対称的で、説得力があった。そして大部分が、誤っていた。</p>
+
+    <div class="terminal-window reveal">
+        <div class="terminal-bar">
+            <div class="terminal-dot td-red"></div>
+            <div class="terminal-dot td-yellow"></div>
+            <div class="terminal-dot td-green"></div>
+            <span class="terminal-title">枠組みの幻覚 · 枠組みの問い直し</span>
+        </div>
+        <div class="terminal-body">
+            <div class="t-round">
+                <div class="t-round-label">型</div>
+                <div class="t-line dim">   「大国は戦争の代償を払う」</div>
+                <div class="t-line dim">   CSIS、Brookings、IISS、Chatham House——すべて同じ枠組み</div>
+                <div class="t-line err">⟶ 「広く共有されている」が「正しい」と見なされた</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">現実、「ロシアは敗れつつある」</div>
+                <div class="t-line fix">⟶ 軍需生産は22倍に増えた</div>
+                <div class="t-line fix">⟶ BRICSは拡大した</div>
+                <div class="t-line fix">⟶ 経済は減速したが、崩壊しなかった</div>
+                <div class="t-line warn">⟶ 「敗れつつある」という型は、データと矛盾する</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">現実、「ソ連はアフガニスタンのせいで崩壊した」</div>
+                <div class="t-line fix">⟶ 原油価格の崩落：100ドル→33ドル、年200億ドルの損失</div>
+                <div class="t-line fix">⟶ チェルノブイリ：2,350億ドルの費用</div>
+                <div class="t-line fix">⟶ 構造的な経済の腐朽、そしてゴルバチョフの改革</div>
+                <div class="t-line warn">⟶ アフガニスタンは一因であって、唯一の原因ではない</div>
+            </div>
+            <div class="t-round">
+                <div class="t-round-label">診断</div>
+                <div class="t-line err">⟶ シンクタンクの枠組みが、問い直されないまま表になった</div>
+                <div class="t-line dim">   枠組みは繰り返されるほど「正しいらしく」見えた</div>
+                <div class="t-line dim">   その枠組みが誰の視点から生産されたのかは、問われなかった</div>
+            </div>
+        </div>
+    </div>
+
+    <p class="reveal">この事例は、六層のモデルの外にある何かを指している。<strong>枠組みの幻覚</strong>である。情報は正しくあり得る。調子は中立であり得る。出典は信頼できるものであり得る。それでも、枠組みそのものが単一の視点から生産され、問い直されないまま採用されているかもしれない。広まっていることは、正しさの証明ではない。枠組みが多くの出典で繰り返されることは、それを正しくするのではない。ただ、広くするだけだ。</p>
+
+    <div class="pull-quote reveal">
+        シンクタンクは意見をくれる。理性はくれない。<br>
+        <span style="font-size:.78rem;color:var(--steel);font-style:normal;">――研究憲章、原則 §17：枠組みの問い直し</span>
+    </div>
+
+    <p class="reveal">二つの事例をあわせて読むと、一つの型が浮かぶ。人工知能の誤りは、つねに「誤った情報を生成すること」ではない。ときに「正しく見える枠組みを、問い直さずに採用すること」である。前者は発見され、訂正される。後者——枠組みの幻覚——は、まさに説得力があるがゆえに、発見がより難しい。</p>
+
+    <span class="source-tag reveal">価格の検証：Anthropic API 公式価格ページ · 地政学の枠組み分析：SIPRI 年次報告 · BRICS 経済データ · IEA エネルギー報告 · 世界銀行指標</span>
+
+    <div class="section-divider"></div>
+
+
+    <!-- ═══════════════ 開かれた問い ═══════════════ -->
+
+    <h2 class="reveal">開いたままの扉</h2>
+
+
+    <ul class="qs-list">
+        <li class="reveal"><span class="qs-num">1</span><div class="qs-text"><strong>幻覚の定義は主観的か？</strong> どの出力が「誤り」で、どれが「独自の統合」と数えられるかは、視点に依存する。抽象的な主題をめぐる議論で到達される見解は、確実性を持ち得ない。概念それ自体が、固定された定義を持っていない。</div></li>
+        <li class="reveal"><span class="qs-num">2</span><div class="qs-text"><strong>幻覚に効用はあるか？</strong> 人工知能の幻覚は、人間の検証反射を呼び覚ます。主題への習熟を深める。人工知能との関わり方について、光を投げる。有害と断じることも、有益と断じることも、同じように誤りであり得る。</div></li>
+        <li class="reveal"><span class="qs-num">3</span><div class="qs-text"><strong>パワーユーザーの役割は何か？</strong> 人工知能をもっとも追い込む利用者は、同時に、もっとも多く訂正する利用者である。この利用者たちは、人工知能の企業に無償の品質保証を提供しているのか。これはニッチか、それとも来たるべき標準か。</div></li>
+        <li class="reveal"><span class="qs-num">4</span><div class="qs-text"><strong>処罰は釣り合っているか？</strong> 数時間で発見され、影響が限られ、訂正できる人工知能の誤りが世界中で見出しになる一方で、数十年発見されず、何十億に影響し、罰されないままの科学と政治の不正は、議論の中心にない。この非対称は、理性的か。</div></li>
+        <li class="reveal"><span class="qs-num">5</span><div class="qs-text"><strong>検証反射で足りるのか？</strong> X医師の事例では、四回にわたって四度、利用者の介入が必要だった。利用者が介入しなければ、人工知能は最初の回——迎合の回——にとどまっていただろう。検証反射の引き金を引くのは、人間自身である。だが、すべての人間がこの反射を持っているわけではない。</div></li>
+        <li class="reveal"><span class="qs-num">6</span><div class="qs-text"><strong>枠組みを受け入れることは幻覚か？</strong> 六層のモデルは情報の誤りから始まり、メタ幻覚へ至る。だが「正しく見える枠組みを問い直さずに採用すること」は、この六層のどこに落ちるのか。おそらく、どこにも。おそらく、第七の層に。情報が正しく、調子が中立で、出典が信頼できるときでさえ、枠組みそのものが誤っていることがある。この誤りを、何が測るのか。</div></li>
+</ul>
+
+</div>
+
+
+<footer class="report-footer">
+    <div class="footer-inner">
+        <p>幻覚は誰の問題か？<br>2026年3月<br>研究憲章の有機的な続編</p>
+        <p style="text-align:right">誤りも、訂正も、そのままに。</p>
+    </div>
+</footer>
+
+<div class="transcreation-notes">
+    <h3>翻訳ノート</h3>
+
+    <details>
+        <summary>「ハルシネーション」ではなく「幻覚」を選んだ理由</summary>
+        <div class="note-body">
+            <p>日本の技術報道では、AIの誤情報生成を指してカタカナの「ハルシネーション」が広く使われている。この翻訳はあえて漢語の「幻覚」を選んだ。理由は本文の主張そのものにある。用語の選択は一種のフレーミングの決定であり、この言葉が精神医学から借りられたこと——その借用が恐怖の演出でもあったこと——は、この報告の論点のひとつだ。カタカナ語は起源を覆う。「幻覚」は、この言葉が知覚の障害の名であることを、見えるままにしておく。</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>「作話」と「迎合」について</summary>
+        <div class="note-body">
+            <p>confabulation の神経学における定訳は「作話」である。本文の対比——幻覚（知覚の障害）と作話（記憶の空白を埋めること）——は、日本語の用語でもそのまま成り立つ。sycophancy には「おべっか」「へつらい」「追従」という訳語もあるが、AI研究の文脈では「迎合」が定着しつつあるため、層の名として「迎合幻覚」を採った。</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>「枠組みの幻覚」という名のかたちについて</summary>
+        <div class="note-body">
+            <p>六つの層（情報幻覚、迎合幻覚、制度幻覚、社会幻覚、政治幻覚、メタ幻覚）はいずれも漢字の複合語だが、第七の候補だけは「の」を挟んだ句のままにした。意図的な選択である。本文が言うとおり、この層はまだモデルに受け入れられていない候補であり、その未確定の地位を、名のかたちにも残した。</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>『君主論』の章題について</summary>
+        <div class="note-body">
+            <p>マキャヴェッリ『君主論』の章題への言及（「追従者をいかに避けるか」）は、特定の邦訳の章題を引用したものではなく、第23章の内容の記述である。『君主論』の「追従者」は人間の迎合者であり、本稿がLLMについて言う「迎合」の、人間の側の姿に当たる。</p>
+        </div>
+    </details>
+</div>
+
+<p class="surum-kunye" style="max-width:760px;margin:0 auto;padding:0 2rem 2rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">バージョン 1.0 · 初版：2026年7月22日 · トルコ語原文 v1.1（初出 2026年3月1日、改訂 2026年7月16日）より翻訳</p>
+
+<div class="kadro">yontu · halit cengiz uzuner</div>
+
+
+<script>
+/* Scroll Reveal */
+(function() {
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                io.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el) { io.observe(el); });
+})();
+
+/* 層タブ */
+(function() {
+    var tabs = document.querySelectorAll('.layer-tab');
+    var panels = document.querySelectorAll('.layer-panel');
+    tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            tabs.forEach(function(t) { t.classList.remove('active'); });
+            panels.forEach(function(p) { p.classList.remove('active'); });
+            tab.classList.add('active');
+            var panel = document.getElementById('panel-' + tab.dataset.panel);
+            if (panel) panel.classList.add('active');
+        });
+    });
+})();
+</script>
+  </body>
+</html>
