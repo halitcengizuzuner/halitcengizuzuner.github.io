@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>わかる：外国語による教育、思考、そしてある錯覚の解剖</title>
+<noscript>
+  <style>.reveal { opacity: 1 !important; transform: none !important; } body { opacity: 1 !important; animation: none !important; }</style>
+</noscript>
+<script>document.documentElement.classList.add('js-on')</script>
+<meta name="description" content="「わかった」と言うとき、私たちは何を意味しているのか。第二言語で考えることの認知的コスト、能力の錯覚、そして人工知能が言語の壁をいかに取り払いつつあるか——実証研究にもとづく考察。">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="noindex, follow">
+<meta property="og:title" content="わかる：外国語による教育、思考、そしてある錯覚の解剖">
+<meta property="og:description" content="第二言語で考えることの認知的コスト、能力の錯覚、そして人工知能が言語の壁をいかに取り払いつつあるか。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/nihongo/raporlar/understanding.html">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-05-21">
+<link rel="canonical" href="https://halitcengizuzuner.com/nihongo/raporlar/understanding.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/turkce/raporlar/anlamak.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/understanding.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/understanding.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/comprendre.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/verstehen.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/comprender.html">
+<link rel="alternate" hreflang="ja" href="https://halitcengizuzuner.com/nihongo/raporlar/understanding.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/english/raporlar/understanding.html">
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="わかる：外国語による教育、思考、そしてある錯覚の解剖">
+<meta name="twitter:description" content="第二言語で考えることの認知的コスト、能力の錯覚、そして人工知能が言語の壁をいかに取り払いつつあるか。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "わかる——外国語による教育、思考、そしてある錯覚の解剖",
+  "description": "第二言語で考えることの認知的コスト、能力の錯覚、そして人工知能が言語の壁をいかに取り払いつつあるか。実証研究にもとづく考察。",
+  "datePublished": "2026-05-21",
+  "dateModified": "2026-07-23",
+  "author": {
+    "@type": "Person",
+    "@id": "https://halitcengizuzuner.com/#person",
+    "name": "Halit Cengiz Uzuner",
+    "url": "https://halitcengizuzuner.com/nihongo/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Halit Cengiz Uzuner",
+    "url": "https://halitcengizuzuner.com/nihongo/"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://halitcengizuzuner.com/nihongo/raporlar/understanding.html"
+  },
+  "inLanguage": "ja",
+  "sameAs": [
+    "https://substack.com/@halitcengizuzuner",
+    "https://bsky.app/profile/halitcengizuzuner.com",
+    "https://www.wikidata.org/wiki/Q140388810",
+    "https://medium.com/@avukathalituzuner"
+  ]
+}
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --anlam: #708050;
+    --anlam-bright: #90a070;
+    --anlam-dim: rgba(112, 128, 80, 0.35);
+    --anlam-ghost: rgba(112, 128, 80, 0.15);
+    --serif: 'Instrument Serif', 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+}
+
+::selection { background: var(--anlam); color: var(--void); }
+html { font-size: clamp(17px, 1.2vw, 20px); scroll-behavior: smooth; }
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.10;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--anlam-bright); }
+
+nav.lang-bar {
+    text-align: center;
+    padding: 1.2rem 1rem 0;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    color: var(--bone-ghost);
+    font-family: var(--serif);
+}
+nav.lang-bar a { color: var(--bone-ghost); transition: color 0.2s; }
+nav.lang-bar a:hover { color: var(--anlam-bright); }
+nav.lang-bar .active { color: var(--bone-bright); }
+nav.lang-bar span.sep { margin: 0 0.45em; opacity: 0.4; }
+
+.book {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 8vh 2.5rem 10rem;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 6vh;
+}
+
+.hero-illustration {
+    display: block;
+    margin: 0 auto 3rem;
+    max-width: 320px;
+    width: 80%;
+    opacity: 0.7;
+}
+
+.title {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--anlam-bright);
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    color: var(--bone-ghost);
+    font-style: italic;
+    font-family: var(--serif);
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto 1.5rem;
+}
+
+.date {
+    font-size: 0.75rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.3em;
+}
+
+h2 {
+    color: var(--anlam);
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 3vw, 1.8rem);
+    font-weight: 400;
+    margin-top: 5rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+}
+
+h3 {
+    color: var(--anlam-bright);
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-top: 2.5rem;
+    margin-bottom: 0.8rem;
+}
+
+h4 {
+    color: var(--anlam);
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 2rem;
+    margin-bottom: 0.6rem;
+}
+
+p { margin-bottom: 1.3rem; text-align: justify; hyphens: none; }
+em { color: var(--bone-bright); font-family: var(--serif); }
+strong { color: var(--anlam-bright); font-weight: 600; }
+
+.section-divider {
+    display: block;
+    margin: 4rem auto;
+    text-align: center;
+    opacity: 0.3;
+}
+.section-divider svg { max-width: 200px; width: 50%; }
+
+blockquote {
+    position: relative;
+    margin: 2.5rem -1rem;
+    padding: 1.8rem 2rem 1.8rem 2.5rem;
+    border: none;
+    background: linear-gradient(135deg, var(--anlam-ghost), transparent 70%);
+    border-radius: 2px;
+    font-style: italic;
+    font-family: var(--serif);
+    color: var(--bone-dim);
+    line-height: 1.8;
+}
+blockquote::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--anlam);
+    opacity: 0.6;
+    border-radius: 2px;
+}
+blockquote p { margin-bottom: 0.5rem; text-align: left; }
+
+.pull-quote {
+    margin: 3rem -2rem;
+    padding: 2rem 2.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--anlam-bright);
+    line-height: 1.7;
+    border-top: 1px solid var(--anlam-dim);
+    border-bottom: 1px solid var(--anlam-dim);
+}
+
+.illustration {
+    display: block;
+    margin: 3rem auto;
+    max-width: 280px;
+    width: 70%;
+    opacity: 0.6;
+}
+.illustration.wide { max-width: 400px; width: 90%; }
+
+ol, ul { margin-bottom: 1.3rem; padding-left: 1.5rem; }
+li { margin-bottom: 0.5rem; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.88rem;
+}
+th, td {
+    padding: 0.5rem 0.6rem;
+    text-align: left;
+    border-bottom: 1px solid var(--anlam-ghost);
+    vertical-align: top;
+}
+th {
+    color: var(--anlam);
+    font-weight: 400;
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+}
+td { color: var(--bone-dim); }
+
+.kavram-rehberi {
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    background: var(--anlam-ghost);
+    border-left: 3px solid var(--anlam-dim);
+    border-radius: 2px;
+}
+.kavram-rehberi h3 { margin-top: 0; font-size: 0.95rem; color: var(--anlam); }
+.kavram-rehberi ul { list-style: none; padding: 0; margin: 0; }
+.kavram-rehberi li { margin-bottom: 0.6rem; font-size: 0.9rem; color: var(--bone-dim); line-height: 1.6; }
+.kavram-rehberi li strong { color: var(--anlam-bright); font-size: 0.85rem; letter-spacing: 0.05em; }
+
+.kaynakca {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--anlam-ghost);
+}
+.kaynakca h2 { margin-top: 0; font-size: 1.2rem; }
+.kaynakca p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--bone-dim);
+    margin-bottom: 0.4rem;
+    text-align: left;
+    font-family: var(--serif);
+}
+
+.diger-yazilar {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--anlam-ghost);
+}
+.diger-yazilar h2 { margin-top: 0; font-size: 1.1rem; color: var(--bone-dim); }
+.diger-yazilar ul { list-style: none; padding: 0; }
+.diger-yazilar li { margin-bottom: 0.3rem; }
+.diger-yazilar a {
+    color: var(--bone-ghost);
+    font-size: 0.9rem;
+    transition: color 0.2s;
+    border-bottom: 1px solid transparent;
+}
+.diger-yazilar a:hover { color: var(--anlam-bright); border-bottom-color: var(--anlam-dim); }
+
+.footer {
+    margin-top: 4rem;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--bone-ghost);
+    letter-spacing: 0.15em;
+}
+.footer a { border-bottom: 1px solid var(--bone-ghost); }
+.footer a:hover { color: var(--anlam-bright); border-bottom-color: var(--anlam-bright); }
+
+.reveal { transition: opacity 0.8s ease, transform 0.8s ease; }
+.js-on .reveal { opacity: 0; transform: translateY(18px); }
+.reveal.seen { opacity: 1; transform: none; }
+
+@media (max-width: 600px) {
+    .book { padding: 6vh 1.3rem 8rem; }
+    blockquote { margin: 2rem 0; padding: 1.2rem 1rem 1.2rem 1.5rem; }
+    .pull-quote { margin: 2rem 0; padding: 1.5rem 1rem; font-size: 1.05rem; }
+    .hero-illustration { max-width: 240px; }
+    .kavram-rehberi { margin: 2rem 0; padding: 1.2rem 1.2rem; }
+}
+
+@media (min-width: 1200px) {
+    .book { max-width: 680px; }
+}
+
+.home-nav {
+    text-align: center;
+    padding: 0.5rem 0 0;
+}
+.home-link {
+    color: var(--bone-dim);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: inline-block;
+    line-height: 1;
+}
+.home-link:hover {
+    color: var(--bone-bright);
+}
+
+.transcreation-notes {
+    margin-top: 3rem;
+    max-width: 580px;
+}
+
+.transcreation-notes h3 {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--bone-ghost);
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.transcreation-notes details {
+    margin-bottom: 0.8rem;
+    border-left: 1px solid var(--anlam-dim);
+    padding-left: 1rem;
+}
+
+.transcreation-notes summary {
+    font-family: var(--serif);
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    list-style: none;
+}
+
+.transcreation-notes summary::-webkit-details-marker { display: none; }
+.transcreation-notes summary::before {
+    content: '\203A';
+    margin-right: 0.5rem;
+    color: var(--anlam);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.transcreation-notes details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.transcreation-notes .note-body {
+    font-size: 0.82rem;
+    color: var(--bone-ghost);
+    line-height: 1.7;
+    padding: 0.5rem 0 0.8rem 1.2rem;
+}
+
+.transcreation-notes .note-body em {
+    color: var(--anlam);
+    font-style: italic;
+}
+.dinle-kapisi { margin-top: 2.5rem; }
+.dinle-kapisi summary { font-size: 0.85rem; color: var(--bone-ghost); cursor: pointer; letter-spacing: 0.03em; list-style: none; transition: color 0.3s; }
+.dinle-kapisi summary::-webkit-details-marker { display: none; }
+.dinle-kapisi summary::marker { display: none; content: ''; }
+.dinle-kapisi summary::before { content: '▸ '; display: inline; transition: color 0.3s; }
+.dinle-kapisi[open] summary::before { content: '▾ '; }
+.dinle-kapisi summary:hover { color: var(--bone-dim); }
+.dinle-kapisi[open] summary { color: var(--bone-dim); }
+.dinle-icerik { padding: 0.8rem 0 0 0.5rem; font-size: 0.85rem; color: var(--bone-ghost); line-height: 1.7; }
+.dinle-icerik p { margin-bottom: 0.7rem; text-align: left; }
+.dinle-git { display: block; margin-top: 0.5rem; color: var(--bone-dim); font-size: 0.85rem; border-bottom: 1px solid var(--bone-ghost); transition: color 0.3s; }
+.dinle-git:hover { color: var(--bone-bright); }
+
+.char-box {
+    display: inline-block;
+    font-size: 2rem;
+    color: var(--anlam-bright);
+    margin: 0 0.3rem;
+    vertical-align: middle;
+}
+</style>
+</head>
+<body>
+
+<nav class="lang-bar">
+    <a href="/english/" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/" class="lang-link">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/nihongo/" class="lang-link lang-active">日本語</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/" class="lang-link">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/" class="lang-link">Español</a>
+    <span class="lang-sep">·</span>
+    <a href="/turkce/" class="lang-link">Türkçe</a>
+</nav>
+<div class="home-nav"><a href="/nihongo/" class="home-link" aria-label="ホームページ">⌂</a></div>
+
+<div class="book">
+
+<div class="hero reveal">
+<svg class="hero-illustration" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- 四つの層 -->
+    <text x="200" y="18" text-anchor="middle" fill="#708050" font-size="10" font-family="Georgia, serif" opacity="0.5">理解の四つの層</text>
+    <rect x="40" y="130" width="320" height="25" rx="2" fill="none" stroke="#708050" stroke-width="0.8" opacity="0.5"/>
+    <text x="200" y="147" text-anchor="middle" fill="#708050" font-size="9" font-family="'Noto Serif SC', serif" opacity="0.6">語の解読</text>
+    <rect x="70" y="100" width="260" height="25" rx="2" fill="none" stroke="#708050" stroke-width="0.8" opacity="0.4"/>
+    <text x="200" y="117" text-anchor="middle" fill="#708050" font-size="9" font-family="'Noto Serif SC', serif" opacity="0.5">推論的理解</text>
+    <rect x="100" y="70" width="200" height="25" rx="2" fill="none" stroke="#708050" stroke-width="0.8" opacity="0.3"/>
+    <text x="200" y="87" text-anchor="middle" fill="#708050" font-size="9" font-family="'Noto Serif SC', serif" opacity="0.4">文脈的理解</text>
+    <rect x="130" y="40" width="140" height="25" rx="2" fill="none" stroke="#708050" stroke-width="0.8" opacity="0.2"/>
+    <text x="200" y="57" text-anchor="middle" fill="#708050" font-size="9" font-family="'Noto Serif SC', serif" opacity="0.3">深い理解</text>
+    <text x="200" y="172" text-anchor="middle" fill="#708050" font-size="9" font-family="Georgia, serif" opacity="0.3">多くの人はここに留まる &uarr;</text>
+  </svg>
+    <h1 class="title">わかる</h1>
+    <p class="subtitle">外国語による教育、思考、そしてある錯覚の解剖</p>
+    <p class="date">2026年5月21日</p>
+</div>
+
+<!-- ═══════════════════════ I. 「わかる」とはどういうことか？ ═══════════════════════ -->
+
+<section class="reveal">
+<h2>I. 「わかる」とはどういうことか？</h2>
+<p>「わかった」と言うとき、私たちは何を意味しているのだろうか。文中の単語をひとつずつ解読したということか。話し手が言おうとしていることをつかんだということか。それとも、言われなかったこと、ほのめかされたこと、声の調子の裏にある感情、文化的な参照が担う何世紀もの蓄積——そこまで捉えたということか。</p>
+<p>どれも「わかる」だ。しかし、どれひとつとして同じものではない。</p>
+<p>語用論は、理解という行為をいくつもの層に分ける。</p>
+<p><strong>第一の層：語の解読。</strong>単語の辞書的な意味を解くこと。「I see」＝「見える」。これは最も基礎的な水準で、第二言語でも速やかに身につく。</p>
+<p><strong>第二の層：推論的理解。</strong>言われていないことを推し量ること。「I see」が科学者の口から出れば、「わかった」や「気づいた」の意味でありうる。これは語彙の知識を超えて、文脈を読むことを要求する。</p>
+<p><strong>第三の層：文脈的理解。</strong>文化的・状況的なニュアンスを捉えること。「I see」が英国の外交官の唇からこぼれたなら、皮肉かもしれず、疑念かもしれず、丁重な拒絶かもしれない。それを理解するには、その文化のコードを知っていなければならない。</p>
+<p><strong>第四の層：深い理解。</strong>話し手の世界観に、動機に、ほのめかしながら言葉にしなかったことに届くこと。テクストが語ることと語らないことを併せて読むこと。議論の構造を見抜き、矛盾を感じ取り、その下にある前提を問い直せること。</p>
+<p>第二言語の話者は、多くの場合第一の層に留まる。第二の層に進める者もいる。第三の層に達する者はごくわずかだ。第四の層には、母語であっても誰もが達せるわけではない。</p>
+<p>おそらく本当の問題はこうだ。人は第一の層にいながら「わかった」と言い、その先を問わない。<strong>「わかる」という概念そのものが、あまりに浅く扱われているために、理解されていないのだ。</strong></p>
+<p>だが、この層の区分にはもうひとつの次元がある。「I see」という例そのものが、それをあらわにする。英語では、<strong>理解が視覚のメタファーで</strong>組み立てられている。「I see what you mean」（言いたいことが見えた）、「that's clear」（明快だ）、「she shed light on the issue」（彼女が問題に光を当てた）、「he was in the dark」（彼は闇の中にいた）——ジョージ・レイコフとマーク・ジョンソン（1980）の概念メタファー理論が示したこの構造では、知ること＝見ることである。このメタファーはあまりに深く染み込んでいるため、英語話者はそれをメタファーとしてすら意識しない。一方、トルコ語では理解の第一のメタファーが異なる。「kavramak」——手でつかむこと、だ。「konuyu kavradım」（テーマをつかんだ）、「meseleyi yakaladım」（問題を捕まえた）、「fikri tuttum」（考えを握った）。トルコ語では理解が触覚と把持の上に、英語では視覚と光の上に築かれている。同じ精神の働きが、二つの異なる身体経験に写像されているのだ。</p>
+<p>この違いは表面的なものではない。思考の身体的な根を示している。本稿がのちの章で示すように、どの言語にも固有のメタファー体系があり、固有の概念世界があり、固有の「窓」がある。この主題はそれ自体でひとつの大陸をなす。本稿はその大陸の岸辺まで行くが、岸辺で立ち止まる。道を先へ進むのは、次の研究である。</p>
+<h3>用語を知ることは、わかることではない</h3>
+<p>この区分はあらゆる分野に当てはまる。ソフトウェア工学で「function」「class」「inheritance」という用語を知るには英語が要る。だが「この関数はなぜこう設計されたのか」「このアーキテクチャ上の決定の背後にある考えは何か」「このバグの根本原因は何か」——これらは用語ではなく、<strong>概念の把握</strong>である。そして把握は母語で行われている。</p>
+<p>法律では、この点はいっそう鋭くなる。「haksız fiil」（不法行為）、「iyiniyet」（善意）、「muvazaa」（通謀虚偽表示）、「kadastro」（地籍）——これらの概念は、何世紀ものあいだ特定の法秩序の中で進化し、その社会の正義の観念、商慣行、所有関係を凝縮してきた構造物である。アメリカ比較法学会の言葉を借りれば、「法律言語は、文化への依存が他のあらゆる専門言語を凌駕する言語」なのだ。ある概念を別の言語に訳すとき、あなたは言葉を運ぶ。だが、その下にある制度と文化の堆積は運べない。</p>
+<p>トルコ法の「vicdan」（良心）という概念が、これを具体的なものにする。Vicdanはアラビア語の<em>wijdān</em>に由来するが、トルコ語の中で何世紀もかけて異なる意味の密度を獲得した。「vicdani kanaat」（裁判官の良心にもとづく確信）、「vicdanın sesi」（良心の声）、「vicdan azabı」（良心の呵責）——これらは英語で「conscience」と訳せる。だがconscienceは個人の道徳的な羅針盤である。トルコ語のvicdanは、個人の次元と社会の次元をあわせ持つ。裁判官の確信は純粋に個人的なものではなく、社会の正義感覚をも含み込む。この概念を英語に訳すとき、言葉の構造は運べても、その下の文化の重みは運べない。ちょうど「muvazaa」が「simulation」という訳語では辞書の水準でしか捉えられないように。</p>
+<p>医学では解剖学用語は普遍的だ。femur（大腿骨）はどこでもfemurである。だが臨床の推論、患者との対話、倫理的判断は言語に結びついている。サウジアラビアで行われた調査では、英語で医学教育を受ける学生たちが、カリキュラムのほぼすべての領域で英語による授業を好んだのに対し、コミュニケーション技能の科目だけは、無視できない少数派——28%（n=131）——が母語であるアラビア語での授業を望んだ（WHO/EMRO、2019）。</p>
+<p>どの分野でも同じ構造が繰り返される。<strong>用語は国際的でありうる。しかし、語りと把握は母語にある。</strong>この区分を無視するすべての教育システムは、第一の層を第四の層と思い込み、用語を教えたのだから概念も教えたと考えている。</p>
+<div class="pull-quote reveal">「わかる」という概念そのものが、あまりに浅く扱われているために、理解されていない。</div>
+</section>
+
+<!-- ═══════════════════════ II. 第二言語で考える ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#708050" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#708050" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#708050" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>II. 第二言語で考える：科学は何を語るか</h2>
+<h3>脳は外国語で違う働き方をする</h3>
+<p>2012年、シカゴ大学の Keysar らは、認知心理学で最も鮮烈な発見のひとつを発表した。「外国語効果」（Foreign Language Effect）と呼ばれるものだ。</p>
+<p>実験のシナリオはこうだ。ある感染症が600人の命を奪おうとしている。二つの対策が提示される。</p>
+<p>第一の枠組みは、利得の言葉で語る。「A案は200人を確実に救う。B案は3分の1の確率で600人全員を救うが、3分の2の確率で誰も救えない。」人はAを選ぶ。確実な利得を取り、リスクを避ける。</p>
+<p>第二の枠組みは、損失の言葉で語る。同じシナリオ、違う言葉。「A案では400人が確実に死ぬ。B案では3分の1の確率で誰も死なず、3分の2の確率で600人が死ぬ。」今度は人はBを選ぶ。確実な損失を拒み、リスクを取る。</p>
+<p>二つの枠組みは数学的には<strong>同じこと</strong>を言っている。だが母語では、人は異なる決定を下す。「救う」と「死ぬ」という言葉が、異なる感情の重みを運んでいるからだ。これが、カーネマンとトヴェルスキーのノーベル賞に輝いたフレーミング効果である。</p>
+<p>Keysar の発見はこうだ。外国語では、この非対称が<strong>消えた。</strong>人はどちらの枠組みでも同じ決定を下した——一貫して、体系的に、感情の枠組みに流されずに。「救う」と「死ぬ」は外国語では感情の重みを失った。単語は同じでも、担っている荷が違うのだ。</p>
+<p>メカニズムはこうだ。外国語は「より大きな認知的・感情的距離」をもたらす。母語は幼少期から感情の経験を背負っている。初恋の言語、母親の叱責の言語、子ども時代の恐怖の言語。母語の「死」は単なる概念ではない。葬列の、喪われた近しい人々の、幼い恐怖の響きである。外国語では同じ単語——「death」——は辞書の一項目に留まる。意味は同じ、重さが違う。</p>
+<p>これは何を意味するのか。外国語で考えることは、母語で考えることと<strong>質的に異なる</strong>ということだ。同じ人間、同じ問題、二つの言語、二つの決定。一見すると外国語での決定のほうが「より合理的」に見える。だがその合理性は、感情の深みを失った産物である。感情の文脈はつねに「バイアス」であるとは限らない。ときに情報を運ぶ。裁判官が「殺す」という言葉を微動だにせず発音できることは、合理性なのか。それとも正義の感覚が鈍くなったしるしなのか。</p>
+<p>Hayakawa と Keysar（2018）はこれをさらに進めた。外国語の使用は<strong>心的イメージ</strong>さえ弱める。外国語で場面を思い描くとき、心の中の絵はより色あせている。想像することすら、母語のほうが深いのだ。</p>
+<p>神経科学の証拠もある。Szczypek ら（2026）はポーランド語・英語のバイリンガルで事象関連電位（ERP）を測定した。発見：第二言語で道徳的な違反に対する脳の反応（N400）が、第一言語より<strong>減衰していた。</strong>脳は外国語の道徳的違反を「より表層的に」処理する。単語は理解しても、その下の意味のネットワークには完全には届いていないのだ。</p>
+<p>Circi らの2021年のメタ分析は、17研究・47実験を包含する。発見：外国語効果は一貫して再現され、しかも<strong>互いに遠い言語ほど</strong>（たとえばトルコ語と英語のように）効果が強い。</p>
+<h3>内言：あなたはどの言語で考えているか</h3>
+<p>「英語で考えられますか」という問いは、抽象的な問いに見える。だが認知科学には具体的な対応物がある。<strong>内言</strong>（inner speech）だ。頭の中のあの声——計画を立てるとき、決定を下すとき、自分と議論するときに聞こえるあの声は、どの言語で話しているのか。</p>
+<p>Jean-Marc Dewaele（2015）は、成人の多言語話者1,454人が参加した大規模な研究を行った。結果は：</p>
+<ul>
+<li>一般的な内言では<strong>母語が優位。</strong>人は考えるとき、主として最初に習得した言語で考えている。</li>
+<li><strong>感情的な内言</strong>では母語がほぼ唯一の言語。怒り、喜び、悲しみ、恐れ——すべて第一言語で生きられている。</li>
+<li>第二言語での内言は、その言語の中での長期の生活——つまり文化変容——によってのみ増えていく。</li>
+</ul>
+<p>Hammer（2019）は、高学歴で第二言語に堪能、文化変容を遂げたバイリンガル149人を調べた。発見：仕事と学術の思考では第二言語が使えるが、感情、夢、自動的な反応は<strong>母語に留まる。</strong>完全な移行は決して完了せず、内言は二つの言語のあいだを行き来する。</p>
+<p>Ardila と Rosselli（2017）の発見は、鮮烈なディテールを加える。バイリンガルは<strong>暗算</strong>をつねに最初に習得した言語で行う。第二言語が上級に達していても、7×8の答えは第一言語の声でやってくる。</p>
+<p>Resnik（2021）の結論はこうだ。内言の言語が切り替わるのは<strong>何年もかかる過程</strong>であり、大多数の人では決して完了しない。数年の大学教育では、自動的な内言を変えるには足りない。</p>
+<h3>BICSとCALP：二つの異なる「知っている」</h3>
+<p>Jim Cummins は1979年、言語教育で最も影響力のある概念上の区分を打ち立てた。</p>
+<p><strong>BICS</strong>（基本的対人コミュニケーション技能、いわゆる生活言語能力）。日々の会話、挨拶、単純なやりとり。<strong>1〜3年</strong>で身につく。</p>
+<p><strong>CALP</strong>（認知・学術言語能力、いわゆる学習言語能力）。抽象的に考えること、複雑な概念を表現すること、議論を組み立てること、分析、総合。<strong>5〜10年</strong>を要する。</p>
+<p>なぜこの区分が決定的なのか。トルコの大学英語予備課程モデルが与えるのは、<strong>主としてBICS</strong>水準の能力だからだ。1年で学生は日常会話の技能を身につけ、「流暢」に見える。だが大学教育はCALP水準の能力を要求する。あいだには4〜9年の断崖がある。しかもCALPすら終着点ではない。CALPは、学術的な言語で抽象的に考えられるようになる敷居である——用語を正しく使い、議論を組み立て、分析を行う能力。だが用語の<strong>背後にある道を歩む</strong>ことは、別のことだ。「haksız fiil」（不法行為）を定義できることはCALPである。だが不法行為を定義する者は、同時に、不法行為を知らない者でもある。定義は概念そのものではないからだ。定義は、学習者に届くために引かれた近道である。概念はその定義よりはるかに大きい。不法行為は定義の中でではなく、事件の中で生きる。その概念を現実の紛争に適用するには、その概念へ至る道を歩んだことが要る——何百という訴訟を、何世紀にわたる法の進化を、社会の正義感覚の機微を、内面化していることが。これは年数で測れる技能ではなく、生きられた経験によって形づくられる深さである。定義は地図だ。地図で方角と目的地はわかる。だが道を生きることはできない。脳は自分の母語でさえ、この道を完全に歩むことに苦労する。そこへ「今度は外国語で歩け」と言うのは、地図を道と思い込むことである。</p>
+<p>この断崖がひとつの錯覚を生む。学生は「英語ができる」ように見え、教師もシステムもそのように振る舞う。だが実際には単語を解読しているのであって、思考の深みには届いていない。システムはBICSをCALPと思い込む。CALPに達した者すら、用語の背後の世界に達したと思い込む。どの層でも同じ錯覚が繰り返される。いま立っている場所が、終着点に見えるのだ。Khatib と Taie（2016）はこれを直接記録している。BICSの速い習得が誤った能力の認識を生み、この錯覚のせいで、学生に与えられるべき支援が打ち切られる。</p>
+</section>
+
+<!-- ═══════════════════════ III. 能力の錯覚 ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#708050" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#708050" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#708050" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>III. 能力の錯覚</h2>
+<h3>能力と見なされる浅さ</h3>
+<p>ここには逆説的な状況がある。<strong>堪能に見える語学力が、理解の度合いを下げることがある。</strong></p>
+<p>馬鹿げて聞こえるだろう。何かを知っていることが、まったく知らないことより悪いなど、どうしてありうるのか。だがここで話しているのは「少ししか知らない人」のことではない。この浅さは、高校英語止まりの人の浅さではない。外国語で教育を受け、資格を持ち、ドラマを字幕なしで観て、自分をその言語に堪能だと考えている人の浅さである。危険を生むのは、まさにこの能力の自己認識だ。メカニズムはこう働く。</p>
+<p><strong>言語を知らなければ：</strong>わからないことを知っている。翻訳者を探し、文脈を読み、専門家に尋ね、別の経路で確かめる。言語を知らないことは、人を<strong>慎重に</strong>する。英語を知らない人が、誤った翻訳を論理と文脈と意味の整合性で見抜くことはありうる。わからないことを自覚している人は、それを補う仕組みを育てるからだ。</p>
+<p><strong>堪能に見えて、浅く知っているなら：</strong>わかったと思い込んでいる。単語を解読し、文の字義どおりの意味を捉え、「よし、わかった」と言う。だがニュアンスを、皮肉を、文化の層を、ほのめかされたものを取り逃がしている。そして<strong>取り逃がしていることを知らない。</strong>能力の自己認識が、誤った自信を生み出している。</p>
+<p>認知心理学ではこれが「能力の錯覚」（illusion of competence）として記録されている。Bjork と Bjork が示したのはこうだ。何かに見覚えがあること（再認、recognition）と、それを本当に知っていることのあいだには差がある。そして人はこの二つを絶えず混同する。見覚えのあるものを、知っていると思い込むのだ。</p>
+<p>Bardovi-Harlig と Dörnyei（1998）の古典的研究は、この錯覚の言語領域での姿を示している。第二言語の学習者は<strong>文法の誤り</strong>には敏感だが、<strong>語用論的誤り</strong>にはほとんど盲目である。つまり文中の文法ミスにはすぐ気づくのに、依頼があまりに直接的で、どれほど無礼に響くかには気づけない。<strong>誤っているものは見えるが、欠けているものは見えない</strong>——何が欠けているのかを知らないからだ。</p>
+<h3>語用の断崖</h3>
+<p>Lee と Lee（2022）は、第二言語話者が耳で聞く皮肉（sarcasm）の理解で母語話者から明確に遅れをとることを示した。声の調子と文脈の手がかりは、第二言語話者にはより効きにくい。</p>
+<p>Chang（2010）は、高い運用力（C1）を持つ中国人英語学習者の謝罪ストラテジーを調べた。文法は整っていたが、語用のストラテジーはなお母語からの転移を帯びていた。C1の話者は文法的に完璧な謝罪文を組み立てられる。だがその謝罪の文化的な重み、タイミング、さじ加減を誤りうる。</p>
+<p>Cieślicka（2015、2017）の発見は、問題の力学を示す。母語話者は慣用句を<strong>全体として</strong>処理する。「kick the bucket」を聞けば、そのまま「死ぬ」の意味へ跳ぶ。第二言語話者は<strong>分解して</strong>処理する。まず「蹴る」と「バケツ」を解読し、次にこれが慣用句だと気づき、それから意味を取り出す。同じ単語を「理解して」いる。だが同じことを<strong>生きてはいない。</strong></p>
+<p>Karpava（2025）は、この断崖の構造的な理由を説明する。母語話者は語用論的能力を<strong>無意識のうちに</strong>身につける——幼少期からの何千という社会的やりとりを通じて。第二言語話者は語用論的能力を<strong>意識して学ぶ</strong>ほかない。そしてこの学びは、教育ではなく<strong>生活</strong>によって起こる。</p>
+<h3>トルコ語と英語での固有の発見</h3>
+<p>Sıtkı、Ikier、Şener（2024）は、トルコ語・英語バイリンガルを直接研究した。発見：第二言語では虚偽記憶（false memory）が母語より少ない。メカニズム：第二言語では、語彙の貯蔵庫と意味システムのあいだの結びつきがより弱い。</p>
+<p>これは何を意味するか。第二言語で単語を知っていても、その単語が担う連想のネットワークを、感情の荷を、文化の層を<strong>知らない</strong>ということだ。「わかる」は母語では豊かな意味ネットワークの活性化であり、第二言語では狭い水路である。同じ単語、二つの深さ。</p>
+<p>研究報告の総括の一文が、これを要約している。<strong>第二言語での理解は「解読」であり、母語での理解は「生きること」である。</strong></p>
+</section>
+
+<!-- ═══════════════════════ IV. システムは何をしているのか ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#708050" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#708050" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#708050" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>IV. システムは何をしているのか</h2>
+<h3>大学はなぜ英語で教育するのか</h3>
+<p>この問いの答えは、教育の質とは<strong>関係がない。</strong></p>
+<p>ブリティッシュ・カウンシルの包括的な調査（2017）は明快だ。大学が英語による教育（EMI：English Medium Instruction）へ移行する理由は、次のとおりである。</p>
+<ul>
+<li>留学生の獲得（収入）</li>
+<li>世界大学ランキングでの上昇</li>
+<li>「国際的」なイメージの構築</li>
+<li>国外の研究者の獲得</li>
+</ul>
+<p>ブリティッシュ・カウンシルはこう総括する。<em>「高等教育で英語を教育言語に採用するという決定は、新しい言語教育のアプローチを試みたいという欲求よりも、機関の格を引き上げることを狙った経営判断である。」</em></p>
+<p>つまり英語による教育は、学生がよりよく考えるためではなく、大学がよりよく見えるために選ばれている。</p>
+<h3>4年＝10週間</h3>
+<p>同じブリティッシュ・カウンシルの調査の、最も鮮烈なデータはこれだ。英語で教育する大学では、4年間の課程を通じた学生のIELTSスコアの伸びが平均<strong>0.5ポイント。</strong>集中的な語学コースは、同じ伸びを<strong>10週間</strong>でもたらす。</p>
+<p>4年＝10週間。</p>
+<p>このデータだけで、こう問うに足りる。目的が英語を教えることなら、なぜそれに4年を費やすのか。答え：目的は英語を教えることではないからだ。</p>
+<h3>システムは壁を認めている</h3>
+<p>本当の矛盾はここにある。同じシステムが、一方で英語による教育を擁護しながら、他方で言語の壁の存在を認める制度を設けている。</p>
+<p><strong>試験での運用：</strong></p>
+<ul>
+<li>米国の大学：英語を母語としない学生に、試験ごとに<strong>1時間の延長</strong>、合計5時間を上限とする（アメリカン大学の規程）。</li>
+<li>ACT試験：英語を母語としない受験者に<strong>最大50%の時間延長。</strong>明示された理由：<em>「言語処理の障壁、読解力の低下、単語を母語に訳すのに要する時間。」</em></li>
+<li>マイクロソフト／Pearson VUE の資格試験：英語を母語としない受験者に<strong>30分の延長。</strong></li>
+<li>各大学：留学生のための別枠の入学経路、履修負担の軽減、語学準備コース——すべて標準的な運用である。</li>
+</ul>
+<p>ボイシ州立大学自身の規程文書にある告白は目を引く。<em>「第二言語での読み書きは母語より著しく長い時間を要し、試験の成績は、教科の知識よりも言語処理の時間を反映しうる。」</em></p>
+<p>システムは一方で「英語による教育は機能している」と言い、他方で試験の時間を延長する。<strong>機能していないと知っている</strong>からだ。それでもモデルを問い直さない。動機が学生の学びではなく、機関の回転だからである。</p>
+<h3>科学における言語の壁のコスト</h3>
+<p>天野達也（Tatsuya Amano）らが PLOS Biology に発表した研究（2023）は、この矛盾の科学界での対応物を測っている。</p>
+<ul>
+<li>英語を母語としない科学者は、英語論文を1本読むのに、母語話者の<strong>およそ2倍</strong>の時間を費やす。</li>
+<li>博士課程の学生にとって、これは年に<strong>19日分の追加労働</strong>を意味する——論文を読むためだけに。</li>
+<li>学術誌は、英語を母語としない著者の論文を、言語の質を理由に<strong>2.6倍</strong>多く却下する。</li>
+<li>流暢な英語を話さない著者には、<strong>12.5倍</strong>多く修正が要求される。</li>
+<li>Arenas-Castro らが736誌を調べた別の研究（2024）では、言語の質のみを理由に論文を却下しないと明言する学術誌は、わずか<strong>2誌</strong>（Nature と Nature Plants）だった。</li>
+</ul>
+<p>Nature の2025年の続報にある一文が、事態を要約する。<em>「流暢な英語を話せないことは、多くの場合、より質の低い科学者と見なされることを意味する。」</em></p>
+<p>ここには、言葉の壁への見えざる税がある。世界の残りの人々の肩に載せられ、科学の上に課された、目に見えないが容赦のない税。測られているのは科学ではなく、言語である。評価されているのは思考ではなく、パフォーマンスである。</p>
+<h3>「成功」の定義が浅い</h3>
+<p>これらすべての制度——時間延長、言語支援、調整された試験——は、ひとつのことを露呈させる。システムは「成功」を浅く測っている。</p>
+<p>単位を取った＝理解した。</p>
+<p>卒業した＝有能だ。</p>
+<p>試験を受けた＝評価した。</p>
+<p>だが誰も問わない。<strong>どれほど深く理解したのか。</strong>試験で時間延長を受けた学生は、同じ問いに答えた。だが同じ深さで答えたのか。母語だったなら、その問いにどう答えていたか。外国語ゆえに切り捨てたニュアンスはどれか。組み立てたくても組み立てられなかった議論はどれか。</p>
+<p>こうした問いは測られない。測られないものは見えない。見えないものは「存在しない」ことにされる。</p>
+<h3>法学例外という錯覚</h3>
+<p>トルコの国立大学の法学部は、ほぼすべてトルコ語で教育している。ボアジチ大学が2022年に法学部を開いたとき——ほぼ全学科が英語のこの大学で——中核の専門科目を<strong>トルコ語</strong>で教える二言語の法学課程を開設した。公式サイトに理由が明記されている。<em>「世界の一般的な慣行とも並行して、わが国には100%外国語で法学教育を行う大学は存在しない。」</em></p>
+<p>これはトルコの特例ではない。世界の見取り図：</p>
+<div class="table-wrap"><table>
+<tr><th>国</th><th>法学教育の言語</th><th>備考</th></tr>
+<tr><td>ドイツ</td><td>ドイツ語（C1必須）</td><td>司法試験は全面的にドイツ語</td></tr>
+<tr><td>フランス</td><td>フランス語</td><td>パリ第1大学（ソルボンヌ）を含め、B2のフランス語が必須</td></tr>
+<tr><td>日本</td><td>日本語</td><td>英語は大学院レベルに限られる</td></tr>
+<tr><td>韓国</td><td>韓国語</td><td>韓国語能力の証明が必須</td></tr>
+<tr><td>中国</td><td>中国語（普通話）</td><td>国家の法学教育は普通話で行われる</td></tr>
+<tr><td>ブラジル</td><td>ポルトガル語</td><td>司法試験はポルトガル語</td></tr>
+</table></div>
+<p>オランダのマーストリヒト大学は全編英語の法学学士課程を提供している——技術的には例外である。だが決定的な細部がある。この課程が教えるのはオランダ国内法ではなく<strong>比較ヨーロッパ法</strong>であり、修了者に弁護士資格を直接<strong>与えない。</strong></p>
+<p>欧州連合そのものが、この現実の最大規模の証明である。EUは制定するすべての法令を24の公用語で作成する義務を負う——552通りの翻訳の組み合わせだ。24言語の版の法的地位は<strong>対等</strong>である。ドイツ語版がフランス語版より「有効」ということはない。それでも欧州司法裁判所は、言語版のあいだの意味のずれをめぐる解釈訴訟に定期的に直面している。世界で最も発達した多国間の法秩序でさえ、法的なテクストをひとつの言語に還元できないのだ。</p>
+<p>では、これは法律だけの問題なのか。違う。</p>
+<p>医学教育でさえ——普遍的な科学とされる分野でさえ——189か国の2,900あまりの医学部のうち55.6%（105か国）が母語で教育している。ヨーロッパではこの比率は97.4%にのぼる（Hamad、2023）。日本では、大学の工学教育の大部分が日本語で行われている。東京大学と京都大学を含めてである。日本はこの教育のもとで年間41万9000件の特許出願を行い、世界第3位につけている（WIPO、2024）。</p>
+<p><strong>法学は例外ではない。規則の最も見えやすい姿である。</strong>思考集約的なあらゆる分野——法学、医学、哲学、工学——は言語に結びついている。法学がこの結びつきを最も明瞭に見せるのは、法概念が本性からして土着だからだ。別の法秩序へ等価に翻訳することはできない。だがメカニズムは同じである。用語は国際的でありうる。把握と推論は母語にある。</p>
+</section>
+
+<!-- ═══════════════════════ V. 誰の損失か ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#708050" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#708050" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#708050" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>V. 誰の損失か</h2>
+<h3>二つのプロフィール、二つの帰結</h3>
+<p>外国語による教育の影響は、誰にでも同じではない。二つの異なるプロフィールで、二つの異なる帰結が現れる。</p>
+<p><strong>平均的なプロフィールにとって、システムは「機能している」。</strong>BICS水準の英語が身につき、履歴書に「英語：上級」と書かれ、面接でいくつか文が組み立てられ、キャリア上の利点が得られる。誰も「どれほど深く理解しているのか」とは尋ねない。システム自体が浅く測っているからだ。成績、学位、資格——すべて揃っている。わずかな上昇があり、その上昇で十分とされる。</p>
+<p><strong>深く考えるプロフィールにとって、システムは害になりうる。</strong>この害には三つのメカニズムがある。</p>
+<p><strong>第一に、思考の抑圧。</strong>思考力の高い人間は、母語でなら複雑な議論を組み立てられ、ニュアンスを込めて表現でき、メタファーを生み、細かな区別を引ける。外国語に移った途端、そのすべてがBICS水準まで落ちる。Zheng と Choi（2024）が記録した中国の工学教員の言葉が、これを具体化する。<em>「知識は理解している。だが英語では即興ができない。」</em>次の教員は、最初の一年をただ一語で総括した——<strong>パニック。</strong></p>
+<p>この人たちの思考力が低いのではない。言語が、力を使わせないのだ。</p>
+<p><strong>第二に、エネルギーの流出。</strong>CALP水準に達するには5〜10年かかる。トルコの工学部の学生は、概算で次のような時間に向き合う。予備課程でおよそ1,000時間の英語教育。4年の学士課程で、英語と格闘するさらにおよそ2,000〜3,000時間。合わせて3,000〜4,000時間の機会費用である。その歳月のあいだ、母語のCALPも育たない。注意も、エネルギーも、時間も外国語に流れているからだ。結果：どちらの言語でも中くらい。</p>
+<p><strong>第三に、潜在力の剪定。</strong>Civan と Coşkun（2016）は、トルコの大学で教育言語が学業成績に与える影響を調べた。入学時の成績を統制すると、英語で教育する課程の学生の成績は、トルコ語で教育する課程より<strong>低かった。</strong>強い入力→弱い出力。</p>
+<p>これは浅いプロフィールには違いを生まない。損失が見えないからだ。だが深いプロフィールにとって損失は大きい。潜在力が大きかったからだ。そしてこの損失は決して測られない。母語だったなら、その学生は何になれたか、何を生み出せたか、何を語れたか——その答えはどこにもない。</p>
+<p>Bälter らのスウェーデンでのランダム化比較試験（2024）が、これを数字で示している。同じ講義、同じ試験。一方のグループにはスウェーデン語で、他方には英語で行った。スウェーデン語で試験を受けたグループは、英語のグループより<strong>73%多くの問いに正答した。</strong>つまり英語グループの学生が10問中4問を知っているなら、母語の学生は7問を知っていた——同じ講義を受け、同じことを学んだ二つのグループで、である。</p>
+<p>最も鮮烈な細部はこれだ。英語グループのうち、<strong>自分の英語は十分だと考える</strong>学生が別途分析された。「英語ができる」と言う、自信のある学生たちである。その彼らでさえ、母語で試験を受けた学生より<strong>41%悪い</strong>成績だった。能力の錯覚の数値的な対応物：「できる」と言いながら41%を失い、失っていることに気づいていない。</p>
+<p>Sweller（2022）の認知負荷理論が、メカニズムを説明する。第二言語での学習は、不利が利点を上回りうる。脳は限られた資源を言語処理と内容処理のあいだで分けざるをえず、どちらかを犠牲にする。</p>
+<p>ここでひとつの事実を思い出す必要がある。認知のエネルギーは有限の資源である。どれほど聡明でも、どれほど勤勉でも、どれほど意欲があっても、脳が同時に処理できる情報の量には限りがある。グルコースの消費、注意の容量、作業記憶——すべてに上限がある。これは人間の生物学的な限界だ。有限の資源をどこに割り当てるかは、戦略的な決定である。エネルギーが言語の解読に行けば、把握には行かない。統語に行けば、分析には行かない。翻訳に行けば、独自の思考には行かない。Bälter の41%は、この割り当ての決定の具体的な請求書である。そしてこの請求書を払う人の大多数は、払っていることにすら気づいていない。</p>
+<h3>現場から：意味の深さの測定</h3>
+<p>この研究の一環として、国際的な討論の場で英語を話す、さまざまなプロフィールの人々を体系的に観察した。世界経済フォーラム年次総会2025（ダボス会議）、ジュネーブ人権サミット、人工知能の安全性をめぐるパネル——数十時間分の記録である。問いは単純だ。登壇者はどれほど深い意味を表現できているか。</p>
+<p>浮かび上がった見取り図は、教育言語から独立したひとつの変数を指している。</p>
+<div class="table-wrap"><table>
+<tr><th>登壇者</th><th>母語</th><th>英語の水準</th><th>意味の深さ</th></tr>
+<tr><td>シャンムガラトナム（シンガポール大統領）</td><td>タミル語・マレー語</td><td>きわめて高い</td><td><strong>きわめて高い</strong>——歴史的枠組み、概念の建築、共感</td></tr>
+<tr><td>ヨシュア・ベンジオ（チューリング賞）</td><td>フランス語</td><td>はっきりした訛り</td><td><strong>きわめて高い</strong>——多層のメタファー、概念の建築</td></tr>
+<tr><td>ゲオルギエワ（IMF）</td><td>ブルガリア語</td><td>高い</td><td><strong>高い</strong>——文化への観察、データと個人的な逸話</td></tr>
+<tr><td>ラガルド（ECB）</td><td>フランス語</td><td>きわめて流暢</td><td><strong>中〜高</strong>——磨かれているがプレゼン調、自発性は少ない</td></tr>
+<tr><td>Nevşin Mengü（ジャーナリスト）</td><td>トルコ語</td><td>流暢</td><td><strong>中</strong>——用語は正確だが、概念の枠組みは借り物</td></tr>
+<tr><td>ラリー・フィンク（BlackRock）</td><td>英語（母語）</td><td>母語</td><td><strong>中</strong>——ウォール街の常套句、独自の洞察は少ない</td></tr>
+<tr><td>フィダン（トルコ外相）</td><td>トルコ語</td><td>ジョージタウン大学修士</td><td><strong>中〜低</strong>——基礎情報の列挙、単純な因果</td></tr>
+</table></div>
+<p>二つの鮮烈な対比がある。</p>
+<p><strong>ベンジオとラガルド</strong>は同じ母語を分かち持つ——フランス語である。ラガルドの英語のほうが流暢で、磨かれていて、訛りが少ない。だが意味の深さは、ベンジオのほうがはっきりと高い。人工知能をめぐる議論での「霧の山道」のメタファー、「虎の赤ん坊」のアナロジー、「人類の未来を賭けてサイコロを振る」という枠組み——これらは概念の建築であって、常套句ではない。同じ言語、異なる深さ。深さを決めているのは流暢さではなく、思考の力である。</p>
+<p><strong>Mengü</strong> は、トルコの英語教育システムが生んだ最も成功した出力のひとりである。TEDカレッジ、ビルケント大学政治学、国際ジャーナリズムの経験。ジュネーブ人権サミットでの英語のスピーチは流暢で、用語は正確だった。「competitive authoritarian regimes」（競争的権威主義体制）、「personality cult」（個人崇拝）、「checks and balances」（抑制と均衡）。だが、ひとつの概念を自分の視点から捉え直すことはなかった。ラベルを貼った。開かなかった。歴史への参照はほぼ皆無だった。マイケル・マクフォールを「元国防長官」と紹介した——マクフォールは米国の元駐ロシア大使であり、スタンフォード大学の教授である。借りた考えを完全には消化していないことの、ひとつのしるしだ。</p>
+<p>フィンク——母語が英語である BlackRock のCEO——は、表の6番目にいる。意味の深さは、母語の利点では説明できない。</p>
+<p>これらの観察は統計的な証拠ではない。体系的な観察である。だがテーゼと整合する。<strong>意味の深さは、言語にも流暢さにも結びつかない。思考の力に結びつく。</strong>言語は思考を運ぶ器である。器がどれほど良くても、運ぶ思考がなければ空のままだ。</p>
+<h3>「わからない」の誠実さ</h3>
+<p>外国語による教育が、深く考える人間の潜在力を<strong>確実に破壊する</strong>とは言えない。これはひとつの仮説である。強い仮説だが、証明された判決ではない。</p>
+<p>手元のデータが指すのはこうだ。外国語による教育は、思考力の低い個人をわずかに引き上げる一方で、思考力の高い個人の潜在力を刈り込みうる。システムは前者の「成功」を測り、後者の損失を見ない。損失を測る物差しがないからだ。</p>
+<p>この損失の大きさはわかっていない。だが、存在を示す強い徴候がある。</p>
+<div class="pull-quote reveal">認知のエネルギーは有限の資源である。</div>
+</section>
+
+<!-- ═══════════════════════ VI. すべての言語はひとつの世界である ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#708050" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#708050" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#708050" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>VI. すべての言語はひとつの世界である</h2>
+<h3>言語は窓である</h3>
+<p>ここまで語ってきたすべて——外国語効果、内言、能力の錯覚、システムの矛盾——は、ひとつの問いのまわりを回っている。言語は思考にどう影響するのか。だがこの問いには裏面がある。<strong>言語は世界をどう見せているのか。</strong>この章の一行一行が、それ自体でひとつの研究主題である。ここでは道しるべを置くだけだ。道そのものは、はるかに長い。</p>
+<p>1930年代、言語学者のエドワード・サピアとベンジャミン・リー・ウォーフは、ラディカルな仮説を打ち出した。私たちが話す言語が、私たちの考え方を規定する、と。この仮説の「強い」版——言語が思考を完全に決定するという主張——は、おおかた反証された。人は言語なしでも考えられる。赤ん坊は言語の前に問題を解き、耳の聞こえない人は手話がなくても複雑な推論を行う。</p>
+<p>だが「弱い」版——言語が思考に<strong>影響し</strong>、知覚を方向づけ、注意のパターンを形づくるという主張——は、この二十年、強力な実験的証拠に支えられてきた。その証拠が示すのは、どの言語も本当に<strong>異なる世界の窓</strong>を開いているということだ。</p>
+<h3>青のふたつの名</h3>
+<p>英語には青の色合いを表す単語がある。navy、azure、cobalt、teal、indigo。だがどれも「blue」の下位区分であり、基本の語はつねに「blue」だ。ロシア語では事情が違う。<strong>siniy</strong>（シーニー：濃い青）と<strong>goluboy</strong>（ゴルボイ：淡い青）は、二つの独立した<strong>基本色彩語</strong>である。「blue」の色合いではない。赤と橙がそうであるように、互いから独立した色なのだ。</p>
+<p>2007年、Winawer らは、この違いが知覚に影響するかを検証した。実験では参加者に三つの青い正方形を見せ、どれが他と異なるかを尋ねた。結果：ロシア語話者は、二つの色が異なるカテゴリーに落ちるとき（一方が siniy、他方が goluboy）、<strong>より速く</strong>見分けた。同じ物理的な色差でも、同じカテゴリーの内側に留まるとき（両方 siniy、または両方 goluboy）、この速さの利点は消えた。</p>
+<p>さらに：この利点は、参加者に言語的な課題（単語の復唱）を与えると消え、空間的な課題（リズムを刻む）では残った。つまり効果は本当に<strong>言語処理</strong>を経由して働いている。</p>
+<p>同じ空、同じ波長、同じ網膜。だがロシア語を話す人は、英語を話す人と<strong>違うふうに</strong>見ている。その言語が色空間を区切る場所に、注意を研ぎ澄ませているからだ。</p>
+<p>この効果は英語に固有のものではない。Özgen と Davies の研究（1998）は、トルコ語に<strong>12の基本色彩語</strong>を確認した——英語の11に対してである。12番目の語：<strong>lacivert</strong>（ラジヴェルト：濃紺）。興味深いのはここだ。参加者の多くは lacivert を「青の一種」と説明する。だが知覚の水準では、lacivert は独立したカテゴリーとして働いている。トルコ語話者は、英語話者に比べ、青の色合いを二つの群に分ける課題で有意に優れていた。メタ言語的判断——つまり言語について私たちが語ること——と、言語の実際の働き方は、別物なのである。人は「lacivert は青の一種だ」と言う。だがその脳は、二つを別の色として処理している。</p>
+<p>このメタ言語と知覚の乖離は、本稿の根本の問いにも鏡を向ける。人は「英語ができる」と言う。だがその認知過程は、それを裏づけない。表層の判断と実際の働きは、いたるところで乖離する。</p>
+<p>三つの言語、三つの異なる青の地図。英語はすべてをひとつの「blue」の下に集める。トルコ語は mavi（青）と lacivert を分けるが、そのことを明示的には認めない。ロシア語は siniy と goluboy を、赤と橙ほどに独立と見なす。それぞれの言語で鋭くなる場所が違う。そしてどの地図も「正しく」はない。それぞれが、現実の異なる断面を研ぎ澄ませているのだ。</p>
+<h3>色のうしろにある生活</h3>
+<p>だが、こうした違いはどこから来るのか。ロシア語はなぜ青を二つに割り、英語は割らなかったのか。トルコ語はなぜ lacivert を切り出しながら、桃色を——ナミビアのヒンバの人々のように、桃色と赤をひとつの語で呼ぶ共同体もあるというのに——自然のままにしたのか。</p>
+<p>答えは、言語が抽象的な体系ではないことを思い出させる。<strong>言語は、生きられた経験の堆積物である。</strong></p>
+<p>ロシア語の siniy／goluboy の区分は古スラヴ語に遡る。スラヴ人の生活圏では、空の淡い青（鳩の色。goluboy は голубь——鳩——から）と、水の深みの濃い青（siniy。きらめきと深みの連想を帯びる）は、別々の経験だった。異なる経験が異なる語を生んだ。異なる語が知覚を研ぎ澄ませた。研がれた知覚が経験をつくり替えた。ひとつの循環である。</p>
+<p>この循環は、別の場所ではるかに見えやすいかたちで働いている。<strong>イスラームと緑である。</strong>砂漠で緑は稀だ。稀なものは生命を意味する——水、オアシス、木陰、命のみずみずしさ。この生きられた経験が言語に入った。アラビア語で天国を指す語（جنّة、ジャンナ）は「庭」を意味する。クルアーンの楽園の描写は、緑の庭、流れる水、木陰をつくる樹木の上に築かれている。緑は、生きられた経験から言語へ、言語から神聖さへ、神聖さから知覚へと運ばれた。今日、緑という色はイスラームの世界で、おのずと聖性の連想をまとう。この連想は生物学的なものではない。生きられた経験が、言語を経由して結晶した姿である。</p>
+<p>対になる例が、これを裏づける。アマゾンの熱帯雨林では、緑はどこにでもある。稀ではない。ありふれている。同じメカニズム（生きられた経験→言語→意味）がここでも働くが、異なる帰結を生む。緑に聖性は宿らない。緑が生の例外ではなく、生そのものだからだ。</p>
+<p>歴史のひとつの細部が、この循環がどれほど深く働くかを見せている。イスラーム以前のアラビア語では、<em>akhḍar</em>（緑）の意味の幅は、暗さや濃さをも覆っていた。イスラーム以後、同じ語がまったく別の意味の密度をまとった。生きられた経験が言語を変え、言語が知覚を変え、知覚が生きられた経験をつくり替えたのである。</p>
+<p>この循環に気づいていることが、言語は「でたらめに」異なっているという錯覚を砕く。どの言語の地図にも、その話者たちの数千年の生きられた経験の痕跡が刻まれている。ロシア語が青を二つに割ったのなら、スラヴの農夫が空と川の水を、毎日、二つの別の経験として生きたから割ったのだ。トルコ語が lacivert を切り出したのなら、アナトリアで濃い青と淡い青が別々の生——夜と昼、海の深みと空——を指していたから切り出したのだ。</p>
+<p>どの言語も、世界を「あるがままに」区切ってはいない。どの言語も世界を、その言語を話す人々が<strong>生きたとおりに</strong>区切っている。</p>
+<h3>時間の向き</h3>
+<p>時間はどう流れるか。左から右へ？　上から下へ？　東から西へ？</p>
+<p>答え：あなたの話す言語による。</p>
+<p>英語話者は時間を<strong>左から右へ</strong>並べる。昨日を左に、明日を右に置く。アラビア語話者は<strong>右から左へ</strong>並べる。書字の方向をなぞるのだ。</p>
+<p>標準中国語では、時間のメタファーが主として<strong>垂直</strong>である。「上の月」（上个月）＝先月、「下の月」（下个月）＝来月。レラ・ボロディツキー（2001）は、標準中国語の話者が垂直の時間配列で英語話者より速いことを示した。</p>
+<p>だが最も鮮烈な例は、オーストラリアのクウク・サアヨッレの人々から来る。この言語には、左右や前後といった相対的な方位の表現がない。すべてが<strong>絶対方位</strong>——北、南、東、西——で言い表される。「南の足にアリがいる」と言うのであって、「左の足にアリがいる」とは言わない。クウク・サアヨッレの話者は、いつでも羅針盤のような方位感覚を持っている。言語がそれを強いるからだ。</p>
+<p>ボロディツキーと Gaby（2010）は、この人々にカードを渡した。人が老いていく過程、バナナが食べられていく場面、ワニが育っていく様子。並べてほしいと頼んだ。どの向きに座らせても、カードは<strong>東から西へ</strong>並んだ——太陽が空をゆく道をなぞって。南を向いた人は左から右へ、北を向いた人は右から左へ、東を向いた人は体に向かって並べた。</p>
+<p>同じ宇宙。同じ時間。三つの異なる地図。三つの異なる言語、三つの異なる窓だからである。</p>
+<h3>知識の出どころを刻む：トルコ語の認識論的な強み</h3>
+<p>トルコ語には、世界の言語のなかでも稀な特徴がある。<strong>証拠性標識</strong>（evidential marker）——知識の出どころを文法で刻むことの、義務化である。</p>
+<p>一例を挙げる。</p>
+<p><strong>「Ali geldi.」（アリが来た）</strong>——見た。その場にいた。直接の目撃者である。</p>
+<p><strong>「Ali gelmiş.」（アリが来たそうだ／来たらしい）</strong>——聞いた。誰かが言った。あるいは、来たことを示す痕跡を見た（玄関に靴がある）が、本人の姿は見ていない。</p>
+<p>英語では、この区別は<strong>義務ではない。</strong>「Ali came」は両方の場合を覆う。知識の出どころを示したければ、語を足さなければならない。「I saw Ali come」あるいは「I heard that Ali came」。表現はできる。だが言語は強いない。言わないでおく選択肢がある。トルコ語では、この情報は動詞の活用に<strong>埋め込まれて</strong>いる。言わずには済ませられないのだ。</p>
+<p>Aksu-Koç らの数十年におよぶ研究プログラムが、この文法上の義務の認知的な効果を明らかにしている。発見は：</p>
+<ul>
+<li>トルコの子どもは証拠性標識を2歳から使い始める。だが直接経験（-dı）と間接的な知識（-mış）を一貫して区別できるようになるのは4歳である。</li>
+<li>この過程は、<strong>認識論的な自覚</strong>——「私はこれをどこから知っているのか」と問える力——の発達と並行して進む。</li>
+<li>Aksu-Koç、Ögel-Balaban、Alp の発見は鮮烈だ。証拠性標識に触れて育つことが、子どもの「誤信念課題」（false belief task）の成績を<strong>高めている</strong>可能性を示す証拠がある。つまりトルコ語の文法は、「他人の知っていることは、私の知っていることと違いうる」という概念を、より早く、より強く組み立てているのかもしれない。</li>
+</ul>
+<p>これは何を意味するか。トルコ語で育つ子どもは、文を組み立てるたびに、自分の知識の出どころを分類しなければならない。見たのか、聞いたのか、推し量ったのか。この義務が、認識論的な——知識の性質をめぐる——思考の習慣を、言語の内側に据えつける。</p>
+<p>英語で育つ子どもには、そうした義務がない。「Ali came」と言って、通り過ぎる。知識の出どころは、尋ねること、疑うこと、気づくことに委ねられている。だが文法は強いない。</p>
+<p>これは、トルコ語が英語より「優れた」言語だという意味ではない。異なる窓を開いているという意味だ——知識の出どころが見える窓を。</p>
+<h3>数のない世界</h3>
+<p>アマゾンの森の奥に暮らすピダハンの人々の言語は、言語学で最も議論を呼んだ事例のひとつである。言語学者のダニエル・エヴェレットは、30年を超えるフィールドワークの末に、こう確認した。ピダハン語には<strong>数詞がない。</strong>「1」「2」「3」がない。あるのは「少し」「多く」を意味する不定の量の表現だけである。</p>
+<p>ピダハンの人々は、商人との取引でだまされることを恐れ、エヴェレットに数を教えてほしいと頼んだ。8か月のあいだ、毎日、熱心に学んだ。結果：習得できなかった。8か月の終わりに、ピダハンの人々は授業が実を結ばないと判断し、やめた。</p>
+<p>これは知能の欠如ではない。言語と文化がともに形づくる、認知の枠組みの限界である。エヴェレットはこれを「経験の直接性の原理」と名づけている。ピダハンの文化は、コミュニケーションを直接経験できる事柄に限る。抽象的な数の概念は、その枠組みの外に落ちる。</p>
+<p>この事例は、言語が思考を「決定」はしないが<strong>強力に枠づける</strong>ことを示す、最も極端な例のひとつだ。ある言語がある概念を符号化していなければ、その概念で考えることは難しくなる。不可能ではない。だが、はるかに難しい。</p>
+<h3>文字の内側にある世界観</h3>
+<p>中国語の書記体系は、言語が世界観を運ぶことの、おそらく最も視覚的な例である。それぞれの字が、ある概念の歴史的・文化的な解釈を<strong>文字の内側に刻み込んで</strong>いる。</p>
+<p><strong>好</strong>（hǎo）＝「良い」。字の構造：女（おんな）＋子（こども）。女と子どもが並んでいること＝良い。</p>
+<p><strong>安</strong>（ān）＝「安らか、安全」。構造：宀（やね）＋女。屋根の下の女＝安らぎ。</p>
+<p><strong>姦</strong>（jiān。簡体字では奸）＝「よこしま、姦通、悪」。構造：女＋女＋女。三人の女が並ぶこと＝悪。1989年版の『辞海』には、女偏を持つ字が<strong>275</strong>ある。男偏は？　<strong>存在しない。</strong></p>
+<p>これらの構造は、千年におよぶ家父長制の社会秩序を、文字のDNAに刻み込んできた。中国語を学ぶことは、アルファベットと文法を学ぶことではない。その文字群が運ぶ歴史的な世界観の内側へ入ることでもある。「安らぎ」が「屋根の下の女」として符号化された言語では、安らぎという概念そのものが、異なる文化の荷を背負っている。</p>
+<p>Zhou（2025）の研究は、現代中国のフェミニストたちがこの文字構造をどう問題化し、どのような言語改革を提案しているかを調べている。文字は伝達の道具であるだけではない。そこに含まれた社会的な前提は、その言語を話すすべての人の意識の底へ染みていく。</p>
+<p>Li（2016）の研究は、慎重な均衡をとる。こうした構造から一足飛びに「中国語は性差別的な言語だ」と断じるのではなく、字の歴史的文脈を理解し、現代の解釈と併せて読むべきだと論じている。</p>
+<p>どちらの立場も、同じ一点を指している。<strong>言語は中立の道具ではない。世界観の運び手である。</strong>漢字を「学ぶ」ことは、その世界観の内側へ入ることなのだ。</p>
+<h3>トルコ語の隠れた哲学</h3>
+<p>どの言語にも翻訳できない単語がある。だがトルコ語の翻訳不能語は、とりわけ感情と関係の領域に集中している。そしてそのひとつひとつが、別の言語ではひとつの段落を費やしてようやく説明できる世界を、たったひとつの単語で運んでいる。</p>
+<p><strong>Gönül</strong>（ギョニュル）。英語では「heart」と言うだろう。だが gönül は心臓ではない。Gönül は、感情と意志と絆が出会う内なる中心である。「Gönlüm razı değil」（わたしの gönül が承知しない）——心でもなく、理性でもなく、どこかが拒んでいる。だがそのどこかが正確にどこなのかは言えない。「Gönül koymak」——恨みに近いが怒りではない。もっと静かで、もっと深い何か。英語にこれを受けとめる一語はない。英語の感情の地図が、この領域を別の線で区切っているからだ。</p>
+<p><strong>Hüzün</strong>（ヒュズン）。オルハン・パムクが『イスタンブール——思い出とこの町』でこの語を世界に知らしめた。メランコリーか。違う。メランコリーは個人のものだが、hüzün は集合的だ。パムクの定式では「一人のものではなく、幾百万の人々が分かち持つ黒い心持ち」。イスタンブールの過去へ、オスマンの凋落へ、喪われた栄華へ向けられた集合的な喪失の感覚——だが絶望ではない。スーフィーの哲学では hüzün は、神からの遠さを感じ、その遠さの痛みのなかにひとつの美を見いだすことである。語のアラビア語の根はクルアーンに42回あらわれ、名詞形の ḥuzn としては5回である。スーフィーの伝統のなかでこの語は、「深い精神的な喪失であると同時に、生へ踏みとどまるひとつの道」という連想をまとうようになった。</p>
+<p><strong>Keyif</strong>（ケイフ）。英語の「pleasure」か。違う。Pleasure には対象がある。何かから得られる快である。Keyif に対象はない。Keyif は、存在していることそのものから来る静かな心地よさだ。「Kahve keyfi」（コーヒーの keyif）——コーヒーはきっかけにすぎず、keyif はコーヒーから来ない。立ち止まることから、時間が過ぎるのを許すことから、何かを生み出せという圧力の不在から来る。英語の「leisure」「relaxation」「rest」——どれも、何かからの回復を含意する。Keyif は何からも回復しない。それ自体で存在する。</p>
+<p><strong>Merak</strong>（メラク）。英語の「curiosity」か。半分だけだ。トルコ語の merak は同時に「気がかり」をも意味する。「Seni merak ettim」は「きみのことが知りたくてたまらない」でもありうるし、「きみのことが心配だ」でもありうる。Merak は知りたい欲であると同時に不安である。トルコ語は、この二つの感情を親類と見なしている。英語の「curiosity」と「worry」のあいだに、親類関係はない。</p>
+<p><strong>Gurbet</strong>（グルベット）。「Gurbette yaşamak」は英語で「living abroad」と訳される。だが gurbet は「abroad」ではない。Gurbet は、故郷から引き剥がされた空間的な遠さと、魂の断絶との合金である。Gurbetçi はただ遠くにいる者ではない。<strong>遠さを内側に抱えて生きる者</strong>である。「ディアスポラ」は近い。だがディアスポラは政治的であり、gurbet は実存的だ。</p>
+<p><strong>Hasret</strong>（ハスレット）。「Longing」か。「Yearning」か。どちらも hasret の重さを担わない。Hasret は、恋しさが慢性化し、重くなり、ほとんど身体化した状態である。Özlem（オズレム：恋しさ）はより瞬間的で個人的、hasret はより長く、より深い。トルコ語は özlem と hasret のあいだに強度の勾配を引いている。英語にこの勾配はない。</p>
+<p><strong>Emek</strong>（エメッキ）。「Labor」か。「Effort」か。どちらも emek を受けとめない。Emek は労働であると同時に、献身であり、愛情である。「Emek vermek」（emek を注ぐ）——ただ働くことではなく、おのれの一部を注ぎ込むことだ。「Emeğine sağlık」（あなたの emek に健やかさを）——手にではなく、<strong>存在そのものに</strong>向けられた祝福である。</p>
+<p>これらの概念は、ただの「翻訳できない美しい単語」ではない。思考の解像度にかかわる。英語は「understand」と言う。一語であり、どの深さでも同じ一語だ。トルコ語では：anlamak（わかる）、kavramak（つかむ）、idrak etmek（悟る）、sezmek（察する）、fark etmek（気づく）、çözmek（解く）——それぞれが異なる精神の働きを指す。「Kavramak」は手でつかむことであり、「sezmek」は直観であり、「idrak etmek」は認識の跳躍である。英語はそのすべてに「understand」と言って、通り過ぎる。</p>
+<p>同じことが感情にも当てはまる。英語には adore、cherish、be fond of といった動詞がある。だが日常の言葉では、love がそのすべての席を占める。トルコ語では：sevmek（愛する）、aşık olmak（恋に落ちる）、tutulmak（心を奪われる）、gönül vermek（想いを寄せる）、bağlanmak（愛着で結ばれる）、düşkün olmak（溺れる）——それぞれが関係の異なる調子を運ぶ。トルコ語では、ピザと人間に同じ動詞は使わない。物を「愛でる」ことはできても、物に「恋に落ちる」ことはできないのだ。英語の「I love pizza」と「I love you」は同じ動詞を使う。これは柔軟さなのか。それとも感情の希釈なのか。</p>
+<p>ひとつの言語が、ひとつの経験をいくつの単語で区別しているか。その数だけ、その経験について繊細に考えることができる。英語が同じ一語を十の文脈に負わせることは、語彙の豊かさに見える。だが代償がある。<strong>意味がぼやける。</strong>トルコ語は正反対のことをする。それぞれの状況に、それぞれの単語を生む。これは贅沢ではない。思考の解像度である。</p>
+<p>これらの単語は、トルコ語が「より優れた」言語であることを示しはしない。どの言語にも、それぞれの翻訳不能語がある。</p>
+<p>ポルトガル語の<strong>saudade</strong>（サウダーデ）——過ぎ去ったものへの深い恋しさ。だが未来へも伸びるひとつの次元を持ち、「未来への saudade」（saudades do futuro）という概念は、まだ生きられていないものにさえ恋しさを覚えることを言い表す。</p>
+<p>日本語の<strong>「もののあはれ」</strong>——移ろいゆくものの美しさへ向けられた、哀感を帯びた感受性。桜の花が散るのを見つめるときのあの感情。永続ではなく、無常こそが美しい。</p>
+<p>日本語の<strong>「わび・さび」</strong>——不完全さ、欠け、移ろいの内側にある美。ひび割れた茶碗の中の美学。</p>
+<p>日本語の<strong>「木漏れ日」</strong>——葉のあいだから濾された陽の光が、地面に描く揺れる斑の模様。一語である。</p>
+<p>フィンランド語の<strong>sisu</strong>（シス）——意志の力と、粘り強さと、勇気の合金。「窮地で立ち上がる第二の息」。だがそのどれよりも大きい何か。</p>
+<p>ドイツ語の<strong>Schadenfreude</strong>（シャーデンフロイデ）——他人の不運から覚える快。英語にこの感情の名はない（単語はドイツ語から直接借りられた）。</p>
+<p>デンマーク語の<strong>hygge</strong>（ヒュッゲ）——親密なあたたかさ、心地よさ、共にあることの感覚。蝋燭の明かりで友人と茶を飲むことは hygge である。だが定義はできない。</p>
+<p>そのひとつひとつが、その言語の話者の注意を<strong>特定の経験の領域へ</strong>研ぎ澄ませる、概念の道具である。その単語がなければその経験が生きられない、という意味ではない。だがその単語とともに、その経験は名を与えられ、分かち合われ、世代から世代へ受け渡され、そのまわりにひとつの文化が育つ。</p>
+<h3>どの言語も窓である。だが考えるためには、ひとつの家が要る</h3>
+<p>ここまでの例が、ひとつの事実を突きつけている。どの言語も、宇宙を異なる角度から見る窓である。ロシア語は色の空間を違うふうに区切る。クウク・サアヨッレ語は時間を違う向きに流す。トルコ語は知識の出どころを見えるようにする。中国語は歴史を文字の内側に刻む。日本語は無常の美をひとつの語に収める。ポルトガル語は未来にさえ恋しさを向ける。</p>
+<p>この豊かさは本物だ。そしてその世界へ完全に入るには、その言語を知ることが要る。翻訳は語の構造を運ぶが、その下の経験の網は運べないからだ。saudade が何かを英語で説明することはできる。だがポルトガル語で saudade を<strong>感じられる</strong>ことは、別の経験である。「木漏れ日」の定義を読むことはできる。だが日本語でこの語を聞いた瞬間、心があの光景を、あの光の戯れを、あの移ろう光の感覚を呼び出すこと——それは、生きられた言語の経験である。</p>
+<p>では、これは、考えるためにはその言語で教育を受けねばならないという意味なのか。</p>
+<p>違う。まさにこの地点で、本稿のテーゼは最も明瞭なかたちをとる。</p>
+<p>どの言語の窓も、その言語の世界を<strong>見せる。</strong>だが考えること、把握すること、分析すること、総合すること、生み出すこと——これらは窓から眺めることによってではなく、<strong>家の内側で</strong>なされる。その家が、母語である。</p>
+<p>日本語の「わび・さび」を理解するために日本語を知ることは、美しい。だが工学で、法学で、医学で、哲学で——どの分野であれ——深く考えるために英語を知ることは、<strong>必須ではない。</strong>必要なのは知識へ到達することであり、その到達はもはや言語に縛られなくなりつつある（第VII章で示す）。だが思考そのもの——内言が起こり、概念が形をなし、議論が組み立てられるあの内なる場所——は、母語である。</p>
+<p>言語の多様性の豊かさは、英語による教育を支持する論拠ではない。むしろ逆だ。どの言語にも固有の概念世界があるという事実こそ、<strong>母語で考えることがなぜ手放せないか</strong>の証明である。トルコ語の証拠性標識は、トルコ語で考える人に、知識の出どころをおのずから問わせる。この認知的な強みを、英語による教育へ移行することで失うのは——窓を開けるために、家を取り壊すことである。</p>
+<div class="pull-quote reveal">どの言語も、世界を「あるがままに」区切ってはいない。どの言語も世界を、その言語を話す人々が生きたとおりに区切っている。</div>
+</section>
+
+<!-- ═══════════════════════ VII. 人工知能と新しい方程式 ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#708050" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#708050" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#708050" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>VII. 人工知能と新しい方程式</h2>
+<h3>三つの経路、三つの限界</h3>
+<p>知識は、三つの伝統的な経路で人に届く。そのそれぞれに、構造的な限界がある。</p>
+<p><strong>書物の翻訳</strong>は静的である。ひとりの翻訳者が、ひとつのテクストを一度訳す。その瞬間から、そのテクストは誰にとっても同じものだ。読み手が誰か、何を知っていて何を知らないか、どんな概念の枠組みで考えているか——翻訳は知らない。しかも翻訳者自身が、本稿の示してきた限界に囲まれている。原文の第一と第二の層は運べても、第三と第四の層——文化のニュアンス、哲学の背景、著者がほのめかして言わなかったこと——は、多くの場合運べない。概念の構造は訳せても、その下の文化の堆積は税関を通らないのだ。翻訳者は「あらゆる読者を思って」訳す。全員に同じ基準で、同じ深さで、同じ枠組みで知識の流れを差し出す。法律家にも技術者にも同じ翻訳を与える。ほかにやりようがないからである。</p>
+<p><strong>教師</strong>は生きている。だが限られている。英語で講義しているなら、どれほど優れた教師でも、自分の認知能力の一部を言語処理に割いている。本稿の示してきたメカニズムは教師にも当てはまる。外国語で教える教師の即興の力は、概念の柔軟さは、感情の深さは、削がれる。Zheng と Choi（2024）の記録した「パニック」——外国語で教壇に立つ最初の一年——は、氷山の見えている部分にすぎない。30人の教室で、教師は翻訳者と同じ構造問題を生きる。全員に同じ授業をするしかない。個人指導ですら、たったひとりの学生に向き合ってすら、その学生の概念世界を本当に見ることはできない。推測し、観察し、合わせようとする。だが人間の記憶も、注意も、時間も有限である。</p>
+<p>ベンジャミン・ブルーム（1984）の「2シグマ問題」が、この限界を測っている。個人指導を受けた学生は、教室で学ぶ学生を2標準偏差上回る。差は本物だ。だが全員に家庭教師は用意できない。四十年のあいだ、この問題は解けないままだった。</p>
+<p><strong>対話型の人工知能</strong>は、この二つの経路とカテゴリーとして異なる。違いは規模ではなく、構造にある。</p>
+<h3>訳すのではなく、運ぶ</h3>
+<p>本稿の執筆の過程そのものが、本稿のテーゼの生きた証明である。参照した学術文献の大半は英語である。それらに到達し、分析し、議論へ組み込むために使われた道具——人工知能。これは5年前には不可能だった。</p>
+<p>だが、人工知能がここでしていることを「翻訳」と呼ぶのは、第一の層に留まることである。</p>
+<p>翻訳者は「death」を「死」へ移す。語を運ぶのだ。対話型の人工知能がしているのは別のことである。使い手が何を探しているか、どんな文脈で尋ねているか、どんな概念の枠組みで考えているかを織り込んで、知識を使い手の世界の内側へ据える。語の対応物ではなく、意味そのものを——使い手自身の概念の網へ、メタファーの体系へ、経験の層へ合うかたちで——運ぶ。法律家には Keysar の実験を法的推論の枠組みで差し出し、技術者には同じ実験を認知負荷理論から開き、親には実際の帰結を見せる。同じ知識が、異なる世界へ、異なる扉から入っていく。</p>
+<p>この過程で<strong>知識は変わらない。</strong>Keysar の実験は同じ実験であり、Bälter のデータは同じデータである。変わるのは知識そのものではなく、知識と出会う条件だ。ここに決定的な区別がある。知識が個人化されるのではない。<strong>理解の過程</strong>が個人化されるのである。翻訳者は全員に同じテクストを差し出す。全員に同じ標準。対話型の人工知能は、一人ひとりの使い手と直接の、文脈にもとづくやりとりの中で働き、その使い手の問いに、知識の水準に、考え方に合わせて、異なる深さから差し出せる。</p>
+<p>ブルームの2シグマ問題が、まさにこの地点でふたたび立ち上がる。個人指導の生む差は本物だった。だが規模化できなかった。対話型の人工知能はこの構造的な限界を取り払う。一人ひとりとの一対一のやりとり、尽きない忍耐、途切れない文脈の追跡。教師が同じ規模の個人化を果たすには、たったひとりの学生に絞り、何年もかけてその人を知り、自分の認知能力をその一人に捧げるほかない——そしてそのときですら、人間の容量の限界は働き続ける。</p>
+<h3>限界と誠実な区分</h3>
+<p>これは、人工知能が「すべてを解決した」という意味ではない。二つの深刻な限界がある。</p>
+<p>第一に：人工知能は知識を<strong>理解していない。</strong>理解する者、考える者、概念を結び合わせる者は、いまなお人間の精神である。人工知能がするのは、理解の過程の前に立つ障害——言語の壁——を取り除き、理解の条件を整えることだ。Elzerman（2025）は「認知的オフロード」の危険に注意を促す。人工知能が考えることを引き受けると、人は自分の分析の力に頼らなくなる。Derakhshan と Taghizadeh（2025）は、人工知能が高次の思考技能を弱めうることを示した。人工知能は知識を運べる。だが思考は運べない。考えるのはいまなお人間であり、その人間は自分の考える力を守らなければならない。</p>
+<p>第二に：人工知能が知識を運ぶとき、どの層で運んでいるのかは、なお議論の的である。Chua らの多言語大規模言語モデルを調べた研究（2024）は警告する。これらのモデルは表層の水準では言語をまたぐ能力を見せるが、<strong>深い知識の転移では深刻な壁</strong>に突き当たる。英語以外の言語では性能がはっきりと落ちる。Ray（2025）の発見は、さらに興味深い。同じ問いを異なる言語で人工知能に尋ねると、<strong>異なる枠づけと力点で</strong>答えが返ってくる。言語相対性の仮説は、人工知能の生成する内容にさえ測定可能なかたちで働いている。つまり機械までもが、本稿の根本の区分に突き当たっているのだ。</p>
+<p>スタンフォード HAI の報告（2025）は、現実的な警告を加える。人工知能は英語を話す15.2億人にはよく働く。だが低資源言語では性能が低い。データの不平等は、人工知能の革命の中でさえ、言語の壁を持続させている。</p>
+<p>第一と第二の層——語の解読と推論的理解——は、人工知能の強い領域である。第三の層——文化のニュアンス——は育ちつつあるが、欠けがある。第四の層——深い理解、哲学的な前提への到達——この層に人工知能がどこまで届きうるかという問いは、開いたままだ。この開いた問いが、次の研究の中心に据わっている。</p>
+<h3>パラダイムの転換：昨日の正しさ、今日の問い</h3>
+<p>前の世代の議論は正しかった。1970年代、80年代、90年代——外国語を知らないことは、本当に知識からの断絶だった。知識へ到達する唯一の道は、その言語の本を、論文を、新聞を読むことだった。翻訳は遅く、高価で、限られていた。トルコ語の学術文献は乏しかった。あの時代の経路——書物の翻訳と教師——は、本当に唯一の道だった。あの時代に「外国語なしでは知識に届かない」と言うことは、ひとつの現実に根ざしていた。</p>
+<p>だが誰も、こう問わない。<strong>あの時代の条件は、いまも有効なのか。</strong></p>
+<p>二つのことが変わり、ひとつのことが変わらなかった。</p>
+<p><strong>変わったことの第一：知識への到達。</strong>Frey と Llanos-Paredes のオックスフォード研究（2025）は、米国の695の地域労働市場を調べ、機械翻訳の普及が外国語能力への需要を実際に引き下げたことを記録している。Shadiev と Huang の実験（2020）は、これを教育の文脈で裏づける。外国語の講義に母語への翻訳字幕がつくと、とりわけ語学力の低い学生で、成績が<strong>有意に</strong>上がった。認知負荷が下がる。脳がエネルギーを、翻訳ではなく考えることに回せるからだ。</p>
+<p><strong>変わったことの第二：知識と出会うかたち。</strong>旧来の経路——書物の翻訳と教師——は、知識を標準のかたちで差し出していた。全員に同じテクスト、全員に同じ授業。対話型の人工知能は、知識を使い手の世界に合わせて差し出せる。これは到達の先にある変化であり、その変化の輪郭は、まだ十分に理解されていない。</p>
+<p><strong>変わらなかったこと：思考の言語への深い結びつき。</strong>人はいまなお母語で考え、つかみ、定式化している。本稿を貫くすべてのデータ——Keysar の外国語効果、Dewaele の内言研究、Bälter のランダム化実験——が、この変わらない事実を指している。第VI章で見た言語間の違い——トルコ語の証拠性標識、ロシア語が色の知覚を形づくること、クウク・サアヨッレ語の時間の向き——のすべてが、これを補強する。言語はただの伝達の道具ではない。思考の基盤である。その基盤を替えることは、家を替えることであって、窓を替えることではない。</p>
+<p>ならば：知識への到達がもはや英語を要求せず、知識と出会うかたちが標準的な翻訳の先へ進んだのなら、<strong>思考を英語へ移すこと</strong>——すなわち英語による教育——の根拠として、何が残ったのか。</p>
+<p>より鋭く定式化しよう。知識への到達と知識の理解の条件が、英語よりはるかに射程の広い道具で満たせるのなら、教育の言語を英語にする根拠は、あらためて問い直されなければならない。人工知能が世界中の図書館を、各人の母語で、各人の世界に合わせて目の前に置けるのなら、<strong>グローバルであることは英語を経由する</strong>という想定そのものが、誤りかもしれないのだ。</p>
+<h3>二つのモデル、二つのアーキテクチャ</h3>
+<p>浮かび上がる見取り図は、二つの異なる知識伝達のアーキテクチャを向かい合わせる。</p>
+<p><strong>英語による教育モデル：</strong>知識への到達と思考を、両方とも外国語へ移す。二つ同時にである。脳はエネルギーを翻訳と思考のあいだで分け、Bälter が示したとおり、この配分で思考の側は41%まで失いうる。知識は標準のかたちで、標準の深さで、全員に同じように差し出される。エネルギー配分の決定は学生に委ねられない。システムが、学生の代わりにその決定を下している。</p>
+<p><strong>人工知能に支えられた母語モデル：</strong>この二つを切り分ける。到達の問題は人工知能が解き、思考は母語に残る。脳のエネルギーの全体を、把握に、分析に、総合に注げる。翻訳の荷は機械が引き受けるからだ。しかもこの機械は、翻訳者とも教師とも違い、使い手の世界に合わせて動く。認知のエネルギーが有限の資源なら——そのとおりだ——それをどこに注ぐかが決定的である。このモデルは、その有限の資源を思考へ向ける。もう一方は、翻訳へ向ける。</p>
+<p>英語を知らない研究者が、人工知能を介して英語の学術文献に到達し、母語で分析を行えること——本稿そのものが、このモデルの生きた実例である。この現象が体系的に研究されていないこと——トルコに関して記録された研究は見つからなかった——は、ひとつの空白だ。そしてこの空白そのものが、ひとつのデータである。誰も問うていないのだ。</p>
+<p>この問いを誰も立てていないことこそ、おそらく本稿の本当の主題である。この問いの答え——知識は閉じ込められた言語から本当に救い出せるのか、救い出されたとき第四の層まで運べるのか、それとも最初の二つの層に留まるのか——は、次の研究の主題である。</p>
+<div class="pull-quote reveal">窓から眺めることと、家を移すことは、別のことである。</div>
+</section>
+
+<!-- ═══════════════════════ VIII. 英語の本当の場所 ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#708050" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#708050" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#708050" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>VIII. 英語の本当の場所</h2>
+<h3>世界の言語</h3>
+<p>本稿は英語に対するマニフェストではない。英語が地球規模のコミュニケーションの言語であるという現実は、否定できない。科学の言語、ビジネスの言語、外交の言語、インターネットの言語。学術出版の大半は英語である。国際会議は英語である。ソフトウェアの文書は英語である。これは現実だ。</p>
+<p>だが第VI章で見たとおり、英語もまた、他の言語と同じく<strong>固有の窓を持つ</strong>言語である。「I see」＝「わかった」というメタファー体系は、知ることを視覚の上に築く、英語に固有の思考の癖である。Schadenfreude という語が英語にないことは、英語話者がその感情を生きていないという意味ではない。だが、それに名を与えず、それを文化として認知していないという意味ではある。英語を含むどの言語も、すべての窓を同時に開くことはできない。</p>
+<p>この現実は、別の問いを立てることを妨げない。私たちは英語を、何のために使っているのか。</p>
+<p><strong>コミュニケーションの言語としての英語：</strong>必要である。議論の余地はない。異なる母語を話す二人の人間の出会いの場としての英語は、世界にとって手放せない。ここに誰の異論もない。</p>
+<p><strong>知識へ到達する言語としての英語：</strong>必要性は下がり続けている。人工知能がこの壁を急速に取り払いつつある。5年前、トルコの研究者が英語の論文に到達するには、英語を知るか、翻訳者を見つけるかだった。今日は数分で読める。</p>
+<p><strong>考える言語としての英語：</strong>ここで立ち止まらなければならない。本稿の議論のすべてが、この一点に集まる。英語で考えられる人の割合は、あらゆる実証データの示すところ、<strong>きわめて低い。</strong>C1-C2の水準でさえ、内言は主として母語であり、感情の処理は母語であり、心的イメージは母語であり、自動的な反応は母語である。第二言語で「考える」とは、大多数の人にとって、母語で考えて第二言語へ訳すことを意味する。思考そのものは、母語から出ていかないのだ。</p>
+<h3>伝えること≠わかること≠考えること</h3>
+<p>この三つの概念は、絶えず混同されている。</p>
+<p><strong>伝えられる</strong>＝自分の言葉を相手に届けられる。これはBICS水準で足りる。</p>
+<p><strong>わかる</strong>＝言わんとされていることをつかめる。これは語用の力と文化の深さを要求する。教育ではなく、生活によって身につく。</p>
+<p><strong>考えられる</strong>＝その言語で議論を組み立て、対抗する立場を立ち上げ、創造的な解を生み出せる。これは母語に近い水準を要求する。大多数の人には、手の届かないところにある。</p>
+<p>トルコの英語教育をめぐる議論の問題は、この三つの水準のすべてが「英語ができる」と呼ばれていることだ。英語予備課程の修了者は「英語ができる」と言う。C1の資格を持つ人も「英語ができる」と言う。シェイクスピアを英語で論じられる文学の教授も「英語ができる」と言う。三人が同じ言葉を使う。だが三人の「できる」は、まったく別のものである。</p>
+</section>
+
+<!-- ═══════════════════════ IX. テーゼへの反論 ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#708050" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#708050" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#708050" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>IX. テーゼへの反論</h2>
+<h3>反論1：「それでも英語で教育を受けた人のほうが成功している」</h3>
+<p>観察は正しい。だが因果が誤っている。ボアジチ大学経済学部に入る学生は、トルコで上位657人のひとりである。イスタンブール大学のトルコ語の経済学部に入る学生は11万5803位。差は175倍だ。この二人の卒業生を比べて「英語による教育が差を生んでいる」と言うことは、オリンピック選手と町内チームの選手を比べて「トレーニングプログラムが差を生んでいる」と言うことに等しい。差を生んでいるのは、そのジムに入ってくる人間が最初から誰であるかだ。</p>
+<p>Civan と Coşkun（2016）はこれを直接示した。入学時の成績を統制すると、英語による教育の利点は<strong>消える</strong>か、逆転する。</p>
+<h3>反論2：「バイリンガリズムは認知的な利点をもたらす」</h3>
+<p>Nichols らの1万1000人の大規模研究（2020）：バイリンガリズムが全般的な認知的利点をもたらすという証拠は<strong>見つからなかった。</strong>Masullo、Dentella、Leivada の系統的レビュー（2024）：観察されたバイリンガルの（不）利点の<strong>73%は社会言語学的要因</strong>に由来する。実際の認知効果は、社会経済的地位を統制すると、おおかた消える。</p>
+<h3>反論3：「問題は教育の質にあって、言語にではない」</h3>
+<p>これは最も強い反論である。大筋で同意する。英語による教育が適切に運用されれば、結果は違いうる。だが、システムが多数派にとって機能しておらず、データがそれを示しているのなら、「運用の問題だ」という擁護は、システムそのものを問うことから逃げる道になる。</p>
+<h3>反論4：「英語による教育はキャリア上の利点をもたらす」</h3>
+<p>もたらす。だがその利点のどれだけが本当の力から来ていて、どれだけが「ラベル」から来ているのか。ボアジチ大学の学位はキャリア上の利点である。だがその利点は英語による教育から来るのか。それともボアジチというブランドと、入学に要る点数の高さから来るのか。選抜効果は、ここでも働いている。</p>
+<h3>反論5：「人工知能はまだ言語の壁を完全には取り払えていない」</h3>
+<p>正しい。とりわけ深い知識の転移には壁がある（Chua ら、2024）。文学の翻訳、ニュアンスを要する法律文書、文化の文脈——これらの領域で人工知能はなお不十分だ。だがこれは、人工知能が「何の役にも立たない」という意味ではない。知識への到達という点で、革命に相当する変化が起きており、その変化は加速している。</p>
+<h3>反論6：「どの言語にも固有の窓があるなら、英語の窓も学ぶべきではないのか」</h3>
+<p>これは第VI章の自然な延長にある、強い反論である。答え：そのとおり、英語の窓から眺めることは美しい。日本語の、中国語の、ポルトガル語の窓から眺めることが美しいのと同じように。だがこれらの窓のどれひとつ、<strong>考えるために必須</strong>ではない。英語を学ぶことは豊かさである。英語で<strong>教育</strong>を受けることは、思考の基盤をその窓へ移すことである。窓から眺めることと、家を移すことは、別のことだ。</p>
+<p>目的が窓を増やすことなら、なぜ英語だけなのか。なぜ日本語ではなく、中国語ではなく、ドイツ語ではないのか。答えは明白だ。動機は窓を増やすことではなく、「グローバル市民」のラベルである。システムが売っているのは、英語の窓の価値ではなく、ブランドの価値なのだ。</p>
+<h3>正しい定式</h3>
+<p>本稿は「英語による教育は悪だ」と言っていない。「英語を学ぶな」と言っていない。ある言語を愛して、その中で生きるために、その言語の世界へ入るために学ぶ人は、例外である。その例外に異を唱える者はいない。その人は言語を道具としてではなく、ひとつの思考のかたちとして、ひとつの芸術として身につける。その人は、本稿の宛先ではない。本稿の宛先は99%——言語を道具として学ぶことを強いられながら、その道具が自分に何を与え、何を奪っているのかを知らされていない、大多数である。</p>
+<p>言われているのは、こうだ。</p>
+<p>トルコの英語教育システムは、約束したものを届けていない。約束：「英語で考えられる、グローバル市民」。届いたもの：単語は解読できるが深さに届かず、能力の錯覚の中で迷子になり、思考の潜在力を刈り込まれた個人たち——そして大学ランキングで数段上がった機関たち。</p>
+</section>
+
+<!-- ═══════════════════════ X. 言語を知らないことは、ハンディキャップではない ═══════════════════════ -->
+
+<div class="section-divider reveal">
+  <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="20" y1="20" x2="85" y2="20" stroke="#708050" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="100" cy="20" r="2" fill="none" stroke="#708050" stroke-width="0.8" opacity="0.4"/>
+    <line x1="115" y1="20" x2="180" y2="20" stroke="#708050" stroke-width="0.8" opacity="0.3"/>
+  </svg>
+</div>
+
+<section class="reveal">
+<h2>X. 言語を知らないことは、ハンディキャップではない</h2>
+<p>言語を知らないことはハンディキャップではない。ひとつの自覚の状態である。わからないことを知っている人は、それを補う仕組みを育てる。翻訳に頼り、専門家に尋ね、文脈を読み、論理を組み、確かめる。わかったと思い込んでいる人は、何も育てない。</p>
+<p>能力と見なされる浅さの最大の代償は、知識の損失ではない。知識の損失が<strong>見えなくなる</strong>ことである。認知のエネルギーが有限の資源なら、それをどこに注ぐかが決定的だ。届かない能力のために注がれたエネルギーは、考えることに注がれなかったエネルギーであり、そのエネルギーは戻ってこない。</p>
+<p>「わかる」という言葉を、もっと注意深く使う必要がある。単語を解読することは、わかることではない。文を訳せることは、わかることではない。会話についていけることは、わかることではない。わかるとは、ひとつの思考のうしろにある世界を見ることである。そしてそれは、どの言語においてすら、難しい技能なのだ。</p>
+<p>第二言語で考えられる人の割合は、あらゆる実証データの示すところ、きわめて低い。C1-C2の水準でさえ、人は主として母語で考え、感じ、想像し、計算している。英語による教育はこの事実を変えない。ただ、見えなくする。</p>
+<p>問題は英語教育にないのかもしれない。問題は、「わかる」という概念を私たちがわかっていないことにあるのかもしれない。</p>
+<p>本稿は、その問題の地図を描いた。次の研究は、知識を閉じ込められた言語から救い出すとはどういうことかを問う。翻訳者が全員に同じかたちで差し出してきた知識は、対話型の人工知能を介して、一人ひとりの概念世界の内側へ本当に運べるのか。その運搬は第一の層に留まるのか、それとも第四の層まで届くのか——それを試すことになる。</p>
+<div class="pull-quote reveal">言語を知らないことはハンディキャップではない。ひとつの自覚の状態である。</div>
+<p><em>問いは、答えよりも重要である。</em></p>
+<p><strong>Halit Cengiz Uzuner</strong> · 独立研究者 · halitcengizuzuner.com</p>
+</section>
+
+<div class="kaynakca reveal">
+<details><summary style="cursor:pointer;color:var(--anlam);font-size:1.2rem;font-style:italic;">参考文献</summary>
+<div style="margin-top:1.5rem;">
+<p>Aksu-Koç, A. (1988). <em>The Acquisition of Aspect and Modality: The Case of Past Reference in Turkish.</em> Cambridge University Press.</p>
+<p>Aksu-Koç, A., Ögel-Balaban, H. & Alp, İ. E. (2009). Evidentials and source monitoring in Turkish. <em>New Directions for Child and Adolescent Development</em>, 125, 13-28.</p>
+<p>Amano, T. et al. (2023). The true cost of science's language barrier for non-native English speakers. <em>PLOS Biology</em>, 21(7): e3002184.</p>
+<p>American Society of Comparative Law (ASCL). Language Skills and Comparative Law. ascl.org.</p>
+<p>Arenas-Castro, H. et al. (2024). Academic publishing requires linguistically inclusive policies. <em>Proceedings of the Royal Society B</em>, 291(2018): 20232840.</p>
+<p>Ardila, A. & Rosselli, M. (2017). Inner speech in bilinguals: The example of calculation abilities. <em>Bilingual Brain</em>, Springer.</p>
+<p>Bälter, O. et al. (2024). English-medium instruction and impact on academic performance: A randomized control study. <em>Applied Linguistics Review</em>.</p>
+<p>Bardovi-Harlig, K. & Dörnyei, Z. (1998). Do language learners recognize pragmatic violations? <em>TESOL Quarterly</em>, 32(2), 233-259.</p>
+<p>Bloom, B. S. (1984). The 2 Sigma Problem. <em>Educational Researcher</em>, 13(6), 4-16.</p>
+<p>Boroditsky, L. (2001). Does language shape thought? <em>Cognitive Psychology</em>, 43(1), 1-22.</p>
+<p>Boroditsky, L. & Gaby, A. (2010). Remembrances of times east. <em>Psychological Science</em>, 21(11), 1635-1639.</p>
+<p>Bradford, A. (2016). EMI in Japanese Higher Education. <em>JALT Publications</em>.</p>
+<p>British Council (2017). How effective is English as a medium of instruction (EMI)?</p>
+<p>Bułat Silva, Z. (2012). Saudade, A Key Portuguese Emotion. <em>Emotion Review</em>, 4(2), 203-211.</p>
+<p>Chang, Y.-F. (2010). The development of pragmatic competence in L2 apology. <em>Language Sciences</em>, 32(3), 408-424.</p>
+<p>Chua, L. et al. (2024). Crosslingual Capabilities and Knowledge Barriers in Multilingual Large Language Models. arXiv:2406.16135.</p>
+<p>Cieślicka, A. B. (2015). Idiom acquisition and processing by second/foreign language learners. <em>Bilingual Figurative Language Processing</em>, Cambridge.</p>
+<p>Circi, R. et al. (2021). The foreign language effect on decision-making: A meta-analysis. <em>Psychonomic Bulletin & Review</em>, 28, 1131-1141.</p>
+<p>Civan, A. & Coşkun, A. (2016). The effect of the medium of instruction language on the academic success. ERIC (EJ1130741).</p>
+<p>Cummins, J. (1979). Cognitive/Academic Language Proficiency. <em>Working Papers on Bilingualism</em>, 19.</p>
+<p>Cummins, J. (1981). Empirical and theoretical underpinnings of bilingual education. <em>Journal of Education</em>, 163(1), 16-29.</p>
+<p>Dewaele, J.-M. (2015). From obscure echo to language of the heart. <em>Journal of Pragmatics</em>, 87, 1-17.</p>
+<p>Elzerman, G. H. (2025). When AI Does the Thinking. IEEE ICAIE 2025.</p>
+<p>European Parliament. Language policy (factsheet). europarl.europa.eu.</p>
+<p>Everett, D. L. (2005). Cultural constraints on grammar and cognition in Pirahã. <em>Current Anthropology</em>, 46(4), 621-646.</p>
+<p style="padding-left:1.2em;">関連書籍の邦訳：D・L・エヴェレット『ピダハン——「言語本能」を超える文化と世界観』屋代通子訳、みすず書房、2012年。</p>
+<p>Frey, C. B. & Llanos-Paredes, M. (2025). Lost in Translation: AI and the Demand for Foreign Language Skills. Oxford Martin School.</p>
+<p>Hamad, A. A. (2023). Decolonization of medical education: A global screening of instructional languages. <em>Journal of Medicine, Surgery, and Public Health</em>, 1, 100007.</p>
+<p>Hammer, K. (2019). Bilingual cogito: Inner speech in acculturated bilinguals. <em>International Journal of Bilingual Education and Bilingualism</em>, 22(5), 576-592.</p>
+<p>Hayakawa, S. & Keysar, B. (2018). Using a foreign language reduces mental imagery. <em>Cognition</em>, 175, 8-15.</p>
+<p>Hayakawa, S., Pan, Y. & Marian, V. (2022). Language changes medical judgments and beliefs. <em>International Journal of Bilingualism</em>, 26(2).</p>
+<p>Hayakawa, S., Tannenbaum, D., Costa, A., Corey, J. D. & Keysar, B. (2017). Thinking more or feeling less? Explaining the foreign-language effect on moral judgment. <em>Psychological Science</em>, 28(10), 1387-1397.</p>
+<p>Hu, Z., Martín-Luengo, B. & Navarrete, E. (2026). The impact of foreign language on meta-reasoning in moral decisions. <em>Journal of Cognition</em>.</p>
+<p>Hulstijn, J. H. (2011). Language proficiency in native and nonnative speakers. <em>Language Assessment Quarterly</em>, 8(3), 229-249.</p>
+<p>Karpava, S. (2025). The effect of L1 linguistic and cultural background on L2 pragmatic competence. <em>Languages</em>, 10(5), 112.</p>
+<p>Keysar, B., Hayakawa, S. L. & An, S. G. (2012). The foreign-language effect. <em>Psychological Science</em>, 23(6), 661-668.</p>
+<p>Lakoff, G. & Johnson, M. (1980). <em>Metaphors We Live By.</em> Chicago University Press.</p>
+<p style="padding-left:1.2em;">邦訳：『レトリックと人生』渡部昇一・楠瀬淳三・下谷和幸訳、大修館書店。</p>
+<p>Lee, S. & Lee, J. M. (2022). L2 pragmatic comprehension of aural sarcasm. <em>System</em>, 105.</p>
+<p>Li, T. K. (2016). “Chinese is a sexist language”: A re-examination. Hong Kong City University.</p>
+<p>Masullo, C., Dentella, V. & Leivada, E. (2024). 73% of the observed bilingual (dis)advantageous effects on cognition stem from sociolinguistic factors. <em>Bilingualism: Language and Cognition</em>.</p>
+<p>Nichols, E. S. et al. (2020). Bilingualism affords no general cognitive advantages. <em>Psychological Science</em>, 31, 548-567.</p>
+<p>Özgen, E. & Davies, I. R. L. (1998). Turkish color terms. <em>Linguistics</em>, 36(5), 919-956.</p>
+<p>Pamuk, O. (2003). <em>Istanbul: Memories and the City.</em></p>
+<p style="padding-left:1.2em;">邦訳：『イスタンブール——思い出とこの町』和久井路子訳、藤原書店。</p>
+<p>Qian, D. D. (1998). Depth of vocabulary knowledge: Assessing its role in adults' reading comprehension. 博士論文、トロント大学.</p>
+<p>Ray, P. (2025). Does Linguistic Relativity Hypothesis Apply on ChatGPT Responses? <em>Computational Intelligence</em>, 41(4).</p>
+<p>Resnik, P. (2021). Multilinguals' use of L1 and L2 inner speech. <em>International Journal of Bilingualism</em>, 25(1).</p>
+<p>Rose, H. & McKinley, J. (2018). Japan's EMI Initiatives and Globalization of Higher Education. <em>Higher Education</em>, 75(1).</p>
+<p>Sapir, E. (1929). The status of linguistics as a science. <em>Language</em>, 5(4), 207-214.</p>
+<p>Shadiev, R. & Huang, Y.-M. (2020). Investigating Student Attention During Lectures in a Foreign Language. <em>Computer Assisted Language Learning</em>, 33(3), 301-326.</p>
+<p>Sıtkı, M., Ikier, S. & Şener, N. (2024). Reduced false memory in the second language of Turkish-English bilinguals. <em>Applied Neuropsychology: Adult</em>.</p>
+<p>Stanford HAI (2025). How AI Is Leaving Non-English Speakers Behind.</p>
+<p>Sweller, J. (2022). Cognitive load theory and second language learning.</p>
+<p>Szczypek, R. et al. (2026). Neural markers reveal weakened sensitivity to moral violations in a foreign language. <em>Brain and Language</em>, 105715.</p>
+<p>WHO/EMRO (2019). Perspectives of medical students on teaching medicine in their native language. <em>Eastern Mediterranean Health Journal</em>, 25(8).</p>
+<p>Whorf, B. L. (1956). <em>Language, Thought, and Reality: Selected Writings.</em> MIT Press.</p>
+<p style="padding-left:1.2em;">邦訳：『言語・思考・現実』池上嘉彦訳、講談社学術文庫。</p>
+<p>Winawer, J. et al. (2007). Russian blues reveal effects of language on color discrimination. <em>PNAS</em>, 104(19), 7780-7785.</p>
+<p>WIPO (2024). World Intellectual Property Indicators. wipo.int.</p>
+<p>Yardımcı, A. (2025). Exploring the inner thought processes of bilingual individuals. <em>Journal of Language Research</em>.</p>
+<p>Zheng, Y. & Choi, T.-H. (2024). EMI in second-tier universities in China.</p>
+<p>Zhou, Y. (2025). Feminist Perspectives on Language Reform in Simplified Chinese. UBC学位論文.</p>
+</div></details></div>
+
+<!-- ═══════════════════════ 翻訳ノート ═══════════════════════ -->
+
+<div class="transcreation-notes reveal">
+<h3>翻訳ノート</h3>
+<details>
+<summary>「わかる」という訳題について</summary>
+<div class="note-body"><p>原題の Anlamak はトルコ語の最も日常的な「わかる」であり、本文はまさにこの日常語の深みを問うている。学術的な「理解」ではなく、ひらがなの「わかる」を表題に選んだのはそのためである。本文中では、日常の水準には「わかる」を、四つの層など概念の水準には「理解」を当て、原文が一語で担っている幅を二語で分担させた。また、原文第III章の illusion of competence は「能力の錯覚」と訳した。「幻覚」は本サイトの別稿が人工知能のハルシネーションに当てている語であり、心理学の illusion（錯覚）とは区別している。</p></div>
+</details>
+<details>
+<summary>漢字分析の段落について</summary>
+<div class="note-body"><p>原文は外部の観察者の視点から、好・安・姦という三つの字の構造を分析している。日本語の読者にとって、これらは幼い頃から書いてきた文字である。この段落を省略も緩和もせずそのまま訳した。自分の文字が、自分の知らないことをしている——それこそ本稿の中心的な論点の、最も身近な実証だからである。なお分析の対象は中国語の書記体系であり、字音は普通話のピンインで示した。</p></div>
+</details>
+<details>
+<summary>日本語について語る箇所について</summary>
+<div class="note-body"><p>原文は「もののあはれ」「わび・さび」「木漏れ日」を、翻訳不能語の例として外から眺めている。日本語版でもこの外からの視線を保った。読者自身の言葉が、よその窓からどう見えるかを見ることも、本稿の論点の一部だからである。第IV章の日本に関する記述は、翻訳にあたり一次資料で確認した。特許出願数（年間41万9000件、世界第3位）はWIPOの世界知的所有権指標の2024年データ（日本の出願人による世界への出願41万9132件）と一致する。また第VI章のトルコ語の証拠性標識について：日本語の「〜そうだ」「〜らしい」も伝聞や推定を示すが、使うかどうかは話し手の選択に委ねられている。トルコ語では過去の出来事を語るとき、動詞の活用そのものが直接経験（-dı）か間接的な知識（-mış）かの選択を強制し、言わないでおくことができない。原文の言う「文法上の義務」はこの点にある。</p></div>
+</details>
+<details>
+<summary>トルコ語の語彙と固有名の表記について</summary>
+<div class="note-body"><p>gönül、hüzün、keyif など、本文が論じるトルコ語の単語はラテン文字のまま残し、初出でカタカナの読みと説明を添えた。これらは翻訳の対象ではなく、観察の対象だからである。hüzün については、パムク『イスタンブール』の邦訳（和久井路子訳、藤原書店）が「憂愁」の語を当てている。本文中のパムクの定式（「一人のものではなく、幾百万の人々が分かち持つ黒い心持ち」）は、邦訳の該当箇所を参照できなかったため、本稿のためにトルコ語原文から訳した。既訳の存在をここに記す。人名の表記は、日本語で定着した表記が確認できた人物（レイコフ、ジョンソン、カーネマン、トヴェルスキー、ボロディツキー、エヴェレット、パムク、ベンジオ、ラガルドなど）はカタカナ、それ以外の研究者名は文献との照合のためラテン文字のままとした。</p></div>
+</details>
+<details>
+<summary>引用の扱いについて</summary>
+<div class="note-body"><p>ブリティッシュ・カウンシル、ACT、ボイシ州立大学、Nature、Zheng と Choi の記録した教員の言葉など、原語が英語である引用は、トルコ語版からの重訳ではなく英語の原文から訳した。ボアジチ大学の一文の原語はトルコ語であり、トルコ語から訳した。</p></div>
+</details>
+</div>
+
+<div class="footer reveal">
+  <p><a href="/nihongo/">halitcengizuzuner.com</a></p>
+</div>
+
+<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">バージョン 1.0 · 初版：2026年7月23日 · トルコ語原文 v1.3（初出 2026年5月21日、改訂 2026年7月17日）より翻訳</p>
+</div><!-- .book -->
+
+<script>
+if (document.documentElement.classList.contains('js-on')) {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('seen'); obs.unobserve(e.target); } });
+  }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+}
+</script>
+</body>
+</html>
