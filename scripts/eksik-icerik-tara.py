@@ -797,15 +797,46 @@ def main():
                     f"    {dil}: {b}. bölüm · «{baslik}» "
                     f"paragraf {rp}→{cp}, kütle {o:.2f}× (alt-bölüm ekseni)")
 
+        # ── ÜÇÜNCÜ EKSENİN GÖVDE KATMANI — NUMARALILARDA DA (O312) ──
+        # Kuru-koşla ölçülüp açıldı (O308 talimatı "önce ölç"): 6 numaralı
+        # makale × 27 dil-çifti → 3 bulgu, üçü de bilinen gerçek kusur
+        # (anlamak ES/FR/ZH), yanlış pozitif SIFIR. Kör bölge gerçekti:
+        # numara ekseni yalnız numaralı bölümlerin İÇİNİ ölçer; anlamak'ta
+        # gövdenin %22'si bölüm dışında (79156'nın 62042'si bölümlerde) ve
+        # o kısım bu satırlar olmadan HİÇ ölçülmüyordu.
+        #
+        # BAŞLIK-SIRASI katmanı numaralılarda AÇILMADI: aynı kuru-koşta 0
+        # bulgu; h2 hizalaması numara ekseninde zaten (daha sağlam anahtar
+        # ile) var, indeks-bazlı ikinci hizalama mükerrerdir ve O303 tuzak
+        # #2 sınıfı riski geri getirir.
+        ref_gk, _gaile = govde_kutlesi(tr)
+        if ref_gk:
+            ucuncu_tarandi += 1
+            for dil, yol in sorted(kardesler(tr).items()):
+                c_gk, _ = govde_kutlesi(yol)
+                if not c_gk:
+                    continue
+                oran = c_gk / ref_gk
+                norm = dil_normu.get(dil)
+                if norm and oran / norm < NORM_ESIK:
+                    satirlar.append(
+                        f"    {dil}: gövde kütlesi {c_gk}/{ref_gk} = {oran:.2f}× "
+                        f"· {dil} normu {norm:.2f} → norma göre "
+                        f"{oran/norm:.2f} (gövde-geneli eksen)")
+
         if satirlar:
             supheli += 1
             print(f"■ {tr.name}  [TR h3={ref_h3} karakter={ref_kar}]")
             print("\n".join(satirlar))
 
     tarandi = len(sayfalar) - sum(len(v) for v in kapsam_disi.values())
+    # Gövde-geneli eksen O312'den beri numaralılarda DA çalışır → ucuncu_tarandi
+    # artık evrensel kapsam sayacıdır; ondan eksik kalan makale ÖLÇÜMSÜZDÜR ve
+    # sayısı gizlenmez (O306: sessiz kapsam kusuru gürültüden beterdir).
     print(f"\n{tarandi}/{len(sayfalar)} makale NUMARA ekseninde (h3 + alt bölüm) · "
-          f"{ucuncu_tarandi}/{len(sayfalar)} makale ÜÇÜNCÜ eksende (gövde + başlık sırası) "
-          f"→ toplam {tarandi + ucuncu_tarandi}/{len(sayfalar)} ölçüldü.")
+          f"{ucuncu_tarandi}/{len(sayfalar)} makale GÖVDE-GENELİ eksende "
+          f"(O312: numaralılar dahil) → ölçümsüz makale: "
+          f"{len(sayfalar) - ucuncu_tarandi}.")
     print(f"{supheli} makalede eksiklik ŞÜPHESİ.")
     if kapsam_disi["kapsayici"]:
         print(f"\n⚠ ARACIN KÖRLÜĞÜ — kapsayıcı tanınmadı ({len(kapsam_disi['kapsayici'])}): "
@@ -824,10 +855,14 @@ def main():
     print("\nŞüphe bulgu değildir: çeviri notunda/künyede belgelenmiş kısaltma meşrudur;"
           "\nbelgelenmemiş olan üretim kusuru sayılır (O302)."
           "\n\nÜÇ EKSEN, üçü ayrı soru sorar — hiçbiri ötekinin yedeği değildir:"
-          "\n  1. h3 sayısı      → alt bölüm VAR MI                    (O303)"
-          "\n  2. alt bölüm      → İÇİ DOLU MU                          (O305)"
-          "\n  3. gövde + başlık → numara yokken TOPLAM KÜTLE tutuyor mu (O308)"
-          "\nBirinci ikisi numara hizalaması ister; üçüncüsü istemez, o yüzden"
+          "\n  1. h3 sayısı      → alt bölüm VAR MI                     (O303)"
+          "\n  2. alt bölüm      → İÇİ DOLU MU                           (O305)"
+          "\n  3. gövde (+başlık)→ TOPLAM KÜTLE tutuyor mu (O308; gövde katmanı"
+          "\n                      O312'den beri numaralılarda DA — bölüm dışı"
+          "\n                      metni yalnız o görür. Başlık-sırası katmanı"
+          "\n                      yalnız numarasızlarda: numara hizalaması"
+          "\n                      varken mükerrer, kuru-koşta 0 bulgu.)"
+          "\nİlk ikisi numara hizalaması ister; üçüncüsü istemez, o yüzden"
           "\nkabadır: bölüm içi ince kaybı göremez, toptan kısalmayı görür.")
 
 
