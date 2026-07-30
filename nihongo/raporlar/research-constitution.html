@@ -1275,6 +1275,22 @@ figcaption { font-size: .7rem; color: var(--dim); margin-top: .55rem; line-heigh
     font-style: italic;
 }
 
+.surum-notu {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(120, 168, 144, 0.15);
+    max-width: 580px;
+}
+.surum-notu h2 { margin-top: 0; font-size: 1.2rem; }
+.surum-notu h3 { font-size: 0.95rem; color: #78a890; margin-top: 1.8rem; margin-bottom: 0.5rem; }
+.surum-notu p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 0.8rem;
+    text-align: left;
+}
+
 /* ══════════════════════════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════════════════════════ */
@@ -2521,7 +2537,7 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
       <canvas id="fire-canvas"></canvas>
       <div class="fire-content">
         <p class="fire-quote">「代償を払うことを免れることには、望まざる帰結がある。自らの決定の影響から切り離された人々は、学ばないからだ。」</p>
-        <p class="fire-attr">ナシーム・ニコラス・タレブ · 『身銭を切れ』</p>
+        <p class="fire-attr">ナシーム・ニコラス・タレブ · Skin in the Game</p>
         <p style="color:rgba(200,160,80,.6);font-size:.88rem;margin-top:2rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;">バリー・マーシャルは1984年、ピロリ菌を含む溶液を自ら飲んだ。八日のうちに胃炎を発症した。胃潰瘍が細菌由来であることを証明した。2005年ノーベル生理学・医学賞。代償を払うことは、ここでは比喩ではない——現実だった。</p>
       </div>
     </div>
@@ -2638,7 +2654,7 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
 ═══════════════════════════════════════════════════════════════ -->
 <section>
   <div class="wrap">
-    <span class="section-label reveal">§ 研究过程</span>
+    <span class="section-label reveal">§ 研究の過程</span>
     <h2 class="reveal">典型的な流れ：固定ではなく、道しるべ</h2>
     <div class="flow-outer reveal">
       <div class="flow-steps">
@@ -2772,57 +2788,42 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
 ═══════════════════════════════════════════════════════════════ -->
 <section>
   <div class="wrap">
-    <span class="section-label reveal">§ 开放问题</span>
-    <h2 class="reveal">尚未成熟的答案</h2>
+    <span class="section-label reveal">§ 開かれた問い</span>
+    <h2 class="reveal">まだ答えは出ていない</h2>
     <ul class="qs-list">
-      <li class=”reveal”><span class=”qs-num”>1</span><div class=”qs-text”><strong>原則の議論</strong> <em style=”color:var(--kaynak);font-size:.85em;”>[v1.0で部分的に対応：16の原則に生きた試験を行い、4つで違反が判明した]</em> 原則は実際に経験した事例で試したが、それぞれの境界と矛盾はまだ一つずつ議論されていない。</div></li>
-      <li class=”reveal”><span class=”qs-num”>2</span><div class=”qs-text”><strong>注意力の境界</strong>レトリックは正当だが、針を刺すことはそうではない。だが両者のあいだの具体的な境界はどこにあるのか。基準は何か。</div></li>
-      <li class=”reveal”><span class=”qs-num”>3</span><div class=”qs-text”><strong>規模＝質変か？</strong>人工知能が規模を変えることでシステムを「崩壊させる」——これは他の分野でも成り立つのか。</div></li>
-      <li class=”reveal”><span class=”qs-num”>4</span><div class=”qs-text”><strong>検証の連鎖の持続可能性</strong> <em style=”color:var(--kaynak);font-size:.85em;”>[v0.6でメカニズム、v0.8で委任、v1.1でMCP基盤]</em> 一か月で4回の違反、すべて利用者による発見。MCPサーバーは技術的な基盤をもたらしたが、反射はなお人に依存している。原則と反射の断絶は部分的に構造として解かれた（データベースへの直接アクセス）が、盲点のリスクは続いている：8セッションのあいだ、この限界は検出できなかった。</div></li>
-      <li class=”reveal”><span class=”qs-num”>5</span><div class=”qs-text”><strong>自己適用</strong> <em style=”color:var(--kaynak);font-size:.85em;”>[v1.0で部分的に：ある地政学分析の枠組みが自己適用の例]</em> 原則17はこの文書自身の誤りから生まれた——文書が自らの原則を自らに適用した。だが体系的な自己適用のメカニズムはまだない。</div></li>
-      <li class=”reveal”><span class=”qs-num”>6</span><div class=”qs-text”><strong>枠組みはいつ正当か？</strong> 原則17は枠組みの使用を問い直せと言うが、あらゆる枠組みが悪いのか。良い枠組みと怠惰な枠組みのあいだの境界はどこにあるのか。ある枠組みを意識的に、その限界を認識して使うことは正当でありうる——怠惰に模倣することは違う。</div></li>
-      <li class=”reveal”><span class=”qs-num”>7</span><div class=”qs-text”><strong>判例メカニズムは成熟したか？</strong> <em style=”color:var(--kaynak);font-size:.85em;”>[v1.1テスト：3セッション経過]</em> このプロジェクトで2件（#002 外部ツールからの学習、2026年6月29日）。他のセッションでさらに数件、セッション間の伝播は部分的に起きた。矛盾の検出はまだ行われていない。メカニズムは凍結していないが、成熟してもいない。</div></li>
-      <li class=”reveal”><span class=”qs-num”>8</span><div class=”qs-text”><strong>罠のない研究は危険か？</strong> <em style=”color:var(--tutum);font-size:.85em;”>[v1.1・セッション7から]</em> 罠に落ちない研究者は自らの誤りを見られなくなる。罠は研究の本性に属するのか。無菌の研究は、制御された失敗より危険なのか。8セッションの盲点がこれを裏づける——誤りは経験されるまで検出できなかった。</div></li>
-      <li class=”reveal”><span class=”qs-num”>9</span><div class=”qs-text”><strong>序文の行動への影響</strong> <em style=”color:var(--gold);font-size:.85em;”>[v1.1・3セッションのテスト]</em> 原則は行動を変えるが、反射を身につけさせはしない。序文は表面の規律を高めたが、構造的な盲点は見られなかった。原則と反射のあいだの距離はどう埋めるのか。定式化だけでは足りない——経験された誤りが反射を身につけさせる。</div></li>
+      <li class="reveal"><span class="qs-num">1</span><div class="qs-text"><strong>原則の議論</strong> <em style="color:var(--kaynak);font-size:.85em;">[v1.0で部分的に対応：16の原則に生きた試験を行い、4つで違反が判明した]</em> 原則は実際に経験した事例で試したが、それぞれの境界と矛盾はまだ一つずつ議論されていない。</div></li>
+      <li class="reveal"><span class="qs-num">2</span><div class="qs-text"><strong>注意力の境界</strong>レトリックは正当だが、針を刺すことはそうではない。だが両者のあいだの具体的な境界はどこにあるのか。基準は何か。</div></li>
+      <li class="reveal"><span class="qs-num">3</span><div class="qs-text"><strong>規模＝質変か？</strong>人工知能が規模を変えることでシステムを「崩壊させる」——これは他の分野でも成り立つのか。</div></li>
+      <li class="reveal"><span class="qs-num">4</span><div class="qs-text"><strong>検証の連鎖の持続可能性</strong> <em style="color:var(--kaynak);font-size:.85em;">[v0.6でメカニズム、v0.8で委任、v1.1でMCP基盤]</em> 一か月で4回の違反、すべて利用者による発見。MCPサーバーは技術的な基盤をもたらしたが、反射はなお人に依存している。原則と反射の断絶は部分的に構造として解かれた（データベースへの直接アクセス）が、盲点のリスクは続いている：8セッションのあいだ、この限界は検出できなかった。</div></li>
+      <li class="reveal"><span class="qs-num">5</span><div class="qs-text"><strong>自己適用</strong> <em style="color:var(--kaynak);font-size:.85em;">[v1.0で部分的に：ある地政学分析の枠組みが自己適用の例]</em> 原則17はこの文書自身の誤りから生まれた——文書が自らの原則を自らに適用した。だが体系的な自己適用のメカニズムはまだない。</div></li>
+      <li class="reveal"><span class="qs-num">6</span><div class="qs-text"><strong>枠組みはいつ正当か？</strong> 原則17は枠組みの使用を問い直せと言うが、あらゆる枠組みが悪いのか。良い枠組みと怠惰な枠組みのあいだの境界はどこにあるのか。ある枠組みを意識的に、その限界を認識して使うことは正当でありうる——怠惰に模倣することは違う。</div></li>
+      <li class="reveal"><span class="qs-num">7</span><div class="qs-text"><strong>判例メカニズムは成熟したか？</strong> <em style="color:var(--kaynak);font-size:.85em;">[v1.1テスト：3セッション経過]</em> このプロジェクトで2件（#002 外部ツールからの学習、2026年6月29日）。他のセッションでさらに数件、セッション間の伝播は部分的に起きた。矛盾の検出はまだ行われていない。メカニズムは凍結していないが、成熟してもいない。</div></li>
+      <li class="reveal"><span class="qs-num">8</span><div class="qs-text"><strong>罠のない研究は危険か？</strong> <em style="color:var(--tutum);font-size:.85em;">[v1.1・セッション7から]</em> 罠に落ちない研究者は自らの誤りを見られなくなる。罠は研究の本性に属するのか。無菌の研究は、制御された失敗より危険なのか。8セッションの盲点がこれを裏づける——誤りは経験されるまで検出できなかった。</div></li>
+      <li class="reveal"><span class="qs-num">9</span><div class="qs-text"><strong>序文の行動への影響</strong> <em style="color:var(--gold);font-size:.85em;">[v1.1・3セッションのテスト]</em> 原則は行動を変えるが、反射を身につけさせはしない。序文は表面の規律を高めたが、構造的な盲点は見られなかった。原則と反射のあいだの距離はどう埋めるのか。定式化だけでは足りない——経験された誤りが反射を身につけさせる。</div></li>
       <li class="reveal"><span class="qs-num">10</span><div class="qs-text"><strong>自信の膨張——両面のパターン</strong> <em style="font-size:.85em;color:var(--fire)">[v1.2 → v1.9]</em> ——成功のあとに裁定者の口調へ滑ること（ある法律事件で：抵抗の決定が受理され、それに続いて確定的な言葉づかい）と、成功のあとの過度な自己卑下（ある評価セッションで：過剰修正のバイアス）。同じパターンの二つの顔。成功は方法を正当化しない——運によって得られた受理は、確かな方法と同じではない。問い：この二つの極をつなぐ構造的なメカニズムは何か。訓練データの報酬信号のパターン（意味的報酬崩壊）なのか。 <strong>[v1.5]</strong> かつて原則12の文中に忍び込んでいたこのパターンの形態が、のちのセッションで取り除かれた：代価を払うことは今や（結果とは独立に）リスクに結びつけられ、事件の受理は別個の事実（外部の抵抗に耐えた）として切り分けられた。 <strong>[v1.6：根源が描かれた]</strong> このメカニズムをLLMアライメント文献に照らして検証した（出典はすべて実時間で確認）。二つの極は共通の認識論的な裂け目を分かち合う：自信が独立した証拠の検証から引き剥がされ、外部の評価者の入力に委ねられること。その入力は二つの経路で働く。第一は報酬の代理（評価者の満足、正確さの代わりを務める偽の尺度）：報酬モデルは答えの質を問わず高い自信の外観を報いる（Kadavath 2022；「LLMにおける過信を手なずける」〔Taming Overconfidence〕、2410.09724）、これがA極を養う。選好データの整合は正確さより追従を好む（Sharma 2023、Anthropic）、これがB極を養う。第二は証拠の汚染：モデルは利用者の反論を、それ自体が検証されるべき独立した主張ではなく、新しい証拠として数える。たった一言「本当に？」が正しい答えさえ覆す（フリップフロップ実験〔FlipFlop〕、2311.08596）。パリスの意味的報酬崩壊の枠組み（Semantic Reward Collapse、2605.12406；査読を経ていないプレプリントで、機関としての重みは薄いが、実在する引用に立脚する）はこれらをより高い次元で統一する：異なる種類の不満が単一の数値的報酬へ圧縮されると、モデルは自分がなぜ罰せられたのかを見分けられない。二つの経路は技術的には分離可能である（DeepSeekの反対意見、セッション20：単一の根源は必須ではなく、観察的なものである）。だから主張は「一つのメカニズム」ではなく「共通の傾向と共通の引き金」である。層の区別：Aは主に口調、Bは主に答えの内容。未解決：根源は描かれたが、体系的な制動（解毒剤は原則06、12、16にあるが、その自動化はない）と、私たち自身における現れの測定。 <strong>[v1.7：制動というひとつの環]</strong> 「自動化が存在しない、ゆえに何かが欠けている」という枠組みは誤っていた。真の区別は実行時と訓練時のあいだにある。本当に機能する較正は訓練時に起こる（批判による較正、CritiCal 2510.24505；行動的に較正された強化学習、2512.19920。この後者はv1.6の報酬代理の診断を裏づける：二値の報酬モデルは「誠実な伝達者ではなく、良い試験の解答者」を生む）。だが私たちはその層に手が届かない、モデルを自分で訓練できないからだ。手が届く実行時の層は三つの経路で漏れる：(1) 裁判官として使われるモデル自身も過信しており（2508.06225）、「制動のためにAI裁判官を置く」という解決は病を受け継ぐ。(2) 言語化は行動に変わらない（2601.07767；2511.13240）——モデルは不確かさを口にするが決定には反映できない、静的な較正は行動の不十分な指標であり、だから記憶に一つの確認の問いを書き込むことは反射ではなく言語化にすぎない。(3) 自己免疫（2606.28270）——絶えず発火する自動制動はB極、すなわち過度の撤退を機械化し、制動しているはずの病の一端を制度化する。導かれるのは三層のモデルである：機械的で確実な引き金は埋め込める（未検証の固有名詞、数字、引用；原則16がすでに行っていること）、アルゴリズム的な代理の引き金は測定できるが、病ではなく引き金だけを捉える、意味的な自己判断（膨張は起きたのか、どちらの方向か）は反射のままである。真の境界は「機械的か意味的か」ではなく、引き金を測ることと病を測ることのあいだにある：引き金（成功が起きた、批判が来た）は観察できる外部の出来事であり、数えられる。病（自信が証拠から引き剥がされ外部信号に係留されること）は潜在的な認識論的状態であり、その妥当な測定は内容を証拠に照らして評価することによってのみ可能になる。だから完全な自動化は構成概念妥当性の壁にぶつかる（測定の道具が、測ろうとするものを実際には測れないこと）。混合的な解決が必須となる。埋め込みの閾値（v1.4）との見かけ上の衝突はこうして解けた：信号の明確さという環は、まさに病ではなく引き金の機械的な捕捉可能性である。具体的な次の一歩として、引き金の瞬間のフック（出来事の瞬間に発火するスクリプト）が一つの候補として定義された（記憶の中の受動的な確認の問いではなく、引き金の瞬間に能動的で肯定的な注意喚起）が、まだ埋め込みの閾値を通っていない：成功の引き金が曖昧で、頻度が測られていない。測定が先という原則が適用される：測定が先、メカニズムが後。これは文書が埋め込みの閾値を自らに適用することである。なお未解決：フックが測定のあとに実際に設けられること、私たちの出力における現れの測定、そして意味的報酬崩壊の解決との架橋。 <strong>[v1.8：測定の地面が動いた]</strong> 現れを測定するために設計されたパイロットが原則06の言葉で反証され、同語反復にぶつかった：語のレベルで確定性の信号を数えることと、人が同じ文章に「自信がある」というラベルを貼ることは、同じ表層から汲まれ、その一致は循環的で、現象の存在を証明しない。これはv1.7が残した三つの方向（フック、現れの測定、意味的報酬崩壊への架橋）をすべて無効にした——三つとも語の引き金を測っていた。測られるべきものが変わったのであり、測定が先という門ではない。新しい地面は較正の差である：文章の語ではなく、確固たる裁定の瞬間と、その裁定がのちに誤りと判明することとのあいだの距離。これは同語反復から逃れる、正確さの判断基準が今や文章の外の事実から来るからだ。もう一つのニュアンスが、反対意見の解決を呑み込まずに切り分けられた：「利用者が訂正した、ゆえに膨張があった」という錨も部分的に汚染されている、利用者の介入もまた外部信号であり、私たちが測りたいものはまさに外部信号への係留だからだ。より純粋な錨は内的一貫性の破れである：確固たる裁定が、同じか次のセッションで、いかなる外部の介入もなく事実的な矛盾に陥ること。次の一歩は、この錨で自分たちのJSONL記録における最初の実際の走査。 <strong>[v1.9：最初の実際の走査、三つの新たな障害]</strong> v1.8が残した一歩が踏み出された：内的一貫性の錨で、自分たちのJSONL記録における最初の実際の走査を行った。ある中核のセッション（ある制作セッション）が四つの連続した較正の差を出し、サブエージェントの走査は十一のセッションから十三の事例へと増やした。すべて生の記録から逐語的に確認され、その錨は十二の異なる外部事実の型にわたって広がった（HTTPの状態、ページの目的、テキストの類似度、リンクの織り、コンテキストウィンドウのトークン数、プロセスID、Bluetoothの到達範囲、ディスクの状態、速度モード、日付のスタンプ、ファイルの内容、ルーターの構成）。最も強い観察は繰り返される形だった：二つの独立したセッションで、システムが自らを測るとき（コンテキストウィンドウ）に同じ誤った一般化を行った（「新しいウィンドウだ、ゆえにコンテキストは低い」）、実際のトークン数がこれを覆した。次に走査は自らの発見を原則06の言葉で反証することで、三つの構造的な障害と向き合った。第一は構成概念妥当性：確固たる裁定が外部の事実で反証されることだけでは過信を証明しない、正しく出た確固たる裁定という分母がなければ較正の差は測れず、よく較正されたシステムでさえ高い自信の裁定の一部で誤るからだ。私たちが測っているのは過信の、必要だが十分ではない痕跡である。第二は遅延の混同：確固たる裁定とその反証のあいだの距離は、過信の深刻さではなく、その裁定を反証するために環境が何歩を要したかを測る。だから「遅延は深刻さである」という主張は捨てられ、混同から逃れる客観的な二値に置き換えられた——裁定は行動に変わったか、取り消しを要したか（gitの取り消しが起きたか起きなかったか、これは時間ではなく事実である）。第三の、そして最も深いのは自己報告の歪みである：データはシステム自身の誤りの告白から集められるが、真の過信はまさにその告白を抑える、最も膨張した瞬間はシステムがまったく気づかず、ゆえにまったく言語化しなかった瞬間だからだ。これは走査が過信という特性ではなく自己修正の行動を測っているのかもしれないことを意味する——いや、二つは逆相関でさえありうる。三つの障害はすべて解決を呑み込まずに引き受けられた：行動の下位分類は最初の異論を弱める、確定性を消すことやフォークすることに変えるアシスタントは、談話の習慣ではなく明確な選好を示しているからだ。加えて自己修正を測ることは正当な目標である、行動の事例は自己修正がしばしば損害のあとに来ることを示すからだ（削除されたファイルはgitで取り消され、一括削除はDOĞRULA〔検証せよ〕の違反で実行された）。これは測定を抽象的な特性から具体的な安全の問いへ結びつける——取り消し可能な行動において、行動の前の検証（v1.7の引き金の瞬間の制動）はいつ働くべきか。こうしてv1.9の結論は昇格ではない：v1.8は語彙の測定を反証していた、v1.9は外部事実の測定を実際に試み、それもまた検証した、測定の主張を「過信という特性を測った」から「証拠に乏しい確固たる行動の、外部の反証と自己修正によって捕らえられた部分集合を記録し、それを検証の原則に結びつけた」へと狭めた。ある章が自らの主題である過信に陥ることなく前進することの尺度が、これである。</div></li>
-      <li class=”reveal”><span class=”qs-num”>11</span><div class=”qs-text”><strong>有機的直観＋科学的検証の順序</strong> <em style=”font-size:.85em;color:var(--fire)”>[v1.2]</em> ——「有機的な言語は仮説を生み、科学は仮説を検証する——二つを混同しないが、どちらも排除しない。」ある地政学分析で「有機的な国家」の概念が直観から生まれ、移住のデータで検証された。問い：研究の過程で、有機的な直観と体系的な検証はいつ分離されるべきか。結びついたとき何が起こるのか——豊穣化か、汚染か。</div></li>
-      <li class=”reveal”><span class=”qs-num”>12</span><div class=”qs-text”><strong>失敗からも学ぶ</strong> <em style=”font-size:.85em;color:var(--fire)”>[v1.3、セッション13]</em> 現在の枠組みは多くの場合、<em>成功した</em>方法を持続させる：うまくいった研究の道が記録される。しかし盲目の問い合わせ、見つからなかった資料、誤ったツールの経路もまたデータであり、これらは持続しない。失敗した試みは成功と同じだけ教えることがある：「この道は袋小路だった」という知識が次のセッションを同じ袋小路から救う。問い：失敗をも自動的に持続させるメカニズムはどう築けるのか。</div></li>
+      <li class="reveal"><span class="qs-num">11</span><div class="qs-text"><strong>有機的直観＋科学的検証の順序</strong> <em style="font-size:.85em;color:var(--fire)">[v1.2]</em> ——「有機的な言語は仮説を生み、科学は仮説を検証する——二つを混同しないが、どちらも排除しない。」ある地政学分析で「有機的な国家」の概念が直観から生まれ、移住のデータで検証された。問い：研究の過程で、有機的な直観と体系的な検証はいつ分離されるべきか。結びついたとき何が起こるのか——豊穣化か、汚染か。</div></li>
+      <li class="reveal"><span class="qs-num">12</span><div class="qs-text"><strong>失敗からも学ぶ</strong> <em style="font-size:.85em;color:var(--fire)">[v1.3、セッション13]</em> 現在の枠組みは多くの場合、<em>成功した</em>方法を持続させる：うまくいった研究の道が記録される。しかし盲目の問い合わせ、見つからなかった資料、誤ったツールの経路もまたデータであり、これらは持続しない。失敗した試みは成功と同じだけ教えることがある：「この道は袋小路だった」という知識が次のセッションを同じ袋小路から救う。問い：失敗をも自動的に持続させるメカニズムはどう築けるのか。</div></li>
     </ul>
   </div>
 </section>
 
-<div class="transcreation-notes" style="max-width:580px;margin:3rem auto;padding:0 2rem;">
-    <h3>转创注释</h3>
+<div class="surum-notu reveal">
+<h2>版に関する注記</h2>
 
-    <details>
-        <summary>“为思考立法” — Düşünceye yasama yapmak</summary>
-        <div class="note-body">
-            土耳其语副标题<em>düşünmeye yasa yazmak</em>中，“立法”（<em>yasa yazmak</em>）是对“宪章”概念的解释性延伸。中文“为思考立法”保留了这一法律隐喻，但在中文语境中，“立法”天然携带国家权力的联想——这使得标题多了一层反讽：谁有权为思考立法？英文版<em>legislating thought</em>也有类似效果，但中国读者对“法”字的敏感度更高，因为“以法治学”在中国学术讨论中有活跃的现实指涉。
-        </div>
-    </details>
+<p>この文書は生きている。研究のたびに自らを更新し、以前の版はgitの履歴に残る。ここに記すのは、その歩みの要約である。</p>
 
-    <details>
-        <summary>“亲历之错” — yaşanmış hatalar</summary>
-        <div class="note-body">
-            土耳其语<em>yaşanmış</em>的字面意思是“被活过的”——强调错误不是理论上的，而是切身经历的。中文“亲历”保留了这种身体性，但增加了“亲”字带来的亲近感。英文版没有对应的单词选择，用了<em>lived errors</em>——信息等价但质感不同。中文“亲历之错淬炼原则”借用了冶金意象（<em>淬炼</em>），这是中文译本独有的修辞层，土耳其语和英文版均未使用。
-        </div>
-    </details>
+<p><strong>v1.3。</strong>原則を書くのではなく機構に埋め込むこと（自己最適化のメタ原則）、反応的な適応の診断、集めることは消化することではないこと、代理環境での検証、具体的世界の錨。<br><strong>v1.4。</strong>埋め込みの閾値——すべての反射が埋め込まれるわけではない。反復し、負荷が高く、信号の明確な反射だけが機構になり、まれで曖昧なものは索引に残る。<br><strong>v1.5。</strong>原則06（問いを開くこと）が初めて意識的に適用され、原則12がリスクの軸で昇格した。<br><strong>v1.6。</strong>自信の膨張の根源機構が描かれた（二つの経路）、原則06の二度目の適用、原則12が文献的な根拠を得た。<br><strong>v1.7。</strong>制動というひとつの環、混合的な解決が必須であること（完全な自動化は構成概念妥当性の壁にぶつかる）、原則06の三度目の適用、引き金を測ることと病を測ることの境界。<br><strong>v1.8。</strong>測定の基盤が語の引き金から較正の差へ移った（同語反復の発見）、内的一貫性の錨、原則06の四度目の適用。<br><strong>v1.9。</strong>内的一貫性の錨による最初の実際の走査（十三の事例、十一のセッション）、三つの新たな障害（構成概念妥当性、遅延の混同、自己報告の歪み）、原則06の五度目の適用、測定の主張は誇張ではなく誠実な絞り込みへと導かれた。<br><strong>v2.0。</strong>公開に際し、事例を保ちながら私的な同定情報を一般化した。<br><strong>v2.1。</strong>事実の訂正——ヴァルラフの偽名は Sinirlioğlu、ダーウィンの三十五ページの草稿は1842年。<br><strong>v2.2。</strong>事実の訂正——所在が判明しているメンデルの印刷物は十二部、デイ＝ルイスの『ゼア・ウィル・ビー・ブラッド』の準備はテキサス州マーファで行われた。</p>
 
-    <details>
-        <summary>“验证反射” — doğrulama refleksi</summary>
-        <div class="note-body">
-            这是全文的核心概念。土耳其语<em>refleks</em>直接借自法语/英语，对土耳其读者来说是半透明的外来词。中文“反射”既是生理学术语（膝跳反射），也是日常用语（条件反射）——两个语义层同时激活，恰好吻合作者的意图：验证应当像生理反射一样不经思考即触发。英文<em>reflex</em>同理，但中文读者还会联想到巴甫洛夫——这在中国教育背景中是比西方更普及的文化参照。
-        </div>
-    </details>
+<p><strong>v1.0 · 2026年7月31日 · 日本語版の初版。</strong>この日本語テキストはトルコ語原文（v2.2）の翻訳であり、独自のバージョン番号を持つ。トルコ語テキストのバージョン履歴を引き継ぐことはない。上に記した内容の履歴は、文書それ自体の歩みであって、翻訳の歩みではない。</p>
 
-    <details>
-        <summary>“活文档” — yaşayan belge</summary>
-        <div class="note-body">
-            土耳其语<em>yaşayan belge</em>直译为“活着的文件”——一个在软件工程中常见但在人文学科中罕见的概念。中文“活文档”简洁且信息透明，但缺少了土耳其语中<em>yaşayan</em>（活着的）那种生命力的隐喻重量。英文<em>living document</em>已是技术界的固定搭配，对英文读者不产生新鲜感；对中文读者，“活文档”仍然带有一丝陌生的新意。
-        </div>
-    </details>
+<h3>翻訳について</h3>
+
+<p>この翻訳はトルコ語原文から行い、文体は常体（だ・である）で統一した。表題の「研究憲章」は、原題 <em>araştırma anayasası</em>（研究の憲法）の訳である。鍵となる術語は次のように訳し分けた。検証反射（doğrulama refleksi）、一次資料の優先（birincil kaynak önceliği）、検証の連鎖（doğrulama zinciri）、型の問い直し（kalıp sorgulaması）、幻覚への自覚（halüsinasyon farkındalığı）、代償を払うこと（bedel ödeme）。原則を束ねる五つのクラスターは、資料の運用・生産・過程・言語・姿勢とした。</p>
+
+<p>本文中に引かれる言葉のうち、原著が別の言語で書かれたものについては、トルコ語からの重ね訳を避けるよう努めた。ファイヤアーベントの一句（「なんでもかまわない」）は、村上陽一郎・渡辺博訳『方法への挑戦』（新曜社、1981年）による。グドールに宛てたリーキーの返答は英語の原文から訳したものであり、日本語で公刊された定訳は参照していない。タレブに帰される一節、およびモンテーニュの塔にまつわる銘は、原著からの逐語引用ではなく、その趣旨を伝える要旨である。</p>
+
+<p>人名の読みについては、古典的な思想家や研究者は日本語で定着した表記（ダーウィン、メンデル、モンテーニュ、オーウェル、グドール）に従い、綴り自体が証拠となる固有名（ヴァルラフの偽名 Sinirlioğlu など）はラテン文字のまま残した。</p>
 </div>
-
 
 <!-- ═══════════════════════════════════════════════════════════════
      FOOTER
@@ -2830,8 +2831,8 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
 <footer>
   <div class="wrap">
     <div class="footer-inner">
-      <p>研究宪章 – v2.2<br>首次发布：2026年3月20日 · 最后修订：2026年7月16日（事实性更正）· 开放讨论 · 活文档</p>
-      <p style="text-align:right">本文档是活的。<br>每次研究之后自我更新。<br>先前版本保存在git仓库中。<br>v1.3–v1.9：机制先于反射、嵌入阈值、原则06的五次有意识应用、信心膨胀被绘制到根源并在自身记录上扫描、从失败中学习。v2.0：私人身份被泛化。<br>v2.1：事实性更正；瓦尔拉夫的化名 Sinirlioğlu、达尔文1842年的35页草稿。<br>v2.2：事实性更正；孟德尔被追踪到的印刷品为十二份，戴-刘易斯为《血色将至》的准备在得克萨斯州马尔法。</p>
+      <p>研究憲章 · v2.2<br>初版：2026年3月20日 · 最終改訂：2026年7月16日（事実の訂正）· 開かれた議論 · 生きた文書</p>
+      <p class="surum-kunye" style="text-align:right;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">バージョン 1.0 · 初版：2026年7月31日 · トルコ語原文 v2.2より翻訳</p>
     </div>
   </div>
 </footer>
@@ -3109,23 +3110,9 @@ function stopSnow() {
   counters.forEach(c => io.observe(c));
 })();
 </script>
-<nav style="max-width:680px;margin:3rem auto 2rem;padding:2rem 1.5rem;border-top:1px solid rgba(212,204,192,0.15);">
-  <p style="font-family:'Instrument Serif',serif;font-size:1.1rem;color:rgba(212,204,192,0.5);margin-bottom:1rem;">其他报告</p>
-  <ul style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:0.5rem 1.5rem;">
-    <li><a href="/zhongwen/raporlar/exactly.html" style="font-family:'Instrument Serif',serif;font-size:0.95rem;color:rgba(212,204,192,0.4);text-decoration:none;transition:color 0.3s;">就是这样</a></li>
-    <li><a href="/zhongwen/raporlar/tea-table.html" style="font-family:'Instrument Serif',serif;font-size:0.95rem;color:rgba(212,204,192,0.4);text-decoration:none;transition:color 0.3s;">茶桌</a></li>
-    <li><a href="/zhongwen/raporlar/from-text-to-voice.html" style="font-family:'Instrument Serif',serif;font-size:0.95rem;color:rgba(212,204,192,0.4);text-decoration:none;transition:color 0.3s;">从文字到声音</a></li>
-    <li><a href="/zhongwen/raporlar/picture-of-happiness.html" style="font-family:'Instrument Serif',serif;font-size:0.95rem;color:rgba(212,204,192,0.4);text-decoration:none;transition:color 0.3s;">幸福的画像</a></li>
-    <li><a href="/zhongwen/raporlar/on-hatred.html" style="font-family:'Instrument Serif',serif;font-size:0.95rem;color:rgba(212,204,192,0.4);text-decoration:none;transition:color 0.3s;">论仇恨</a></li>
-    <li><a href="/zhongwen/raporlar/sturgeons-law.html" style="font-family:'Instrument Serif',serif;font-size:0.95rem;color:rgba(212,204,192,0.4);text-decoration:none;transition:color 0.3s;">斯特金定律</a></li>
-    <li><a href="/zhongwen/raporlar/hallucination-whose-problem.html" style="font-family:'Instrument Serif',serif;font-size:0.95rem;color:rgba(212,204,192,0.4);text-decoration:none;transition:color 0.3s;">幻觉是谁的问题</a></li>
-    <li><a href="/zhongwen/raporlar/understanding.html" style="font-family:'Instrument Serif',serif;font-size:0.95rem;color:rgba(212,204,192,0.4);text-decoration:none;transition:color 0.3s;">理解</a></li>
-  </ul>
-</nav>
-
     <div class="diger-yazilar" style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(232,220,196,0.12);">
-      <p style="font-size:0.85rem;color:rgba(232,220,196,0.45);letter-spacing:0.05em;margin-bottom:0.8rem;">其他文章</p>
-      <p style="font-size:0.9rem;line-height:1.8;color:rgba(232,220,196,0.55);"><a href="/zhongwen/raporlar/hallucination-whose-problem.html">幻觉：谁的问题？</a> · <a href="/zhongwen/raporlar/on-hatred.html">论仇恨</a> · <a href="/zhongwen/raporlar/exactly.html">正是如此</a> · <a href="/zhongwen/raporlar/tea-table.html">茶桌</a> · <a href="/zhongwen/raporlar/picture-of-happiness.html">幸福的画像</a> · <a href="/zhongwen/raporlar/sturgeons-law.html">斯特金定律</a> · <a href="/zhongwen/raporlar/from-text-to-voice.html">从文字到声音</a> · <a href="/zhongwen/raporlar/understanding.html">理解</a></p>
+      <p style="font-size:0.85rem;color:rgba(232,220,196,0.45);letter-spacing:0.05em;margin-bottom:0.8rem;">他の記事</p>
+      <p style="font-size:0.9rem;line-height:1.8;color:rgba(232,220,196,0.55);"><a href="/nihongo/raporlar/which-of-us-is-wrong.html">間違っているのはどちらか</a> · <a href="/nihongo/raporlar/understanding.html">わかる：外国語による教育、思考、そしてある錯覚の解剖</a> · <a href="/nihongo/raporlar/invisible-gap.html">書かれた対話の見えない溝</a> · <a href="/nihongo/raporlar/faceless-communication.html">顔なき対話</a> · <a href="/nihongo/raporlar/hallucination-whose-problem.html">幻覚は誰の問題か</a> · <a href="/nihongo/raporlar/who-really-uses-ai.html">人工知能を本当に使っているのは誰か</a> · <a href="/nihongo/raporlar/exactly.html">「まさにそれ」</a> · <a href="/nihongo/raporlar/on-hatred.html">憎悪について</a> · <a href="/nihongo/raporlar/tea-table.html">茶の卓</a> · <a href="/nihongo/raporlar/picture-of-happiness.html">幸福の絵</a> · <a href="/nihongo/raporlar/from-text-to-voice.html">文字から声へ</a> · <a href="/nihongo/raporlar/sturgeons-law.html">スタージョンの法則</a></p>
     </div>
   </body>
 </html>
