@@ -122,13 +122,19 @@ for key in sorted(groups, key=lambda k: ident_name[k]):
     row = groups[key]
     name = ident_name[key].replace(".html","")
     cells=[]
-    vers=set(); ich2=[]
+    vers=set(); ich2=[]; kunye_eksik=[]
     for c in CODES:
         if c in row:
             ver,h2,ic,ni,base,kalem = row[c]
             tag = "N" if ni else ""   # N = noindex
             cells.append(f"{ver}/{ic}{tag:>1}")
-            vers.add(ver); ich2.append(ic)
+            # ver="?" = surum-kunye HİÇ YOK = KÜNYE MUTLAK KURAL ihlali (Ar-Ge O34); bu
+            #   bir "versiyon farkı" DEĞİL → vers set'ine SOKMA, ayrı izle (O352 research-
+            #   constitution vakası: 6 dil künyesiz, JA v1.0 → yanlış "versiyon farklı" +
+            #   içerik-kalem yanlış-pozitifi tetikleniyordu).
+            if ver == "?": kunye_eksik.append(c)
+            else:          vers.add(ver)
+            ich2.append(ic)
         else:
             cells.append("—")
     print(f"{name:<34} | " + " | ".join(f"{x:^11}" for x in cells))
@@ -141,17 +147,20 @@ for key in sorted(groups, key=lambda k: ident_name[k]):
         sapan = [c for c in CODES if c in row and mx-row[c][2] >= 2]
     else:
         sapan=[]
-    ver_farkli = len(vers) > 1
-    if eksik or sapan or ver_farkli:
-        # sürüm farklıysa içerik-kalem ayrımını hesapla (gürültüyü iki alt-sınıfa böl)
+    ver_farkli = len(vers) > 1   # yalnız GERÇEK sürüm no'ları arası fark ("?" hariç)
+    if eksik or sapan or ver_farkli or kunye_eksik:
+        # sürüm farklıysa içerik-kalem ayrımını hesapla (gürültüyü iki alt-sınıfa böl);
+        #   künye-eksik tek başına içerik-kalem tetiklemez (sürüm bilinmiyor, kıyas anlamsız)
         ref, kalem_rapor = icerik_kalem_ayrimi(row) if ver_farkli else (None, [])
-        borc.append((name, eksik, sapan, sorted(vers), diller_var, ref, kalem_rapor))
+        borc.append((name, eksik, sapan, sorted(vers), diller_var, ref, kalem_rapor, kunye_eksik))
 
 print("\n" + "="*70)
 print("BORÇ SİNYALLERİ (elle meşru/eksik ayrımı için):")
 print("="*70)
-for name, eksik, sapan, vers, var, ref, kalem_rapor in borc:
+for name, eksik, sapan, vers, var, ref, kalem_rapor, kunye_eksik in borc:
     print(f"\n▸ {name}")
+    if kunye_eksik:
+        print(f"   ⛔ KÜNYE EKSİK — MUTLAK KURAL ihlali (Ar-Ge O34, künyesiz yayım YASAK): {', '.join(kunye_eksik)}")
     if eksik:  print(f"   TAM-EKSİK dil (dosya yok): {', '.join(eksik)}")
     if sapan:  print(f"   İÇERİK-H2 ≥2 düşük (borç şüphesi): {', '.join(sapan)}")
     if len(vers)>1:
