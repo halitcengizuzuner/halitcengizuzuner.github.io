@@ -70,8 +70,44 @@ em{color:var(--soluk);}
 .hero-mobile{display:none;}
 @media(max-width:600px){.wrap{padding:34px 22px 72px;}.hero-desktop{display:none!important;}.hero-mobile{display:block!important;}h1{font-size:1.72em;}body{font-size:18px;}}
 </style>
+<style>
+/* ===== LANGUAGE BAR (dil-butunluk nav iskeleti — sabit palet, O347) ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Noto Serif JP', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: rgba(212, 204, 192, 0.58);
+}
+.lang-link { color: rgba(212, 204, 192, 0.58); transition: color 0.35s ease; padding: 0 0.15em; text-decoration: none; }
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: #ece4d8; }
+.lang-sep { color: rgba(212, 204, 192, 0.28); padding: 0 0.15em; }
+@media (max-width: 640px) { .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; } }
+.home-nav { text-align: center; padding: 0.5rem 0 0; }
+.home-link { color: rgba(212, 204, 192, 0.58); font-size: 1.1rem; text-decoration: none; transition: color 0.3s; display: inline-block; line-height: 1; }
+.home-link:hover { color: #d4ccc0; }
+</style>
 </head>
 <body>
+<nav class="lang-bar" aria-label="Sprachauswahl">
+    <a href="/english/" class="lang-link">English</a>
+    <span class="lang-sep">·</span>
+    <a href="/zhongwen/" class="lang-link">中文</a>
+    <span class="lang-sep">·</span>
+    <a href="/nihongo/" class="lang-link">日本語</a>
+    <span class="lang-sep">·</span>
+    <a href="/francais/" class="lang-link">Français</a>
+    <span class="lang-sep">·</span>
+    <a href="/deutsch/" class="lang-link lang-active">Deutsch</a>
+    <span class="lang-sep">·</span>
+    <a href="/espanol/" class="lang-link">Español</a>
+    <span class="lang-sep">·</span>
+    <a href="/turkce/" class="lang-link">Türkçe</a>
+</nav>
+<div class="home-nav"><a href="/deutsch/" class="home-link" aria-label="Home">⌂</a></div>
 <div class="wrap">
 <figure class="hero" style="margin:0 0 2.3em;padding:0;">
 <svg class="hero-desktop" style="width:100%;height:auto;display:block;border-radius:4px;" viewBox="0 0 1240 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Eine einzige Sicherheitsfassade, aus aneinandergefügten senkrechten Paneelen gewoben, geschlossen und solide wirkend; entlang ihrer Oberkante ein helles Vertrauenslicht. Im rechten mittleren Bereich haben sich die Paneele zurückgezogen, und durch die Öffnung wird das tiefe warme Innere dahinter sichtbar. Die Offenheit hinter einer für geschlossen gehaltenen Oberflaeche." xmlns="http://www.w3.org/2000/svg">
