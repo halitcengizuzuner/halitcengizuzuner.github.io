@@ -24,9 +24,10 @@ DÖRT SINIF, dördü ayrı şey söyler:
 
 ⚠ NOINDEX AYRIMI — aracın kendi ilk sürümünün kusuruydu, aynı turda onarıldı:
 İlk koşuda 66 "karşılıksız" çıktı ve HEPSİ Japonca sayfalardandı. Kusur değil,
-BİLİNÇLİ ARA DURUM: JA sayfaları noindex ile duruyor (geyşa kararı O265 —
-16 makale bitmeden vitrin açılmaz), öbür diller onlara henüz işaret etmiyor,
-çünkü `ja` hreflang'inin 18 sayfaya eklenmesi sona saklanan TEK ATOMİK iştir.
+BİLİNÇLİ ARA DURUMDU: JA sayfaları noindex ile duruyordu (geyşa kararı O265 —
+16 makale bitmeden vitrin açılmaz), öbür diller onlara henüz işaret etmiyordu.
+JA O345'te yayına açıldı (noindex kalktı, `ja` hreflang 112 kardeşe eklendi);
+mekanizma yeni noindex sayfalar (dinle, ileride yeni dil) için GEÇERLİ kalır.
 
 Yayına kapalı sayfa hreflang kümesine katılmaz; ondan karşılıklılık beklemek
 aracın kusurudur (O306: üç hâli ayırmayan rapor, aracın körlüğünü metnin
@@ -107,12 +108,14 @@ def kalibre():
     print(f"  {'✓' if cift_ok else '✗'} [kalibrasyon] karşılıklılık (gerçek çift): "
           f"{'A↔B çift yönlü' if cift_ok else 'ÇİFT YÖN YOK'}")
 
-    # NOINDEX ayrımı gerçekten okunuyor mu (yanlış pozitifin kaynağı buydu)
-    ja = KOK / "nihongo/raporlar/tea-table.html"
-    noindex_ok = ja.is_file() and not coz(ja)[1] and ya
+    # NOINDEX ayrımı gerçekten okunuyor mu (yanlış pozitifin kaynağı buydu).
+    # JA O345'te yayına açıldı; kalıcı-noindex örnek artık -dinle sayfası
+    # (dinle rejimi kalıcı noindex, JA gibi geçici değil).
+    kapali = KOK / "turkce/raporlar/anlamak-dinle.html"
+    noindex_ok = kapali.is_file() and not coz(kapali)[1] and ya
     gecen += noindex_ok
     print(f"  {'✓' if noindex_ok else '✗'} [kalibrasyon] noindex ayrımı: "
-          f"{'JA kapalı / EN yayında' if noindex_ok else 'AYRIM OKUNAMADI'}")
+          f"{'dinle kapalı / EN yayında' if noindex_ok else 'AYRIM OKUNAMADI'}")
 
     toplam = len(ornekler) + 2
     print(f"  → {gecen}/{toplam} kalibrasyon örneği sınandı.")
