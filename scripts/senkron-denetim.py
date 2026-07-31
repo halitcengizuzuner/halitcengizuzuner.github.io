@@ -49,12 +49,20 @@ def govde_kalemleri(html):
 def parse(fp):
     with open(fp, encoding="utf-8", errors="replace") as f:
         html = f.read()
-    # versiyon: surum-kunye <p> İÇERİĞİ (style attribute'ündeki 0.78rem vb. sayıları AT)
+    # versiyon: İKİ künye biçimi tanınır (O352 dersi — tek biçime körlük yanlış "künyesiz"
+    #   MUTLAK KURAL alarmı verdi; research-constitution surum-kunye KULLANMAZ, kendi zengin
+    #   "canlı belge" künyesini taşır: text-align:right changelog p, v1.3→v2.2, 7 dil ortak).
     ver = "?"
-    mk = re.search(r'class="surum-kunye"[^>]*>([^<]*)', html)
-    if mk:
-        mv = re.search(r'(\d+\.\d+)', mk.group(1))
-        if mv: ver = mv.group(1)
+    # (1) özel canlı-belge künyesi: sağa-yaslı changelog p'sinde SON v-sürümü = güncel içerik
+    for m in re.finditer(r'text-align:right"[^>]*>(.*?)</p>', html, re.S):
+        vs = re.findall(r'\bv(\d+\.\d+)', m.group(1))
+        if vs: ver = vs[-1]; break
+    # (2) standart surum-kunye (diğer 14 makale) — style'daki 0.78rem gibi sayıları AT
+    if ver == "?":
+        mk = re.search(r'class="surum-kunye"[^>]*>([^<]*)', html)
+        if mk:
+            mv = re.search(r'(\d+\.\d+)', mk.group(1))
+            if mv: ver = mv.group(1)
     # ham h2 sayısı
     h2 = len(re.findall(r'<h2', html))
     # içerik h2 tahmini: surum-notu (version note) + diger-yazilar h2'lerini düş
