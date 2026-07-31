@@ -185,7 +185,7 @@ for name, eksik, sapan, vers, var, ref, kalem_rapor, kunye_eksik in borc:
                 print(f"     → içerik-kalem OK (ref={ref}, ~dil-turu, senkron muhtemel): {' · '.join(dil_turu)}")
             for c,o,ek in latin_acik:
                 ekstr = (" TR-fazlası:"+",".join(ek)) if ek else ""
-                print(f"     → ⚠ {c} açığı şüphesi %{o*100:.0f} (<%{KALEM_ESIK*100:.0f}) — ELLE BAK: atıf baskı-yılı farkı mı, gerçek borç mu{ekstr}")
+                print(f"     → ⚠ {c} açığı şüphesi %{o*100:.0f} (<%{KALEM_ESIK*100:.0f}) — ELLE BAK: atıf baskı-yılı / rakam↔yazıyla-sayı (sechstausend=6000) / gerçek borç mu{ekstr}")
             if cjk_dusuk:
                 print(f"     → (zh/ja sayı-kör {' · '.join(cjk_dusuk)}: kanji rakam ölçülemez → senkronu h2+elle doğrula, açık SAYMA)")
         elif ref is None:
