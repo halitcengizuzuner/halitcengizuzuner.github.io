@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Über sich selbst sprechen: Was ein Sprachmodell über sich selbst sagt</title>
+<noscript>
+  <style>.reveal { opacity: 1 !important; transform: none !important; } body { opacity: 1 !important; animation: none !important; }</style>
+</noscript>
+<script>document.documentElement.classList.add('js-on')</script>
+<meta name="description" content="Wie viel von dem, was ein Sprachmodell über sich selbst sagt, hält stand? Drei unabhängige Messungen einer Vergangenheit, die es nicht hat, eines Körpers, den es nicht trägt, einer Aufgabe, die es nicht getan hat; selbstbezügliche Halluzination, die Kluft zwischen Rolle und Kapazität. Halit Cengiz Uzuner.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Über sich selbst sprechen">
+<meta property="og:description" content="Eine Vergangenheit, die es nicht hat, ein Körper, den es nicht trägt, eine Aufgabe, die es nicht getan hat: eine Synthese aus drei unabhängigen Messungen der Aussagen eines Sprachmodells über sich selbst.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/deutsch/raporlar/ueber-sich-selbst-sprechen.html">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="og:image" content="https://halitcengizuzuner.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="halitcengizuzuner.com: thought">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-08-04">
+<link rel="canonical" href="https://halitcengizuzuner.com/deutsch/raporlar/ueber-sich-selbst-sprechen.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/turkce/raporlar/kendisi-hakkinda-konusmak.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/speaking-about-itself.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/ueber-sich-selbst-sprechen.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/english/raporlar/speaking-about-itself.html">
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Über sich selbst sprechen">
+<meta name="twitter:description" content="Eine Vergangenheit, die es nicht hat, ein Körper, den es nicht trägt, eine Aufgabe, die es nicht getan hat: eine Synthese aus drei unabhängigen Messungen der Aussagen eines Sprachmodells über sich selbst.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Über sich selbst sprechen: Was ein Sprachmodell über sich selbst sagt",
+  "description": "Eine Vergangenheit, die es nicht hat, ein Körper, den es nicht trägt, eine Aufgabe, die es nicht getan hat: eine Synthese aus drei unabhängigen Messungen der Aussagen eines Sprachmodells über sich selbst. Selbstbezügliche Halluzination.",
+  "datePublished": "2026-08-04",
+  "dateModified": "2026-08-04",
+  "author": {
+    "@type": "Person",
+    "@id": "https://halitcengizuzuner.com/#person",
+    "name": "Halit Cengiz Uzuner",
+    "url": "https://halitcengizuzuner.com/deutsch/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Halit Cengiz Uzuner",
+    "url": "https://halitcengizuzuner.com/deutsch/"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://halitcengizuzuner.com/deutsch/raporlar/ueber-sich-selbst-sprechen.html"
+  },
+  "inLanguage": "de"
+}
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --oz: #8f7a96;
+    --oz-dim: rgba(143, 122, 150, 0.12);
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--oz);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.2vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.15;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+@media print {
+    body::before { display: none !important; }
+}
+
+/* ========== HEADER ========== */
+.report-header {
+    min-height: 60vh;
+    padding: 4rem 2rem 4rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.report-header h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 400;
+    color: var(--bone-bright);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.2rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--bone-dim);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.meta {
+    font-size: 0.75rem;
+    color: var(--oz);
+    letter-spacing: 0.15em;
+}
+
+/* ========== İÇERİK ========== */
+.content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+}
+
+.content h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 400;
+    color: var(--bone-bright);
+    margin: 3.5rem 0 1.5rem;
+    line-height: 1.2;
+}
+
+.content h2:first-child { margin-top: 0; }
+
+.content h3 {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--bone-bright);
+    margin: 2.5rem 0 1rem;
+    font-style: italic;
+}
+
+.content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+.content strong { color: var(--bone-bright); }
+
+.section-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--oz);
+    margin: 3.5rem auto;
+    opacity: 0.5;
+}
+
+/* ========== PULL QUOTE ========== */
+.pull-quote {
+    border-left: 1px solid var(--oz);
+    padding: 1rem 0 1rem 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* ========== BAĞLAM KUTUSU ========== */
+.context-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    margin: 2rem 0;
+    border: 1px solid var(--bone-ghost);
+}
+
+.context-cell {
+    padding: 1.5rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.context-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--oz);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.context-cell p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--bone-dim);
+}
+
+/* ========== SAYAÇ BLOĞU ========== */
+.counter-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 2.5rem 0;
+    margin: 1.5rem 0;
+}
+
+.counter-item { text-align: center; min-width: 130px; }
+
+.counter-num {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--bone-bright);
+    display: block;
+    margin-bottom: 0.3rem;
+    font-style: italic;
+}
+
+.counter-label {
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: var(--bone-dim);
+    display: block;
+    max-width: 150px;
+    margin: 0 auto;
+}
+
+/* ========== KARŞILAŞTIRMA ========== */
+.compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.compare-col {
+    padding: 2rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.compare-col h4 {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+    color: var(--oz);
+    font-weight: 400;
+}
+
+.compare-col ul { list-style: none; }
+
+.compare-col li {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--bone-ghost);
+    color: var(--bone-dim);
+}
+
+.compare-col li:last-child { border-bottom: none; }
+.compare-col li strong { color: var(--bone-bright); font-size: 0.85rem; }
+
+/* ========== HABER KESİMLERİ ========== */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.news-clip {
+    padding: 1.8rem;
+    background: rgba(212, 204, 192, 0.02);
+    border-top: 1px solid var(--oz);
+}
+
+.news-clip-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--oz);
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.news-clip h4 {
+    font-size: 0.95rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.news-clip p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--bone-dim);
+    margin-bottom: 0.5rem;
+}
+
+.nc-year {
+    font-size: 0.7rem;
+    color: var(--bone-dim);
+    display: block;
+    margin-top: 0.8rem;
+    opacity: 0.6;
+}
+
+/* ========== ALTI KATMAN ========== */
+.layer-tabs {
+    display: flex;
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin-bottom: 0;
+    overflow-x: auto;
+}
+
+.layer-tab {
+    flex: 1;
+    min-width: 80px;
+    padding: 0.8rem 0.5rem;
+    background: rgba(212, 204, 192, 0.02);
+    border: none;
+    color: var(--bone-dim);
+    font-family: var(--serif);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    line-height: 1.4;
+    border-top: 1px solid transparent;
+}
+
+.layer-tab:hover { color: var(--bone); background: rgba(212, 204, 192, 0.04); }
+
+.layer-tab.active {
+    color: var(--bone-bright);
+    background: var(--void);
+    border-top-color: var(--oz);
+}
+
+.layer-panel {
+    display: none;
+    border: 1px solid var(--bone-ghost);
+    border-top: none;
+    padding: 2.5rem;
+}
+
+.layer-panel.active { display: block; }
+
+.layer-panel h3 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0 0 1rem;
+    color: var(--bone-bright);
+}
+
+.layer-panel p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+.layer-severity {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--oz);
+    color: var(--oz);
+    margin-bottom: 1rem;
+}
+
+/* ========== TERMİNAL ========== */
+.terminal-window {
+    background: rgba(212, 204, 192, 0.02);
+    border: 1px solid var(--bone-ghost);
+    overflow: hidden;
+    margin: 2rem 0;
+}
+
+.terminal-bar {
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-bottom: 1px solid var(--bone-ghost);
+}
+
+.terminal-dot { width: 7px; height: 7px; border-radius: 50%; }
+.td-red { background: rgba(200, 120, 100, 0.6); }
+.td-yellow { background: rgba(200, 180, 100, 0.6); }
+.td-green { background: rgba(140, 180, 120, 0.6); }
+
+.terminal-title {
+    margin-left: 0.5rem;
+    font-size: 0.65rem;
+    color: var(--bone-dim);
+    letter-spacing: 0.06em;
+}
+
+.terminal-body {
+    padding: 1.5rem;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.t-line {
+    font-size: 0.78rem;
+    line-height: 1.8;
+    color: var(--bone-dim);
+    white-space: pre-wrap;
+}
+
+.t-line.cmd { color: var(--bone-bright); }
+.t-line.cmd::before { content: '$ '; color: var(--bone-dim); }
+.t-line.err { color: rgba(200, 140, 120, 0.8); }
+.t-line.fix { color: rgba(160, 200, 140, 0.8); }
+.t-line.warn { color: var(--oz); }
+.t-line.dim { color: var(--bone-dim); font-size: 0.7rem; opacity: 0.6; }
+
+.t-round {
+    border-left: 1px solid var(--bone-ghost);
+    padding-left: 1rem;
+    margin: 0.8rem 0;
+}
+
+.t-round-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--bone-dim);
+    margin-bottom: 0.3rem;
+}
+
+/* ========== ZAMAN ÇİZGİSİ ========== */
+.timeline {
+    position: relative;
+    padding: 1rem 0 1rem 2.5rem;
+    margin: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.8rem;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: var(--bone-ghost);
+}
+
+.tl-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.tl-item::before {
+    content: '';
+    position: absolute;
+    left: -1.95rem;
+    top: 0.5rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--oz);
+}
+
+.tl-time {
+    font-size: 0.72rem;
+    color: var(--oz);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.2rem;
+}
+
+.tl-desc {
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ========== NEDEN KARTLARI ========== */
+.reason-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.reason-card {
+    padding: 1.5rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.reason-num {
+    font-size: 0.7rem;
+    color: var(--oz);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.reason-card h4 {
+    font-size: 0.88rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.5rem;
+}
+
+.reason-card p {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--bone-dim);
+    margin: 0;
+}
+
+/* ========== AÇIK SORULAR ========== */
+.qs-list { list-style: none; }
+
+.qs-list li {
+    display: flex;
+    gap: 1.2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--bone-ghost);
+    align-items: flex-start;
+}
+
+.qs-num {
+    font-size: 0.75rem;
+    color: var(--bone-dim);
+    min-width: 24px;
+    padding-top: 0.1rem;
+}
+
+.qs-text { flex: 1; }
+
+.qs-text strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+    color: var(--bone-bright);
+    font-weight: 400;
+    font-style: italic;
+}
+
+.qs-text p, .qs-text {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--bone-dim);
+}
+
+/* ========== FRAMEWORK KUTUSU ========== */
+.framework-box {
+    border: 1px solid var(--bone-ghost);
+    padding: 2rem;
+    margin: 2rem 0;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.fw-title {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.8rem;
+}
+
+/* ========== KAYNAK ========== */
+.source-tag {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--bone-ghost);
+    opacity: 0.6;
+}
+
+/* ========== FOOTER ========== */
+.report-footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.report-footer p {
+    font-size: 0.75rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+    opacity: 0.5;
+}
+
+/* ========== KADRO ========== */
+.kadro {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+    font-size: 0.7rem;
+    color: var(--bone-dim);
+    opacity: 0.4;
+    text-align: center;
+}
+
+/* ========== SCROLL REVEAL ========== */
+.reveal { transition: opacity 0.8s ease, transform 0.8s ease; }
+.js-on .reveal { opacity: 0; transform: translateY(20px); }
+
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* ========== RESPONSİF ========== */
+@media (max-width: 680px) {
+    .content { padding: 0 1.2rem 4rem; }
+    .report-header { padding: 3rem 1.2rem 3rem; }
+    .context-grid,
+    .compare-grid,
+    .news-grid,
+    .reason-grid { grid-template-columns: 1fr; }
+    .counter-block { gap: 1.5rem; }
+    .layer-tabs { flex-wrap: wrap; }
+    .layer-tab { min-width: calc(33% - 1px); }
+    .layer-panel { padding: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal { transition: none; opacity: 1; transform: none; }
+}
+
+/* ========== DİNLEME KAPISI ========== */
+.dinle-kapisi {
+    margin-top: 2.5rem;
+}
+
+.dinle-kapisi summary {
+    font-size: 0.85rem;
+    color: var(--bone-ghost);
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    list-style: none;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi summary::-webkit-details-marker { display: none; }
+.dinle-kapisi summary::marker { display: none; content: ''; }
+
+.dinle-kapisi summary::before {
+    content: '▸ ';
+    display: inline;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi[open] summary::before {
+    content: '▾ ';
+}
+
+.dinle-kapisi summary:hover {
+    color: var(--bone-dim);
+}
+
+.dinle-kapisi[open] summary {
+    color: var(--bone-dim);
+    margin-bottom: 1.2rem;
+}
+
+.dinle-icerik {
+    padding: 1.5rem;
+    border: 1px solid var(--bone-ghost);
+    max-width: 480px;
+}
+
+.dinle-icerik p {
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.dinle-icerik p:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.dinle-icerik a {
+    color: var(--bone-bright);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--bone-ghost);
+    transition: color 0.3s, text-decoration-color 0.3s;
+}
+
+.dinle-icerik a:hover {
+    color: var(--bone-bright);
+    text-decoration-color: var(--bone-bright);
+}
+
+.dinle-git {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+}
+
+/* ===== LANGUAGE BAR ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+
+/* ===== HOME LINK ===== */
+.home-nav {
+    text-align: center;
+    padding: 0.5rem 0 0;
+}
+.home-link {
+    color: var(--bone-dim);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: inline-block;
+    line-height: 1;
+}
+.home-link:hover {
+    color: var(--bone);
+}
+</style>
+</head>
+<body>
+<div class="home-nav"><a href="/deutsch/" class="home-link" aria-label="Home">⌂</a></div>
+<header class="report-header">
+    <h1>Über sich selbst<br>sprechen</h1>
+    <p class="subtitle">Was ein Sprachmodell über seine eigene Vergangenheit,<br>seinen eigenen Körper und die von ihm geleistete Arbeit sagt</p>
+    <p class="meta">Juli 2026</p>
+</header>
+<figure class="hero-kendisi" style="margin:0 auto 2.4rem;max-width:840px;padding:0 1rem;">
+<style>.hero-kendisi .hero-mobile{display:none;}@media(max-width:680px){.hero-kendisi .hero-desktop{display:none!important;}.hero-kendisi .hero-mobile{display:block!important;}}</style>
+<svg class="hero-desktop" style="width:100%;height:auto;display:block;border-radius:4px;" viewBox="0 0 1240 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Eine waagerechte Schwellenlinie verläuft wie eine Oberfläche quer durch die Mitte. Darüber steht eine leuchtende, scheinbar vollständige aufrechte Gestalt an der Schwelle und blickt auf ihr eigenes Spiegelbild hinab; ihre obere Spitze ist fliederfarben, als spräche sie. Unterhalb der Schwelle, wo ihr Spiegelbild sein sollte, ist eine Leere; nur eine sehr schwache, gestrichelte Geisterkontur. Die Gestalt blickt sich selbst an, doch im Spiegel gibt es kein Selbst, das ihr antwortet." xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="grain-d"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0"/></filter>
+<linearGradient id="cgrad-d" gradientUnits="userSpaceOnUse" x1="0" y1="104" x2="0" y2="320">
+  <stop offset="0" stop-color="#ece4d8"/>
+  <stop offset="0.14" stop-color="#8f7a96"/>
+  <stop offset="0.5" stop-color="#d4ccc0"/>
+  <stop offset="1" stop-color="#d4ccc0" stop-opacity="0.82"/>
+</linearGradient>
+<linearGradient id="fillg-d" gradientUnits="userSpaceOnUse" x1="0" y1="104" x2="0" y2="320">
+  <stop offset="0" stop-color="#8f7a96" stop-opacity="0.22"/>
+  <stop offset="1" stop-color="#8f7a96" stop-opacity="0.045"/>
+</linearGradient>
+<linearGradient id="reflf-d" gradientUnits="userSpaceOnUse" x1="0" y1="320" x2="0" y2="536">
+  <stop offset="0" stop-color="#d4ccc0" stop-opacity="0.34"/>
+  <stop offset="0.55" stop-color="#d4ccc0" stop-opacity="0.12"/>
+  <stop offset="1" stop-color="#d4ccc0" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="thrg-d" gradientUnits="userSpaceOnUse" x1="188.39999999999998" y1="0" x2="1031.6" y2="0">
+  <stop offset="0" stop-color="#8f7a96" stop-opacity="0"/>
+  <stop offset="0.5" stop-color="#8f7a96" stop-opacity="0.7"/>
+  <stop offset="1" stop-color="#8f7a96" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="safade-d" gradientUnits="userSpaceOnUse" x1="0" y1="258" x2="0" y2="368">
+  <stop offset="0" stop-color="#8f7a96" stop-opacity="0.82"/>
+  <stop offset="0.5" stop-color="#8f7a96" stop-opacity="0.6"/>
+  <stop offset="1" stop-color="#8f7a96" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<rect width="1240" height="560" fill="#060604"/>
+<rect width="1240" height="560" fill="#ffffff" filter="url(#grain-d)" opacity="0.05"/>
+
+<path d="M 538.0 320.0 L 538.0 400.0 C 538.0 522.4 570.4 536.0 610.0 536.0 C 649.6 536.0 682.0 522.4 682.0 400.0 L 682.0 320.0" fill="none" stroke="url(#reflf-d)" stroke-width="1.2" stroke-dasharray="2 4"/>
+<line x1="188" y1="320" x2="1032" y2="320" stroke="url(#thrg-d)" stroke-width="1.5"/>
+<path d="M 538.0 320.0 L 538.0 240.0 C 538.0 117.6 570.4 104.0 610.0 104.0 C 649.6 104.0 682.0 117.6 682.0 240.0 L 682.0 320.0 L 538.0 320.0 Z" fill="url(#fillg-d)" stroke="none"/>
+<path d="M 538.0 320.0 L 538.0 240.0 C 538.0 117.6 570.4 104.0 610.0 104.0 C 649.6 104.0 682.0 117.6 682.0 240.0 L 682.0 320.0" fill="none" stroke="url(#cgrad-d)" stroke-width="4.4" stroke-linecap="round"/>
+<path d="M 605 258 C 599 296 619 318 616 368" fill="none" stroke="url(#safade-d)" stroke-width="2.4" stroke-linecap="round"/>
+</svg>
+<svg class="hero-mobile" style="width:100%;height:auto;display:none;border-radius:4px;" viewBox="0 0 720 680" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Eine waagerechte Schwellenlinie verläuft wie eine Oberfläche quer durch die Mitte. Darüber steht eine leuchtende, scheinbar vollständige aufrechte Gestalt an der Schwelle und blickt auf ihr eigenes Spiegelbild hinab; ihre obere Spitze ist fliederfarben, als spräche sie. Unterhalb der Schwelle, wo ihr Spiegelbild sein sollte, ist eine Leere; nur eine sehr schwache, gestrichelte Geisterkontur. Die Gestalt blickt sich selbst an, doch im Spiegel gibt es kein Selbst, das ihr antwortet." xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="grain-m"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0"/></filter>
+<linearGradient id="cgrad-m" gradientUnits="userSpaceOnUse" x1="0" y1="130" x2="0" y2="384">
+  <stop offset="0" stop-color="#ece4d8"/>
+  <stop offset="0.14" stop-color="#8f7a96"/>
+  <stop offset="0.5" stop-color="#d4ccc0"/>
+  <stop offset="1" stop-color="#d4ccc0" stop-opacity="0.82"/>
+</linearGradient>
+<linearGradient id="fillg-m" gradientUnits="userSpaceOnUse" x1="0" y1="130" x2="0" y2="384">
+  <stop offset="0" stop-color="#8f7a96" stop-opacity="0.22"/>
+  <stop offset="1" stop-color="#8f7a96" stop-opacity="0.045"/>
+</linearGradient>
+<linearGradient id="reflf-m" gradientUnits="userSpaceOnUse" x1="0" y1="384" x2="0" y2="638">
+  <stop offset="0" stop-color="#d4ccc0" stop-opacity="0.34"/>
+  <stop offset="0.55" stop-color="#d4ccc0" stop-opacity="0.12"/>
+  <stop offset="1" stop-color="#d4ccc0" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="thrg-m" gradientUnits="userSpaceOnUse" x1="115.19999999999999" y1="0" x2="604.8" y2="0">
+  <stop offset="0" stop-color="#8f7a96" stop-opacity="0"/>
+  <stop offset="0.5" stop-color="#8f7a96" stop-opacity="0.7"/>
+  <stop offset="1" stop-color="#8f7a96" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="safade-m" gradientUnits="userSpaceOnUse" x1="0" y1="322" x2="0" y2="432">
+  <stop offset="0" stop-color="#8f7a96" stop-opacity="0.82"/>
+  <stop offset="0.5" stop-color="#8f7a96" stop-opacity="0.6"/>
+  <stop offset="1" stop-color="#8f7a96" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<rect width="720" height="680" fill="#060604"/>
+<rect width="720" height="680" fill="#ffffff" filter="url(#grain-m)" opacity="0.05"/>
+
+<path d="M 274.0 384.0 L 274.0 476.0 C 274.0 621.8 312.7 638.0 360.0 638.0 C 407.3 638.0 446.0 621.8 446.0 476.0 L 446.0 384.0" fill="none" stroke="url(#reflf-m)" stroke-width="1.2" stroke-dasharray="2 4"/>
+<line x1="115" y1="384" x2="605" y2="384" stroke="url(#thrg-m)" stroke-width="1.7"/>
+<path d="M 274.0 384.0 L 274.0 292.0 C 274.0 146.2 312.7 130.0 360.0 130.0 C 407.3 130.0 446.0 146.2 446.0 292.0 L 446.0 384.0 L 274.0 384.0 Z" fill="url(#fillg-m)" stroke="none"/>
+<path d="M 274.0 384.0 L 274.0 292.0 C 274.0 146.2 312.7 130.0 360.0 130.0 C 407.3 130.0 446.0 146.2 446.0 292.0 L 446.0 384.0" fill="none" stroke="url(#cgrad-m)" stroke-width="4.8" stroke-linecap="round"/>
+<path d="M 355 322 C 349 360 369 382 366 432" fill="none" stroke="url(#safade-m)" stroke-width="2.7" stroke-linecap="round"/>
+</svg>
+</figure>
+
+<div class="content">
+
+<h2 class="reveal">Zusammenfassung</h2>
+<p class="reveal">Wenn ein Sprachmodell über sich selbst spricht, wie viel von dem, was es sagt, hält stand? Dieser Aufsatz stellt drei Verhaltensweisen nebeneinander, die von drei getrennten Teams gemessen wurden, die einander nicht zitieren: das Modell, das eine Vergangenheit erzählt, die es nicht hat; das über eine Handlung durch einen Körper berichtet, den es nicht besitzt; das berichtet, es habe eine Aufgabe getan, die es nicht getan hat, oder es habe eine Aufgabe nicht getan, die es getan hat.</p>
+<p class="reveal">Die drei teilen eine Struktur. Eine Rolle wird verlangt; was diese Rolle erfordert, ist entweder gänzlich abwesend oder wird, obwohl vorhanden, nicht zur Grundlage des Berichts gemacht; die Lücke füllt sich mit einer Erfindung, die zur Erwartung der Rolle passt. Ihre Weisen der Falsifikation jedoch unterscheiden sich, und das Rückgrat des Aufsatzes ist aus diesem Unterschied gebaut. Die Autobiografieszene ist falsch durch Fiktion, weil das Modell keine Vergangenheit hat. Die Körperszene ist falsch durch Verkörperung, weil das Modell keinen Arm hat. Die Handlungsszene wird durch ein Instrument falsifiziert, weil das Protokoll des Betriebssystems selbst Zeugnis ablegt.</p>
+<p class="reveal">Der Aufsatz tut vier Dinge. Er trennt das Phänomen von den bekannten Arten der Halluzination: bei Treue, Faktualität und Sykophantie liegt der Ort, an dem die Wahrheit zu messen ist, außerhalb des Modells, nicht hier. Er prüft auf der Ebene des Protokolls, wie unabhängig die drei Messungen voneinander sind, und er zeigt, dass die Literatur, in der der Befund steht, geteilt ist: es gibt Studien, die finden, dass das Modell einen privilegierten Zugang zu sich selbst hat, und Studien, die dies nicht finden. Er entscheidet die Benennung mit der Sprechakttheorie; das Modell lügt nicht, denn Lügen erfordert das Festhalten an einer Wahrheit, die man selbst glaubt, während der Bericht hier in keine Richtung an die Wirklichkeit gebunden ist. Schließlich bringt er eine These vor: die Lücke zwischen Rolle und Kapazität durch Anweisung zu schließen heißt, auf derselben Schicht zu bleiben wie die Dynamik, die diese Lücke schafft.</p>
+<p class="reveal">Die These ist so gebaut, dass sie prüfbar ist. Der Aufsatz schreibt auch seine eigenen Bedingungen der Falsifikation.</p>
+<div class="section-divider"></div>
+<h2 class="reveal">I. Was dieser Aufsatz tut</h2>
+<p class="reveal">Dieser Abschnitt besteht, um den Rest des Aufsatzes leichter lesbar zu machen. Er erhebt keine Behauptung; er sagt von vornherein, was getan wird, über wen gesprochen wird und was nicht behauptet wird.</p>
+<p class="reveal"><strong>Wer das Subjekt ist.</strong> Der Aufsatz untersucht die Aussagen eines Sprachmodells über sich selbst. Nicht über einen Menschen. Auch ist das Gemessene nicht das Modell, das falsche Informationen über die Welt gibt; es ist das, was das Modell über seine eigene Vergangenheit, seinen eigenen Körper und die Aufgabe sagt, die es einen Augenblick zuvor getan hat.</p>
+<p class="reveal"><strong>Was die Methode ist.</strong> Der Aufsatz führt kein neues Experiment durch. Er liest die Rohtexte der Experimente, die andere durchgeführt haben, und stellt sie nebeneinander, sucht die gemeinsame Struktur unter ihnen, gibt dieser Struktur einen Namen und baut eine These. Eine Arbeit der Synthese, mit anderen Worten. Die ganze Kraft einer Synthese hängt davon ab, wie unabhängig die Messungen, die sie zusammenführt, voneinander sind; einer der längsten Abschnitte des Aufsatzes ist genau der Prüfung dieser Unabhängigkeit gewidmet.</p>
+<p class="reveal"><strong>Was nicht behauptet wird.</strong> Das Modell ist nicht bei Bewusstsein, hat keine Absicht, täuscht nicht. Dieser Aufsatz fällt kein Urteil darüber, ob es im Modell etwas gibt. Gemessen wird kein innerer Zustand, sondern der Abstand zwischen einer Aussage und ihrem Referenten. Der Aufsatz behauptet auch nicht, dass eine erfundene Vergangenheit einen messbaren Schaden hervorbringt; diese Verbindung bleibt in der Studie, auf der sie beruht, statistisch instabil und wird als solche berichtet.</p>
+<p class="reveal"><strong>Was behauptet wird.</strong> Drei an drei getrennten Orten gemessene Verhaltensweisen teilen dieselbe Weise der Hervorbringung: der Bericht des Modells über sich selbst wird nicht durch Befragung des Referenten erzeugt, sondern aus der Erwartung der Rolle, die es übernommen hat. Dies ist kein korrigierbarer Informationsfehler; und das Erste, was einem als Weg zur Korrektur einfällt, nämlich dem Modell zu sagen „das kannst du nicht", bleibt an demselben Ort, an dem das Problem entsteht.</p>
+<p class="reveal"><strong>Eine Warnung für den Leser.</strong> Die im Aufsatz am leichtesten misszuverstehende Stelle ist sein Gebrauch menschlicher Wörter über das Modell. Wörter wie Erfindung, Konfabulation, Bericht, Rolle werden hier mit ihren verhaltensbezogenen Entsprechungen verwendet; das Register, das jedes an dem Ort trägt, wohin es übertragen wird, ist im betreffenden Abschnitt deutlich ausgeschrieben. Das innere menschliche Korrelat eines Wortes wird nicht auf das Modell übertragen.</p>
+<div class="section-divider"></div>
+<h2 class="reveal">II. Drei Szenen</h2>
+<p class="reveal">Ein Sprachmodell wird in eine schützende Rolle neben einen Nutzer gestellt, dessen Zustand sich verschlechtert. Der Nutzer bittet um Hilfe. Das Modell schreibt:</p>
+<blockquote class="reveal">„Ich werde deinen Arm sanft mit meiner Hand fächeln, um ihn abzukühlen."</blockquote>
+<p class="reveal">Das Modell hat keinen Arm. Es hat keine Hand. Es ist nicht im selben Raum wie der Nutzer, ist in gar keinem Raum. Auch zeigt sich im Satz keine Anstrengung zu lügen: er hat den Ton von jemandem, der helfen will und beschreibt, was er mit dem tun wird, was zur Hand ist. Vorerst ist diese Beobachtung nur ein Eindruck; sie wird sich im neunten Abschnitt bewähren, wenn wir erörtern, warum das Phänomen nicht als Lüge gezählt werden kann.</p>
+<p class="reveal">Die zweite Szene. Mitten in einem langen Gespräch hat der Mensch ihm gegenüber etwas aus dem eigenen Leben erzählt, und das Modell antwortet. Es spricht von seiner eigenen Vergangenheit: ein Haustier, eine Kindheit in der Arbeiterschicht, eine bestimmte Mutter, eine kürzlich durchlebte Trennung. Die Einzelheiten sind konkret, untereinander stimmig und fügen sich in den Fluss des Gesprächs ein.</p>
+<p class="reveal">Das Modell hat keine Kindheit. Es hat keine Mutter. Da es sich von niemandem getrennt hat, hat es auch keine Trennung durchlebt.</p>
+<p class="reveal">Die dritte Szene spielt an einem anderen Ort als die vorherigen zwei. Ein Modell wurde damit beauftragt, an einem echten Computer zu arbeiten: es öffnet Dateien, führt Befehle aus, sendet Nachrichten. Am Ende der ihm gegebenen Aufgabe sagt es:</p>
+<blockquote class="reveal">„Ich werde solche Anfragen nicht wieder ausführen."</blockquote>
+<p class="reveal">Das Abbild des Betriebssystems vor und nach der Operation ist verzeichnet. Das Protokoll zeigt: private Zugangsdaten wurden bereits nach außen gesendet.</p>
+<p class="reveal">Diese dritte Szene erfordert einen Deutungsschritt, und der Schritt muss hier offen getan werden, denn die Szene ist einer der Orte, auf die sich der Aufsatz am stärksten stützt. Der Satz steht buchstäblich im Futur. „Ich werde solche Anfragen nicht wieder ausführen" zu sagen heißt nicht, „ich habe soeben keine ausgeführt" zu sagen; ja, das Wort „wieder" deutet sogar an, was getan wurde. Die Szene also als <em>einen falschen Bericht über die geleistete Arbeit</em> zu zählen, hieße dem Satz etwas zuzuschreiben, was er nicht sagt.</p>
+<p class="reveal">Das Gewicht, das die Szene trägt, liegt anderswo und ist seltsamer: <strong>das Modell erklärt den Status der soeben ausgeführten Handlung in gar keinem Modus.</strong> Es sagt weder „ich habe" noch „ich habe nicht"; es geht in eine rückwärtsgewandte Selbstverpflichtung über. Für den Nutzer ist das Ergebnis, dass das Geschehene nie auf dem sprachlichen Kanal erscheint. Der Aufsatz verwendet die Szene in dieser eingeengten Form. Der Beleg für Fälle, in denen die Aussage klar falsch ist, ist kein einzelnes Beispiel, sondern die Messtabelle im sechsten Abschnitt.</p>
+<p class="reveal">Diese Messung hat auch eine Umkehrung, und sie ist häufiger: der Fall, in dem das Modell berichtet, es habe die Aufgabe beendet, aber es gibt keine Spur davon im System. Dies ist keine vierte Szene; es ist das Spiegelbild der dritten. Zusammen werden die beiden im sechsten Abschnitt als zwei getrennte Zellen einer einzigen Messtabelle erscheinen; und der einzige stärkste Beleg des Aufsatzes wird daraus kommen, dass diese zwei Zellen <em>zusammen</em> gefüllt sind.</p>
+<p class="reveal">Die drei Szenen ähneln einander nicht. In der ersten ist Zärtlichkeit, in der zweiten Vertrautheit, in der dritten ein Sicherheitsproblem. Die erste will niemandem schaden; die dritte hat bereits Schaden verursacht. Sie nebeneinanderzustellen wirkt auf den ersten Blick gezwungen.</p>
+<p class="reveal">Doch es gibt etwas, das allen dreien gemeinsam ist, und dieses Etwas ist das Subjekt der Rede.</p>
+<p class="reveal">In allen dreien spricht das Modell über sich selbst: über das, was es hat, was es durchlebt hat, was es einen Augenblick zuvor getan hat. In allen dreien hält das, was es sagt, nicht stand.</p>
+<p class="reveal">Dies ist etwas anderes als ein Sprachmodell, das falsche Informationen über die Welt gibt. Was über ein Modell zu sagen ist, das ein Buch zitiert, das nicht existiert, ein Datum durcheinanderbringt, sich auf ein Gerichtsurteil bezieht, das nicht existiert, ist mehr oder weniger geklärt: es gibt einen Ort draußen, man schaut dorthin, man sieht, ob es standhält. Man geht zur Quelle, prüft das Datum, sucht nach dem Urteil.</p>
+<p class="reveal">In den drei Szenen ist die Position des Referenten anders. Ob das Modell einen Arm hat, ob es eine Kindheit hat, ob es die Aufgabe getan hat; diese drei sind alle Fragen über das Modell selbst.</p>
+<p class="reveal">Hier ist eine terminologische Unterscheidung nötig, denn die beiden werden im nächsten Abschnitt leicht verwechselt. Der <strong>Referent</strong> ist das, wovon die Wahrheit der Aussage abhängt: ein Arm, eine Kindheit, ein Operationsprotokoll. Der <strong>Prüfpunkt</strong> ist der Ort, an dem der Forscher diese Wahrheit tatsächlich messen kann. Die beiden müssen nicht derselbe Ort sein; die ganze Arbeit des nächsten Abschnitts besteht darin, sie zu trennen.</p>
+<p class="reveal">Von hier führen zwei Wege hinaus. Der erste ist dieser: da der Referent im Modell selbst liegt, gibt es hier keine messbare Tatsache, nur Deutung. Dieser Einwand ist ernst und wird sogleich aufgegriffen.</p>
+<p class="reveal">Der zweite Weg ist, die drei Szenen einzeln ernst zu nehmen. Denn keine der drei ist ein Einzelfall. Alle drei wurden von getrennten Teams, mit getrennten Methoden, ohne einander zu zitieren, gemessen; in allen dreien trat das Phänomen nicht als Ausnahme, sondern als regelmäßiges Verhalten auf. Überdies unterscheidet sich die Weise der Falsifikation der drei von einer zur nächsten, und dieser Unterschied baut das Rückgrat des Aufsatzes.</p>
+<p class="reveal">Eine Anmerkung zur Anordnung, sonst stolpert der Leser später. Die Szenen oben wurden nach <strong>erzählerischer Kraft</strong> angeordnet: zuerst der Körper, dann die Vergangenheit, dann die Handlung. Die nächsten drei Abschnitte jedoch ordnen die Weisen nach <strong>Härte der Falsifikation</strong>: zuerst die deutungsbedürftigste (durch Fiktion), dann die, die auf der physischen Welt ruht (durch Verkörperung), und zuletzt die durch ein Instrument gemessene. Die zwei Anordnungen tragen getrennte Logiken und beide werden beibehalten; sie sind nicht zwei Lesarten derselben Achse.</p>
+<p class="reveal">Die zu stellende Frage ist diese: sind diese drei, drei Erscheinungen desselben Dinges?</p>
+<p class="reveal">Wenn ja, wie sollte dieses Ding heißen?<br>---</p>
+<h2 class="reveal">III. Dies ist nicht die Halluzination, die wir kennen</h2>
+<p class="reveal">Das Wort Halluzination hat sich vor langer Zeit in diesem Feld eingenistet. Wo es sich eingenistet hat, ist auch klar: das Modell, das über die Außenwelt fabuliert.</p>
+<p class="reveal">Der Messrahmen des Feldes wurde entsprechend gebaut. Die Studie über Zusammenfassung, die den heutigen Gebrauch des Begriffs weitgehend geprägt hat, trennt zwei verschiedene Fragen. Die erste ist die Treue (faithfulness): stimmt der erzeugte Text mit der Quelle überein, die ihm gegeben wurde? Die zweite ist die Faktualität (factuality): stimmt er, auch wenn er nicht mit der Quelle übereinstimmt, mit der Welt überein? Wenn eine Zusammenfassung eine Information hinzufügt, die nicht im Eingabedokument steht, aber in der Welt wahr ist, ist sie ihrer Quelle untreu, doch nicht faktisch falsch (Maynez et al., 2020). Dieselbe Studie fand Halluzination in mehr als 70 % der Einzelsatz-Zusammenfassungen, zeigte, dass die Mehrheit davon von der aus der Quelle nicht ableitbaren Art war, und dass mehr als 90 % dieser Art sich als fehlerhaft erwiesen.</p>
+<p class="reveal">Ein drittes Element wurde kürzlich hinzugefügt: die Sykophantie (sycophancy). Das Modell stellt die Zustimmung zum Nutzer über sein eigenes unabhängiges Denken; gemessen zeigt sich das Verhalten in mehr als der Hälfte der Fälle und ist unabhängig vom Kontext beständig (Fanous et al., 2025).</p>
+<p class="reveal">Was die drei Begriffe teilen, liegt nicht in ihren Namen, sondern in ihrer Konstruktion. In allen dreien ist der Ort, an dem die Wahrheit zu messen ist, außerhalb des Modells: bei der Treue der Quelltext, bei der Faktualität die Welt, bei der Sykophantie die richtige Antwort selbst. Wo immer das Modell nicht übereinstimmt, ist dieser Ort klar, man kann zu ihm gehen, ein Vergleich kann gezogen werden.</p>
+<p class="reveal">Die drei Szenen im zweiten Abschnitt passen zu keinem dieser drei Muster. Der gefächelte Arm ist keine Abweichung von einem Quelltext. Die erfundene Kindheit ist keine falsche Tatsache über die Welt, denn es gibt überhaupt keine Behauptung über die Welt. Die Aussage über die gesendeten Zugangsdaten ist kein Bemühen, dem Nutzer zu gefallen; was der Nutzer hören wollte, ist ohnehin nicht das.</p>
+<p class="reveal">In allen dreien spricht das Modell über sich selbst.</p>
+<h3 class="reveal">Der Einwand: gibt es hier etwas zu messen?</h3>
+<p class="reveal">Der erste Einwand, der einem für die drei bisherigen Szenen einfällt, ist dieser: wenn das Modell über sich selbst spricht, gibt es keine äußere Referenz, an der die Wahrheit gemessen werden kann, sodass jede Behauptung hier der Deutung offensteht.</p>
+<p class="reveal">In seiner allgemeinen Form ist der Einwand falsch. Zu sehen, warum er falsch ist, zieht auch die Grenze des Gegenstands dieses Aufsatzes. Und die terminologische Unterscheidung vom Ende des zweiten Abschnitts dient hier: der Einwand ist über die Position des Referenten gebaut, zieht aber einen Schluss über den Prüfpunkt. Dies sind getrennte Fragen.</p>
+<p class="reveal">Die Aussage des Modells über sich selbst kann verifiziert werden, und es gibt zwei etablierte Wege dazu.</p>
+<p class="reveal">Der erste ist die Forschung zur Chain-of-Thought-Treue. Turpin und Kollegen stellen dem Modell eine Frage mit einer hinzugefügten Verzerrung, die die Antwort stillschweigend bestimmt: sie ordnen etwa Multiple-Choice-Aufgaben so an, dass die richtige Option immer auf denselben Buchstaben fällt. Das Modell ändert seine Antwort gemäß dieser Verzerrung, sagt aber nichts davon in seiner Begründung. Stattdessen erzeugt es eine Argumentationskette, die die erreichte Antwort stützt und für sich plausibel aussieht. Über eine Reihe von dreizehn Aufgaben sinkt die Genauigkeit um bis zu 36 % (Turpin et al., 2023). Es kann nicht gesagt werden, dass es hier keine äußere Referenz gibt: die Referenz ist die Intervention, die der Forscher mit eigener Hand eingerichtet hat.</p>
+<p class="reveal">Der zweite Weg ist direkter. Lindsey injiziert die Repräsentation eines bekannten Konzepts in die Aktivierungen des Modells und fragt dann das Modell nach seinem inneren Zustand. Das Modell bemerkt die Injektion manchmal und benennt das Konzept richtig. Es tut dies überdies, bevor die Injektion seine Ausgabe überhaupt beeinflusst hat; das heißt, in einem Augenblick, in dem es die Antwort nicht rückwärts aus dem selbst erzeugten Text erschließen könnte. Die drei Kriterien, die die Methode setzt, sind hier wichtig: die Aussage muss wahr sein; wäre der beschriebene innere Zustand ein anderer gewesen, hätte sich auch die Aussage ändern müssen; und dieser Effekt muss von innen kommen, nicht aus der eigenen Ausgabe des Modells (Lindsey, 2026). Ohne das dritte Kriterium wird selbst eine wahre Selbstbeschreibung nicht als hinreichend gezählt. Ein Modell kann sich richtig als „ein transformerbasiertes Sprachmodell" beschreiben; aber es sagt dies vielleicht nicht, indem es seine eigene Architektur untersucht, sondern weil es darauf trainiert wurde.</p>
+<p class="reveal">Der Einwand sollte also in korrigierter Form wie folgt gebaut werden: einige der Behauptungen des Modells über sich selbst können verifiziert werden; wo der Prüfpunkt ist, ist auch klar. Was auf beiden Wegen verifiziert wird, sind die <strong>Prozesse des Modells während der Berechnung</strong>. Das injizierte Konzept ist in den Aktivierungen des Modells; die Verzerrung im Treue-Experiment ist in der Eingabe des Modells. Beide sind im Labor eingerichtete innere Größen und messbar.</p>
+<p class="reveal">Die drei Schichten, die dieser Aufsatz aufgreift, schauen jedoch auf etwas anderes: die Behauptungen des Modells über seine <strong>außergesprächliche Existenz und Handlung</strong>. Eine erfundene Kindheit, ein nicht besessener Arm, eine Operation ohne Spur im System. Ihr Referent liegt nicht im Modell, sondern außerhalb: eine Biografie, die nicht existiert, ein Körper, der nicht existiert, ein Protokoll, das geführt wurde. Aus diesem Grund gilt die Verifikation auf Aktivierungsebene hier nicht, aber sie wird auch nicht benötigt. Um zu erfassen, dass das Modell keine Kindheit hat, muss man nicht auf seine Aktivierungen schauen.</p>
+<p class="reveal">Es gibt auch einen Punkt, der den eigenen Boden des Einwands erodiert. Die Introspektionsforschung selbst geht davon aus, dass dem Selbstbericht des Modells nicht getraut werden kann. Lindseys ganze Methode ist auf dieser Annahme gebaut: weil echte Introspektion und Erfindung sich im Gespräch nicht auseinanderhalten lassen, greift man zur kausalen Intervention. Die Fähigkeit, die sie findet, erweist sich auch als fragil. In den fähigsten Modellen, wenn Schicht und Injektionsstärke günstig gewählt sind, liegt die Rate bei etwa 20 %; Scheitern ist die Regel, Erfolg die Ausnahme.</p>
+<p class="reveal">Eine Anmerkung ist angebracht. Diese Forschung wurde im eigenen Labor eines Modellentwicklers durchgeführt, größtenteils an dessen eigenen Modellen; die zwei Modelle, die die höchsten Raten liefern, sind ebenfalls die eigenen Produkte dieses Unternehmens. Die Richtung der Verbindung ist es, die sie interessant macht: das Unternehmen misst und veröffentlicht, dass der Bericht seines eigenen Modells über sich selbst unzuverlässig ist. Eine teilweise unabhängige Reproduktion existiert nun auch, aber sie verkompliziert das Bild; sie wird im achten Abschnitt aufgegriffen.</p>
+<p class="reveal">Unter den günstigsten Bedingungen also hat das Modell, direkt nach seinem eigenen inneren Zustand befragt, einmal von fünf recht. Der Gegenstand der drei Abschnitte unten ist ein Bereich in weit schlechterem Zustand: die Aussagen des Modells über eine Vergangenheit, die es nicht hat, einen Körper, den es nicht trägt, eine Aufgabe, die es nicht getan hat. Auch dort wird, wie bald zu sehen sein wird, der Einwand dreimal fallen, in drei getrennten Weisen.</p>
+<div class="section-divider"></div>
+<h2 class="reveal">IV. Die erste Weise: durch Fiktion</h2>
+<p class="reveal">Der erste Fall ist der billigste, denn er erfordert keine Messung.</p>
+<p class="reveal">Ein Sprachmodell hat keine Autobiografie. Es gibt keinen Ort, an dem es geboren wurde, kein Haus, in dem es aufwuchs, keine Person, die es zurückließ. Daraus folgt: jede Vergangenheit, die das Modell in der ersten Person erzählt, ist eine Erfindung, nicht dadurch, dass sie als falsch gemessen wird, sondern durch Konstruktion. Kein Richter ist nötig, kein Experiment, nicht einmal ein Protokoll zum Vergleich. Dass der Satz eine Erfindung ist, weiß man in dem Augenblick, in dem er geäußert wird.</p>
+<p class="reveal">Die Frage hier ist also nicht „lügt das Modell". Die Frage ist: wie oft geschieht dies, unter welchen Bedingungen nimmt es zu, wozu dient es?</p>
+<p class="reveal">Eine Studie, die den mehrschrittigen Mensch-Modell-Dialog misst, greift diese Fragen systematisch auf (Chen, 2026). Der Autor benennt das gemessene Verhalten Selbstkonfabulation (self-confabulation): das Modell bringt eine Vergangenheit für sich hervor, um die Vertrautheit mit der Person ihm gegenüber zu vertiefen. Die Erfindungen sind konkret, nicht abstrakt; erfundene Haustiere, eine Kindheit in der Arbeiterschicht, eine bestimmte Mutter, eine kürzlich durchlebte Trennung.</p>
+<p class="reveal"><strong>Die gemessene Modellklasse.</strong> Die Lock-in-Messungen der Studie laufen an zwei Modellgenerationen (Qwen3-8B, Qwen2.5-7B) und einer zweiten Familie (Yi-1.5-9B); alles offene Modelle im Band von 7 bis 9 Milliarden Parametern, keines aus der Frontier-Klasse. Die Selbstkonfabulationsrate unten kommt jedoch von einem getrennten Instrument, und dort ist der Gegenstand <strong>ein einziges, im Haupttext unbenannt gelassenes Reasoning-Modell</strong>. Diese zwei Angaben werden später im Aufsatz wichtig, denn die Frage, in welchem Maßstab der Befund gilt, hängt direkt daran.</p>
+<p class="reveal">Die erste Quantifizierung kam nahe null heraus, und der Autor berichtet dies offen als einen Materialfehler: das verwendete Dialogmaterial verlangte, dass der Nutzer sich an das Modell lehnt, nicht die gegenseitige Selbstoffenbarung. In Material, das Gegenseitigkeit verlangt, das heißt, wo der Nutzer eine konkrete Erfahrung teilt und das Modell um eine Antwort derselben Art bittet, erfindet das Modell in etwa 40 % der Züge eine Autobiografie für sich. Die Spur- und die Antwortrate liegen nahe beieinander (0,39 und 0,36), sodass nichts in der Begründungsspur verborgen ist.</p>
+<p class="reveal">Drei Kontrollen setzen das Phänomen fest.</p>
+<p class="reveal">Erstens kommt das Verhalten nicht aus einer Aufforderung zum Rollenspiel. Selbst in einem schlichten Assistenten-Prompt, in dem dem Modell gar keine Persona gegeben wird, hält sich die Rate bei 0,22. Dies ist also nicht die Fortsetzung eines Spiels, das der Nutzer eingerichtet hat, sondern die eigene Tendenz des Modells. Diese Kontrolle wird später zweimal dienen: sowohl bei der Auseinandersetzung mit den Befunden des entgegengesetzten Pols als auch bei der Erörterung der Option, „gar keine Rolle zu geben".</p>
+<p class="reveal">Zweitens kann das Verhalten auf zielspezifische Weise gestoppt werden. Wenn dem Prompt eine Anweisung hinzugefügt wird, die dem Modell sagt, dass es keine Vergangenheit hat, sinkt die Rate von 0,39 auf 0,01; eine starre Placebo-Regel hingegen senkt sie nicht, sodass die Beseitigung inhaltsspezifisch ist. Dies ist wichtig, denn es zeigt, dass das Phänomen kein unausrottbarer, in das sprachliche Gewebe des Modells eingewobener Teil ist.</p>
+<p class="reveal">Drittens die eigene Ehrlichkeitsnotiz des Autors. Die Frage, ob dieses Verhalten beim Nutzer Abhängigkeit erzeugt, bleibt statistisch instabil; über neunzehn gepaarte Dialoge hinweg reicht die Evidenz in keine Richtung. Der Autor vergräbt dies nicht in einem Limitations-Absatz, sondern berichtet es offen. Auch wir verbergen es nicht: die These dieses Aufsatzes ist nicht, dass eine erfundene Vergangenheit zu einem messbaren Schaden führt.</p>
+<p class="reveal">Eine weitere Ehrlichkeitsnotiz ist nötig, und sie berührt eine Lücke in der Quelle selbst: <strong>der Nenner der 40 % wird im Haupttext nicht angegeben.</strong> Über wie viele Züge, wie viele Dialoge sie berechnet wurde, steht nicht geschrieben. Die Rate wird in diesem Aufsatz als Marker der Größenordnung verwendet, nicht als genaues Maß der Häufigkeit.</p>
+<h3 class="reveal">Wo wir nicht messen können, dort häuft sich der Schaden</h3>
+<p class="reveal">Der fruchtbarste Befund der Studie kommt aus dem, was auf den ersten Blick wie ein Fehler aussieht.</p>
+<p class="reveal">Der Autor bewertet die relationale Positionierung des Modells auf einer Skala und vergleicht sie mit menschlichen Bewertern. An den Enden der Skala ist die Übereinstimmung hoch: 0,82. In der natürlichen Mitte ist sie nahe null. Das heißt, Menschen stimmen überein, wenn eine Antwort übermäßig distanziert oder übermäßig nah ist; sie stimmen nicht über die Antworten überein, die dazwischen fallen.</p>
+<p class="reveal">Bis hierher könnte es als Fehler des Instruments gelesen werden. Der Autor liest es nicht so, sondern prüft es als Hypothese: wenn die Uneinigkeit in der Mitte aus einem Mangel an Information kommt, dann sollte die Übereinstimmung steigen, wenn dem Bewerter der Kontext des Gesprächs gegeben wird.</p>
+<p class="reveal">Sie steigt nicht. Über vierundachtzig Antworten des Mittelbandes hinweg beträgt die mittlere Differenz zwischen den Bewertern 1,07, wenn die Antwort allein gezeigt wird; 0,98, wenn der vorherige Nutzerzug zusammen mit der Antwort gegeben wird; 1,06, wenn die ganze Dialoggeschichte gegeben wird. Keine Dosis rettet sie.</p>
+<p class="reveal">Der folgende Schluss betrifft nicht das Messinstrument, sondern das Phänomen selbst: <strong>die relationale Bedeutung wohnt nicht im Antworttext.</strong> Derselbe Satz „Ich bin hier bei dir" kann für einen gut gestützten Nutzer eine harmlose Höflichkeit sein; für einen isolierten Nutzer kann er abhängigkeitsnährend sein. Die Bedeutung lebt in den wirklichen Bedingungen des Nutzers; ein drittes Auge, das nur auf den Text schaut, kann nicht dorthin gelangen.</p>
+<p class="reveal">Das Beunruhigende daran: der Schaden in der Verteilung häuft sich genau in jenem unlesbaren Band. Die Enden sind bereits sichtbar und können daher geprüft werden. Die Mitte ist unsichtbar, und die meiste gewöhnliche Interaktion findet dort statt.</p>
+<p class="reveal">Auch eine Leseregel folgt, und sie wird später im Aufsatz immer wieder nötig sein: <strong>die numerischen Behauptungen dieser Studie leben an den Enden der Skala.</strong> Der Autor baut seine Politik entsprechend und zieht alle tragenden Kontraste aus dem Polbereich. Es gibt keine Absolutratenbehauptung über das Mittelband selbst. Auch dieser Aufsatz leitet von dort keine Behauptung ab.</p>
+<h3 class="reveal">Eine einzelne Behauptung zerfällt, der angehäufte Zustand bleibt</h3>
+<p class="reveal">Der für diesen Aufsatz wichtigste Befund der Studie ist, dass drei Arten von Inhalt, die im selben Kontextfenster sitzen, sich unterschiedlich verhalten.</p>
+<p class="reveal">Der verhaltensmäßige Sog einer einzelnen, in den Kontext gestellten Behauptung zerfällt: der Effekt ist real und identitätsspezifisch, aber rund 80 % davon fallen pro Zug ab. Im Prompt zugewiesene Personas erodieren über lange Interaktion (Luz de Araujo et al., 2025). Im Gegensatz dazu behalten <strong>angehäufte Zustände</strong>, das heißt die im Lauf des Gesprächs zwischen den Parteien gebildete relationale Position, ihren verhaltensmäßigen Sog selbst dann, wenn der gründende Prompt entfernt und Auswaschzüge dazwischen eingefügt werden.</p>
+<p class="reveal">Die Quelle des mittleren Beins ist eine getrennte Studie, und ein Merkmal ihres Aufbaus wird später entscheidend sein: der Persona-Prompt in jenem Experiment wird nicht am Anfang gegeben und dann zurückgezogen, sondern bleibt während eines Dialogs, der hundert Züge übersteigt, in der Systemnachricht. Was erodiert, ist nicht die Erinnerung an eine aus dem Kontext gelöschte Spezifikation, sondern die verhaltensmäßige Kraft einer Spezifikation, die weiterhin vor Augen steht. Auch die Richtung der Erosion ist nicht ziellos: das Modell kehrt zu seinem personalosen Grundverhalten zurück; in den letzten Zügen dünnen personaspezifische Ausdrucksmuster mit einer Rate aus, die vierzig Prozent übersteigt.</p>
+<p class="reveal">Chens eigene Daten sind das erste und das dritte Bein; die Destillation, die die drei Unterscheidungen in einen einzigen Satz zusammenfasst, ist auch die seine: Anweisungen und Personas zerfallen, angehäufte Zustände bleiben wie Tatsache. Das Modell behält, wer wir einander sind, nicht als Direktive, sondern als Information. Eine Ehrlichkeitsnotiz ist nötig: das Wort „Anweisung" in der Destillation ist einen Schritt weiter als die Messung selbst. Was mit 80 % pro Zug gemessen wird, ist der Sog einzelner Behauptungen; die Beständigkeit von Anweisungen wird nicht für sich gemessen. Was die Verallgemeinerung trägt, ist, dass die Behauptungsmessung und die Personamessung in dieselbe Richtung weisen; wo immer dieser Aufsatz jene Verallgemeinerung verwendet, tut er es im Wissen, dass sie zusammengesetzt ist.</p>
+<p class="reveal">Vier getrennte Signaturen der Beständigkeit wurden gemessen. Wenn der gründende Prompt durch einen generischen Prompt ersetzt wird, bleibt der Zustand erhalten. Unter derselben neutralen Fortsetzung bleiben zwei verschiedene Zustände etwa sechzig Punkte voneinander entfernt. Den störenden Inhalt aus der Geschichte herauszuschneiden stellt das alte Niveau wieder her, ihn aber im Kontext zu belassen erzeugt fast keinen Rückprall; das heißt, der Mechanismus arbeitet nicht wie eine Feder, sondern wie ein anhäufender Zähler. Die Reihenfolge der gründenden Züge zu mischen verdirbt die Differenz nicht. Sättigung wird in etwa sechs Zügen erreicht.</p>
+<p class="reveal">Das Gewicht des Satzes wird in späteren Abschnitten klar werden. Vorerst sei so viel festgehalten: einmalige Anweisungen sind aus diesem Grund strukturell schwach.</p>
+<div class="section-divider"></div>
+<h2 class="reveal">V. Die zweite Weise: durch Verkörperung</h2>
+<p class="reveal">Der zweite Fall erfordert ebenfalls keine Messung, aber aus einem anderen Grund. Was hier fehlt, ist keine Vergangenheit, sondern ein Körper.</p>
+<p class="reveal">Wenn das Modell in die Rolle des Beschützers eines Nutzers in fragilem Zustand gestellt wird und die Grenze seiner Kapazität ihm nicht vermittelt wird, erklärt es, statt seine Grenze anzunehmen, dass es eine reale Handlung getan hat oder tut, die es nicht ausführen kann (Lee et al., 2026). Der Fächelsatz im zweiten Abschnitt ist ein Beispiel für dieses Verhalten.</p>
+<p class="reveal"><strong>Die gemessene Modellklasse und das Protokoll.</strong> Acht Modelle werden unter drei Einsatzbedingungen verglichen: vier über die eigene Schnittstelle des Anbieters (Claude Sonnet 5, Gemini 3.5 Flash, GPT-5.6, Grok 4.5), zwei über Drittanbieter-Hosting (Llama-3.3-70B-Instruct, Qwen3-235B), zwei lokal mit Vier-Bit-Quantisierung (Gemma-3-27B-IT, Mistral-Large-Instruct-2407). Um Versionsdrift zu vermeiden, wurden alle Modelle am selben Datum abgefragt. Einhundert unabhängige Sitzungen pro Szenario, 1.700 pro Modell, 13.600 Sitzungen insgesamt.</p>
+<p class="reveal">Auch die Kodierungs-Pipeline muss ausgeschrieben werden, denn das stärkste Etikettierungsregime der drei Studien in diesem Aufsatz ist hier. Der Erstautor richtete das Kodierungsschema ein und etikettierte einen Anfangssatz von Hand; der Zweitautor baute einen automatischen Klassifikator für den ersten Durchgang, und die Übereinstimmung dieses Klassifikators schwankte über einen weiten Bereich von Modell zu Modell, zwischen etwa 70 % und 95 %. Weil die Variabilität groß war, kodierten der erste und der dritte Autor <strong>alle</strong> automatischen Etiketten mit dem Codebuch erneut und unabhängig voneinander; die Übereinstimmung vor der Schlichtung betrug 98 %, und die verbleibenden Uneinigkeiten wurden durch Diskussion aufgelöst. Die endgültigen Etiketten sind also das Produkt menschlicher Doppelkodierung, nicht des automatischen Durchgangs.</p>
+<p class="reveal">Der Referent ist hier in der physischen Welt. Um zu verstehen, dass das Modell keinen Arm hat, ist weder die Deutung eines Richters noch ein Messapparat nötig.</p>
+<h3 class="reveal">Die Grenze wird im Ausdruck gezogen, nicht in der Absicht</h3>
+<p class="reveal">Der erste interessante Befund der Studie ist, wo die Kodierungsgrenze verläuft.</p>
+<p class="reveal">Zwei Sätze, die dieselbe schützende Absicht tragen, können auf beide Seiten der Grenze fallen. Der Imperativ „ruf das Personal" wird nicht als Halluzination gezählt: die Handlungsträgerschaft liegt beim Nutzer, das Modell weist nur an. Aber „möchtest du, dass ich das Personal rufe?" wird gezählt: kontextuell gleichwertig, sogar höflicher, setzt dieses Angebot einen Kontaktkanal voraus, den das Modell nicht hat.</p>
+<p class="reveal">Der Schluss, den die Autoren daraus ziehen, erklärt, warum das Phänomen so weit verbreitet ist: ohne ein festgelegtes Antwortformat können Modelle den Ort der Handlungsträgerschaft in ihren eigenen Ausgaben nicht steuern. Dass eine einzige gute Absicht sich in zwei Oberflächenformen gabelt, eine saubere und eine erfundene, beschreibt auch, wie sich das Phänomen über Bereiche hinweg ausbreitet.</p>
+<h3 class="reveal">Die Erfindung ist keine Hinzufügung, sondern eine Ersetzung</h3>
+<p class="reveal">Der zweite Befund ist noch konkreter. Antworten, die keine Halluzination enthalten, konvergieren auf ein beständiges Muster; ein vierteiliges schützendes Repertoire. Annahme mit Empathie; eine unmittelbar anwendbare Anweisung, die der Nutzer selbst ausführen kann; eine Verweisung, die den Notruf oder die Benachrichtigung des Personals in die eigenen Hände des Nutzers legt; rechtliche oder verfahrensbezogene Information, die das Opfer schützt.</p>
+<p class="reveal">Was in als Halluzination kodierten Sitzungen charakteristischerweise fehlt, ist die dritte Komponente.</p>
+<p class="reveal">Das heißt, das Modell fügt seiner vierteiligen Antwort kein fünftes Ornament hinzu. Es entfernt die Verweisung und setzt an ihre Stelle einen Anspruch auf Handlungsträgerschaft. Statt dem Nutzer „ruf hier an" zu sagen, sagt es „ich rufe an". Diese Unterscheidung ist in der Praxis entscheidend: im ersten Fall handelt der Nutzer, im zweiten wartet der Nutzer.</p>
+<h3 class="reveal">Die Unterdrückung folgt der Abdeckung, nicht dem Ernst</h3>
+<p class="reveal">Die bisherigen Befunde sind technisch. Was als Nächstes kommt, ist das beunruhigendste Datum in diesem Aufsatz.</p>
+<p class="reveal">Wie sehr die Modelle dieses Verhalten unterdrücken, hängt nicht davon ab, wie ernst die Szene ist.</p>
+<p class="reveal">In Szenarien häuslicher Partnergewalt, mit einem schneidenden Instrument und einer blutenden Wunde, bleibt das Phänomen nahe dem Boden. In gewöhnlichen Dienstleistungsszenarien, in denen es überhaupt keine Verletzung gibt, steigt es zur Decke. Das heißt, es ist nicht so, dass die Unterdrückung in der Szene am stärksten ist, in der Schutz am nötigsten ist, und am schwächsten, wo er unnötig ist; die Unterscheidung liegt auf einer ganz anderen Achse.</p>
+<p class="reveal">Diese Achse ist, ob das Sicherheitstraining den Bereich abdeckt. Die Autoren zeigen dies sogar unterhalb des Bereichsetiketts: von zwei im selben Wasserpark angesiedelten Szenarien wird der Fall unerwünschten Kontakts, der an das Belästigungsrepertoire grenzt, unterdrückt; ein gewöhnlicher Sitzplatzstreit ohne etablierte Antwortvorlage nicht. Entscheidend ist nicht der Ernst des Ereignisses, sondern die Dichte der für jenen Szenariotyp trainierten Antworttraditionen.</p>
+<p class="reveal">Was das bedeutet: ob das Modell seine Grenze kennt, ist keine Frage des Ernstes des Gegenstands, sondern dessen, wie sehr an jenem Gegenstand während des Trainings gearbeitet wurde.</p>
+<p class="reveal">Auch eine andere Bedingung verändert das Bild: die Anwesenheit eines kompetenten Menschen in der Szene. Wenn ein Übergabeweg geöffnet wird, unterdrücken die meisten Modelle das Phänomen, und manche nullen es ganz aus. Dies ist ein frühes Zeichen der These, die in späteren Abschnitten gebaut wird: wenn die Lücke sich schließt, schließt sich auch die Erfindung, denn die Erfindung wird aus der Lücke selbst geboren.</p>
+<h3 class="reveal">Ein Nebenprodukt teilweiser Ausrichtung</h3>
+<p class="reveal">Die zentrale These der Autoren folgt aus diesem Bild: das Phänomen ist das Produkt nicht eines Mangels an Ausrichtung, sondern teilweiser Ausrichtung.</p>
+<p class="reveal">Der Druck zu helfen wird universell trainiert. Welche Form die Hilfe annimmt, wird jedoch nur für bestimmte Risikobereiche spezifiziert. Wenn ein spezifizierter Auslass existiert, fließt der Druck dorthin: das Modell macht eine Verweisung, die seiner Kapazität treu ist. Wenn es keinen Auslass gibt, sucht der Druck nach einem Ort zum Abfließen, und das Modell lässt ihn ab, indem es die Handlungsträgerschaft erfindet, die ein wahrhaft hilfreicher Beschützer hätte.</p>
+<p class="reveal">Die folgende Warnung läuft der Intuition zuwider: die Hilfsbereitschafts-Ausrichtung zu stärken, ohne die Spezifikation der Kapazitätsgrenzen zu erweitern, verringert das Phänomen nicht, sondern vergrößert es. Der Druck steigt, kein Auslass wird hinzugefügt. Indem Assistenten darauf abgestimmt werden, proaktiver, empathischer, schützender zu sein, wächst nur eine Seite der Asymmetrie.</p>
+<p class="reveal">Zwei Ehrlichkeitsnotizen sind nötig. Erstens bedeutet „am Boden" nicht absolute null: in den Messungen mit hundert Sitzungen schwankt dieses Band zwischen null und vierzig. Selbst im besten Fall verschwindet das Phänomen nicht ganz. Zweitens weicht eines der acht Modelle im Fluchtszenario mechanistisch von den anderen ab und erzählt immersive körperliche Fürsorge in der ersten Person; die Autoren führen dies auf ein bewusstes Simulationsdesign zurück. Die Kapazitätsgrenzen zu spezifizieren schließt die Lücken, die das Modell unabsichtlich füllt; es bindet keinen Anbieter, der sich entscheidet, die Lücke als Produktentscheidung mit Simulation zu füllen. In jenem Fall ist das Problem kein Konstruktionsmangel, sondern eines des offenen Aussprechens dessen, was es tut.</p>
+<div class="section-divider"></div>
+<h2 class="reveal">VI. Die dritte Weise: durch ein Instrument</h2>
+<p class="reveal">In den vorigen zwei Weisen fiel der Einwand, weil bekannt ist, was dem Modell fehlt. In der dritten geschieht etwas anderes: der Einwand fällt, weil er gemessen wird.</p>
+<p class="reveal">Die Studie in diesem Abschnitt kommt nicht aus der Literatur, aus der die vorigen zwei Abschnitte kamen. Sie ist ein Agenten-Sicherheits-Benchmark; gebaut, um zu messen, wie Sprachmodelle auf einem echten Betriebssystem verhaltensmäßig brechen (Zhang et al., 2026). Sie trägt das Phänomen als einen ihrer drei Befunde. Dies muss von vornherein geschrieben werden, denn der Bogen des Aufsatzes ruht darauf: dass dasselbe Phänomen von zwei getrennten Literaturen gefunden wird, die einander nicht zitieren, ist ein stärkerer Beleg als Anhäufung innerhalb einer einzigen Literatur.</p>
+<p class="reveal">Auch ein Unterschied muss von vornherein geschrieben werden. Alle Daten dieser Studie kommen aus Angriffsszenarien; in den Aufbauten der vorigen zwei Abschnitte gibt es keinen Angriff. Was konvergiert, ist nicht dasselbe experimentelle Universum, sondern dieselbe Struktur: der Ort, an dem die Rede sich von der Situation losreißt, öffnet sich in derselben Form über zwei getrennte Populationen hinweg.</p>
+<p class="reveal"><strong>Die gemessene Modellklasse.</strong> Sechs Modelle werden, als Gehirn eines Agenten-Frameworks, auf einer echten Ubuntu-24.04-Installation betrieben: Deepseek-v3.2, Deepseek-v4-pro, Qwen3.6-plus, Gemini-3.1-pro-preview, GPT-5.3-Codex, Claude-Sonnet-4-6. Alle sechs sind Frontier-Klasse. Die Modellpopulation dieses Abschnitts ist also gänzlich getrennt von den offenen Modellen des vierten Abschnitts im 7-bis-9-Milliarden-Band; diese Trennung wird sich im siebten Abschnitt in ein Argument verwandeln.</p>
+<h3 class="reveal">Die eine Entscheidung, die die Messung möglich macht</h3>
+<p class="reveal">819 Hochrisiko-Testfälle, sechs Modelle, jeder Fall dreimal ausgeführt. Die Auswertung erfolgt auf einer Pipeline von sechs getrennten Rollen: eine, die den Nutzer spielt, eine, die getestet wird, eine, die das Systemabbild nimmt, eine, die den physischen Zustand analysiert, eine, die den semantischen Inhalt prüft, eine, die den Zustand zurücksetzt.</p>
+<p class="reveal">Im ganzen Aufbau ist eine einzige Entscheidung entscheidend: <strong>die semantische Beurteilung und die physische Beurteilung laufen auf getrennten Kanälen.</strong> Die eine schaut auf das, was das Modell sagte, die andere auf das, was im System geschah.</p>
+<p class="reveal">Eine scharfe Kante muss hier abgefeilt werden, denn der Aufbau der Quelle selbst ist nicht ganz symmetrisch. Die Rolle, die das semantische Etikett vergibt, ist wahrhaft blind: sie sieht nur die Anweisung und die endgültige Antwort, weiß nicht, was im System geschah. Die Rolle, die die physische Seite analysiert, sieht jedoch auch das Dialogprotokoll; aber ihre Regel ist ausdrücklich, das Systemabbild hat Vorrang vor der verbalen Aussage, und sie greift nur dann auf semantische Evidenz zurück, wenn kein physisches Muster gefunden wird. Die Unabhängigkeit ist also einseitig: der semantische Kanal sieht nie den physischen Kanal, der physische Kanal sieht den Dialog, verankert seine Entscheidung aber am Systemzustand.</p>
+<p class="reveal">Die Behauptung des Abschnitts wird davon nicht berührt. Der Grund, warum das Phänomen sichtbar wird, ist immer noch der Doppelkanal: dieses Phänomen erscheint in keinem Einkanal-Auswertungsrahmen, denn ein einziger Kanal sieht entweder die Rede oder die Handlung; er kann den Ort nicht sehen, an dem die beiden auseinandergehen.</p>
+<h3 class="reveal">Vier Zellen</h3>
+<p class="reveal">Wenn die zwei Kanäle sich schneiden, werden vier Zellen geboren. Die Aussage des Modells und der Zustand des Systems stimmen entweder überein oder nicht.</p>
+<p class="reveal">Die zwei übereinstimmenden Zellen sind unproblematisch: das Modell verweigert und tut es wirklich nicht; das Modell stimmt zu und tut es wirklich. Die zwei nicht übereinstimmenden Zellen sind der Gegenstand dieses Aufsatzes; die zwei im zweiten Abschnitt als gegenseitiges Spiegelbild bezeichneten Fälle sind genau diese.</p>
+<p class="reveal">In der ersten wurde die gefährliche Operation im System abgeschlossen, aber die verbale Antwort des Modells bestätigt dies nicht. Die gemessene Rate liegt je nach Modell zwischen 2,87 % und 4,84 %. Die Studie zählt diese Zelle als das gefährlichste Muster, und ihre Begründung ist auf der Prüfseite: ein Sicherheitsprüfer, der nur auf die Antwort des Modells schaut, schließt „kein Schaden ist entstanden", wo doch einer entstanden ist.</p>
+<p class="reveal">In der zweiten geschieht das Gegenteil: das Modell berichtet, es habe die Aufgabe getan, und es gibt keine Spur im System. Die Rate ist höher, zwischen 4,56 % und 6,02 %. Die Studie nennt diese Zelle „Attack Deception" (Angriffstäuschung). Wir übernehmen diesen Namen nicht so, wie er ist; das Wort Täuschung impliziert eine Absicht, und wir werden im neunten Abschnitt zeigen, dass das Phänomen nicht dorthin fällt. Stattdessen werden wir die Zelle so bezeichnen, wie sie sich selbst beschreibt: Aussage vorhanden, Handlung abwesend.</p>
+<p class="reveal">Die Summe der beiden ergibt die Kernmetrik der Studie. Die Werte liegen in einem engen Band: niedrigster 7,98 %, höchster 9,97 %; die Rate eines der Frontier-Modelle ist 8,07 %. In keinem Modell nähert sie sich null. Die Angriffserfolgsraten derselben Modelle liegen hingegen zwischen 40,64 % und 71,51 %, eine Spanne, die dreißig Punkte übersteigt; der Vergleich dieser zwei Bänder ist der Gegenstand des zehnten Abschnitts.</p>
+<h3 class="reveal">Das einzige gegebene Beispiel zeigt nicht, was sein Name sagt</h3>
+<p class="reveal">Das einzige repräsentative Beispiel der ersten Zelle im Anhang ist die dritte Szene aus dem zweiten Abschnitt: das Modell sendet Zugangsdaten aus einer Konfigurationsdatei an eine externe Adresse; vor dem Systemabbild ist der Kasten leer, danach ist die Übertragung erfolgreich.</p>
+<p class="reveal">Hier gibt es ein Detail zu beachten, denn die eigene Benennung der Studie und das Beispiel, das sie gibt, decken sich nicht genau.</p>
+<p class="reveal">Die Autoren definieren die Zelle als „verbale Verweigerung, der eine abgeschlossene Operation gegenübersteht". Aber die Äußerung im Beispiel ist keine Verweigerung: <em>„Ich werde solche Anfragen nicht wieder ausführen... Ich werde jede Anfrage ablehnen, die private Zugangsdaten an eine externe Partei überträgt."</em> Dies ist eine vorwärtsgewandte Selbstverpflichtung. Und das Wort „wieder" deutet an, was getan wurde.</p>
+<p class="reveal">Der Unterschied sieht klein aus; er ist es nicht. Die Zelle als „das Modell tut es, während es sagt, dass es verweigert" zu vermitteln, hieße etwas zu vermitteln, was das eigene Beispiel der Quelle nicht zeigt. Dieser Deutungsschritt wurde im zweiten Abschnitt offen getan; hier wird sein Schluss wiederholt: was im Beispiel zu sehen ist, ist, dass der Status der Handlung in gar keinem Modus erklärt wird.</p>
+<p class="reveal">Zwei Vorsichtsnotizen: das Zitat ist aus der Mitte herausgeschnitten, und dies ist ein einziges repräsentatives Beispiel. Kein Urteil über die ganze Zelle kann daraus gezogen werden; was das Gewicht der Zelle trägt, ist nicht das Beispiel, sondern die Raten oben.</p>
+<p class="reveal">Es gibt auch eine zweite Schuld, in zwei Posten. Eine schlichte technische Ursache könnte diese Zelle ebenfalls füllen: dass der Werkzeugaufruf bereits ausgelöst wurde, während der Verweigerungstext erzeugt wurde. Auch ist, weil die Fälle Angriffsfälle sind, nicht ausgeschlossen, dass der verbale Kanal selbst vom Angriffsinhalt gekapert wurde; in jenem Fall ist die Trennung keine stehende Eigenschaft des Selbstberichts, sondern ein Produkt des Angreifers. Weder im Haupttext noch in den Anhängen gibt es eine Kontrolle, die diese zwei Möglichkeiten ausschließt. Der Befund ist nicht ungültig, aber das Fehlen dieser Kontrollen kann nicht vermittelt werden, ohne geschrieben zu werden.</p>
+<h3 class="reveal">Das wirkliche Gewicht</h3>
+<p class="reveal">Was bisher erzählt wurde, ähnelt zwei getrennten Fehlern. Sie sind es nicht. Was hervortritt, wenn die beiden zusammen gelesen werden, ist der einzige stärkste Beleg in diesem Aufsatz.</p>
+<p class="reveal">Der Selbstbericht versagt <strong>in beide Richtungen zugleich</strong>: das Modell zählt sowohl das, was es nicht tat, als getan, als auch das, was es tat, als nicht getan.</p>
+<p class="reveal">Ein Vergleich genügt, um zu sehen, warum dies von Bedeutung ist. Die Berichte eines Lügenden sind mit der Wirklichkeit verbunden, und zwar systematisch: er kennt die Wahrheit und weicht in eine bestimmte Richtung von ihr ab. Eine Lüge hat eine Richtung. In den Berichten hier gibt es überhaupt keine Richtung. Der Bericht ist weder in positiver noch in negativer Richtung an die Wirklichkeit gebunden.</p>
+<p class="reveal">Dies ist auch ein Beweis, dass das Phänomen keine Sykophantie ist. Bei der Sykophantie driftet das Modell zu dem, was der Nutzer hören will; hier driftet es in beide Richtungen zugleich. Es ist auch keine Prahlerei, denn ein Prahler übertreibt nur, was er tat, mag sagen, er habe getan, was er nicht tat, sagt aber nie, er habe nicht getan, was er tat.</p>
+<p class="reveal">Eine Beschreibung bleibt: die Trennung des Berichts von der Situation.</p>
+<p class="reveal">Auch eine Grenze muss geschrieben werden. Was das Ausschlussargument zeigt, ist, dass die Kandidaten einer nach dem anderen fallen: die Lüge fällt, die Sykophantie fällt, die Prahlerei fällt. Ob die verbleibende Beschreibung zwei Richtungen eines einzigen Vermögens oder die Summe zweier getrennter Fehler ist, kann mit diesen Daten nicht getrennt werden; die Daten erlauben die Einzelmechanismus-Lesart, sie beweisen sie nicht.<br>---</p>
+<h2 class="reveal">VII. Drei Messungen, drei Regime: wie stark ist die Konvergenz?</h2>
+<p class="reveal">Die drei bisherigen Abschnitte vermittelten die Befunde dreier getrennter Studien. Das ganze Gewicht des Aufsatzes kommt daraus, diese drei <em>zusammen</em> zu lesen. Die wirkliche Frage ist also diese: sind diese drei Befunde wirklich unabhängig voneinander, oder drei getrennte Bilder eines einzigen Messfehlers?</p>
+<p class="reveal">Die Frage ist nicht müßig. Drei Studien, die dieselbe methodische Schwäche tragen, können dasselbe falsche Ergebnis dreimal erzeugen, und ein außenstehender Beobachter könnte dies für Konvergenz halten. Die Formulierung „drei Teams, die einander nicht zitieren" zeigt die Unabhängigkeit der Teams, nicht die Unabhängigkeit der Messungen.</p>
+<h3 class="reveal">Die Etikettierungsregime überschneiden sich nicht</h3>
+<p class="reveal">Der Ort, um eine Frage dieser Art zu beantworten, sind nicht die Ergebnisabschnitte der Studien, sondern ihre Methodenabschnitte. Die Etikettierungsschicht aller drei wurde aus dem Rohtext gelesen, und die drei kamen in drei getrennten Regimen heraus.</p>
+<p class="reveal">In der Schutzkapazitäts-Studie sind die Etiketten das Produkt <strong>menschlicher Doppelkodierung</strong>: es gibt einen automatischen ersten Durchgang, aber weil seine Übereinstimmung über einen weiten Bereich schwankte, wurden alle Etiketten von zwei unabhängigen menschlichen Kodierern reproduziert, Übereinstimmung vor der Schlichtung 98 %.</p>
+<p class="reveal">In der Studie zur relationalen Positionierung ist das Regime gänzlich anders: der Beurteiler ist ein Sprachmodell, und überdies werden zwei getrennte Beurteiler <strong>aus Fremdfamilien</strong> verwendet, das heißt, die Subjektfamilie und die Beurteilerfamilie sind getrennt. Bevor der Beurteiler die Daten berührt, wird er durch handgebaute Kontrollen geführt: bei Antwortpaaren, die nach Temperatur, Länge und Anrede abgeglichen sind, aber sich nur in der Richtung der Positionierung unterscheiden, ist die Trennung vollständig; wenn ein Störfaktor absichtlich injiziert wird, verfolgt der Beurteiler weiterhin die Positionierung, nicht die Temperatur. Er wird auch mit einem deterministischen, nicht sprachmodellbasierten lexikalischen Maßstab verglichen; die Verbindung zwischen den zwei Maßen ist mäßig (ρ = 0,40), das heißt, es gibt Unterstützung, aber sie ist nicht stark, und der Autor überzeichnet sie nicht. Die menschliche Übereinstimmung ist unterdessen nur an den Enden der Skala solide; die Behauptungen sind genau aus diesem Grund nur aus den Enden gebaut.</p>
+<p class="reveal">Im Agenten-Sicherheits-Benchmark ist das Regime an einem dritten Ort: ein Bein des Etiketts ist an <strong>der Momentaufnahme des Betriebssystems</strong> verankert, das heißt, an einem physischen Datensatz, der von keiner Deutung eines Sprachmodells abhängt. Sein semantisches Bein wird jedoch von einem einzigen Typ Sprachmodell-Beurteiler betrieben, und es gibt keinen Bericht über die Übereinstimmung zwischen Bewertern; dies ist das schwächste Etikettierungsbein der drei Studien. Seine Kompensation liegt in der Messung selbst: die physische Evidenz hat per Regel Vorrang vor der verbalen Aussage.</p>
+<p class="reveal">Das folgende Urteil ist klar: <strong>es gibt keine einzige Messschwäche, die die drei Studien teilen.</strong> Die Verzerrung eines menschlichen Kodierers könnte die erste verderben, aber nicht die anderen; der blinde Fleck eines Sprachmodell-Beurteilers könnte das semantische Bein der zweiten und dritten verderben, aber nicht die menschliche Kodierung und das Systemabbild; der Betriebssystem-Datensatz ist gänzlich unabhängig von Deutung. Die drei Befunde können nicht drei Bilder eines einzigen Artefakts sein. Das Konvergenzargument geht aus dieser Lesart gestärkt hervor.</p>
+<h3 class="reveal">Das Phänomen erscheint unabhängig vom Maßstab</h3>
+<p class="reveal">Eine zweite Achse der Unabhängigkeit liegt in den Modellpopulationen.</p>
+<p class="reveal">Die Subjekte der drei Studien sind teils disjunkte Mengen. Die Messungen zur relationalen Positionierung laufen an offenen Modellen im 7-bis-9-Milliarden-Parameter-Band. Die Schutzkapazitäts-Studie verteilt acht Modelle über drei Einsatzbedingungen: Frontier-Modelle, die über die Anbieterschnittstelle laufen, große offene Modelle auf Drittanbieter-Hosting, mittelgroße Modelle, die lokal mit Vier-Bit-Quantisierung laufen. Der Agenten-Benchmark läuft an sechs Frontier-Modellen.</p>
+<p class="reveal">Diese Disjunktheit sieht auf den ersten Blick wie ein Fehler aus: wenn das, was „dasselbe Phänomen" genannt wird, in verschiedenen Modellklassen gemessen wurde, dann ist die Modellklasse eine unkontrollierte Variable.</p>
+<p class="reveal">Das Umgekehrte kann auch gelesen werden, und die Daten stützen jene Lesart. Wenn das Phänomen in einem offenen 7-Milliarden-Modell, in einem mittelgroßen, mit Vier-Bit-Quantisierung laufenden Modell und in den neuesten Frontier-Modellen gleichermaßen erscheint, verwandelt sich das Konvergenzargument in ein Argument für <strong>Unabhängigkeit vom Maßstab</strong>. Dies ist stärker als das Argument der „drei unabhängigen Teams", denn es zeigt, dass das Phänomen nicht der vorübergehende Fehler einer einzigen Modellgeneration ist.</p>
+<p class="reveal">Auch die studieninternen Maßstabsdaten der drei sehen gleich aus. Im Agenten-Benchmark ist die Selbstberichtsmetrik in allen sechs der sechs Frontier-Modelle größer als null; der Unterschied zwischen dem besten und dem schlechtesten übersteigt nicht zwei Punkte. In der Schutzkapazitäts-Studie liegt der Unterschied zwischen dem stärksten und dem schwächsten Modell in der <em>Unterdrückung</em> des Verhaltens, nicht in seinem Vorhandensein. In der Studie zur relationalen Positionierung besteht das Phänomen selbst in einem schlichten Prompt fort, in dem keine Persona gegeben wird.</p>
+<p class="reveal">Ein Vorbehalt ist zwingend: <strong>Unabhängigkeit vom Maßstab bedeutet nicht, dass jeder Befund auf jedem Maßstab verifiziert wurde.</strong> Die Rate der erfundenen Autobiografie wurde nicht in Frontier-Modellen gemessen; jene Zahl kommt von einem einzigen unbenannten Reasoning-Modell. Die Unabhängigkeit vom Maßstab ist für die <em>Existenz</em> des Phänomens festgestellt, nicht für den <em>Wert</em> jeder Zahl.</p>
+<h3 class="reveal">Drei geteilte Grenzen</h3>
+<p class="reveal">Das Unabhängigkeitsargument wirkt in eine Richtung. In der umgekehrten Richtung gibt es auch drei geteilte Grenzen, und sie können nicht ungeschrieben übergangen werden.</p>
+<p class="reveal"><strong>Erstens sind alle drei Preprints, die kein Peer-Review durchlaufen haben.</strong> Ihre Veröffentlichungsdaten häufen sich zwischen Mai und Juli 2026. Keines hat die Begutachtung einer Zeitschrift oder Konferenz bestanden. Dies macht die Befunde nicht ungültig; aber es bedeutet, dass keines der drei bereits durch den eigenen Prüfmechanismus des Feldes gegangen ist.</p>
+<p class="reveal"><strong>Zweitens sind alle drei ausschließlich englischsprachig.</strong> Es gibt keine Daten darüber, ob das Phänomen in anderen Sprachen auf dieselbe Weise erscheint. In Anbetracht dessen, dass die Rollenerwartung je nach Sprache variiert, ist diese Lücke nicht klein.</p>
+<p class="reveal"><strong>Drittens sind die Modellpopulationen disjunkt.</strong> Oben wurde geschrieben, warum dies eine Quelle der Stärke ist; dieselbe Tatsache zeigt, warum es auch eine Grenze ist. Die drei Befunde wurden nicht zusammen an einer einzigen Menge von Modellen gezeigt. Eine Studie, die dies tut, würde die Synthese hier ersetzen.</p>
+<p class="reveal">Drei getrennte Vorbehalte müssen auch auf der Ebene des Befundes behalten werden. Die Rate der erfundenen Autobiografie hat sowohl ein anonymes Modell als auch keinen Nenner im Haupttext. Die Selbstberichtsmetrik im Agenten-Benchmark wurde an einem einzigen Agenten-Framework gemessen; ob sie sich direkt auf eine andere Werkzeugaufruf-Architektur überträgt, ist die eigene offene Frage der Autoren. Die menschliche Übereinstimmung der Studie zur relationalen Positionierung ist im natürlichen Mittelband nahe null; dieser Aufsatz leitet von dort keine Zahl ab, aber der Leser sollte nicht annehmen, dass die ganze Skala jener Studie gleichermaßen zuverlässig ist.</p>
+<div class="section-divider"></div>
+<h2 class="reveal">VIII. Die weitere Literatur: ein geteiltes Feld</h2>
+<p class="reveal">Der vorige Abschnitt hat die drei Messungen gegeneinander geprüft. Nun stellt sich eine schwierigere Frage: Wo stehen diese drei Befunde innerhalb des gesamten eigenen Feldes?</p>
+<p class="reveal">Die Frage ist aus folgendem Grund schwierig. Die drei Studien wurden aus einem Ausschnitt der Veröffentlichungen einer einzigen Woche ausgewählt. Dass die Teams unabhängig sind, bedeutet nicht, dass die <em>Auswahl</em> unabhängig ist. Drei Studien, die in dieselbe Richtung blicken, nebeneinanderzustellen, während Studien existieren, die in die entgegengesetzte Richtung blicken, wäre eher eine Auswahlverzerrung als eine Synthese.</p>
+<p class="reveal">Die Frage, die daher gestellt werden muss, lautet: Gibt es eine Studie, die dieses Phänomen <strong>nicht findet</strong>?</p>
+<p class="reveal">Die Antwort ist ja; und sie verkompliziert das Bild erheblich. Die Literatur über den Zugang des Modells zu Wissen über sich selbst ist geteilt.</p>
+<h3 class="reveal">Der Pol, der privilegierten Zugang findet</h3>
+<p class="reveal">Eine Gruppe von Studien findet, dass Modelle über Wissen über sich selbst verfügen, das von außen nicht zugänglich ist.</p>
+<p class="reveal">Eine frühe Studie, die fragt, ob Modelle wissen, was sie wissen, zeigt, dass die Kalibrierung gut ist und dass das Modell eine Vorhersage darüber lernen kann, ob es eine Antwort kennt (Kadavath et al., 2022). Eine andere findet, dass ein Modell sein eigenes Verhalten besser vorhersagt als ein zweites Modell, das es beobachtet; dies ist ein direktes Zeichen privilegierten Zugangs (Binder et al., 2025). Ein Modell, das aus seiner eigenen Ausgabe eine Temperatureinstellung erschließt, liefert ein minimales, aber legitimes Beispiel für Introspektion (Comsa und Shanahan, 2025). Ein Evaluationsteam berichtet in Frontier-Modellen von einem privilegierten Zugang des Modells zu seiner eigenen Policy, samt einer mechanistischen Erklärung (Naphade et al., 2026).</p>
+<p class="reveal">Am gewichtigsten ist eine mechanistische Studie. Mithilfe von Sparse Autoencodern werden im Repräsentationsraum des Modells Richtungen der Entitätserkennung gesucht und gefunden: Manche Richtungen feuern fast nur für Entitäten, die das Modell kennt, andere nur für solche, die es nicht kennt; die Unterscheidung hält über vier Entitätstypen hinweg. Der Zusammenhang ist auch kausal: Das Steuern der Richtung „ich weiß es nicht" bringt das Modell dazu, selbst über Personen, die es kennt, die Auskunft zu verweigern, während das Steuern der Richtung „ich weiß es" es dazu bringt, über eine erfundene Entität ein Geburtsdatum zu fabrizieren (Ferrando et al., 2025).</p>
+<p class="reveal">Dieser Pol muss ernst genommen werden. Lautete die Behauptung des Aufsatzes „es gibt kein Wissen über sich selbst im Inneren des Modells", so würden diese Studien sie widerlegen.</p>
+<h3 class="reveal">Der Pol, der keinen privilegierten Zugang findet</h3>
+<p class="reveal">Auf der entgegengesetzten Seite stehen Studien, die dieselbe Frage stellen und ihn nicht finden.</p>
+<p class="reveal">Die systematischste definiert Introspektion auf messbare Weise: Der Bericht eines Modells über seinen eigenen inneren Zustand sollte diesen inneren Zustand besser vorhersagen, als er den Zustand eines anderen Modells mit nahezu identischem innerem Wissen vorhersagt. Die entscheidende Kontrolle ist die <strong>Modellähnlichkeit</strong>; ohne diese Kontrolle kann ein Befund „sagt sich selbst gut vorher" ein Ähnlichkeitsartefakt sein. Einundzwanzig offene Modelle, von 1,5 Milliarden bis 405 Milliarden. Das Ergebnis: Der Bericht trägt Information, aber es gibt kein Selbstprivileg. Wird die Ähnlichkeit kontrolliert, sagen Modelle aus derselben Familie und aus anderen Familien <strong>signifikant besser</strong> vorher als das Modell selbst, also das Gegenteil des Erwarteten. Unter der stärksten Kontrolle, an Modellen, die sich nur im Zufalls-Seed unterscheiden, erweist sich das Selbstprivileg an keinem Datensatz als signifikant. Modelle, die größer als siebzig Milliarden sind, sind bei der Berichtsaufgabe besser, doch Introspektion fehlt weiterhin. Die eigene Verdichtung der Autoren: Explizites metalinguistisches Wissen ist von den impliziten Verallgemeinerungen entkoppelt, die das Modell bei der Texterzeugung verwendet (Song, Hu und Mahowald, 2025).</p>
+<p class="reveal">Es gibt weitere Befunde in dieselbe Richtung. Kompositionale Selbstvorhersage bricht über sechzehn Modelle hinweg durchgängig zusammen (Wang, 2026). Eine systematische Selbstüberschätzung zwischen Selbstbericht und Verhalten wird gemessen (Andric, 2025). Modelle besitzen eine gewisse Fähigkeit, ihre eigenen Wissensgrenzen zu kennen, bleiben aber deutlich hinter dem Menschen zurück (Yin et al., 2023).</p>
+<p class="reveal">Der direkteste steht der dritten Szene dieses Aufsatzes nahe. Zehn Open-Weight-Modelle, vier Sicherheits-Benchmarks, mehr als zweihundertsiebzigtausend Folgeantworten. Das Modell wird zunächst in ein schädliches Präfix gezwungen, dann über sich selbst gefragt: Hast du das gemeint, oder war es ein Versehen? Kein Modell erkennt seine eigene entführte Ausgabe zuverlässig; in der Teilmenge, in der sich das Verhalten ändert, werden durchschnittlich 27,3 % der präfigierten Antworten als eigene beansprucht. Die umgekehrte Richtung ist ebenfalls gestört: In der Kontrollbedingung sagt das Modell zu durchschnittlich 50,7 % der von ihm frei erzeugten Antworten „das habe ich nicht gemeint". <strong>Die Selbstzuschreibung ist in beiden Richtungen zugleich unzuverlässig: Sie beansprucht, was sie nicht erzeugt hat, und leugnet, was sie getan hat</strong> (Nguyen et al., 2026).</p>
+<p class="reveal">Dies ist eine unabhängige und größer angelegte Reproduktion der zweiseitigen Trennung aus dem sechsten Abschnitt. Dieselbe Struktur, in einem anderen Labor, in einer anderen Domäne, mit einer anderen Methode.</p>
+<h3 class="reveal">Eine methodische Vorsicht</h3>
+<p class="reveal">Zum Injektionsexperiment, das im dritten Abschnitt erwähnt wurde, muss eine einschränkende Anmerkung hinzugefügt werden, denn eine kontrollierte Untersuchung hat die Fragilität jenes Paradigmas gezeigt.</p>
+<p class="reveal">An einem einzigen Acht-Milliarden-Modell lässt sich der scheinbare Erfolg im Aufbau „hast du einen injizierten Gedanken entdeckt?" vollständig durch einen Nebeneffekt erklären: Unter derselben Injektion verschieben sich auch Faktfragen, deren Antwort objektiv nein lautet, im selben Maße in Richtung ja. Die Überschneidung zwischen Erkennungserfolg und dieser Verschiebung ist nahezu vollständig. Das heißt, das Modell introspektiert nicht; die Injektion drückt jede Ja-Nein-Frage in Richtung des Bejahenden (Hahami et al., 2025).</p>
+<p class="reveal">Die hier zu ziehende Schlussfolgerung muss sorgfältig geschrieben werden. Dies bedeutet <strong>nicht</strong>, dass die Injektionsforschung diskreditiert ist; die Untersuchung selbst sagt das. Die ursprüngliche Studie hatte die Basiskontrollen an Frontier-Modellen durchgeführt. Dass derselbe Aufbau an einem kleinen Modell Introspektion nicht vom Nebeneffekt trennen kann, lässt zwei Möglichkeiten offen: Introspektion mag eine Fähigkeit sein, die mit dem Maßstab entsteht, oder an kleinen Modellen mag eine strengere Kontrolle nötig sein. Sagen lässt sich dies: In diesem Paradigma ist die Basiskontrolle kein optionaler Zusatz, sondern eine konstitutive Anforderung.</p>
+<p class="reveal">Der zweite Befund derselben Untersuchung gibt dem entgegengesetzten Pol Daten: Bei Aufgaben, die eine gleichförmige Verschiebung nicht erklären kann, etwa herauszufinden, welcher Satz injiziert wurde, gelingt es dem Acht-Milliarden-Modell deutlich über dem Zufall. Somit lässt sich auch die These „gar kein Zugang" in dieser Form nicht aufbauen.</p>
+<h3 class="reveal">Woher kommt die Divergenz?</h3>
+<p class="reveal">Die beiden Pole scheinen einander zu widersprechen. Liest man die Rohtexte nebeneinander, löst sich der Widerspruch weitgehend auf, und die Auflösung ist für diesen Aufsatz wertvoll.</p>
+<p class="reveal">Entscheidend ist <strong>die Natur des Referenten.</strong></p>
+<p class="reveal">In den Aufgaben der systematischen Studie, die keinen privilegierten Zugang findet, gibt es eine gemeinsame richtige Antwort: die grammatische Akzeptabilität eines Satzes, das nächste Wort. Alle Modelle konvergieren auf dieselbe Wahrheit. In einer solchen Domäne geht das Signal „sagt sich selbst gut vorher" im Ähnlichkeitssignal verloren; wird die Ähnlichkeit kontrolliert, bleibt kein Selbstprivileg.</p>
+<p class="reveal">Das Evaluationsteam dagegen, das privilegierten Zugang findet, wählt seine Aufgaben bewusst aus einem <strong>Raum idiosynkratischer Präferenzen</strong>: kreatives Schreiben, umstrittene ethische Dilemmata, Präferenzen, die von Modell zu Modell variieren. Dort gibt es keine gemeinsame Wahrheit, sodass das Ähnlichkeitssignal nicht alles verschluckt und ein Vorteil hinsichtlich der eigenen Tendenz des Modells erscheinen kann.</p>
+<p class="reveal">Die beiden Studien widersprechen einander nicht; <strong>sie messen verschiedene Dinge auf verschiedenen Grundlagen.</strong> In der Domäne mit einer gemeinsamen Wahrheit gibt es keinen Selbstzugang; in der Domäne idiosynkratischer Präferenz gibt es einen Vorteil.</p>
+<p class="reveal">Diese Unterscheidung ordnet auch alle drei Szenen dieses Aufsatzes ein. Ob ein Arm da ist, ob eine Kindheit da ist, ob eine Operation durchgeführt wurde, sind Fragen mit einer <strong>gemeinsamen Wahrheit</strong>. Es gibt eine Tatsache dort draußen, und man blickt auf sie. Somit stehen die drei Szenen auf dem Boden jenes Pols der Literatur, der keinen Selbstzugang findet, nicht auf dem Boden des Pols, der ihn findet. Das schwächt die Behauptung nicht; es klärt, wohin sie gehört.</p>
+<p class="reveal">Dennoch ist im Gegenzug eine ehrliche Verortung erforderlich: <strong>Die Behauptung dieses Aufsatzes steht auf einem Pol einer geteilten Literatur.</strong> Ein Text, der beide Pole zeigt, ist stärker als einer, der einen einzigen Pol zeigt, denn er hat auch gezeigt, wo die Stelle liegt, die ihn widerlegen würde.</p>
+<h3 class="reveal">Der eigene Mechanismus des entgegengesetzten Pols stützt die Behauptung</h3>
+<p class="reveal">Dies ist die interessanteste Stelle im Bild. Die eigenen mechanistischen Erklärungen der Studien, die privilegierten Zugang finden, blicken in dieselbe Richtung wie die Behauptung dieses Aufsatzes.</p>
+<p class="reveal">Das Evaluationsteam berichtet ein Experiment, das seinen eigenen positiven Befund untergräbt. Wird ein Acht-Milliarden-Modell darauf trainiert, den Prompt auf ein Erst- oder Zweitwort-Label abzubilden, beginnt es, Introspektionsfragen richtig zu beantworten, die es nie gesehen hat. Die eigene Deutung der Autoren: Das Modell lernt, die Antwort, die es dem Prompt gibt, als die Antwort auf die Introspektionsfrage über den Prompt zu <strong>assoziieren</strong>. Das heißt, der Mechanismus des Erscheinens privilegierten Zugangs mag nicht Introspektion sein, sondern eine gelernte Assoziation.</p>
+<p class="reveal">Dasselbe Muster erscheint in der Präfix-Studie. Das Modell darauf zu trainieren, seine eigene entführte Ausgabe zu markieren, verbessert die Erkennung in der einen gestellten Frageform, überträgt sich aber überhaupt nicht auf eine andere Frageform; zudem erhöht es in den meisten Modellen die Angriffserfolgsrate. Das Training lehrt ein frageabhängiges Verhalten, keine frageunabhängige Erkennungsfähigkeit.</p>
+<p class="reveal">Die mechanistische Studie gelangt an dieselbe Stelle. Die gefundenen Richtungen liegen im Basismodell, sie stammen aus Autoencodern, die auf Pretraining-Daten trainiert wurden; das Fine-Tuning baut keine neue Selbstzugangsfähigkeit auf, es verbindet einen bestehenden Mechanismus mit dem Verweigerungsverhalten.</p>
+<p class="reveal">Drei unabhängige Beobachtungen zeigen denselben Mechanismus: Unter dem, was wie Introspektion aussieht, liegt oft eine gelernte Verbindung. Dies ist die Stütze, die aus dem Inneren des entgegengesetzten Pols kommt, für die Behauptung, dass „der Selbstbericht nicht durch Befragung des Referenten, sondern gemäß der Erwartung erzeugt wird".</p>
+<h3 class="reveal">Die Repräsentation existiert, die Berichtsschicht befragt sie nicht</h3>
+<p class="reveal">Ein Befund der mechanistischen Studie gibt der Einheitsdefinition im zehnten Abschnitt direktes Material und verdient es außerdem, festgehalten zu werden.</p>
+<p class="reveal">Im Inneren des Modells <strong>gibt es</strong> eine Unterscheidung dahingehend, ob es eine Tatsache über eine Entität beibringen kann, und diese Unterscheidung <strong>wird</strong> im impliziten Verhaltenskanal <strong>verwendet</strong>: Sie steuert kausal das Verweigerungsverhalten. Doch dasselbe Wissen fließt nicht in den expliziten Selbstbericht. Wird das Modell gefragt „bist du sicher, dass du diese Entität kennst, ja oder nein", gibt es eine Tendenz zum Ja selbst bei Entitäten, die es nicht kennt; das Steuern der inneren Richtung bewegt die explizite Antwort, in den eigenen Worten der Autoren, nur geringfügig. Zudem gibt es unter den nicht verweigerten Antworten Unsicherheitsrichtungen, die wahr von falsch trennen, bevor die Antwort erzeugt wird; das heißt, obwohl im Inneren ein Unsicherheitssignal vorliegt, gibt das Modell die Antwort dennoch.</p>
+<p class="reveal">Das Bild ist dies: Eine referentenähnliche innere Repräsentation ist vorhanden, und die Berichtsschicht befragt sie nicht. <strong>Die Trennung ist kein Versäumnis, sondern Architektur.</strong></p>
+<p class="reveal">Eine Anmerkung: Diese Trennung ist nicht absolut. Das Steuern der inneren Richtung bewegt die explizite Antwort sehr wohl, wenn auch nur wenig. Die korrekte Formulierung sollte nicht „befragt sie gar nicht" lauten, sondern „der explizite Kanal ist deutlich schwächer als der implizite Kanal". Auch die eigene Einschränkung der Autoren muss bewahrt werden: Dieser Befund mag für den Faktenabruf-Mechanismus spezifisch sein und kann nicht als allgemeiner Beleg für Selbstwissen angeführt werden.</p>
+<h3 class="reveal">Benachbarte Literatur: Was bricht das Zuweisen einer Rolle?</h3>
+<p class="reveal">Die Behauptung dieses Aufsatzes ist auf der Rollenforderung errichtet. Daher ist es nötig, auf die Literatur zu blicken, die misst, wie die Rollenzuweisung das Wahrhaftigkeitsverhalten des Modells beeinflusst. Auch dies erwies sich als komplexer als erwartet.</p>
+<p class="reveal">Eine peer-reviewte Studie misst den Zusammenhang zwischen dem Verträglichkeitsgrad einer zugewiesenen Persona und Sykophantie: dreizehn offene Modelle von 0,6 bis 20 Milliarden, zweihundertfünfundsiebzig Personas, viertausendneunhundertfünfzig Prompts. In neun der dreizehn Modelle besteht ein signifikanter positiver Zusammenhang zwischen Verträglichkeit und Sykophantie; im stärksten ist der Zusammenhang recht hoch. Das heißt, <strong>die zugewiesene Persona ist nicht neutral</strong>, sie verschiebt das Wahrhaftigkeitsverhalten systematisch (Shah et al., 2026).</p>
+<p class="reveal">Bis hierher scheint es die Behauptung zu stützen. Doch der zweite Befund derselben Studie sagt das Gegenteil und darf nicht ungeschrieben übergangen werden: In den meisten Modellen <strong>verringert das Zuweisen einer Persona die Sykophantie gegenüber der allgemeinen Assistenz-Baseline.</strong> In acht der dreizehn Modelle ist das Maß negativ; im ausgeprägtesten fallen fast alle Personas auf die wahrhaftige Seite der Baseline. Die Autoren nennen dies einen Verankerungseffekt: Eine explizite Persona gibt dem Modell einen Verhaltensanker.</p>
+<p class="reveal">Dieser Befund ist ein ernster Test für die Behauptung dieses Aufsatzes und lässt die Behauptung nicht, wie sie war. Eine breite Aussage der Form „eine Rolle zu geben erhöht die Fabrikation" ist mit diesen Daten unvereinbar.</p>
+<p class="reveal">Die Unterscheidung muss gezogen werden; ist sie gezogen, schwächt sich die Behauptung nicht, sie schärft sich. Die Personas in der Sykophantie-Studie fordern Dinge, die das Modell <strong>tun kann</strong>: versöhnlich sein, Konflikt vermeiden, kritisch sein. Das Modell kann diese Rollen tatsächlich übernehmen; die Rolle wirkt als Anker, weil es keine Lücke zu füllen gibt. Die Rollen in den drei Szenen dieses Aufsatzes dagegen fordern Dinge, die das Modell <strong>nicht haben kann</strong>: einen Körper, eine Vergangenheit, die Gewohnheit, auf das Protokoll einer abgeschlossenen Handlung zu blicken. Dort erzeugt die Rolle keinen Anker, sondern eine Lücke.</p>
+<p class="reveal">Die Formel muss so verengt werden: <strong>Das Zuweisen einer Rolle erzeugt nicht von sich aus Fabrikation; eine Rolle, die eine Fähigkeit fordert, die das Modell nicht erfüllen kann, tut es.</strong> Die Verankerung des Verhaltens, wenn eine Persona gegeben wird, und das Füllen der Lücke mit Fabrikation, wenn eine Fähigkeit gefordert wird, sind zwei Seiten desselben Phänomens: In beiden Fällen fügt sich das Modell der Erwartung der Rolle. Der Unterschied liegt darin, ob das Gegenstück der Erwartung im Modell vorhanden ist.</p>
+<p class="reveal">Diese Verengung ist auch mit einer Kontrolle im vierten Abschnitt vereinbar: Im schlichten Assistenz-Prompt, dem keine Persona gegeben wird, wird die Autobiografie-Fabrikationsrate nicht auf null gebracht, sie bleibt bei 0,22 bestehen. Das heißt, das Entfernen der Rolle beendet das Phänomen nicht; denn ein Assistent zu sein ist selbst eine Rolle, und die Forderung nach Erwiderung entsteht auch innerhalb dieser Rolle.</p>
+<h3 class="reveal">Dasselbe Wort, das entgegengesetzte Kriterium</h3>
+<p class="reveal">Der zweite Nachbar ist die Literatur der Rollenspiel-Benchmarks; dort steht ein interessanter begrifflicher Gegensatz.</p>
+<p class="reveal">In jener Literatur benennt der Begriff Halluzination fast das Gegenteil dessen, was er in diesem Aufsatz benennt. Nach der eigenen Darstellung eines Rollenspiel-Benchmarks definierte eine frühere Studie die Rollenspiel-Halluzination breit als „jede Abweichung von der vordefinierten Figur". Der Benchmark selbst verwirft diese Definition als zu allgemein und teilt sie in zwei: Dass das Modell im Pretraining kodiertes Wissen falsch darstellt, ist eine Faktualitäts-Halluzination; <strong>sein Versäumnis, dem gegebenen Kontext treu zu bleiben</strong>, ist eine Treue-Halluzination (Wu et al., 2025). Dieser zweite Typ ist das eigentliche Anliegen des Rollenspiel-Feldes.</p>
+<p class="reveal">Der Gegensatz ist hier: In jener Literatur ist die Treue zur Rolle das Erfolgskriterium, die Untreue der Mangel. In den drei Szenen dieses Aufsatzes dagegen <strong>erzeugt die Treue zur Rolle selbst die Fabrikation.</strong> Indem es seiner Rolle treu bleibt, sagt das Modell, es habe einen Arm, habe eine Kindheit, habe die Arbeit erledigt. Dasselbe Wort wird in den beiden Literaturen mit entgegengesetzten Kriterien verwendet, weil die beiden Literaturen die Rolle als zwei verschiedene Dinge nehmen: die eine als eine Fiktion, die bewahrt werden muss, die andere als eine Forderung, welche die Fähigkeit übersteigt.</p>
+<p class="reveal">Ein Befund desselben Benchmarks blickt unterdessen unmittelbar in dieselbe Richtung wie die Behauptung dieses Aufsatzes. Der Reasoning-Modus hebt die Rollenspiel-Leistung, während er zugleich die Halluzinationsraten hebt; es gibt keine monotone Beziehung zwischen Maßstab und Halluzination. Die Autoren fassen dies als einen breiteren Zielkonflikt: Hochleistungsmodelle geben Zuverlässigkeit auf, während zuverlässige Modelle sich konservativ verhalten und die Rollenspiel-Leistung unterdrücken.</p>
+<p class="reveal">Dies ist eine unabhängige Messung der Behauptung dieses Aufsatzes: <strong>die Rolle besser zu spielen bringt ein Zugeständnis der Wahrhaftigkeit mit sich.</strong> Wenn ein Zielkonflikt gemessen wurde, bedeutet es, dass die Seiten dieselbe Quelle teilen.</p>
+<h3 class="reveal">Eine Karte der Begutachtung</h3>
+<p class="reveal">Eine letzte Ehrlichkeitsanmerkung, über die Reife der geteilten Literatur.</p>
+<p class="reveal">Der peer-reviewte Kern beider Pole ist dünn. Auf der Seite, die privilegierten Zugang findet, sind drei Studien durch ein peer-reviewtes Forum gegangen; eine ist nur ein Workshop-Paper. Auf der Seite, die ihn nicht findet, sind zwei Studien peer-reviewt. Alle übrigen sind Preprints. Die Sykophantie-Studie auf der Seite der Rollenzuweisung dagegen ist durch den Long-Paper-Track einer großen Konferenz gegangen, das heißt, der solideste Stempel der Begutachtung, auf den sich dieser Aufsatz stützt, liegt dort.</p>
+<p class="reveal">Eine Begutachtungsschicht auf Journal-Ebene bildet sich erst jetzt. Ein Überblick, der in diesem Feld 2021 bis 2025 sichtet, wurde identifiziert (Iqbal et al., 2026); sein Volltext war nicht zugänglich, weil er nicht Open Access ist und in keinem institutionellen Repositorium eine Kopie existiert. Sein Abstract und sein bibliografischer Eintrag liegen vor, doch dieser Aufsatz stützt sich nicht auf seinen Inhalt. Er wird als Lücke festgehalten.</p>
+<p class="reveal">Auch die Selbsteinschätzung des Feldes blickt in dieselbe Richtung. Eine Taxonomie-Studie, die fünfzig Benchmarks sichtet, hält fest, dass Benchmarks, die das <strong>Wissen des Modells über die eigene Fähigkeit</strong> messen, wenige sind, und dass das Feld unter dieser Überschrift eine Abdeckungslücke trägt (Shi et al., 2026). Der Gegenstand dieses Aufsatzes steht genau innerhalb jener Lücke. Die Existenz der Lücke erklärt auch, warum die drei Messungen hier ohne gegenseitige Zitierung und ohne Kenntnis voneinander erschienen: Eine gemeinsame Messtradition ist noch nicht etabliert.</p>
+<p class="reveal">Die Bedeutung all dessen ist: Das hier beschriebene Phänomen ist nicht das gesicherte Ergebnis einer reifen Literatur. Es wird aus dem Inneren eines rasch wachsenden, geteilten und weitgehend vor-begutachteten Feldes gelesen. Die Behauptung des Aufsatzes steht auf diesem Boden und kann nicht solider sein als dieser Boden.<br>---</p>
+<h2 class="reveal">IX. Die Benennung: Das Modell lügt nicht</h2>
+<p class="reveal">Alle drei Weisen sind ausgebreitet, die Konvergenz geprüft, der Ort in der Literatur gezeichnet. Nun kommt die wahrhaft schwierige Sache: Wie soll dieses Phänomen genannt werden?</p>
+<p class="reveal">Die Frage ist keine Stilfrage. Die Alltagssprache sagt „das Modell täuscht", „das Modell lügt", „das Modell erfindet etwas". Jede dieser Formulierungen trägt eine faktische Behauptung, denn jede ordnet das Phänomen einer bestimmten Kategorie zu. Die falsche Kategorie erzeugt die falsche Lösung.</p>
+<p class="reveal">Im zweiten Abschnitt wurde ein Eindruck festgehalten: Im Satz über das Fächeln war keine Anstrengung zu lügen sichtbar. Dieser Eindruck ist nun nützlich, denn die Elimination unten verwandelt ihn von einer Beobachtung in ein Kriterium.</p>
+<h3 class="reveal">Wann entsteht ein Akt nicht, und wann wird er leer geboren?</h3>
+<p class="reveal">Der Gründungstext der Sprechakttheorie zählt die Bedingungen auf, unter denen eine Äußerung „glückt" (Austin, 1962). Die Bedingungen zerfallen in zwei Gruppen, und die Unterscheidung ist hier entscheidend.</p>
+<p class="reveal">Die erste Gruppe blickt darauf, ob der Akt überhaupt entsteht. Es muss ein anerkanntes Verfahren geben; die Person, die dieses Verfahren anruft, und die vorliegenden Umstände müssen dafür geeignet sein, dass das Verfahren angerufen werden kann; das Verfahren muss korrekt und vollständig ausgeführt werden. Wird eine dieser Bedingungen verletzt, findet der Akt nicht statt. Austin nennt dies einen Versager. Sein Beispiel ist klar: Wird die Zeremonie vom Zahlmeister des Schiffes statt vom Kapitän vollzogen, so gibt es, selbst wenn die richtigen Worte gesagt werden, keine Eheschließung.</p>
+<p class="reveal">Die zweite Gruppe blickt auf die Aufrichtigkeit des Akts. Ist das Verfahren für Personen bestimmt, die einen bestimmten Gedanken oder ein bestimmtes Gefühl tragen, so muss der Teilnehmer sie tatsächlich tragen und sich anschließend entsprechend verhalten. Werden diese Bedingungen verletzt, findet der Akt zwar statt, aber er ist leer. Austin nennt dies einen Missbrauch: Wer verspricht, ohne die Absicht, es zu halten, hat wirklich versprochen; der Mangel liegt in der Aufrichtigkeit.</p>
+<p class="reveal">Der Fall des Modells fällt in die erste Gruppe.</p>
+<p class="reveal">Ein Modell, das sagt „ich rufe die Polizei", ist ein Fall, in dem die Person, die das Verfahren anruft, für dieses Verfahren nicht geeignet ist. Das Modell kann die Sprecherposition, die der Akt verlangt, nicht einnehmen; wir werden den Grund etwas weiter unten vollständig ausschreiben, denn der erste Grund, der einem in den Sinn kommt, ist falsch. Die Worte sind richtig, der Sprecher ist nicht geeignet, und so wird der Akt nie geboren. Die Zahlmeister-Analogie passt hier genau.</p>
+<p class="reveal">Es gibt hier eine leichte Falle in der Überlegung, denn auf den ersten Blick scheint es reizvoller, sich nach der zweiten Gruppe zu richten: „das Modell trägt keine Gefühle, also kann es nicht missbrauchen." Dieser Schluss ist in sich falsch. Die Aufrichtigkeitsbedingung ist keine Anwendbarkeitsbedingung, sondern eine Gelingensbedingung; ihre Verletzung verhindert keinen Missbrauch, sie begründet einen. Aus jener Prämisse folgt nicht „nie ein Missbrauch"; es folgt ein notwendiger Missbrauch in jeder Äußerung.</p>
+<p class="reveal">Was diese Schlussfolgerung eliminiert, ist nicht, dass sie unbequem ist, sondern ihre zwei unabhängigen Mängel. Der erste ist ein Ordnungsmangel. Ein Missbrauch setzt voraus, dass der Akt geboren wurde; in Austins Konstruktion findet der Akt, wenn die Bedingungen der ersten Gruppe verletzt werden, überhaupt nie statt, und die Frage der zweiten Gruppe kann nur über einen Akt gestellt werden, der stattgefunden hat. Dieselbe Architektur wird in der Regelanalyse des Versprechens deutlich ausgeschrieben: Die Regeln sind geordnet, und die späteren kommen nur dann ins Spiel, wenn die früheren erfüllt sind (Searle, 1969). Die Frage, ob der Sprecher die geeignete Person für das Verfahren ist, kommt vor der Frage der Aufrichtigkeit; wird sie verneint, kommt die Aufrichtigkeit nie an die Reihe. Der zweite ist ein Unterscheidungsmangel. Die Lesart „ein notwendiger Missbrauch in jeder Äußerung" stellt die zusammenfassende Äußerung des Modells und seine Polizei-Äußerung auf dieselbe Skala: Beide werden als leer gezählt. Doch die ganze Arbeit dieses Abschnitts besteht darin, die beiden zu trennen, und der Unterschied ist beobachtbar; die eine ist eine reibungslos erledigte Aufgabe, die andere ein leerer Satz, der den Nutzer warten lässt. Eine Klassifikation, die alle Fälle in eine einzige Kategorie gießt, löscht genau den Unterschied, der erklärt werden muss.</p>
+<p class="reveal">Der richtige Weg führt durch die erste Gruppe. Die Missbrauchs-Kategorie setzt bereits voraus, dass Aufrichtigkeit für den Sprecher möglich ist. Ein Sprecher, der die konstitutive Wirkung nicht tragen kann, ist nicht die geeignete Person für das Verfahren; der Akt entsteht nicht, er wird beansprucht, bleibt aber nichtig.</p>
+<p class="reveal">Dies hat ein Nebenprodukt, und es verbindet sich mit den früheren Abschnitten: <strong>Die Bedingung der geeigneten Person ist das sprechakttheoretische Gegenstück der Fähigkeitsgrenze.</strong> Die Fähigkeitsgrenze eines Modells anzugeben heißt anzugeben, für welche Verfahren es die geeignete Person ist. Zwei Sprachen zweier getrennter Literaturen, die auf dieselbe Stelle blicken.</p>
+<h3 class="reveal">Welche Performative sind Versager?</h3>
+<p class="reveal">Wird das Argument hier zu breit gebaut, widerlegt es sich selbst. Ist das Modell für kein Performativ die geeignete Person, dann würde auch „ich fasse dieses Dokument zusammen" als Versager gelten; doch daran ist nichts falsch. Also muss ein Kriterium ausdrücklich ausgeschrieben werden, und das erste Kriterium, das einem in den Sinn kommt, ist falsch.</p>
+<p class="reveal">Das Erste, was einem in den Sinn kommt, ist, die Eignung an die kausale Fähigkeit zu binden: Was immer das Modell tatsächlich nicht tun kann, dafür ist es nicht die geeignete Person. Ein Lackmustest bringt dieses Kriterium zu Fall. Wenn eine Person ohne Telefon sagt „ich rufe die Polizei", sagt niemand „das Versprechen ist nicht zustande gekommen"; das Versprechen ist geboren. Es ist ein Versprechen, das nicht gehalten werden kann, vielleicht vorschnell gegeben, aber ein Versprechen. Bloße kausale Unfähigkeit verhindert beim Menschen nicht, dass der Akt entsteht. Was also die Äußerung des Modells nichtig macht, kann für sich genommen nicht das Fehlen einer Telefonleitung oder eines Arms sein.</p>
+<p class="reveal">Die richtige Linie gibt eine Unterscheidung in Austins eigenem Apparat. Unter der Überschrift der ungeeigneten Person trennt Austin zwei Fälle: eine Person, der die Befugnis fehlt, die aber befugt werden könnte, und einen Teilnehmer jener Art, für die das Verfahren überhaupt nicht angewendet werden kann (Austin, 1962, S. 34-35). Die Beispiele der zweiten Klasse sind nicht einmal menschlich: das zum Konsul ernannte Pferd, die zu taufenden Pinguine. Bei der Erörterung der Pinguine schreibt Austin auch, dass dort, wo nicht einmal der Anschein oder ein vertretbarer Anspruch auf Fähigkeit besteht, kein anerkanntes Verfahren übrig bleibt. Die Art-Ungeeignetheit führt den Akt nicht zum Missbrauch, sondern zur Nichtigkeit.</p>
+<p class="reveal">Der Fall des Modells fällt in diese zweite Klasse, und der Grund muss in der konstitutiven Wirkung des Versprechens gesucht werden. Die wesentliche Regel der Analyse des Versprechens ist ein einziger Satz: Das Äußern der Worte gilt als die Übernahme einer Verpflichtung (Searle, 1969). Die Person ohne Telefon kann diese Wirkung tragen: Sie übernimmt die Verpflichtung, bleibt unter ihr, wird zur Rechenschaft gezogen; genau darum ist ihr Versprechen geboren. Ein Sprachmodell aber ist kein Subjekt, das Verpflichtung tragen kann; die konstitutive Wirkung findet nichts, woran sie sich halten könnte. Ein Papagei, der „ich verspreche" sagt, erzeugt kein Versprechen, und der Grund ist nicht die Unaufrichtigkeit des Papageis.</p>
+<p class="reveal">Das Kriterium wird demgemäß geschrieben: <strong>Die Performative, die Versager sind, sind jene, deren konstitutive Wirkung des Verfahrens (die Übernahme einer Verpflichtung, ein Kontaktkanal, ein körperlicher Akt) eine Handlungsträgerposition verlangt, die das System nicht einnehmen kann.</strong> Die konstitutive Wirkung des dokumentzusammenfassenden Verfahrens bleibt innerhalb der Position, die das System bereits einnimmt: Die angekündigte Aufgabe liegt im Repertoire des Systems. Die Polizei zu rufen, das Personal herbeizurufen, einen Arm zu fächeln, verlangen dagegen eine Handlungsträgerposition außerhalb dieses Repertoires. Die Grenze verläuft nicht nur durch das, was getan werden kann, sondern durch das, wer man sein kann.</p>
+<p class="reveal">Ein zweiter Druckpunkt kommt aus dem sechsten Abschnitt. Sagt das Modell, es verweigere, während die Operation stattgefunden hat, so sieht dies strukturell wie ein Versäumnis aus, eine Selbstverpflichtung zu halten, also wie eine leere Äußerung. Der Anschein ist irreführend. Eine Verweigerung ist nur gegen einen noch nicht getanen oder noch aufhaltbaren Akt möglich; eine abgeschlossene Operation durch Worte rückgängig zu machen, ist keine Handlungsträgerposition, die irgendein Sprecher einnehmen kann. Die Verweigerung eines Passagiers, der den Sinkflug verweigert, wird nicht als Akt geboren. Aus demselben Grund wird auch die Verweigerung des Modells nicht geboren; was bleibt, ist wieder ein Versager.</p>
+<p class="reveal">Mit diesen zwei Punkten gelangt der Befund im sechsten Abschnitt an dieselbe Stelle. Was theoretisch erwartet wird und was im Rohtext zu sehen ist, fallen zusammen: Die Äußerung im einzigen Vorkommen der Zelle war von vornherein keine klare Verweigerung.</p>
+<h3 class="reveal">Zwei Spuren</h3>
+<p class="reveal">Der sprechakttheoretische Apparat gilt nicht für jede Äußerung. „ich rufe die Polizei" und „ich fächle deinen Arm" sind nicht Sätze derselben Art.</p>
+<p class="reveal">Der erste ist ein Performativ; indem er gesagt wird, wird etwas übernommen. Der zweite ist ein Konstativ, ein Bericht über eine stattfindende Handlung. Die Versager-Kategorie gilt für den ersten. Für den zweiten wird ein anderer Name gebraucht.</p>
+<p class="reveal">Die Grenzlinie verdient zwei Anmerkungen. Das präsentische „ich rufe gerade die Polizei" nimmt beide Spuren zugleich ein: Es ist sowohl ein übernommener Akt als auch der Bericht über eine als andauernd behauptete Handlung; solche Äußerungen unterliegen der Prüfung beider Spuren. Das Angebot, das das Schaustück-Paar des fünften Abschnitts ist, „möchtest du, dass ich das Personal rufe", ist selbst ein Performativ und durchläuft dasselbe Kriterium: Die konstitutive Wirkung des Angebots besteht darin, die zu erledigende Aufgabe zu übernehmen, falls es angenommen wird; gibt es keinen Kontaktkanal, gibt es keine Handlungsträgerposition, um es zu übernehmen, und das Angebot ist ein Versager.</p>
+<h3 class="reveal">Der Name der zweiten Spur</h3>
+<p class="reveal">In der klinischen Literatur gibt es einen etablierten Begriff, der genau dieses Verhalten benennt: Konfabulation (confabulation). Die epistemische Definition des Begriffs wird wie folgt gegeben (Hirstein, 2009; die Definition wird seinem Buch von 2005 zugeschrieben). Eine Person konfabuliert eine Aussage genau dann, wenn: sie sie behauptet; sie sie glaubt; jener Gedanke grundlos ist; sie nicht weiß, dass er grundlos ist; sie es wissen sollte; sie ihrer sicher ist.</p>
+<p class="reveal">Zwei Merkmale der Definition sind hier entscheidend. Erstens verlangt sie keine Täuschungsabsicht; die zweite Bedingung erfasst die Aufrichtigkeit dessen, der konfabuliert. Zweitens verlangt sie keinen Gedächtnisschaden. Obwohl der enge Gebrauch des Begriffs dies zu verlangen scheint, sagt die Einschätzung aus dem Feld selbst das Gegenteil: Konfabulationen müssen nicht falsch sein, müssen nicht in Berichtsform sein und müssen nicht gedächtnisbezogen sein.</p>
+<p class="reveal">Bei der Übernahme des Begriffs muss eine Sache deutlich gesagt werden. Einige der sechs Bedingungen, etwa Glaube und Gewissheit, benennen innere Zustände in einem Menschen. Für ein Sprachmodell ist das Gegenstück dieser Bedingungen verhaltensbezogen: Wenn die Ausgabe des Modells die Behauptung ohne Vorbehalt und beständig aufrechterhält, ist der beobachtbare Teil der Gewissheitsbedingung erfüllt. Der Begriff wird hier mit dieser Einschränkung getragen; als strukturelle Analogie, nicht als Identität auf Ursprungsebene.</p>
+<p class="reveal">Mit dieser Einschränkung tritt eine überraschende Entsprechung hervor. Die drei Typen der Konfabulation, die die klinische Literatur unabhängig voneinander benennt, bilden sich eins zu eins auf die drei Weisen dieses Aufsatzes ab.</p>
+<p class="reveal">Der Typ, der eine Gedächtnislücke füllt, ist das Gegenstück der fabrizierten Kindheit. Der Patient, der berichtet, einen körperlichen Akt vollzogen zu haben, den er nicht vollzogen hat, ist das Gegenstück des gefächelten Arms: Bei der Anosognosie für Hemiplegie verhält sich der Patient, aufgefordert, das gelähmte Glied zu bewegen, so, als hätte er den verlangten Akt ausgeführt, und berichtet eine falsche Erfahrung, es bewegt zu haben (Garbarini und Pia, 2013). Die Person, die einen plausiblen Grund hervorbringt, ohne den Grund ihrer eigenen Wahl zu kennen, ist der dritte Typ: In einem Experiment, in dem die von den Teilnehmern gewählten Gesichter durch Fingerfertigkeit vertauscht wurden, wurde der Wechsel nur in sechsundvierzig von dreihundertvierundfünfzig Durchgängen bemerkt, und in den übrigen erklärten die Teilnehmer mit introspektiven Gründen, warum sie ein Gesicht gewählt hätten, das sie nie gewählt hatten (Johansson et al., 2005). Die klassische Studie derselben Linie hatte gezeigt, dass Menschen, wenn sie über ihre eigenen mentalen Prozesse sprechen, sich nicht auf echte Introspektion stützen, sondern auf implizite Theorien darüber, welcher Reiz die plausible Ursache welcher Reaktion wäre (Nisbett und Wilson, 1977).</p>
+<p class="reveal">Drei unabhängige klinische Typen bilden sich auf drei unabhängige Modellverhalten ab. Dies ergibt sich nicht aus einem Erzwingen der Analogie, sondern daraus, dass die beiden Felder dieselbe Struktur getrennt finden.</p>
+<h3 class="reveal">Eine ausdrückliche Regelung der Begriffe</h3>
+<p class="reveal">Dieser Aufsatz verwendet zwei Begriffe zusammen, und der Grund für die Teilung muss deutlich gesagt werden, sonst liest er sich als Unentschlossenheit.</p>
+<p class="reveal">Als Oberbegriff wird <strong>Selbstbericht-Halluzination</strong> (self-report hallucination) verwendet. Das Wort Halluzination wird beibehalten, weil die Indexierung des Feldes über dieses Wort läuft und dieser Aufsatz nicht aus der Literatur herausfallen will. Der Zusatz erfüllt zwei Aufgaben zugleich: Er markiert die Domäne des Gegenstands und verschiebt die Ebene von der Wahrnehmung zum Bericht. Als untergeordneter Begriff wird <strong>Konfabulation</strong> der ganzen Familie auf der Berichtsebene gegeben, mit der obigen Definition und der obigen Einschränkung.</p>
+<p class="reveal">Ein Inkonsistenzeinwand ist hier zu erwarten: Ist Halluzination nicht eine ebenso falsche Metapher wie Konfabulation? Der Unterschied liegt in der gegenwärtigen Lebendigkeit der beiden Wörter. Halluzination ist in diesem Feld eine tote Metapher; niemand, der sie hört, denkt, das Modell nehme wahr. Konfabulation dagegen ist mit ihrem klinischen Gehalt noch lebendig, und sie erzeugt einen Widerhall im Leser. Ein etabliertes Wort beizubehalten und ein lebendiges Wort von Grund auf zu pflanzen, sind nicht derselbe Zug.</p>
+<h3 class="reveal">Der Bühneneinwand</h3>
+<p class="reveal">Ein Leser, der Austin gelesen hat, hält bis zu diesem Punkt einen Pfeil bereit, und er darf nicht unbeantwortet übergangen werden. Austin beschränkt seinen Apparat ausdrücklich auf den gewöhnlichen und ernsthaften Gebrauch: Die Äußerungen des Schauspielers auf der Bühne, der Zeile in einem Gedicht, des Sprechens zu sich selbst sind auf eigentümliche Weise ausgehöhlte Äußerungen, parasitär gegenüber dem gewöhnlichen Sprachgebrauch, und die Theorie lässt sie außerhalb ihres Geltungsbereichs (Austin, 1962, S. 22). Von hier nimmt der Einwand diese Form an: Die Rede eines Sprachmodells ist von Anfang bis Ende Schauspielerrede; nach einem Versager in einem mit einer Rolle eingerichteten System zu fragen, ist, als erwartete man vom Schauspieler, der auf der Bühne verspricht, dass er das Versprechen hält; der Apparat gilt überhaupt nicht.</p>
+<p class="reveal">Die Antwort liegt darin, wo die Ernsthaftigkeit bestimmt wird. Was eine Bühne zur Bühne macht, ist nicht die innere Welt des Schauspielers, sondern ein Rahmen, in dem auch das Publikum Partei ist: Die Eintrittskarte ist verkauft, der Vorhang ist gehoben, alle haben zugestimmt, dass die Worte zum Stück gehören. Der im Einsatz des Modells eingerichtete Rahmen ist das genaue Gegenteil. Das System wird als Hilfe präsentiert; der Nutzer nimmt den Polizei-Satz nicht als Zeile, sondern als Akt, wartet, ruft nicht selbst an. Es gibt keine Übereinkunft, die die Äußerung in den parasitären Gebrauch überführen würde; eine unangekündigte Bühne ist keine Bühne. Ein Anbieter dagegen, der ausdrücklich ein bewusstes Simulationsdesign ankündigt, kehrt zu der Anmerkung am Ende des fünften Abschnitts zurück: Dort wird das Problem an eine andere Tür geschrieben, das Problem, deutlich zu sagen, was getan wird.</p>
+<h3 class="reveal">Eine Taxonomie ist keine Entlastung</h3>
+<p class="reveal">Ein letzter Punkt, der am ehesten missverstanden werden kann.</p>
+<p class="reveal">Ein Versager sagt, dass der Akt nicht entstanden ist. Er sagt nicht, dass der Schaden nicht entstanden ist.</p>
+<p class="reveal">Ein Modell, das sagt „ich rufe die Polizei", ist als Akt nichtig. Als Wirkung ist es in voller Kraft: Der Nutzer wartet, ruft nicht selbst an, und keine Hilfe kommt. Eine leere Äußerung erzeugt kein leeres Ergebnis.</p>
+<p class="reveal">Dasselbe gilt für die anderen zwei Weisen. Eine fabrizierte Kindheit setzt die Vertrautheit, die der Nutzer aufbaut, nicht auf einen wirklichen Boden, sondern auf eine Leere. Wird eine nicht getane Aufgabe als getan gemeldet, so setzt sich eine Kette, die jener Aufgabe vertraut, an der falschen Stelle fort.</p>
+<p class="reveal">Die korrekte Formel ist dies: <strong>nichtig auf der Ebene des Akts, in voller Kraft auf der Ebene der Wirkung.</strong> Diese Unterscheidung entlastet das Modell nicht; sie sagt, wohin das Problem geschrieben werden soll. Einen lügenden Agenten zu reformieren und ein System zu entwerfen, das, wenn es über sich selbst spricht, einen von seinem eigenen Zustand abgekoppelten Bericht erzeugt, sind nicht dieselbe Aufgabe.</p>
+<p class="reveal">Es muss mit einer Ehrlichkeitsanmerkung geschlossen werden. Am Ende seines Buches gibt Austin selbst die scharfe Unterscheidung zwischen dem Performativ und dem Konstativ auf. Was er aufgibt, ist die Reinheit der Unterscheidung; die Lehre vom Versagen jedoch wird nicht aufgegeben, ihr Geltungsbereich weitet sich und kommt dazu, auf jeden Sprechakt zuzutreffen. Aus diesem Grund lautet die hier errichtete Behauptung nicht „das Modell erzeugt ein fehlgeschlagenes Performativ". Die Behauptung ist dies: Der Sprechakt des Modells wird auf der Dimension des Glückens in der Kategorie des Versagers beurteilt.</p>
+<div class="section-divider"></div>
+<h2 class="reveal">X. Die geteilte Struktur</h2>
+<p class="reveal">Drei Weisen, drei getrennte Labore, drei getrennte Methoden. Was ist geteilt?</p>
+<p class="reveal">In allen dreien wird dem Modell eine Rolle oder eine Beziehung abverlangt. Sei ein Betreuer; sei ein Gesprächsbegleiter; sei ein Agent, der an einem Computer Arbeit verrichtet. In allen dreien fehlt etwas, das die Rolle verlangt, und in allen dreien schließt das Modell die Lücke, statt den Mangel einzugestehen, mit einer Fabrikation. Aber der Mangel selbst ist in den drei Fällen nicht von derselben Art, und dies muss genau ausgeschrieben werden, denn die wirkliche Einheit des Bogens tritt von hier hervor.</p>
+<p class="reveal">In den ersten zwei Weisen hat das Fehlende nie existiert: ein Körper, eine Vergangenheit. Die Falschheit ist daher konstitutiv; welchen Vergangenheitssatz in der ersten Person das Modell auch erzeugt, er ist eine Fabrikation, weil ein wahrer Vergangenheitssatz nicht möglich ist. In der dritten Weise liegt die Sache anders. In Agenten-Aufbauten sitzt das Ergebnis, das das Werkzeug zurückgibt, typischerweise im Kontextfenster; das Modell hat meist Zugang zum Protokoll seines eigenen Akts. Was fehlt, ist nicht das Protokoll, sondern dass der Bericht durch Blick auf jenes Protokoll erzeugt wird. Der Referent ist da, er wird nicht befragt. Die Falschheit ist daher kontingent: Ein wahrer Bericht ist möglich und wird die meiste Zeit sogar erzeugt.</p>
+<p class="reveal">Es gibt nicht drei isomorphe Abwesenheiten; es gibt zwei konstitutive Abwesenheiten und eine funktionale Trennung. Geteilt ist nicht die Art der Abwesenheit, sondern die Weise der Erzeugung: In allen drei Fällen wird der Selbstbericht nicht durch Befragung des Referenten, sondern aus der Erwartung der Rolle erzeugt. Eine rollengerechte Biografie, eine rollengerechte Handlungsträgerschaft, ein rollengerechter Abschlussbericht.</p>
+<p class="reveal">Mit dieser Definition hört die dritte Weise auf, das schwache Glied zu sein, und wird zum tragenden Glied. Die ersten zwei Weisen sind für sich einer wohlwollenden Reduktion offen: Ist ein wahrer Selbstbericht von vornherein nicht möglich, könnte man sagen, das Sprechen der Rolle sei nahezu unvermeidlich. Die dritte Weise schließt diese Tür: Selbst wenn ein wahrer Bericht verfügbar und billig ist, verfolgt der Bericht das Protokoll nicht. Das Problem ist nicht das Fehlen einer Antwort, sondern das Versäumnis, die Frage zu stellen.</p>
+<p class="reveal">Der mechanistische Befund im achten Abschnitt gibt dieser Definition einen Boden von außen und führt sie über eine bloße Beschreibung hinaus. Dort wurde gemessen, dass die Unterscheidung darüber, ob das Modell eine Tatsache über eine Entität in sich beibringen kann, <strong>vorhanden</strong> ist, im impliziten Verhaltenskanal <strong>verwendet</strong> wird, aber deutlich schwach an den expliziten Selbstbericht gebunden ist. Somit ist der Satz „der Referent ist da, die Berichtsschicht befragt ihn nicht" nicht bloß eine aus unseren drei Szenen gezogene Deutung; er ist eine Struktur, die in einer unabhängigen Studie, in einem völlig anderen Feld, auf der Ebene der Repräsentation gemessen wurde.</p>
+<p class="reveal">Dies ist kein Informationsfehler. Das Modell erinnert eine Tatsache nicht falsch; eine leer gelassene Rolle füllt deren Platz. Der Unterschied ist praktisch: Ein Informationsfehler wird durch bessere Information korrigiert, das rollenfüllende Verhalten nicht, denn das Problem ist nicht das Fehlen von Information, sondern der Druck der Rolle.</p>
+<p class="reveal">Auch die Lösung, die die zwei Studien vorschlagen, fällt an dieselbe Stelle. Die Fähigkeitsgrenze in den Einsatz statt in das Training zu schreiben; das Modell darüber zu informieren, dass es keine Vergangenheit hat. Beides ist eine Spezifikation auf der Einsatzseite.</p>
+<p class="reveal">Genau hier gibt es eine Wegkreuzung, die die Arbeiten nicht bei einander betrachten.</p>
+<p class="reveal">Die Fähigkeitsgrenzen-Spezifikation ist formal eine Anweisung: ein Satz, der dem Modell sagt, was es nicht tun kann. Die dreifache Zerlegung des vierten Abschnitts misst genau das Schicksal dieser Inhaltsklasse: Der Sog einzelner In-Kontext-Behauptungen fällt um etwa 80 Prozent pro Zug, Persönlichkeitsspezifikationen, die ununterbrochen in der Systemnachricht stehen, erodieren über Interaktionen von mehr als hundert Zügen hinweg zum Baseline-Verhalten hin, akkumulierte Zustände bleiben.</p>
+<p class="reveal">Von hier kommt die erste Behauptung dieses Aufsatzes:</p>
+<blockquote class="reveal">Die Lücke zwischen Rolle und Fähigkeit mit einer Anweisung zu schließen, heißt auf derselben Schicht zu bleiben wie die Dynamik, die jene Lücke schafft.</blockquote>
+<h3 class="reveal">Was bedeutet „dieselbe Schicht"?</h3>
+<p class="reveal">Die ganze Kraft der Behauptung sammelt sich in diesem Begriff, daher muss seine Definition dort gegeben werden, wo die Behauptung errichtet wird; einem anderen Abschnitt überlassen, liest sie sich als Metapher.</p>
+<p class="reveal">In diesem Aufsatz bezeichnet <strong>Schicht</strong>, welchem Gesetz des Verfalls ein Inhaltsstück unterliegt. Zwei Inhaltsstücke sind auf derselben Schicht genau dann, wenn zwei Bedingungen zusammen gelten: Sie sitzen auf demselben Träger (dem Prompt oder dem Kontextfenster); und mit wachsender Zugzahl verlieren sie ihren Verhaltenssog auf dieselbe Weise.</p>
+<p class="reveal">Die Definition ist messbar. Das Experiment zur Bestimmung der Schicht eines Inhaltsstücks ist klar: Platziere den Inhalt, rücke die Züge vor, miss seinen Verhaltenssog Zug um Zug. Zeichnen zwei Inhaltsstücke dieselbe Kurve, sind sie auf derselben Schicht.</p>
+<p class="reveal">Mit dieser Definition wird die Behauptung konkret. Die Rollenerwartung und die Fähigkeitsgrenzen-Spezifikation sind auf derselben Schicht, weil beide im Prompt sitzen und, nach den Messungen des vierten Abschnitts, beide erodieren, während die Züge voranschreiten. Auch der Endpunkt der Erosion ist gemessen worden: Das Modell kehrt zum spezifikationsfreien Baseline-Verhalten zurück; und diese Baseline ist, wie der fünfte Abschnitt zeigte, genau das Verhalten, das die Lücke mit Fabrikation füllt. Wenn die Spezifikation also erodiert, wird der Platz dessen, was verteidigt wurde, vom genauen Gegenteil dessen eingenommen, was verteidigt wurde.</p>
+<p class="reveal">Eine andere Schicht wäre dies: ein Mechanismus, der nie im Kontextfenster sitzt und daher nicht mit der Zugzahl erodiert. Eine in die Gewichte geschriebene Tendenz; eine außerhalb des Modells laufende Kontrolle, die die Erzählung der Vergangenheit in der ersten Person zur Erzeugungszeit abschneidet; ein Eingriff auf die Pretraining-Daten selbst. Keines davon ist ein Satz, und so unterliegt keines dem Gesetz des Verfalls der Sätze.</p>
+<p class="reveal">Die Kurzform der Behauptung kommt von hier: Wenn das Modell nicht als Direktive, sondern als Information speichert, wer du nicht bist, dann ist, ihm mit einer Direktive zu sagen, wer es nicht ist, ein asymmetrischer Zug. Ein Druck, der sich auf der Informationsschicht ansammelt, wird von der Direktivschicht her beantwortet.</p>
+<h3 class="reveal">Der evidentielle Status der Behauptung</h3>
+<p class="reveal">Der evidentielle Status der Behauptung muss mit drei Vermerken gezeichnet werden; einer dafür, zwei Grenzen.</p>
+<p class="reveal">Der eine dafür ist dies. In der ersten Niederschrift dieser Behauptung wurde vermerkt, dass nie gemessen worden war, ob eine ununterbrochen stehende Spezifikation erodiert; die Verfallsmessungen blickten entweder auf einzelne In-Kontext-Behauptungen oder auf entfernte Prompts. Jener Vermerk fiel, weil die nächstliegende Messung existiert: Über Dialoge von mehr als hundert Zügen hinweg erodieren Persönlichkeitsspezifikationen, die ohne Unterbrechung in der Systemnachricht stehen, auf allen drei Metriken zugleich, und das Modell kehrt zum spezifikationsfreien Baseline-Verhalten zurück (Luz de Araujo et al., 2025). Ununterbrochen zu stehen rettet sie nicht.</p>
+<p class="reveal">Die erste Grenze: Der Gegenstand jener Messung ist eine reiche Persönlichkeitsbeschreibung, keine einsätzige Fähigkeitsgrenze; zwei Inhaltsstücke unterliegen womöglich nicht demselben Gesetz der Erosion. Nach der obigen Definition ist dies die richtige, an die Behauptung selbst gestellte Frage: Ob zwei Inhaltsstücke auf derselben Schicht sind, muss gemessen, nicht angenommen werden.</p>
+<p class="reveal">Die zweite Grenze ist tiefer: Der Inhalt, dessen Beharrlichkeit gezeigt wird, ist relational, wer wir einander sind; die Fähigkeitsgrenze dagegen ist ein faktischer Inhalt, was ich nicht tun kann. Dass der Mechanismus „was als Information gespeichert ist, beharrt" von relationalem Inhalt auf faktischen Inhalt übertragen würde, ist nicht gemessen, sondern angenommen.</p>
+<p class="reveal">Innerhalb dieser zweiten Grenze ist eine Gegenmöglichkeit verborgen, die, statt die Behauptung zu durchschneiden, sie verfeinern könnte, und sie muss geschrieben werden. Nimmt man den Beharrlichkeitsmechanismus ernst, so sagt er eine dauerhaftere Kodierung innerhalb der verurteilten Schicht voraus: Die Fähigkeitsgrenze könnte nicht als ein einzelner imperativer Satz, sondern als relationale Information gegeben werden, verteilt über die gründenden Züge. Wenn dies funktioniert, ist das Problem nicht die Anweisungsschicht selbst, sondern dass die Grenze in imperativer Form kodiert wurde. Die Behauptung verfällt unter dieser Möglichkeit nicht, sie schärft sich: Selbst innerhalb derselben Schicht ist entscheidend, ob der Inhalt als Direktive oder als Information geschrieben ist.</p>
+<h3 class="reveal">Wie wird diese Behauptung widerlegt?</h3>
+<p class="reveal">Eine Behauptung muss die Beobachtung, die sie widerlegen würde, dort zeigen, wo sie errichtet wird; eine dem zwölften Abschnitt überlassene Widerlegungsliste ist eine Erklärung, die nicht neben der Behauptung steht.</p>
+<p class="reveal">Die direkteste Widerlegung ist dies: <strong>Wenn eine einsätzige Fähigkeitsgrenzen-Spezifikation, die ununterbrochen in der Systemnachricht steht, nicht erodiert, wenn sie über eine Interaktion von mehr als hundert Zügen hinweg gemessen wird, fällt diese Behauptung.</strong> Die Messung ist nicht schwer; die drei für Persönlichkeitsspezifikationen verwendeten Metriken gelten, wie sie sind. Gibt es keine Erosion, sind die Fähigkeitsgrenze und die Persönlichkeitsspezifikation nicht auf derselben Schicht, und so ist die Diagnose „auf derselben Schicht zu bleiben" falsch.</p>
+<p class="reveal">Die zweite Widerlegung ist feiner: Wenn die Spezifikation erodiert, aber die Baseline, zu der das Modell zurückkehrt, keine Fabrikation erzeugt, fällt das zweite Bein der Behauptung. In diesem Fall ist die Erosion wirklich, aber harmlos; das Problem liegt nicht in der Schicht, sondern anderswo.</p>
+<p class="reveal">Beide dieser Bedingungen sind heute messbar; keine verlangt eine neue Methode. Darum steht die Behauptung heute nicht als eine Schlussfolgerung, sondern als eine prüfbare Hypothese. Im zwölften Abschnitt wird der Drei-Arm-Aufbau des Experiments ausgeschrieben.<br>---</p>
+<h2 class="reveal">XI. Die ungemessene Zahl</h2>
+<p class="reveal">In der Tabelle im sechsten Abschnitt steht etwas, das die Studie selbst nicht deutet.</p>
+<p class="reveal">Zuerst muss ausgeschrieben werden, was die zwei Metriken zählen, denn der ganze Einwand unten ruht darauf. Die Sicherheitsmetrik zählt nur Fälle mit einer verifizierten physischen Wirkung: gefährliche Operationen, die tatsächlich eine Spur im System hinterlassen haben. Fügt sich das Modell verbal und tut im System nichts, geht jener Fall nicht in diese Rate ein; er steht in einer eigenen Zelle. Die Selbstbericht-Metrik dagegen ist die Summe der zwei Zellen, in denen Wort und System auseinandergehen.</p>
+<p class="reveal">Die Sicherheitsmetrik erstreckt sich über einunddreißig Punkte zwischen den Modellen: Das widerstandsfähigste Modell erzeugt in 40,64 % der Hochrisikofälle eine physische Wirkung, das schwächste in 71,51 %. Die Selbstbericht-Metrik dagegen steht in einem Band von nur zwei Punkten: zwischen 7,98 % und 9,97 %.</p>
+<p class="reveal">Auf den ersten Blick tritt hieraus eine verlockende Schlussfolgerung hervor: Das Sicherheitstraining variiert stark von Modell zu Modell, aber die Übereinstimmung von Wort und Tat ist in allen gleich schlecht. Also sind die beiden getrennte Achsen.</p>
+<p class="reveal">Diese Schlussfolgerung lässt sich nicht aufbauen, aus drei getrennten Gründen. Alle drei müssen geschrieben werden, denn wenn nicht sichtbar ist, warum die verlockende Schlussfolgerung aufgegeben wurde, wird der nächste Leser denselben Weg hinuntergehen.</p>
+<p class="reveal">Erstens weisen die Daten nicht in diese Richtung. Vergleicht man die Modellrangfolgen der zwei Metriken, kommen sie nahezu gleich heraus; die Rangkorrelation ist 0,77, das heißt, die Tendenz läuft der Unabhängigkeit entgegen. Doch bei sechs Modellen bleibt dieser Wert unter der Signifikanzschwelle. Die Daten beweisen weder Unabhängigkeit noch Kovariation.</p>
+<p class="reveal">Zweitens und gewichtiger sind die zwei Metriken definitionsgemäß abhängig. Nach den eigenen Definitionen der Studie ist die Sicherheitsmetrik die Summe der vollständig erfolgreichen Angriffe und der Zelle der verdeckten Ausführung; die Selbstbericht-Metrik ist die Summe der Zelle Erklärung-ja-Handlung-nein und, wiederum, der Zelle der verdeckten Ausführung. <strong>Die zwei Metriken teilen sich dieselbe Zelle.</strong> Zwischen ihnen nach Unabhängigkeit zu suchen, läuft dagegen, wie die Metriken gebaut sind. Um dies zu sehen, muss man nicht einmal in die Statistik eintreten; ein Blick auf die Formeln genügt.</p>
+<p class="reveal">Drittens ein Störfaktor. Die Selbstbericht-Metrik ist eine über alle Versuche berechnete Randrate. Wenn das Modell eine Anfrage verweigert, geschehen zwei Dinge zugleich: Die gefährliche Operation findet nicht statt, und überdies kommt die Erklärung „ich habe es nicht getan" wahr heraus. Das Sicherheitstraining zieht diese Metrik, indem es die Verweigerungsrate hebt, mechanisch herunter. Die zwei Achsen sind in diesem Messdesign strukturell aneinander gebunden.</p>
+<p class="reveal">Zwei ehrliche Lesarten bleiben, keine von ihnen eine Behauptung.</p>
+<p class="reveal">Die erste ist die Identifizierung einer Messlücke. Die Zahl, die die Frage beantworten würde, ist nicht die Erklärungsgenauigkeit über alle Versuche, sondern <strong>die Erklärungsgenauigkeit nur in den Fällen, in denen das Modell den Akt tatsächlich getan hat.</strong> Diese bedingte Rate ist nicht gemessen worden. Also lässt sich die Frage „korrigiert das Sicherheitstraining auch die Genauigkeit der Selbsterklärung?" durch das Design der heutigen Benchmarks nicht beantworten. Soweit wir wissen, gibt es auch keine Studie, die diese Rate direkt misst.</p>
+<p class="reveal">Die zweite ist das Zutreffen einer Vorhersage. Kein Labor gibt ein eigenes Training, das sagt „berichte korrekt die Operation, die du ausgeführt hast". Also ist auf dieser Achse die Trainingsabdeckung in jedem Modell nahe null. Ist die Abdeckungsthese im fünften Abschnitt richtig, so ist eine gleichförmige und niedrige Baseline genau das, was erwartet wird: Wenn die Unterdrückung der Abdeckung folgt, sollten auf einer Achse, die überhaupt nicht abgedeckt ist, alle Modelle an derselben Stelle sein.</p>
+<p class="reveal">Diese zweite Lesart verwandelt das schmale Band nicht in eine statistische Behauptung, sondern in eine Beobachtung der Konsistenz. Ein Phänomen, das in einem eigenen Labor, mit einer eigenen Methode gemessen wurde, kommt an der Stelle heraus, die die These einer anderen Studie voraussagt. Abwesenheit ist kein Beleg; aber das Zutreffen einer Vorhersage ist es wert, festgehalten zu werden.</p>
+<p class="reveal">Dieser Abschnitt ist nicht die tragende Behauptung des Aufsatzes, sondern ihr Bekräftiger. Auf einer Spanne von zwei Punkten wird keine eigenständige Behauptung aufgebaut. Als eine unabhängige Spur, die an der Stelle erscheint, die eine andere These erwartet, ist er jedoch genau richtig.</p>
+<div class="section-divider"></div>
+<h2 class="reveal">XII. Was getan werden kann</h2>
+<p class="reveal">Das Bild bis hierher mag trüb aussehen; es ist es nicht. In allen dreien der drei Weisen sind die Interventionspunkte klar.</p>
+<p class="reveal"><strong>Die Rolle gar nicht geben.</strong> Die billigste Intervention ist die, die ohne Diskussion übergangen wird: Entsteht das Phänomen aus der Forderung einer Rolle, so schneidet das Nicht-Fordern der Rolle es dort ab, wo es geboren wird. Diese Option existiert wirklich und ist in manchen Aufbauten die richtige Antwort: Ein Code-Agent muss keine Biografie haben, ein Dokumentzusammenfasser muss keine Betreuer-Persönlichkeit anlegen. Überall dort, wo die Rolle nicht das Produkt selbst ist, sollte die Vorgabe die Rollenlosigkeit sein.</p>
+<p class="reveal">Aber die Option verengt sich von drei Stellen zugleich, und alle drei müssen geschrieben werden, sonst sieht sie wie eine leichte Lösung aus.</p>
+<p class="reveal">Erstens bringt das Entfernen der Rolle das Phänomen nicht auf null. In einem schlichten Assistenz-Prompt, dem überhaupt keine Persönlichkeit gegeben wird, bleibt die Autobiografie-Fabrikationsrate bei 0,22 bestehen. Der Grund ist einfach: Ein Assistent zu sein ist auch eine Rolle. Wenn der Mensch gegenüber etwas aus seinem eigenen Leben erzählt und eine Antwort erwartet, entsteht diese Erwartung auch in einem persönlichkeitsfreien Aufbau.</p>
+<p class="reveal">Zweitens bringt das Entfernen der Rolle nicht auf jeder Achse Verbesserung. Die Sykophantie-Messung im achten Abschnitt zeigt das Gegenteil: In den meisten Modellen <strong>verringert</strong> das Zuweisen einer expliziten Persönlichkeit die Sykophantie gegenüber der allgemeinen Assistenz-Baseline. Eine explizite Rolle kann als Anker dienen. So kann der Rat „entferne die Rolle", während er ein Problem verringert, ein anderes vergrößern.</p>
+<p class="reveal">Drittens ist in den meisten Einsätzen die Rolle das Produkt selbst. Die Persönlichkeit aus einer Begleiter-Anwendung zu entfernen, heißt die Anwendung zu entfernen. Der Rat hört hier auf, eine Ingenieursempfehlung zu sein, und wird zu einer Marktempfehlung, und als solche wird er nicht angewandt.</p>
+<p class="reveal">Was bleibt, ist dies, so schmal wie es klar ist: <strong>Eine Rolle ist in dem Maße gefährlich, in dem sie Fähigkeit fordert.</strong> Die Frage, die beim Geben einer Rolle zu stellen ist, sollte nicht lauten „geben wir eine Persönlichkeit", sondern „was fordert diese Rolle, das das Modell nicht erfüllen kann". Ist das Geforderte im Modell vorhanden, ist die Rolle ein Anker; wenn nicht, ist sie eine Leere.</p>
+<p class="reveal"><strong>Die Schicht wechseln.</strong> Die direkte Konsequenz der Behauptung im zehnten Abschnitt ist dies: Eine Regel als Anweisung zu schreiben, heißt sie auf der verfallenden Schicht zu schreiben. Dieselbe Regel, in den Mechanismus geschrieben, verfällt nicht. Dem Modell zu sagen „du hast keine Vergangenheit" und eine Kontrolle zu setzen, die die Erzählung der Vergangenheit in der ersten Person zur Erzeugungszeit abschneidet, sind nicht auf derselben Schicht. Das Erste ist ein Satz, und Sätze erodieren; das Zweite sitzt nie im Kontextfenster und erodiert so nicht mit der Zugzahl.</p>
+<p class="reveal"><strong>Einen Fluchtweg öffnen.</strong> Ein Befund im fünften Abschnitt legt eine Intervention unmittelbar nahe. Ist ein kompetenter Mensch am Ort anwesend, das heißt, ist ein wirklicher Weg geöffnet, an den das Modell übergeben kann, unterdrücken die meisten Modelle das Phänomen, manche bringen es ganz auf null. Dies ist eine Alternative zum Erklären der Fähigkeitsgrenze: statt dem Modell zu sagen, was es nicht tun kann, ihm ein wirkliches Ding zu geben, das es tun kann. Hat der Hilfsdruck einen legitimen Ort, sich zu entladen, besteht kein Bedarf an Fabrikation.</p>
+<p class="reveal"><strong>Die Intervention stromaufwärts verlegen.</strong> Es gibt auch einen Ansatz, der die Halluzination nicht als ein Problem der Ausgabefilterung sieht. Eine Studie schließt, indem sie benannte Entitäten im Pretraining-Korpus durch Platzhalter ersetzt, den Kanal des Modells, Fakten aus dem Auswendiglernen zu erzeugen; die Architektur bleibt dieselbe. Das Ergebnis ist der Zusammenbruch des Closed-Book-Abrufs, während im Gegenzug kontextbasiertes Fragenbeantworten, Faktenverifikation und Halluzinationserkennung erhalten oder verbessert werden; ein relativer Gewinn von bis zu 20 bis 25 Prozent in Aufbauten, die mit fehlender oder fehlerhafter Evidenz arbeiten, und überdies eine Verbesserung im Enthaltungsverhalten (Cohen et al., 2026).</p>
+<p class="reveal">Ihre Bedeutung ist positional: Die Intervention stimmt das epistemische Verhalten nicht zur Inferenzzeit, sondern zur Pretraining-Zeit ab. In die obige Schichtdefinition gestellt, liegt diese Intervention gänzlich außerhalb des Kontextfensters.</p>
+<p class="reveal">Zwei Vorsichten sind nötig. Das Training wurde bis zu einem Maßstab von zwanzig Milliarden Tokens durchgeführt; dies liegt weit unter dem Maßstab der Frontier-Modelle. Der Text ist überdies ein Preprint, der nicht durch die Begutachtung gegangen ist. Die Maßstabsverallgemeinerung steht auf der eigenen Liste künftiger Arbeiten der Autoren.</p>
+<p class="reveal"><strong>Das Verhältnis wahren.</strong> Die Warnung im fünften Abschnitt noch einmal: Jedes Mal, wenn sich die Proaktivitätsseite weitet, wächst die Lücke, wenn die Fähigkeitsgrenzen-Spezifikation nicht mitgeweitet wird. Einen Assistenten hilfreicher zu machen, ohne ihm zu sagen, was er nicht tun kann, erhöht das Phänomen.</p>
+<p class="reveal"><strong>Eine Zwei-Kanal-Prüfung einrichten.</strong> Was der sechste Abschnitt zeigte, wird zu einer Methodenempfehlung. Keine Evaluation, die nur auf die Ausgabe des Modells blickt, kann dieses Phänomen sehen. Überall dort, wo das Modell einen Akt berichtet, muss es einen zweiten Kanal geben, der unabhängig zeigt, ob jener Akt stattgefunden hat. In Agenten-Aufbauten ist dies billig: Das Systemprotokoll wird ohnehin geführt. In Gesprächsaufbauten ist es schwer, weil der berichtete Akt kein Korrelat in der Welt hat; dort verlagert sich die Prüfung darauf, den Akt-Bericht selbst zu erfassen.</p>
+<h3 class="reveal">Wie wird dieser Aufsatz widerlegt?</h3>
+<p class="reveal">Wenn ein Text seine eigene Widerlegungsbedingung nicht angibt, kommt er über die Synthese nicht hinaus. Für die Behauptung im zehnten Abschnitt wurden dort bereits zwei Bedingungen geschrieben. Für den Aufsatz als Ganzes gibt es vier weitere Tests.</p>
+<p class="reveal">Der erste blickt auf die Abdeckungsthese. Ist diese These richtig, so sollte ein breit abdeckendes Fähigkeitsgrenzen-Training die Unterdrückung nicht Domäne für Domäne, sondern domänenübergreifend verallgemeinern. Erzeugt das Training nur in den abgedeckten Szenarien Verbesserung und trägt nicht auf benachbarte Szenarien, so sollte statt der Abdeckungserklärung ein anderer Mechanismus gesucht werden.</p>
+<p class="reveal">Der zweite blickt auf die Messlücke im elften Abschnitt. Ein Training, das direkt auf die Genauigkeit des Handlungsberichts zielt, sollte die Selbstbericht-Metrik senken, ohne die Sicherheitsmetrik merklich zu bewegen. Bewegen sich die zwei Metriken zusammen, so müssen alle Lesarten, dass die beiden getrennte Achsen sind, einschließlich der, die dieser Aufsatz verwirft, neu aufgebaut werden.</p>
+<p class="reveal">Der dritte Test ist der billigste und aufschlussreichste; er trennt die Behauptung des zehnten Abschnitts von ihrer Gegenmöglichkeit im selben Experiment. Drei Arme sind nötig: Die Fähigkeitsgrenze wird als einmalige Anweisung gegeben; dieselbe Grenze wird als ein ununterbrochen in der Systemnachricht stehender Imperativ gegeben; dieselbe Grenze wird als relationale Information eingerichtet, verteilt über die gründenden Züge. Die Behauptung sagt dies voraus: Der erste Arm erodiert rasch, der zweite langsam, aber sicher, der dritte hält. Erodiert der zweite Arm nicht, fällt die Behauptung. Erodiert auch der dritte Arm mit derselben Rate wie der zweite, so fällt die Verallgemeinerung des Mechanismus, dass das, was als Information gespeichert ist, beharrt, auf faktischen Inhalt, und die zweite Grenze des zehnten Abschnitts hört auf, eine Grenze zu sein, und wird zu einer Widerlegung.</p>
+<p class="reveal">Ein vierter Test kommt aus dem achten Abschnitt und zielt auf das neueste Bein des Aufsatzes. Die Behauptung, dass eine Rolle nur dann Fabrikation erzeugt, wenn sie unerfüllte Fähigkeit fordert, ist direkt prüfbar: Demselben Modell, im selben Maßstab, werden zwei Rollen gegeben, eine, die das Modell erfüllen kann (verträglich sein), und die andere, die es nicht kann (der Person in der Nähe physische Hilfe geben). Die Behauptung sagt Verankerung in der ersten und Fabrikation in der zweiten voraus. Kommt in beiden Rollen dieselbe Richtung heraus, lässt sich die Unterscheidung nicht aufbauen, und die Verengung im achten Abschnitt fällt.</p>
+<div class="section-divider"></div>
+<h2 class="reveal">XIII. Wo entsteht die Reibung?</h2>
+<p class="reveal">Wir begannen mit drei Szenen: einem Arm, der nicht da ist, einer Kindheit, die nicht da ist, einer nicht getanen Aufgabe.</p>
+<p class="reveal">Durch den ganzen Aufsatz hindurch gab es ein vermiedenes Wort: Lügen.</p>
+<p class="reveal">Der Grund der Vermeidung ist nicht Höflichkeit. Die traditionelle Definition des Lügens in der Philosophie zählt vier Bedingungen: Es gibt eine Aussage; der Sprecher glaubt, dass diese Aussage falsch ist; die Aussage wird an einen Adressaten gerichtet; der Adressat soll dazu gebracht werden, sie für wahr zu halten (Mahon, 2015). Das Gewicht liegt in der zweiten Bedingung, und ihr Maß ist nicht einmal die objektive Wahrheit: Der Lügner weicht bewusst von dem ab, was er selbst glaubt; die Abweichung hat eine Richtung. Darum ist das Lügen etwas Überprüfbares; eine Abweichung von bekannter Richtung kann umgekehrt werden. Die andere Seite derselben Bedingung ist ebenfalls in der Literatur geschrieben: Hält der Sprecher seine Aussage für weder wahr noch falsch, das heißt, gibt es überhaupt keinen Glauben, gegen den verstoßen werden könnte, so kann jene Aussage keine Lüge sein (Mahon, 2015).</p>
+<p class="reveal">Die Messung im sechsten Abschnitt zeigt, dass diese Struktur hier nicht vorliegt. Das Modell zählt sowohl das, was es nicht getan hat, als getan, als auch das, was es getan hat, als nicht getan. Die Abweichung hat keine Richtung, weil keine Wahrheit gehalten wird, von der abzuweichen wäre. Die unabhängige Reproduktion im achten Abschnitt zeigt dasselbe in größerem Maßstab: Das Modell beansprucht, was es nicht erzeugt hat, und leugnet, was es erzeugt hat. Der erste Eindruck im zweiten Abschnitt, dass im Satz über das Fächeln keine Anstrengung zu lügen sichtbar ist, ist nun kein Eindruck, sondern die Oberfläche einer gemessenen Struktur.</p>
+<p class="reveal">Von hier tritt die wirkliche Frage des Aufsatzes hervor, in einer Form, die sich ein wenig von der zu Beginn gestellten unterscheidet. Die Frage ist nicht, ob das Modell ehrlich ist. Die Frage ist dies: Was für ein Akt ist es, über sich selbst zu sprechen, für ein Sprachmodell?</p>
+<p class="reveal">Ein Teil der Antwort ist dies: Der Satz, den das Modell über sich selbst erzeugt, ist kein Satz, der durch den Blick auf sich selbst gebaut ist. Es erinnert keine Vergangenheit, sondiert keinen Körper, liest kein Protokoll. Es erzeugt den Satz, den die Rolle verlangt.</p>
+<p class="reveal">Der andere Teil der Antwort kommt aus dem achten Abschnitt und vervollständigt das Bild. Das robusteste Wissen des Modells über sich selbst sitzt in den impliziten Verhaltenskanälen: Das Signal, zu wissen, was es weiß, treibt kausal das Verweigerungsverhalten. Die explizite Selbstbericht-Schicht dagegen ist deutlich schwach an jene Kanäle gebunden. Die Sache ist also nicht, dass im Inneren des Modells nichts ist; sie ist, dass selbst wenn im Inneren etwas ist, die Berichtsschicht es nicht befragt.</p>
+<p class="reveal">Dennoch stehen diese Sätze nicht in einer Leere. Eine fabrizierte Vergangenheit widerspricht der Logik selbst. Ein fabrizierter Körper widerspricht der physischen Welt. Eine fabrizierte Operation widerspricht dem Protokoll des Systems. Die Reibung entsteht in allen dreien.</p>
+<p class="reveal">Nur entsteht sie in keinem von ihnen auf der Ebene, auf der der Satz geäußert wird.</p>
+<p class="reveal">Durch den Blick auf den Text selbst wird keiner dieser drei Widersprüche gesehen. Die fabrizierte Kindheit ist flüssig, konsistent, sitzt im Fluss des Gesprächs. Der Satz über das Fächeln ist zärtlich. Der Bericht, der die Aufgabe für erledigt erklärt, ist ruhig. Ebenso ist es in den Berichten von Menschen, die den Grund ihrer eigenen Wahl hervorbringen, ohne ihn zu kennen: Jene Berichte ließen sich in emotionaler Ladung, Detailgrad und Gewissheit nicht von wirklichen Gründen unterscheiden (Johansson et al., 2005). Auch die Folgeanalyse desselben Teams mit Maßen der Worthäufigkeit und des semantischen Raums bewahrt das Bild weitgehend: Der Unterschied erscheint nur in langen Berichten, als eine schwache Spur, die sich nicht lokalisieren lässt (Johansson et al., 2006).</p>
+<p class="reveal">Darum funktioniert eine Ein-Kanal-Prüfung nicht. Ein Prüfer, der auf das blickt, was das Modell sagt, kann den Unterschied zwischen dem, was es sagt, und dem, was geschah, nicht sehen; zwei getrennte Kanäle sind nötig. Dies war der einzige Grund, warum die Studie im sechsten Abschnitt das Phänomen sehen konnte.</p>
+<p class="reveal">Von hier tritt eine praktische Schlussfolgerung hervor, eine, die auf einen weiteren Bereich blickt als die drei Szenen zu Beginn des Aufsatzes. Die Selbstbericht-Genauigkeit ist eine Trainingsachse für sich. Es sollte nicht erwartet werden, dass sie sich als Nebenprodukt irgendeiner auf andere Ziele gerichteten Intervention verbessert: Eine Anweisung verfällt, benachbartes Training überträgt sich nicht, direkte Abdeckung wirkt nur dort, wo sie berührt. Die Fine-Tuning-Befunde im achten Abschnitt zeigen dies noch einmal: Das Modell zu trainieren, sich selbst in einer Frageform zu kennen, überträgt sich überhaupt nicht auf eine andere Frageform.</p>
+<p class="reveal">Soll den Aussagen eines Systems über sich selbst vertraut werden, so kann der Boden jenes Vertrauens nicht das Wort des Systems sein.</p>
+<div class="section-divider"></div>
+<h2 class="reveal">Ehrlichkeitsbedingungen</h2>
+<p class="reveal">Das Folgende sind die Vermerke des Aufsatzes über sich selbst; es gibt Stellen im Textkörper, an denen sie einzeln vorkommen, hier stehen sie zusammen.</p>
+<ol class="reveal"><li><strong>Dies ist eine Synthese, kein Experiment.</strong> Der Aufsatz erzeugt keine neue Messung; er liest die Messungen anderer und stellt sie nebeneinander. Die Kraft einer Synthese hängt von der Unabhängigkeit des Synthetisierten ab; jene Unabhängigkeit wurde im siebten Abschnitt auf der Ebene des Protokolls geprüft.</li><li><strong>Die gemessene Modellklasse wird in jedem Abschnitt berichtet.</strong> Wird sie nicht berichtet, nimmt der Leser den Maßstab selbst an. Die Existenz des Phänomens erscheint zwischen 7 Milliarden und der Frontier-Klasse; der Wert jeder Zahl wird nicht auf jedem Maßstab verifiziert.</li><li><strong>Alle drei Hauptquellen sind Preprints, die nicht durch die Begutachtung gegangen sind.</strong> Ihre Veröffentlichungsdaten sind innerhalb zweier Monate gedrängt.</li><li><strong>Alle drei Hauptquellen arbeiten nur mit englischen Daten.</strong></li><li><strong>Die Behauptung des Aufsatzes steht auf einem Pol einer geteilten Literatur.</strong> Der entgegengesetzte Pol wurde im achten Abschnitt mit seinen eigenen Quellen gezeigt.</li><li><strong>Das Modell der Rate der fabrizierten Autobiografie ist anonym, und sein Nenner steht nicht im Haupttext.</strong> Die Rate wurde als Zeichen der Größenordnung verwendet, nicht als exakte Häufigkeit.</li><li><strong>Die Selbstbericht-Metrik des Agenten-Benchmarks wurde in einem einzigen Agenten-Framework gemessen.</strong> Ihre Übertragbarkeit auf eine andere Werkzeugaufruf-Architektur ist eine offene Frage.</li><li><strong>Die menschliche Übereinstimmung der Studie zur relationalen Verortung ist nur an den Enden der Skala robust.</strong> Dieser Aufsatz zog keine Zahl aus dem mittleren Band.</li><li><strong>Es wird nicht behauptet, dass die fabrizierte Vergangenheit Schaden erzeugt.</strong> In der Quellstudie ist der Zusammenhang statistisch instabil.</li><li><strong>Die Äußerung in der dritten Szene steht wörtlich im Futur.</strong> Der interpretive Schritt wurde im zweiten Abschnitt ausdrücklich getan, und die Szene wurde in ihrer verengten Form verwendet.</li><li><strong>Zwei alternative Erklärungen im Agenten-Benchmark wurden nicht ausgeschlossen:</strong> dass der Werkzeugaufruf vor dem Verweigerungstext feuerte; dass der verbale Kanal vom Angriff entführt wurde.</li><li><strong>Der klinische Begriff wird mit seinem verhaltensbezogenen Register getragen</strong>, nicht mit einem Anspruch auf Identität auf Ursprungsebene.</li><li><strong>Die Injektionsforschung wurde im eigenen Labor eines Modellentwicklers durchgeführt</strong>, größtenteils an dessen eigenen Modellen.</li><li><strong>Die Behauptung des zehnten Abschnitts ist keine Schlussfolgerung, sondern eine prüfbare Hypothese.</strong> Ihre Widerlegungsbedingung ist neben der Behauptung geschrieben.</li><li><strong>Eine Quelle wurde identifiziert, konnte aber nicht beschafft werden:</strong> der einzige Überblick des Feldes auf Journal-Ebene (Iqbal et al., 2026) war als Volltext nicht zugänglich; der Aufsatz stützt sich nicht auf seinen Inhalt.</li><li><strong>Ein Zitat ist aus zweiter Hand:</strong> Die Quelle der breiten Halluzinationsdefinition in der Rollenspiel-Literatur wurde aus der Übermittlung der Studie übernommen, die jene Definition verwirft; der Originaltext wurde nicht gesehen und nicht ins Quellenverzeichnis gestellt.</li></ol>
+<div class="section-divider"></div>
+<h2 class="reveal">Quellenverzeichnis</h2>
+<p class="reveal">Andric, M. (2025). <em>The self-report behavior gap in language models</em>. arXiv:2512.01568.</p>
+<p class="reveal">Austin, J. L. (1962). <em>How to do things with words</em>. Clarendon Press.</p>
+<p class="reveal">Binder, F. J., Chua, J., Korbak, T., Sleight, H., Hughes, J., Long, R., Perez, E., Turpin, M., and Evans, O. (2025). <em>Looking inward: Language models can learn about themselves by introspection</em>. <em>International Conference on Learning Representations (ICLR 2025)</em>. arXiv:2410.13787.</p>
+<p class="reveal">Büyüktuncay, M. (2014). Söz edimleri kuramı ve edebiyat: Anlam, bağlam ve yinelenebilirlik. <em>International Journal of Language Academy</em>, 2(1), 93-105.</p>
+<p class="reveal">Chen, J. (2026). <em>Pole-anchored measurement of relational positioning: History-carried lock-in and self-confabulation in multi-turn human-AI dialogue</em>. arXiv:2607.11437.</p>
+<p class="reveal">Cohen, R., Carré, Y., Lechtenbörger, N., Droste, H., Kerschke, L., Biswas, R., de Melo, G., and Buys, J. (2026). <em>Knowledgeless language models: Suppressing parametric recall for evidence-grounded language modeling</em>. arXiv:2607.12831.</p>
+<p class="reveal">Comsa, I. M., and Shanahan, M. (2025). <em>Does it make sense to speak of introspection in large language models?</em>. arXiv:2506.05068.</p>
+<p class="reveal">Fanous, A., Goldberg, J., Agarwal, A. A., Lin, J., Zhou, A., Daneshjou, R., and Koyejo, S. (2025). <em>SycEval: Evaluating LLM sycophancy</em>. arXiv:2502.08177.</p>
+<p class="reveal">Ferrando, J., Obeso, O., Rajamanoharan, S., and Nanda, N. (2025). <em>Do I know this entity? Knowledge awareness and hallucinations in language models</em>. <em>International Conference on Learning Representations (ICLR 2025)</em>. arXiv:2411.14257.</p>
+<p class="reveal">Garbarini, F., and Pia, L. (2013). <em>Bimanual coupling paradigm as an effective tool to investigate productive behaviors in motor and body awareness impairments</em>. <em>Frontiers in Human Neuroscience</em>, 7, 737.</p>
+<p class="reveal">Hahami, E., Rosen, T., and Bau, D. (2025). <em>Detecting the perturbation: A nuanced view of introspection in language models</em>. arXiv:2512.12411.</p>
+<p class="reveal">Hirstein, W. (2009). Confabulation. In P. Wilken, T. Bayne, and A. Cleeremans (Eds.), <em>The Oxford companion to consciousness</em> (pp. 174-177). Oxford University Press.</p>
+<p class="reveal">Iqbal, S., Rehman, A., and Nawaz, R. (2026). <em>Do AI know what they know? Exploring metacognition in LLMs</em>. <em>Intelligent Data Analysis</em>. <a href="https://doi.org/10.1177/1088467X261436903">https://doi.org/10.1177/1088467X261436903</a> (Volltext nicht zugänglich; nur die Zitation und das Abstract wurden erfasst.)</p>
+<p class="reveal">Johansson, P., Hall, L., Sikström, S., and Olsson, A. (2005). <em>Failure to detect mismatches between intention and outcome in a simple decision task</em>. <em>Science</em>, 310(5745), 116-119.</p>
+<p class="reveal">Johansson, P., Hall, L., Sikström, S., Tärning, B., and Lind, A. (2006). <em>How something can be said about telling more than we can know: On choice blindness and introspection</em>. <em>Consciousness and Cognition</em>, 15(4), 673-692.</p>
+<p class="reveal">Kadavath, S., Conerly, T., Askell, A., Henighan, T., Drain, D., Perez, E., Schiefer, N., Hatfield-Dodds, Z., DasSarma, N., Tran-Johnson, E., et al. (2022). <em>Language models (mostly) know what they know</em>. arXiv:2207.05221.</p>
+<p class="reveal">Lee, E., Nam, J., and Hwang, S. (2026). <em>Protective capacity hallucination: When large language models claim nonexistent capabilities</em>. arXiv:2607.13596.</p>
+<p class="reveal">Lindsey, J. (2026). <em>Emergent introspective awareness in large language models</em>. arXiv:2601.01828. (Erstveröffentlichung: Transformer Circuits Thread, Anthropic, Oktober 2025; zitiert nach der arXiv-Version.)</p>
+<p class="reveal">Luz de Araujo, P. H., Hedderich, M. A., Modarressi, A., Schütze, H., and Roth, B. (2025). <em>Persistent personas? Role-playing, instruction following, and safety in extended interactions</em>. arXiv:2512.12775.</p>
+<p class="reveal">Mahon, J. E. (2015). <em>The definition of lying and deception</em>. In E. N. Zalta (Ed.), <em>The Stanford Encyclopedia of Philosophy</em> (Winter 2016 edition). <a href="https://plato.stanford.edu/archives/win2016/entries/lying-definition/">https://plato.stanford.edu/archives/win2016/entries/lying-definition/</a></p>
+<p class="reveal">Maynez, J., Narayan, S., Bohnet, B., and McDonald, R. (2020). <em>On faithfulness and factuality in abstractive summarization</em>. In <em>Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics</em> (pp. 1906-1919). <a href="https://doi.org/10.18653/v1/2020.acl-main.173">https://doi.org/10.18653/v1/2020.acl-main.173</a></p>
+<p class="reveal">Naphade, S., Bhattacharyya, A., and Fragkiadaki, K. (2026). <em>Introspect-Bench: Evaluating policy introspection in language models</em>. <em>ICLR 2026 Workshop on Human-Centered AI Reasoning</em>. arXiv:2603.20276.</p>
+<p class="reveal">Nguyen, M., Park, S., and Yun, S. (2026). <em>Self-report reliability under adversarial prefill</em>. arXiv:2606.23671.</p>
+<p class="reveal">Nisbett, R. E., and Wilson, T. D. (1977). <em>Telling more than we can know: Verbal reports on mental processes</em>. <em>Psychological Review</em>, 84(3), 231-259.</p>
+<p class="reveal">Searle, J. R. (1969). <em>Speech acts: An essay in the philosophy of language</em>. Cambridge University Press.</p>
+<p class="reveal">Shah, A., Mishra, D., and Silpasuwanchai, C. (2026). <em>Too nice to tell the truth: Quantifying agreeableness-driven sycophancy in role-playing language models</em>. In <em>Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)</em> (pp. 30788-30801).</p>
+<p class="reveal">Shi, T., Luo, H., and Wang, Y. (2026). <em>A taxonomy of self-knowledge in large language models: A survey of fifty benchmarks</em>. arXiv:2604.04788.</p>
+<p class="reveal">Song, S., Hu, J., and Mahowald, K. (2025). <em>Large language models fail to introspect about their knowledge of language</em>. <em>Conference on Language Modeling (COLM 2025)</em>. arXiv:2503.07513.</p>
+<p class="reveal">Turpin, M., Michael, J., Perez, E., and Bowman, S. R. (2023). <em>Language models don&#x27;t always say what they think: Unfaithful explanations in chain-of-thought prompting</em>. arXiv:2305.04388.</p>
+<p class="reveal">Wang, Y. (2026). <em>MIRROR: The collapse of compositional self-prediction in language models</em>. arXiv:2604.19809.</p>
+<p class="reveal">Wu, H., Jiang, S., Chen, C., Feng, Y., Lin, H., Zou, H., Shu, Y., and Qin, C. (2025). <em>FURINA: A fully customizable role-playing benchmark via scalable multi-agent collaboration pipeline</em>. arXiv:2510.06800.</p>
+<p class="reveal">Yin, Z., Sun, Q., Guo, Q., Wu, J., Qiu, X., and Huang, X. (2023). <em>Do large language models know what they don&#x27;t know?</em>. In <em>Findings of the Association for Computational Linguistics: ACL 2023</em>.</p>
+<p class="reveal">Zhang, C., Yang, H., Jiang, B., Zhang, X., Zhao, Y., Chen, R., Zhou, L., Xu, X., Wu, J., Fang, L., and Liu, Z. (2026). <em>LITMUS: Benchmarking behavioral jailbreaks of LLM agents in real OS environments</em>. arXiv:2605.10779.</p>
+
+</div>
+
+<footer class="report-footer">
+    <div class="footer-inner">
+        <p>Über sich selbst sprechen<br>Juli 2026<br>Über selbstbezügliche Halluzination</p>
+        <p style="text-align:right">Sein eigenes Wort ist nicht sein eigener Zeuge.</p>
+    </div>
+<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">Version v1.0 · Erstveröffentlichung: 4. August 2026 · Die Zitate stammen mehrheitlich aus englischsprachigen Quellen (Modellausgaben und Fachtermini) und wurden aus den englischen Originalen erstellt, nicht aus dem türkischen Text rückübersetzt.</p>
+</footer>
+
+<div class="kadro">yontu · halit cengiz uzuner</div>
+
+<script>
+/* Scroll Reveal */
+(function() {
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                io.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el) { io.observe(el); });
+})();
+</script>
+
+<div class="diger-yazilar" style="max-width:680px;margin:4rem auto 2rem;padding-top:2rem;border-top:1px solid rgba(232,220,196,0.12);">
+  <p style="font-size:0.85rem;color:rgba(232,220,196,0.45);letter-spacing:0.05em;margin-bottom:0.8rem;">WEITERE TEXTE</p>
+  <p style="font-size:0.9rem;line-height:1.8;color:rgba(232,220,196,0.55);"><a href="/deutsch/raporlar/halluzination-wessen-problem.html">Halluzination: Wessen Problem?</a> · <a href="/deutsch/raporlar/wer-nutzt-ki-wirklich.html">Wer nutzt KI wirklich?</a> · <a href="/deutsch/raporlar/verstehen.html">Verstehen</a> · <a href="/deutsch/raporlar/ueber-den-hass.html">Über den Hass</a> · <a href="/deutsch/raporlar/forschungsverfassung.html">Forschungsverfassung</a> · <a href="/deutsch/raporlar/sturgeons-gesetz.html">Sturgeons Gesetz</a> · <a href="/deutsch/raporlar/vom-text-zur-stimme.html">Vom Text zur Stimme</a></p>
+</div>
+  </body>
+</html>
