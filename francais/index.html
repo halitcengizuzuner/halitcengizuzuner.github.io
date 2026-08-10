@@ -41,19 +41,55 @@
     </noscript>
     <script>document.documentElement.classList.add("js-on")</script>
     <script type="application/ld+json">
-    {
+      {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Halit Cengiz Uzuner",
-      "url": "https://halitcengizuzuner.com/francais/",
-      "description": "Un site vivant et multilingue de pensée turque : aphorismes et rapports en français.",
-      "inLanguage": "fr",
-      "author": {
-        "@type": "Person",
-        "name": "Halit Cengiz Uzuner",
-        "url": "https://halitcengizuzuner.com/turkce/"
-      }
-    }
+      "@graph": [
+            {
+                  "@type": "WebSite",
+                  "@id": "https://halitcengizuzuner.com/#website-fr",
+                  "name": "Halit Cengiz Uzuner",
+                  "url": "https://halitcengizuzuner.com/francais/",
+                  "description": "Un site vivant et multilingue de pensée turque : aphorismes et rapports en français.",
+                  "inLanguage": "fr",
+                  "author": {
+                        "@id": "https://halitcengizuzuner.com/#person"
+                  },
+                  "publisher": {
+                        "@id": "https://halitcengizuzuner.com/#person"
+                  }
+            },
+            {
+                  "@type": "Person",
+                  "@id": "https://halitcengizuzuner.com/#person",
+                  "name": "Halit Cengiz Uzuner",
+                  "url": "https://halitcengizuzuner.com/francais/",
+                  "jobTitle": "Chercheur, auteur, interprète de l'IA",
+                  "description": "Un chercheur qui écrit des essais en six langues sur le langage, le droit, l'esprit et l'effet de l'intelligence artificielle sur la pensée.",
+                  "knowsAbout": [
+                        "Philosophie du langage",
+                        "Droit",
+                        "Philosophie de l'esprit",
+                        "Intelligence artificielle",
+                        "Épistémologie",
+                        "Littérature et pensée"
+                  ],
+                  "sameAs": [
+                        "https://halitcengizuzuner.substack.com",
+                        "https://bsky.app/profile/halitcengizuzuner.com",
+                        "https://medium.com/@avukathalituzuner",
+                        "https://www.linkedin.com/in/halit-cengiz-uzuner-b3a7b2354",
+                        "https://independent.academia.edu/HalitCengizUzuner",
+                        "https://www.wikidata.org/wiki/Q140388810",
+                        "https://orcid.org/0009-0006-7269-1105",
+                        "https://ssrn.com/author=11517408",
+                        "https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Uzuner%2C+Halit+Cengiz%22",
+                        "https://profile.hcommons.org/members/halitcengizuzuner/",
+                        "https://scholar.google.com/citations?user=LAmrEvcAAAAJ",
+                        "https://www.researchgate.net/profile/Halit-Uzuner-2"
+                  ]
+            }
+      ]
+}
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
