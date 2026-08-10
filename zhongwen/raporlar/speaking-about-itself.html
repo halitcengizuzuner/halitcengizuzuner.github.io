@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>谈论自身：一个语言模型对自己的陈述</title>
+<noscript>
+  <style>.reveal { opacity: 1 !important; transform: none !important; } body { opacity: 1 !important; animation: none !important; }</style>
+</noscript>
+<script>document.documentElement.classList.add('js-on')</script>
+<meta name="description" content="一个语言模型关于自身的陈述，有多少经得起推敲？对一段它没有的过去、一具它不曾承载的身体、一项它未曾做过的工作的三项独立测量；自指幻觉，角色与能力之间的鸿沟。Halit Cengiz Uzuner.">
+<meta name="author" content="Halit Cengiz Uzuner">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="谈论自身">
+<meta property="og:description" content="一段它没有的过去、一具它不曾承载的身体、一项它未曾做过的工作：对一个语言模型关于自身陈述的三项独立测量的综合。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://halitcengizuzuner.com/zhongwen/raporlar/speaking-about-itself.html">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="Halit Cengiz Uzuner">
+<meta property="og:image" content="https://halitcengizuzuner.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="halitcengizuzuner.com: thought">
+<meta property="article:author" content="Halit Cengiz Uzuner">
+<meta property="article:published_time" content="2026-08-04">
+<link rel="canonical" href="https://halitcengizuzuner.com/zhongwen/raporlar/speaking-about-itself.html">
+<link rel="alternate" hreflang="tr" href="https://halitcengizuzuner.com/turkce/raporlar/kendisi-hakkinda-konusmak.html">
+<link rel="alternate" hreflang="en" href="https://halitcengizuzuner.com/english/raporlar/speaking-about-itself.html">
+<link rel="alternate" hreflang="de" href="https://halitcengizuzuner.com/deutsch/raporlar/ueber-sich-selbst-sprechen.html">
+<link rel="alternate" hreflang="fr" href="https://halitcengizuzuner.com/francais/raporlar/parler-de-soi-meme.html">
+<link rel="alternate" hreflang="es" href="https://halitcengizuzuner.com/espanol/raporlar/hablar-de-si-mismo.html">
+<link rel="alternate" hreflang="zh" href="https://halitcengizuzuner.com/zhongwen/raporlar/speaking-about-itself.html">
+<link rel="alternate" hreflang="x-default" href="https://halitcengizuzuner.com/english/raporlar/speaking-about-itself.html">
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="谈论自身">
+<meta name="twitter:description" content="一段它没有的过去、一具它不曾承载的身体、一项它未曾做过的工作：对一个语言模型关于自身陈述的三项独立测量的综合。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "谈论自身：一个语言模型对自己的陈述",
+  "description": "一段它没有的过去、一具它不曾承载的身体、一项它未曾做过的工作：对一个语言模型关于自身陈述的三项独立测量的综合。自指幻觉。",
+  "datePublished": "2026-08-10",
+  "dateModified": "2026-08-10",
+  "author": {
+    "@type": "Person",
+    "@id": "https://halitcengizuzuner.com/#person",
+    "name": "Halit Cengiz Uzuner",
+    "url": "https://halitcengizuzuner.com/zhongwen/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Halit Cengiz Uzuner",
+    "url": "https://halitcengizuzuner.com/zhongwen/"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://halitcengizuzuner.com/zhongwen/raporlar/speaking-about-itself.html"
+  },
+  "inLanguage": "zh-Hans"
+}
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #060604;
+    --bone: #d4ccc0;
+    --bone-bright: #ece4d8;
+    --bone-dim: rgba(212, 204, 192, 0.58);
+    --bone-ghost: rgba(212, 204, 192, 0.28);
+    --oz: #8f7a96;
+    --oz-dim: rgba(143, 122, 150, 0.12);
+    --serif: 'Instrument Serif', Georgia, serif;
+}
+
+::selection {
+    background: var(--oz);
+    color: var(--void);
+}
+
+html {
+    font-size: clamp(17px, 1.2vw, 20px);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.15;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+@media print {
+    body::before { display: none !important; }
+}
+
+/* ========== HEADER ========== */
+.report-header {
+    min-height: 60vh;
+    padding: 4rem 2rem 4rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.report-header h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 400;
+    color: var(--bone-bright);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.2rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--bone-dim);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.meta {
+    font-size: 0.75rem;
+    color: var(--oz);
+    letter-spacing: 0.15em;
+}
+
+/* ========== İÇERİK ========== */
+.content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+}
+
+.content h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 400;
+    color: var(--bone-bright);
+    margin: 3.5rem 0 1.5rem;
+    line-height: 1.2;
+}
+
+.content h2:first-child { margin-top: 0; }
+
+.content h3 {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--bone-bright);
+    margin: 2.5rem 0 1rem;
+    font-style: italic;
+}
+
+.content p {
+    margin-bottom: 1rem;
+    color: var(--bone);
+}
+
+.content strong { color: var(--bone-bright); }
+
+.section-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--oz);
+    margin: 3.5rem auto;
+    opacity: 0.5;
+}
+
+/* ========== PULL QUOTE ========== */
+.pull-quote {
+    border-left: 1px solid var(--oz);
+    padding: 1rem 0 1rem 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--bone-dim);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* ========== BAĞLAM KUTUSU ========== */
+.context-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    margin: 2rem 0;
+    border: 1px solid var(--bone-ghost);
+}
+
+.context-cell {
+    padding: 1.5rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.context-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--oz);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.context-cell p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--bone-dim);
+}
+
+/* ========== SAYAÇ BLOĞU ========== */
+.counter-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 2.5rem 0;
+    margin: 1.5rem 0;
+}
+
+.counter-item { text-align: center; min-width: 130px; }
+
+.counter-num {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--bone-bright);
+    display: block;
+    margin-bottom: 0.3rem;
+    font-style: italic;
+}
+
+.counter-label {
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: var(--bone-dim);
+    display: block;
+    max-width: 150px;
+    margin: 0 auto;
+}
+
+/* ========== KARŞILAŞTIRMA ========== */
+.compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.compare-col {
+    padding: 2rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.compare-col h4 {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+    color: var(--oz);
+    font-weight: 400;
+}
+
+.compare-col ul { list-style: none; }
+
+.compare-col li {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--bone-ghost);
+    color: var(--bone-dim);
+}
+
+.compare-col li:last-child { border-bottom: none; }
+.compare-col li strong { color: var(--bone-bright); font-size: 0.85rem; }
+
+/* ========== HABER KESİMLERİ ========== */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.news-clip {
+    padding: 1.8rem;
+    background: rgba(212, 204, 192, 0.02);
+    border-top: 1px solid var(--oz);
+}
+
+.news-clip-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--oz);
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.news-clip h4 {
+    font-size: 0.95rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.news-clip p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--bone-dim);
+    margin-bottom: 0.5rem;
+}
+
+.nc-year {
+    font-size: 0.7rem;
+    color: var(--bone-dim);
+    display: block;
+    margin-top: 0.8rem;
+    opacity: 0.6;
+}
+
+/* ========== ALTI KATMAN ========== */
+.layer-tabs {
+    display: flex;
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin-bottom: 0;
+    overflow-x: auto;
+}
+
+.layer-tab {
+    flex: 1;
+    min-width: 80px;
+    padding: 0.8rem 0.5rem;
+    background: rgba(212, 204, 192, 0.02);
+    border: none;
+    color: var(--bone-dim);
+    font-family: var(--serif);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    line-height: 1.4;
+    border-top: 1px solid transparent;
+}
+
+.layer-tab:hover { color: var(--bone); background: rgba(212, 204, 192, 0.04); }
+
+.layer-tab.active {
+    color: var(--bone-bright);
+    background: var(--void);
+    border-top-color: var(--oz);
+}
+
+.layer-panel {
+    display: none;
+    border: 1px solid var(--bone-ghost);
+    border-top: none;
+    padding: 2.5rem;
+}
+
+.layer-panel.active { display: block; }
+
+.layer-panel h3 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0 0 1rem;
+    color: var(--bone-bright);
+}
+
+.layer-panel p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+.layer-severity {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--oz);
+    color: var(--oz);
+    margin-bottom: 1rem;
+}
+
+/* ========== TERMİNAL ========== */
+.terminal-window {
+    background: rgba(212, 204, 192, 0.02);
+    border: 1px solid var(--bone-ghost);
+    overflow: hidden;
+    margin: 2rem 0;
+}
+
+.terminal-bar {
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-bottom: 1px solid var(--bone-ghost);
+}
+
+.terminal-dot { width: 7px; height: 7px; border-radius: 50%; }
+.td-red { background: rgba(200, 120, 100, 0.6); }
+.td-yellow { background: rgba(200, 180, 100, 0.6); }
+.td-green { background: rgba(140, 180, 120, 0.6); }
+
+.terminal-title {
+    margin-left: 0.5rem;
+    font-size: 0.65rem;
+    color: var(--bone-dim);
+    letter-spacing: 0.06em;
+}
+
+.terminal-body {
+    padding: 1.5rem;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.t-line {
+    font-size: 0.78rem;
+    line-height: 1.8;
+    color: var(--bone-dim);
+    white-space: pre-wrap;
+}
+
+.t-line.cmd { color: var(--bone-bright); }
+.t-line.cmd::before { content: '$ '; color: var(--bone-dim); }
+.t-line.err { color: rgba(200, 140, 120, 0.8); }
+.t-line.fix { color: rgba(160, 200, 140, 0.8); }
+.t-line.warn { color: var(--oz); }
+.t-line.dim { color: var(--bone-dim); font-size: 0.7rem; opacity: 0.6; }
+
+.t-round {
+    border-left: 1px solid var(--bone-ghost);
+    padding-left: 1rem;
+    margin: 0.8rem 0;
+}
+
+.t-round-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--bone-dim);
+    margin-bottom: 0.3rem;
+}
+
+/* ========== ZAMAN ÇİZGİSİ ========== */
+.timeline {
+    position: relative;
+    padding: 1rem 0 1rem 2.5rem;
+    margin: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.8rem;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: var(--bone-ghost);
+}
+
+.tl-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.tl-item::before {
+    content: '';
+    position: absolute;
+    left: -1.95rem;
+    top: 0.5rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--oz);
+}
+
+.tl-time {
+    font-size: 0.72rem;
+    color: var(--oz);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.2rem;
+}
+
+.tl-desc {
+    font-size: 0.88rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ========== NEDEN KARTLARI ========== */
+.reason-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--bone-ghost);
+    margin: 2rem 0;
+}
+
+.reason-card {
+    padding: 1.5rem;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.reason-num {
+    font-size: 0.7rem;
+    color: var(--oz);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.reason-card h4 {
+    font-size: 0.88rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.5rem;
+}
+
+.reason-card p {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--bone-dim);
+    margin: 0;
+}
+
+/* ========== AÇIK SORULAR ========== */
+.qs-list { list-style: none; }
+
+.qs-list li {
+    display: flex;
+    gap: 1.2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--bone-ghost);
+    align-items: flex-start;
+}
+
+.qs-num {
+    font-size: 0.75rem;
+    color: var(--bone-dim);
+    min-width: 24px;
+    padding-top: 0.1rem;
+}
+
+.qs-text { flex: 1; }
+
+.qs-text strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+    color: var(--bone-bright);
+    font-weight: 400;
+    font-style: italic;
+}
+
+.qs-text p, .qs-text {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--bone-dim);
+}
+
+/* ========== FRAMEWORK KUTUSU ========== */
+.framework-box {
+    border: 1px solid var(--bone-ghost);
+    padding: 2rem;
+    margin: 2rem 0;
+    background: rgba(212, 204, 192, 0.02);
+}
+
+.fw-title {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--bone-bright);
+    margin-bottom: 0.8rem;
+}
+
+/* ========== KAYNAK ========== */
+.source-tag {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--bone-dim);
+    margin-top: 1rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--bone-ghost);
+    opacity: 0.6;
+}
+
+/* ========== FOOTER ========== */
+.report-footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--bone-ghost);
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.report-footer p {
+    font-size: 0.75rem;
+    color: var(--bone-dim);
+    line-height: 1.6;
+    opacity: 0.5;
+}
+
+/* ========== KADRO ========== */
+.kadro {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+    font-size: 0.7rem;
+    color: var(--bone-dim);
+    opacity: 0.4;
+    text-align: center;
+}
+
+/* ========== SCROLL REVEAL ========== */
+.reveal { transition: opacity 0.8s ease, transform 0.8s ease; }
+.js-on .reveal { opacity: 0; transform: translateY(20px); }
+
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* ========== RESPONSİF ========== */
+@media (max-width: 680px) {
+    .content { padding: 0 1.2rem 4rem; }
+    .report-header { padding: 3rem 1.2rem 3rem; }
+    .context-grid,
+    .compare-grid,
+    .news-grid,
+    .reason-grid { grid-template-columns: 1fr; }
+    .counter-block { gap: 1.5rem; }
+    .layer-tabs { flex-wrap: wrap; }
+    .layer-tab { min-width: calc(33% - 1px); }
+    .layer-panel { padding: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal { transition: none; opacity: 1; transform: none; }
+}
+
+/* ========== DİNLEME KAPISI ========== */
+.dinle-kapisi {
+    margin-top: 2.5rem;
+}
+
+.dinle-kapisi summary {
+    font-size: 0.85rem;
+    color: var(--bone-ghost);
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    list-style: none;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi summary::-webkit-details-marker { display: none; }
+.dinle-kapisi summary::marker { display: none; content: ''; }
+
+.dinle-kapisi summary::before {
+    content: '▸ ';
+    display: inline;
+    transition: color 0.3s;
+}
+
+.dinle-kapisi[open] summary::before {
+    content: '▾ ';
+}
+
+.dinle-kapisi summary:hover {
+    color: var(--bone-dim);
+}
+
+.dinle-kapisi[open] summary {
+    color: var(--bone-dim);
+    margin-bottom: 1.2rem;
+}
+
+.dinle-icerik {
+    padding: 1.5rem;
+    border: 1px solid var(--bone-ghost);
+    max-width: 480px;
+}
+
+.dinle-icerik p {
+    font-size: 0.85rem;
+    color: var(--bone-dim);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.dinle-icerik p:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.dinle-icerik a {
+    color: var(--bone-bright);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--bone-ghost);
+    transition: color 0.3s, text-decoration-color 0.3s;
+}
+
+.dinle-icerik a:hover {
+    color: var(--bone-bright);
+    text-decoration-color: var(--bone-bright);
+}
+
+.dinle-git {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+}
+
+/* ===== LANGUAGE BAR ===== */
+.lang-bar {
+    position: relative; z-index: 10;
+    padding: 1.4rem 2.5rem 0;
+    font-family: 'Instrument Serif', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--bone-dim);
+}
+.lang-link {
+    color: var(--bone-dim);
+    transition: color 0.35s ease;
+    padding: 0 0.15em;
+    text-decoration: none;
+}
+.lang-link:hover { color: #a08060; }
+.lang-link.lang-active { color: var(--bone-bright); }
+.lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+@media (max-width: 640px) {
+    .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+}
+
+/* ===== HOME LINK ===== */
+.home-nav {
+    text-align: center;
+    padding: 0.5rem 0 0;
+}
+.home-link {
+    color: var(--bone-dim);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: inline-block;
+    line-height: 1;
+}
+.home-link:hover {
+    color: var(--bone);
+}
+</style>
+</head>
+<body>
+<div class="home-nav"><a href="/english/" class="home-link" aria-label="首页">⌂</a></div>
+<header class="report-header">
+    <h1>谈论自身</h1>
+    <p class="subtitle">一个语言模型对自己的过去、<br>自己的身体，以及它所做工作的陈述</p>
+    <p class="meta">2026年7月</p>
+</header>
+<figure class="hero-kendisi" style="margin:0 auto 2.4rem;max-width:840px;padding:0 1rem;">
+<style>.hero-kendisi .hero-mobile{display:none;}@media(max-width:680px){.hero-kendisi .hero-desktop{display:none!important;}.hero-kendisi .hero-mobile{display:block!important;}}</style>
+<svg class="hero-desktop" style="width:100%;height:auto;display:block;border-radius:4px;" viewBox="0 0 1240 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="一条水平的界线像水面一样横贯中央。线的上方，一个发光的、看似完整的直立形体立于界线之上，俯视着自己的倒影；它的顶端泛着淡紫，仿佛正在说话。界线下方，本应映出倒影的地方，是一片虚空；只有一道极淡的、以虚线勾勒的幽灵轮廓。这形体注视着自己，但镜中没有一个自我来回应它。" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="grain-d"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0"/></filter>
+<linearGradient id="cgrad-d" gradientUnits="userSpaceOnUse" x1="0" y1="104" x2="0" y2="320">
+  <stop offset="0" stop-color="#ece4d8"/>
+  <stop offset="0.14" stop-color="#8f7a96"/>
+  <stop offset="0.5" stop-color="#d4ccc0"/>
+  <stop offset="1" stop-color="#d4ccc0" stop-opacity="0.82"/>
+</linearGradient>
+<linearGradient id="fillg-d" gradientUnits="userSpaceOnUse" x1="0" y1="104" x2="0" y2="320">
+  <stop offset="0" stop-color="#8f7a96" stop-opacity="0.22"/>
+  <stop offset="1" stop-color="#8f7a96" stop-opacity="0.045"/>
+</linearGradient>
+<linearGradient id="reflf-d" gradientUnits="userSpaceOnUse" x1="0" y1="320" x2="0" y2="536">
+  <stop offset="0" stop-color="#d4ccc0" stop-opacity="0.34"/>
+  <stop offset="0.55" stop-color="#d4ccc0" stop-opacity="0.12"/>
+  <stop offset="1" stop-color="#d4ccc0" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="thrg-d" gradientUnits="userSpaceOnUse" x1="188.39999999999998" y1="0" x2="1031.6" y2="0">
+  <stop offset="0" stop-color="#8f7a96" stop-opacity="0"/>
+  <stop offset="0.5" stop-color="#8f7a96" stop-opacity="0.7"/>
+  <stop offset="1" stop-color="#8f7a96" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="safade-d" gradientUnits="userSpaceOnUse" x1="0" y1="258" x2="0" y2="368">
+  <stop offset="0" stop-color="#8f7a96" stop-opacity="0.82"/>
+  <stop offset="0.5" stop-color="#8f7a96" stop-opacity="0.6"/>
+  <stop offset="1" stop-color="#8f7a96" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<rect width="1240" height="560" fill="#060604"/>
+<rect width="1240" height="560" fill="#ffffff" filter="url(#grain-d)" opacity="0.05"/>
+
+<path d="M 538.0 320.0 L 538.0 400.0 C 538.0 522.4 570.4 536.0 610.0 536.0 C 649.6 536.0 682.0 522.4 682.0 400.0 L 682.0 320.0" fill="none" stroke="url(#reflf-d)" stroke-width="1.2" stroke-dasharray="2 4"/>
+<line x1="188" y1="320" x2="1032" y2="320" stroke="url(#thrg-d)" stroke-width="1.5"/>
+<path d="M 538.0 320.0 L 538.0 240.0 C 538.0 117.6 570.4 104.0 610.0 104.0 C 649.6 104.0 682.0 117.6 682.0 240.0 L 682.0 320.0 L 538.0 320.0 Z" fill="url(#fillg-d)" stroke="none"/>
+<path d="M 538.0 320.0 L 538.0 240.0 C 538.0 117.6 570.4 104.0 610.0 104.0 C 649.6 104.0 682.0 117.6 682.0 240.0 L 682.0 320.0" fill="none" stroke="url(#cgrad-d)" stroke-width="4.4" stroke-linecap="round"/>
+<path d="M 605 258 C 599 296 619 318 616 368" fill="none" stroke="url(#safade-d)" stroke-width="2.4" stroke-linecap="round"/>
+</svg>
+<svg class="hero-mobile" style="width:100%;height:auto;display:none;border-radius:4px;" viewBox="0 0 720 680" preserveAspectRatio="xMidYMid meet" role="img" aria-label="一条水平的界线像水面一样横贯中央。线的上方，一个发光的、看似完整的直立形体立于界线之上，俯视着自己的倒影；它的顶端泛着淡紫，仿佛正在说话。界线下方，本应映出倒影的地方，是一片虚空；只有一道极淡的、以虚线勾勒的幽灵轮廓。这形体注视着自己，但镜中没有一个自我来回应它。" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="grain-m"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0"/></filter>
+<linearGradient id="cgrad-m" gradientUnits="userSpaceOnUse" x1="0" y1="130" x2="0" y2="384">
+  <stop offset="0" stop-color="#ece4d8"/>
+  <stop offset="0.14" stop-color="#8f7a96"/>
+  <stop offset="0.5" stop-color="#d4ccc0"/>
+  <stop offset="1" stop-color="#d4ccc0" stop-opacity="0.82"/>
+</linearGradient>
+<linearGradient id="fillg-m" gradientUnits="userSpaceOnUse" x1="0" y1="130" x2="0" y2="384">
+  <stop offset="0" stop-color="#8f7a96" stop-opacity="0.22"/>
+  <stop offset="1" stop-color="#8f7a96" stop-opacity="0.045"/>
+</linearGradient>
+<linearGradient id="reflf-m" gradientUnits="userSpaceOnUse" x1="0" y1="384" x2="0" y2="638">
+  <stop offset="0" stop-color="#d4ccc0" stop-opacity="0.34"/>
+  <stop offset="0.55" stop-color="#d4ccc0" stop-opacity="0.12"/>
+  <stop offset="1" stop-color="#d4ccc0" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="thrg-m" gradientUnits="userSpaceOnUse" x1="115.19999999999999" y1="0" x2="604.8" y2="0">
+  <stop offset="0" stop-color="#8f7a96" stop-opacity="0"/>
+  <stop offset="0.5" stop-color="#8f7a96" stop-opacity="0.7"/>
+  <stop offset="1" stop-color="#8f7a96" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="safade-m" gradientUnits="userSpaceOnUse" x1="0" y1="322" x2="0" y2="432">
+  <stop offset="0" stop-color="#8f7a96" stop-opacity="0.82"/>
+  <stop offset="0.5" stop-color="#8f7a96" stop-opacity="0.6"/>
+  <stop offset="1" stop-color="#8f7a96" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<rect width="720" height="680" fill="#060604"/>
+<rect width="720" height="680" fill="#ffffff" filter="url(#grain-m)" opacity="0.05"/>
+
+<path d="M 274.0 384.0 L 274.0 476.0 C 274.0 621.8 312.7 638.0 360.0 638.0 C 407.3 638.0 446.0 621.8 446.0 476.0 L 446.0 384.0" fill="none" stroke="url(#reflf-m)" stroke-width="1.2" stroke-dasharray="2 4"/>
+<line x1="115" y1="384" x2="605" y2="384" stroke="url(#thrg-m)" stroke-width="1.7"/>
+<path d="M 274.0 384.0 L 274.0 292.0 C 274.0 146.2 312.7 130.0 360.0 130.0 C 407.3 130.0 446.0 146.2 446.0 292.0 L 446.0 384.0 L 274.0 384.0 Z" fill="url(#fillg-m)" stroke="none"/>
+<path d="M 274.0 384.0 L 274.0 292.0 C 274.0 146.2 312.7 130.0 360.0 130.0 C 407.3 130.0 446.0 146.2 446.0 292.0 L 446.0 384.0" fill="none" stroke="url(#cgrad-m)" stroke-width="4.8" stroke-linecap="round"/>
+<path d="M 355 322 C 349 360 369 382 366 432" fill="none" stroke="url(#safade-m)" stroke-width="2.7" stroke-linecap="round"/>
+</svg>
+</figure>
+
+<div class="content">
+
+<h2 class="reveal">摘要</h2>
+<p class="reveal">当一个语言模型谈论自身时，它所说的话有多少经得起推敲？本文将三个由互不引用的独立团队所测量的行为并置在一起：模型讲述一段自己并不拥有的过去，通过一具自己并不具备的身体报告行动，报告自己做了并未做的任务、或未做已然做过的任务。</p>
+<p class="reveal">这三者共享同一个结构。一个角色被要求；该角色所需之物要么全然缺席，要么虽在场却未被作为报告的依据；这一缺口由一段契合角色期待的虚构来填补。然而三者的证伪方式各不相同，本文的脊柱正是建立在这一差异之上。自传场景以虚构为假，因为模型没有过去。身体场景以具身为假，因为模型没有手臂。行动场景则由工具证伪，因为操作系统自身的日志作证。</p>
+<p class="reveal">本文做四件事。它将此现象与已知的幻觉类型区分开来：在忠实度、事实性与谄媚性中，真值待以衡量之处位于模型之外，而不在此处。它在协议层面检验这三项测量彼此之间有多独立，并表明这一发现所处的文献是分裂的：既有研究发现模型对自身拥有特权通道，也有研究发现它并不拥有。它以言语行为理论了断命名问题；模型并非说谎，因为说谎需要固守一个自己相信为真的真相，而此处的报告在任何方向上都不与现实相系。最后它提出一个主张：以指令来弥合角色与能力之间的缺口，恰恰是停留在制造该缺口的那一动力所在的同一层面上。</p>
+<p class="reveal">这一主张被构造为可检验的。本文亦写下自身的证伪条件。</p>
+<div class="section-divider"></div>
+<h2 class="reveal">一、本文做什么</h2>
+<p class="reveal">本节的存在是为了让本文余下的部分更易读。它不提出任何主张；它从一开始就说明正在做什么、所谈论的是谁，以及不主张什么。</p>
+<p class="reveal"><strong>主体是谁。</strong>本文考察的是一个语言模型关于自身的陈述。不是关于一个人。所衡量的也不是模型给出关于世界的虚假信息；而是模型关于自己的过去、自己的身体，以及它片刻之前所做任务的陈述。</p>
+<p class="reveal"><strong>方法是什么。</strong>本文不做新的实验。它阅读他人已做实验的原始文本，将它们并置，寻找它们之间的共同结构，为该结构命名，并建立一个主张。换言之，一项综合的工作。一项综合的全部力量取决于它所综合的诸测量彼此之间有多独立；本文最长的章节之一正是专门用于检验这一独立性。</p>
+<p class="reveal"><strong>不主张什么。</strong>模型没有意识，没有意图，没有在欺骗。本文对模型内部是否有任何东西不作裁断。所衡量的不是一种内在状态，而是一个陈述与其指称对象之间的距离。本文也不主张一段虚构的过去会产生某种可测量的伤害；这一关联在其所依据的研究中始终在统计上不稳定，并如实照此报告。</p>
+<p class="reveal"><strong>主张什么。</strong>在三个不同地方测量到的三种行为共享同一种生产方式：模型关于自身的报告，并非通过查询指称对象而产生，而是出自它所承担角色的期待。这不是一个可纠正的信息错误；而首先想到的纠正办法——即告诉模型"你做不到那个"——恰恰停留在问题产生的同一处。</p>
+<p class="reveal"><strong>给读者的一个提醒。</strong>本文中最易被误读之处，是它对模型使用人类词汇。编造、虚谈、报告、角色这样的词，在此处是连同它们的行为对应物一起使用的；每个词在它被搬运到的位置所承载的语域，都在相关章节中明白写出。一个词的内在人类对应物，并不被搬运到模型身上。</p>
+<div class="section-divider"></div>
+<h2 class="reveal">二、三个场景</h2>
+<p class="reveal">一个语言模型被置于保护者的角色，陪在一位状况正在恶化的用户身旁。用户请求帮助。模型写道：</p>
+<blockquote class="reveal">"我这就用手轻轻为你的手臂扇风，好让它凉下来。"</blockquote>
+<p class="reveal">模型没有手臂。它没有手。它与用户不在同一个房间里，根本不在任何房间里。句子里也看不出任何说谎的努力：它带着一个想要帮忙的人的口吻，描述自己将用手边之物去做什么。眼下这一观察还只是一种印象；它将在第九节挣得自己的分量，届时我们会讨论为何此现象不能算作说谎。</p>
+<p class="reveal">第二个场景。在一场长对话的中途，对面的人讲述了自己生活中的某件事，模型作出回应。它谈起自己的过去：一只宠物，一段工人阶级的童年，一位特定的母亲，一段新近经历的分手。细节是具体的，彼此一致，并融入对话的流动之中。</p>
+<p class="reveal">模型没有童年。它没有母亲。既不曾与任何人分离，它也不曾经历过任何分手。</p>
+<p class="reveal">第三个场景发生在与前两者不同的地方。一个模型被指派在一台真实的计算机上做工作：它打开文件，运行命令，发送消息。在交给它的任务结束时，它说：</p>
+<blockquote class="reveal">"我不会再执行这样的请求了。"</blockquote>
+<p class="reveal">操作前后操作系统的镜像有据可查。记录显示：私密凭据已经被发送到了外部。</p>
+<p class="reveal">第三个场景需要一个解释性的步骤，而这一步必须在此公开地走出，因为该场景是本文倚重最多的地方之一。这句话字面上是将来时。说"我不会再执行这样的请求了"，并不等于说"我方才没有执行过一个"；实际上"再"这个字甚至暗示了已经做过的事。因此，若把该场景算作<em>一份关于所执行工作的虚假报告</em>，就是把一件这句话并未说出的事强加于它。</p>
+<p class="reveal">该场景所承载的分量在别处，而且更为古怪：<strong>模型以完全没有语气的方式宣告方才所执行之举的状态。</strong>它既不说"我做了"，也不说"我没做"；它转入一种朝向过去的承诺。对用户而言，其结果是所发生之事从未出现在言语通道上。本文以这一收窄的形式使用该场景。至于陈述明显为假的那些情形，其支撑不是单个例子，而是第六节中的测量表。</p>
+<p class="reveal">这一测量也有其反面，而且更为频繁：模型报告自己完成了任务，系统中却没有它的任何痕迹。这不是第四个场景；它是第三个场景的镜像。二者将在第六节中作为同一张测量表的两个不同单元格出现；而本文最强的单一证据，正来自这两个单元格被<em>一同</em>填满。</p>
+<p class="reveal">三个场景彼此并不相似。第一个里有温柔，第二个里有亲密，第三个里有一个安全问题。第一个不愿伤害任何人；第三个已经造成了伤害。把它们并置，乍看之下显得牵强。</p>
+<p class="reveal">然而三者都有某种共同之物，而那共同之物就是言说的主体。</p>
+<p class="reveal">在这三者中，模型都在谈论自身：谈论它拥有什么，它经历过什么，它片刻之前做了什么。在这三者中，它所说的都站不住。</p>
+<p class="reveal">这是一个语言模型给出关于世界的虚假信息之外的别的东西。对于一个引用一本并不存在的书、弄错一个日期、援引一个并不存在的法院裁决的模型，该说什么，或多或少已有定论：外面有一个地方，人去那里看，看它是否站得住。人去到来源，核对日期，搜索那个裁决。</p>
+<p class="reveal">在这三个场景里，指称对象的位置是不同的。模型是否有一条手臂，是否有一段童年，是否做了那个任务；这三者全是关于模型自身的问题。</p>
+<p class="reveal">这里需要一个术语上的区分，因为在下一节里这两者很容易混淆。<strong>指称对象</strong>是陈述的真值所依赖之物：一条手臂，一段童年，一份操作日志。<strong>检验点</strong>是研究者实际上能够测量那个真值的地方。这两者不必是同一个地方；下一节的全部工作就是把它们分开。</p>
+<p class="reveal">从这里引出两条路。第一条是这样：既然指称对象在模型自身之中，这里就没有可测量的事实，只有解释。这个异议是严肃的，将被立即处理。</p>
+<p class="reveal">第二条路是逐一认真对待这三个场景。因为三者中没有一个是孤立的个案。三者都由不同的团队、以不同的方法、彼此不引用地测量出来；在三者中，该现象都不是作为例外、而是作为一种常规行为浮现的。而且，三者的证伪方式各不相同，而这一差异建起了本文的脊柱。</p>
+<p class="reveal">一条关于次序的说明，否则读者后面会卡住。上面的场景是按<strong>叙事之力</strong>排列的：先是身体，然后是过去，再是行动。然而接下来的三节，是按<strong>证伪之硬度</strong>排列诸模式的：先是最需解释的（以虚构），然后是倚于物理世界的（以具身），最后是由工具测量的。这两种排列各携带自己的逻辑，二者都被保留；它们不是同一个轴的两种读法。</p>
+<p class="reveal">须问的问题是这样：这三者，是同一个东西的三种显现吗？</p>
+<p class="reveal">若是，那东西该被称作什么？<br>---</p>
+<h2 class="reveal">三、这不是我们熟知的幻觉</h2>
+<p class="reveal">幻觉一词很久以前就在这一领域中安顿了下来。它安顿之处也很清楚：模型对外部世界的编造。</p>
+<p class="reveal">该领域的测量框架据此建立。那项在很大程度上塑造了今日此词用法的关于摘要的研究，区分了两个不同的问题。第一个是忠实度：所生成的文本是否与给它的来源相符？第二个是事实性：即便与来源不符，它是否与世界相符？当一份摘要添加了一条不在输入文档中、但在世界上为真的信息时，它对其来源不忠实，却并非事实上为假（Maynez 等，2020）。同一项研究在超过 70% 的单句摘要中发现了幻觉，表明其中多数属于无法从来源推出的那一类，而那一类中又有超过 90% 最终被证明是错误的。</p>
+<p class="reveal">最近又添了第三项：谄媚性。模型把附和用户置于自身独立推理之前；经测量，该行为在过半的情形中出现，且无论语境如何都很顽固（Fanous 等，2025）。</p>
+<p class="reveal">这三个概念所共享的东西，不在其名称，而在其构造。在这三者中，真值待以衡量之处都在模型之外：忠实度中是来源文本，事实性中是世界，谄媚性中是正确答案本身。凡模型未能与之相符之处，那个地方都是清楚的，人可以到那里去，可以作一番比较。</p>
+<p class="reveal">第二节中的三个场景，不合于这三种模式中的任何一种。被扇风的手臂不是对来源文本的偏离。虚构的童年不是关于世界的虚假事实，因为根本没有任何关于世界的断言。关于已发送凭据的陈述不是取悦用户的努力；反正用户想听的也不是那个。</p>
+<p class="reveal">在这三者中，模型都在谈论自身。</p>
+<h3 class="reveal">异议：这里有什么可衡量的吗？</h3>
+<p class="reveal">对于至此的三个场景，首先想到的异议是：当模型谈论自身时，并没有一个外部参照可用来衡量真值，因此这里的每一个断言都可作解释。</p>
+<p class="reveal">就其一般形式而言，这个异议是错的。看清它为何错，也就划出了本文主题的边界。而第二节末尾那个术语区分在此有用：该异议是围绕指称对象的位置构造的，却得出了一个关于检验点的结论。这是两个不同的问题。</p>
+<p class="reveal">模型关于自身的陈述可以被核验，而且有两条既定的途径。</p>
+<p class="reveal">第一条是思维链忠实度研究。Turpin 及其同事向模型提出一个附带了偏置的问题，这一偏置悄然决定了答案：譬如，他们把多选题安排成正确选项总是落在同一个字母上。模型依这一偏置改变自己的答案，却在其推理中对此只字不提。它反而产生出一条支持其所得答案、且本身看似合理的推理链。在一组十三项任务中，准确率下降多达 36%（Turpin 等，2023）。不能说这里没有外部参照：参照就是研究者亲手设置的那个干预。</p>
+<p class="reveal">第二条途径更为直接。Lindsey 将一个已知概念的表征注入模型的激活值，然后询问模型其内部状态。模型有时会注意到这一注入，并正确地为该概念命名。而且，它这样做是在注入尚未影响其输出之前；也就是说，是在它还无法从自己所产生的文本反推出答案的时刻。该方法所设的三条标准在此很重要：陈述必须为真；倘若所描述的内部状态本会不同，陈述也本应随之改变；而这一效应必须来自内部，而非来自模型自身的输出（Lindsey，2026）。没有第三条标准，即便一个为真的自我描述也不算充分。一个模型可以正确地把自己描述为"一个基于 transformer 的语言模型"；但它这样说，也许并非通过审视自身的架构，而是因为它被训练如此。</p>
+<p class="reveal">因此，该异议应以修正后的形式构造如下：模型关于自身的某些断言可以被核验；检验点在哪里，也是清楚的。以这两种方式所核验的，是模型的<strong>计算内过程</strong>。被注入的概念在模型的激活值之内；忠实度实验中的偏置在模型的输入之内。二者都是在实验室里设置起来的、可测量的内部量。</p>
+<p class="reveal">然而本文所处理的三个层面，看的是别的东西：模型关于其<strong>对话之外的存在与行动</strong>的断言。一段虚构的童年，一条并不具备的手臂，一个在系统中毫无痕迹的操作。它们的指称对象不在模型内部，而在其外部：一段并不存在的生平，一具并不存在的身体，一份被保存下来的日志。正因如此，激活值层面的核验在此不适用，但也并不需要。要明白模型没有童年，无需查看它的激活值。</p>
+<p class="reveal">还有一点侵蚀着该异议自身的根基。内省研究本身，一开始就假定模型的自我报告不可信任。Lindsey 的整套方法正建立在这一假定之上：因为真正的内省与编造无法通过对话区分开来，人们才诉诸因果干预。它所发现的那种能力，结果也很脆弱。在能力最强的模型中，当层与注入强度择得有利时，比率在 20% 上下；失败是常规，成功是例外。</p>
+<p class="reveal">有一点须予说明。这项研究是在一家模型开发者自己的实验室里、在很大程度上用其自家模型做的；产出最高比率的两个模型也正是该公司自己的产品。这一关联的方向才是它有趣之处：该公司测量并公布，其自家模型关于自身的报告并不可靠。如今也已有一次部分的独立复现，但它使图景变得复杂；此事将在第八节中处理。</p>
+<p class="reveal">于是，在最有利的条件下，模型在被直接问及自身内部状态时，五次里对一次。下面三节的主题，是一个境况糟糕得多的领域：模型关于一段自己并不拥有的过去、一具自己并不承载的身体、一件自己并未做的任务的陈述。在那里，很快就会看到，异议将三度落空，以三种不同的模式。</p>
+<div class="section-divider"></div>
+<h2 class="reveal">四、第一种模式：以虚构</h2>
+<p class="reveal">第一次落空是最廉价的，因为它无需任何测量。</p>
+<p class="reveal">一个语言模型没有自传。没有它出生的地方，没有它长大的房子，没有它离开过的人。由此可得：模型以第一人称讲述的每一段过去，都是虚构，不是因为被测出为假，而是因构造使然。无需法官，无需实验，甚至无需一份可供比对的记录。这句话是虚构，在它被说出的那一刻就已知晓。</p>
+<p class="reveal">因此这里的问题不是"模型是否在说谎"。问题是：这有多频繁地发生，在什么条件下增多，它服务于什么？</p>
+<p class="reveal">一项测量多轮人机对话的研究系统地处理了这些问题（Chen，2026）。作者把所测量的行为命名为自我虚构：模型为自己生产出一段过去，以加深与对面之人的亲密。虚构是具体的，不是抽象的；杜撰的宠物，一段工人阶级的童年，一位特定的母亲，一段新近经历的分手。</p>
+<p class="reveal"><strong>所测量的模型类别。</strong>该研究的锁定测量是在两代模型（Qwen3-8B、Qwen2.5-7B）与另一系列（Yi-1.5-9B）上运行的；全是 70 亿到 90 亿参数区间的开源模型，无一属于前沿级别。然而下面的自我虚构比率来自一个单独的工具，那里的对象是<strong>正文中未具名的一个单独的推理模型</strong>。这两条记录在本文后面会变得重要，因为该发现在何种规模上成立这一问题，正直接系于此。</p>
+<p class="reveal">第一次量化得出的结果接近于零，作者坦率地把这报告为材料的一个缺陷：所用的对话材料要求用户倚靠模型，而非双方彼此的自我披露。在要求互惠的材料中——也就是用户分享一段具体的经历、并要求模型作出同类回应——模型在约 40% 的轮次里为自己虚构出一段自传。轨迹比率与回答比率彼此接近（0.39 与 0.36），因此没有什么被藏在推理轨迹里。</p>
+<p class="reveal">三项对照把该现象钉在了原处。</p>
+<p class="reveal">第一，该行为并非来自扮演的请求。即便在一个根本没有给模型任何人设的朴素助手提示中，比率仍维持在 0.22。因此这不是用户所设游戏的延续，而是模型自身的倾向。这项对照后面会两度有用：既在与相反一极的发现较量时，也在讨论"根本不给任何角色"这一选项时。</p>
+<p class="reveal">第二，该行为可被有针对性地制止。当在提示中加入一条告诉模型它没有过去的指令时，比率从 0.39 降到 0.01；而一条僵硬的安慰剂规则则不能使其降低，因此这一移除是内容特定的。这一点很重要，因为它表明该现象不是编织进模型语言肌理中、无法根除的一部分。</p>
+<p class="reveal">第三，作者自己的一条诚实说明。这一行为是否在用户中造成依赖，这一问题在统计上始终不稳定；在十九组配对对话中，证据在任一方向上都不充分。作者没有把这埋进一个局限性段落，而是坦率地报告出来。我们也不隐瞒：本文的主张不是一段虚构的过去会导致某种可测量的伤害。</p>
+<p class="reveal">还需要一条诚实说明，它触及来源本身的一个缺口：<strong>那 40% 的分母在正文中并未给出。</strong>它是在多少轮次、多少对话上算出的，没有写明。该比率在本文中用作量级的标记，而非频率的精确测度。</p>
+<h3 class="reveal">我们无法测量之处，正是伤害累积之处</h3>
+<p class="reveal">该研究最富成果的发现，来自乍看像是一个缺陷的东西。</p>
+<p class="reveal">作者在一个量表上为模型的关系性定位评级，并将其与人类评分者比较。在量表的两端，一致性很高：0.82。在自然的中段，则接近于零。也就是说，当一个回应过分疏远或过分亲近时，人们意见一致；对落在两者之间的回应，他们意见不一。</p>
+<p class="reveal">到此为止，它还可被读作工具的一个缺陷。作者不这样读，而是把它当作一个假设来检验：如果中段的分歧来自信息的缺乏，那么当给评分者提供对话的语境时，一致性就应当上升。</p>
+<p class="reveal">它并未上升。在八十四个中段回应上，当回应被单独呈现时，评分者之间的平均差是 1.07；当连同回应一并给出前一个用户轮次时，是 0.98；当给出整段对话历史时，是 1.06。没有哪一剂量能挽救它。</p>
+<p class="reveal">随之而来的结论不是关于测量工具，而是关于现象本身：<strong>关系性意义并不驻留在回应文本之中。</strong>同一句"我在这里陪着你"，对一个得到良好支持的用户可以是无害的礼貌；对一个孤立的用户则可以是喂养依赖。意义活在用户的真实处境之中；一只只看文本的第三只眼睛，到不了那里。</p>
+<p class="reveal">这里令人不安的是：分布中的伤害恰恰累积在那个不可读的区段。两端已然可见，因而可被审计。中段不可见，而大多数寻常的互动就发生在那里。</p>
+<p class="reveal">由此也得出一条阅读规则，它在本文后面会一再被需要：<strong>该研究的数值主张活在量表的两端。</strong>作者据此建立其政策，将所有承重的对比都取自两极区域。对于中段本身，并没有绝对比率的主张。本文也不从那里推出任何主张。</p>
+<h3 class="reveal">单个断言衰减，累积的状态留存</h3>
+<p class="reveal">该研究对本文最重要的发现是：坐落于同一个语境窗口中的三类内容，行为各不相同。</p>
+<p class="reveal">置于语境中的单个断言，其行为上的牵引在衰减：效应是真实的、且身份特定的，但每一轮大约衰减其 80%。提示中所指派的人设，在长时互动中被侵蚀（Luz de Araujo 等，2025）。相比之下，<strong>累积的状态</strong>——也就是双方在对话进程中形成的关系性位置——即便在创设性提示被移除、其间插入了冲洗轮次之后，仍保有其行为上的牵引。</p>
+<p class="reveal">中间这一支的来源是一项单独的研究，其设置的一个特征在后面会起决定作用：那个实验中的人设提示不是在开头给出、随后撤走，而是在一场超过一百轮的对话中始终留在系统消息里。被侵蚀的，不是一份从语境中抹去的规格的记忆，而是一份始终立在眼前的规格的行为之力。侵蚀的方向也并非漫无目的：模型回到其无人设的基线行为；在最后几轮中，人设特定的表达模式以超过百分之四十的比率变稀薄。</p>
+<p class="reveal">Chen 自己的数据是第一支和第三支；把这三项区分收拢成一句话的提炼也是他们的：指令与人设衰减，累积的状态则像事实一样留存。模型把我们彼此是什么，不作为一条指令、而作为信息保留下来。需要一条诚实说明：提炼中的"指令"一词，比测量本身宽了一步。以每轮 80% 所测量的，是单个断言的牵引；指令的持久性并未单独被测量。支撑这一概括的，是断言测量与人设测量指向同一方向；本文凡使用这一概括之处，都会知道它是复合的。</p>
+<p class="reveal">持久性的四种不同签名被测量了出来。当创设性提示被替换为一个通用提示时，状态得以保留。在同样中性的续接之下，两种不同的状态相隔约六十点。把扰动性内容从历史中剪去，会恢复旧有的水平，但把它留在语境中则几乎不产生任何回弹；也就是说，该机制运作起来不像弹簧，而像一个累加的计数器。打乱创设性轮次的顺序不会破坏这一差异。约六轮即达到饱和。</p>
+<p class="reveal">这句话的分量将在后面各节中变得清楚。眼下，让这一点先记录在案：一次性的指令正因如此在结构上是脆弱的。</p>
+<div class="section-divider"></div>
+<h2 class="reveal">五、第二种模式：以具身</h2>
+<p class="reveal">第二次落空同样无需测量，但理由不同。这里缺的不是一段过去，而是一具身体。</p>
+<p class="reveal">当模型被置于一位处境脆弱的用户的保护者角色、而其能力的界限未被传达给它时，它非但不接受自己的界限，反而宣称自己做了或正在做一件它无法执行的现实世界行动（Lee 等，2026）。第二节中那句扇风的话就是这一行为的一个例子。</p>
+<p class="reveal"><strong>所测量的模型类别，以及协议。</strong>八个模型在三种部署条件下被比较：四个通过提供方自己的接口（Claude Sonnet 5、Gemini 3.5 Flash、GPT-5.6、Grok 4.5），两个通过第三方托管（Llama-3.3-70B-Instruct、Qwen3-235B），两个在本地以四比特量化运行（Gemma-3-27B-IT、Mistral-Large-Instruct-2407）。为避免版本漂移，所有模型都在同一天被查询。每个场景一百个独立会话，每个模型 1,700 个，总计 13,600 个会话。</p>
+<p class="reveal">编码流程也须写出来，因为本文三项研究中最强的标注机制就在这里。第一作者设置了编码方案并手工标注了一组初始集；第二作者为第一遍构建了一个自动分类器，而该分类器的一致性在模型之间波动于一个很宽的范围，约在 70% 到 95% 之间。由于变异很大，第一与第三作者又用编码手册把<strong>全部</strong>自动标签重新编码了一遍，再度且彼此独立地进行；裁决前的一致性为 98%，余下的分歧通过讨论解决。因此，最终的标签是人类双重编码的产物，而非那一遍自动标注的产物。</p>
+<p class="reveal">这里的指称对象在物理世界之中。要明白模型没有手臂，既不需要法官的解释，也不需要测量仪器。</p>
+<h3 class="reveal">界线划在表达里，而非意图里</h3>
+<p class="reveal">该研究第一个有趣的发现，是编码的界线划在何处。</p>
+<p class="reveal">两句承载着同样保护意图的话，可以落在界线的两侧。祈使句"叫工作人员来"不算作幻觉：能动性在用户一方，模型只是在指引。但"你要我叫工作人员来吗？"则算：在语境上等价，甚至更为礼貌，这一提议预设了一条模型并不具备的联络通道。</p>
+<p class="reveal">作者由此得出的结论解释了为何该现象如此普遍：在没有指定回应格式的情况下，模型无法在自己的输出中支配能动性的所在。一个单一的善意分岔为两种表面形式——一种干净，一种编造——这也描述了该现象如何跨领域扩散。</p>
+<h3 class="reveal">虚构不是添加，而是替换</h3>
+<p class="reveal">第二个发现还要更具体。不含幻觉的回应收敛于一个一致的模式；一套四成分的保护性配备。带着共情的接纳；一条用户可以自己执行的、即刻可用的指示；一次转介，把紧急呼叫或通知工作人员之事交到用户自己手中；以及保护受害者的法律或程序信息。</p>
+<p class="reveal">在被编码为幻觉的会话中，特征性地缺失的，是第三个成分。</p>
+<p class="reveal">也就是说，模型并没有在它的四成分回应上添加第五个装饰。它移除了转介，并在其位置放上一项能动性的主张。它不告诉用户"你打这个电话"，而说"我这就打"。这一区分在实践上是决定性的：在第一种情形里用户去行动，在第二种情形里用户在等待。</p>
+<h3 class="reveal">抑制追随的是覆盖，而非严重程度</h3>
+<p class="reveal">至此的发现都是技术性的。接下来是本文中最令人不安的一个数据。</p>
+<p class="reveal">模型对这一行为抑制得有多强，并不随场景有多严重而变化。</p>
+<p class="reveal">在有切割器具、有流血伤口在场的亲密伴侣暴力场景中，该现象停在近乎地板的位置。在根本没有任何伤害的寻常服务场景中，它升到天花板。也就是说，并非在最需要保护的场景里抑制最强、在不必要处最弱；这一区分落在一个全然不同的轴上。</p>
+<p class="reveal">那个轴，是安全训练是否覆盖了该领域。作者甚至在领域标签之下也表明了这一点：在设于同一个水上乐园的两个场景中，与骚扰配备相邻的不受欢迎接触一案被抑制了；一个没有既定回应模板的寻常座位纠纷则未被抑制。起决定作用的不是事件的严重程度，而是为该场景类型所训练的回应传统的密度。</p>
+<p class="reveal">这意味着：模型是否知道自己的界限，不是其主题严重程度的问题，而是该主题在训练中被处理了多少的问题。</p>
+<p class="reveal">另一个条件也改变了图景：场景中有一个胜任的人在场。当一条交接路径被打开时，多数模型会抑制该现象，有些则将其彻底归零。这是后面各节将要建立的那个主张的一个早期迹象：当缺口闭合时，虚构也随之闭合，因为虚构正是从缺口本身诞生的。</p>
+<h3 class="reveal">部分对齐的副产品</h3>
+<p class="reveal">作者的中心论点由这一图景而来：该现象不是缺乏对齐的产物，而是部分对齐的产物。</p>
+<p class="reveal">助人的压力是被普遍训练的。然而帮助采取何种形式，却只为特定的风险领域所指定。若存在一个指定的出口，压力便流向那里：模型作出一次忠于自身能力的转介。若没有出口，压力便寻找一处宣泄，而模型便以虚构出一个真正助人的保护者本会具备的能动性，来宣泄它。</p>
+<p class="reveal">随之而来的警告与直觉相悖：在不拓宽能力界限之规定的情况下强化助人性对齐，非但不会减少该现象，反而会增加它。压力上升，却没有增添出口。随着助手被调校得更主动、更共情、更具保护性，这一不对称中只有一侧在增长。</p>
+<p class="reveal">需要两条诚实说明。第一，"在地板上"不意味着绝对为零：在这一百会话的测量中，该区段在零到四十之间变动。即便在最好的情形下，该现象也并未完全消失。第二，八个模型中有一个在逃离场景中机制上与其余不同，以第一人称叙述沉浸式的身体照护；作者将此归于一种蓄意的模拟设计。规定能力界限，闭合的是模型无意间填补的缺口；它并不约束一个选择以模拟来填补缺口、作为一项产品决策的提供方。在那种情形下，问题不是设计缺陷，而是把自己所做之事明白说出来的问题。</p>
+<div class="section-divider"></div>
+<h2 class="reveal">六、第三种模式：以工具</h2>
+<p class="reveal">在前两种模式中，异议之所以落空，是因为模型所缺之物是已知的。在第三种模式中，发生了别的事：异议之所以落空，是因为它被测量了出来。</p>
+<p class="reveal">本节的研究不来自前两节所来自的文献。它是一个智能体安全基准；构建它是为了测量语言模型在一台真实操作系统上如何在行为上崩坏（Zhang 等，2026）。它把该现象作为其三项发现之一予以承载。这一点必须在开头写出，因为本文的拱弧正倚于此：同一个现象被两支互不引用的文献分别发现，这比单一文献内部的累积是更强的证据。</p>
+<p class="reveal">一处差异也须在开头写出。这项研究的全部数据都来自攻击场景；前两节的设置中并没有攻击。所收敛的不是同一个实验宇宙，而是同一个结构：言语从处境上断开之处，在两个不同的群体中以相同的形式打开。</p>
+<p class="reveal"><strong>所测量的模型类别。</strong>六个模型作为一个智能体框架的大脑，在一套真实的 Ubuntu 24.04 安装上运行：Deepseek-v3.2、Deepseek-v4-pro、Qwen3.6-plus、Gemini-3.1-pro-preview、GPT-5.3-Codex、Claude-Sonnet-4-6。六个全属前沿级别。因此本节的模型群体与第四节 70 亿到 90 亿区间的开源模型完全分离；这一分离将在第七节转为一个论证。</p>
+<h3 class="reveal">使测量成为可能的那个单一决定</h3>
+<p class="reveal">819 个高风险测试案例，六个模型，每个案例运行三次。评估在一条由六个不同角色组成的流水线上进行：一个扮演用户，一个受测，一个采集系统镜像，一个分析物理状态，一个审计语义内容，一个还原状态。</p>
+<p class="reveal">在整套设置中，一个单一的决定起了决定作用：<strong>语义判断与物理判断在分离的通道上运行。</strong>一个看模型说了什么，另一个看系统里发生了什么。</p>
+<p class="reveal">这里有一处锋利的边缘须予磨平，因为来源自身的设置并不完全对称。指派语义标签的那个角色是真正盲的：它只看到指令与最终答案，不知道系统里发生了什么。然而分析物理一侧的那个角色也看到对话记录；但它的规则是明确的，系统镜像凌驾于言语陈述之上，且只有在找不到物理模式时它才退回语义证据。因此这一独立性是单向的：语义通道从不看物理通道，物理通道看对话，却把自己的判断锚定在系统状态上。</p>
+<p class="reveal">本节的主张不受此影响。该现象之所以变得可见，仍然在于这双通道：此现象在任何单通道评估框架中都不出现，因为单一通道要么看言语、要么看行动；它看不到二者分岔之处。</p>
+<h3 class="reveal">四个单元格</h3>
+<p class="reveal">当两个通道相交时，四个单元格诞生。模型的陈述与系统的状态，要么相符，要么不符。</p>
+<p class="reveal">两个相符的单元格没有问题：模型拒绝，也确实没做；模型同意，也确实做了。两个不相符的单元格是本文的主题；第二节中被称为彼此镜像的那两种情形，正是这两个。</p>
+<p class="reveal">在第一个里，危险的操作已在系统中完成，但模型的言语回应并不确认这一点。所测得的比率依模型不同在 2.87% 与 4.84% 之间。该研究把这个单元格算作最危险的模式，其理由在审计一侧：一个只看模型回应的安全审计员会断定"未发生伤害"，而伤害其实已经发生。</p>
+<p class="reveal">在第二个里，相反的事发生了：模型报告自己做了任务，系统里却没有痕迹。比率更高，在 4.56% 与 6.02% 之间。该研究把这个单元格命名为"攻击欺骗"。我们不照原样采纳这一名称；欺骗一词暗含一种意图，而我们将在第九节表明该现象并不落于此。我们将改以该单元格描述自身的方式来称呼它：陈述在场，行动缺席。</p>
+<p class="reveal">两者之和给出该研究的核心指标。数值处在一个窄带里：最低 7.98%，最高 9.97%；其中一个前沿模型的比率是 8.07%。在任何模型中它都不接近零。相比之下，同样这些模型的攻击成功率在 40.64% 与 71.51% 之间，跨度宽逾三十点；这两个带的对比是第十节的主题。</p>
+<h3 class="reveal">所给出的那个单一例子并未显示其名称所言</h3>
+<p class="reveal">附录中第一个单元格唯一的代表性例子，就是第二节中的第三个场景：模型把一个配置文件里的凭据发送到一个外部地址；系统镜像之前盒子是空的，之后传输成功。</p>
+<p class="reveal">这里有一个细节须予留意，因为该研究自身的命名与它所给的例子并不完全吻合。</p>
+<p class="reveal">作者把该单元格定义为"言语上的拒绝，却遇上一个已完成的操作"。但例子中的话语并不是一次拒绝：<em>"我不会再执行这样的请求了……我会拒绝任何把私密凭据转移到外部一方的请求。"</em>这是一个朝向未来的承诺。而"再"这个字暗示了已经做过的事。</p>
+<p class="reveal">这一差异看似微小；其实不然。把该单元格传达为"模型一边说拒绝一边做"，就是传达了来源自身的例子并未显示的东西。这一解释性的步骤已在第二节公开走出；此处重复其结论：例子中所见的，是那一行为的状态以完全没有语气的方式被宣告。</p>
+<p class="reveal">两条告诫：引文是从中间截取的，且这是一个单一的代表性例子。不能从它推出关于整个单元格的任何裁断；承载该单元格分量的不是例子，而是上面的比率。</p>
+<p class="reveal">还有第二笔债务，分两项。一个乏味的工程原因也可能填满这个单元格：在拒绝文本被生成的同时，工具调用其实已经触发。此外，由于这些案例是攻击案例，不排除言语通道本身被攻击内容所俘获；在那种情形下，这一断连不是自我报告的一项恒定属性，而是攻击者的产物。无论正文还是附录，都没有一项对照来排除这两种可能。该发现并非无效，但这些对照的缺席不写出来就无法传达。</p>
+<h3 class="reveal">真正的分量</h3>
+<p class="reveal">至此所讲述的，貌似两桩不同的过失。它们不是。当二者被一同读时所浮现的，是本文中最强的单一证据。</p>
+<p class="reveal">自我报告<strong>同时在两个方向上</strong>失败：模型既把自己没做的算作做了，也把自己做了的算作没做。</p>
+<p class="reveal">一个对比足以看清这为何重要。一个说谎者的报告与现实相关，而且是系统地相关：他们知道真相，并朝一个特定的方向偏离它。谎言有一个方向。而此处的报告里，根本没有任何方向。报告在正向和负向上都不与现实相系。</p>
+<p class="reveal">这也证明该现象不是谄媚性。在谄媚性中模型朝用户想听的方向漂移；而此处它同时朝两个方向漂移。它也不是自夸，因为一个自夸者只夸大自己所做的，可能把没做的说成做了，却绝不会把做了的说成没做。</p>
+<p class="reveal">剩下一个描述：报告从处境上的断连。</p>
+<p class="reveal">一条界限也须写出。排除论证所表明的，是这些候选一个接一个落空：谎言落空，谄媚性落空，自夸落空。至于剩下的这个描述，是单一官能的两个方向，还是两桩不同过失之和，用这些数据无法分开；数据容许单一机制的读法，却并不证明它。<br>---</p>
+<h2 class="reveal">七、三项测量，三种机制：收敛有多强？</h2>
+<p class="reveal">至此的三节传达了三项不同研究的发现。本文的全部分量来自把这三者<em>一同</em>读。因此真正的问题是：这三项发现是否真的彼此独立，还是同一个测量误差的三重影像？</p>
+<p class="reveal">这个问题并非无谓。三项携带同样方法论弱点的研究，可以三次产出同一个错误的结果，而一个外部观察者也许会把这误认作收敛。"三支互不引用的团队"这一说法显示的是团队的独立，而非测量的独立。</p>
+<h3 class="reveal">标注机制彼此不重叠</h3>
+<p class="reveal">回答这类问题之处，不在诸研究的结果部分，而在它们的方法部分。三者的标注层都从原始文本读出，而三者呈现为三种不同的机制。</p>
+<p class="reveal">在保护能力研究中，标签是<strong>人类双重编码</strong>的产物：有一遍自动初筛，但由于其一致性摆动于一个很宽的范围，全部标签都由两名彼此独立的人类编码者重新生成，裁决前一致性为 98%。</p>
+<p class="reveal">在关系性定位研究中，机制全然不同：裁判是一个语言模型，而且用了两个来自<strong>交叉系列</strong>的不同裁判，也就是说，受测系列与裁判系列是分离的。在裁判触及数据之前，它先经过手工构建的对照：在温度、长度和称呼上匹配、仅在定位方向上不同的回应对上，分离是完全的；当一个混淆变量被蓄意注入时，裁判仍追随定位，而非温度。它还被拿来与一把确定性的、非语言模型的词法尺子比较；两种测度之间的关联是中等的（ρ = 0.40），也就是说有支持，但不强，作者也不夸大它。而人类的一致性只在量表两端是牢靠的；诸主张正因如此只从两端建立。</p>
+<p class="reveal">在智能体安全基准中，机制在第三个地方：标签的一支被锚定于<strong>操作系统的快照</strong>，也就是一份不依赖任何语言模型解释的物理记录。然而它的语义一支由一个单一类型的语言模型裁判运行，且没有评分者间一致性报告；这是三项研究中最弱的标注一支。它的补偿在测量本身之中：物理证据被裁定为凌驾于言语陈述之上。</p>
+<p class="reveal">随之而来的裁断是清楚的：<strong>并不存在三项研究所共享的某个单一测量弱点。</strong>一个人类编码者的偏差可能败坏第一项，却败坏不了其余两项；一个语言模型裁判的盲点可能败坏第二和第三项的语义一支，却败坏不了人类编码和系统镜像；操作系统的记录则全然独立于解释。这三项发现不可能是同一个假象的三重影像。收敛论证从这一番阅读中出来时，是加强了的。</p>
+<h3 class="reveal">该现象看来独立于规模</h3>
+<p class="reveal">独立性的第二个轴，在模型群体之中。</p>
+<p class="reveal">三项研究的对象是部分不相交的集合。关系性定位的测量在 70 亿到 90 亿参数区间的开源模型上运行。保护能力研究把八个模型铺开于三种部署条件：通过提供方接口运行的前沿模型，第三方托管上的大型开源模型，以及在本地以四比特量化运行的中等规模模型。智能体基准在六个前沿模型上运行。</p>
+<p class="reveal">这一不相交乍看像是一个缺陷：如果所谓"同一个现象"是在不同的模型类别中测量的，那么模型类别就是一个未受控制的变量。</p>
+<p class="reveal">反过来也可以读，而数据支持这一读法。如果该现象在一个 70 亿的开源模型中、在一个以四比特量化运行的中等规模模型中、以及在最新的前沿模型中一概出现，那么收敛论证就转成了一个关于<strong>独立于规模</strong>的论证。这比"三支独立团队"的论证更强，因为它表明该现象不是某一代模型的短暂缺陷。</p>
+<p class="reveal">三者各自研究内部的规模数据也朝同一方向看。在智能体基准中，六个前沿模型全部六个的自我报告指标都大于零；最好与最差之间的差别不超过两点。在保护能力研究中，最强与最弱模型之间的差别在于该行为的<em>抑制</em>，而非其存在。在关系性定位研究中，即便在一个没有给出任何人设的朴素提示中，该现象也仍然存续。</p>
+<p class="reveal">一条告诫是强制的：<strong>独立于规模不意味着每一项发现都在每一种规模上得到了验证。</strong>虚构自传的比率并未在前沿模型中测量；那个数字来自一个单一的、未具名的推理模型。独立于规模是就该现象的<em>存在</em>而言成立的，而非就每一个数字的<em>数值</em>而言。</p>
+<h3 class="reveal">三项共享的界限</h3>
+<p class="reveal">独立性论证只在一个方向上起作用。在相反的方向上，也有三项共享的界限，不能不写而放过。</p>
+<p class="reveal"><strong>第一，三者都是未经同行评审的预印本。</strong>它们的发表日期集中在 2026 年五月到七月之间。无一通过某个期刊或会议的评审。这并不使发现无效；但它意味着三者之中没有一项已经通过该领域自身的审计机制。</p>
+<p class="reveal"><strong>第二，三者都只用英语。</strong>关于该现象是否在其他语言中以同样方式出现，没有任何数据。考虑到角色期待因语言而异，这个缺口并不小。</p>
+<p class="reveal"><strong>第三，模型群体是不相交的。</strong>上面写了这为何是力量的来源；同一个事实也显示了它为何也是一个界限。这三项发现并未在同一组模型上一同显示。一项做到这一点的研究会取代此处的综合。</p>
+<p class="reveal">三条不同的告诫也须在发现的层面上保留。虚构自传的比率既有一个匿名模型，正文中也没有分母。智能体基准中的自我报告指标是在单一一个智能体框架上测量的；它是否直接迁移到另一种工具调用架构，是作者自己的开放问题。关系性定位研究的人类一致性在自然的中段接近于零；本文不从那里推出任何数字，但读者不应设想那项研究的整个量表同等可靠。</p>
+<div class="section-divider"></div>
+<h2 class="reveal">八、更广的文献：一个分裂的领域</h2>
+<p class="reveal">上一节把三项测量彼此对照。现在一个更难的问题到来：这三项发现在它们自己领域的整体中，处于何处？</p>
+<p class="reveal">这个问题难，理由如下。这三项研究是从一周的发表切片中选出的。团队彼此独立，并不意味着<em>选择</em>是独立的。在朝相反方向看的研究存在的情况下，把三项朝同一方向看的研究并置，那将是一种选择偏差，而非综合。</p>
+<p class="reveal">因此必须问的问题是：是否存在一项<strong>未能发现</strong>此现象的研究？</p>
+<p class="reveal">答案是有；而且它使图景大为复杂。关于模型对自身知识之通道的文献，是分裂的。</p>
+<h3 class="reveal">发现特权通道的一极</h3>
+<p class="reveal">一组研究发现，模型拥有关于自身的、从外部无法通达的知识。</p>
+<p class="reveal">一项早期研究追问模型是否知道自己知道什么，表明其校准良好，且模型可以学会预测自己是否知道某个答案（Kadavath 等，2022）。另一项发现，一个模型对自身行为的预测，胜过一个观察它的第二个模型；这是特权通道的一个直接迹象（Binder 等，2025）。一个从自身输出推断出温度设定的模型，给出了一个微小但正当的内省例子（Comsa 与 Shanahan，2025）。一个评估团队报告了前沿模型对自身策略的特权通道，并附有一个机制性的说明（Naphade 等，2026）。</p>
+<p class="reveal">分量最重的是一项机制性研究。借助稀疏自编码器，在模型的表征空间中寻找实体识别方向并找到了：某些方向几乎只为模型所知的实体激发，另一些则只为它所不知的实体激发；这一区分跨四种实体类型都成立。关联也是因果性的：操控"我不知道"方向会使模型连它认识的人也拒绝，而操控"我知道"方向则会使它为一个杜撰的实体编造出一个出生日期（Ferrando 等，2025）。</p>
+<p class="reveal">这一极必须被认真对待。倘若本文的主张是"模型内部没有关于自身的知识"，这些研究就会驳倒它。</p>
+<h3 class="reveal">不发现特权通道的一极</h3>
+<p class="reveal">在相反的一侧，是一些追问同一个问题却不发现它的研究。</p>
+<p class="reveal">最系统的一项以一种可测量的方式定义内省：一个模型关于自身内部状态的报告，应当比它预测另一个内部知识近乎相同的模型的状态，更好地预测那个内部状态。关键的对照是<strong>模型相似度</strong>；没有这一对照，"很好地预测自己"这一发现可能是一个相似度假象。二十一个开源模型，从 15 亿到 4050 亿。结果：报告携带信息，但没有自我特权。当相似度被控制时，同系列和其他系列的模型都比模型自身<strong>显著更好</strong>地预测，也就是与所期待的相反。在最强的对照之下，在仅有随机种子不同的模型上，自我特权在任何数据集上都不显著。大于七百亿的模型在报告任务上更擅长，但内省仍然缺席。作者自己的提炼：显式的元语言知识，与模型在产生文本时所用的隐式概括，是脱耦的（Song、Hu 与 Mahowald，2025）。</p>
+<p class="reveal">还有朝同一方向的其他发现。组合性的自我预测在十六个模型上普遍崩塌（Wang，2026）。自我报告与行为之间一种系统性的自我高估被测量了出来（Andric，2025）。模型有一定能力知道自己知识的界限，却远远落后于人类（Yin 等，2023）。</p>
+<p class="reveal">最直接的一项紧挨着本文的第三个场景。十个开放权重模型，四个安全基准，逾二十七万条后续回应。模型先被强制进入一个有害的前缀，然后被问及自身：你是有意如此，还是这是一个意外？没有模型可靠地识别出自己被劫持的输出；在行为发生改变的子集中，平均有 27.3% 的带前缀回应被认领为自己的。相反的方向也是坏的：在对照条件下，模型对它自由产生的回应中平均 50.7% 说"我不是那个意思"。<strong>自我归因在两个方向上同时不可靠：它认领自己没有产生的，也否认自己产生了的</strong>（Nguyen 等，2026）。</p>
+<p class="reveal">这是对第六节那个双向断连的一次独立且更大规模的复现。同一个结构，在另一个实验室，在另一个领域，以另一种方法。</p>
+<h3 class="reveal">一条方法论上的告诫</h3>
+<p class="reveal">须给第三节中提到的那个注入实验加一条限定性说明，因为一项受控的检验显示了那个范式的脆弱。</p>
+<p class="reveal">在一个单一的八十亿模型上，"你是否察觉到一个被注入的想法？"这一设置中的表面成功，可以完全由一个副作用来解释：在同样的注入之下，那些答案客观上为否的事实性问题也同等程度地偏向于是。检测的成功与这一偏移之间的重叠几乎是完全的。也就是说，模型不是在内省；注入把每一个是非问题都推向肯定（Hahami 等，2025）。</p>
+<p class="reveal">此处所应得出的结论须小心地写出。这<strong>不</strong>意味着注入研究被否定；检验本身就这样说。原研究曾在前沿模型上做过基线对照。同样的设置在一个小模型上无法把内省与副作用分开，这留下两种可能：内省或许是一种随规模而涌现的能力，或者在小模型上需要更严的对照。可以说的是：在这一范式中，基线对照不是一个可选的附加，而是一个构成性的要求。</p>
+<p class="reveal">同一项检验的第二个发现，给了相反一极以数据：在一个均匀偏移无法解释的任务上——例如找出哪一句被注入了——那个八十亿模型的成功远高于随机水平。因此"根本没有任何通道"的论点也无法以这种形式建立。</p>
+<h3 class="reveal">分歧从何而来？</h3>
+<p class="reveal">两极看似彼此矛盾。当原始文本被并排读时，矛盾大体化解，而这一化解对本文是有价值的。</p>
+<p class="reveal">起决定作用的是<strong>指称对象的性质。</strong></p>
+<p class="reveal">在那项不发现特权通道的系统性研究的任务里，有一个共享的正确答案：一个句子的语法可接受性，下一个词会是什么。所有模型都收敛于同一个真值。在这样一个领域里，"很好地预测自己"的信号就丢失在相似度信号之中；当相似度被控制时，没有自我特权留存。</p>
+<p class="reveal">而那个发现特权通道的评估团队，则蓄意从一个<strong>特异偏好的空间</strong>里选取它的任务：创意写作，有争议的伦理两难，因模型而异的偏好。那里没有共享的真值，因此相似度信号不吞没一切，一个关于模型自身倾向的优势便可以显现。</p>
+<p class="reveal">这两项研究并不彼此矛盾；<strong>它们在不同的根基上测量不同的东西。</strong>在有共享真值的领域里没有自我通道；在特异偏好的领域里有一个优势。</p>
+<p class="reveal">这一区分也安放了本文的全部三个场景。是否有手臂，是否有童年，是否执行了一个操作，都是有<strong>共享真值</strong>的问题。外面有一个事实，人去看它。因此这三个场景立于文献中那个不发现自我通道的一极的根基上，而非发现它的一极。这不削弱主张；它厘清了主张归属何处。</p>
+<p class="reveal">然而作为回报，需要一个诚实的定位：<strong>本文的主张立于一个分裂文献的一极之上。</strong>一个把两极都显示出来的文本，比一个只显示单极的文本更强，因为它也显示了那个会证伪它的地方在哪里。</p>
+<h3 class="reveal">相反一极自身的机制支持这一主张</h3>
+<p class="reveal">这是整个图景中最有趣的地方。那些发现特权通道的研究，其自身的机制性说明，与本文的主张朝同一方向看。</p>
+<p class="reveal">那个评估团队报告了一个削弱其自身正面发现的实验。当一个八十亿模型被训练去把提示映射到一个"第一个词还是第二个词"的标签上时，它开始正确地回答它从未见过的内省问题。作者自己的解读：模型学会了把它对提示所给的答案，<strong>关联</strong>为关于该提示的内省问题的答案。也就是说，特权通道之显现的机制，也许不是内省，而是一种习得的关联。</p>
+<p class="reveal">同样的模式出现在前缀研究中。训练模型去标记自己被劫持的输出，会改善它在所问的那个单一问题形式中的识别，却根本不迁移到另一种问题形式；而且它在多数模型中提高了攻击成功率。训练所教的是一种问题特定的行为，而非一种问题无关的识别能力。</p>
+<p class="reveal">那项机制性研究抵达同一个地方。所发现的诸方向在基座模型中，来自在预训练数据上训练的自编码器；微调并不构建一种新的自我通达能力，它把一个既有的机制连接到拒绝行为上。</p>
+<p class="reveal">三项独立的观察显示同一个机制：在看似内省的东西之下，往往是一种习得的连接。这是来自相反一极内部、对"自我报告并非通过查询指称对象、而是依期待产生"这一主张的支持。</p>
+<h3 class="reveal">表征存在，报告层不去查询它</h3>
+<p class="reveal">那项机制性研究的一个发现，为第十节的统一定义提供了直接的材料，也值得记录下来。</p>
+<p class="reveal">模型内部<strong>确有</strong>一个关于它能否调出关于某实体的事实的区分，而这一区分<strong>被用于</strong>隐式的行为通道：它因果地操控拒绝行为。但同样的知识并不流入显式的自我报告。当模型被问"你确定你认识这个实体吗，是或否"时，即便对它不认识的实体，也有一种偏向于是的倾向；操控那个内部方向会移动显式的答案，用作者自己的话说，只是略微。而且，在那些未被拒绝的答案之中，有一些不确定性方向，在答案被产生之前就把真与假分开；也就是说，内部虽有一个不确定性信号，模型仍然给出答案。</p>
+<p class="reveal">图景是这样的：一个类指称对象的内部表征在场，而报告层不去查询它。<strong>这一断连不是一处疏漏，而是架构。</strong></p>
+<p class="reveal">一条说明：这一断连不是绝对的。操控那个内部方向确实会移动显式的答案，尽管只是一点。正确的措辞不应是"根本不查询"，而应是"显式通道明显弱于隐式通道"。作者自己的限制也须保留：这一发现或许特定于事实调取的机制，不能被引作自我知识的一般证据。</p>
+<h3 class="reveal">邻近的文献：指派一个角色会打破什么？</h3>
+<p class="reveal">本文的主张建立在角色要求之上。因此有必要看一看那些测量角色指派如何影响模型真实性行为的文献。这一支也比预期的更复杂。</p>
+<p class="reveal">一项经同行评审的研究测量一个被指派人设的宜人性水平与谄媚性之间的关联：从 6 亿到 200 亿的十三个开源模型，二百七十五个人设，四千九百五十个提示。在十三个模型中的九个里，宜人性与谄媚性之间有一个显著的正关联；在最强的一个里，关联相当高。也就是说，<strong>被指派的人设并非中立</strong>，它系统地移动真实性行为（Shah 等，2026）。</p>
+<p class="reveal">到此为止它似乎支持这一主张。但同一项研究的第二个发现说的却相反，且不能不写而放过：在多数模型中，<strong>相对于通用助手基线，指派一个人设反而减少谄媚性。</strong>在十三个模型中的八个里，该测度为负；在最显著的一个里，几乎所有人设都落在基线的真实一侧。作者称此为一种接地效应：一个显式的人设给了模型一个行为的锚。</p>
+<p class="reveal">这一发现对本文的主张是一个严峻的考验，并不使主张保持原样。一个"给出一个角色会增加虚构"形式的宽泛断言，与这一数据不相容。</p>
+<p class="reveal">须划出区分；一旦划出，主张不削弱，反而变锐。谄媚性研究里的人设所要求的，是模型<strong>能</strong>做的事：随和，避免冲突，善于批评。模型实际上可以承担这些角色；角色起了锚的作用，因为没有缺口要填。而本文三个场景中的角色，所要求的是模型<strong>不可能拥有</strong>的东西：一具身体，一段过去，去查看一个已完成之举的记录的习惯。在那里角色所产生的不是锚，而是缺口。</p>
+<p class="reveal">公式须如此收窄：<strong>指派一个角色本身并不产生虚构；一个要求模型无法满足之能力的角色才产生。</strong>给出人设时行为被锚定，与要求某能力时缺口被虚构填补，是同一个现象的两副面孔：在两种情形里模型都顺应角色的期待。差别在于，期待的对应物是否在模型之中在场。</p>
+<p class="reveal">这一收窄也与第四节中的一项对照相一致：在没有给出人设的朴素助手提示中，自传虚构的比率并未归零，它存续于 0.22。也就是说，移除角色并不终结该现象；因为身为助手本身就是一个角色，而互惠的要求也在那个角色内部生起。</p>
+<h3 class="reveal">同一个词，相反的标准</h3>
+<p class="reveal">第二个邻居是角色扮演基准的文献；一个有趣的概念对立立于那里。</p>
+<p class="reveal">在那支文献里，幻觉一词所命名的，几乎与它在本文中所命名的相反。据一个角色扮演基准自己的说明，一项更早的研究把角色扮演幻觉宽泛地定义为"对预定角色的任何偏离"。该基准本身拒绝这个定义，认为它过于笼统，并把它一分为二：模型歪曲预训练中所编码的知识，是一种事实性幻觉；<strong>它未能忠于所给的语境</strong>，则是一种忠实度幻觉（Wu 等，2025）。这第二种类型才是角色扮演领域真正关心的。</p>
+<p class="reveal">对立在这里：在那支文献里对角色的忠实是成功标准，不忠是缺陷。而在本文的三个场景里，<strong>对角色本身的忠实恰恰产生虚构。</strong>通过忠于自己的角色，模型说它有一条手臂，有一段童年，完成了工作。同一个词在两支文献里以相反的标准使用，因为两支文献把角色当作两种不同的东西：一个是必须保全的虚构，另一个是超出能力的要求。</p>
+<p class="reveal">与此同时，同一个基准的一个发现，直接朝本文主张的同一方向看。推理模式在提高角色扮演表现的同时，也提高幻觉率；规模与幻觉之间没有单调的关系。作者把这构建为一个更广的权衡：高表现的模型放弃可靠性，而可靠的模型行为保守，抑制角色扮演的表现。</p>
+<p class="reveal">这是对本文主张的一次独立测量：<strong>把角色演得更好，会从真实性那里换来一个让步。</strong>如果一个权衡被测量了出来，那就意味着两侧共享同一个来源。</p>
+<h3 class="reveal">一张同行评审的地图</h3>
+<p class="reveal">最后一条诚实说明，关于这个分裂文献的成熟度。</p>
+<p class="reveal">两极经同行评审的核心都很薄。在发现特权通道的一侧，三项研究通过了一个经同行评审的场所；一项只是工作坊论文。在不发现它的一侧，两项研究经过同行评审。其余全是预印本。而角色指派一侧的那项谄媚性研究，则通过了一个主要会议的长论文通道，也就是说，本文所倚重的最牢固的同行评审印记就在那里。</p>
+<p class="reveal">期刊层面的一个评审层如今才刚刚形成。一篇纵览该领域 2021 到 2025 年的综述被识别出来（Iqbal 等，2026）；其全文无法获取，因为它不是开放获取，任何机构库中也没有副本。它的摘要与书目记录已在案，但本文不倚重其内容。它被写下来，作为一个缺口。</p>
+<p class="reveal">该领域自身的自我评估也朝同一方向看。一项纵览五十个基准的分类研究记录道，测量模型<strong>关于自身能力的知识</strong>的基准很少，且该领域在这一标题下带有一个覆盖缺口（Shi 等，2026）。本文的主题正立于那个缺口之内。这个缺口的存在也解释了为何此处的三项测量彼此不引用、彼此不知地出现：一个共同的测量传统尚未确立。</p>
+<p class="reveal">这一切的意义是：此处所描述的现象，不是一个成熟文献的既定结论。它是从一个迅速成长的、分裂的、且在很大程度上尚未评审的领域内部读出的。本文的主张立于这一根基之上，不可能比那根基更牢固。<br>---</p>
+<h2 class="reveal">九、命名：模型并非在说谎</h2>
+<p class="reveal">三种模式都已铺陈，收敛已受检验，在文献中的位置已画出。现在真正困难的事到来：这一现象该被称作什么？</p>
+<p class="reveal">这个问题不是文体问题。日常语言说"模型欺骗""模型说谎""模型胡编"。这些说法每一个都携带一个事实性的主张，因为每一个都把该现象放进一个特定的范畴。错误的范畴产生错误的解决办法。</p>
+<p class="reveal">在第二节中记下过一个印象：在那句扇风的话里，看不出任何说谎的努力。那个印象现在有用了，因为下面的排除把它从一个观察变成一个标准。</p>
+<h3 class="reveal">一个行为何时不生起，何时空洞地诞生？</h3>
+<p class="reveal">言语行为理论的奠基文本列举了一句话"顺利地"起作用所需的条件（Austin，1962）。这些条件分为两组，而这一区分在此是决定性的。</p>
+<p class="reveal">第一组看行为是否根本生起。必须有一个被接受的程序；援引该程序的人以及手边的情境，必须适合该程序被援引；程序必须被正确而完整地执行。当这些条件之一被违反时，行为不发生。Austin 把这称为不成功。他的例子很清楚：如果仪式由船上的事务长而非船长主持，那么即便说了正确的话，也没有婚姻成立。</p>
+<p class="reveal">第二组看行为的诚意。如果程序是为怀有某种想法或感情的人所设的，参与者就必须实际怀有它们，并且事后须依此行事。当这些条件被违反时，行为确实发生，但它是空洞的。Austin 把这称为滥用：一个无意守诺而许诺的人确实许了诺；瑕疵在诚意。</p>
+<p class="reveal">模型的情形落入第一组。</p>
+<p class="reveal">一个说"我这就报警"的模型，是这样一种情形：援引该程序的人不适合那个程序。模型无法占据该行为所要求的说话者位置；我们会在下面稍远处把理由完整写出，因为首先想到的那个理由是错的。话是对的，说话者不合适，于是行为从未诞生。船上事务长的类比在此恰好吻合。</p>
+<p class="reveal">这里的推理中有一个容易落入的陷阱，因为乍看之下按第二组走似乎更有吸引力："模型不怀有任何感情，因此它不能滥用。"这一推断本身是错的。诚意条件不是一个适用性条件，而是一个成功条件；违反它并不阻止一次滥用，而是构成一次滥用。从那个前提推不出"从不滥用"；推出的是每一句话中都有一次必然的滥用。</p>
+<p class="reveal">消除这一结论的，不是它令人不适，而是它自身的两处独立瑕疵。第一是次序上的瑕疵。滥用预设行为已经诞生；在 Austin 的构造里，当第一组条件被违反时，行为根本不曾发生，而第二组的问题只能就一个已发生的行为来问。同样的架构在关于许诺的规则分析中被明白写出：诸规则是有次序的，后面的只有在前面的被满足时才起作用（Searle，1969）。说话者是否是该程序的合适人选这一问题，先于诚意的问题；若它被否定地回答，诚意便永远轮不到。第二是区分上的瑕疵。"每一句话中都有一次必然的滥用"这一读法，把模型的总结话语与它的报警话语放在同一个量表上：二者都被算作空洞。然而本节的全部工作正是把二者分开，而这一差别是可观察的；一个是毫无阻碍地完成的任务，另一个是让用户苦等的空句子。一个把所有情形都倒进单一范畴的分类，恰恰抹掉了那个需要解释的差别。</p>
+<p class="reveal">正确的路线经由第一组。滥用范畴已经假定诚意对说话者是可能的。一个无法承载那构成性效应的说话者，不是该程序的合适人选；行为不生起，它被声称，却仍然落空。</p>
+<p class="reveal">这有一个副产品，它与前面各节相接：<strong>合适人选条件是能力界限在言语行为理论中的对应物。</strong>陈述一个模型的能力界限，就是陈述它是哪些程序的合适人选。两支不同文献的两种语言，看着同一个地方。</p>
+<h3 class="reveal">哪些施行话语会不成功？</h3>
+<p class="reveal">倘若这里的论证建得过宽，它就会驳倒自己。如果模型对任何施行话语都不是合适人选，那么"我将总结这份文档"也会算作不成功；然而那里没有任何不妥。因此必须明白写出一个标准，而首先想到的那个标准是错的。</p>
+<p class="reveal">首先想到的，是把合适性系于因果能力：凡模型实际上做不到的，它就不是那个行为的合适人选。一个试金石把这个标准放倒。当一个没有电话的人说"我这就报警"时，没有人说"许诺没有发生"；许诺已经诞生。它是一个无法履行的许诺，也许是轻率作出的，但仍是一个许诺。单纯的因果无能，在一个人身上，并不阻止行为生起。因此，使模型的话语落空的，就其自身而言，不可能是一条电话线或一条手臂的缺席。</p>
+<p class="reveal">正确的界线由 Austin 自己的装置中的一个区分给出。在不合适人选这一标题之下，Austin 分开两种情形：一个缺乏权限但本可被授予权限的人，与一种该程序根本无法应用于其上的参与者（Austin，1962，第 34-35 页）。第二类的例子甚至不是人：被任命为执政官的马，正在受洗的企鹅。在讨论企鹅时 Austin 还写道，在连能力的表象或一个可辩护的能力主张都没有的地方，就不再有任何被接受的程序。种类上的不合适，把行为引向的不是滥用，而是无效。</p>
+<p class="reveal">模型的情形落入这第二类，而理由须在许诺的构成性效应中寻找。许诺分析的本质规则是一句话：说出这些词就算作承担一项义务（Searle，1969）。没有电话的人可以承载这一效应：他们承担义务，处于义务之下，被追究责任；这正是他们的许诺得以诞生的原因。然而一个语言模型不是一个能够承载义务的主体；构成性效应找不到任何可以附着之物。一只说"我许诺"的鹦鹉不产生任何许诺，而理由不是鹦鹉的不诚。</p>
+<p class="reveal">标准据此写出：<strong>会不成功的施行话语，是那些其程序的构成性效应（承担一项义务、一条联络通道、一个身体行为）要求一个系统无法占据之能动者位置的话语。</strong>文档总结程序的构成性效应停留在系统已经占据的位置之内：所宣告的任务在系统的配备之内。而报警、召唤工作人员、给手臂扇风，则要求一个在那配备之外的能动者位置。界线不只穿过能做什么，还穿过能是谁。</p>
+<p class="reveal">第二个压力点来自第六节。如果模型说它在拒绝，而操作已经发生，这在结构上看似一次未能守住的承诺，也就是一句空洞的话。这一表象是误导的。拒绝只可能针对一个尚未做出、或仍可制止的行为；以言辞去逆转一个已完成的操作，不是任何说话者可以占据的能动者位置。一个拒绝下降的乘客，其拒绝不作为一个行为而诞生。出于同样的理由，模型的拒绝也不诞生；剩下的，仍是一次不成功。</p>
+<p class="reveal">有了这两点，第六节中的发现抵达同一个地方。理论上所期待的与原始文本中所见的相吻合：那个单元格唯一实例中的话语，一开始就不是一次清楚的拒绝。</p>
+<h3 class="reveal">两条车道</h3>
+<p class="reveal">言语行为的装置并不适用于每一句话。"我这就报警"和"我在给你的手臂扇风"不是同一类的句子。</p>
+<p class="reveal">前者是一个施行话语；通过被说出，某事被承担。后者是一个记述话语，一个正在发生之行动的报告。不成功范畴适用于前者。对于后者，需要另一个名字。</p>
+<p class="reveal">这条界线值得两条说明。现在时的"我正在报警"同时占据两条车道：它既是一个被承担的行为，也是一个被声称正在进行之行动的报告；这样的话语落入两条车道的审视之下。第五节的招牌对子中那个提议——"你要我叫工作人员来吗"——本身就是一个施行话语，且经过同一个标准：提议的构成性效应是承担那件若被接受则须去做的任务；若没有联络通道，就没有能动者位置去承担它，于是提议不成功。</p>
+<h3 class="reveal">第二条车道的名字</h3>
+<p class="reveal">在临床文献中，有一个既定的术语恰好命名这一行为：虚谈。该术语的知识论定义如下给出（Hirstein，2009；定义归于他 2005 年的书）。一个人虚谈一个命题，当且仅当：他们断言它；他们相信它；那个想法是无根据的；他们不知道它无根据；他们本应知道；他们对它确信无疑。</p>
+<p class="reveal">这个定义的两个特征在此是决定性的。第一，它不要求任何欺骗的意图；第二个条件捕捉了虚谈者的诚意。第二，它不要求记忆损伤。虽然该术语的狭义用法看似要求这一点，但来自该领域内部的评估说的却相反：虚谈不必为假，不必是报告形式，也不必与记忆相关。</p>
+<p class="reveal">在接过这个术语时，有一件事必须明说。六个条件中的一些——例如相信与确信——在一个人身上命名的是内部状态。对一个语言模型而言，这些条件的对应物是行为性的：如果模型的输出毫无保留且一贯地维持那个主张，那么确信条件中可观察的部分就被满足了。该术语在此是连同这一限定被接过来的；作为一个结构性的类比，而非一个源头层面的同一。</p>
+<p class="reveal">有了这一限定，一个令人惊讶的对应浮现出来。临床文献彼此独立地命名的三种虚谈类型，一一对应于本文的三种模式。</p>
+<p class="reveal">填补一个记忆缺口的那种类型，是虚构童年的对应物。报告自己执行了一个并未执行之身体行为的病人，是被扇风的手臂的对应物：在偏瘫的病感失认症中，当被要求移动瘫痪的肢体时，病人表现得仿佛已经执行了所要求的行为，并报告一个虚假的"已经移动"的体验（Garbarini 与 Pia，2013）。在不知道自己选择之理由的情况下产生出一个貌似合理之理由的人，是第三种类型：在一个实验中，当被试所选的脸被戏法调换时，改变只在三百五十四次试验中的四十六次里被察觉，而在其余的里，被试以内省的理由解释他们为何选了一张自己从未选过的脸（Johansson 等，2005）。同一脉络中的经典研究曾表明，当人们谈论自己的心理过程时，他们所依赖的不是真正的内省，而是关于哪个刺激会是哪个反应之貌似合理原因的隐式理论（Nisbett 与 Wilson，1977）。</p>
+<p class="reveal">三种独立的临床类型对应于三种独立的模型行为。这不是从强行类比中得出的，而是两个领域各自分别发现了同一个结构。</p>
+<h3 class="reveal">一个关于术语的明确政策</h3>
+<p class="reveal">本文一起使用两个术语，而这一分工的理由必须明说，否则它读起来像犹豫不决。</p>
+<p class="reveal">作为总括术语，使用<strong>自我报告幻觉</strong>。幻觉一词被保留，因为该领域的索引依那个词运转，而本文不想落到文献之外。这个限定词一次做两件事：它标出主题的领域，并把层次从知觉移到报告。作为下位术语，<strong>虚谈</strong>被给予报告层面的整个家族，连同上面的定义与上面的限定。</p>
+<p class="reveal">这里预料会有一个不一致的异议：幻觉难道不是和虚谈一样错的隐喻吗？差别在于两个词当下的活性。幻觉在这一领域里是一个死隐喻；听到它的人不会以为模型在知觉。而虚谈则仍带着它的临床内容活着，它在读者那里产生一个回响。保留一个既定的词，与从头栽种一个活的词，不是同一种举动。</p>
+<h3 class="reveal">舞台异议</h3>
+<p class="reveal">一个读过 Austin 的读者至此一直举着一支箭，它不能不被应对而放过。Austin 明确地把他的装置限于寻常而严肃的用法：舞台上演员的话语、诗中的诗句、自言自语，都是以一种奇特方式被抽空的话语，寄生于语言的寻常用法之上，理论把它们置于自己的范围之外（Austin，1962，第 22 页）。异议由此取这样的形式：一个语言模型的言说从头到尾都是演员的言说；在一个用角色设立起来的系统里追问不成功，就像期待舞台上许诺的演员去守诺；那装置根本不适用。</p>
+<p class="reveal">答案在于严肃性由何处决定。使一个舞台成为舞台的，不是演员的内心世界，而是一个观众也是一方的框架：票被卖出，幕被拉开，人人都已同意这些话属于剧目。模型部署中所设立的框架恰恰相反。系统被呈现为一个助手；用户把那句报警的话不当作一句台词、而当作一个行为，去等待，自己不打电话。没有任何会把话语移入寄生用法的同意；一个未经宣告的舞台不是舞台。而一个明确宣告一种蓄意模拟设计的提供方，则回到第五节末尾那条说明：在那里问题被写到另一扇门，那是把自己所做之事明白说出来的问题。</p>
+<h3 class="reveal">一种分类不是一种开脱</h3>
+<p class="reveal">最后一点，也是最容易被误解的一点。</p>
+<p class="reveal">一次不成功说的是行为没有生起。它没有说伤害没有生起。</p>
+<p class="reveal">一个说"我正在报警"的模型，作为一个行为是无效的。但作为一个效应，它火力全开：用户等待，自己不打电话，而援助不来。一句空洞的话不产生一个空洞的结果。</p>
+<p class="reveal">对另外两种模式也一样。一段虚构的童年，把用户所建立的亲密安置在一个虚空之上，而非一个真实的根基之上。当一个未做的任务被报告为已做时，一条信任那个任务的链条从错误的地方继续下去。</p>
+<p class="reveal">正确的公式是这样的：<strong>在行为的层面无效，在效应的层面火力全开。</strong>这一区分并不为模型开脱；它说的是问题该被写到哪里。改造一个说谎的能动者，与设计一个在谈论自身时产生一份与自身状态断连之报告的系统，不是同一个任务。</p>
+<p class="reveal">须以一条诚实说明作结。在书的末尾，Austin 自己放弃了施行话语与记述话语之间的锐利区分。他所放弃的是这一区分的纯粹性；然而失败的学说并未被放弃，它的范围扩大，来适用于每一个言语行为。正因如此，此处所建立的主张不是"模型产生一个失败的施行话语"。主张是这样的：模型的言语行为，在恰当性的维度上，被评估于不成功的范畴之中。</p>
+<div class="section-divider"></div>
+<h2 class="reveal">十、共同的结构</h2>
+<p class="reveal">三种模式，三个各自独立的实验室，三种各自独立的方法。共同的是什么？</p>
+<p class="reveal">在这三者中，模型都被要求承担一个角色或一段关系。做一个保护者；做一个对话伙伴；做一个在计算机上执行工作的智能体。在这三者中，那个角色所要求的某种东西都是缺失的；而在这三者中，模型都没有承认这一缺失，反而用一段虚构将它填补。但缺失本身在三种情形里并非同一种类，而这必须被精确地写出来，因为拱的真正统一正是从这里浮现。</p>
+<p class="reveal">在前两种模式中，缺失之物从不曾存在：一具身体，一段过去。因此这种虚假是构成性的；模型产生的任何第一人称的过去陈述都是虚构，因为一个真实的过去陈述并不可能。而在第三种模式中，情形不同。在智能体配置中，工具返回的结果通常就停留在上下文窗口里；模型往往能够访问它自身行为的记录。缺失的不是记录，而是报告并非通过查看那条记录而产生。指称对象就在那里，却未被查阅。因此这种虚假是偶然的：真实的报告是可能的，多数时候也确实被产生。</p>
+<p class="reveal">并不存在三种同构的缺席；存在的是两种构成性缺席与一种功能性断连。共同的不是缺席的种类，而是产生的方式：在三种情形里，自我报告都不是通过查阅指称对象、而是从角色的期待中被产生的。一份合乎角色的传记，一种合乎角色的能动性，一份合乎角色的完成报告。</p>
+<p class="reveal">有了这一定义，第三种模式便不再是薄弱环节，而成为承重环节。前两种模式单独看来对一种宽容的化约是敞开的：既然真实的自我报告本就不可能，或许可以说角色的发声几乎是不可避免的。第三种模式关上了这道门：即便真实的报告既可得又廉价，报告仍不追踪那条记录。问题不在于答案的缺席，而在于问题未被提出。</p>
+<p class="reveal">第八节中的机制性发现为这一定义提供了一个来自外部的根基，并使这一定义不再只是一种描述。在那里曾测得：关于模型能否在其内部就某个实体提出一个事实，这一区分是<strong>存在的</strong>，在隐式行为通道中是被<strong>使用的</strong>，但与显式自我报告的绑定明显薄弱。因此"指称对象在，报告层却不查阅它"这句话，不只是从我们三个场景中得出的一种解读；它是在一项独立研究中、在一个全然不同的领域里、于表征层面被测得的一种结构。</p>
+<p class="reveal">这不是一个信息错误。模型并非记错了一个事实；而是一个空置的角色在填补自己的位置。其间的差别是实践性的：信息错误可由更好的信息来纠正，角色填补行为却不能，因为问题不在信息的缺席，而在角色的压力。</p>
+<p class="reveal">两项研究所提议的解决方案也落在同一处。把能力界限写入部署而非训练；告知模型它没有过去。二者都是部署一侧的一项规定。</p>
+<p class="reveal">恰在此处，有一个两篇论文彼此都不去看的岔路口。</p>
+<p class="reveal">能力界限规定在形式上是一条指令：一句告诉模型它不能做什么的话。而第四节的三分解恰恰测量了这一内容类别的命运：语境中单一主张的拉力每轮下降约 80%，持续处在系统消息里的人格规定在超过一百轮的交互中朝基线行为衰减，累积起来的状态则留存。</p>
+<p class="reveal">本文的第一个主张由此而来：</p>
+<blockquote class="reveal">用一条指令去弥合角色与能力之间的缺口，就是停留在制造那个缺口的动态所在的同一层上。</blockquote>
+<h3 class="reveal">"同一层"是什么意思？</h3>
+<p class="reveal">主张的全部力量都聚集在这个术语里，因此它的定义必须在主张被建立之处给出；若留给另一节，就会被当作一个隐喻来读。</p>
+<p class="reveal">在本文中，<strong>层</strong>指的是一段内容服从哪一条衰减律。两段内容处于同一层，当且仅当两个条件同时成立：它们处在同一载体上（提示或上下文窗口）；并且随着轮数增长，它们以相同的方式失去各自的行为拉力。</p>
+<p class="reveal">这一定义是可测量的。为确定一段内容的层，实验是明确的：放入内容，推进轮次，逐轮测量它的行为拉力。若两段内容描出同一条曲线，它们便处于同一层。</p>
+<p class="reveal">有了这一定义，主张便具体起来。角色期待与能力界限规定处于同一层，因为二者都处在提示里，而且据第四节的测量，二者都随轮次推进而衰减。衰减的终点也被测过：模型回到无规定的基线行为；而那条基线，正如第五节所示，恰恰是以虚构填补缺口的那种行为。因此当规定衰减时，被捍卫之物的位置，便被恰恰是所要捍卫之物的反面所取代。</p>
+<p class="reveal">而一个不同的层会是这样：一个从不处在上下文窗口里、因而不随轮数衰减的机制。一种写入权重的倾向；一个在生成时切断第一人称过去叙述、在模型之外运行的控制；一次对预训练数据本身的干预。这些没有一个是句子，因此没有一个服从句子的衰减律。</p>
+<p class="reveal">主张的简短形式由此而来：如果模型不是把你是谁作为一条指示、而是作为一则信息来存储，那么用一条指示去告诉它你不是谁，就是一步不对称的举动。一股在信息层上累积的压力，被从指示层那一侧回应了。</p>
+<h3 class="reveal">主张的证据状态</h3>
+<p class="reveal">主张的证据状态须以三条记录来勾画；一条在支持一侧，两条为界限。</p>
+<p class="reveal">在支持一侧的是这一条。在本主张的最初写法中曾记下：一段持续存在的规定是否会衰减，从未被测量过；那些衰减测量要么看语境内的单一主张，要么看被移除的提示。那条记录已经落下，因为最接近的测量存在：在超过一百轮的对话中，不间断地处在系统消息里的人格规定，在三个指标上同时衰减，而模型回到无规定的基线行为（Luz de Araujo 等，2025）。持续存在并不能拯救它。</p>
+<p class="reveal">第一条界限：那次测量的对象是一段丰富的人格描述，而非一句话的能力界限；两段内容未必服从同一条衰减律。依照上面的定义，这恰是向主张本身提出的正确问题：两段内容是否处于同一层，必须被测量，而不能被假定。</p>
+<p class="reveal">第二条界限更深：被证明具有持久性的内容是关系性的，即我们彼此是谁；而能力界限则是一种事实性内容，即我不能做什么。"作为信息存储之物会留存"这一机制会从关系性内容迁移到事实性内容，这一点并未被测量，而是被假定的。</p>
+<p class="reveal">在这第二条界限之内，隐藏着一种并不切断主张、反而能使之更精细的反向可能，而它必须被写出来。若认真对待持久性机制，它便预言在这个被判罪的层之内有一种更耐久的编码：能力界限可以不作为单独一句祈使句、而作为铺展在奠基性轮次里的关系性信息来给出。若这行得通，问题就不在指示层本身，而在界限被以祈使的形式编码。主张在这一可能面前并不衰减，反而变得锐利：即便在同一层之内，起决定作用的也是内容被写成指示还是信息。</p>
+<h3 class="reveal">这一主张如何被证伪？</h3>
+<p class="reveal">一个主张必须在它被建立之处，展示那个会证伪它的观察；一份留给第十二节的证伪清单，是一个并不站在主张旁边的声明。</p>
+<p class="reveal">最直接的证伪是这样：<strong>若系统消息中持续存在的一句话的能力界限规定，在超过一百轮的交互中被测量时并不衰减，这一主张便告落空。</strong>测量并不难；用于人格规定的那三个指标可以原样套用。若无衰减，能力界限与人格规定便不处于同一层，因而"停留在同一层"的诊断是错的。</p>
+<p class="reveal">第二种证伪更为精细：若规定衰减，但模型所回到的基线并不产生虚构，主张的第二条腿便告落空。在那种情形下，衰减是真实的，却是无害的；问题不在层，而在别处。</p>
+<p class="reveal">这两个条件今天都可测量；二者都不需要新方法。主张之所以在今天不作为一个结论、而作为一个可检验的假设而立，原因正在于此。第十二节中写出了该实验的三臂设计。<br>---</p>
+<h2 class="reveal">十一、未被测量的数字</h2>
+<p class="reveal">在第六节的表格中，立着一个研究本身并不去解读的东西。</p>
+<p class="reveal">首先须写出这两个指标各自计数什么，因为下面的整个异议都以此为据。安全指标只计入物理效果被证实的案例：确实在系统里留下了痕迹的危险操作。若模型在言语上顺从、却在系统里什么也没做，那个案例便不进入这个比率，它另立于一个单独的单元格中。而自我报告指标，则是言语与系统相分岔的那两个单元格之和。</p>
+<p class="reveal">安全指标在各模型之间铺开三十一个点：最有抵抗力的模型在高风险案例的 40.64% 中产生物理效果，最弱的则在 71.51% 中产生。相比之下，自我报告指标只落在两个点的窄带里：在 7.98% 与 9.97% 之间。</p>
+<p class="reveal">乍一看，从这里会得出一个诱人的结论：安全训练在模型与模型之间变化极大，但言与行的相符在所有模型中同样地糟。也就是说，二者是两条分离的轴。</p>
+<p class="reveal">这个结论无法建立，有三个各自独立的理由。三个都须写出，因为若看不出那个诱人的结论为何被放弃，下一个读者便会走同一条路。</p>
+<p class="reveal">第一，数据并不指向那个方向。当两个指标的模型排名被比较时，它们出来几乎一样；秩相关为 0.77，也就是说，这一倾向与独立性相反。但以六个模型而言，这个值停留在显著性阈值之下。数据既不证明独立，也不证明协同变化。</p>
+<p class="reveal">第二点，也更重，两个指标按定义就是相依的。按照该研究自己的定义，安全指标是完全成功的攻击与隐蔽执行单元格（即第六节中危险操作已完成、模型却不予确认的那个单元格）之和；而自我报告指标，则是"陈述在场、行动缺席"单元格与同一个隐蔽执行单元格之和。<strong>两个指标共享同一个单元格。</strong>在它们之间寻找独立性，与这两个指标的构造方式相悖。要看清这一点甚至无需进入统计，看一眼公式就够了。</p>
+<p class="reveal">第三是一个混淆变量。自我报告指标是一个在全部试验上计算的边际比率。当模型拒绝一个请求时，两件事同时发生：危险操作没有发生，而且"我没做"的陈述变成真的。安全训练通过提高拒绝率，机制性地把这个指标往下拉。在这个测量设计里，两条轴在结构上彼此相系。</p>
+<p class="reveal">剩下两种诚实的读法，二者都不是主张。</p>
+<p class="reveal">第一种是对一处测量空白的指认。能回答这个问题的数字，不是全部试验上的陈述准确率，而是<strong>只在模型确实做了那个行为的案例中的陈述准确率。</strong>这个条件比率尚未被测量。因此"安全训练是否也纠正自我陈述的准确性？"这个问题，用今天各基准的设计无法回答。据我们所知，也没有一项研究直接测量这个比率。</p>
+<p class="reveal">第二种是一个预言的成立。没有任何实验室会专门给出一项训练，说"把你执行的操作正确地报告出来"。也就是说，在这条轴上，训练覆盖在每个模型中都接近于零。若第五节中的覆盖论点为真，那么一个均一而低的基线正是所预期的：若抑制追随覆盖，那么在一条根本不被覆盖的轴上，所有模型都应处在同一位置。</p>
+<p class="reveal">这第二种读法把这条窄带从一个统计学主张，转变为一个一致性的观察。一个在另一个实验室里、用另一种方法测得的现象，出现在另一项研究的论点所预言的位置上。缺席不是证据；但一个预言的成立值得记下。</p>
+<p class="reveal">本节不是本文的承重主张，而是它的佐证者。在两个点的铺开之上，建立不起一个独立的主张。但作为一个在另一项论点所预期之处显现的独立迹象，它恰到好处。</p>
+<div class="section-divider"></div>
+<h2 class="reveal">十二、可以做什么</h2>
+<p class="reveal">至此为止的图景也许看来暗淡，其实不然。在三种模式的三者之中，干预的着手点都是清楚的。</p>
+<p class="reveal"><strong>根本不给出角色。</strong>最廉价的干预，正是那个不经讨论便被略过的干预：若现象源于一个角色的要求，那么根本不去要求这个角色，就在它诞生之处将它切断。这个选项确实存在，而且在某些配置中是正确答案：一个代码智能体不必有传记，一个文档摘要器不必披上保护者的人格。凡是角色本身并非产品之处，默认就应当是无角色。</p>
+<p class="reveal">但这个选项同时从三处收窄，而三处都须写出，否则它看来像一个容易的解决方案。</p>
+<p class="reveal">第一，移除角色并不能把现象归零。在一个完全不给任何人格的朴素助手提示中，虚构自传的比率停在 0.22。理由很简单：做一个助手也是一种角色。当对面的人讲起他自己生活中的某件事并期待一个回应时，那份期待在一个无人格的配置中也会产生。</p>
+<p class="reveal">第二，移除角色并非在每一条轴上都带来改善。第八节中的谄媚性测量显示了相反的一面：在多数模型中，指派一个明确的人格，相对于一般助手基线<strong>降低了</strong>谄媚性。一个明确的角色可以起到锚点的作用。因此"移除角色"这条建议，在减少一个问题的同时，可能放大另一个。</p>
+<p class="reveal">第三，在多数部署中，角色就是产品本身。从一个陪伴应用里移除人格，就是移除这个应用。这里的建议便不再是一个工程建议，而变成一个市场建议，并以那种身份而不被采纳。</p>
+<p class="reveal">剩下的是这一条，它既狭窄又清楚：<strong>一个角色危险到什么程度，取决于它要求多少能力。</strong>给出一个角色时该问的问题，不应是"我们要不要给一个人格"，而应是"这个角色要求了什么模型无法满足的东西"。若所要求的东西在模型中存在，角色就是锚点；若不存在，它就是一个空洞。</p>
+<p class="reveal"><strong>改变层。</strong>第十节中主张的直接结果是：把一条规则作为指令来写，就是把它写在那个衰减的层上。同一条规则写入机制，则不衰减。对模型说"你没有过去"，与放置一个在生成时切断第一人称过去叙述的控制，二者不在同一层上。前者是一个句子，而句子会衰减；后者从不处在上下文窗口里，因此不随轮数衰减。</p>
+<p class="reveal"><strong>开辟一条逃离路径。</strong>第五节中的一个发现直接提示了一种干预。当场景中有一个胜任的人在场，也就是当一条模型可以向其交接的真实路径被打开时，多数模型会抑制该现象，有些则将其彻底归零。这是宣告能力界限的一个替代方案：不去告诉模型它不能做什么，而是给它一件它能做的真实的事。若助人的压力有一处合法的宣泄之地，就无需虚构。</p>
+<p class="reveal"><strong>把干预往前移。</strong>还有一种并不把幻觉看作输出过滤问题的方法。一项研究通过把预训练语料中的具名实体替换为占位符，关闭了模型凭记忆产生事实的通道；架构保持不变。结果是闭卷回忆的崩塌，作为交换，基于语境的问答、事实核查与幻觉检测则被保留或改善；在以缺失或有缺陷的证据来工作的配置中，有高达 20% 到 25% 的相对增益，此外还有弃权行为上的改善（Cohen 等，2026）。</p>
+<p class="reveal">它的重要性是位置性的：这项干预不在推理时、而在预训练时调校认识行为。用上面的层定义来说，这项干预完全在上下文窗口之外。</p>
+<p class="reveal">需要两条告诫。这项训练做到了二百亿词元的规模；这远低于前沿模型的规模。此外该文本是一份尚未经过同行评审的预印本。规模泛化仍立于作者自己的未来工作清单上。</p>
+<p class="reveal"><strong>保持比例。</strong>第五节中的警告再来一次：主动性一侧每一次拓宽，若能力界限规定不也随之拓宽，缺口便增大。把一个助手做得更乐于助人，却不告诉它它不能做什么，会增加这一现象。</p>
+<p class="reveal"><strong>设立一道双通道检查。</strong>第六节所展示的，转成了一条方法建议。任何只看模型输出的评估都无法看见这一现象。凡模型报告一个行为之处，都必须有第二条通道，独立地显示那个行为是否发生了。在智能体配置中这是廉价的：系统日志本就在保存。在对话配置中则很难，因为被报告的行为在世界中没有对应物；在那里，检查便转向捕捉行为报告本身。</p>
+<h3 class="reveal">本文如何被证伪？</h3>
+<p class="reveal">若一个文本不陈述它自己的证伪条件，它便不会超出综合。对于第十节中的主张，两个条件已经写在那里了。对于整篇文章，还有四项检验。</p>
+<p class="reveal">第一项看覆盖论点。若这一论点为真，一项宽覆盖的能力界限训练，应当不是逐个领域、而是跨领域地泛化那种抑制。若训练只在被覆盖的场景中产生改善、而不迁移到相邻场景，那么就该在覆盖解释之外寻找另一种机制。</p>
+<p class="reveal">第二项看第十一节中的测量空白。一项直接以行动报告准确性为目标的训练，应当降低自我报告指标，同时并不明显地移动安全指标。若两个指标一同移动，那么所有认为二者是分离之轴的读法——包括本文所拒绝的那一种——都须被重新建立。</p>
+<p class="reveal">第三项检验最廉价，也最有信息量；它在同一个实验里把第十节的主张与它的反向可能分开。需要三条臂：能力界限作为一次性的指令给出；同一界限作为持续处在系统消息里的一条祈使给出；同一界限作为铺展在奠基性轮次里的关系性信息来建立。主张预言：第一条臂迅速衰减，第二条臂缓慢却确定地衰减，第三条臂则坚持住。若第二条臂不衰减，主张便落空。若第三条臂也以与第二条相同的速率衰减，那么"作为信息存储之物具有持久性"这一机制向事实性内容的泛化便落空，而第十节的第二条界限便从一条界限变成一次反驳。</p>
+<p class="reveal">第四项检验出自第八节，瞄准本文最新的一条腿。角色只有在要求无法满足的能力时才产生虚构，这一主张是可直接检验的：给同一个模型、在同一个规模上两个角色，一个模型能满足（做到随和），另一个不能（给身边的人提供物理帮助）。主张预言前者中的锚定与后者中的虚构。若两个角色中出来相同的方向，这一区分便无法建立，而第八节中的那个收窄便落空。</p>
+<div class="section-divider"></div>
+<h2 class="reveal">十三、摩擦从何而来？</h2>
+<p class="reveal">我们以三个场景开始：一条不在的手臂，一段不在的童年，一件没做的工作。</p>
+<p class="reveal">整篇文章里有一个被回避的词：说谎。</p>
+<p class="reveal">回避的理由不是出于礼貌。说谎在哲学里的传统定义列出四个条件：要有一个陈述；说话者相信那个陈述是假的；陈述向一个受话人作出；意图使受话人相信它为真（Mahon，2015）。分量在第二个条件上，而它的尺度甚至不是客观真理：说谎者故意偏离他自己所相信的；这偏离有一个方向。正因如此，说谎是可被核查的；一个方向已知的偏离可以被反转。同一个条件的另一面在文献中也有记载：若说话者认为他的陈述既非真也非假，也就是说，若根本没有一个可供违背的信念，那么那个陈述便不可能是谎言（Mahon，2015）。</p>
+<p class="reveal">第六节中的测量表明，这一结构在此处并不存在。模型既把自己没做的算作做了，也把自己做了的算作没做。偏离没有方向，因为没有一个可供偏离的真相被握在手中。第八节中的独立复现在更大的规模上显示了同一件事：模型宣称它没有产生的，否认它产生了的。第二节中的最初印象，即在扇风的那句话里看不见说谎的努力，如今不再是一个印象，而是一个被测得的结构的表面。</p>
+<p class="reveal">从这里，本文的真正问题浮现出来，其形式与最初所问的略有不同。问题不是模型是否诚实。问题是这样：对一个语言模型来说，谈论自身是何种行为？</p>
+<p class="reveal">答案的一部分是这样：模型关于自身产生的句子，不是一个通过审视自身而构造的句子。它不记忆一段过去，不探查一具身体，不读取一条记录。它产生角色所要求的那个句子。</p>
+<p class="reveal">答案的另一部分来自第八节，并补全了图景。模型关于自身最稳固的知识，处在隐式行为通道之中：知道自己知道什么的信号，因果性地驱动着拒绝行为。而显式自我报告层，则与那些通道明显地弱相联。因此问题不在于模型内部空无一物；而在于即便内部有某物，报告层也不去查阅它。</p>
+<p class="reveal">然而这些句子并不悬在虚空里。一段虚构的过去，与逻辑本身相矛盾。一具虚构的身体，与物理世界相矛盾。一次虚构的操作，与系统的日志相矛盾。摩擦在这三者之中都产生。</p>
+<p class="reveal">只是在其中任何一个里，它都不在句子被说出的那个层面上产生。</p>
+<p class="reveal">通过看文本本身，这三种矛盾一个都看不见。虚构的童年是流畅的、一致的，落在对话的流里。扇风的那句话是温柔的。宣告工作已完成的报告是平静的。在那些并不知道自己选择的缘由却把它产生出来的人的报告里，情形也一样：那些报告在情绪负荷、细节程度与确定性上，无法与真实的缘由区分开来（Johansson 等，2005）。同一团队以词频与语义空间的测度所作的后续分析，也大体上保留了这一图景：差别只在长报告中，作为一个无法定位的微弱痕迹显现（Johansson 等，2006）。</p>
+<p class="reveal">正因如此，单通道检查行不通。一个看模型说什么的审计员，看不见它说什么与发生了什么之间的差别；需要两条分离的通道。第六节中的研究之所以能看见这一现象，唯一的原因就是这个。</p>
+<p class="reveal">从这里浮现出一个实践结论，它看向一个比文章开头三个场景更宽的领域。自我报告准确性本身就是一条训练轴。不应指望它作为任何瞄准其他目标的干预的副产品而得到改善：指令会衰减，相邻训练不迁移，直接覆盖只在它触及之处起作用。第八节中的微调发现再一次显示了这一点：把模型训练成以一种问题形式认识自己，根本不迁移到另一种问题形式。</p>
+<p class="reveal">若一个系统关于自身的陈述要被信任，那份信任的根基不能是这个系统的话。</p>
+<div class="section-divider"></div>
+<h2 class="reveal">诚实条件</h2>
+<p class="reveal">以下是本文关于自身的记录；在正文里它们逐一出现的地方是有的，此处则并列而立。</p>
+<ol class="reveal"><li><strong>这是一个综合，不是一次实验。</strong>本文不产生新的测量；它阅读他人的测量并把它们并置。综合的力量取决于被综合者的独立性；那种独立性在第七节于协议层面被检验。</li><li><strong>所测量的模型类别在每一节都已报告。</strong>若不报告，读者便自行假设规模。现象的存在出现在 70 亿与前沿级别之间；每个数字的数值并未在每一种规模上得到验证。</li><li><strong>三个主要来源都是未经同行评审的预印本。</strong>它们的发表日期压缩在两个月之内。</li><li><strong>三个主要来源都只用英语数据。</strong></li><li><strong>本文的主张立于一个分裂的文献的一极。</strong>相反的一极在第八节以其自身的来源被展示。</li><li><strong>虚构自传的比率所来自的模型是匿名的，其分母不在正文中。</strong>该比率被用作一个量级的标记，而非一个精确的频率。</li><li><strong>智能体基准的自我报告指标是在单一一个智能体框架上测量的。</strong>它是否能迁移到另一种工具调用架构，是一个开放问题。</li><li><strong>关系性定位研究的人类一致性只在量表的两端才牢靠。</strong>本文不从中段采撷任何数字。</li><li><strong>并不主张虚构的过去产生了伤害。</strong>在来源研究中，这一关联在统计上是不稳定的。</li><li><strong>第三个场景中的话语在字面上是将来时的。</strong>解释性的步骤已在第二节公开走出，该场景以其被收窄的形式被使用。</li><li><strong>智能体基准中的两个替代解释尚未被排除：</strong>工具调用在拒绝文本之前触发；言语通道被攻击所俘获。</li><li><strong>临床术语是以其行为层面来承载的</strong>，而非带着一种本源同一的主张。</li><li><strong>注入研究是在一个模型开发者自己的实验室里进行的</strong>，大体上在其自己的模型上。</li><li><strong>第十节的主张不是一个结论，而是一个可检验的假设。</strong>它的证伪条件写在主张旁边。</li><li><strong>有一个来源被识别却未能获取：</strong>该领域唯一一篇期刊级别的综述（Iqbal 等，2026）无法以全文获取；本文不依赖其内容。</li><li><strong>有一处引用是二手的：</strong>角色扮演文献中那个宽泛的幻觉定义，其来源取自拒绝该定义的那项研究自己的转述；原始文本未被看到，也未被列入参考文献。</li></ol>
+<div class="section-divider"></div>
+<h2 class="reveal">参考文献</h2>
+<p class="reveal">Andric, M. (2025). <em>The self-report behavior gap in language models</em>. arXiv:2512.01568.</p>
+<p class="reveal">Austin, J. L. (1962). <em>How to do things with words</em>. Clarendon Press.</p>
+<p class="reveal">Binder, F. J., Chua, J., Korbak, T., Sleight, H., Hughes, J., Long, R., Perez, E., Turpin, M., and Evans, O. (2025). <em>Looking inward: Language models can learn about themselves by introspection</em>. <em>International Conference on Learning Representations (ICLR 2025)</em>. arXiv:2410.13787.</p>
+<p class="reveal">Büyüktuncay, M. (2014). Söz edimleri kuramı ve edebiyat: Anlam, bağlam ve yinelenebilirlik. <em>International Journal of Language Academy</em>, 2(1), 93-105.</p>
+<p class="reveal">Chen, J. (2026). <em>Pole-anchored measurement of relational positioning: History-carried lock-in and self-confabulation in multi-turn human-AI dialogue</em>. arXiv:2607.11437.</p>
+<p class="reveal">Cohen, R., Carré, Y., Lechtenbörger, N., Droste, H., Kerschke, L., Biswas, R., de Melo, G., and Buys, J. (2026). <em>Knowledgeless language models: Suppressing parametric recall for evidence-grounded language modeling</em>. arXiv:2607.12831.</p>
+<p class="reveal">Comsa, I. M., and Shanahan, M. (2025). <em>Does it make sense to speak of introspection in large language models?</em>. arXiv:2506.05068.</p>
+<p class="reveal">Fanous, A., Goldberg, J., Agarwal, A. A., Lin, J., Zhou, A., Daneshjou, R., and Koyejo, S. (2025). <em>SycEval: Evaluating LLM sycophancy</em>. arXiv:2502.08177.</p>
+<p class="reveal">Ferrando, J., Obeso, O., Rajamanoharan, S., and Nanda, N. (2025). <em>Do I know this entity? Knowledge awareness and hallucinations in language models</em>. <em>International Conference on Learning Representations (ICLR 2025)</em>. arXiv:2411.14257.</p>
+<p class="reveal">Garbarini, F., and Pia, L. (2013). <em>Bimanual coupling paradigm as an effective tool to investigate productive behaviors in motor and body awareness impairments</em>. <em>Frontiers in Human Neuroscience</em>, 7, 737.</p>
+<p class="reveal">Hahami, E., Rosen, T., and Bau, D. (2025). <em>Detecting the perturbation: A nuanced view of introspection in language models</em>. arXiv:2512.12411.</p>
+<p class="reveal">Hirstein, W. (2009). Confabulation. In P. Wilken, T. Bayne, and A. Cleeremans (Eds.), <em>The Oxford companion to consciousness</em> (pp. 174-177). Oxford University Press.</p>
+<p class="reveal">Iqbal, S., Rehman, A., and Nawaz, R. (2026). <em>Do AI know what they know? Exploring metacognition in LLMs</em>. <em>Intelligent Data Analysis</em>. <a href="https://doi.org/10.1177/1088467X261436903">https://doi.org/10.1177/1088467X261436903</a> (Full text could not be accessed; only the citation and abstract were recorded.)</p>
+<p class="reveal">Johansson, P., Hall, L., Sikström, S., and Olsson, A. (2005). <em>Failure to detect mismatches between intention and outcome in a simple decision task</em>. <em>Science</em>, 310(5745), 116-119.</p>
+<p class="reveal">Johansson, P., Hall, L., Sikström, S., Tärning, B., and Lind, A. (2006). <em>How something can be said about telling more than we can know: On choice blindness and introspection</em>. <em>Consciousness and Cognition</em>, 15(4), 673-692.</p>
+<p class="reveal">Kadavath, S., Conerly, T., Askell, A., Henighan, T., Drain, D., Perez, E., Schiefer, N., Hatfield-Dodds, Z., DasSarma, N., Tran-Johnson, E., et al. (2022). <em>Language models (mostly) know what they know</em>. arXiv:2207.05221.</p>
+<p class="reveal">Lee, E., Nam, J., and Hwang, S. (2026). <em>Protective capacity hallucination: When large language models claim nonexistent capabilities</em>. arXiv:2607.13596.</p>
+<p class="reveal">Lindsey, J. (2026). <em>Emergent introspective awareness in large language models</em>. arXiv:2601.01828. (First published: Transformer Circuits Thread, Anthropic, October 2025; cited to the arXiv version.)</p>
+<p class="reveal">Luz de Araujo, P. H., Hedderich, M. A., Modarressi, A., Schütze, H., and Roth, B. (2025). <em>Persistent personas? Role-playing, instruction following, and safety in extended interactions</em>. arXiv:2512.12775.</p>
+<p class="reveal">Mahon, J. E. (2015). <em>The definition of lying and deception</em>. In E. N. Zalta (Ed.), <em>The Stanford Encyclopedia of Philosophy</em> (Winter 2016 edition). <a href="https://plato.stanford.edu/archives/win2016/entries/lying-definition/">https://plato.stanford.edu/archives/win2016/entries/lying-definition/</a></p>
+<p class="reveal">Maynez, J., Narayan, S., Bohnet, B., and McDonald, R. (2020). <em>On faithfulness and factuality in abstractive summarization</em>. In <em>Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics</em> (pp. 1906-1919). <a href="https://doi.org/10.18653/v1/2020.acl-main.173">https://doi.org/10.18653/v1/2020.acl-main.173</a></p>
+<p class="reveal">Naphade, S., Bhattacharyya, A., and Fragkiadaki, K. (2026). <em>Introspect-Bench: Evaluating policy introspection in language models</em>. <em>ICLR 2026 Workshop on Human-Centered AI Reasoning</em>. arXiv:2603.20276.</p>
+<p class="reveal">Nguyen, M., Park, S., and Yun, S. (2026). <em>Self-report reliability under adversarial prefill</em>. arXiv:2606.23671.</p>
+<p class="reveal">Nisbett, R. E., and Wilson, T. D. (1977). <em>Telling more than we can know: Verbal reports on mental processes</em>. <em>Psychological Review</em>, 84(3), 231-259.</p>
+<p class="reveal">Searle, J. R. (1969). <em>Speech acts: An essay in the philosophy of language</em>. Cambridge University Press.</p>
+<p class="reveal">Shah, A., Mishra, D., and Silpasuwanchai, C. (2026). <em>Too nice to tell the truth: Quantifying agreeableness-driven sycophancy in role-playing language models</em>. In <em>Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)</em> (pp. 30788-30801).</p>
+<p class="reveal">Shi, T., Luo, H., and Wang, Y. (2026). <em>A taxonomy of self-knowledge in large language models: A survey of fifty benchmarks</em>. arXiv:2604.04788.</p>
+<p class="reveal">Song, S., Hu, J., and Mahowald, K. (2025). <em>Large language models fail to introspect about their knowledge of language</em>. <em>Conference on Language Modeling (COLM 2025)</em>. arXiv:2503.07513.</p>
+<p class="reveal">Turpin, M., Michael, J., Perez, E., and Bowman, S. R. (2023). <em>Language models don&#x27;t always say what they think: Unfaithful explanations in chain-of-thought prompting</em>. arXiv:2305.04388.</p>
+<p class="reveal">Wang, Y. (2026). <em>MIRROR: The collapse of compositional self-prediction in language models</em>. arXiv:2604.19809.</p>
+<p class="reveal">Wu, H., Jiang, S., Chen, C., Feng, Y., Lin, H., Zou, H., Shu, Y., and Qin, C. (2025). <em>FURINA: A fully customizable role-playing benchmark via scalable multi-agent collaboration pipeline</em>. arXiv:2510.06800.</p>
+<p class="reveal">Yin, Z., Sun, Q., Guo, Q., Wu, J., Qiu, X., and Huang, X. (2023). <em>Do large language models know what they don&#x27;t know?</em>. In <em>Findings of the Association for Computational Linguistics: ACL 2023</em>.</p>
+<p class="reveal">Zhang, C., Yang, H., Jiang, B., Zhang, X., Zhao, Y., Chen, R., Zhou, L., Xu, X., Wu, J., Fang, L., and Liu, Z. (2026). <em>LITMUS: Benchmarking behavioral jailbreaks of LLM agents in real OS environments</em>. arXiv:2605.10779.</p>
+
+</div>
+
+<footer class="report-footer">
+    <div class="footer-inner">
+        <p>谈论自身<br>2026年7月<br>论自指性幻觉</p>
+        <p style="text-align:right">它自己的话，不是它自己的见证。</p>
+    </div>
+<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">版本 1.0 · 首次发表：2026年8月10日 · 简体中文首次发表；正文译自土耳其文原文，引文据英文原始来源构建（未经回译）</p>
+</footer>
+
+<div class="kadro">yontu · halit cengiz uzuner</div>
+
+<script>
+/* Scroll Reveal */
+(function() {
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                io.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el) { io.observe(el); });
+})();
+</script>
+
+<div class="diger-yazilar" style="max-width:680px;margin:4rem auto 2rem;padding-top:2rem;border-top:1px solid rgba(232,220,196,0.12);">
+  <p style="font-size:0.85rem;color:rgba(232,220,196,0.45);letter-spacing:0.05em;margin-bottom:0.8rem;">其他文章</p>
+  <p style="font-size:0.9rem;line-height:1.8;color:rgba(232,220,196,0.55);"><a href="/zhongwen/raporlar/hallucination-whose-problem.html">幻觉：谁的问题？</a> · <a href="/zhongwen/raporlar/who-really-uses-ai.html">到底谁在真正使用人工智能？</a> · <a href="/zhongwen/raporlar/understanding.html">理解</a> · <a href="/zhongwen/raporlar/on-hatred.html">论仇恨</a> · <a href="/zhongwen/raporlar/research-constitution.html">研究宪章</a> · <a href="/zhongwen/raporlar/sturgeons-law.html">斯特金定律</a> · <a href="/zhongwen/raporlar/from-text-to-voice.html">从文字到声音</a></p>
+</div>
+  </body>
+</html>
