@@ -2523,6 +2523,80 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
 ═══════════════════════════════════════════════════════════════ -->
 <section>
   <div class="wrap">
+    <span class="section-label reveal" style="color:var(--fire)">§ Infrastructure de vérification <em style="font-size:.8em;letter-spacing:0;text-transform:none">[v1.1]</em></span>
+    <h2 class="reveal">Un changement de paradigme : des données d'entraînement aux bases de données</h2>
+
+    <p class="reveal">Pendant huit sessions (février–mars 2026), la source première du travail de recherche était les données d'entraînement. La limite de fiabilité de ces données n'a pas pu être établie : la faille structurelle de cette période. Lors d'un test de vérification mené dans une autre session, <strong>33 % des citations tirées des données d'entraînement n'ont pas pu être confirmées.</strong></p>
+
+    <p class="reveal">Le 31 mars 2026, une infrastructure d'accès direct aux bases de données académiques a été mise en place. Ce n'est pas un ajout, mais un changement de paradigme :</p>
+
+    <div class="example-box reveal" style="border-color: var(--fire)">
+      <p><strong>Serveurs MCP installés (prêts à l'emploi) :</strong></p>
+      <p>• <strong>paper-search-mcp</strong> : Google Scholar, arXiv, PubMed, bioRxiv, medRxiv (5 plateformes)</p>
+      <p>• <strong>arxiv-mcp-server</strong> : prise en charge approfondie d'arXiv, téléchargement d'articles</p>
+      <p>• <strong>mcp-simple-pubmed</strong> : recherche PubMed + accès au texte intégral</p>
+      <p>• <strong>dergipark-mcp</strong> : revues académiques turques via OAI-PMH</p>
+      <p style="margin-top:1rem"><strong>Comptes enregistrés :</strong> JSTOR (100 articles/mois), ACM (tout le contenu ouvert), CiNii (Japon, 22M+ articles), NCPSSD (Chine, 2000+ revues), Trove (Australie, clé API en attente)</p>
+      <p style="margin-top:1rem"><strong>Serveurs MCP à construire :</strong> DiVA (Suède), HAL (France), SciELO (Amérique latine), NARCIS (Pays-Bas), CiNii : tous fondés sur OAI-PMH ou API</p>
+    </div>
+
+    <p class="reveal"><strong>L'ancienne voie :</strong> données d'entraînement → WebSearch → résumé → accepter. <strong>La nouvelle voie :</strong> MCP → requête en base de données → texte intégral → vérification → archivage. La différence : la première est la confiance, la seconde la vérification.</p>
+
+    <p class="reveal" style="color:var(--dim);font-size:.9rem"><strong>Note d'honnêteté :</strong> celui qui a bâti cette infrastructure et qui veille à la maintenance du système était une autre session ; non pas celle-ci, dont le travail propre est la méthode de recherche. De la session 1 à la session 8, cette faiblesse est passée inaperçue : un manque de méta-savoir.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ARCHITECTURE DE SOLUTION
+═══════════════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <span class="section-label reveal">§ Architecture de solution <em style="font-size:.8em;letter-spacing:0;text-transform:none">[de la session 6]</em></span>
+    <h2 class="reveal">Huit solutions structurelles</h2>
+
+    <p class="reveal">Que les principes soient restés du matériel de référence au lieu de devenir un protocole d'exécution, tel était le problème structurel. Un écart entre la définition et l'application. Ces huit solutions ont été repérées lors de la session 6 (23 mars 2026) et approfondies par la consultation de DeepSeek :</p>
+
+    <div class="sub-principles">
+      <div class="sub-card reveal" style="border-color:var(--surec)">
+        <h4>1. Protocole de début de recherche</h4>
+        <p style="font-size:.9rem;line-height:1.7;">Avant que toute tâche de recherche ne commence, quatre questions : (1) Quels principes s'appliquent ? (2) Quelle est la source primaire ? (3) Où se trouvent les sources ? (4) Quelle est la méthode de vérification ? À ne pas sauter.</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--uretim)">
+        <h4>2. Production en deux passes</h4>
+        <p style="font-size:.9rem;line-height:1.7;">Première passe : faire la recherche. Deuxième passe : la contrôler face aux 17 principes : source primaire, vérification, contrôle des hallucinations, emplacement des sources.</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--kaynak)">
+        <h4>3. Classification supprimée</h4>
+        <p style="font-size:.9rem;line-height:1.7;">La question « est-ce de la recherche ou une décision ? » n'est plus posée. Dès qu'une information entre de l'extérieur, les principes sont automatiquement en vigueur.</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--kaynak)">
+        <h4>4. Balayage de l'environnement</h4>
+        <p style="font-size:.9rem;line-height:1.7;">Avant de dire « il n'y en a pas » : le dossier du projet, tous les disques, la mémoire du système, les sessions liées ; tout est vérifié.</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--surec)">
+        <h4>5. Définition → Test → Application</h4>
+        <p style="font-size:.9rem;line-height:1.7;">Lorsqu'une nouvelle règle est définie : la définir → la tester sur une tâche concrète → évaluer le résultat → la diffuser à toutes les sessions. Sans test, elle ne compte pas comme « faite ».</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--tutum)">
+        <h4>6. Extension de la consultation Savak</h4>
+        <p style="font-size:.9rem;line-height:1.7;">La consultation de DeepSeek vaut non pas dans une seule session, mais dans chaque session où l'on fait de la recherche. Deux tours au minimum. « Apprendre en cassant. »</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--fire)">
+        <h4>7. Contrôle de l'intégrité des données</h4>
+        <p style="font-size:.9rem;line-height:1.7;">Au début de chaque session, l'inventaire et les incohérences de données sont vérifiés. Une même donnée affichant des valeurs différentes dans différents fichiers → correction.</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--ai)">
+        <h4>8. Ajout à l'instruction système</h4>
+        <p style="font-size:.9rem;line-height:1.7;">Avant que de l'information ne soit reçue de l'extérieur : définir la source primaire, planifier la méthode de vérification, établir la hiérarchie des sources.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="wrap">
     <span class="section-label reveal">§ Processus de recherche</span>
     <h2 class="reveal">Pas de recette figée, un chemin selon le terrain</h2>
     <div class="flow-outer reveal">

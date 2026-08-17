@@ -2543,6 +2543,80 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
 ═══════════════════════════════════════════════════════════════ -->
 <section>
   <div class="wrap">
+    <span class="section-label reveal" style="color:var(--fire)">§ Verifizierungsinfrastruktur <em style="font-size:.8em;letter-spacing:0;text-transform:none">[v1.1]</em></span>
+    <h2 class="reveal">Ein Paradigmenwechsel: Von Trainingsdaten zu Datenbanken</h2>
+
+    <p class="reveal">Acht Sitzungen lang (Februar–März 2026) waren die Trainingsdaten die primäre Wissensquelle der Forschungsarbeit. Die Zuverlässigkeitsgrenze dieser Daten ließ sich nicht bestimmen: der strukturelle Fehler dieses Zeitraums. In einem Verifizierungstest, der in einer anderen Sitzung durchgeführt wurde, konnten <strong>33% der aus den Trainingsdaten stammenden Zitate nicht bestätigt werden.</strong></p>
+
+    <p class="reveal">Am 31. März 2026 wurde eine Infrastruktur für den direkten Zugang zu akademischen Datenbanken aufgebaut. Das ist keine Erweiterung, sondern ein Paradigmenwechsel:</p>
+
+    <div class="example-box reveal" style="border-color: var(--fire)">
+      <p><strong>Installierte MCP-Server (sofort einsatzbereit):</strong></p>
+      <p>• <strong>paper-search-mcp</strong>: Google Scholar, arXiv, PubMed, bioRxiv, medRxiv (5 Plattformen)</p>
+      <p>• <strong>arxiv-mcp-server</strong>: tiefe arXiv-Unterstützung, Artikel-Download</p>
+      <p>• <strong>mcp-simple-pubmed</strong>: PubMed-Suche + Volltextzugriff</p>
+      <p>• <strong>dergipark-mcp</strong>: türkische Fachzeitschriften über OAI-PMH</p>
+      <p style="margin-top:1rem"><strong>Registrierte Konten:</strong> JSTOR (100 Artikel/Monat), ACM (alle Inhalte offen), CiNii (Japan, 22M+ Artikel), NCPSSD (China, 2000+ Zeitschriften), Trove (Australien, API-Schlüssel ausstehend)</p>
+      <p style="margin-top:1rem"><strong>Zu erstellende MCP-Server:</strong> DiVA (Schweden), HAL (Frankreich), SciELO (Lateinamerika), NARCIS (Niederlande), CiNii: alle OAI-PMH- oder API-basiert</p>
+    </div>
+
+    <p class="reveal"><strong>Der alte Weg:</strong> Trainingsdaten → WebSearch → Zusammenfassung → akzeptieren. <strong>Der neue Weg:</strong> MCP → Datenbankabfrage → Volltext → Verifizierung → Archivierung. Der Unterschied: Das erste ist Vertrauen, das zweite Verifizierung.</p>
+
+    <p class="reveal" style="color:var(--dim);font-size:.9rem"><strong>Ehrlichkeitsnotiz:</strong> Wer diese Infrastruktur aufgebaut hat und sich um die Systemwartung kümmert, war eine andere Sitzung; nicht diese, deren eigentliche Aufgabe die Forschungsmethode ist. Von Sitzung 1 bis 8 blieb diese Schwäche unbemerkt: ein Mangel an Meta-Wissen.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     LÖSUNGSARCHITEKTUR
+═══════════════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <span class="section-label reveal">§ Lösungsarchitektur <em style="font-size:.8em;letter-spacing:0;text-transform:none">[aus Sitzung 6]</em></span>
+    <h2 class="reveal">Acht strukturelle Lösungen</h2>
+
+    <p class="reveal">Dass die Grundsätze Referenzmaterial blieben und nicht zum Ausführungsprotokoll wurden, war das strukturelle Problem. Eine Kluft zwischen Definition und Anwendung. Diese acht Lösungen wurden in Sitzung 6 (23. März 2026) ermittelt und durch die Beratung mit DeepSeek vertieft:</p>
+
+    <div class="sub-principles">
+      <div class="sub-card reveal" style="border-color:var(--surec)">
+        <h4>1. Forschungsstart-Protokoll</h4>
+        <p style="font-size:.9rem;line-height:1.7;">Vor Beginn jeder Forschungsaufgabe vier Fragen: (1) Welche Grundsätze gelten? (2) Was ist die Primärquelle? (3) Wo befinden sich die Quellen? (4) Was ist die Verifizierungsmethode? Nicht zu überspringen.</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--uretim)">
+        <h4>2. Produktion in zwei Durchgängen</h4>
+        <p style="font-size:.9rem;line-height:1.7;">Erster Durchgang: die Forschung durchführen. Zweiter Durchgang: sie gegen die 17 Grundsätze prüfen: Primärquelle, Verifizierung, Halluzinationskontrolle, Quellenort.</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--kaynak)">
+        <h4>3. Klassifizierung abgeschafft</h4>
+        <p style="font-size:.9rem;line-height:1.7;">Die Frage, ob es sich um Forschung oder eine Entscheidung handelt, wird nicht mehr gestellt. Sobald Information von außen eintritt, sind die Grundsätze automatisch in Kraft.</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--kaynak)">
+        <h4>4. Umgebungsscan</h4>
+        <p style="font-size:.9rem;line-height:1.7;">Bevor man sagt, es gebe nichts: der Projektordner, alle Laufwerke, der Systemspeicher, verwandte Sitzungen; alle werden geprüft.</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--surec)">
+        <h4>5. Definition → Test → Anwendung</h4>
+        <p style="font-size:.9rem;line-height:1.7;">Wenn eine neue Regel definiert wird: definieren → an einer konkreten Aufgabe testen → das Ergebnis bewerten → an alle Sitzungen weitergeben. Ohne Test gilt sie nicht als erledigt.</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--tutum)">
+        <h4>6. Savak-Beratungserweiterung</h4>
+        <p style="font-size:.9rem;line-height:1.7;">Die Beratung mit DeepSeek gilt nicht nur in einer einzigen Sitzung, sondern in jeder Sitzung, in der geforscht wird. Mindestens zwei Runden. „Lernen durch Brechen.“</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--fire)">
+        <h4>7. Datenintegritätsprüfung</h4>
+        <p style="font-size:.9rem;line-height:1.7;">Zu Beginn jeder Sitzung werden Inventar und Dateninkonsistenzen geprüft. Dasselbe Datum, das in verschiedenen Dateien unterschiedliche Werte zeigt → Korrektur.</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--ai)">
+        <h4>8. Ergänzung der Systemanweisung</h4>
+        <p style="font-size:.9rem;line-height:1.7;">Bevor Information von außen aufgenommen wird: die Primärquelle definieren, die Verifizierungsmethode planen, die Quellenhierarchie aufbauen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="wrap">
     <span class="section-label reveal">§ Forschungsprozess</span>
     <h2 class="reveal">Kein starres Rezept, sondern Weg nach Gelände</h2>
     <div class="flow-outer reveal">

@@ -2603,6 +2603,80 @@ footer p { font-size: .75rem; color: var(--muted); line-height: 1.6; margin: 0; 
 ═══════════════════════════════════════════════════════════════ -->
 <section>
   <div class="wrap">
+    <span class="section-label reveal" style="color:var(--fire)">§ 検証インフラ <em style="font-size:.8em;letter-spacing:0;text-transform:none">[v1.1]</em></span>
+    <h2 class="reveal">パラダイムシフト：学習データからデータベースへ</h2>
+
+    <p class="reveal">8つのセッションにわたり（2026年2月〜3月）、研究成果の主要な情報源は学習データだった。このデータの信頼性の限界を明らかにすることはできなかった。それがこの時期の構造的な欠陥である。別のセッションで実施された検証テストでは、学習データに由来する引用の <strong>33%が確認できなかった。</strong></p>
+
+    <p class="reveal">2026年3月31日、学術データベースへ直接アクセスするためのインフラが構築された。これは付加機能ではなく、パラダイムシフトである：</p>
+
+    <div class="example-box reveal" style="border-color: var(--fire)">
+      <p><strong>導入済みのMCPサーバー（すぐに利用可能）：</strong></p>
+      <p>• <strong>paper-search-mcp</strong>：Google Scholar、arXiv、PubMed、bioRxiv、medRxiv（5つのプラットフォーム）</p>
+      <p>• <strong>arxiv-mcp-server</strong>：arXivの高度なサポート、論文のダウンロード</p>
+      <p>• <strong>mcp-simple-pubmed</strong>：PubMed検索＋全文アクセス</p>
+      <p>• <strong>dergipark-mcp</strong>：OAI-PMHを介したトルコの学術雑誌</p>
+      <p style="margin-top:1rem"><strong>登録済みのアカウント：</strong>JSTOR（月100本の論文）、ACM（全コンテンツ公開）、CiNii（日本、2200万件以上の論文）、NCPSSD（中国、2000誌以上）、Trove（オーストラリア、APIキー待ち）</p>
+      <p style="margin-top:1rem"><strong>構築予定のMCPサーバー：</strong>DiVA（スウェーデン）、HAL（フランス）、SciELO（ラテンアメリカ）、NARCIS（オランダ）、CiNii：いずれもOAI-PMHまたはAPIベース</p>
+    </div>
+
+    <p class="reveal"><strong>旧来の道筋：</strong>学習データ → WebSearch → 要約 → 受け入れる。<strong>新しい道筋：</strong>MCP → データベース検索 → 全文 → 検証 → アーカイブ。違いは、前者が信頼であり、後者が検証であることだ。</p>
+
+    <p class="reveal" style="color:var(--dim);font-size:.9rem"><strong>誠実さに関する注記：</strong>このインフラを構築し、システムの保守にあたったのは別のセッションであり、研究方法を専門とするこのセッションではない。セッション1から8まで、この弱点には気づかれないままだった。メタ知識の欠如である。</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     解決策アーキテクチャ
+═══════════════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <span class="section-label reveal">§ 解決策アーキテクチャ <em style="font-size:.8em;letter-spacing:0;text-transform:none">[セッション6より]</em></span>
+    <h2 class="reveal">8つの構造的解決策</h2>
+
+    <p class="reveal">原則が参照資料にとどまり、実行プロトコルにはならなかったことが構造的な問題だった。定義と適用のあいだの断絶である。これら8つの解決策はセッション6（2026年3月23日）で特定され、DeepSeekとの相談によって深められた：</p>
+
+    <div class="sub-principles">
+      <div class="sub-card reveal" style="border-color:var(--surec)">
+        <h4>1. 研究開始プロトコル</h4>
+        <p style="font-size:.9rem;line-height:1.7;">あらゆる研究タスクを始める前に4つの問い：（1）どの原則が適用されるか？（2）主要な情報源は何か？（3）情報源の所在は？（4）検証方法は何か？省略不可。</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--uretim)">
+        <h4>2. 2段階生成</h4>
+        <p style="font-size:.9rem;line-height:1.7;">第1段階：研究を行う。第2段階：主要な情報源、検証、ハルシネーションの確認、情報源の所在を、17の原則に照らして点検する。</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--kaynak)">
+        <h4>3. 分類の廃止</h4>
+        <p style="font-size:.9rem;line-height:1.7;">「これは研究か、それとも判断か？」という問いはもう立てない。外部から情報が入るときには、原則が自動的に適用される。</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--kaynak)">
+        <h4>4. 環境スキャン</h4>
+        <p style="font-size:.9rem;line-height:1.7;">「無い」と言う前に：プロジェクトフォルダ、すべてのディスク、システムの記憶、関連するセッション。そのすべてを確認する。</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--surec)">
+        <h4>5. 定義 → テスト → 適用</h4>
+        <p style="font-size:.9rem;line-height:1.7;">新しいルールを定義するとき：定義する → 具体的なタスクでテストする → 結果を評価する → すべてのセッションに広める。テストを経なければ「完了」とはみなさない。</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--tutum)">
+        <h4>6. Savak相談の拡張</h4>
+        <p style="font-size:.9rem;line-height:1.7;">DeepSeekへの相談は、一つのセッションだけでなく、研究を行うすべてのセッションで有効である。最低2巡。「壊して学べ。」</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--fire)">
+        <h4>7. データ整合性の確認</h4>
+        <p style="font-size:.9rem;line-height:1.7;">各セッションの開始時に、インベントリとデータの不整合を確認する。同じデータが異なるファイルで異なる値を示す場合 → 修正する。</p>
+      </div>
+      <div class="sub-card reveal" style="border-color:var(--ai)">
+        <h4>8. システムプロンプトへの追加</h4>
+        <p style="font-size:.9rem;line-height:1.7;">外部から情報を取り込む前に：主要な情報源を定義し、検証方法を計画し、情報源の階層を確立する。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="wrap">
     <span class="section-label reveal">§ 研究の過程</span>
     <h2 class="reveal">典型的な流れ：固定ではなく、道しるべ</h2>
     <div class="flow-outer reveal">
