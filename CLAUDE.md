@@ -35,6 +35,7 @@
   - Yapay Zekâyı Kim Kullanıyor: --bicak (#b08838) — bıçak amberi
   - Anlamak: --anlam (#708050) — zeytin yeşili
   - Hangimiz Yanılıyoruz: --tas (#a4907a) — sıcak kireç ve taş (Dinle türetti, merkez imgeden: manastır ile hapishane aynı taştan yapılmış; oku ile dinle sürümü paleti ortak kullanır)
+  - Katedral ve İğne: --vitray (#4a6d9e) — kobalt vitray (aşırı teorileştirme; katedral vitray iç ışığı, soluk gri-mavilerden doygunlukla ayrılır)
 - Grain overlay: fractalNoise SVG, mix-blend-mode overlay (opaklık rapor bazında farklı)
 - Responsive: clamp() ile akışkan tipografi
 - Raporlar: /raporlar/ dizininde
