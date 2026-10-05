@@ -75,7 +75,7 @@ def transform_kok(content):
     ch = []
     if 'lang="en" hreflang="en"' not in content:
         def repl(m):
-            href, rest = m.group(1), m.group(2)
+            href, rest = m.group(1), m.group(2) or ''
             lc = HREF2LANG.get(href)
             if not lc: return m.group(0)
             return f'<a href="{href}"{rest} lang="{lc}" hreflang="{lc}">'
