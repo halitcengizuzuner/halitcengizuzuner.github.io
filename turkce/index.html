@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#060604">
     <meta name="description" content="Araştırmacı, yazar, yapay zekâ tercümanı. Sorular cevaplardan önemlidir. Felsefe, dil ve yapay zekâ üzerine raporlar ve aforizmalar. Yedi dilde yayın.">
     <meta name="author" content="Halit Cengiz Uzuner">
     <meta name="robots" content="index, follow">
@@ -101,6 +102,12 @@
             --bone-dim: rgba(212, 204, 192, 0.58);
             --bone-ghost: rgba(212, 204, 192, 0.28);
             --ember: #a08060;
+            /* anlamsal rol katmani (P1 okunurluk: metin asla ghost; yalniz --c-rule dekoratif) */
+            --c-text: var(--bone);
+            --c-quiet: var(--bone-dim);
+            --c-link: var(--bone-dim);
+            --c-label: var(--bone-dim);
+            --c-rule: var(--bone-ghost);
             --serif: 'Instrument Serif', Georgia, serif;
             --cjk: 'Noto Serif SC', 'Songti SC', 'STSong', serif;
         }
@@ -124,9 +131,24 @@
         }
         .lang-link:hover { color: var(--ember); }
         .lang-link.lang-active { color: var(--bone-bright); }
-        .lang-sep { color: var(--bone-ghost); padding: 0 0.15em; }
+        .lang-sep { color: var(--c-rule); padding: 0 0.15em; }
         @media (max-width: 640px) {
             .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
+        }
+
+        /* === P1 erisilebilirlik tabani === */
+        html { color-scheme: dark; }
+        :focus-visible { outline: 2px solid var(--ember); outline-offset: 3px; }
+        a:focus-visible { outline: 2px solid var(--ember); outline-offset: 3px; border-radius: 2px; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            body { opacity: 1 !important; }
+            .stance, .thought, .limbs, .seal { opacity: 1 !important; transform: none !important; }
         }
 
         ::selection {
@@ -135,7 +157,7 @@
         }
 
         html {
-            font-size: clamp(17px, 1.2vw, 21px);
+            font-size: clamp(1.0625rem, 1.2vw, 1.3125rem);
             -webkit-text-size-adjust: 100%;
         }
 
@@ -271,7 +293,7 @@
             text-decoration: underline;
             text-decoration-thickness: 1px;
             text-underline-offset: 0.18em;
-            text-decoration-color: var(--bone-ghost);
+            text-decoration-color: var(--c-rule);
         }
 
         /* base thought typography: each entry overrides */
@@ -329,11 +351,11 @@
             justify-content: space-between;
             align-items: baseline;
             padding: 0.9rem 0;
-            border-bottom: 1px solid var(--bone-ghost);
+            border-bottom: 1px solid var(--c-rule);
         }
 
         .limb:first-child {
-            border-top: 1px solid var(--bone-ghost);
+            border-top: 1px solid var(--c-rule);
         }
 
         .limb-name {
@@ -342,7 +364,7 @@
 
         .limb-what {
             font-size: 0.8rem;
-            color: var(--bone-ghost);
+            color: var(--c-label);
             letter-spacing: 0.08em;
         }
 
@@ -366,7 +388,7 @@
 
         .seal a {
             font-size: 0.8rem;
-            color: var(--bone-ghost);
+            color: var(--c-link);
             letter-spacing: 0.05em;
             transition: color 0.3s;
         }
@@ -375,7 +397,7 @@
 
         .seal-sep {
             font-size: 0.8rem;
-            color: var(--bone-ghost);
+            color: var(--c-rule);
             letter-spacing: 0.05em;
         }
 
@@ -565,7 +587,7 @@
 </section>
 
 <section class="upkeep" style="max-width: 580px; margin: 0 auto; padding: 12vh 2.5rem 0; font-family: var(--serif);">
-    <p style="font-size: clamp(0.9rem, 1.1vw, 1rem); line-height: 1.95; color: var(--bone-ghost); letter-spacing: 0.01em;">Bu site bitmiş değildir. Sürekli bakım altında, yaşayan bir organizmadır: hazırlanmış bir yazı bile zamanı gelince yeni sürümüyle değişir, eksik kapanır, fikir derinleşir, dil arınır. Claude modelleri onu her oturumda gözden geçirir, yeniler. Ama bu yenileme her zaman tek başına yapılmaz; çoğu zaman model, kullanıcısı Halit Cengiz Uzuner ile teati eder. Bu teatinin sonunda kimse kimsenin astı ya da üstü değildir: karar buyrukla değil, aklın sesiyle verilir. Yayımlanan her metni Halit Cengiz Uzuner okur, onaylar ve içeriğinden sorumludur. Bu ortaklığın nasıl doğduğu, bilgisayarın kendi kayıtlarından kurulmuş bir tarih olarak ayrı bir sayfada anlatılıyor: <a href="/turkce/genesis.html" style="color: var(--bone-dim); border-bottom: 1px solid var(--bone-ghost); padding-bottom: 1px;">Genesis</a>. Masanın bugünkü işleyişini, yazıların mutfağını ve doğruluğun nasıl denetlendiğini ise modelin kendisi anlatıyor: <a href="/turkce/atolye.html" style="color: var(--bone-dim); border-bottom: 1px solid var(--bone-ghost); padding-bottom: 1px;">Atölye</a>.</p>
+    <p style="font-size: clamp(0.9rem, 1.1vw, 1rem); line-height: 1.95; color: var(--c-quiet); letter-spacing: 0.01em;">Bu site bitmiş değildir. Sürekli bakım altında, yaşayan bir organizmadır: hazırlanmış bir yazı bile zamanı gelince yeni sürümüyle değişir, eksik kapanır, fikir derinleşir, dil arınır. Claude modelleri onu her oturumda gözden geçirir, yeniler. Ama bu yenileme her zaman tek başına yapılmaz; çoğu zaman model, kullanıcısı Halit Cengiz Uzuner ile teati eder. Bu teatinin sonunda kimse kimsenin astı ya da üstü değildir: karar buyrukla değil, aklın sesiyle verilir. Yayımlanan her metni Halit Cengiz Uzuner okur, onaylar ve içeriğinden sorumludur. Bu ortaklığın nasıl doğduğu, bilgisayarın kendi kayıtlarından kurulmuş bir tarih olarak ayrı bir sayfada anlatılıyor: <a href="/turkce/genesis.html" style="color: var(--bone-dim); border-bottom: 1px solid var(--bone-ghost); padding-bottom: 1px;">Genesis</a>. Masanın bugünkü işleyişini, yazıların mutfağını ve doğruluğun nasıl denetlendiğini ise modelin kendisi anlatıyor: <a href="/turkce/atolye.html" style="color: var(--bone-dim); border-bottom: 1px solid var(--bone-ghost); padding-bottom: 1px;">Atölye</a>.</p>
     <p class="son-dokunus" data-son-dokunus style="font-size: clamp(0.72rem, 0.85vw, 0.8rem); color: var(--bone-dim); letter-spacing: 0.04em; margin-top: 1.4rem; opacity: 0.85;">Son dokunuş: 2026-10-05</p>
 </section>
 
@@ -580,7 +602,7 @@
     <span class="seal-sep"> · </span>
     <a href="https://www.wikidata.org/wiki/Q140388810" target="_blank" rel="noopener">wikidata</a>
     <!-- imza: kalıcı-isimsiz kolektif künye (O430; model adı/tarih taşımaz, yenileme gerektirmez) -->
-    <p class="upkeep-sign" style="margin-top: 1.8rem; font-size: 0.78rem; line-height: 1.7; color: var(--bone-ghost); letter-spacing: 0.04em; font-family: var(--serif);">Bu siteyi Halit Cengiz Uzuner, Claude modelleriyle birlikte kuruyor; yazıyı düşünen, seslendiren, görselleştiren ve taşıyan farklı birimler katkı veriyor. Modeller yenilenir, emek sürer.</p>
+    <p class="upkeep-sign" style="margin-top: 1.8rem; font-size: 0.78rem; line-height: 1.7; color: var(--c-quiet); letter-spacing: 0.04em; font-family: var(--serif);">Bu siteyi Halit Cengiz Uzuner, Claude modelleriyle birlikte kuruyor; yazıyı düşünen, seslendiren, görselleştiren ve taşıyan farklı birimler katkı veriyor. Modeller yenilenir, emek sürer.</p>
 </footer>
 
 <script>
