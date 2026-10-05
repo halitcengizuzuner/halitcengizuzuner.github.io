@@ -32,7 +32,7 @@
 <title>Çay Masası</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Çay Masası">
 <meta name="twitter:description" content="Üç ses, bir çay masası, bir öğleden sonra. Tao ile tanışma, bilmeden bilen, görmeden gören bir konuşma.">
@@ -76,17 +76,21 @@
     --yaprak: #7aaa80;
     --yaprak-dim: rgba(122, 170, 128, 0.45);
     --serif: 'Instrument Serif', Georgia, serif;
+    --read: 'Source Serif 4', Georgia, serif;
+    --sheet: #171512;
+    --sheet-edge: #302a22;
+    --ink: #e9e3d7;
 }
 
 ::selection { background: var(--cay); color: var(--void); }
-html { font-size: clamp(17px, 1.2vw, 20px); scroll-behavior: smooth; }
+html { font-size: clamp(1.0625rem, 1.2vw, 1.25rem); scroll-behavior: smooth; color-scheme: dark; }
 
 body {
     background: var(--void);
-    color: var(--bone);
-    font-family: var(--serif);
+    color: var(--ink);
+    font-family: var(--read);
     font-weight: 400;
-    line-height: 1.9;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
@@ -108,11 +112,17 @@ a { color: inherit; text-decoration: none; }
 
 .book {
     max-width: 620px;
-    margin: 0 auto;
-    padding: 12vh 2.5rem 10rem;
+    margin: 4vh auto 6rem;
+    padding: 7vh 2.75rem 5rem;
+
+    background: var(--sheet);
+    border: 1px solid var(--sheet-edge);
+    border-top: 2px solid var(--cay);
+    border-radius: 2px;
 }
 
 .title {
+    font-family: var(--serif);
     text-align: center;
     font-size: clamp(2.5rem, 5.5vw, 3.8rem);
     font-weight: 400;
@@ -240,7 +250,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 600px) {
-    .book { padding: 8vh 1.5rem 6rem; }
+    .book { padding: 8vh 1.5rem 6rem;  margin: 2vh auto 4rem;}
     .hz { font-size: 1.3rem; }
 }
 
