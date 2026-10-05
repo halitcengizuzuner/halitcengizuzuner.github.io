@@ -96,13 +96,18 @@ def transform(html, dil, has_book):
         css2, n = re.subn(r'(html\s*\{[^}]*?scroll-behavior:\s*smooth;)', r'\1 color-scheme: dark;', css, count=1, flags=re.S)
         if n: css = css2; ch.append('colorscheme')
 
-    # 4) body (asıl: background: var(--void) içeren)
-    bm = re.search(r'(body\s*\{)([^}]*?background:\s*var\(--void\)[^}]*?)(\})', css, re.S)
+    # 4) body (asıl: background: var(--void) içeren; --bg: var(--void) indirection de kabul
+    #    — who-really-uses-ai ailesi 7 dil --bg/--text takma adıyla void/bone kullanır, O502)
+    bg_alias = bool(re.search(r'--bg:\s*var\(--void\)', css))
+    text_alias = bool(re.search(r'--text:\s*var\(--bone\)', css))
+    bg_pat = r'var\(--(?:void|bg)\)' if bg_alias else r'var\(--void\)'
+    bm = re.search(r'(body\s*\{)([^}]*?background:\s*' + bg_pat + r'[^}]*?)(\})', css, re.S)
     if bm:
         body = bm.group(2)
         nb = body
-        # color → --ink
-        nb = re.sub(r'color:\s*var\(--bone\)', f'color: var(--ink)', nb, count=1)
+        # color → --ink (--text: var(--bone) indirection de kabul)
+        color_pat = r'color:\s*var\(--(?:bone|text)\)' if text_alias else r'color:\s*var\(--bone\)'
+        nb = re.sub(color_pat, f'color: var(--ink)', nb, count=1)
         if not is_cjk:
             # font-family → --read (yalnız --serif ise; CJK --jp dokunulmaz)
             nb = re.sub(r'font-family:\s*var\(--serif\)', 'font-family: var(--read)', nb, count=1)
@@ -159,7 +164,9 @@ def kirici(html, dil, has_book):
     if 'Source+Serif+4' not in html: fails.append('fontlink-yok')
     if '--read:' not in css: fails.append('read-token-yok')
     if 'color-scheme' not in css: fails.append('color-scheme-yok')
-    bm = re.search(r'body\s*\{[^}]*?background:\s*var\(--void\)[^}]*?\}', css, re.S)
+    bg_alias = bool(re.search(r'--bg:\s*var\(--void\)', css))
+    bg_pat = r'var\(--(?:void|bg)\)' if bg_alias else r'var\(--void\)'
+    bm = re.search(r'body\s*\{[^}]*?background:\s*' + bg_pat + r'[^}]*?\}', css, re.S)
     if bm:
         body = bm.group(0)
         if 'color: var(--ink)' not in body: fails.append('body-ink-yok')

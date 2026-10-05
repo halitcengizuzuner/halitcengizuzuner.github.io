@@ -32,7 +32,7 @@
 <title>Das Bild des Glücks</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Das Bild des Glücks">
 <meta name="twitter:description" content="Nazım Hikmet stellte Abidin Dino eine Frage. Abidin schwieg. Dann antworteten alle – aber keiner hatte recht.">
@@ -63,15 +63,17 @@
     --straw-dim: rgba(200, 160, 85, 0.15);
     --straw-ghost: rgba(200, 160, 85, 0.08);
     --serif: 'Instrument Serif', Georgia, serif;
+    --read: 'Source Serif 4', Georgia, serif;
+    --ink: #e9e3d7;
 }
 ::selection { background: var(--straw); color: var(--void); }
-html { font-size: clamp(17px, 1.2vw, 20px); scroll-behavior: smooth; }
+html { font-size: clamp(1.0625rem, 1.2vw, 1.25rem); scroll-behavior: smooth; color-scheme: dark; }
 body {
     background: var(--void);
-    color: var(--bone);
-    font-family: var(--serif);
+    color: var(--ink);
+    font-family: var(--read);
     font-weight: 400;
-    line-height: 1.85;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
@@ -105,6 +107,7 @@ a { color: inherit; text-decoration: none; }
     font-style: italic;
 }
 .report-header .subtitle {
+    font-family: var(--serif);
     font-size: clamp(1.1rem, 2vw, 1.4rem);
     color: var(--bone-dim);
     margin-top: 1.5rem;
@@ -146,7 +149,8 @@ footer p { font-size: 0.8rem; color: var(--bone-ghost); line-height: 1.8; }
 footer a { color: var(--bone-dim); transition: color 0.3s; }
 footer a:hover { color: var(--bone); }
 .sources { margin-top: 2rem; }
-.sources h3 { font-size: 0.75rem; color: var(--bone-ghost); letter-spacing: 0.1em; margin-bottom: 0.8rem; font-style: italic; }
+.sources h3 {
+    font-family: var(--serif); font-size: 0.75rem; color: var(--bone-ghost); letter-spacing: 0.1em; margin-bottom: 0.8rem; font-style: italic; }
 .sources ul { list-style: none; font-size: 0.8rem; color: var(--bone-ghost); line-height: 2; }
 @media (max-width: 640px) {
     .report-header { padding: 3rem 1.5rem 4rem; }

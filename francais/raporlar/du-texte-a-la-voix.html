@@ -32,7 +32,7 @@
 <title>Du texte à la voix</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Du texte à la voix">
 <meta name="twitter:description" content="Convertir un texte en voix, c'est traduire – dans la même langue.">
@@ -64,17 +64,19 @@
     --yanki-dim: rgba(112, 104, 160, 0.15);
     --yanki-ghost: rgba(112, 104, 160, 0.08);
     --serif: 'Instrument Serif', Georgia, serif;
+    --read: 'Source Serif 4', Georgia, serif;
+    --ink: #e9e3d7;
 }
 
 ::selection { background: var(--yanki); color: var(--void); }
-html { font-size: clamp(17px, 1.2vw, 20px); scroll-behavior: smooth; }
+html { font-size: clamp(1.0625rem, 1.2vw, 1.25rem); scroll-behavior: smooth; color-scheme: dark; }
 
 body {
     background: var(--void);
-    color: var(--bone);
-    font-family: var(--serif);
+    color: var(--ink);
+    font-family: var(--read);
     font-weight: 400;
-    line-height: 2.0;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
@@ -113,6 +115,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .report-header .subtitle {
+    font-family: var(--serif);
     font-size: clamp(1.1rem, 2vw, 1.4rem);
     color: var(--bone-dim);
     margin-top: 1.5rem;
@@ -188,6 +191,7 @@ em { color: var(--bone-dim); }
 }
 
 .kaynakca h2 {
+    font-family: var(--serif);
     font-size: 1.1rem;
     color: var(--bone-dim);
     margin-bottom: 2rem;

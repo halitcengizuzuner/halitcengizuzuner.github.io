@@ -32,7 +32,7 @@
 <title>« Exactement » – Ce que deux mots donnent à penser</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Exactement – Fonctions épistémiques et sociales des expressions d'approbation minimale">
 <meta name="twitter:description" content="Les fonctions épistémiques et sociales des expressions d'approbation minimale comme 'exactement' à l'ère numérique – communion phatique, parasitisme épistémique, érosion du langage.">
@@ -62,17 +62,19 @@
     --ash: #a098b0;
     --ash-dim: rgba(160, 152, 176, 0.12);
     --serif: 'Instrument Serif', Georgia, serif;
+    --read: 'Source Serif 4', Georgia, serif;
+    --ink: #e9e3d7;
 }
 
 ::selection { background: var(--ash); color: var(--void); }
-html { font-size: clamp(17px, 1.2vw, 20px); scroll-behavior: smooth; }
+html { font-size: clamp(1.0625rem, 1.2vw, 1.25rem); scroll-behavior: smooth; color-scheme: dark; }
 
 body {
     background: var(--void);
-    color: var(--bone);
-    font-family: var(--serif);
+    color: var(--ink);
+    font-family: var(--read);
     font-weight: 400;
-    line-height: 1.9;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
@@ -94,13 +96,15 @@ a { color: inherit; text-decoration: none; }
 
 .report-header { min-height: 85vh; display: flex; flex-direction: column; justify-content: center; padding: 4rem 2.5rem 7rem; max-width: 720px; }
 .report-header h1 { font-size: clamp(2.5rem, 5.5vw, 3.8rem); color: var(--bone-bright); line-height: 1.05; letter-spacing: -0.02em; font-weight: 400; font-style: italic; }
-.report-header .subtitle { font-size: clamp(1.2rem, 2.5vw, 1.6rem); color: var(--bone-dim); margin-top: 1.2rem; line-height: 1.4; }
+.report-header .subtitle {
+    font-family: var(--serif); font-size: clamp(1.2rem, 2.5vw, 1.6rem); color: var(--bone-dim); margin-top: 1.2rem; line-height: 1.4; }
 .report-header .meta { margin-top: 3rem; font-size: 0.8rem; color: var(--bone-ghost); letter-spacing: 0.06em; }
 
 .content { max-width: 680px; margin: 0 auto; padding: 0 2.5rem 6rem; }
 
 .toc { border-top: 1px solid var(--bone-ghost); border-bottom: 1px solid var(--bone-ghost); padding: 2rem 0; margin-bottom: 5rem; }
-.toc h2 { font-size: 1rem; color: var(--bone-dim); letter-spacing: 0.1em; margin-bottom: 1.2rem; font-style: italic; }
+.toc h2 {
+    font-family: var(--serif); font-size: 1rem; color: var(--bone-dim); letter-spacing: 0.1em; margin-bottom: 1.2rem; font-style: italic; }
 .toc-list { list-style: none; counter-reset: toc; }
 .toc-list li { counter-increment: toc; padding: 0.4rem 0; }
 .toc-list a { color: var(--bone-dim); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
@@ -109,7 +113,8 @@ a { color: inherit; text-decoration: none; }
 
 section { margin-bottom: 4rem; }
 h2 { font-size: clamp(1.5rem, 3vw, 2rem); color: var(--bone-bright); margin-bottom: 1.5rem; font-weight: 400; line-height: 1.2; }
-h3 { font-size: 1.15rem; color: var(--ash); margin: 2.5rem 0 1rem; font-weight: 400; font-style: italic; }
+h3 {
+    font-family: var(--serif); font-size: 1.15rem; color: var(--ash); margin: 2.5rem 0 1rem; font-weight: 400; font-style: italic; }
 h4 { font-size: 0.85rem; color: var(--bone-dim); letter-spacing: 0.08em; margin: 2rem 0 0.8rem; }
 p { margin-bottom: 1.3rem; color: var(--bone); }
 strong { color: var(--bone-bright); }

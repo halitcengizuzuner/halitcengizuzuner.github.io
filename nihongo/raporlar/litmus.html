@@ -36,7 +36,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="リトマス">
 <meta name="twitter:description" content="鏡、拡大鏡、リトマス、盾：人工知能への反応が誰の立ち位置を暴くのかを問い、透鏡を自らにも向ける一つの読み。">
@@ -78,6 +78,8 @@
     --oz: #d9a03c;
     --oz-dim: rgba(217, 160, 60, 0.12);
     --serif: 'Instrument Serif', 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+    --read: 'Source Serif 4', Georgia, serif;
+    --ink: #e9e3d7;
 }
 
 ::selection {
@@ -86,13 +88,13 @@
 }
 
 html {
-    font-size: clamp(17px, 1.2vw, 20px);
-    scroll-behavior: smooth;
+    font-size: clamp(1.0625rem, 1.2vw, 1.25rem);
+    scroll-behavior: smooth; color-scheme: dark;
 }
 
 body {
     background: var(--void);
-    color: var(--bone);
+    color: var(--ink);
     font-family: var(--serif);
     font-weight: 400;
     line-height: 1.65;
@@ -141,6 +143,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .subtitle {
+    font-family: var(--serif);
     font-size: 1rem;
     color: var(--bone-dim);
     font-style: italic;
@@ -162,6 +165,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .content h2 {
+    font-family: var(--serif);
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     font-weight: 400;
     color: var(--bone-bright);
@@ -172,6 +176,7 @@ a { color: inherit; text-decoration: none; }
 .content h2:first-child { margin-top: 0; }
 
 .content h3 {
+    font-family: var(--serif);
     font-size: 1.15rem;
     font-weight: 400;
     color: var(--bone-bright);
@@ -196,6 +201,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ========== PULL QUOTE ========== */
 .pull-quote {
+    font-family: var(--serif);
     border-left: 1px solid var(--oz);
     padding: 1rem 0 1rem 1.5rem;
     margin: 2rem 0;

@@ -32,7 +32,7 @@
 <title>幸福的画像</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="幸福的画像">
 <meta name="twitter:description" content="纳齐姆·希克梅特问了阿比丁·迪诺一个问题。阿比丁沉默了。然后所有人都给出了答案——但没有一个是对的。">
@@ -63,12 +63,14 @@
     --straw-dim: rgba(200, 160, 85, 0.15);
     --straw-ghost: rgba(200, 160, 85, 0.08);
     --serif: 'Noto Serif SC', 'Songti SC', 'Instrument Serif', Georgia, serif;
+    --read: 'Source Serif 4', Georgia, serif;
+    --ink: #e9e3d7;
 }
 ::selection { background: var(--straw); color: var(--void); }
-html { font-size: clamp(17px, 1.2vw, 20px); scroll-behavior: smooth; }
+html { font-size: clamp(1.0625rem, 1.2vw, 1.25rem); scroll-behavior: smooth; color-scheme: dark; }
 body {
     background: var(--void);
-    color: var(--bone);
+    color: var(--ink);
     font-family: var(--serif);
     font-weight: 400;
     line-height: 2;
@@ -104,6 +106,7 @@ a { color: inherit; text-decoration: none; }
     font-weight: 400;
 }
 .report-header .subtitle {
+    font-family: var(--serif);
     font-size: clamp(1.1rem, 2vw, 1.4rem);
     color: var(--bone-dim);
     margin-top: 1.5rem;

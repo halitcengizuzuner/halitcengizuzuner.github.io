@@ -31,7 +31,7 @@
 <title>「まさにそれ」：デジタル時代における最小限の同意表現の認識的・社会的機能</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="「まさにそれ」：最小限の同意表現がもつ認識的・社会的機能">
 <meta name="twitter:description" content="デジタル時代における「まさにそれ」のような最小限の同意表現の認識的・社会的機能、交感的言語使用、間投詞化、言語の衰えをめぐる思考。">
@@ -77,14 +77,16 @@
     --ash: #a098b0;
     --ash-dim: rgba(160, 152, 176, 0.12);
     --serif: 'Instrument Serif', 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+    --read: 'Source Serif 4', Georgia, serif;
+    --ink: #e9e3d7;
 }
 
 ::selection { background: var(--ash); color: var(--void); }
-html { font-size: clamp(17px, 1.2vw, 20px); scroll-behavior: smooth; }
+html { font-size: clamp(1.0625rem, 1.2vw, 1.25rem); scroll-behavior: smooth; color-scheme: dark; }
 
 body {
     background: var(--void);
-    color: var(--bone);
+    color: var(--ink);
     font-family: var(--serif);
     font-weight: 400;
     line-height: 1.95;
