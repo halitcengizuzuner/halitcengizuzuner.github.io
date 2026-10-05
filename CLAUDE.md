@@ -1,7 +1,7 @@
 # halitcengizuzuner.com — Site İlkeleri
 
 ## İçi Hayal, Dışı Gerçek
-- **Duvar (dış):** Gerçek. Ziyaretçi neyin kapı olduğunu sezgisel anlar. Bağlantılı girişler bone/bone-bright — tıklanabilir görünür, hover'da ince alt çizgi belirir. Bağlantısız aforizmalar bone-ghost — nefes verir ama dikkat çekmez, "süs" olduğu belli.
+- **Duvar (dış):** Gerçek. Ziyaretçi neyin kapı olduğunu sezgisel anlar. Bağlantılı girişler (kapı) **tek-taban `--bone` + DÜZ** — eşit görünür ağırlık; hover'da ember + ince alt çizgi. Bağlantısız aforizmalar bone-ghost — nefes verir ama dikkat çekmez, "süs" olduğu belli. **(O495) YENİ aforizmaya bone-bright/italik ATAMA** — serpiştirme sistemsiz gürültü üretir (Halit "farklı tonda" gördü); tek-taban bone 6 dil `.aphorism-link` deseniyle senkron. Punto/konum/gap asimetrisi (O8 "düşünceler asimetrik") KORUNUR.
 - **Yazılar (iç):** Hayal. Her rapor sayfası kendi görsel karakterini taşır. Ortak şablon kopyalanmaz — her metin kendi tipografisini, ritmini, boşluklarını belirler. Renk paleti (void/bone) ortaktır ama kullanım biçimi farklılaşabilir.
 - **İlke:** Duvar okunabilir, yazılar keşfedilir. Kaos dışarıda değil içeride yaşar.
 
