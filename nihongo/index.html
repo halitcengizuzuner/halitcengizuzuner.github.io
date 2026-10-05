@@ -276,7 +276,14 @@
             a { text-decoration: underline; }
             @page { margin: 2cm; }
         }
-    </style>
+    
+        /* P2-B2 liste reset */
+        .mind { list-style: none; margin: 0; padding-left: 0; }
+        .thought { display: block; }
+        .first-wall { display: block; }
+        .limbs dl { margin: 0; }
+        .limb dd { margin: 0; }
+        </style>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="4b167853-4c8a-41f7-bb86-0bde266d26ae"></script>
 </head>
 <body>
@@ -330,7 +337,8 @@
 </section>
 
 <h2 class="sr-only">思考</h2>
-<section class="first-wall">
+<ul class="mind" role="list">
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/nihongo/raporlar/the-cathedral-and-the-needle.html" class="aphorism-link">一本の針は大聖堂を支えきれない。</a>
     </div>
@@ -341,9 +349,8 @@
             <div class="tr" lang="tr">«Taşımak» hem taşımayı hem ağırlığa dayanmayı anlatır; burada «支える» (sasaeru) seçildi, hem desteklemeyi hem ağırlığa dayanmayı içerir, böylece imge korunur: iğne, üstüne yığılan kütleyi taşıyamaz.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/nihongo/raporlar/litmus.html" class="aphorism-link">人工知能への反応が漏らすのは、あなたの立ち位置である。</a>
     </div>
@@ -354,9 +361,8 @@
             <div class="tr" lang="tr">«漏らす» (morasu), kişinin iç dünyasını istemsizce sızdırmak anlamına gelir; Çince çevirideki «泄露» (sızıntı yapmak) gibi, kontrol dışı bir kendini ele verişi vurgulamak için seçilmiştir. Metnin anahtar ifadesi «立ち位置» (tachiichi, duruş/konum) ile birleştiğinde, yapay zekâya gösterilen tepkinin aslında o kişinin nerede durduğunu açığa çıkardığını özlü biçimde ortaya koyar.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism" style="color: var(--bone-bright);">聴くことは死んだ。残ったのは聞こえること。</div>
     <details class="note">
         <summary>訳注 · Çeviri notu</summary>
@@ -365,9 +371,8 @@
             <div class="tr" lang="tr">Japoncada bu aforizmanın çekirdeğini taşıyan bir çift var: <strong>聴く</strong> (kiku) kulak vererek dinlemek, <strong>聞こえる</strong> (kikoeru) irade olmadan sesin ulaştığı edilgen hal. Türkçedeki <em>dinlemek</em> ile <em>işitmek</em> karşıtlığı tek bir kanji farkına katlanıyor. Nadir bir talih.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/nihongo/raporlar/privacy-paradox.html" class="aphorism-link">守られていると思う場所でこそ、隙を見せる。</a>
     </div>
@@ -378,9 +383,8 @@
             <div class="tr" lang="tr"><strong>隙</strong> (suki) «savunmadaki gedik, sızılacak açık»ı tek karakterde söyler; Türkçe <em>açık vermek</em>e tam denk düşer. «〜でこそ» «başka değil, tam o yerde» odağını taşır. Özne «sen» aforistik keskinlik için düşürüldü.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/nihongo/raporlar/writing-for-the-ear.html" class="aphorism-link">欠陥は声にはない。欠陥は文にある。</a>
     </div>
@@ -391,9 +395,8 @@
             <div class="tr" lang="tr">Aynı sözcük (<strong>欠陥</strong>, kusur) iki kez konur; «seste yok / metinde var» ile koşut kurulur. Yazıyı sese çevirmeyi tartışan metnin kendi çevirisi tezi doğrular: kusur seste değil, yazılanın tarafındadır.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/nihongo/raporlar/who-wrote-this.html" class="aphorism-link">検出器が測るのは署名であって、価値ではない。</a>
     </div>
@@ -404,12 +407,8 @@
             <div class="tr" lang="tr"><strong>署名</strong> «kimin yazdığı»nın izi, <strong>価値</strong> «ne yazıldığı»nın ağırlığı. Yapay zekâ yazarını ifşa iddiasındaki araç, ilkinin parmak izini ölçer, ikincisini ölçemez. «検出ツール» yerine daha yerli <strong>検出器</strong> seçildi.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/nihongo/raporlar/understanding.html" class="aphorism-link">窓から眺めるのと、家を丸ごと移すのとは違う。</a>
     </div>
@@ -420,9 +419,8 @@
             <div class="tr" lang="tr"><strong>窓から眺める</strong> gözlem, turistin bakışı. <strong>家を丸ごと移す</strong> kökten göç: kımıldayan kişi değil, düşünce yapısının binasıdır. Yabancı dilde öğrenmenin istiaresi. «丸ごと» (tümüyle) Türkçe aslın «ev» nesnesine yaptığı vurguyu korur.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/nihongo/raporlar/invisible-gap.html" class="aphorism-link">コミュニケーションの半分は塗り潰されている。</a>
     </div>
@@ -433,9 +431,8 @@
             <div class="tr" lang="tr">Türkçe <em>karartılmıştır</em> hem sansürü (bilinçli karartma) hem elektrik kesintisini birlikte taşır. <strong>塗り潰す</strong> (nuritsubusu) bir belgeyi mürekkeple karartma eylemidir; sansür ile kararmayı görsel olarak birlikte verir. Edilgen çatı özneyi gizler: karartan kişi değil, ortamın kendisidir.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism" style="color: var(--bone-bright);">
         <a href="/nihongo/raporlar/who-really-uses-ai.html" class="aphorism-link">人工知能は拡大鏡だ。そこにあるものを、そのまま拡大する。</a>
     </div>
@@ -446,9 +443,8 @@
             <div class="tr" lang="tr"><strong>拡大鏡</strong> (kakudaikyō, büyüteç) standart karşılık. «そこにあるものを、そのまま» Türkçe <em>ne varsa onu</em>nun yineleme ritmini yansıtır. Araç ne iyi ne kötü üretir; olanı büyütür.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/nihongo/raporlar/faceless-communication.html" class="aphorism-link">面と向かえば責任は課され、画面では選ばれる。</a>
     </div>
@@ -459,9 +455,8 @@
             <div class="tr" lang="tr"><strong>課され</strong> (dayatılır) ile <strong>選ばれる</strong> (seçilir) çift kurar; ikisi de edilgen. Yüz yüze sorumluluk üstüne çöker, ekranda ise seçtiğin şeye döner. Türkçe <em>dayatılır/seçilir</em> edilgen dengesi korundu.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/nihongo/raporlar/from-text-to-voice.html" class="aphorism-link">文を声に移すことは、同じ言語のなかの翻訳だ。</a>
     </div>
@@ -472,9 +467,8 @@
             <div class="tr" lang="tr">Türkçe <em>çevirmek</em> hem «döndürmek» hem «tercüme etmek»i tek sözcükte taşır; Japoncada bu çifte kelime yok. Bu yüzden <strong>移す</strong> (utsusu) seçildi: ortamı aşarak taşımak, çevirinin kökündeki «karşıya taşımak»a sessizce yankılanır. Biçim değişimi sandığımız şey, Jakobson'un deyimiyle <strong>dil-içi çeviri</strong>dir.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism" style="color: var(--bone-bright);">
         <a href="/nihongo/raporlar/on-hatred.html" class="aphorism-link">憎しみは昨日、私を所有していた。今日、それは私の素材だ。</a>
     </div>
@@ -485,9 +479,8 @@
             <div class="tr" lang="tr">Özne ile nesne yer değiştirir. Dün nefret özne, ben sahip olunan; bugün ben özne, nefret <strong>素材</strong> (sozai, malzeme): yapmak için gereç. «昨日／今日» zaman sınırını çeker; «所有していた» geçmişi tersine dönüşü belirginleştirir.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/nihongo/raporlar/tea-table.html" class="aphorism-link">微笑んだ者は、最初の一瞬に、すでに自らを解読していた。</a>
     </div>
@@ -498,9 +491,8 @@
             <div class="tr" lang="tr"><strong>解読</strong> (kaidoku) şifre çözme sözcüğü; Türkçe <em>deşifre etmek</em>in (Fr. <em>déchiffrer</em>, Ar. <em>ṣifr</em> «sıfır/şifre») kriptografik tınısını taşır. «すでに…していた» pluperfect'i yansıtır. Şifre gülümseyenin kendisi, anahtar gülümsemedir.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism" style="color: var(--bone-ghost); letter-spacing: 0.02em;">容易なことは、とうに済んでいる。</div>
     <details class="note">
         <summary>訳注 · Çeviri notu</summary>
@@ -509,9 +501,8 @@
             <div class="tr" lang="tr"><strong>とうに</strong> (tōni) «çoktan, çok önceden»i söyler; Türkçe <em>çoktan</em>ın tınısını taşır. «済んでいる» şimdiki hali sonucun kalıcılığını gösterir. İma kalır: geriye kalan, zor olandır.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism" style="color: var(--bone-bright);">
         <a href="/nihongo/raporlar/picture-of-happiness.html" class="aphorism-link">幸福の絵？</a>
     </div>
@@ -522,9 +513,8 @@
             <div class="tr" lang="tr">Nâzım Hikmet'in 1953'te Bulgaristan sürgününden ressam Abidin Dino'ya sorduğu «Abidin, mutluluğun resmini yapabilir misin?»in en uç damıtımı: yalnız isim öbeği + soru işareti, fiil yok. Japoncanın fiilsiz askı-soru biçimine tam oturur; Abidin'in tuttuğu sessizlik eksiltiye katlanır.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism" style="color: var(--bone-ghost); letter-spacing: 0.02em;">満ちた頭に、思考は宿らない。</div>
     <details class="note">
         <summary>訳注 · Çeviri notu</summary>
@@ -533,9 +523,8 @@
             <div class="tr" lang="tr">«X ni Y wa yadoranai» kalıbı «sağlam ruh sağlam bedende barınır»ı tersinden basar. <strong>宿る</strong> (yadoru, barınmak) «dolu»yu kabın dolgunluğuna sabitler: barınacak olanın boşluğa ihtiyacı vardır. Zen'in «dolu çay kâsesi» imgesine sessizce yaslanır. Türkçe <em>zihin</em> için <strong>頭</strong> (atama): Japoncada düşünmek başın işidir.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/nihongo/raporlar/hallucination-whose-problem.html" class="aphorism-link">人工知能は幻覚を見ない。確かめない人間が見る。</a>
     </div>
@@ -546,9 +535,8 @@
             <div class="tr" lang="tr"><strong>幻覚を見る</strong> (genkaku o miru) hem psikolojide hem yapay zekâda «hallucinate»ın standardı. Japoncada da «hallüsinasyon görmek» aynı deyimle kurulur; «görmez/görür» çifti aynen gerilir. Halüsinasyon makinenin kusuru değil, <strong>確かめない</strong> (doğrulamayan) insanın başarısızlığıdır.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism" style="color: var(--bone-bright);">
         <a href="/nihongo/raporlar/research-constitution.html" class="aphorism-link">思考の規則を書かなければ、思考があなたを書く。</a>
     </div>
@@ -559,9 +547,8 @@
             <div class="tr" lang="tr">Aynı fiil <strong>書く</strong> (kaku) iki kez, özne-nesne yer değiştirir: çapraz dizim. «書く» her iki yönde <strong>yazarlık</strong> gücünü taşır (小説を書く = eser vermek). <strong>記す</strong> (not almak) ile «思考があなたを記す» «not eder»e iner; kendi düşüncenle <strong>kaleme alınmanın</strong> tehdidi kaybolur. <em>düşünce</em> için süreç anlamındaki <strong>思考</strong> seçildi (sistem/ideoloji 思想 değil). Aforizmanın kendisi, düşüncenin kurallarını yazma eylemidir.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism" style="color: var(--bone-ghost); letter-spacing: 0.06em;">問うことは答えるより難しい。</div>
     <details class="note">
         <summary>訳注 · Çeviri notu</summary>
@@ -570,9 +557,8 @@
             <div class="tr" lang="tr">İki fiil (<strong>問う</strong> sormak, <strong>答える</strong> cevap vermek) karşılaştırmayla bağlanır. Türkçenin ekleri düşer, çıplak iddia kalır. Bu, sitenin mottosunun başka söylenişi: dev kapıdaki «問いは答えより重い»yi sakin bir satır yankılar.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism" style="color: var(--bone-bright);">
         <a href="/nihongo/raporlar/sturgeons-law.html" class="aphorism-link">あらゆるものの九割はゴミだ。この一文も例外ではない。</a>
     </div>
@@ -583,9 +569,8 @@
             <div class="tr" lang="tr">Sturgeon Yasası. <strong>ゴミ</strong> (gomi) Türkçe <em>çöp</em>ün süssüz «çöp/döküntü» tonuna denk; edebi «屑»ten daha somut ve keskin. «この一文も例外ではない» öz-gönderim halkasını kapatır: yasa kendine de işler.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/nihongo/raporlar/exactly.html" class="aphorism-link">言葉が腐れば、思考も腐る。</a>
     </div>
@@ -596,9 +581,8 @@
             <div class="tr" lang="tr"><strong>腐る</strong> (kusaru, çürümek) iki kez yinelenir; Türkçe <em>çürü-</em> çift yankısını yansıtır. Koşulu virgüle/«ば»ya katlayan aforizma sanatı. <em>dil</em> için yaşayan söz anlamındaki <strong>言葉</strong> (kotoba) seçildi (sistem <strong>言語</strong> değil): çürüme gibi organik istiareye söz daha yakışır.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism" style="color: var(--bone-ghost); letter-spacing: 0.02em;">有機体は大きくなるほど遅くなる。<br>遅さは弱さではない。</div>
     <details class="note">
         <summary>訳注 · Çeviri notu</summary>
@@ -607,31 +591,33 @@
             <div class="tr" lang="tr">İki cümle: biri gözlem, biri yeniden değerlendirme. «〜ほど〜» koşutluğu Türkçe <em>ne kadar…o kadar</em>ı yansıtır. İkinci cümle döner: <strong>遅さ</strong> (yavaşlık, soyut isim) <strong>弱さ</strong> (zaaf, bir başka soyut isim) değildir. Dışlamayla tanımlayan iki olumsuzlama. Satır sonu yapısaldır: kendini düzelten aforizma.</div>
         </div>
     </details>
-</section>
-
+</li>
+</ul>
 
 <section class="limbs">
     <h2 class="sr-only">チーム</h2>
+    <dl>
     <div class="limb">
-        <span class="limb-name" translate="no">yontu</span>
-        <span class="limb-what">手</span>
+        <dt class="limb-name" translate="no">yontu</dt>
+        <dd class="limb-what">手</dd>
     </div>
     <div class="limb">
-        <span class="limb-name" translate="no">savak</span>
-        <span class="limb-what">第二の目</span>
+        <dt class="limb-name" translate="no">savak</dt>
+        <dd class="limb-what">第二の目</dd>
     </div>
     <div class="limb">
-        <span class="limb-name" translate="no">duyuş</span>
-        <span class="limb-what">耳</span>
+        <dt class="limb-name" translate="no">duyuş</dt>
+        <dd class="limb-what">耳</dd>
     </div>
     <div class="limb">
-        <span class="limb-name" translate="no">seda</span>
-        <span class="limb-what">声</span>
+        <dt class="limb-name" translate="no">seda</dt>
+        <dd class="limb-what">声</dd>
     </div>
     <div class="limb limb-human">
-        <span class="limb-name" translate="no">halit cengiz uzuner</span>
-        <span class="limb-what">訳者</span>
+        <dt class="limb-name" translate="no">halit cengiz uzuner</dt>
+        <dd class="limb-what">訳者</dd>
     </div>
+    </dl>
 </section>
 
 </main>

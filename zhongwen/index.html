@@ -336,7 +336,14 @@
             a { text-decoration: underline; }
             @page { margin: 2cm; }
         }
-    </style>
+    
+        /* P2-B2 liste reset */
+        .mind { list-style: none; margin: 0; padding-left: 0; }
+        .thought { display: block; }
+        .first-wall { display: block; }
+        .limbs dl { margin: 0; }
+        .limb dd { margin: 0; }
+        </style>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="4b167853-4c8a-41f7-bb86-0bde266d26ae"></script>
 </head>
 <body>
@@ -384,7 +391,8 @@
 </section>
 
 <h2 class="sr-only">思考</h2>
-<section class="first-wall">
+<ul class="mind" role="list">
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/zhongwen/raporlar/the-cathedral-and-the-needle.html" class="aphorism-link">一根针撑不起一座大教堂。</a>
     </div>
@@ -395,8 +403,8 @@
             <div class="tr" lang="tr">«Taşımak» hem taşımayı hem ağırlığa dayanmayı anlatır; burada «撑起» seçildi, hem desteklemeyi hem ağırlığa dayanmayı içerir, böylece imge korunur: iğne, üstüne yığılan kütleyi taşıyamaz.</div>
         </div>
     </details>
-</section>
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/zhongwen/raporlar/litmus.html" class="aphorism-link">你对人工智能的反应，泄露的往往是你自己。</a>
     </div>
@@ -417,9 +425,8 @@
             <div class="tr" lang="tr">Çince başlık da yazının kapanış cümlesidir, bilinçli bir halka: metin başladığı yerde biter; her çeviri bu halkayı korur. Çincenin kendi tuzağı var: gizli tutma (保密) ile güvenlik jargonundaki mahremlik (机密性) aynı 密 karakterini paylaşır; mahremiyet ile güvenlik daha karakter düzeyinde iç içedir. Yazının 2. bölümde adlandırdığı terminoloji tuzağı Çincede gözle görülür.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/zhongwen/raporlar/writing-for-the-ear.html" class="aphorism-link">缺陷不在声音。缺陷在文本。</a>
     </div>
@@ -430,9 +437,8 @@
             <div class="tr" lang="tr">Yazı, kusurun seste değil metinde olduğunu savunur; kendi çevirisi de bunu doğrular. Türkçe bir sesteş üzerine kuruludur: <em>kâr</em> ile <em>kar</em>, gözün ayırdığı ama kulağın erittiği çift. Çince kendi çiftini aldı: <em>期中</em> (ara sınav) ile <em>期终</em> (final). Örnek ancak kaynağında yeniden yazılarak yaşar.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/zhongwen/raporlar/understanding.html" class="aphorism-link">从窗户望出去和搬走整栋房子，是两回事。</a>
     </div>
@@ -443,9 +449,8 @@
             <div class="tr" lang="tr">«Pencereden bakmak» gözlemdir. «Evi taşımak» düşünce yapısının kökünden sökülmesidir. Çince «搬走整栋房子» nesne vurgusunu korur.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/zhongwen/raporlar/invisible-gap.html" class="aphorism-link">沟通的半壁江山已被遮蔽。</a>
     </div>
@@ -456,9 +461,8 @@
             <div class="tr" lang="tr">«Karartılmıştır» hem sansürü (bilinçli karartma) hem elektrik kesintisini (ışıkların sönmesi) taşır. Çince «半壁江山已被遮蔽» "yarısı" yerine "yarı toprak" metaforunu kullanır: kaybolan sadece niceliksel bir yarı değil, bütün bir bölgedir. «遮蔽» edilgen belirsizliği korur: karartmayı yapan bir kişi değil, ortamın kendisidir.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/zhongwen/raporlar/who-really-uses-ai.html" class="aphorism-link">人工智能是放大镜。有什么，就放大什么。</a>
     </div>
@@ -469,9 +473,8 @@
             <div class="tr" lang="tr">放大镜 (fàngdàjìng, büyüteç) standart Çince karşılık. İkinci cümledeki 有什么，就放大什么 yapısı 有…就… kalıbıyla Türkçe «ne varsa onu»yu yansıtır:"ne varsa, o büyütülür." Kısa ve atasözü gibi.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/zhongwen/raporlar/faceless-communication.html" class="aphorism-link">面对面，责任被强加；屏幕上，责任被选择。</a>
     </div>
@@ -482,9 +485,8 @@
             <div class="tr" lang="tr">Çince 面对面 (miànduìmiàn, yüz yüze) yapısal simetrisi olan üç karakterli bileşik: yüz-karşı-yüz. 强加 (dayatmak) ve 选择 (seçmek) antitezi kurar. Edilgen işareti 被 (bèi) failliği açık kılar: birincisinde sorumluluk sana yapılan şeydir, ikincisinde senin yaptığın.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/zhongwen/raporlar/from-text-to-voice.html" class="aphorism-link">文本化声，即翻——于同语之境。</a>
     </div>
@@ -495,9 +497,8 @@
             <div class="tr" lang="tr">Türkçe <em>çevirmek</em> fiili hem fiziksel "döndürme" hem dilsel "tercüme" anlamını birlikte taşır. Çince'de bir şans: <strong>翻</strong> karakteri kendisi bu çifte anlamı taşır. "化" Taocu <em>hua wei</em> (dönüşüm) imgesini, "之境" ise felsefi uzam boyutunu ekler. Format değişimi sandığımız şey (sayfa → ses), Jakobson'un terimiyle bir <em>dil-içi</em> tercümedir.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/zhongwen/raporlar/on-hatred.html" class="aphorism-link">恨曾为我所有。今恨为我所用。</a>
     </div>
@@ -508,9 +509,8 @@
             <div class="tr" lang="tr">Türkçe orijinal beş kelime + dört kelime kısadır, özne-nesneyi tersine çevirir: dün nefret özne, ben sahip olunan; bugün ben özne, nefret benim "malzemem." Çince çeviri klasik <strong>为...所...</strong> pasif yapısını alıyor, <strong>所有</strong> (sahip olunan) ile <strong>所用</strong> (kullanılan) arasında simetri kuruyor. 曾 (geçmiş) ve 今 (bugün) zaman sınırını çeker. Link "Nefret Üzerine" raporuna gider.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/zhongwen/raporlar/tea-table.html" class="aphorism-link">微笑之人，在最初的瞬间便已将自己破译。</a>
     </div>
@@ -521,9 +521,8 @@
             <div class="tr" lang="tr">Türkçe aforizma on kelimede üç hareketi örer: gülümseyen kişi (yalnızca gülümseme anında var olan özne), <em>deşifre etmişti</em> fiili (pluperfect; Fransızca <em>déchiffrer</em>, Arapça <em>ṣifr</em> "sıfır / şifre" kökenli kriptografik imge) ve refleksif <em>kendini</em>. Şifre gülümseyenin kendisi, anahtar gülümsemedir. Çincede <strong>微笑之人</strong> özneyi kurar, <strong>破译</strong> kriptografik kökü taşır (<em>解读</em> "yorumla" ya da <em>识破</em> "gör-kır"dan daha keskin), <strong>便已</strong> pluperfect'i verir; <strong>将自己</strong> üç karakter atılamaz; refleksifliği kilitler, pasif tınıdan korur. Link Çay Masası raporuna gider; aforizma oranın Taocu bir sohbetinde, "bilen" gülümsemenin ne ifşa ettiği üzerine doğdu.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism" style="color: var(--bone-ghost); letter-spacing: 0.02em;">
         容易的事早已做完了。
     </div>
@@ -534,9 +533,8 @@
             <div class="tr" lang="tr">Altı Türkçe kelime altı İngilizce kelimeye sıkışır. <em>Easy</em> sıfatı arkadan gelerek <em>kolay olan</em> yapısını yansıtır; <em>already</em> + bitmiş zaman <em>çoktan</em> vurgusunu taşır. Aforizma ima eder: kalan iş zor olandır.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/zhongwen/raporlar/picture-of-happiness.html" class="aphorism-link">幸福的画？</a>
     </div>
@@ -547,8 +545,8 @@
             <div class="tr" lang="tr">"Mutluluğun resmi?" Nâzım Hikmet'in 1953'te Bulgaristan sürgününden ressam Abidin Dino'ya yazdığı mektuptaki "Abidin, mutluluğun resmini yapabilir misin?" sorusunun minimum damıtımıdır: sadece iyelikli isim öbeği + soru işareti. Fiil yok. Abidin'in tuttuğu sessizlik eksiltmeye kodlanmıştır. Çince çeviri <em>幸福的画？</em> dört karakter + soru işareti kullanır: hem Çince'nin "fiilsiz askı-soru" doğal yapısında durur, Zhuangzi <em>Qiwulun</em>, "鱼之乐？" (balığın mutluluğu?) geleneği, hem de 画 (resim/tablo) seçimi ile 画面'nin (sinematografik sahne/ekran) veya 像'ın (wenyan imago) yerine Abidin'in fırçasına organik bağ korunur. <em>Liubai</em> (留白, boşluk bırakma), Taoist resim felsefesinde "söylenmeyen söz", hem Abidin'in sessizliğiyle hem de bu eksiltili soruyla kültürler-üstü yankı kurar. Link Mutluluğun Resmi raporuna gider: Nâzım'a sonradan atfedilen uydurma şiir ve hayalî tabloların izi.</div>
         </div>
     </details>
-</section>
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism" style="color: var(--bone-ghost); letter-spacing: 0.02em;">
         满满的头脑无法思考。
     </div>
@@ -559,9 +557,8 @@
             <div class="tr" lang="tr">Beş Türkçe kelime, altı İngilizce. <em>Full</em> Türkçe <em>dolu</em>nun her iki anlamını taşır: fiziksel olarak tıkış tıkış ve entelektüel olarak doymuş. <em>Mind</em> (<em>brain</em> yerine) <em>zihin</em>in soyut tonunu korur. Olumsuzluk mutlaktır: "kötü düşünür" değil, "düşünemez."</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/zhongwen/raporlar/hallucination-whose-problem.html" class="aphorism-link">AI 不会产生幻觉。不验证的人才会。</a>
     </div>
@@ -572,9 +569,8 @@
             <div class="tr" lang="tr">Türkçe aforizma yaygın bir suçlamayı tersine çevirir: "AI halüsinasyon üretir" deniyor; asıl cümle yanıtlar: AI halüsinasyon üretmez; doğrulamayan insan üretir. İki paralel cümle, ikinci yüklem eksiltili ("才会" örtük "幻觉 üretir"). Çince teknik terim olarak <em>幻觉</em> (huànjué) modern psikoloji + AI literatüründe "hallucination" karşılığının standardı, <em>幻想</em>'tan (huànxiǎng, fantezi/hayal kurma) farklı; <em>幻觉</em> dış uyarıcı olmadan algılama durumu anlamına gelir. <em>才会</em>'deki "才" Çinceye özgü vurgu parçacığıdır:"asıl o yapar". Link <em>Halüsinasyon Kimin Sorunu?</em> yazısına gider; AI halüsinasyonu doğrulamayan insanın epistemik başarısızlığıdır.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/zhongwen/raporlar/research-constitution.html" class="aphorism-link">如果你不书写思想的规则，思想就会书写你。</a>
     </div>
@@ -585,8 +581,8 @@
             <div class="tr" lang="tr">Türkçe aforizma <em>yazmak</em> fiilini özneye geri çevirir: sen kuralları yazarsın, ya da düşünce seni yazar. Aynı fiil iki kez, özne ile nesne yer değiştirir. Çincede <em>思想</em> (sīxiǎng) tercih edilir, <em>思考</em> (sīkǎo) değil: Türkçe "düşüncenin kuralları" bir *sisteme* ait kuralları ifade eder, 思想 hem süreci hem sistemi kapsar, 思考 yalnız süreci. <em>书写</em> (shūxiě) <em>写</em>'den (xiě) daha ağır, daha felsefi: hem "kanunlaştırmak" hem "kaderi işlemek" derinliğini taşıyor. <em>如果...就会</em> koşul yapısını açık veriyor ve kaçınılmazlığı vurguluyor. İki bağımsız model (DeepSeek + Gemini 3.1 Pro) 思想, 书写, 如果...就会 üçünde buluştu. Link <em>Araştırma Anayasası</em> yazısına gider; kendisi düşünme kurallarını yazma eylemidir.</div>
         </div>
     </details>
-</section>
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism" style="color: var(--bone-ghost); letter-spacing: 0.02em;">
         提问比回答更难。
     </div>
@@ -597,9 +593,8 @@
             <div class="tr" lang="tr">Türkçe cümle iki mastar (<em>sormak</em>, <em>vermek</em>) üzerinde karşılaştırma kurar. İngilizce daha da sıkıştırır: <em>Asking</em> ve <em>answering</em>: iki şimdiki zaman ortacı, bir karşılaştırma, altı kelime. Türkçenin belirli tanımlıkları ve edatları düşer; geriye çıplak iddia kalır. Bu sitenin mottosu.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/zhongwen/raporlar/exactly.html" class="aphorism-link">语言腐烂，思想也腐烂。</a>
     </div>
@@ -610,9 +605,8 @@
             <div class="tr" lang="tr">Virgülle ima edilen koşul, aforistik gelenek: "eğer" yok, "olacak" yok, yapının kendisi konuşuyor. "腐烂" iki kez tekrarlanır, Türkçe asıldaki "çürü-" çift yankısını yansıtır. "也" (yě) kaçınılmazlığı taşır; düşünce "belki de" çürümez, zorunlu olarak takip eder. Üç bağımsız kaynaktan ikisi (Claude + Gemini 3.1 Pro) ima koşullu kompakt formu seçti; üçüncüsü (DeepSeek) "如果" ve "会" ekleyerek aforizmayı sıradan koşul cümlesine indirdi.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/zhongwen/raporlar/sturgeons-law.html" class="aphorism-link">万物九成是垃圾。包括这句。</a>
     </div>
@@ -623,8 +617,8 @@
             <div class="tr" lang="tr">Melez çözüm: Claude A'nın aforistik girişi (万物九成) + DeepSeek B'nin "dahil" fiili (包括) + Gemini 3.1 Pro'nun kısaltması (这句). "万物" (wànwù, on bin varlık) "东西"ye göre daha felsefi/kadim: aforizmanın ağırlığına uygun. "包括这句" dört karakter: Türkçe ikinci cümlenin üç-kelimelik kuruluğuna denk kısalık. "九成" günlük "yüzde doksan": aforistik ritimle uyumlu. Üç bağımsız kaynak (Claude, DeepSeek, Gemini 3.1 Pro) "垃圾"de buluştu: Türkçe "çöp" ile register eşleşmesi tam.</div>
         </div>
     </details>
-</section>
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism" style="color: var(--bone-ghost); letter-spacing: 0.02em;">
         有机体越大，越慢。<br>慢不是弱。
     </div>
@@ -635,37 +629,38 @@
             <div class="tr" lang="tr">İki cümle: bir gözlem, bir yeniden değerlendirme. Koşutlama <em>the bigger … the slower</em> Türkçe <em>ne kadar … o kadar</em> yapısını yansıtır. İkinci cümle döner: <em>slowness</em> (soyut isim) <em>weakness</em> (bir diğeri) değildir. Dışlama yoluyla tanımlayan iki olumsuzlama. Satır sonu yapısaldır: kendini düzelten bir aforizma.</div>
         </div>
     </details>
-</section>
-
-<section class="first-wall">
+</li>
+    <li class="first-wall">
     <div class="aphorism">
         <a href="/zhongwen/raporlar/who-wrote-this.html" class="aphorism-link">检测工具测的是签名，而非价值。</a>
     </div>
-</section>
-
+</li>
+</ul>
 
 <section class="limbs">
     <h2 class="sr-only">团队</h2>
+    <dl>
     <div class="limb">
-        <span class="limb-name" translate="no">yontu</span>
-        <span class="limb-what">手——动笔之人</span>
+        <dt class="limb-name" translate="no">yontu</dt>
+        <dd class="limb-what">手——动笔之人</dd>
     </div>
     <div class="limb">
-        <span class="limb-name" translate="no">savak</span>
-        <span class="limb-what">第二双眼——审视者</span>
+        <dt class="limb-name" translate="no">savak</dt>
+        <dd class="limb-what">第二双眼——审视者</dd>
     </div>
     <div class="limb">
-        <span class="limb-name" translate="no">duyuş</span>
-        <span class="limb-what">耳——聆听者</span>
+        <dt class="limb-name" translate="no">duyuş</dt>
+        <dd class="limb-what">耳——聆听者</dd>
     </div>
     <div class="limb">
-        <span class="limb-name" translate="no">seda</span>
-        <span class="limb-what">声音——发声者</span>
+        <dt class="limb-name" translate="no">seda</dt>
+        <dd class="limb-what">声音——发声者</dd>
     </div>
     <div class="limb limb-human">
-        <span class="limb-name" translate="no">halit cengiz uzuner</span>
-        <span class="limb-what">译者</span>
+        <dt class="limb-name" translate="no">halit cengiz uzuner</dt>
+        <dd class="limb-what">译者</dd>
     </div>
+    </dl>
 </section>
 
 <section class="upkeep" style="max-width: 580px; margin: 0 auto; padding: 12vh 2.5rem 0; font-family: var(--serif);">
