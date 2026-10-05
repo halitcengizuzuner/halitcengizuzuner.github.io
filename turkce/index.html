@@ -102,6 +102,7 @@
             --bone-dim: rgba(212, 204, 192, 0.58);
             --bone-ghost: rgba(212, 204, 192, 0.28);
             --ember: #a08060;
+            --bone-read: #8a7a66;   /* P2: okunmus rapor sinyali (void uzerinde 4.88:1 AA; sonuk-sicak, hover ember'den ayri) */
             /* anlamsal rol katmani (P1 okunurluk: metin asla ghost; yalniz --c-rule dekoratif) */
             --c-text: var(--bone);
             --c-quiet: var(--bone-dim);
@@ -131,6 +132,9 @@
         }
         .lang-link:hover { color: var(--ember); }
         .lang-link.lang-active { color: var(--bone-bright); }
+        /* P2: CJK ayrimi — 日本語 Cince glifle dizilmesin (lang ozniteligi lang-bar'da) */
+        .lang-link:lang(zh) { font-family: 'Noto Serif SC', 'Songti SC', 'STSong', serif; }
+        .lang-link:lang(ja) { font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', serif; }
         .lang-sep { color: var(--c-rule); padding: 0 0.15em; }
         @media (max-width: 640px) {
             .lang-bar { padding: 1rem 1rem 0; font-size: 0.8rem; }
@@ -288,6 +292,10 @@
             transition: color 0.4s ease;
         }
 
+        .thought a:visited {
+            color: var(--bone-read);
+        }
+
         .thought a:hover {
             color: var(--ember);
             text-decoration: underline;
@@ -436,25 +444,36 @@
                 padding-left: 6vw;
             }
         }
+
+        /* P2: kagit override; kagitta bugun bos basiliyor (opacity:0 + void fon) */
+        @media print {
+            body { background: #fff; color: #000; opacity: 1 !important; animation: none !important; }
+            body::before { display: none !important; }
+            .lang-bar { display: none; }
+            .stance, .thought, .limbs, .seal, .upkeep { opacity: 1 !important; transform: none !important; }
+            .stance p, .thought, .thought a, .upkeep p, .limb-name, .limb-what, .seal a { color: #000 !important; }
+            a { text-decoration: underline; }
+            @page { margin: 2cm; }
+        }
     </style>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="4b167853-4c8a-41f7-bb86-0bde266d26ae"></script>
 </head>
 <body>
 
 <nav class="lang-bar" aria-label="Dil seçimi">
-    <a href="/english/" class="lang-link">English</a>
+    <a href="/english/" class="lang-link" lang="en" hreflang="en">English</a>
     <span class="lang-sep">·</span>
-    <a href="/zhongwen/" class="lang-link">中文</a>
+    <a href="/zhongwen/" class="lang-link" lang="zh" hreflang="zh">中文</a>
     <span class="lang-sep">·</span>
-    <a href="/nihongo/" class="lang-link">日本語</a>
+    <a href="/nihongo/" class="lang-link" lang="ja" hreflang="ja">日本語</a>
     <span class="lang-sep">·</span>
-    <a href="/francais/" class="lang-link">Français</a>
+    <a href="/francais/" class="lang-link" lang="fr" hreflang="fr">Français</a>
     <span class="lang-sep">·</span>
-    <a href="/deutsch/" class="lang-link">Deutsch</a>
+    <a href="/deutsch/" class="lang-link" lang="de" hreflang="de">Deutsch</a>
     <span class="lang-sep">·</span>
-    <a href="/espanol/" class="lang-link">Español</a>
+    <a href="/espanol/" class="lang-link" lang="es" hreflang="es">Español</a>
     <span class="lang-sep">·</span>
-    <a href="/turkce/" class="lang-link lang-active">Türkçe</a>
+    <a href="/turkce/" class="lang-link lang-active" lang="tr" hreflang="tr" aria-current="page">Türkçe</a>
 </nav>
 
 <section class="gate">
@@ -606,10 +625,15 @@
 </footer>
 
 <script>
-const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('seen'); });
-}, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
-document.querySelectorAll('.stance, .thought, .limbs, .seal').forEach(el => io.observe(el));
+const reveals = document.querySelectorAll('.stance, .thought, .limbs, .seal');
+if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('seen'); });
+    }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
+    reveals.forEach(el => io.observe(el));
+} else {
+    reveals.forEach(el => el.classList.add('seen'));  /* P2 fail-open: IO yoksa icerik gizli kalmasin */
+}
 </script>
 
 </body>

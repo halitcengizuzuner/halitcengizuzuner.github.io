@@ -321,25 +321,39 @@
         }
         .note-body em { font-style: italic; color: var(--bone-bright); }
         .note-body strong { font-weight: 500; color: var(--bone-bright); }
+        /* === P2 erisim katmani (render-bagimsiz: :visited + print + CJK lang) === */
+        :root { --bone-read: #8a7a66; }
+        .lang-link:lang(zh) { font-family: 'Noto Serif SC', 'Songti SC', 'STSong', serif; }
+        .lang-link:lang(ja) { font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', serif; }
+        .aphorism-link:visited { color: var(--bone-read); }
+        @media print {
+            body { background: #fff; color: #000; opacity: 1 !important; animation: none !important; }
+            body::before { display: none !important; }
+            .lang-bar { display: none; }
+            .stance, .welcome, .limbs, .seal, .upkeep { opacity: 1 !important; transform: none !important; }
+            .stance p, .welcome p, .aphorism-link, .upkeep p, .limb-name, .limb-what, .seal a { color: #000 !important; }
+            a { text-decoration: underline; }
+            @page { margin: 2cm; }
+        }
     </style>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="4b167853-4c8a-41f7-bb86-0bde266d26ae"></script>
 </head>
 <body>
 
 <nav class="lang-bar" aria-label="语言选择">
-    <a href="/english/" class="lang-link">English</a>
+    <a href="/english/" class="lang-link" lang="en" hreflang="en">English</a>
     <span class="lang-sep">·</span>
-    <a href="/zhongwen/" class="lang-link lang-active">中文</a>
+    <a href="/zhongwen/" class="lang-link lang-active" lang="zh" hreflang="zh" aria-current="page">中文</a>
     <span class="lang-sep">·</span>
-    <a href="/nihongo/" class="lang-link">日本語</a>
+    <a href="/nihongo/" class="lang-link" lang="ja" hreflang="ja">日本語</a>
     <span class="lang-sep">·</span>
-    <a href="/francais/" class="lang-link">Français</a>
+    <a href="/francais/" class="lang-link" lang="fr" hreflang="fr">Français</a>
     <span class="lang-sep">·</span>
-    <a href="/deutsch/" class="lang-link">Deutsch</a>
+    <a href="/deutsch/" class="lang-link" lang="de" hreflang="de">Deutsch</a>
     <span class="lang-sep">·</span>
-    <a href="/espanol/" class="lang-link">Español</a>
+    <a href="/espanol/" class="lang-link" lang="es" hreflang="es">Español</a>
     <span class="lang-sep">·</span>
-    <a href="/turkce/" class="lang-link">Türkçe</a>
+    <a href="/turkce/" class="lang-link" lang="tr" hreflang="tr">Türkçe</a>
 </nav>
 
 <section class="gate">
@@ -667,10 +681,15 @@
 </footer>
 
 <script>
-const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('seen'); });
-}, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
-document.querySelectorAll('.stance, .welcome, .limbs, .seal').forEach(el => io.observe(el));
+const reveals = document.querySelectorAll('.stance, .welcome, .limbs, .seal');
+if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('seen'); });
+    }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
+    reveals.forEach(el => io.observe(el));
+} else {
+    reveals.forEach(el => el.classList.add('seen'));
+}
 </script>
 
 </body>
