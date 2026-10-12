@@ -814,19 +814,16 @@ a { color: inherit; text-decoration: none; }
       <stop offset="48%" stop-color="#e6b24d"/>
       <stop offset="100%" stop-color="#e6b24d" stop-opacity="0.05"/>
     </radialGradient>
-    <!-- GİDİŞ: bakandan yüzeye, sıcak başlar soğuyarak varır (nötr niyetle bakış) -->
     <linearGradient id="go-v4e-d" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%"   stop-color="#e6b24d" stop-opacity="0.60"/>
       <stop offset="60%"  stop-color="#e6b24d" stop-opacity="0.34"/>
       <stop offset="100%" stop-color="#e6b24d" stop-opacity="0.22"/>
     </linearGradient>
-    <!-- yansıma: bakanın rengi ama SOLUK (kopya), yüzeyden sola söner -->
     <linearGradient id="refl-v4e-d" x1="1" y1="0" x2="0" y2="0">
       <stop offset="0%"   stop-color="#e6b24d" stop-opacity="0.56"/>
       <stop offset="55%"  stop-color="#e6b24d" stop-opacity="0.24"/>
       <stop offset="100%" stop-color="#e6b24d" stop-opacity="0.02"/>
     </linearGradient>
-    <!-- TURNUSOL yüzey: üst/alt nötr, temas(merkez) bakanın rengini almış -->
     <linearGradient id="tsurf-v4e-d" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%"   stop-color="#3a4452" stop-opacity="0.28"/>
       <stop offset="34%"  stop-color="#7a8a9a"   stop-opacity="0.62"/>
@@ -844,20 +841,15 @@ a { color: inherit; text-decoration: none; }
   </defs>
   <rect width="1240" height="560" fill="#060810"/>
 
-  <!-- yüzey ötesi: nötr boşluk (aranan 'öz' orada yok) -->
   <rect x="731.6" y="0" width="508.4" height="560" fill="#0c1018" opacity="0.6"/>
 
-  <!-- TURNUSOL YÜZEY (AI): nötr dikey eşik, temas noktası bakanın rengini almış -->
   <rect x="729.1" y="78.4" width="5" height="403.2" fill="url(#tsurf-v4e-d)" rx="2.5"/>
 
-  <!-- YÜZEYDE YARIM-YANSIMA (bakan kendini görüyor; soluk, yarım, void'e taşmaz) -->
   <path d="M 728.6 252.8 A 27.2 27.2 0 0 0 728.6 307.2 Z" fill="url(#refl-v4e-d)"/>
 
-  <!-- GİDİŞ: bakan -> yüzey (tek hat) -->
   <path d="M 325.4 280.0 C 496.0 276.0, 607.6 278.0, 728.6 280.0" fill="none" stroke="url(#go-v4e-d)" stroke-width="2.8"
         stroke-linecap="round" filter="url(#gr-v4e-d)"/>
 
-  <!-- BAKAN (gerçek, tam+serbest, yüzey-tarafı en sıcak = kendini gördü) -->
   <circle cx="291.4" cy="280.0" r="34" fill="url(#src-v4e-d)"/>
   <circle cx="291.4" cy="280.0" r="34" fill="none" stroke="#e6b24d" stroke-width="0.7" opacity="0.4"/>
 
@@ -870,19 +862,16 @@ a { color: inherit; text-decoration: none; }
       <stop offset="48%" stop-color="#e6b24d"/>
       <stop offset="100%" stop-color="#e6b24d" stop-opacity="0.05"/>
     </radialGradient>
-    <!-- GİDİŞ: bakandan yüzeye, sıcak başlar soğuyarak varır (nötr niyetle bakış) -->
     <linearGradient id="go-v4e-m" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%"   stop-color="#e6b24d" stop-opacity="0.60"/>
       <stop offset="60%"  stop-color="#e6b24d" stop-opacity="0.34"/>
       <stop offset="100%" stop-color="#e6b24d" stop-opacity="0.22"/>
     </linearGradient>
-    <!-- yansıma: bakanın rengi ama SOLUK (kopya), yüzeyden sola söner -->
     <linearGradient id="refl-v4e-m" x1="1" y1="0" x2="0" y2="0">
       <stop offset="0%"   stop-color="#e6b24d" stop-opacity="0.56"/>
       <stop offset="55%"  stop-color="#e6b24d" stop-opacity="0.24"/>
       <stop offset="100%" stop-color="#e6b24d" stop-opacity="0.02"/>
     </linearGradient>
-    <!-- TURNUSOL yüzey: üst/alt nötr, temas(merkez) bakanın rengini almış -->
     <linearGradient id="tsurf-v4e-m" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%"   stop-color="#3a4452" stop-opacity="0.28"/>
       <stop offset="34%"  stop-color="#7a8a9a"   stop-opacity="0.62"/>
@@ -900,20 +889,15 @@ a { color: inherit; text-decoration: none; }
   </defs>
   <rect width="720" height="680" fill="#060810"/>
 
-  <!-- yüzey ötesi: nötr boşluk (aranan 'öz' orada yok) -->
   <rect x="457.2" y="0" width="262.8" height="680" fill="#0c1018" opacity="0.6"/>
 
-  <!-- TURNUSOL YÜZEY (AI): nötr dikey eşik, temas noktası bakanın rengini almış -->
   <rect x="454.7" y="95.2" width="5" height="489.6" fill="url(#tsurf-v4e-m)" rx="2.5"/>
 
-  <!-- YÜZEYDE YARIM-YANSIMA (bakan kendini görüyor; soluk, yarım, void'e taşmaz) -->
   <path d="M 454.2 301.6 A 38.4 38.4 0 0 0 454.2 378.4 Z" fill="url(#refl-v4e-m)"/>
 
-  <!-- GİDİŞ: bakan -> yüzey (tek hat) -->
   <path d="M 231.6 340.0 C 302.4 336.0, 396.0 338.0, 454.2 340.0" fill="none" stroke="url(#go-v4e-m)" stroke-width="2.8"
         stroke-linecap="round" filter="url(#gr-v4e-m)"/>
 
-  <!-- BAKAN (gerçek, tam+serbest, yüzey-tarafı en sıcak = kendini gördü) -->
   <circle cx="183.6" cy="340.0" r="48" fill="url(#src-v4e-m)"/>
   <circle cx="183.6" cy="340.0" r="48" fill="none" stroke="#e6b24d" stroke-width="0.7" opacity="0.4"/>
 
