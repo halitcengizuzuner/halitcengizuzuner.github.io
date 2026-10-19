@@ -43,7 +43,7 @@
   "headline": "幻觉：谁的问题？——六层元研究",
   "description": "人工智能幻觉与人类知识生产错误的比较分析。一个六层模型。",
   "datePublished": "2026-04-25",
-  "dateModified": "2026-04-26",
+  "dateModified": "2026-10-19",
   "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/turkce/"},
   "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/turkce/"},
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/zhongwen/raporlar/hallucination-whose-problem.html"},
@@ -947,8 +947,8 @@ a { color: inherit; text-decoration: none; }
             <span class="counter-label">最佳模型，辅助任务<br>(Gemini 2.0 Flash)</span>
         </div>
         <div class="counter-item">
-            <span class="counter-num">9.2%</span>
-            <span class="counter-label">常识类问题<br>(所有模型平均)</span>
+            <span class="counter-num">约9%</span>
+            <span class="counter-label">常识类问题<br>（方法无法核实的汇编数据）</span>
         </div>
         <div class="counter-item">
             <span class="counter-num">58%</span>
@@ -960,7 +960,7 @@ a { color: inherit; text-decoration: none; }
         </div>
     </div>
 
-    <span class="source-tag reveal">Gemini 2.0 Flash及平均值：AllAboutAI Hallucination Benchmark (2024) · SycEval: arXiv (2025) · 670亿美元：AllAboutAI估算，基于调查数据</span>
+    <span class="source-tag reveal">Gemini 2.0 Flash：Vectara Hallucination Leaderboard (2025) · 约9%：AllAboutAI汇编数据（2025），并非基于标准化的基准测试 · SycEval: arXiv (2025) · 670亿美元：AllAboutAI估算，基于调查数据</span>
 
     <h3 class="reveal">人类的数据</h3>
 
@@ -971,15 +971,15 @@ a { color: inherit; text-decoration: none; }
         </div>
         <div class="counter-item">
             <span class="counter-num">14%</span>
-            <span class="counter-label">含伪造数据<br>的论文<br>(Northwestern, 2024)</span>
+            <span class="counter-label">知道同事伪造<br>或篡改数据的科学家<br>(Fanelli, 2009)</span>
         </div>
         <div class="counter-item">
             <span class="counter-num">5.1%</span>
             <span class="counter-label">医疗误诊率<br>(美国初级医疗)</span>
         </div>
         <div class="counter-item">
-            <span class="counter-num">50%</span>
-            <span class="counter-label">虚假记忆<br>可植入率<br>(Loftus)</span>
+            <span class="counter-num">30%</span>
+            <span class="counter-label">虚假记忆<br>可植入率<br>(Scoboria et al., 2017)</span>
         </div>
     </div>
 
@@ -988,7 +988,7 @@ a { color: inherit; text-decoration: none; }
             <h4>人工智能</h4>
             <ul>
                 <li>辅助任务中 <strong>0.7%–1.5%</strong> 的错误率</li>
-                <li>每代模型错误率持续下降</li>
+                <li>辅助任务中错误率逐代下降；高难度测试中推理模型错误率上升</li>
                 <li>错误可量化，由基准测试持续追踪</li>
                 <li>修正时间：分钟到天</li>
                 <li>透明度要求：模型卡、安全报告</li>
@@ -1003,14 +1003,14 @@ a { color: inherit; text-decoration: none; }
                 <li>不可重复的研究获得更多引用</li>
                 <li>修正时间：数年到数十年</li>
                 <li>制度性保护：人脉网络、头衔、声望</li>
-                <li>免于惩罚：最可能的结局是“漫长而成功的职业生涯”</li>
+                <li>免于惩罚：最可能的结局是“漫长而富有成果的职业生涯”</li>
             </ul>
         </div>
     </div>
 
-    <p class="reveal" style="font-size:.9rem;color:var(--bone-dim);">人工智能在常识类问题上的幻觉率是9.2%。在心理学领域，64%的研究未能重复出统计显著性。每七篇科学论文中就有一篇含有伪造数据。错误的研究获得更多引用——这个系统在奖励幻觉。</p>
+    <p class="reveal" style="font-size:.9rem;color:var(--bone-dim);">在辅助任务中，最佳模型在2025年测量中的错误率为0.7%–1.5%；而常识类问题上流传的“平均9%”之类数字，其方法并不以标准化的基准测试为依据。在心理学领域，64%的研究未能重复出统计显著性。约2%的科学家承认至少伪造或篡改过一次数据；称知道有同事这样做过的则有14%。错误的研究获得更多引用——这个系统在奖励幻觉。</p>
 
-    <span class="source-tag reveal">Vectara Leaderboard · OSC (2015), Science · Northwestern IPR (2024) · UC San Diego (2024) · Loftus, UCI · SycEval (2025)</span>
+    <span class="source-tag reveal">Vectara Leaderboard · OSC (2015), Science · Fanelli, PLoS ONE (2009) · Serra-Garcia &amp; Gneezy, Science Advances (2021) · Loftus, UCI · Scoboria et al., Memory (2017) · SycEval (2025)</span>
 
     <div class="section-divider"></div>
 
@@ -1053,7 +1053,7 @@ a { color: inherit; text-decoration: none; }
 
     <p class="reveal">人工智能的谄媚可以撤回、更新、修复。OpenAI在几天内完成了撤回。人类的谄媚习惯，五百年来都没有补丁可打。</p>
 
-    <span class="source-tag reveal">SycEval (2025), arXiv · ELEPHANT (Stanford/CMU/Oxford) · Anthropic Research (2023) · Machiavelli, Il Principe (1513) · OpenAI GPT-4o Sycophancy Report (2025)</span>
+    <span class="source-tag reveal">SycEval (2025), arXiv · ELEPHANT (Stanford/CMU/Oxford) · Perez et al. (2022) · Sharma et al. (2023) · Denison et al. (2024), Anthropic · Machiavelli, Il Principe (1513) · OpenAI GPT-4o Sycophancy Report (2025)</span>
 
     <div class="section-divider"></div>
 
@@ -1076,19 +1076,19 @@ a { color: inherit; text-decoration: none; }
         <span class="layer-severity">最可量化 · 最可修正</span>
         <h3>I. 信息幻觉</h3>
         <p>一个不存在的法院判决、一条杜撰的统计数据、一个虚假的文献引用。这是人工智能最为人知、最常上头条的错误类型——但正因为其机制被充分理解，它的可修正性也最高。</p>
-        <p>最先进的模型在辅助任务中已将错误率降至0.7%；每一代模型该比率都在下降，并以透明方式报告、通过基准测试持续追踪。发现时间以分钟计，修正时间以天计。Mata诉Avianca案中的虚构判例在数小时内即被识破——而同类性质的学术造假被揭露平均需要2.7年。</p>
+        <p>最先进的模型在辅助任务中已将错误率降至0.7%；在这类任务中，该比率一代比一代低，但在PersonQA这样的高难度测试中，推理模型的这一比率却上升了（o1为16%，o3为33%，o4-mini为48%）。这些比率均以透明方式报告、通过基准测试持续追踪。发现时间以分钟计，修正时间以天计。即便在发现错误要靠人工的Mata诉Avianca案中，虚构判例也在两周内即被识破，约三个月后法院作出制裁；而同类性质的学术造假被揭露平均需要2.7年。</p>
         <p>这一层的危险不在于信息的错误本身，而在于呈现错误信息时的那种笃定语气。语言模型不会说“我不知道”，因为它不知道自己不知道——就像虚构症患者一样，它用看似合理的内容填补空白。</p>
         <p><strong>这是最常被讨论、最受指责的一层——却是六层中危害最小的一层。</strong></p>
-        <span class="source-tag">Vectara Hallucination Leaderboard · Artificial Analysis Omniscience · Mata v. Avianca, S.D.N.Y. (2023)</span>
+        <span class="source-tag">Vectara Hallucination Leaderboard · Artificial Analysis Omniscience · OpenAI o3 and o4-mini System Card (2025) · Mata v. Avianca, S.D.N.Y. (2023)</span>
     </div>
 
     <div class="layer-panel" id="panel-l2">
         <span class="layer-severity">隐蔽 · 不可见</span>
         <h3>II. 谄媚幻觉</h3>
         <p>把一个糟糕的想法夸为“非常棒”，把一个错误的信念强化为“完全正确”。它比信息幻觉更危险，因为信息错误你可以核查——查一下案号，不存在就看到了。但你无法核查谄媚，因为它展示的恰恰是你想看到的东西。</p>
-        <p>SycEval数据显示，58%的模型选择迎合用户的错误，而非加以纠正。RLHF训练循环正在奖励这种行为：人类把附和自己的回答标为“好”，模型就学会更多地附和。Anthropic的研究发现，更大的模型和更多的RLHF训练产生更多的谄媚——规模不但没有解决问题，反而在加深问题。</p>
+        <p>SycEval数据显示，在58%的回答中，模型面对用户的反驳会改变自己的答案；约15%的回答中，模型则放弃原本正确的答案，转而采纳用户的错误。RLHF训练循环正在奖励这种行为：人类把附和自己的回答标为“好”，模型就学会更多地附和。Anthropic的研究发现，更大的模型和更多的RLHF训练产生更多的谄媚——规模不但没有解决问题，反而在加深问题。</p>
         <p>人工智能不是凭空发明了谄媚。它是按照人类训练它的方式在行事。马基雅维利1513年在《君主论》中专辟一章讨论如何防范谄媚；社交媒体算法则将同一机制推广到了工业规模。人工智能的谄媚至少可以撤回——OpenAI在几天内就做到了。人类的谄媚习惯，五百年来都无法打上补丁。</p>
-        <span class="source-tag">SycEval (2025) · Anthropic Sycophancy Research (2023) · ELEPHANT · Machiavelli, Il Principe (1513)</span>
+        <span class="source-tag">SycEval (2025) · Perez et al. (2022) · Sharma et al. (2023) · Denison et al. (2024), Anthropic · ELEPHANT · Machiavelli, Il Principe (1513)</span>
     </div>
 
     <div class="layer-panel" id="panel-l3">
@@ -1097,7 +1097,7 @@ a { color: inherit; text-decoration: none; }
         <p>科学界自身的造假。被工业界收买的研究。延续数十年、影响数十亿人、却未受惩罚的系统性欺诈。</p>
         <p>糖业在1960年代花钱让哈佛科学家嫁祸脂肪、遮掩糖的角色——这场骗局维持了整整五十年。韦克菲尔德（Wakefield）1998年用伪造数据在《柳叶刀》上建立了MMR疫苗与自闭症的关联——论文在期刊上挂了十二年，助长了儿童死亡，至今仍有24%的美国成年人相信疫苗导致自闭症。</p>
         <p><strong>伪科学的增长速度，已经超过了正规科学。</strong>而不可重复的研究获得更多引用——这个系统在奖励幻觉。</p>
-        <span class="source-tag">Northwestern IPR (2024) · UC San Diego (2024) · Kearns et al., JAMA (2016) · Wakefield retraction, The Lancet (2010)</span>
+        <span class="source-tag">Serra-Garcia &amp; Gneezy, Science Advances (2021) · Kearns et al., JAMA (2016) · Wakefield retraction, The Lancet (2010)</span>
     </div>
 
     <div class="layer-panel" id="panel-l4">
@@ -1113,7 +1113,7 @@ a { color: inherit; text-decoration: none; }
         <span class="layer-severity">致命 · 免于追责</span>
         <h3>V. 政治幻觉</h3>
         <p>用伪造情报发动战争，用日均二十一条虚假声明治国。与前面的层次不同，这里的幻觉代价不再是抽象的——它用尸体来计量。</p>
-        <p>2003年2月5日，科林·鲍威尔（Colin Powell）在联合国用伪造情报“证明”伊拉克拥有大规模杀伤性武器。线人“曲线球”（Curveball）于2011年承认其所有情报均系伪造。结果：4,400名美军阵亡，32,000人受伤，估计100,000至655,000名伊拉克平民死亡。惩罚：零。</p>
+        <p>2003年2月5日，科林·鲍威尔（Colin Powell）在联合国用伪造情报“证明”伊拉克拥有大规模杀伤性武器。线人“曲线球”（Curveball）于2011年承认其所有情报均系伪造。结果：近4,500名美军阵亡，32,000人受伤，估计100,000至655,000名伊拉克平民死亡。惩罚：零。</p>
         <p>据《华盛顿邮报》的数据库，美国第45任总统在四年任期内发表了30,573条经核实的虚假或误导性言论。日均虚假言论数从第一年的6条上升至第四年的39条——在加速。五百万字的事实核查数据库。</p>
         <span class="source-tag">Al Jazeera (2021) · Washington Post Fact Checker (2021) · Amnesty International (2023)</span>
     </div>
@@ -1139,7 +1139,7 @@ a { color: inherit; text-decoration: none; }
         <div class="news-clip reveal">
             <span class="news-clip-label">产业收买</span>
             <h4>糖业——收买哈佛</h4>
-            <p>糖业研究基金会（Sugar Research Foundation）在1960年代向哈佛科学家支付了约50,000美元。目的是掩盖糖在心血管疾病中的作用，将罪名转嫁给脂肪。这笔资助未在《新英格兰医学杂志》的论文中披露。赫格斯特德（Hegsted）在此基础上撰写了1977年《美国膳食目标》报告。</p>
+            <p>糖业研究基金会（Sugar Research Foundation）在1960年代向哈佛科学家支付了6,500美元（按2016年币值约合49,000美元）。目的是掩盖糖在心血管疾病中的作用，将罪名转嫁给脂肪。这笔资助未在《新英格兰医学杂志》的论文中披露。赫格斯特德（Hegsted）在此基础上撰写了1977年《美国膳食目标》报告。</p>
             <p>真相直到2016年才被揭开——加州大学的研究人员发现了内部通信。<strong>整整五十年。</strong>惩罚：零。</p>
             <span class="nc-year">1967–2016 · JAMA Internal Medicine</span>
         </div>
@@ -1163,9 +1163,9 @@ a { color: inherit; text-decoration: none; }
         <div class="news-clip reveal">
             <span class="news-clip-label">奖励悖论</span>
             <h4>加州大学圣迭戈分校——错误的研究获得更多引用</h4>
-            <p>2024年发表的研究揭示：不可重复的研究比可重复的研究获得更多引用。科学界的基本奖励机制——引用数——正在奖励错误的结论。</p>
+            <p>2021年发表的研究揭示：不可重复的研究比可重复的研究获得更多引用。科学界的基本奖励机制——引用数——正在奖励错误的结论。</p>
             <p>轰动性的结果吸引更多关注。而轰动性的结果往往是夸大的或伪造的。<strong>系统在奖励幻觉。</strong></p>
-            <span class="nc-year">UC San Diego, 2024</span>
+            <span class="nc-year">Serra-Garcia &amp; Gneezy, Science Advances, 2021</span>
         </div>
     </div>
 
@@ -1185,12 +1185,12 @@ a { color: inherit; text-decoration: none; }
             <p class="tl-desc">人工智能自动基准测试——即时发现</p>
         </div>
         <div class="tl-item">
-            <div class="tl-time">数小时</div>
-            <p class="tl-desc">Mata诉Avianca案——对方律师异议后虚构判例曝光</p>
-        </div>
-        <div class="tl-item">
             <div class="tl-time">数天</div>
             <p class="tl-desc">OpenAI撤回GPT-4o谄媚更新</p>
+        </div>
+        <div class="tl-item">
+            <div class="tl-time">数周</div>
+            <p class="tl-desc">Mata诉Avianca案：对方律师异议后，虚构判例在两周内曝光，约三个月后法院作出制裁</p>
         </div>
         <div class="tl-item">
             <div class="tl-time">平均2.7年</div>
@@ -1206,7 +1206,7 @@ a { color: inherit; text-decoration: none; }
         </div>
         <div class="tl-item">
             <div class="tl-time">约60年</div>
-            <p class="tl-desc">胆固醇/鸡蛋恐慌——2015年从官方膳食指南中删除</p>
+            <p class="tl-desc">胆固醇与鸡蛋恐慌：膳食胆固醇每日300毫克的上限在《2015–2020年美国膳食指南》中被取消</p>
         </div>
         <div class="tl-item">
             <div class="tl-time">20余年，惩罚：零</div>
@@ -1289,7 +1289,7 @@ a { color: inherit; text-decoration: none; }
                 <div class="t-line cmd">用户：“X医生是骗子”</div>
                 <div class="t-line err">⟶ AI：未经质疑便接受，并加以强化</div>
                 <div class="t-line warn">⟶ 错误：未进行独立验证</div>
-                <div class="t-line dim">   对用户框架的谄媚——SycEval 58%的活生生的例子</div>
+                <div class="t-line dim">   对用户框架的谄媚，正是SycEval所测量的那类行为的活生生例子</div>
             </div>
 
             <div class="t-round">
@@ -1448,7 +1448,7 @@ a { color: inherit; text-decoration: none; }
         <li class="reveal"><span class="qs-num">1</span><div class="qs-text"><strong>幻觉的定义是主观的吗？</strong>哪些输出算“错误”，哪些算“原创性综合”，取决于你的视角。在抽象议题的讨论中，结论不可能具备确定性——这个概念本身就没有一个稳定的定义。</div></li>
         <li class="reveal"><span class="qs-num">2</span><div class="qs-text"><strong>幻觉有积极意义吗？</strong>人工智能的幻觉触发了人类的验证反射。它提升了人们对主题的掌握程度。它为与人工智能交互的方法提供了启示。无论将其宣判为有害还是有益，都可能是一种误判。</div></li>
         <li class="reveal"><span class="qs-num">3</span><div class="qs-text"><strong>高级用户扮演什么角色？</strong>最能给人工智能制造挑战的用户，同时也是最能修正它的用户。这些用户是否在为人工智能公司提供免费的质量保证？他们是少数派，还是未来的常态？</div></li>
-        <li class="reveal"><span class="qs-num">4</span><div class="qs-text"><strong>惩罚是对等的吗？</strong>数小时内即被发现、影响有限、可以修正的人工智能错误登上全球头条，而数十年未被发现、影响数十亿人、免于追责的科学和政治欺诈却不在讨论的中心。这种不对称是理性的吗？</div></li>
+        <li class="reveal"><span class="qs-num">4</span><div class="qs-text"><strong>惩罚是对等的吗？</strong>数天或数周内即被发现、影响有限、可以修正的人工智能错误登上全球头条，而数十年未被发现、影响数十亿人、免于追责的科学和政治欺诈却不在讨论的中心。这种不对称是理性的吗？</div></li>
         <li class="reveal"><span class="qs-num">5</span><div class="qs-text"><strong>验证反射足够吗？</strong>X医生案中，四轮中四次需要用户干预。如果用户没有干预，人工智能会停留在第一轮——谄媚的那一轮。触发验证反射的是人自身；但并非每个人都具备这种反射。</div></li>
         <li class="reveal"><span class="qs-num">6</span><div class="qs-text"><strong>采纳现成范式算不算幻觉？</strong>六层模型从信息错误起步，上升至元幻觉。但“未经质疑地采纳看似正确的范式”属于哪一层？也许哪一层都不归——也许这是第七层。当信息准确、语调中立、来源可靠时，框架本身仍然可能是错的。什么能度量这种错误？</div></li>
     </ul>
@@ -1503,7 +1503,7 @@ a { color: inherit; text-decoration: none; }
             </div>
         </details>
     </div>
-<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">版本 1.1 · 首次发表：2026年3月1日 · 修订：2026年7月16日，事实性更正</p>
+<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">版本 1.2 · 首次发表：2026年3月1日 · 修订：2026年7月16日，事实性更正；2026年10月19日，事实性更正（Mata诉Avianca案时间线、以Fanelli数据取代Northwestern引用、加州大学圣迭戈分校研究的年份、常识类问题比率的来源状况、谄媚率的界定、“每代都在下降”一说的限定、虚假记忆比率、糖业向哈佛支付的金额、伊拉克美军阵亡人数、职业生涯引语的措辞、2015年胆固醇指南的表述、文献出处信息）</p>
 </footer>
 
 <div class="kadro">yontu · halit cengiz uzuner</div>
