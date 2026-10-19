@@ -8,7 +8,12 @@ Kural (Google yayım-tarihi rehberi: yapılandırılmış tarih görünür tarih
     EN/ES/FR/DE/ZH künyesi eser düzeyidir (TR ilk yayımı); JA künyesi sayfa düzeyidir.
   - JSON-LD dateModified = künyedeki en geç tarih (JA'da "トルコ語原文" sonrası aslın
     tarihleri sayılmaz).
-Künyesi olmayan ya da ilk-yayım etiketi taşımayan sayfa ilgili eksende kıyaslanmaz (sayılır, raporlanır).
+  - Alt bilgi satırı (footer-inner'ın ilk <p>'si) ilk yayım / son revizyon etiketi taşıyorsa
+    görünür künyenin İKİNCİ yeridir (Araştırma Anayasası: sürüm künyesi yok, tarih alt satırda;
+    JA'da alt satırdaki 初版 eserin tarihidir, sayfa künyesindeki 初版 yanında geçerli sayılır).
+  - Başlık ekseni: hero-eyebrow sürüm numarası taşıyorsa alt satırdaki sürümle aynı olmalı;
+    ay-yıl taşıyorsa dateModified'ın ayıyla aynı olmalı.
+Görünür künyesi (sürüm künyesi ya da etiketli alt satır) olmayan sayfa kıyaslanmaz (sayılır, raporlanır).
 Çıkış: 0 = temiz, 1 = uyuşmazlık var.
 """
 import html
@@ -31,9 +36,10 @@ ETIKET = {
     "espanol": r"Primera publicación\s*:",
     "francais": r"Première publication\s*:",
     "deutsch": r"Erst(?:veröffentlichung|veröffentlicht|publikation)\s*:?",
-    "zhongwen": r"首次[发發]表\s*[：:]",
+    "zhongwen": r"首次(?:[发發]表|[发發]布)\s*[：:]",
     "nihongo": r"初版\s*[：:]",
 }
+REVIZYON = r"(Son revizyon|Last revised|Última revisión|Dernière révision|Zuletzt überarbeitet|Letzte Überarbeitung|最[后後]修[订訂]|最終改訂)"
 
 
 def tarih_cevir(dil, s):
@@ -58,8 +64,20 @@ def tarihler(dil, k):
     return [d for d in out if d]
 
 
+def ay_yil(dil, s):
+    m = re.search(r"(\d{4})年(\d{1,2})月(?!\s*\d)", s)
+    if m:
+        return f"{m[1]}-{int(m[2]):02d}"
+    for liste in (AYLAR.get(dil, ""), AYLAR["english"]):
+        for i, ay in enumerate(liste.split()):
+            m = re.search(r"(?<![\wÀ-ÿ])" + ay + r"\s+(\d{4})", s.lower())
+            if m:
+                return f"{m[1]}-{i + 1:02d}"
+    return None
+
+
 def main():
-    sayfa = kunyesiz = ilk_kiyas = mod_kiyas = 0
+    sayfa = kunyesiz = ilk_kiyas = mod_kiyas = alt_satir = baslik_kiyas = 0
     hatalar = []
     for dil in DILLER:
         for f in sorted((SITE / dil / "raporlar").glob("*.html")):
@@ -75,10 +93,16 @@ def main():
                 if dp and x != dp[0]:
                     hatalar.append(f"{yol}: article:published_time {x} ≠ datePublished {dp[0]}")
             m = re.search(r'<p class="surum-kunye"[^>]*>(.*?)</p>', t, re.S)
-            if not m:
+            ma = re.search(r'<div class="footer-inner">\s*<p>(.*?)</p>', t, re.S)
+            alt = html.unescape(re.sub(r"<[^>]+>", " ", ma[1])) if ma else ""
+            if not (re.search(ETIKET[dil], alt) or re.search(REVIZYON, alt)):
+                alt = ""
+            if not m and not alt:
                 kunyesiz += 1
                 continue
-            k = html.unescape(re.sub(r"<[^>]+>", "", m[1]))
+            if alt:
+                alt_satir += 1
+            k = html.unescape(re.sub(r"<[^>]+>", "", m[1])) if m else ""
             asil = []
             if dil == "nihongo":
                 # JA künyesi iki tarih taşır: 初版 (JA sayfası) + 初出 (TR aslı). Başlık çoğunlukla eserin
@@ -87,6 +111,15 @@ def main():
                 k = k.split("トルコ語原文")[0]
             mi = re.search(ETIKET[dil] + r"\s*(.{4,40})", k)
             ilk = tarih_cevir(dil, mi[1]) if mi else None
+            mia = re.search(ETIKET[dil] + r"\s*(.{4,40})", alt) if alt else None
+            ilk_alt = tarih_cevir(dil, mia[1]) if mia else None
+            if ilk_alt:
+                if dil == "nihongo" and ilk:
+                    asil.append(ilk_alt)  # alt satırdaki 初版 = eserin ilk yayımı
+                elif ilk and ilk != ilk_alt:
+                    hatalar.append(f"{yol}: künye ilk yayım {ilk} ≠ alt satır ilk yayım {ilk_alt}")
+                else:
+                    ilk = ilk or ilk_alt
             if ilk and dp:
                 ilk_kiyas += 1
                 gecerli = {ilk, *asil}
@@ -99,14 +132,27 @@ def main():
                     beklenen = f"{b[1]}-{int(b[2]):02d}" + (f"-{int(b[3]):02d}" if b[3] else "")
                     if not dp[0].startswith(beklenen):
                         hatalar.append(f"{yol}: datePublished {dp[0]} başlık tarihiyle ({beklenen}) uyuşmuyor")
-            ds = tarihler(dil, k)
+            ds = tarihler(dil, k) + (tarihler(dil, alt) if alt else [])
+            me = re.search(r'<p class="hero-eyebrow">(.*?)</p>', t, re.S)
+            if me and alt:
+                e = html.unescape(me[1])
+                ve = re.search(r"v(\d+\.\d+)", e)
+                va = re.search(r"v(\d+\.\d+)", alt)
+                ay = ay_yil(dil, e)
+                if ve or ay:
+                    baslik_kiyas += 1
+                if ve and va and ve[1] != va[1]:
+                    hatalar.append(f"{yol}: başlık sürümü v{ve[1]} ≠ alt satır sürümü v{va[1]}")
+                if ay and dm and not dm[0].startswith(ay):
+                    hatalar.append(f"{yol}: başlık ayı {ay} ≠ dateModified {dm[0]}")
             if ds and dm:
                 mod_kiyas += 1
                 if dm[0][:10] != max(ds):
                     hatalar.append(f"{yol}: dateModified {dm[0]} ≠ künyedeki en geç tarih {max(ds)}")
             if dp and dm and dm[0][:10] < dp[0][:10]:
                 hatalar.append(f"{yol}: dateModified {dm[0]} < datePublished {dp[0]}")
-    print(f"sayfa {sayfa} · künyesiz {kunyesiz} · datePublished kıyası {ilk_kiyas} · dateModified kıyası {mod_kiyas}")
+    print(f"sayfa {sayfa} · görünür künyesiz {kunyesiz} · alt satırdan okunan {alt_satir} · "
+          f"datePublished kıyası {ilk_kiyas} · dateModified kıyası {mod_kiyas} · başlık kıyası {baslik_kiyas}")
     if hatalar:
         print("\n".join(hatalar))
         print(f"✗ {len(hatalar)} uyuşmazlık")
