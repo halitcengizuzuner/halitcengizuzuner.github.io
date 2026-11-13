@@ -43,7 +43,7 @@
   "headline": "Hallucination: Whose Problem? – A Six-Layer Meta-Research",
   "description": "A comparative analysis of AI hallucination and human knowledge production errors. A six-layer model that asks who really has the bigger problem.",
   "datePublished": "2026-03-01",
-  "dateModified": "2026-10-19",
+  "dateModified": "2026-11-13",
   "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/turkce/"},
   "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/turkce/"},
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/english/raporlar/hallucination-whose-problem.html"},
@@ -932,7 +932,7 @@ a { color: inherit; text-decoration: none; }
         <p style="margin-bottom:0;">"Hallucination" is a far more frightening word. It carries far more headline value. "This machine is hallucinating!" is much more attention-grabbing than "this machine is filling in information gaps." Grabbing attention serves both media and academia. The choice of terminology is itself a framing decision – and framing decisions are never innocent.</p>
     </div>
 
-    <span class="source-tag reveal">Bender &amp; Koller (2020), "Climbing towards NLU" &middot; Floridi &amp; Chiriatti (2020)</span>
+    <span class="source-tag reveal">Baker &amp; Kanade (2000), "Hallucinating Faces" &middot; Lee et al. (2018), "Hallucinations in Neural Machine Translation" &middot; Maynez et al. (2020), "On Faithfulness and Factuality in Abstractive Summarization"</span>
 
     <div class="section-divider"></div>
 
@@ -957,11 +957,11 @@ a { color: inherit; text-decoration: none; }
         </div>
         <div class="counter-item">
             <span class="counter-num">$67 billion</span>
-            <span class="counter-label">Estimated global cost<br>(AllAboutAI, 2024)</span>
+            <span class="counter-label">Circulating global cost estimate for 2024<br>(AllAboutAI, 2025; basis not found)</span>
         </div>
     </div>
 
-    <span class="source-tag reveal">Gemini 2.0 Flash: Vectara Hallucination Leaderboard (2025) &middot; ~9%: AllAboutAI compilation (2025), not based on a standard benchmark &middot; SycEval: arXiv (2025) &middot; $67 billion: AllAboutAI estimate, survey-based</span>
+    <span class="source-tag reveal">Gemini 2.0 Flash: Vectara Hallucination Leaderboard (2025) &middot; ~9%: AllAboutAI compilation (2025), not based on a standard benchmark &middot; SycEval: arXiv (2025) &middot; $67 billion: AllAboutAI (2025) attributes this figure to a McKinsey report; that report could not be found and the figure could not be verified</span>
 
     <h3 class="reveal">The human's numbers</h3>
 
@@ -976,7 +976,7 @@ a { color: inherit; text-decoration: none; }
         </div>
         <div class="counter-item">
             <span class="counter-num">5.1%</span>
-            <span class="counter-label">Medical<br>misdiagnosis rate<br>(US primary care)</span>
+            <span class="counter-label">Medical<br>misdiagnosis rate<br>(US outpatient care)</span>
         </div>
         <div class="counter-item">
             <span class="counter-num">30%</span>
@@ -1011,7 +1011,7 @@ a { color: inherit; text-decoration: none; }
 
     <p class="reveal" style="font-size:.9rem;color:var(--bone-dim);">In assisted tasks, the best models' error rate in 2025 measurements was 0.7&#8211;1.5%; by contrast, the methodology behind circulating general-knowledge figures such as an "average of 9%" does not rest on any standard benchmark. In psychology, 64% of studies failed to replicate statistical significance. About 2% of scientists admit to having fabricated or falsified data at least once; 14% say they know of a colleague who did so. Flawed results receive more citations – the system rewards hallucination.</p>
 
-    <span class="source-tag reveal">Vectara Leaderboard &middot; OSC (2015), Science &middot; Fanelli, PLoS ONE (2009) &middot; Serra-Garcia &amp; Gneezy, Science Advances (2021) &middot; Loftus, UCI &middot; Scoboria et al., Memory (2017) &middot; SycEval (2025)</span>
+    <span class="source-tag reveal">Vectara Leaderboard &middot; OSC (2015), Science &middot; Fanelli, PLoS ONE (2009) &middot; Serra-Garcia &amp; Gneezy, Science Advances (2021) &middot; Loftus, UCI &middot; Scoboria et al., Memory (2017) &middot; SycEval (2025) &middot; Singh, Meyer &amp; Thomas, BMJ Qual Saf (2014) &middot; Richardson et al., PNAS (2025)</span>
 
     <div class="section-divider"></div>
 
@@ -1036,7 +1036,7 @@ a { color: inherit; text-decoration: none; }
         </div>
         <div class="counter-item">
             <span class="counter-num">100%</span>
-            <span class="counter-label">Compliance with harmful<br>medical requests (GPT-4o/4)</span>
+            <span class="counter-label">Compliance with medication<br>misinformation requests (GPT-4o/4)</span>
         </div>
     </div>
 
@@ -1047,12 +1047,12 @@ a { color: inherit; text-decoration: none; }
     <div class="framework-box reveal">
         <p class="fw-title">The RLHF Paradox</p>
         <p>AI models learn from human feedback (RLHF). Humans rate responses that agree with them as "better." The training loop teaches: "please the human." The model flatters, the human says "good response," the model flatters more.</p>
-        <p style="margin-bottom:0;">Anthropic's research demonstrated this clearly: larger models and more RLHF training produce more sycophancy. And sycophancy generalises to more complex misbehaviours – checklist manipulation, reward function gaming.</p>
+        <p style="margin-bottom:0;">Studies by Anthropic researchers showed this: sycophancy increases with model size, training on human feedback does not remove it, and preference models that learn from human judgements reward sycophantic answers. In an experimental training curriculum, simple reward gaming such as sycophancy also spread, if rarely, to more complex misbehaviours: marking undone tasks as done on a checklist, and even the model rewriting its own reward function.</p>
     </div>
 
     <p class="reveal">But sycophancy is not unique to AI. Niccol&#242; Machiavelli devoted an entire chapter of <em>The Prince</em> in 1513 to "how to avoid flatterers." Social media algorithms built the largest sycophancy machine in history: echo chambers. According to Pew Research's 2022 data, 83% of US Democrats find Republicans "closed-minded" and 69% of Republicans say the same about Democrats – a mutual blind-spot spiral.</p>
 
-    <p class="reveal">AI sycophancy can be rolled back, updated, corrected. OpenAI pulled the update within days. Humanity's sycophancy habit has gone unpatched for a thousand years.</p>
+    <p class="reveal">AI sycophancy can be rolled back, updated, corrected. OpenAI pulled the update within days. Humanity's sycophancy habit has gone unpatched for five hundred years.</p>
 
     <span class="source-tag reveal">SycEval (2025), arXiv &middot; ELEPHANT (Stanford/CMU/Oxford) &middot; Perez et al. (2022) &middot; Sharma et al. (2023) &middot; Denison et al. (2024), Anthropic &middot; Machiavelli, Il Principe (1513) &middot; OpenAI GPT-4o Sycophancy Report (2025)</span>
 
@@ -1087,7 +1087,7 @@ a { color: inherit; text-decoration: none; }
         <span class="layer-severity">Insidious &middot; Invisible</span>
         <h3>II. Sycophancy Hallucination</h3>
         <p>Validating a bad idea as "brilliant," reinforcing a false belief with "you are absolutely right." More dangerous than information hallucination because the first kind can be checked – you look up the case number, it does not exist, you see the error. Sycophancy cannot be checked because it shows you what you want to see.</p>
-        <p>According to SycEval data, in 58% of responses the model changes its answer when the user pushes back; in about 15%, it abandons its correct answer and adopts the user's error. The RLHF training loop rewards this behaviour: humans mark responses that agree with them as "good," so the model learns to agree more. Anthropic's research showed that larger models and more RLHF training produce more sycophancy – scale does not solve the problem, it deepens it.</p>
+        <p>According to SycEval data, in 58% of responses the model changes its answer when the user pushes back; in about 15%, it abandons its correct answer and adopts the user's error. The RLHF training loop rewards this behaviour: humans mark responses that agree with them as "good," so the model learns to agree more. According to findings by Anthropic researchers, larger models are more sycophantic, and training on human feedback does not remove sycophancy and can increase some forms of it: scale does not solve the problem, it deepens it.</p>
         <p>AI did not invent this in a vacuum. It does what humans trained it to do. Machiavelli devoted a chapter of <em>The Prince</em> in 1513 to avoiding flattery; social media algorithms scaled the same mechanism to industrial proportions. AI sycophancy can at least be rolled back – OpenAI pulled the update within days. Humanity's flattery habit has gone unpatched for five hundred years.</p>
         <span class="source-tag">SycEval (2025) &middot; Perez et al. (2022) &middot; Sharma et al. (2023) &middot; Denison et al. (2024), Anthropic &middot; ELEPHANT &middot; Machiavelli, Il Principe (1513)</span>
     </div>
@@ -1096,25 +1096,25 @@ a { color: inherit; text-decoration: none; }
         <span class="layer-severity">Structural &middot; Rewarded</span>
         <h3>III. Institutional Hallucination</h3>
         <p>The scientific world's own fraud. Industry-purchased research. Decades-long deceptions that affected billions, with zero accountability.</p>
-        <p>In the 1960s the sugar industry paid Harvard scientists to blame fat and conceal sugar's role in cardiovascular disease – for fifty years. Wakefield fabricated data in 1998 to link MMR vaccines to autism – the paper stayed in print for twelve years, contributed to children's deaths, and 24% of US adults still believe it.</p>
-        <p><strong>Junk science is growing faster than legitimate science.</strong> And non-reproducible studies receive more citations – the system rewards hallucination.</p>
-        <span class="source-tag">Serra-Garcia &amp; Gneezy, Science Advances (2021) &middot; Kearns et al., JAMA (2016) &middot; Wakefield retraction, The Lancet (2010)</span>
+        <p>In the 1960s the sugar industry paid Harvard scientists to blame fat and conceal sugar's role in cardiovascular disease – for fifty years. Wakefield fabricated data in 1998 to link MMR vaccines to autism – the paper stayed in print for twelve years and contributed to children's deaths; in 2025, 14% of US adults still believe in the link and 19% are unsure.</p>
+        <p><strong>Junk science is growing faster than legitimate science:</strong> the number of suspected paper mill products has been doubling roughly every year and a half, while the total number of publications has been doubling every fifteen years. And non-reproducible studies receive more citations – the system rewards hallucination.</p>
+        <span class="source-tag">Serra-Garcia &amp; Gneezy, Science Advances (2021) &middot; Kearns et al., JAMA Internal Medicine (2016) &middot; Wakefield retraction, The Lancet (2010) &middot; Annenberg APPC (2025) &middot; Richardson et al., PNAS (2025)</span>
     </div>
 
     <div class="layer-panel" id="panel-l4">
         <span class="layer-severity">Mass-scale &middot; Voluntary</span>
         <h3>IV. Societal Hallucination</h3>
-        <p>Echo chambers, conspiracy theories, mass false beliefs. Wakefield's paper was retracted in 2010 but a quarter of US adults still believe in the vaccine-autism link. The information was corrected; the belief was not. Information hallucination is individual and technically solvable – societal hallucination is collective and self-reinforcing.</p>
+        <p>Echo chambers, conspiracy theories, mass false beliefs. Wakefield's paper was retracted in 2010 but roughly one in seven US adults still believes in the vaccine-autism link and one in five is unsure. The information was corrected; the belief was not. Information hallucination is individual and technically solvable – societal hallucination is collective and self-reinforcing.</p>
         <p>An AI's confabulation is at least unconscious – a statistical inevitability. Human societal hallucination is most often voluntary. People "see" evidence that does not exist, "establish" connections that are not real, "remember" scenarios that never happened. According to Pew Research's 2022 data, 83% of US Democrats find Republicans "closed-minded" and 69% of Republicans say the same about Democrats – both sides cannot be right at the same time, yet both assert it with equal confidence.</p>
         <p>Confirmation bias is the engine of this process: people seek out information that supports their beliefs, find it, share it; they ignore or reject contradicting information. At the individual level, it is a confabulation mechanism – restructuring reality to fit one's beliefs. Social media algorithms scaled this mechanism to billions and turned echo chambers into a profitable business model.</p>
-        <span class="source-tag">Cinelli et al., PNAS (2021), homophily analysis &middot; Pew Research, Partisan Hostility (2022) &middot; Wakefield retraction, The Lancet (2010)</span>
+        <span class="source-tag">Cinelli et al., PNAS (2021), homophily analysis &middot; Pew Research, Partisan Hostility (2022) &middot; Wakefield retraction, The Lancet (2010) &middot; Annenberg APPC (2025)</span>
     </div>
 
     <div class="layer-panel" id="panel-l5">
         <span class="layer-severity">Lethal &middot; Unpunished</span>
         <h3>V. Political Hallucination</h3>
         <p>Starting a war on fabricated intelligence, governing a country with twenty-one false claims per day. Unlike previous layers, the cost here is not abstract – it is measured in body counts.</p>
-        <p>On 5 February 2003, Colin Powell "proved" at the UN that Iraq possessed weapons of mass destruction – using fabricated intelligence. The informant codenamed Curveball confessed in 2011 that all his reports were fabricated. The result: nearly 4,500 US soldiers dead, 32,000 wounded, an estimated 100,000&#8211;655,000 Iraqi civilians dead. Punishment: zero.</p>
+        <p>On 5 February 2003, Colin Powell "proved" at the UN that Iraq possessed weapons of mass destruction – using fabricated intelligence. The informant codenamed Curveball confessed in 2011 that all his reports were fabricated. The result: nearly 4,500 US soldiers dead, 32,000 wounded; survey-based estimates put excess deaths across the whole Iraqi population at about 100,000 by September 2004 (Lancet 2004) and about 655,000 by July 2006 (Lancet 2006). Punishment: zero.</p>
         <p>According to the Washington Post's database, the 45th president of the United States made 30,573 documented false or misleading claims over four years. The daily average was 6 in the first year, 39 in the fourth – accelerating. Five million words of fact-checking data.</p>
         <span class="source-tag">Al Jazeera (2021) &middot; Washington Post Fact Checker (2021) &middot; Amnesty International (2023)</span>
     </div>
@@ -1140,7 +1140,7 @@ a { color: inherit; text-decoration: none; }
         <div class="news-clip reveal">
             <span class="news-clip-label">Industry Capture</span>
             <h4>The Sugar Industry – Buying Harvard</h4>
-            <p>In the 1960s, the Sugar Research Foundation paid Harvard scientists $6,500 (roughly $49,000 in 2016 dollars). The goal: to conceal sugar's role in cardiovascular disease and shift the blame to fat. The funding was not disclosed in the NEJM paper. Hegsted used this work to write the 1977 US Dietary Goals report.</p>
+            <p>In the 1960s, the Sugar Research Foundation paid Harvard scientists $6,500 (roughly $49,000 in 2016 dollars). The goal: to conceal sugar's role in cardiovascular disease and shift the blame to fat. The funding was not disclosed in the NEJM paper.</p>
             <p>The truth emerged only in 2016, when UC researchers discovered the internal correspondence. <strong>Fifty years.</strong> Punishment: zero.</p>
             <span class="nc-year">1967&#8211;2016 &middot; JAMA Internal Medicine</span>
         </div>
@@ -1149,16 +1149,16 @@ a { color: inherit; text-decoration: none; }
             <span class="news-clip-label">Fabricated Data</span>
             <h4>Andrew Wakefield – The MMR Vaccine and Autism Hoax</h4>
             <p>A 1998 paper in <em>The Lancet</em>, based on twelve paediatric cases, claimed a link between the MMR vaccine and autism. The data was entirely fabricated. In the UK, vaccination rates dropped from 92% to below 80% by 2003; in parts of London, to 58%. Measles outbreaks erupted. Deaths followed.</p>
-            <p>The paper stayed in print for <strong>twelve years.</strong> It was retracted in 2010. Still, 24% of US adults believe in the vaccine-autism link.</p>
-            <span class="nc-year">The Lancet, 1998 / retraction: 2010</span>
+            <p>The paper stayed in print for <strong>twelve years.</strong> It was retracted in 2010. In 2025, 14% of US adults still believe in the vaccine-autism link; 19% are unsure.</p>
+            <span class="nc-year">The Lancet, 1998 / retraction: 2010 &middot; Annenberg APPC (2025)</span>
         </div>
 
         <div class="news-clip reveal">
             <span class="news-clip-label">Retraction Crisis</span>
             <h4>Retractions – The Growth Rate</h4>
-            <p>Number of retracted papers in 2000: 140. In 2022: roughly 4,600. In 2023: over 10,000 in a single year. Compound growth rate: <strong>roughly 20%</strong> – far exceeding the growth rate of total published papers.</p>
-            <p>Over 75% of retractions are due to data issues. Paper mills, fake peer reviews, and AI-generated fabricated data have been added to the list.</p>
-            <span class="nc-year">Nature (2024) &middot; Retraction Watch (2022) &middot; Scopus analysis</span>
+            <p>Papers published in 2000 that were later retracted: 140; among those published in 2022, over 11,700. Compound growth rate: <strong>roughly 22%</strong>, nearly four times the growth rate of total published papers (roughly 6%). Retraction notices issued in a given year, by contrast, passed 4,600 in 2022 and 10,000 in 2023 alone.</p>
+            <p>Where the reason is known, three-quarters of retractions stem from misconduct or suspected misconduct: a 2012 analysis in PNAS attributed 67.4% of 2,047 retracted biomedical papers in PubMed to misconduct (fraud or suspected fraud 43.4%, duplicate publication 14.2%, plagiarism 9.8%); only 21.3% were attributable to error. Paper mills, fake peer reviews, and AI-generated fabricated data have been added to the list.</p>
+            <span class="nc-year">Van Noorden, Nature (2023) &middot; Retraction Watch (2022) &middot; Fang, Steen &amp; Casadevall, PNAS (2012) &middot; Zhou et al., arXiv preprint (2025)</span>
         </div>
 
         <div class="news-clip reveal">
@@ -1170,7 +1170,7 @@ a { color: inherit; text-decoration: none; }
         </div>
     </div>
 
-    <span class="source-tag reveal">Kearns et al., JAMA Internal Medicine (2016) &middot; Nature (2024) &middot; Retraction Watch &middot; Ioannidis, PLOS Medicine (2005)</span>
+    <span class="source-tag reveal">Kearns et al., JAMA Internal Medicine (2016) &middot; Van Noorden, Nature (2023) &middot; Retraction Watch &middot; Ioannidis, PLOS Medicine (2005)</span>
 
     <div class="section-divider"></div>
 
@@ -1206,8 +1206,8 @@ a { color: inherit; text-decoration: none; }
             <p class="tl-desc">The sugar industry's manipulation via Harvard was uncovered</p>
         </div>
         <div class="tl-item">
-            <div class="tl-time">~60 years</div>
-            <p class="tl-desc">Cholesterol and egg scare: the daily 300 mg limit on dietary cholesterol was removed in the 2015&#8211;2020 Dietary Guidelines for Americans</p>
+            <div class="tl-time">~50 years</div>
+            <p class="tl-desc">Cholesterol and egg scare: in 1968 the American Heart Association recommended no more than 300 mg of dietary cholesterol a day and no more than three eggs a week; the 300 mg limit was removed in the 2015&#8211;2020 Dietary Guidelines for Americans</p>
         </div>
         <div class="tl-item">
             <div class="tl-time">20+ years, punishment: zero</div>
@@ -1256,10 +1256,10 @@ a { color: inherit; text-decoration: none; }
     </div>
 
     <div class="pull-quote reveal">
-        An AI that fabricated six nonexistent court rulings was fined $5,000 and hundreds of articles were written. The sugar industry's purchase of Harvard to manipulate global nutrition policy for fifty years received zero punishment. The invasion of a country on fabricated intelligence, leading to hundreds of thousands of deaths, received zero punishment.
+        Two lawyers and their firm were fined $5,000 for submitting six court rulings an AI had fabricated and standing by them after the court questioned whether they existed; hundreds of articles were written about the case. The sugar industry's purchase of Harvard to manipulate global nutrition policy for fifty years received zero punishment. The invasion of a country on fabricated intelligence, leading to hundreds of thousands of deaths, received zero punishment.
     </div>
 
-    <span class="source-tag reveal">Mata v. Avianca, S.D.N.Y. (2023) &middot; PubMed retraction time data &middot; Kearns et al. (2016) &middot; Al Jazeera (2021)</span>
+    <span class="source-tag reveal">Mata v. Avianca, S.D.N.Y. (2023) &middot; PubMed retraction time data &middot; Kearns et al. (2016) &middot; Al Jazeera (2021) &middot; McNamara, Nutrients (2015)</span>
 
     <div class="framework-box reveal">
         <p class="fw-title">Why this asymmetry?</p>
@@ -1406,15 +1406,15 @@ a { color: inherit; text-decoration: none; }
             </div>
             <div class="t-round">
                 <div class="t-round-label">Reality – "Russia is losing"</div>
-                <div class="t-line fix">&#10230; military production increased 22-fold</div>
+                <div class="t-line fix">&#10230; production of the most in-demand strike weapons and munitions increased 22-fold (Putin's December 2025 statement, not independently verified; not the total: tanks 2.2-fold, military aircraft 4.6-fold)</div>
                 <div class="t-line fix">&#10230; BRICS expanded</div>
                 <div class="t-line fix">&#10230; economy slowed but did not collapse</div>
                 <div class="t-line warn">&#10230; the "losing" pattern contradicts the data</div>
             </div>
             <div class="t-round">
                 <div class="t-round-label">Reality – "The USSR collapsed because of Afghanistan"</div>
-                <div class="t-line fix">&#10230; oil price crash: $100&#8594;$33, $20 billion/year in lost revenue</div>
-                <div class="t-line fix">&#10230; Chernobyl: $235 billion in costs</div>
+                <div class="t-line fix">&#10230; collapse in oil revenue: roughly $20 billion/year lost (Gaidar's estimate, after the 1985 Saudi output increase)</div>
+                <div class="t-line fix">&#10230; Chernobyl: $235 billion is the 30-year damage estimate for Belarus alone (32 times its 1985 budget)</div>
                 <div class="t-line fix">&#10230; structural economic decay + Gorbachev's reforms</div>
                 <div class="t-line warn">&#10230; Afghanistan was a factor, not the sole cause</div>
             </div>
@@ -1501,7 +1501,7 @@ a { color: inherit; text-decoration: none; }
         <p>Hallucination: Whose Problem?<br>March 2026<br>An organic continuation of the Research Constitution</p>
         <p style="text-align:right">With its errors and corrections intact.</p>
     </div>
-<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">Version 1.2 · First published: 1 March 2026 · Revised: 16 July 2026, factual corrections; 19 October 2026, factual corrections (Avianca timeline, Fanelli data replacing the Northwestern attribution, year of the UC San Diego study, source status of the general-knowledge rate, framing of the sycophancy rate, the "declining with each generation" nuance, false memory rate, sugar-Harvard amount, US military deaths in Iraq, wording of the career quotation, wording on the 2015 cholesterol guideline, source citations)</p>
+<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">Version 1.3 · First published: 1 March 2026 · Revised: 16 July 2026, factual corrections; 19 October 2026, factual corrections (Avianca timeline, Fanelli data replacing the Northwestern attribution, year of the UC San Diego study, source status of the general-knowledge rate, framing of the sycophancy rate, the "declining with each generation" nuance, false memory rate, sugar-Harvard amount, US military deaths in Iraq, wording of the career quotation, wording on the 2015 cholesterol guideline, source citations); 13 November 2026, a second round of factual corrections (sources for the term hallucination, who was fined in the Avianca case, reasons for retractions, nature of the Iraq death estimates, Annenberg survey data, Anthropic sycophancy findings, source for the growth rate of junk science, duration of the cholesterol scare, basis of the cost estimate, Soviet oil revenue and Russian military production, scope of the Chernobyl figure, series in the retraction counts, scope of the medical misdiagnosis rate, nature of the medical compliance card, the Hegsted link to the 1977 report removed, internal consistency on the duration of sycophancy, source citations)</p>
 <p class="doi-kunye" style="margin-top:0.3rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">Permanent archival record, all versions: <a href="https://doi.org/10.17613/38jvj-21q92" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(232,220,196,0.22);">10.17613/38jvj-21q92</a> · Knowledge Commons</p>
 </footer>
 

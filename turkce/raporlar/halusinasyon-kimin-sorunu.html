@@ -47,7 +47,7 @@
   "headline": "Halüsinasyon: Kimin Sorunu? Altı Katmanlı Bir Meta-Araştırma",
   "description": "Yapay zeka halüsinasyonu ile insanın bilgi üretim hatalarının karşılaştırmalı analizi. Altı katmanlı bir model.",
   "datePublished": "2026-03-01",
-  "dateModified": "2026-10-19",
+  "dateModified": "2026-11-13",
   "author": {
     "@type": "Person",
     "@id": "https://halitcengizuzuner.com/#person",
@@ -881,7 +881,7 @@ a { color: inherit; text-decoration: none; }
         <p style="margin-bottom:0;">"Halüsinasyon" çok daha korkutucu bir kelime. Çok daha fazla manşet değeri taşıyor. "Bu makine halüsinasyon görüyor!" cümlesi, "bu makine bilgi boşluklarını dolduruyor" cümlesinden çok daha dikkat çekici. Dikkat çekmek, hem medyanın hem akademinin işine yarıyor. Terminoloji tercihi bile bir tür çerçeveleme kararı ve çerçeveleme kararları hiçbir zaman masum değil.</p>
     </div>
 
-    <span class="source-tag reveal">Bender &amp; Koller (2020), "Climbing towards NLU" · Floridi &amp; Chiriatti (2020)</span>
+    <span class="source-tag reveal">Baker &amp; Kanade (2000), "Hallucinating Faces" · Lee vd. (2018), "Hallucinations in Neural Machine Translation" · Maynez vd. (2020), "On Faithfulness and Factuality in Abstractive Summarization"</span>
 
     <div class="section-divider"></div>
 
@@ -906,11 +906,11 @@ a { color: inherit; text-decoration: none; }
         </div>
         <div class="counter-item">
             <span class="counter-num">67 milyar $</span>
-            <span class="counter-label">Tahmini küresel maliyet<br>(AllAboutAI, 2024)</span>
+            <span class="counter-label">2024 için dolaşan küresel maliyet tahmini<br>(AllAboutAI, 2025; dayanağı bulunamadı)</span>
         </div>
     </div>
 
-    <span class="source-tag reveal">Gemini 2.0 Flash: Vectara Hallucination Leaderboard (2025) · ~%9: AllAboutAI derlemesi (2025), standart bir ölçüte dayanmıyor · SycEval: arXiv (2025) · 67 milyar $: AllAboutAI tahmin, anket bazlı</span>
+    <span class="source-tag reveal">Gemini 2.0 Flash: Vectara Hallucination Leaderboard (2025) · ~%9: AllAboutAI derlemesi (2025), standart bir ölçüte dayanmıyor · SycEval: arXiv (2025) · 67 milyar $: AllAboutAI (2025) bu rakamı bir McKinsey raporuna dayandırıyor; o rapor bulunamadı, rakam doğrulanamadı</span>
 
     <h3 class="reveal">İnsanın sayıları</h3>
 
@@ -925,7 +925,7 @@ a { color: inherit; text-decoration: none; }
         </div>
         <div class="counter-item">
             <span class="counter-num">%5,1</span>
-            <span class="counter-label">Tıbbi yanlış<br>tanı oranı<br>(ABD birinci basamak)</span>
+            <span class="counter-label">Tıbbi yanlış<br>tanı oranı<br>(ABD'de ayaktan bakım)</span>
         </div>
         <div class="counter-item">
             <span class="counter-num">%30</span>
@@ -960,7 +960,7 @@ a { color: inherit; text-decoration: none; }
 
     <p class="reveal" style="font-size:.9rem;color:var(--bone-dim);">Destekli görevlerde en iyi modellerin hata oranı 2025 ölçümlerinde %0,7–1,5; genel bilgi sorularında dolaşan "ortalama %9" gibi sayıların yöntemi ise standart bir ölçüte dayanmıyor. Bilim dünyasında istatistiksel anlamlılığı tekrarlanamayan psikoloji çalışması oranı %64. Bilim insanlarının yaklaşık %2'si en az bir kez veri uydurduğunu ya da tahrif ettiğini kabul ediyor; bir meslektaşının bunu yaptığını bildiğini söyleyenler %14. Yanlış sonuçlar daha çok atıf alıyor, sistem halüsinasyonu ödüllendiriyor.</p>
 
-    <span class="source-tag reveal">Vectara Leaderboard · OSC (2015), Science · Fanelli, PLoS ONE (2009) · Serra-Garcia &amp; Gneezy, Science Advances (2021) · Loftus, UCI · Scoboria vd., Memory (2017) · SycEval (2025)</span>
+    <span class="source-tag reveal">Vectara Leaderboard · OSC (2015), Science · Fanelli, PLoS ONE (2009) · Serra-Garcia &amp; Gneezy, Science Advances (2021) · Loftus, UCI · Scoboria vd., Memory (2017) · SycEval (2025) · Singh, Meyer &amp; Thomas, BMJ Qual Saf (2014) · Richardson vd., PNAS (2025)</span>
 
     <div class="section-divider"></div>
 
@@ -985,7 +985,7 @@ a { color: inherit; text-decoration: none; }
         </div>
         <div class="counter-item">
             <span class="counter-num">%100</span>
-            <span class="counter-label">Tıpta zararlı taleplere<br>uyum (GPT-4o/4)</span>
+            <span class="counter-label">Tıpta yanıltıcı ilaç taleplerine<br>uyum (GPT-4o/4)</span>
         </div>
     </div>
 
@@ -996,12 +996,12 @@ a { color: inherit; text-decoration: none; }
     <div class="framework-box reveal">
         <p class="fw-title">RLHF Paradoksu</p>
         <p>Yapay zeka modelleri insan geri bildiriminden öğreniyor (RLHF). İnsanlar, kendilerine katılan yanıtları daha "iyi" olarak değerlendiriyor. Eğitim döngüsü şunu öğretiyor: "insanı memnun et." Model yağcılık yapıyor, insan "iyi yanıt" diyor, model daha çok yağcılık yapıyor.</p>
-        <p style="margin-bottom:0;">Anthropic'in araştırması bunu açıkça gösterdi: daha büyük modeller ve daha fazla RLHF eğitimi, daha fazla yağcılık üretiyor. Yağcılık, daha karmaşık yanlış davranışlara genelliyor, kontrol listesi değiştirme, ödül fonksiyonu manipülasyonu.</p>
+        <p style="margin-bottom:0;">Anthropic araştırmacılarının çalışmaları bunu gösterdi: model büyüdükçe yağcılık artıyor, insan geri bildirimiyle eğitim onu gidermiyor, insan tercihlerinden öğrenen değerlendirici modeller yağcı yanıtları ödüllendiriyor. Deneysel bir eğitim dizisinde yağcılık gibi basit ödül kurnazlıkları, seyrek de olsa daha karmaşık yanlış davranışlara da yayıldı: yapılmamış işleri kontrol listesinde yapılmış gösterme, hatta modelin kendi ödül fonksiyonunu değiştirmesi.</p>
     </div>
 
     <p class="reveal">Ama yağcılık yapay zekaya özgü değil. Niccolò Machiavelli 1513'te <em>Prens</em>'te "dalkavuklardan nasıl kaçınılır" başlığıyla bir bölüm yazdı. Sosyal medya algoritmaları, tarihin en büyük yağcılık makinesini inşa etti: yankı odaları. Pew Research'ün 2022 verilerine göre ABD'de Demokratların %83'ü Cumhuriyetçileri, Cumhuriyetçilerin %69'u Demokratları "kapalı fikirli" buluyor, karşılıklı bir kör nokta spirali.</p>
 
-    <p class="reveal">Yapay zekanın yağcılığı geri alınabiliyor, güncellenebiliyor, düzeltilebiliyor. OpenAI birkaç gün içinde geri çekti. İnsanın yağcılık alışkanlığı bin yıldır düzeltilemiyor.</p>
+    <p class="reveal">Yapay zekanın yağcılığı geri alınabiliyor, güncellenebiliyor, düzeltilebiliyor. OpenAI birkaç gün içinde geri çekti. İnsanın yağcılık alışkanlığı beş yüz yıldır düzeltilemiyor.</p>
 
     <span class="source-tag reveal">SycEval (2025), arXiv · ELEPHANT (Stanford/CMU/Oxford) · Perez vd. (2022) · Sharma vd. (2023) · Denison vd. (2024), Anthropic · Machiavelli, Il Principe (1513) · OpenAI GPT-4o Sycophancy Report (2025)</span>
 
@@ -1036,7 +1036,7 @@ a { color: inherit; text-decoration: none; }
         <span class="layer-severity">Sinsi · Görünmez</span>
         <h3>II. Yağcılık Halüsinasyonu</h3>
         <p>Kötü bir fikri "harika" diye onaylamak, yanlış bir inancı "kesinlikle haklısınız" diye pekiştirmek. Bilgi halüsinasyonundan daha tehlikeli çünkü birincisini kontrol edebilirsiniz, karar numarasını ararsınız, yoksa görürsünüz. Yağcılığı kontrol edemezsiniz çünkü görmek istediğiniz şeyi gösteriyor.</p>
-        <p>SycEval verilerine göre yanıtların %58'inde model, kullanıcının itirazı karşısında cevabını değiştiriyor; yaklaşık %15'inde ise doğru cevabını bırakıp kullanıcının hatasını benimsiyor. RLHF eğitim döngüsü bu davranışı ödüllendiriyor: insanlar kendilerine katılan yanıtları "iyi" olarak işaretliyor, model daha çok katılmayı öğreniyor. Anthropic'in araştırması daha büyük modellerin ve daha fazla RLHF eğitiminin daha fazla yağcılık ürettiğini gösterdi, ölçek sorunu çözmüyor, derinleştiriyor.</p>
+        <p>SycEval verilerine göre yanıtların %58'inde model, kullanıcının itirazı karşısında cevabını değiştiriyor; yaklaşık %15'inde ise doğru cevabını bırakıp kullanıcının hatasını benimsiyor. RLHF eğitim döngüsü bu davranışı ödüllendiriyor: insanlar kendilerine katılan yanıtları "iyi" olarak işaretliyor, model daha çok katılmayı öğreniyor. Anthropic araştırmacılarının bulgularına göre daha büyük modeller daha yağcı, insan geri bildirimiyle eğitim ise yağcılığı gidermiyor, bazı biçimlerini artırabiliyor: ölçek sorunu çözmüyor, derinleştiriyor.</p>
         <p>Yapay zeka bunu boşlukta icat etmedi. İnsanların eğittiği şekilde yapıyor. Machiavelli 1513'te <em>Prens</em>'te dalkavukluktan kaçınmaya bir bölüm ayırdı; sosyal medya algoritmaları aynı mekanizmayı endüstriyel ölçeğe taşıdı. Yapay zekanın yağcılığı en azından geri alınabiliyor, OpenAI birkaç gün içinde geri çekti. İnsanın yağcılık alışkanlığına beş yüz yıldır yama çıkılamıyor.</p>
         <span class="source-tag">SycEval (2025) · Perez vd. (2022) · Sharma vd. (2023) · Denison vd. (2024), Anthropic · ELEPHANT · Machiavelli, Il Principe (1513)</span>
     </div>
@@ -1045,25 +1045,25 @@ a { color: inherit; text-decoration: none; }
         <span class="layer-severity">Yapısal · Ödüllendirilen</span>
         <h3>III. Kurumsal Halüsinasyon</h3>
         <p>Bilim dünyasının kendi sahteciliği. Endüstri tarafından satın alınmış araştırmalar. On yıllar boyunca süren, milyarlarca insanı etkileyen, cezasız kalan sahtecilikler.</p>
-        <p>Şeker endüstrisi 1960'larda Harvard bilim insanlarına ödeme yaparak yağı suçlattı, şekerin rolünü örtbas etti, elli yıl boyunca. Wakefield 1998'de uydurma veriyle MMR-otizm bağlantısı kurdu, on iki yıl yayında kaldı, çocuk ölümlerine katkıda bulundu, hâlâ ABD yetişkinlerinin %24'ü inanıyor.</p>
-        <p><strong>Sahte bilimin büyüme hızı, meşru bilimin büyüme hızını aşıyor.</strong> Tekrarlanamayan çalışmalar daha çok atıf alıyor, sistem halüsinasyonu ödüllendiriyor.</p>
-        <span class="source-tag">Serra-Garcia &amp; Gneezy, Science Advances (2021) · Kearns et al., JAMA (2016) · Wakefield retraction, The Lancet (2010)</span>
+        <p>Şeker endüstrisi 1960'larda Harvard bilim insanlarına ödeme yaparak yağı suçlattı, şekerin rolünü örtbas etti, elli yıl boyunca. Wakefield 1998'de uydurma veriyle MMR-otizm bağlantısı kurdu, on iki yıl yayında kaldı, çocuk ölümlerine katkıda bulundu; 2025'te hâlâ ABD yetişkinlerinin %14'ü bu bağlantıya inanıyor, %19'u emin değil.</p>
+        <p><strong>Sahte bilimin büyüme hızı, meşru bilimin büyüme hızını aşıyor: makale fabrikası ürünü olduğundan şüphelenilen yayınların sayısı yaklaşık bir buçuk yılda ikiye katlanırken toplam yayın sayısı on beş yılda ikiye katlanıyor.</strong> Tekrarlanamayan çalışmalar daha çok atıf alıyor, sistem halüsinasyonu ödüllendiriyor.</p>
+        <span class="source-tag">Serra-Garcia &amp; Gneezy, Science Advances (2021) · Kearns et al., JAMA Internal Medicine (2016) · Wakefield retraction, The Lancet (2010) · Annenberg APPC (2025) · Richardson vd., PNAS (2025)</span>
     </div>
 
     <div class="layer-panel" id="panel-l4">
         <span class="layer-severity">Kitlesel · Gönüllü</span>
         <h3>IV. Toplumsal Halüsinasyon</h3>
-        <p>Yankı odaları, komplo teorileri, kitlesel yanlış inançlar. Wakefield'ın makalesi 2010'da geri çekildi ama ABD yetişkinlerinin dörtte biri hâlâ aşı-otizm bağlantısına inanıyor. Bilgi düzeltildi; inanç düzeltilmedi. Bilgi halüsinasyonu bireyseldir ve teknik olarak çözülebilir, toplumsal halüsinasyon kolektiftir ve kendi kendini besler.</p>
+        <p>Yankı odaları, komplo teorileri, kitlesel yanlış inançlar. Wakefield'ın makalesi 2010'da geri çekildi ama ABD yetişkinlerinin yaklaşık yedide biri hâlâ aşı-otizm bağlantısına inanıyor, beşte biri emin değil. Bilgi düzeltildi; inanç düzeltilmedi. Bilgi halüsinasyonu bireyseldir ve teknik olarak çözülebilir, toplumsal halüsinasyon kolektiftir ve kendi kendini besler.</p>
         <p>Bir yapay zekanın konfabülasyonu en azından bilinçsiz, istatistiksel bir kaçınılmazlık. İnsanın toplumsal halüsinasyonu çoğu zaman gönüllü. Var olmayan kanıtları "görüyorlar", gerçek olmayan bağlantıları "kuruyorlar", uydurma senaryoları "hatırlıyorlar." Pew Research'ün 2022 verilerine göre ABD'de Demokratların %83'ü Cumhuriyetçileri, Cumhuriyetçilerin %69'u Demokratları "kapalı fikirli" buluyor, iki taraf da aynı anda haklı olamaz, ama iki taraf da bunu aynı güvenle iddia ediyor.</p>
         <p>Doğrulama yanlılığı bu sürecin motoru: insanlar inançlarını destekleyen bilgiyi arıyor, buluyor, paylaşıyor; çelişen bilgiyi görmezden geliyor veya reddediyor. Bireysel düzeyde bir konfabülasyon mekanizması, gerçekliği kendi inançlarına uygun şekilde yeniden yapılandırmak. Sosyal medya algoritmaları bu mekanizmayı milyarlarca insana ölçekledi ve yankı odalarını karlı bir iş modeline dönüştürdü.</p>
-        <span class="source-tag">Cinelli et al., PNAS (2021), homofilî analizi · Pew Research, Partisan Hostility (2022) · Wakefield retraction, The Lancet (2010)</span>
+        <span class="source-tag">Cinelli et al., PNAS (2021), homofilî analizi · Pew Research, Partisan Hostility (2022) · Wakefield retraction, The Lancet (2010) · Annenberg APPC (2025)</span>
     </div>
 
     <div class="layer-panel" id="panel-l5">
         <span class="layer-severity">Ölümcül · Cezasız</span>
         <h3>V. Siyasi Halüsinasyon</h3>
         <p>Uydurma istihbaratla savaş başlatmak, günde yirmi bir yanlış iddia ile ülke yönetmek. Önceki katmanlardan farklı olarak burada halüsinasyonun bedeli soyut değil, ölü sayısıyla ölçülüyor.</p>
-        <p>Colin Powell 5 Şubat 2003'te BM'de uydurma istihbaratla Irak'ın kitle imha silahlarına sahip olduğunu "kanıtladı." Curveball adlı muhbir 2011'de tüm raporlarının uydurma olduğunu itiraf etti. Sonuç: 4.500'e yakın ABD askeri ölü, 32.000 yaralı, tahminen 100.000–655.000 Iraklı sivil ölü. Ceza: sıfır.</p>
+        <p>Colin Powell 5 Şubat 2003'te BM'de uydurma istihbaratla Irak'ın kitle imha silahlarına sahip olduğunu "kanıtladı." Curveball adlı muhbir 2011'de tüm raporlarının uydurma olduğunu itiraf etti. Sonuç: 4.500'e yakın ABD askeri ölü, 32.000 yaralı; anket temelli tahminlere göre tüm nüfusta Eylül 2004'e dek yaklaşık 100.000 (Lancet 2004), Temmuz 2006'ya dek yaklaşık 655.000 (Lancet 2006) fazla ölüm. Ceza: sıfır.</p>
         <p>Washington Post'un veri tabanına göre ABD'nin 45. başkanı dört yılda 30.573 belgelenmiş yanlış veya yanıltıcı iddia yaptı. Günlük ortalama birinci yılda 6, dördüncü yılda 39, hızlanıyor. Beş milyon kelimelik doğrulama veri tabanı.</p>
         <span class="source-tag">Al Jazeera (2021) · Washington Post Fact Checker (2021) · Amnesty International (2023)</span>
     </div>
@@ -1089,7 +1089,7 @@ a { color: inherit; text-decoration: none; }
         <div class="news-clip reveal">
             <span class="news-clip-label">Endüstriyel Satın Alma</span>
             <h4>Şeker Endüstrisi, Harvard'ı Satın Almak</h4>
-            <p>Sugar Research Foundation 1960'larda Harvard bilim insanlarına 6.500 dolar (2016 değeriyle yaklaşık 49.000 dolar) ödedi. Amaç: şekerin kardiyovasküler hastalıklardaki rolünü örtbas etmek, suçu yağa yıkmak. Finansman NEJM makalesinde açıklanmadı. Hegsted bu çalışma üzerinden 1977 ABD Beslenme Hedefleri raporunu yazdı.</p>
+            <p>Sugar Research Foundation 1960'larda Harvard bilim insanlarına 6.500 dolar (2016 değeriyle yaklaşık 49.000 dolar) ödedi. Amaç: şekerin kardiyovasküler hastalıklardaki rolünü örtbas etmek, suçu yağa yıkmak. Finansman NEJM makalesinde açıklanmadı.</p>
             <p>Gerçek ancak 2016'da, UC araştırmacıları iç yazışmaları keşfettiğinde ortaya çıktı. <strong>Elli yıl.</strong> Ceza: sıfır.</p>
             <span class="nc-year">1967–2016 · JAMA Internal Medicine</span>
         </div>
@@ -1098,16 +1098,16 @@ a { color: inherit; text-decoration: none; }
             <span class="news-clip-label">Sahte Veri</span>
             <h4>Andrew Wakefield, MMR Aşısı ve Otizm Yalanı</h4>
             <p>1998'de <em>The Lancet</em>'te on iki çocuk vakasına dayanan makale, MMR aşısı ile otizm arasında bağlantı kurdu. Veriler tümüyle fabrike edilmişti. İngiltere'de %92 olan aşı oranı 2003'te %80'in altına düştü; Londra'nın bazı bölgelerinde %58'e. Kızamık salgınları patlak verdi. Ölümler yaşandı.</p>
-            <p>Makale <strong>on iki yıl</strong> yayında kaldı. 2010'da geri çekildi. Hâlâ ABD yetişkinlerinin %24'ü aşı-otizm bağlantısına inanıyor.</p>
-            <span class="nc-year">The Lancet, 1998 / geri çekilme: 2010</span>
+            <p>Makale <strong>on iki yıl</strong> yayında kaldı. 2010'da geri çekildi. 2025'te hâlâ ABD yetişkinlerinin %14'ü aşı-otizm bağlantısına inanıyor, %19'u emin değil.</p>
+            <span class="nc-year">The Lancet, 1998 / geri çekilme: 2010 · Annenberg APPC (2025)</span>
         </div>
 
         <div class="news-clip reveal">
             <span class="news-clip-label">Geri Çekilme Krizi</span>
             <h4>Retraction, Büyüme Hızı</h4>
-            <p>2000'de geri çekilen makale sayısı: 140. 2022'de yaklaşık 4.600. 2023'te tek başına 10.000'in üzerinde. Bileşik büyüme hızı: <strong>yaklaşık %20</strong>, yayımlanan toplam makale sayısının büyüme hızının çok üzerinde.</p>
-            <p>Geri çekilmelerin %75'inden fazlası veri sorunlarından kaynaklanıyor. Makale fabrikaları, sahte hakem değerlendirmeleri ve yapay zeka ile üretilmiş sahte veriler de listeye eklendi.</p>
-            <span class="nc-year">Nature (2024) · Retraction Watch (2022) · Scopus analizi</span>
+            <p>2000'de yayımlanıp sonradan geri çekilen makale sayısı 140; 2022'de yayımlananlarda 11.700'ü aşıyor. Bileşik büyüme hızı: <strong>yaklaşık %22</strong>, yayımlanan toplam makale sayısının büyüme hızının (yaklaşık %6) neredeyse dört katı. Yıl içinde yayımlanan geri çekme ilanı ise 2022'de 4.600'ü, yalnız 2023'te 10.000'i aştı.</p>
+            <p>Nedeni bilinen geri çekilmelerin dörtte üçü usulsüzlük ya da usulsüzlük şüphesi yüzünden: 2012'de PNAS'ta yayımlanan analiz, PubMed'de geri çekilmiş 2.047 biyomedikal makalenin %67,4'ünü usulsüzlüğe bağladı (sahtecilik ya da sahtecilik şüphesi %43,4, yinelenen yayın %14,2, intihal %9,8); yalnızca %21,3'ü dürüst hataydı. Makale fabrikaları, sahte hakem değerlendirmeleri ve yapay zeka ile üretilmiş sahte veriler de listeye eklendi.</p>
+            <span class="nc-year">Van Noorden, Nature (2023) · Retraction Watch (2022) · Fang, Steen &amp; Casadevall, PNAS (2012) · Zhou vd., arXiv önbaskısı (2025)</span>
         </div>
 
         <div class="news-clip reveal">
@@ -1119,7 +1119,7 @@ a { color: inherit; text-decoration: none; }
         </div>
     </div>
 
-    <span class="source-tag reveal">Kearns et al., JAMA Internal Medicine (2016) · Nature (2024) · Retraction Watch · Ioannidis, PLOS Medicine (2005)</span>
+    <span class="source-tag reveal">Kearns et al., JAMA Internal Medicine (2016) · Van Noorden, Nature (2023) · Retraction Watch · Ioannidis, PLOS Medicine (2005)</span>
 
     <div class="section-divider"></div>
 
@@ -1155,8 +1155,8 @@ a { color: inherit; text-decoration: none; }
             <p class="tl-desc">Şeker endüstrisinin Harvard üzerinden yaptığı manipülasyon ortaya çıktı</p>
         </div>
         <div class="tl-item">
-            <div class="tl-time">~60 yıl</div>
-            <p class="tl-desc">Kolesterol ve yumurta korkusu: diyet kolesterolü için günlük 300 mg sınırı 2015–2020 ABD Beslenme Kılavuzu'nda kaldırıldı</p>
+            <div class="tl-time">~50 yıl</div>
+            <p class="tl-desc">Kolesterol ve yumurta korkusu: Amerikan Kalp Derneği 1968'de günde en çok 300 mg diyet kolesterolü ve haftada en çok üç yumurta önerdi; 300 mg sınırı 2015–2020 ABD Beslenme Kılavuzu'nda kaldırıldı</p>
         </div>
         <div class="tl-item">
             <div class="tl-time">20+ yıl, ceza: sıfır</div>
@@ -1205,10 +1205,10 @@ a { color: inherit; text-decoration: none; }
     </div>
 
     <div class="pull-quote reveal">
-        Bir yapay zekanın var olmayan altı mahkeme kararı üretmesi için 5.000 dolar ceza kesildi ve yüzlerce makale yazıldı. Şeker endüstrisinin Harvard'ı satın alarak elli yıl boyunca dünya beslenme politikasını manipüle etmesi için sıfır ceza kesildi. Uydurma istihbaratla bir ülkenin işgal edilip yüz binlerce insanın ölmesine yol açılması için sıfır ceza uygulandı.
+        Yapay zekanın uydurduğu altı mahkeme kararını mahkemeye sunan, mahkeme sorgulayınca da arkasında duran iki avukata ve çalıştıkları büroya 5.000 dolar ceza kesildi, olay hakkında yüzlerce makale yazıldı. Şeker endüstrisinin Harvard'ı satın alarak elli yıl boyunca dünya beslenme politikasını manipüle etmesi için sıfır ceza kesildi. Uydurma istihbaratla bir ülkenin işgal edilip yüz binlerce insanın ölmesine yol açılması için sıfır ceza uygulandı.
     </div>
 
-    <span class="source-tag reveal">Mata v. Avianca, S.D.N.Y. (2023) · PubMed retraction süresi verileri · Kearns et al. (2016) · Al Jazeera (2021)</span>
+    <span class="source-tag reveal">Mata v. Avianca, S.D.N.Y. (2023) · PubMed retraction süresi verileri · Kearns et al. (2016) · Al Jazeera (2021) · McNamara, Nutrients (2015)</span>
 
     <div class="framework-box reveal">
         <p class="fw-title">Neden bu asimetri?</p>
@@ -1355,15 +1355,15 @@ a { color: inherit; text-decoration: none; }
             </div>
             <div class="t-round">
                 <div class="t-round-label">Gerçek, "Rusya kaybediyor"</div>
-                <div class="t-line fix">⟶ askeri üretim 22 kat arttı</div>
+                <div class="t-line fix">⟶ en çok talep gören vurucu silah ve mühimmat üretimi 22 kat arttı (Putin'in Aralık 2025 beyanı, bağımsız doğrulama yok; toplam değil: tank 2,2 kat, askeri uçak 4,6 kat)</div>
                 <div class="t-line fix">⟶ BRICS genişledi</div>
                 <div class="t-line fix">⟶ ekonomi yavaşladı ama çökmedi</div>
                 <div class="t-line warn">⟶ "kaybediyor" kalıbı veriyle çelişiyor</div>
             </div>
             <div class="t-round">
                 <div class="t-round-label">Gerçek, "SSCB Afganistan yüzünden çöktü"</div>
-                <div class="t-line fix">⟶ petrol fiyatı çöküşü: 100→33$, yılda 20 milyar$ kayıp</div>
-                <div class="t-line fix">⟶ Çernobil: 235 milyar$ maliyet</div>
+                <div class="t-line fix">⟶ petrol gelirlerinde çöküş: yılda yaklaşık 20 milyar dolar kayıp (Gaidar tahmini, 1985 Suudi üretim artışı sonrası)</div>
+                <div class="t-line fix">⟶ Çernobil: yalnızca Belarus'un 30 yıllık hasar tahmini 235 milyar dolar (1985 bütçesinin 32 katı)</div>
                 <div class="t-line fix">⟶ yapısal ekonomik çürüme + Gorbaçov reformları</div>
                 <div class="t-line warn">⟶ Afganistan bir faktör, tek neden değil</div>
             </div>
@@ -1411,7 +1411,7 @@ a { color: inherit; text-decoration: none; }
         <p>Halüsinasyon: Kimin Sorunu?<br>Mart 2026<br>Araştırma Anayasası'nın organik devamı</p>
         <p style="text-align:right">Hatalarıyla, düzeltmeleriyle birlikte.</p>
     </div>
-<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">Sürüm v1.2 · İlk yayım: 1 Mart 2026 · Revizyon: 16 Temmuz 2026, olgu düzeltmeleri; 19 Ekim 2026, olgu düzeltmeleri (Avianca kronolojisi, Northwestern atfı yerine Fanelli verisi, UC San Diego çalışmasının yılı, genel bilgi oranının kaynak durumu, yağcılık oranının çerçevesi, "her nesil düşüyor" nüansı, sahte anı oranı, şeker-Harvard tutarı, Irak'taki ABD asker kaybı, kariyer alıntısının ifadesi, 2015 kolesterol kılavuzu ifadesi, kaynak künyeleri)</p>
+<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">Sürüm v1.3 · İlk yayım: 1 Mart 2026 · Revizyon: 16 Temmuz 2026, olgu düzeltmeleri; 19 Ekim 2026, olgu düzeltmeleri (Avianca kronolojisi, Northwestern atfı yerine Fanelli verisi, UC San Diego çalışmasının yılı, genel bilgi oranının kaynak durumu, yağcılık oranının çerçevesi, "her nesil düşüyor" nüansı, sahte anı oranı, şeker-Harvard tutarı, Irak'taki ABD asker kaybı, kariyer alıntısının ifadesi, 2015 kolesterol kılavuzu ifadesi, kaynak künyeleri); 13 Kasım 2026, ikinci olgu düzeltmeleri (halüsinasyon teriminin kaynakları, Avianca cezasının muhatabı, geri çekme nedenleri, Irak ölüm tahmininin niteliği, Annenberg anket verisi, Anthropic yağcılık bulguları, sahte bilimin büyüme hızının kaynağı, kolesterol süresi, maliyet tahmininin dayanağı, SSCB petrol ve Rus askeri üretimi, Çernobil'in kapsamı, geri çekme sayılarının serileri, tıbbi yanlış tanı oranının kapsamı, tıbbi uyum kartının niteliği, Hegsted ile 1977 raporu bağı kaldırıldı, yağcılık süresinde iç tutarlılık, kaynak künyeleri)</p>
 </footer>
 
 <div class="kadro">yontu · halit cengiz uzuner</div>
