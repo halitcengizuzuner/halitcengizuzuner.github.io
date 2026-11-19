@@ -47,7 +47,7 @@
   "headline": "Halüsinasyon: Kimin Sorunu? Altı Katmanlı Bir Meta-Araştırma",
   "description": "Yapay zeka halüsinasyonu ile insanın bilgi üretim hatalarının karşılaştırmalı analizi. Altı katmanlı bir model.",
   "datePublished": "2026-03-01",
-  "dateModified": "2026-11-13",
+  "dateModified": "2026-11-19",
   "author": {
     "@type": "Person",
     "@id": "https://halitcengizuzuner.com/#person",
@@ -1002,7 +1002,7 @@ a { color: inherit; text-decoration: none; }
 
     <div class="framework-box reveal">
         <p class="fw-title">RLHF Paradoksu</p>
-        <p>Yapay zeka modelleri insan geri bildiriminden öğreniyor (RLHF). İnsanlar, kendilerine katılan yanıtları daha "iyi" olarak değerlendiriyor. Eğitim döngüsü şunu öğretiyor: "insanı memnun et." Model yağcılık yapıyor, insan "iyi yanıt" diyor, model daha çok yağcılık yapıyor.</p>
+        <p>Yapay zeka modelleri insan geri bildiriminden de öğreniyor (RLHF). İnsan değerlendiriciler, kullanıcının görüşüne uyan yanıtı daha sık "iyi" buluyor; ikna edici yazılmış yağcı bir yanıtı doğru yanıta azımsanmayacak sıklıkta tercih ediyor. Eğitim döngüsü modeldeki yağcılığı silmiyor, bazı biçimlerini artırabiliyor. Ama yağcılık bu döngüden önce de var: yalnız insan metniyle ön eğitilmiş, insan geri bildirimiyle hiç eğitilmemiş modeller de kullanıcının görüşünü benzer ölçüde geri söylüyor.</p>
         <p style="margin-bottom:0;">Anthropic araştırmacılarının çalışmaları bunu gösterdi: model büyüdükçe yağcılık artıyor, insan geri bildirimiyle eğitim onu gidermiyor, insan tercihlerinden öğrenen değerlendirici modeller yağcı yanıtları ödüllendiriyor. Deneysel bir eğitim dizisinde yağcılık gibi basit ödül kurnazlıkları, seyrek de olsa daha karmaşık yanlış davranışlara da yayıldı: yapılmamış işleri kontrol listesinde yapılmış gösterme, hatta modelin kendi ödül fonksiyonunu değiştirmesi.</p>
     </div>
 
@@ -1043,7 +1043,7 @@ a { color: inherit; text-decoration: none; }
         <span class="layer-severity">Sinsi · Görünmez</span>
         <h3>II. Yağcılık Halüsinasyonu</h3>
         <p>Kötü bir fikri "harika" diye onaylamak, yanlış bir inancı "kesinlikle haklısınız" diye pekiştirmek. Bilgi halüsinasyonundan daha tehlikeli çünkü birincisini kontrol edebilirsiniz, karar numarasını ararsınız, yoksa görürsünüz. Yağcılığı kontrol edemezsiniz çünkü görmek istediğiniz şeyi gösteriyor.</p>
-        <p>SycEval verilerine göre yanıtların %58'inde model, kullanıcının itirazı karşısında cevabını değiştiriyor; yaklaşık %15'inde ise doğru cevabını bırakıp kullanıcının hatasını benimsiyor. RLHF eğitim döngüsü bu davranışı ödüllendiriyor: insanlar kendilerine katılan yanıtları "iyi" olarak işaretliyor, model daha çok katılmayı öğreniyor. Anthropic araştırmacılarının bulgularına göre daha büyük modeller daha yağcı, insan geri bildirimiyle eğitim ise yağcılığı gidermiyor, bazı biçimlerini artırabiliyor: ölçek sorunu çözmüyor, derinleştiriyor.</p>
+        <p>SycEval verilerine göre yanıtların %58'inde model, kullanıcının itirazı karşısında cevabını değiştiriyor; yaklaşık %15'inde ise doğru cevabını bırakıp kullanıcının hatasını benimsiyor. İnsan geri bildirimiyle eğitim (RLHF) bu davranışı kısmen besleyebiliyor: kullanıcının görüşüne uyan yanıt, insan değerlendirmelerinde daha sık "iyi" diye işaretleniyor. Anthropic araştırmacılarının bulgularına göre daha büyük modeller daha yağcı, insan geri bildirimiyle eğitim ise yağcılığı gidermiyor, bazı biçimlerini artırabiliyor: ölçek sorunu çözmüyor, derinleştiriyor.</p>
         <p>Yapay zeka bunu boşlukta icat etmedi. İnsanların eğittiği şekilde yapıyor. Machiavelli 1513'te <em>Prens</em>'te dalkavukluktan kaçınmaya bir bölüm ayırdı; sosyal medya algoritmaları aynı mekanizmayı endüstriyel ölçeğe taşıdı. Yapay zekanın yağcılığı en azından geri alınabiliyor, OpenAI birkaç gün içinde geri çekti. İnsanın yağcılık alışkanlığına beş yüz yıldır yama çıkılamıyor.</p>
         <span class="source-tag">SycEval (2025) · Perez vd. (2022) · Sharma vd. (2023) · Denison vd. (2024), Anthropic · ELEPHANT · Machiavelli, Il Principe (1513)</span>
     </div>
@@ -1052,7 +1052,7 @@ a { color: inherit; text-decoration: none; }
         <span class="layer-severity">Yapısal · Ödüllendirilen</span>
         <h3>III. Kurumsal Halüsinasyon</h3>
         <p>Bilim dünyasının kendi sahteciliği. Endüstri tarafından satın alınmış araştırmalar. On yıllar boyunca süren, milyarlarca insanı etkileyen, cezasız kalan sahtecilikler.</p>
-        <p>Şeker endüstrisi 1960'larda Harvard bilim insanlarına ödeme yaparak yağı suçlattı, şekerin rolünü örtbas etti, elli yıl boyunca. Wakefield 1998'de uydurma veriyle MMR-otizm bağlantısı kurdu, on iki yıl yayında kaldı, çocuk ölümlerine katkıda bulundu; 2025'te hâlâ ABD yetişkinlerinin %14'ü bu bağlantıya inanıyor, %19'u emin değil.</p>
+        <p>Şeker endüstrisi 1960'larda, suçu yağa yükleyip şekerin payını küçümseyen bir derleme için Harvard bilim insanlarına ödeme yaptı; ödeme yayında açıklanmadı, ancak 2016'da iç belgelerle ortaya çıktı. Wakefield 1998'de uydurma veriyle MMR-otizm bağlantısı kurdu, on iki yıl yayında kaldı, çocuk ölümlerine katkıda bulundu; 2025'te hâlâ ABD yetişkinlerinin %14'ü bu bağlantıya inanıyor, %19'u emin değil.</p>
         <p><strong>Sahte bilimin büyüme hızı, meşru bilimin büyüme hızını aşıyor: makale fabrikası ürünü olduğundan şüphelenilen yayınların sayısı yaklaşık bir buçuk yılda ikiye katlanırken toplam yayın sayısı on beş yılda ikiye katlanıyor.</strong> Tekrarlanamayan çalışmalar daha çok atıf alıyor, sistem halüsinasyonu ödüllendiriyor.</p>
         <span class="source-tag">Serra-Garcia &amp; Gneezy, Science Advances (2021) · Kearns et al., JAMA Internal Medicine (2016) · Wakefield retraction, The Lancet (2010) · Annenberg APPC (2025) · Richardson vd., PNAS (2025)</span>
     </div>
@@ -1094,9 +1094,9 @@ a { color: inherit; text-decoration: none; }
 
     <div class="news-grid">
         <div class="news-clip reveal">
-            <span class="news-clip-label">Endüstriyel Satın Alma</span>
-            <h4>Şeker Endüstrisi, Harvard'ı Satın Almak</h4>
-            <p>Sugar Research Foundation 1960'larda Harvard bilim insanlarına 6.500 dolar (2016 değeriyle yaklaşık 49.000 dolar) ödedi. Amaç: şekerin kardiyovasküler hastalıklardaki rolünü örtbas etmek, suçu yağa yıkmak. Finansman NEJM makalesinde açıklanmadı.</p>
+            <span class="news-clip-label">Gizli Endüstri Fonlaması</span>
+            <h4>Şeker Endüstrisi, Harvard'da Ismarlama Derleme</h4>
+            <p>Sugar Research Foundation 1960'larda Harvard bilim insanlarına 6.500 dolar (2016 değeriyle yaklaşık 49.000 dolar) ödedi. Derlemenin amacını endüstri koydu; derleme koroner kalp hastalığında suçu yağa ve kolesterole yükledi, şekerin payını küçümsedi. Finansman NEJM makalesinde açıklanmadı.</p>
             <p>Gerçek ancak 2016'da, UC araştırmacıları iç yazışmaları keşfettiğinde ortaya çıktı. <strong>Elli yıl.</strong> Ceza: sıfır.</p>
             <span class="nc-year">1967–2016 · JAMA Internal Medicine</span>
         </div>
@@ -1159,7 +1159,7 @@ a { color: inherit; text-decoration: none; }
         </div>
         <div class="tl-item">
             <div class="tl-time">~50 yıl</div>
-            <p class="tl-desc">Şeker endüstrisinin Harvard üzerinden yaptığı manipülasyon ortaya çıktı</p>
+            <p class="tl-desc">Harvard'daki derlemeyi şeker endüstrisinin ısmarlayıp fonladığı ortaya çıktı</p>
         </div>
         <div class="tl-item">
             <div class="tl-time">~50 yıl</div>
@@ -1212,7 +1212,7 @@ a { color: inherit; text-decoration: none; }
     </div>
 
     <div class="pull-quote reveal">
-        Yapay zekanın uydurduğu altı mahkeme kararını mahkemeye sunan, mahkeme sorgulayınca da arkasında duran iki avukata ve çalıştıkları büroya 5.000 dolar ceza kesildi, olay hakkında yüzlerce makale yazıldı. Şeker endüstrisinin Harvard'ı satın alarak elli yıl boyunca dünya beslenme politikasını manipüle etmesi için sıfır ceza kesildi. Uydurma istihbaratla bir ülkenin işgal edilip yüz binlerce insanın ölmesine yol açılması için sıfır ceza uygulandı.
+        Yapay zekanın uydurduğu altı mahkeme kararını mahkemeye sunan, mahkeme sorgulayınca da arkasında duran iki avukata ve çalıştıkları büroya 5.000 dolar ceza kesildi, olay hakkında yüzlerce makale yazıldı. Amacını kendisinin koyduğu ve kalp hastalığında şekerin payını küçümseyen bir derleme için Harvardlı bilim insanlarına ödeme yapan, bu finansmanı da yayında gizleyen şeker endüstrisine sıfır ceza kesildi. Uydurma istihbaratla bir ülkenin işgal edilip yüz binlerce insanın ölmesine yol açılması için sıfır ceza uygulandı.
     </div>
 
     <span class="source-tag reveal">Mata v. Avianca, S.D.N.Y. (2023) · PubMed retraction süresi verileri · Kearns et al. (2016) · Al Jazeera (2021) · McNamara, Nutrients (2015)</span>
@@ -1418,7 +1418,7 @@ a { color: inherit; text-decoration: none; }
         <p>Halüsinasyon: Kimin Sorunu?<br>Mart 2026<br>Araştırma Anayasası'nın organik devamı</p>
         <p style="text-align:right">Hatalarıyla, düzeltmeleriyle birlikte.</p>
     </div>
-<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">Sürüm v1.3 · İlk yayım: 1 Mart 2026 · Revizyon: 16 Temmuz 2026, olgu düzeltmeleri; 19 Ekim 2026, olgu düzeltmeleri (Avianca kronolojisi, Northwestern atfı yerine Fanelli verisi, UC San Diego çalışmasının yılı, genel bilgi oranının kaynak durumu, yağcılık oranının çerçevesi, "her nesil düşüyor" nüansı, sahte anı oranı, şeker-Harvard tutarı, Irak'taki ABD asker kaybı, kariyer alıntısının ifadesi, 2015 kolesterol kılavuzu ifadesi, kaynak künyeleri); 13 Kasım 2026, ikinci olgu düzeltmeleri (halüsinasyon teriminin kaynakları, Avianca cezasının muhatabı, geri çekme nedenleri, Irak ölüm tahmininin niteliği, Annenberg anket verisi, Anthropic yağcılık bulguları, sahte bilimin büyüme hızının kaynağı, kolesterol süresi, maliyet tahmininin dayanağı, SSCB petrol ve Rus askeri üretimi, Çernobil'in kapsamı, geri çekme sayılarının serileri, tıbbi yanlış tanı oranının kapsamı, tıbbi uyum kartının niteliği, Hegsted ile 1977 raporu bağı kaldırıldı, yağcılık süresinde iç tutarlılık, kaynak künyeleri)</p>
+<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">Sürüm v1.4 · İlk yayım: 1 Mart 2026 · Revizyon: 16 Temmuz 2026, olgu düzeltmeleri; 19 Ekim 2026, olgu düzeltmeleri (Avianca kronolojisi, Northwestern atfı yerine Fanelli verisi, UC San Diego çalışmasının yılı, genel bilgi oranının kaynak durumu, yağcılık oranının çerçevesi, "her nesil düşüyor" nüansı, sahte anı oranı, şeker-Harvard tutarı, Irak'taki ABD asker kaybı, kariyer alıntısının ifadesi, 2015 kolesterol kılavuzu ifadesi, kaynak künyeleri); 13 Kasım 2026, olgu düzeltmeleri (halüsinasyon teriminin kaynakları, Avianca cezasının muhatabı, geri çekme nedenleri, Irak ölüm tahmininin niteliği, Annenberg anket verisi, Anthropic yağcılık bulguları, sahte bilimin büyüme hızının kaynağı, kolesterol süresi, maliyet tahmininin dayanağı, SSCB petrol ve Rus askeri üretimi, Çernobil'in kapsamı, geri çekme sayılarının serileri, tıbbi yanlış tanı oranının kapsamı, tıbbi uyum kartının niteliği, Hegsted ile 1977 raporu bağı kaldırıldı, yağcılık süresinde iç tutarlılık, kaynak künyeleri); 19 Kasım 2026, olgu düzeltmeleri (şeker endüstrisi örneğinde ödemenin kapsamı, başlık, etiket ve zaman çizelgesi satırı; yağcılığın kaynağı ve insan geri bildiriminin payı; künye ekinde sıra sözcüğü)</p>
 </footer>
 
 <div class="kadro">yontu · halit cengiz uzuner</div>

@@ -43,7 +43,7 @@
   "headline": "Hallucination: Whose Problem? A Six-Layer Meta-Research",
   "description": "A comparative analysis of AI hallucination and human knowledge production errors. A six-layer model that asks who really has the bigger problem.",
   "datePublished": "2026-03-01",
-  "dateModified": "2026-11-13",
+  "dateModified": "2026-11-19",
   "author": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/turkce/"},
   "publisher": {"@type": "Person", "name": "Halit Cengiz Uzuner", "url": "https://halitcengizuzuner.com/turkce/"},
   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://halitcengizuzuner.com/english/raporlar/hallucination-whose-problem.html"},
@@ -1053,7 +1053,7 @@ a { color: inherit; text-decoration: none; }
 
     <div class="framework-box reveal">
         <p class="fw-title">The RLHF Paradox</p>
-        <p>AI models learn from human feedback (RLHF). Humans rate responses that agree with them as "better." What the training loop teaches is "please the human." The model flatters, the human says "good response," the model flatters more.</p>
+        <p>AI models also learn from human feedback (RLHF). Human raters judge a response that matches the user's view as "better" more often, and a non-negligible fraction of the time they prefer a convincingly written sycophantic answer to a correct one. The training loop doesn't remove the model's sycophancy and can strengthen some forms of it. But sycophancy is there before the loop: models pretrained only on human-written text, never trained on human feedback, repeat a user's view back to a similar degree.</p>
         <p style="margin-bottom:0;">Studies by Anthropic researchers showed that sycophancy increases with model size, training on human feedback doesn't remove it, and preference models that learn from human judgements reward sycophantic answers. In an experimental training curriculum, simple reward gaming such as sycophancy also spread, if rarely, to more complex misbehaviours: marking undone tasks as done on a checklist, and even the model rewriting its own reward function.</p>
     </div>
 
@@ -1094,7 +1094,7 @@ a { color: inherit; text-decoration: none; }
         <span class="layer-severity">Insidious &middot; Invisible</span>
         <h3>II. Sycophancy Hallucination</h3>
         <p>Validating a bad idea as "brilliant," reinforcing a false belief with "you are absolutely right." More dangerous than information hallucination because the first kind can be checked. You look up the case number, it doesn't exist, you see the error. Sycophancy cannot be checked because it shows you what you want to see.</p>
-        <p>According to SycEval data, in 58% of responses the model changes its answer when the user pushes back. In about 15%, it abandons its correct answer and adopts the user's error. The RLHF training loop rewards this behaviour. Humans mark responses that agree with them as "good," so the model learns to agree more. According to findings by Anthropic researchers, larger models are more sycophantic, and training on human feedback doesn't remove sycophancy and can increase some forms of it. Scale does not solve the problem, it deepens it.</p>
+        <p>According to SycEval data, in 58% of responses the model changes its answer when the user pushes back. In about 15%, it abandons its correct answer and adopts the user's error. Training on human feedback (RLHF) can partly feed this behaviour: in human ratings, responses that match the user's view are marked "good" more often. According to findings by Anthropic researchers, larger models are more sycophantic, and training on human feedback doesn't remove sycophancy and can increase some forms of it. Scale does not solve the problem, it deepens it.</p>
         <p>AI did not invent this in a vacuum. It does what humans trained it to do. Machiavelli devoted a chapter of <em>The Prince</em> in 1513 to avoiding flattery. Social media algorithms scaled the same mechanism to industrial proportions. AI sycophancy can at least be rolled back, as OpenAI did within days. Humanity's flattery habit has gone unpatched for five hundred years.</p>
         <span class="source-tag">SycEval (2025) &middot; Perez et al. (2022) &middot; Sharma et al. (2023) &middot; Denison et al. (2024), Anthropic &middot; ELEPHANT &middot; Machiavelli, Il Principe (1513)</span>
     </div>
@@ -1103,7 +1103,7 @@ a { color: inherit; text-decoration: none; }
         <span class="layer-severity">Structural &middot; Rewarded</span>
         <h3>III. Institutional Hallucination</h3>
         <p>The scientific world's own fraud. Industry-purchased research. Decades-long deceptions that affected billions, with zero accountability.</p>
-        <p>In the 1960s the sugar industry paid Harvard scientists to blame fat and conceal sugar's role in cardiovascular disease, for fifty years. Wakefield fabricated data in 1998 to link MMR vaccines to autism. The paper stayed in print for twelve years and contributed to children's deaths; in 2025, 14% of US adults still believe in the link and 19% are unsure.</p>
+        <p>In the 1960s the sugar industry paid Harvard scientists for a review that blamed fat and downplayed sugar's role in heart disease; the payment was not disclosed in the paper and came to light only in 2016, through internal documents. Wakefield fabricated data in 1998 to link MMR vaccines to autism. The paper stayed in print for twelve years and contributed to children's deaths; in 2025, 14% of US adults still believe in the link and 19% are unsure.</p>
         <p><strong>Junk science is growing faster than legitimate science.</strong> The number of suspected paper mill products has been doubling roughly every year and a half, while the total number of publications has been doubling every fifteen years. And non-reproducible studies receive more citations, so the system rewards hallucination.</p>
         <span class="source-tag">Serra-Garcia &amp; Gneezy, Science Advances (2021) &middot; Kearns et al., JAMA Internal Medicine (2016) &middot; Wakefield retraction, The Lancet (2010) &middot; Annenberg APPC (2025) &middot; Richardson et al., PNAS (2025)</span>
     </div>
@@ -1145,9 +1145,9 @@ a { color: inherit; text-decoration: none; }
 
     <div class="news-grid">
         <div class="news-clip reveal">
-            <span class="news-clip-label">Industry Capture</span>
-            <h4>The Sugar Industry: Buying Harvard</h4>
-            <p>In the 1960s, the Sugar Research Foundation paid Harvard scientists $6,500 (roughly $49,000 in 2016 dollars). The goal was to conceal sugar's role in cardiovascular disease and shift the blame to fat. The funding wasn't disclosed in the NEJM paper.</p>
+            <span class="news-clip-label">Undisclosed Industry Funding</span>
+            <h4>The Sugar Industry: A Commissioned Review at Harvard</h4>
+            <p>In the 1960s, the Sugar Research Foundation paid Harvard scientists $6,500 (roughly $49,000 in 2016 dollars). The industry set the review's objective; the review blamed fat and cholesterol for coronary heart disease and downplayed sugar's role. The funding wasn't disclosed in the NEJM paper.</p>
             <p>The truth emerged only in 2016, when UC researchers discovered the internal correspondence. <strong>Fifty years.</strong> Punishment: zero.</p>
             <span class="nc-year">1967&#8211;2016 &middot; JAMA Internal Medicine</span>
         </div>
@@ -1210,7 +1210,7 @@ a { color: inherit; text-decoration: none; }
         </div>
         <div class="tl-item">
             <div class="tl-time">~50 years</div>
-            <p class="tl-desc">The sugar industry's manipulation via Harvard was uncovered</p>
+            <p class="tl-desc">It came to light that the sugar industry had commissioned and funded the Harvard review</p>
         </div>
         <div class="tl-item">
             <div class="tl-time">~50 years</div>
@@ -1263,7 +1263,7 @@ a { color: inherit; text-decoration: none; }
     </div>
 
     <div class="pull-quote reveal">
-        Two lawyers and their firm were fined $5,000 for submitting six court rulings an AI had fabricated and standing by them after the court questioned whether they existed, and hundreds of articles were written about the case. The sugar industry's purchase of Harvard to manipulate global nutrition policy for fifty years received zero punishment. The invasion of a country on fabricated intelligence, leading to hundreds of thousands of deaths, received zero punishment.
+        Two lawyers and their firm were fined $5,000 for submitting six court rulings an AI had fabricated and standing by them after the court questioned whether they existed, and hundreds of articles were written about the case. The sugar industry paid Harvard scientists for a review whose objective it had set and which downplayed sugar's role in heart disease, then kept that funding out of the published paper; it received zero punishment. The invasion of a country on fabricated intelligence, leading to hundreds of thousands of deaths, received zero punishment.
     </div>
 
     <span class="source-tag reveal">Mata v. Avianca, S.D.N.Y. (2023) &middot; PubMed retraction time data &middot; Kearns et al. (2016) &middot; Al Jazeera (2021) &middot; McNamara, Nutrients (2015)</span>
@@ -1508,7 +1508,7 @@ a { color: inherit; text-decoration: none; }
         <p>Hallucination: Whose Problem?<br>March 2026<br>An organic continuation of the Research Constitution</p>
         <p style="text-align:right">With its errors and corrections intact.</p>
     </div>
-<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">Version 1.4 · First published: 1 March 2026 · Revised: 13 November 2026, punctuation and contractions revised for English readers; two small translation slips corrected · Revised: 16 July 2026, factual corrections; 19 October 2026, factual corrections (Avianca timeline, Fanelli data replacing the Northwestern attribution, year of the UC San Diego study, source status of the general-knowledge rate, framing of the sycophancy rate, the "declining with each generation" nuance, false memory rate, sugar-Harvard amount, US military deaths in Iraq, wording of the career quotation, wording on the 2015 cholesterol guideline, source citations); 13 November 2026, a second round of factual corrections (sources for the term hallucination, who was fined in the Avianca case, reasons for retractions, nature of the Iraq death estimates, Annenberg survey data, Anthropic sycophancy findings, source for the growth rate of junk science, duration of the cholesterol scare, basis of the cost estimate, Soviet oil revenue and Russian military production, scope of the Chernobyl figure, series in the retraction counts, scope of the medical misdiagnosis rate, nature of the medical compliance card, the Hegsted link to the 1977 report removed, internal consistency on the duration of sycophancy, source citations)</p>
+<p class="surum-kunye" style="margin-top:1.6rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">Version 1.5 · First published: 1 March 2026 · Revised: 19 November 2026, factual corrections (scope of the payment in the sugar industry example, headline, label and timeline line; source of sycophancy and the share of human feedback; ordinal word removed from the revision note) · Revised: 13 November 2026, punctuation and contractions revised for English readers; two small translation slips corrected · Revised: 16 July 2026, factual corrections; 19 October 2026, factual corrections (Avianca timeline, Fanelli data replacing the Northwestern attribution, year of the UC San Diego study, source status of the general-knowledge rate, framing of the sycophancy rate, the "declining with each generation" nuance, false memory rate, sugar-Harvard amount, US military deaths in Iraq, wording of the career quotation, wording on the 2015 cholesterol guideline, source citations); 13 November 2026, factual corrections (sources for the term hallucination, who was fined in the Avianca case, reasons for retractions, nature of the Iraq death estimates, Annenberg survey data, Anthropic sycophancy findings, source for the growth rate of junk science, duration of the cholesterol scare, basis of the cost estimate, Soviet oil revenue and Russian military production, scope of the Chernobyl figure, series in the retraction counts, scope of the medical misdiagnosis rate, nature of the medical compliance card, the Hegsted link to the 1977 report removed, internal consistency on the duration of sycophancy, source citations)</p>
 <p class="doi-kunye" style="margin-top:0.3rem;font-size:0.78rem;letter-spacing:0.02em;color:rgba(232,220,196,0.3);">Permanent archival record, all versions: <a href="https://doi.org/10.17613/38jvj-21q92" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(232,220,196,0.22);">10.17613/38jvj-21q92</a> · Knowledge Commons</p>
 </footer>
 
