@@ -17,6 +17,7 @@ Görünür künyesi (sürüm künyesi ya da etiketli alt satır) olmayan sayfa k
 Çıkış: 0 = temiz, 1 = uyuşmazlık var.
 """
 import html
+import json
 import re
 import sys
 from pathlib import Path
@@ -79,16 +80,30 @@ def ay_yil(dil, s):
 def main():
     sayfa = kunyesiz = ilk_kiyas = mod_kiyas = alt_satir = baslik_kiyas = 0
     hatalar = []
-    for dil in DILLER:
-        for f in sorted((SITE / dil / "raporlar").glob("*.html")):
-            if "dinle" in f.name or f.name == "index.html":
+    dosyalar = [f for dil in DILLER for f in sorted((SITE / dil / "raporlar").glob("*.html"))]
+    # O569: raporlar/ dışındaki makale sayfaları (Dinleme Üstüne dil köklerinde); kaynak yayın
+    # haritası, çünkü Atom akışı updated'ı bu sayfaların dateModified'ından alır.
+    harita = Path.home() / "portal-worker" / "yayin_varlik_haritasi.jsonl"
+    if harita.exists():
+        for satir in harita.read_text(encoding="utf-8").splitlines():
+            d = json.loads(satir)
+            for v in ([] if d.get("_tur") else d["diller"].values()):
+                f = SITE / v["url"].split("halitcengizuzuner.com/", 1)[1]
+                if "/raporlar/" not in v["url"]:
+                    assert f.is_file(), f
+                    dosyalar.append(f)
+    else:
+        print("⚠ yayın haritası yok: raporlar/ dışındaki makale sayfaları denetlenmedi")
+    for f in dosyalar:
+            if "-dinle" in f.name or f.name == "index.html":  # dinleme-ustune makaledir
                 continue
             sayfa += 1
             t = f.read_text(encoding="utf-8")
             dp = re.findall(r'"datePublished"\s*:\s*"([^"]+)"', t)
             dm = re.findall(r'"dateModified"\s*:\s*"([^"]+)"', t)
             apt = re.findall(r'property="article:published_time"\s+content="([^"]+)"', t)
-            yol = f"{dil}/raporlar/{f.name}"
+            yol = str(f.relative_to(SITE))
+            dil = f.relative_to(SITE).parts[0]
             for x in apt:
                 if dp and x != dp[0]:
                     hatalar.append(f"{yol}: article:published_time {x} ≠ datePublished {dp[0]}")
