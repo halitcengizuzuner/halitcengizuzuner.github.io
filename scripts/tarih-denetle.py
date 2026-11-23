@@ -78,8 +78,9 @@ def ay_yil(dil, s):
 
 
 def main():
-    sayfa = kunyesiz = ilk_kiyas = mod_kiyas = alt_satir = baslik_kiyas = 0
+    sayfa = kunyesiz = ilk_kiyas = mod_kiyas = alt_satir = baslik_kiyas = muhur = 0
     hatalar = []
+    kunyesiz_yol = []
     dosyalar = [f for dil in DILLER for f in sorted((SITE / dil / "raporlar").glob("*.html"))]
     # O569: raporlar/ dışındaki makale sayfaları (Dinleme Üstüne dil köklerinde); kaynak yayın
     # haritası, çünkü Atom akışı updated'ı bu sayfaların dateModified'ından alır.
@@ -108,12 +109,21 @@ def main():
                 if dp and x != dp[0]:
                     hatalar.append(f"{yol}: article:published_time {x} ≠ datePublished {dp[0]}")
             m = re.search(r'<p class="surum-kunye"[^>]*>(.*?)</p>', t, re.S)
+            if not m:
+                # O570: Dinleme Üstüne künyeyi <footer class="muhur"> ilk satırında taşır (surum-kunye yok).
+                # Yalnız ilk-yayım etiketini taşıyan ilk satır künyedir; DOI, Rilke kaynağı ve hazırlayan
+                # satırlarındaki tarihler (1904, hazırlama günü) künye tarihi sayılmaz.
+                mm = re.search(r'<footer class="muhur">\s*(.*?)<br', t, re.S)
+                if mm and re.search(ETIKET[dil], html.unescape(re.sub(r"<[^>]+>", "", mm[1]))):
+                    m = mm
+                    muhur += 1
             ma = re.search(r'<div class="footer-inner">\s*<p>(.*?)</p>', t, re.S)
             alt = html.unescape(re.sub(r"<[^>]+>", " ", ma[1])) if ma else ""
             if not (re.search(ETIKET[dil], alt) or re.search(REVIZYON, alt)):
                 alt = ""
             if not m and not alt:
                 kunyesiz += 1
+                kunyesiz_yol.append(yol)
                 continue
             if alt:
                 alt_satir += 1
@@ -167,7 +177,10 @@ def main():
             if dp and dm and dm[0][:10] < dp[0][:10]:
                 hatalar.append(f"{yol}: dateModified {dm[0]} < datePublished {dp[0]}")
     print(f"sayfa {sayfa} · görünür künyesiz {kunyesiz} · alt satırdan okunan {alt_satir} · "
+          f"mühür satırından okunan {muhur} · "
           f"datePublished kıyası {ilk_kiyas} · dateModified kıyası {mod_kiyas} · başlık kıyası {baslik_kiyas}")
+    if kunyesiz_yol:
+        print("künyesiz (kıyaslanmadı): " + ", ".join(kunyesiz_yol))
     if hatalar:
         print("\n".join(hatalar))
         print(f"✗ {len(hatalar)} uyuşmazlık")
