@@ -122,8 +122,11 @@ def main():
             if not (re.search(ETIKET[dil], alt) or re.search(REVIZYON, alt)):
                 alt = ""
             if not m and not alt:
+                # O570: künyesiz makale kapıyı düşürür (KÜNYE MUTLAK KURAL); yalnız sayılınca 5 sayfa
+                # aylarca kıyas dışında kaldı, biri (Sobre la escucha) gerçek uyuşmazlık taşıyordu.
                 kunyesiz += 1
                 kunyesiz_yol.append(yol)
+                hatalar.append(f"{yol}: görünür künye okunamadı (sürüm künyesi, etiketli alt satır ya da mühür satırı yok)")
                 continue
             if alt:
                 alt_satir += 1
